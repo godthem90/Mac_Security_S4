@@ -12,6 +12,7 @@ WITHWARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 #include "ffsparser.h"
 
+#include <iostream>
 #include <cmath>
 #include <algorithm>
 
@@ -83,6 +84,9 @@ STATUS FfsParser::performFirstPass(const QByteArray & buffer, QModelIndex & inde
             .hexarg(capsuleHeaderSize).arg(capsuleHeaderSize)
             .hexarg(capsuleHeader->CapsuleImageSize - capsuleHeaderSize).arg(capsuleHeader->CapsuleImageSize - capsuleHeaderSize)
             .hexarg2(capsuleHeader->Flags, 8);
+
+		//jjh
+		//std::cout << "Capsule GUID: " << guidToQString(capsuleHeader->CapsuleGuid).toStdString() << "\n";
 
         // Set capsule offset fixup for correct volume allignment warnings
         capsuleOffsetFixup = capsuleHeaderSize;
@@ -1122,12 +1126,16 @@ STATUS FfsParser::parseVolumeHeader(const QByteArray & volume, const UINT32 pare
         .hexarg2(volumeHeader->Checksum, 4)
         .arg(msgInvalidChecksum ? QObject::tr("invalid, should be %1h").hexarg2(calculated, 4) : QObject::tr("valid"));
 
+	// jjh
+	//std::cout << "FileSystem GUID: " << guidToQString(volumeHeader->FileSystemGuid).toStdString() << "\n";
     // Extended header present
     if (volumeHeader->Revision > 1 && volumeHeader->ExtHeaderOffset) {
         const EFI_FIRMWARE_VOLUME_EXT_HEADER* extendedHeader = (const EFI_FIRMWARE_VOLUME_EXT_HEADER*)(volume.constData() + volumeHeader->ExtHeaderOffset);
         info += QObject::tr("\nExtended header size: %1h (%2)\nVolume GUID: %3")
             .hexarg(extendedHeader->ExtHeaderSize).arg(extendedHeader->ExtHeaderSize)
             .arg(guidToQString(extendedHeader->FvName));
+		// jjh
+		//std::cout << "Volume GUID: " << guidToQString(extendedHeader->FvName).toStdString() << "\n";
     }
 
     // Construct parsing data
@@ -1594,6 +1602,8 @@ STATUS FfsParser::parseFileHeader(const QByteArray & file, const UINT32 parentOf
         .hexarg2(fileHeader->IntegrityCheck.Checksum.File, 2)
         .arg(msgInvalidDataChecksum ? QObject::tr("invalid, should be %1h").hexarg2(calculatedData, 2) : QObject::tr("valid"));
 
+	// jjh 
+	std::cout << "File GUID: " << guidToQString(fileHeader->Name).toStdString() << "\n";
     // Add file GUID to parsing data
     pdata.file.guid = fileHeader->Name;
 
@@ -2070,6 +2080,8 @@ STATUS FfsParser::parseGuidedSectionHeader(const QByteArray & section, const UIN
         .hexarg(dataOffset)
         .hexarg2(attributes, 4);
 
+	// jjh
+	//std::cout << "Section GUID: " << name.toStdString() << "\n";
     // Append additional info
     info.append(additionalInfo);
 
@@ -4547,6 +4559,7 @@ STATUS FfsParser::parseEvsaStoreBody(const QModelIndex & index)
                     QObject::tr("%1h, invalid, should be %2h").hexarg2(guidHeader->Header.Checksum, 2).hexarg2(calculated, 2))
                 .hexarg2(guidHeader->GuidId, 4);
             subtype = Subtypes::GuidEvsaEntry;
+			
             guidMap.insert(std::pair<UINT16, EFI_GUID>(guidHeader->GuidId, guid));
         }
         // Name entry
