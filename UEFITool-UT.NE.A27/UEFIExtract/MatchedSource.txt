@@ -1,0 +1,962 @@
+781F254A-C457-5D13-9275-1BF5D56E0724
+C3E36D09-8294-4B97-A857-D5288FE33E28
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Vlv2TbltDevicePkg/PlatformPkg.fdf:FILE FREEFORM = C3E36D09-8294-4b97-A857-D5288FE33E28 {
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Vlv2TbltDevicePkg/PlatformPkgGcc.fdf:FILE FREEFORM = C3E36D09-8294-4b97-A857-D5288FE33E28 {
+B535ABF6-967D-43F2-B494-A1EB8E21A28E
+0E84FC69-29CC-4C6D-92AC-6D476921850F
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/IntelFrameworkModuleAll/DEBUG_GCC46/X64/IntelFrameworkModulePkg/Universal/FirmwareVolume/UpdateDriverDxe/UpdateDriverDxe/GNUmakefile:MODULE_GUID = 0E84FC69-29CC-4C6D-92AC-6D476921850F
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/IntelFrameworkModuleAll/DEBUG_GCC46/X64/IntelFrameworkModulePkg/Universal/FirmwareVolume/UpdateDriverDxe/UpdateDriverDxe/GNUmakefile:FILE_GUID = 0E84FC69-29CC-4C6D-92AC-6D476921850F
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/IntelFrameworkModuleAll/DEBUG_GCC46/X64/IntelFrameworkModulePkg/Universal/FirmwareVolume/UpdateDriverDxe/UpdateDriverDxe/OUTPUT/UpdateDriverDxe.inf:  FILE_GUID                  = 0E84FC69-29CC-4C6D-92AC-6D476921850F
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/IntelFrameworkModulePkg/Universal/FirmwareVolume/UpdateDriverDxe/UpdateDriverDxe.inf:  FILE_GUID                      = 0E84FC69-29CC-4C6D-92AC-6D476921850F
+98B8D59B-E8BA-48EE-98DD-C295392F1EDB
+283FA2EE-532C-484D-9383-9F93B36F0B7E
+77AD7FDB-DF2A-4302-8898-C72E4CDBD0F4
+FB1E2F9C-8E65-448D-A9F8-C22943F45CAF
+AFCCAA0E-E825-441E-A353-157F1E9D8289
+584C51B3-A7AC-41B9-8345-022C4EE1C001
+66E06CB8-B7AE-4FB0-9ACA-C83386E1D4AD
+0D058D9B-0E2B-4709-A472-F8129EBCBDA7
+BD001B8C-6A71-487B-A14F-0C2A2DCF7A5D
+1CEAD970-200D-49D4-B2A0-062E8A50A872
+F1143A53-CBEB-4833-A4DC-0826E063EC08
+BA4F8CAB-E228-4BC2-8CCE-89D5BEBA9C13
+0AECB734-6EC6-4FD1-A877-EF185E5BFEEE
+4D37DA42-3A0C-4EDA-B9EB-BC0E1DB4713B
+35B898CA-B6A9-49CE-8C72-904735CC49B7
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/EdkCompatibilityPkg/Sample/Tools/Source/GuidChk/GuidChk.c:// Look for FFS_FILEGUID=35b898ca-b6a9-49ce-8c72-904735cc49b7
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/EdkCompatibilityPkg/Sample/Tools/Source/GuidChk/GuidChk.c:// found FFS_FILEGUID=35b898ca-b6a9-49ce-8c72-904735cc49b7
+C3E36D09-8294-4B97-A857-D5288FE33E28
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Vlv2TbltDevicePkg/PlatformPkg.fdf:FILE FREEFORM = C3E36D09-8294-4b97-A857-D5288FE33E28 {
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Vlv2TbltDevicePkg/PlatformPkgGcc.fdf:FILE FREEFORM = C3E36D09-8294-4b97-A857-D5288FE33E28 {
+B535ABF6-967D-43F2-B494-A1EB8E21A28E
+A62D933A-9293-4D9F-9A16-CE81994CC4F2
+E41A9651-43B2-484F-8EFA-D54AC7419C24
+BAE7599F-3C6B-43B7-BDF0-9CE07AA91AA6
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/IntelFrameworkModuleAll/DEBUG_GCC46/X64/IntelFrameworkModulePkg/Universal/CpuIoDxe/CpuIoDxe/GNUmakefile:MODULE_GUID = BAE7599F-3C6B-43b7-BDF0-9CE07AA91AA6
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/IntelFrameworkModuleAll/DEBUG_GCC46/X64/IntelFrameworkModulePkg/Universal/CpuIoDxe/CpuIoDxe/GNUmakefile:FILE_GUID = BAE7599F-3C6B-43b7-BDF0-9CE07AA91AA6
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/IntelFrameworkModuleAll/DEBUG_GCC46/X64/IntelFrameworkModulePkg/Universal/CpuIoDxe/CpuIoDxe/OUTPUT/CpuIoDxe.inf:  FILE_GUID                  = BAE7599F-3C6B-43b7-BDF0-9CE07AA91AA6
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/IntelFrameworkModulePkg/Universal/CpuIoDxe/CpuIoDxe.inf:  FILE_GUID                      = BAE7599F-3C6B-43b7-BDF0-9CE07AA91AA6
+B601F8C4-43B7-4784-95B1-F4226CB40CEE
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Core/RuntimeDxe/RuntimeDxe/GNUmakefile:MODULE_GUID = B601F8C4-43B7-4784-95B1-F4226CB40CEE
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Core/RuntimeDxe/RuntimeDxe/GNUmakefile:FILE_GUID = B601F8C4-43B7-4784-95B1-F4226CB40CEE
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Core/RuntimeDxe/RuntimeDxe/OUTPUT/RuntimeDxe.inf:  FILE_GUID                  = B601F8C4-43B7-4784-95B1-F4226CB40CEE
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf:  FILE_GUID                      = B601F8C4-43B7-4784-95B1-F4226CB40CEE
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:FILE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Core/RuntimeDxe/RuntimeDxe/GNUmakefile	/^FILE_GUID = B601F8C4-43B7-4784-95B1-F4226CB40CEE$/;"	m
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:MODULE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Core/RuntimeDxe/RuntimeDxe/GNUmakefile	/^MODULE_GUID = B601F8C4-43B7-4784-95B1-F4226CB40CEE$/;"	m
+53BCC14F-C24F-434C-B294-8ED2D4CC1860
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/IntelFrameworkModuleAll/DEBUG_GCC46/X64/IntelFrameworkModulePkg/Universal/DataHubDxe/DataHubDxe/GNUmakefile:MODULE_GUID = 53BCC14F-C24F-434C-B294-8ED2D4CC1860
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/IntelFrameworkModuleAll/DEBUG_GCC46/X64/IntelFrameworkModulePkg/Universal/DataHubDxe/DataHubDxe/GNUmakefile:FILE_GUID = 53BCC14F-C24F-434C-B294-8ED2D4CC1860
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/IntelFrameworkModuleAll/DEBUG_GCC46/X64/IntelFrameworkModulePkg/Universal/DataHubDxe/DataHubDxe/OUTPUT/DataHubDxe.inf:  FILE_GUID                  = 53BCC14F-C24F-434C-B294-8ED2D4CC1860
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/IntelFrameworkModulePkg/Universal/DataHubDxe/DataHubDxe.inf:  FILE_GUID                      = 53BCC14F-C24F-434C-B294-8ED2D4CC1860
+CA515306-00CE-4032-874E-11B755FF6866
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/IntelFrameworkModuleAll/DEBUG_GCC46/X64/IntelFrameworkModulePkg/Universal/DataHubStdErrDxe/DataHubStdErrDxe/GNUmakefile:MODULE_GUID = CA515306-00CE-4032-874E-11B755FF6866
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/IntelFrameworkModuleAll/DEBUG_GCC46/X64/IntelFrameworkModulePkg/Universal/DataHubStdErrDxe/DataHubStdErrDxe/GNUmakefile:FILE_GUID = CA515306-00CE-4032-874E-11B755FF6866
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/IntelFrameworkModuleAll/DEBUG_GCC46/X64/IntelFrameworkModulePkg/Universal/DataHubStdErrDxe/DataHubStdErrDxe/OUTPUT/DataHubStdErrDxe.inf:  FILE_GUID                  = CA515306-00CE-4032-874E-11B755FF6866
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/IntelFrameworkModulePkg/Universal/DataHubStdErrDxe/DataHubStdErrDxe.inf:  FILE_GUID                      = CA515306-00CE-4032-874E-11B755FF6866
+B22D18CC-18C5-4223-B8C3-DF98C56C3B7F
+1C6B2FAF-D8BD-44D1-A91E-7321B4C2F3D1
+2BDED685-F733-455F-A840-43A22B791FB3
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/IntelFrameworkModuleAll/DEBUG_GCC46/X64/IntelFrameworkModulePkg/Universal/Acpi/AcpiS3SaveDxe/AcpiS3SaveDxe/GNUmakefile:MODULE_GUID = 2BDED685-F733-455f-A840-43A22B791FB3
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/IntelFrameworkModuleAll/DEBUG_GCC46/X64/IntelFrameworkModulePkg/Universal/Acpi/AcpiS3SaveDxe/AcpiS3SaveDxe/GNUmakefile:FILE_GUID = 2BDED685-F733-455f-A840-43A22B791FB3
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/IntelFrameworkModuleAll/DEBUG_GCC46/X64/IntelFrameworkModulePkg/Universal/Acpi/AcpiS3SaveDxe/AcpiS3SaveDxe/OUTPUT/AcpiS3SaveDxe.inf:  FILE_GUID                  = 2BDED685-F733-455f-A840-43A22B791FB3
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/IntelFrameworkModulePkg/Universal/Acpi/AcpiS3SaveDxe/AcpiS3SaveDxe.inf:  FILE_GUID                      = 2BDED685-F733-455f-A840-43A22B791FB3
+F1EFB523-3D59-4888-BB71-EAA5A96628FA
+A6F691AC-31C8-4444-854C-E2C1A6950F92
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/DuetPkg/Library/DuetBdsLib/PlatformBds.inf:  FILE_GUID                      = A6F691AC-31C8-4444-854C-E2C1A6950F92
+07A9330A-F347-11D4-9A49-0090273FC14D
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/DuetPkg/LegacyMetronome/Metronome.inf:  FILE_GUID                      = 07A9330A-F347-11d4-9A49-0090273FC14D
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Vlv2TbltDevicePkg/Metronome/Metronome.inf:  FILE_GUID            = 07A9330A-F347-11d4-9A49-0090273FC14D
+91538AC9-A5D3-4DEF-9A70-28A087DEFA79
+79CA4208-BBA1-4A9A-8456-E1E66A81484E
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/PcAtChipsetPkg/8259InterruptControllerDxe/8259.inf:  FILE_GUID                      = 79CA4208-BBA1-4a9a-8456-E1E66A81484E
+DA7C2490-635A-4EC8-A218-30E27A12D858
+BFD59D42-FE0F-4251-B772-4B098A1AEC85
+C194C6EA-B68C-4981-B64B-9BD271474B20
+A0BAD9F7-AB78-491B-B583-C52B7F84B9E0
+E052D8A6-224A-4C32-8D37-2E0AE162364D
+C1C418F9-591D-461C-82A2-B9CD96DFEA86
+AF59F2F5-5E28-4E03-80E2-4727545AF811
+C7EA9787-CA0A-43B4-B1E5-25EF87391F8D
+5AAB83E5-F027-4CA7-BFD0-16358CC9E453
+DE23ACEE-CF55-4FB6-AA77-984AB53DE823
+271DD6F2-54CB-45E6-8585-8C923C1AC706
+2374EDDF-F203-4FC0-A20E-61BAD73089D6
+B0D6ED53-B844-43F5-BD2F-61095264E77E
+1E843AD6-E237-42FC-BDA2-DE78542E16DD
+29D8DD19-C836-45D9-8F05-322C27129C2A
+CBD2E4D5-7068-4FF5-B462-9822B4AD8D60
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe/GNUmakefile:MODULE_GUID = CBD2E4D5-7068-4FF5-B462-9822B4AD8D60
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe/GNUmakefile:FILE_GUID = CBD2E4D5-7068-4FF5-B462-9822B4AD8D60
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe/OUTPUT/VariableRuntimeDxe.inf:  FILE_GUID                  = CBD2E4D5-7068-4FF5-B462-9822B4AD8D60
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf:  FILE_GUID                      = CBD2E4D5-7068-4FF5-B462-9822B4AD8D60
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:FILE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe/GNUmakefile	/^FILE_GUID = CBD2E4D5-7068-4FF5-B462-9822B4AD8D60$/;"	m
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:MODULE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe/GNUmakefile/^MODULE_GUID = CBD2E4D5-7068-4FF5-B462-9822B4AD8D60$/;"	m
+106F04DF-DD40-42C3-B786-70432C1AFAAA
+AD608272-D07F-4964-801E-7BD3B7888652
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/MonotonicCounterRuntimeDxe/MonotonicCounterRuntimeDxe/GNUmakefile:MODULE_GUID = AD608272-D07F-4964-801E-7BD3B7888652
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/MonotonicCounterRuntimeDxe/MonotonicCounterRuntimeDxe/GNUmakefile:FILE_GUID = AD608272-D07F-4964-801E-7BD3B7888652
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/MonotonicCounterRuntimeDxe/MonotonicCounterRuntimeDxe/OUTPUT/MonotonicCounterRuntimeDxe.inf:  FILE_GUID                  = AD608272-D07F-4964-801E-7BD3B7888652
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/MdeModulePkg/Universal/MonotonicCounterRuntimeDxe/MonotonicCounterRuntimeDxe.inf:  FILE_GUID                      = AD608272-D07F-4964-801E-7BD3B7888652
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:FILE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/MonotonicCounterRuntimeDxe/MonotonicCounterRuntimeDxe/GNUmakefile	/^FILE_GUID = AD608272-D07F-4964-801E-7BD3B7888652$/;"	m
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:MODULE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/MonotonicCounterRuntimeDxe/MonotonicCounterRuntimeDxe/GNUmakefile	/^MODULE_GUID = AD608272-D07F-4964-801E-7BD3B7888652$/;"	m
+45424D0C-E6AF-4AF2-AD99-FA77168742D1
+378D7B65-8DA9-4773-B6E4-A47826A833E1
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/PcAtChipsetPkg/PcatRealTimeClockRuntimeDxe/PcatRealTimeClockRuntimeDxe.inf:  FILE_GUID                      = 378D7B65-8DA9-4773-B6E4-A47826A833E1
+F099D67F-71AE-4C36-B2A3-DCEB0EB2B7D8
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer/GNUmakefile:MODULE_GUID = F099D67F-71AE-4c36-B2A3-DCEB0EB2B7D8
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer/GNUmakefile:FILE_GUID = F099D67F-71AE-4c36-B2A3-DCEB0EB2B7D8
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer/OUTPUT/WatchdogTimer.inf:  FILE_GUID                  = F099D67F-71AE-4c36-B2A3-DCEB0EB2B7D8
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf:  FILE_GUID                      = F099D67F-71AE-4c36-B2A3-DCEB0EB2B7D8
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:FILE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer/GNUmakefile	/^FILE_GUID = F099D67F-71AE-4c36-B2A3-DCEB0EB2B7D8$/;"	m
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:MODULE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer/GNUmakefile	/^MODULE_GUID = F099D67F-71AE-4c36-B2A3-DCEB0EB2B7D8$/;"	m
+2564AF8F-568D-49AA-8BAA-2FF068B7D052
+77693C87-A21A-441F-9CC6-054982CDDBB7
+15752C42-BBAD-5B07-854E-822B1B5E4DE6
+818544B5-1B9D-4E7B-8F7D-835AAEAF3B5C
+62D171CB-78CD-4480-8678-C6A2A797A8DE
+F7731B4C-58A2-4DF4-8980-5645D39ECE58
+8F0B5301-C79B-44F1-8FD3-26D73E316700
+299141BB-211A-48A5-92C0-6F9A0A3A006E
+E27D5CDC-BF27-415A-8F43-8189BB5F0D5E
+1323C7F8-DAD5-4126-A54B-7A05FBF41515
+8D6756B9-E55E-4D6A-A3A5-5E4D72DDF772
+27E569D5-0AFC-4D8F-8C90-783AC4A318AB
+DE23ACEE-CF55-4FB6-AA77-984AB53DE811
+506533A6-E626-4500-B14F-17939C0E5B60
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/IntelFrameworkModuleAll/DEBUG_GCC46/X64/IntelFrameworkModulePkg/Universal/Acpi/AcpiSupportDxe/AcpiSupportDxe/GNUmakefile:MODULE_GUID = 506533a6-e626-4500-b14f-17939c0e5b60
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/IntelFrameworkModuleAll/DEBUG_GCC46/X64/IntelFrameworkModulePkg/Universal/Acpi/AcpiSupportDxe/AcpiSupportDxe/GNUmakefile:FILE_GUID = 506533a6-e626-4500-b14f-17939c0e5b60
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/IntelFrameworkModuleAll/DEBUG_GCC46/X64/IntelFrameworkModulePkg/Universal/Acpi/AcpiSupportDxe/AcpiSupportDxe/OUTPUT/AcpiSupportDxe.inf:  FILE_GUID                  = 506533a6-e626-4500-b14f-17939c0e5b60
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/IntelFrameworkModulePkg/Universal/Acpi/AcpiSupportDxe/AcpiSupportDxe.inf:  FILE_GUID                      = 506533a6-e626-4500-b14f-17939c0e5b60
+FC90EB7A-3E0A-483C-A26C-484D36593FF4
+13AC6DD0-73D0-11D4-B06B-00AA00BD6DE7
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/EbcDxe/EbcDxe/GNUmakefile:MODULE_GUID = 13AC6DD0-73D0-11D4-B06B-00AA00BD6DE7
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/EbcDxe/EbcDxe/GNUmakefile:FILE_GUID = 13AC6DD0-73D0-11D4-B06B-00AA00BD6DE7
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/EbcDxe/EbcDxe/OUTPUT/EbcDxe.inf:  FILE_GUID                  = 13AC6DD0-73D0-11D4-B06B-00AA00BD6DE7
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/MdeModulePkg/Universal/EbcDxe/EbcDxe.inf:  FILE_GUID                      = 13AC6DD0-73D0-11D4-B06B-00AA00BD6DE7
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:FILE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/EbcDxe/EbcDxe/GNUmakefile	/^FILE_GUID = 13AC6DD0-73D0-11D4-B06B-00AA00BD6DE7$/;"	m
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:MODULE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/EbcDxe/EbcDxe/GNUmakefile	/^MODULE_GUID = 13AC6DD0-73D0-11D4-B06B-00AA00BD6DE7$/;"	m
+FCD337AB-B1D3-4EF8-957C-8048606FF670
+60A14F6F-55B9-47A3-B067-01A93027F3FE
+BDFDE060-7E41-4EAE-AD9B-E5BBA7A48A3A
+AC4CE557-F5CD-439E-963C-40F09683DAC5
+398262C1-5165-4725-87FC-BB786A972582
+508A61DC-2C57-4848-A54A-58015179C94A
+662AD66E-F52D-47F6-A350-488DB9F8AF68
+6A504489-884E-4465-A02F-03B248CDEF13
+9E85F0D5-5185-482B-8D50-5671307FEA80
+7FCD7C1C-CFBF-5078-84F4-7AD865021AE2
+351EDA1E-4F68-4277-89E4-B7830AAF2AF2
+95AF7E4D-C45D-47FF-AEB2-D9BC13466B3F
+5552575A-7E00-4D61-A3A4-F7547351B49E
+9CC55D7D-FBFF-431C-BC14-334EAEA6052B
+7FED72EE-0170-4814-9878-A8FB1864DFAF
+ABB74F50-FD2D-4072-A321-CAFC72977EFA
+CB73C3D9-2F01-4342-AE67-04DDE5264092
+3F7753EF-D36F-45CC-8A1A-2EAAFF1038B6
+062C9472-7835-434A-B004-89CBF6546B4E
+938CAD17-342E-4612-99F6-27ED14671B4E
+E121EC07-9C42-45EE-B0B6-FFF8EF03C521
+A9FBF34B-E2A2-41D1-BA00-A274A55CD164
+0E9E5679-9333-447C-A6C7-1E4132598632
+55E76644-78A5-4A82-A900-7126A5798892
+AD70855E-0CC5-4ABF-8979-BE762A949EA3
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Bus/Pci/IncompatiblePciDeviceSupportDxe/IncompatiblePciDeviceSupportDxe/GNUmakefile:MODULE_GUID = AD70855E-0CC5-4abf-8979-BE762A949EA3
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Bus/Pci/IncompatiblePciDeviceSupportDxe/IncompatiblePciDeviceSupportDxe/GNUmakefile:FILE_GUID = AD70855E-0CC5-4abf-8979-BE762A949EA3
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Bus/Pci/IncompatiblePciDeviceSupportDxe/IncompatiblePciDeviceSupportDxe/OUTPUT/IncompatiblePciDeviceSupport.inf:  FILE_GUID                  = AD70855E-0CC5-4abf-8979-BE762A949EA3
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/MdeModulePkg/Bus/Pci/IncompatiblePciDeviceSupportDxe/IncompatiblePciDeviceSupportDxe.inf:  FILE_GUID                      = AD70855E-0CC5-4abf-8979-BE762A949EA3
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:FILE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Bus/Pci/IncompatiblePciDeviceSupportDxe/IncompatiblePciDeviceSupportDxe/GNUmakefile	/^FILE_GUID = AD70855E-0CC5-4abf-8979-BE762A949EA3$/;"	m
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:MODULE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Bus/Pci/IncompatiblePciDeviceSupportDxe/IncompatiblePciDeviceSupportDxe/GNUmakefile	/^MODULE_GUID = AD70855E-0CC5-4abf-8979-BE762A949EA3$/;"	m
+7F480A20-7A19-4764-A5CA-4E9B8AECAF1E
+240612B5-A063-11D4-9A3A-0090273FC14D
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/IntelFrameworkModuleAll/DEBUG_GCC46/X64/IntelFrameworkModulePkg/Bus/Isa/IsaBusDxe/IsaBusDxe/GNUmakefile:MODULE_GUID = 240612B5-A063-11d4-9A3A-0090273FC14D
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/IntelFrameworkModuleAll/DEBUG_GCC46/X64/IntelFrameworkModulePkg/Bus/Isa/IsaBusDxe/IsaBusDxe/GNUmakefile:FILE_GUID = 240612B5-A063-11d4-9A3A-0090273FC14D
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/IntelFrameworkModuleAll/DEBUG_GCC46/X64/IntelFrameworkModulePkg/Bus/Isa/IsaBusDxe/IsaBusDxe/OUTPUT/IsaBusDxe.inf:  FILE_GUID                  = 240612B5-A063-11d4-9A3A-0090273FC14D
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/IntelFrameworkModulePkg/Bus/Isa/IsaBusDxe/IsaBusDxe.inf:  FILE_GUID                      = 240612B5-A063-11d4-9A3A-0090273FC14D
+93B80003-9FB3-11D4-9A3A-0090273FC14D
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/IntelFrameworkModuleAll/DEBUG_GCC46/X64/IntelFrameworkModulePkg/Bus/Isa/IsaSerialDxe/IsaSerialDxe/GNUmakefile:MODULE_GUID = 93B80003-9FB3-11d4-9A3A-0090273FC14D
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/IntelFrameworkModuleAll/DEBUG_GCC46/X64/IntelFrameworkModulePkg/Bus/Isa/IsaSerialDxe/IsaSerialDxe/GNUmakefile:FILE_GUID = 93B80003-9FB3-11d4-9A3A-0090273FC14D
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/IntelFrameworkModuleAll/DEBUG_GCC46/X64/IntelFrameworkModulePkg/Bus/Isa/IsaSerialDxe/IsaSerialDxe/OUTPUT/IsaSerialDxe.inf:  FILE_GUID                  = 93B80003-9FB3-11d4-9A3A-0090273FC14D
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/cscope.out:" Image Name : FvFile(93B80003-9FB3-11D4-9A3A-0090273FC14D)\r\n");
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/IntelFrameworkModulePkg/Bus/Isa/IsaSerialDxe/IsaSerialDxe.inf:  FILE_GUID                      = 93B80003-9FB3-11d4-9A3A-0090273FC14D
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/SourceLevelDebugPkg/DebugAgentDxe/DebugAgentDxe.c:    Print (L"        Image Name     : FvFile(93B80003-9FB3-11D4-9A3A-0090273FC14D)\r\n");
+8CE65FC0-8F33-42A7-A2EA-46DEBE231EA6
+BDFE430E-8F2A-4DB0-9991-6F856594777E
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Bus/Pci/EhciDxe/EhciDxe/GNUmakefile:MODULE_GUID = BDFE430E-8F2A-4db0-9991-6F856594777E
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Bus/Pci/EhciDxe/EhciDxe/GNUmakefile:FILE_GUID = BDFE430E-8F2A-4db0-9991-6F856594777E
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Bus/Pci/EhciDxe/EhciDxe/OUTPUT/EhciDxe.inf:  FILE_GUID                  = BDFE430E-8F2A-4db0-9991-6F856594777E
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/MdeModulePkg/Bus/Pci/EhciDxe/EhciDxe.inf:  FILE_GUID                      = BDFE430E-8F2A-4db0-9991-6F856594777E
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:FILE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Bus/Pci/EhciDxe/EhciDxe/GNUmakefile	/^FILE_GUID = BDFE430E-8F2A-4db0-9991-6F856594777E$/;"	m
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:MODULE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Bus/Pci/EhciDxe/EhciDxe/GNUmakefile	/^MODULE_GUID = BDFE430E-8F2A-4db0-9991-6F856594777E$/;"	m
+E0FF720B-0140-43FE-9528-7A781357E42E
+335B0F6A-FCBD-402A-B4BB-0C3EEDAAF9D3
+240612B7-A063-11D4-9A3A-0090273FC14D
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe/GNUmakefile:MODULE_GUID = 240612B7-A063-11d4-9A3A-0090273FC14D
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe/GNUmakefile:FILE_GUID = 240612B7-A063-11d4-9A3A-0090273FC14D
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe/OUTPUT/UsbBusDxe.inf:  FILE_GUID                  = 240612B7-A063-11d4-9A3A-0090273FC14D
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf:  FILE_GUID                      = 240612B7-A063-11d4-9A3A-0090273FC14D
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:FILE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe/GNUmakefile	/^FILE_GUID = 240612B7-A063-11d4-9A3A-0090273FC14D$/;"	m
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:MODULE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe/GNUmakefile	/^MODULE_GUID = 240612B7-A063-11d4-9A3A-0090273FC14D$/;"	m
+B40612B9-A063-11D4-9A3A-0090273FC14D
+A5C6D68B-E78A-4426-9278-A8F0D9EB4D8F
+2D2E62CF-9ECF-43B7-8219-94E7FC713DFE
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe/GNUmakefile:MODULE_GUID = 2D2E62CF-9ECF-43b7-8219-94E7FC713DFE
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe/GNUmakefile:FILE_GUID = 2D2E62CF-9ECF-43b7-8219-94E7FC713DFE
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe/OUTPUT/UsbKbDxe.inf:  FILE_GUID                  = 2D2E62CF-9ECF-43b7-8219-94E7FC713DFE
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf:  FILE_GUID                      = 2D2E62CF-9ECF-43b7-8219-94E7FC713DFE
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:FILE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe/GNUmakefile	/^FILE_GUID = 2D2E62CF-9ECF-43b7-8219-94E7FC713DFE$/;"	m
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:MODULE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe/GNUmakefile	/^MODULE_GUID = 2D2E62CF-9ECF-43b7-8219-94E7FC713DFE$/;"	m
+2D2E62AA-9ECF-43B7-8219-94E7FC713DFE
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Bus/Usb/UsbMouseDxe/UsbMouseDxe/GNUmakefile:MODULE_GUID = 2D2E62AA-9ECF-43b7-8219-94E7FC713DFE
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Bus/Usb/UsbMouseDxe/UsbMouseDxe/GNUmakefile:FILE_GUID = 2D2E62AA-9ECF-43b7-8219-94E7FC713DFE
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Bus/Usb/UsbMouseDxe/UsbMouseDxe/OUTPUT/UsbMouseDxe.inf:  FILE_GUID                  = 2D2E62AA-9ECF-43b7-8219-94E7FC713DFE
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/MdeModulePkg/Bus/Usb/UsbMouseDxe/UsbMouseDxe.inf:  FILE_GUID                      = 2D2E62AA-9ECF-43b7-8219-94E7FC713DFE
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:FILE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Bus/Usb/UsbMouseDxe/UsbMouseDxe/GNUmakefile	/^FILE_GUID = 2D2E62AA-9ECF-43b7-8219-94E7FC713DFE$/;"	m
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:MODULE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Bus/Usb/UsbMouseDxe/UsbMouseDxe/GNUmakefile	/^MODULE_GUID = 2D2E62AA-9ECF-43b7-8219-94E7FC713DFE$/;"	m
+07B37006-9302-408E-B416-B524D110DD7F
+A3CF349D-639C-4D08-AC4A-C95341FB4F94
+DDB04BBC-6977-4202-8855-5ECE4BAC8247
+0412A7A1-C050-42C2-877A-77C379F9F5F1
+6074610C-93C6-4A50-9AAA-0927DE7C6975
+9D1A8B60-6CB0-11DE-8E91-0002A5D5C51B
+05FFB44D-EE01-40E1-9866-FD27FD4FBE92
+4CF484CD-135F-4FDC-BAFB-1AA104B48D36
+714845FE-F8B8-4B45-9AAE-708ECDDFCB77
+BA246BC7-7E2F-4AE4-817A-FFDE572E39DE
+1A3558EC-13BB-4451-A589-74DFBD9A27AD
+51CCF399-4FDF-4E55-A45B-E123F84D456A
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe/GNUmakefile:MODULE_GUID = 51ccf399-4fdf-4e55-a45b-e123f84d456a
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe/GNUmakefile:FILE_GUID = 51ccf399-4fdf-4e55-a45b-e123f84d456a
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe/OUTPUT/ConPlatformDxe.inf:  FILE_GUID                  = 51ccf399-4fdf-4e55-a45b-e123f84d456a
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf:  FILE_GUID                      = 51ccf399-4fdf-4e55-a45b-e123f84d456a
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:FILE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe/GNUmakefile	/^FILE_GUID = 51ccf399-4fdf-4e55-a45b-e123f84d456a$/;"	m
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:MODULE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe/GNUmakefile	/^MODULE_GUID = 51ccf399-4fdf-4e55-a45b-e123f84d456a$/;"	m
+408EDCEC-CF6D-477C-A5A8-B4844E3DE281
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe/GNUmakefile:MODULE_GUID = 408edcec-cf6d-477c-a5a8-b4844e3de281
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe/GNUmakefile:FILE_GUID = 408edcec-cf6d-477c-a5a8-b4844e3de281
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe/OUTPUT/ConSplitterDxe.inf:  FILE_GUID                  = 408edcec-cf6d-477c-a5a8-b4844e3de281
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf:  FILE_GUID                      = 408edcec-cf6d-477c-a5a8-b4844e3de281
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:FILE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe/GNUmakefile	/^FILE_GUID = 408edcec-cf6d-477c-a5a8-b4844e3de281$/;"	m
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:MODULE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe/GNUmakefile	/^MODULE_GUID = 408edcec-cf6d-477c-a5a8-b4844e3de281$/;"	m
+7ED59FC2-3395-5DD2-A31C-1EF2F098E166
+9E863906-A40F-4875-977F-5B93FF237FC6
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Console/TerminalDxe/TerminalDxe/GNUmakefile:MODULE_GUID = 9E863906-A40F-4875-977F-5B93FF237FC6
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Console/TerminalDxe/TerminalDxe/GNUmakefile:FILE_GUID = 9E863906-A40F-4875-977F-5B93FF237FC6
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Console/TerminalDxe/TerminalDxe/OUTPUT/TerminalDxe.inf:  FILE_GUID                  = 9E863906-A40F-4875-977F-5B93FF237FC6
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/MdeModulePkg/Universal/Console/TerminalDxe/TerminalDxe.inf:  FILE_GUID                      = 9E863906-A40F-4875-977F-5B93FF237FC6
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:FILE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Console/TerminalDxe/TerminalDxe/GNUmakefile	/^FILE_GUID = 9E863906-A40F-4875-977F-5B93FF237FC6$/;"	m
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:MODULE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Console/TerminalDxe/TerminalDxe/GNUmakefile	/^MODULE_GUID = 9E863906-A40F-4875-977F-5B93FF237FC6$/;"	m
+CA261A26-7718-4B9B-8A07-5178B1AE3A02
+961578FE-B6B7-44C3-AF35-6BC705CD2B1F
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/BaseTools/Source/Python/Eot/Report.py:            if FfsGuid.upper() == '961578FE-B6B7-44C3-AF35-6BC705CD2B1F':
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/BaseTools/Source/Python/Eot/Report.pyc matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/FatBinPkg/EnhancedFatDxe/Fat.inf:  FILE_GUID                      = 961578FE-B6B7-44c3-AF35-6BC705CD2B1F
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Vlv2TbltDevicePkg/PlatformPkg.fdf:FILE DRIVER = 961578FE-B6B7-44c3-AF35-6BC705CD2B1F {
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Vlv2TbltDevicePkg/PlatformPkgGcc.fdf:FILE DRIVER = 961578FE-B6B7-44c3-AF35-6BC705CD2B1F {
+43B93232-AFBE-11D4-BD0F-0080C73C8881
+8F26EF0A-4F7F-4E4B-9802-8C22B700FFAC
+1C41D73F-0EB4-4F5C-922C-1956E7218459
+AB8DDBAA-9C47-429B-9D12-326F273D9B88
+8E6BD67D-1872-4932-A39A-FC9DCA4A98CF
+AC6993CF-43C8-4FCB-840C-B7CF2E079977
+C5C88D3C-49FE-4637-91AF-B430AFBD99C5
+A4F2909C-5E2A-438A-91BA-272B0923049A
+60FB748B-4D94-4103-9069-1AC1F697330E
+8B24E4D4-C84C-4FFC-81E5-D3EACC3F08DD
+EAF59C0E-BD46-413A-9AE9-DD9F6D1A927D
+EF0C99B6-B1D3-4025-9405-BF6A560FE0E0
+7E374E25-8E01-4FEE-87F2-390C23C606CD
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/BaseTools/Source/Python/build/BuildReport.py:        self._GuidsDb["7E374E25-8E01-4FEE-87F2-390C23C606CD"] = "ACPI table storage"
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/BaseTools/Source/Python/build/BuildReport.pyc matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/BaseTools/Source/Python/Eot/Report.py:            if FfsGuid.upper() == '7E374E25-8E01-4FEE-87F2-390C23C606CD':
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/BaseTools/Source/Python/Eot/Report.pyc matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/OvmfPkg/AcpiTables/AcpiTables.inf:  FILE_GUID                      = 7E374E25-8E01-4FEE-87F2-390C23C606CD
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Vlv2DeviceRefCodePkg/AcpiTablesPCAT/AcpiTables.inf:  FILE_GUID                      = 7E374E25-8E01-4FEE-87F2-390C23C606CD
+4391AA92-6644-4D8A-9A84-DDD405C312F3
+CC582C73-F48F-4B62-83E8-A586B4C88F84
+15FFF79E-866F-49A2-AAA4-6F743FE0BB69
+03C70B0D-67E6-5C16-8E57-312DF246A961
+CCC5C136-ACD3-4251-9BDC-F663CD2297B7
+201A92E1-2D0F-48E9-A3AB-93E1695A92F2
+2ECED69B-2793-4388-BA3C-823040EBCCD2
+CD51358D-6E7E-45CA-B450-57C046BDFDDC
+CCEC84CD-CDC5-4C75-8637-D4508FC79CCD
+BD87394D-465C-40A9-9657-FBED21789860
+5C08E2E2-AD70-4C99-94A2-AE604EA033DA
+2D61B52A-69EF-497D-8317-5574AEC89BE4
+14A9461A-AD88-5EA0-AFB5-3CA1B0AD4B6D
+31C97BA3-B931-5FC0-AD13-256FB160E35B
+698DC269-7B65-5396-9461-72189178E2EC
+1FB5B3BA-6DFB-5531-97BD-9780A2981249
+8D1400EC-D975-53FC-8E29-344791807124
+08172E91-F37F-5C39-B395-8CE6A9276BE8
+F442114F-4EC7-5AB6-A8D7-C35E2CF8E8DA
+FF327673-75D7-5C98-AC65-081A60E9CCBF
+09194D15-CA32-5037-83E4-41B82984DB42
+B4598C09-DA08-5F75-A956-2CFF901B1C24
+E2657A19-7CD8-5389-98BC-6E201BBF4F70
+8C9F5C9A-00AE-4461-932A-A9912B19FCD4
+D9FA37F3-9C57-4D3C-811F-217B123173C6
+EF33C296-F64C-4146-AD04-347899702C84
+D9C50864-2AEF-41D9-A655-A7BDCEF50A4A
+AD21F7A0-7F5B-47FE-8CC0-241F318CABF5
+8D3BE215-D6F6-4264-BEA6-28073FB13AEA
+1F36527E-A97C-45F8-B24A-9D95B0A940FE
+2B0585EB-D8B8-49A9-8B8C-E21B01AEF2B7
+9204A71D-2050-4AB7-AD42-749CF9ADB4EB
+2340C065-25AC-45B8-AAAD-59B66754779A
+4DDEAFA4-F480-4B9D-889B-1E3AE6605BD6
+77402340-A443-4B7E-9456-9589FFD5D7BA
+995D5DDF-5372-4C1C-8FB2-C14F0E93D935
+2E7485FD-2A14-4F17-881F-92A6212964A5
+A3BB7BB1-BA9C-5F22-9CC0-B2E436F13288
+52C05B14-0B98-496C-BC3B-04B50211D680
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/BaseTools/UserManuals/GenFfs_Utility_Man_Page.rtf:GenFfs -t EFI_FV_FILETYPE_PEI_CORE -g 52C05B14-0B98-496c-BC3B-04B50211D680 -i PeiMain.pe32 -i PeiMain.ui -i PeiMain.ver -o 52C05B14-0B98-496c-BC3B-04B50211D680-PeiMai\hich\af39\dbch\af31505\loch\f39 n.ffs
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/BaseTools/UserManuals/GenFfs_Utility_Man_Page.rtf:\par }{\rtlch\fcs1 \ab\af39\afs18 \ltrch\fcs0 \b\fs18\cf1\insrsid2566036 \hich\af39\dbch\af31505\loch\f39 GenFfs -t EFI_FV_FILETYPE_PEI_CORE -g 52C05B14-0B98-496c-BC3B-04B50211D680 }{\rtlch\fcs1 \ab\af39\afs18 \ltrch\fcs0 \b\fs18\cf6\insrsid2566036 
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/BaseTools/UserManuals/GenFfs_Utility_Man_Page.rtf: -i PeiMain.ui -i PeiMain.ver -o 52C05B14-0B98-496c-BC3B-04B50211D680-PeiMain.ffs
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/BaseTools/UserManuals/GenFv_Utility_Man_Page.rtf:\par \hich\af39\dbch\af31505\loch\f39 EFI_FILE_NAME = K:\\Build\\NT32\\DEBUG_MYTOOLS\\Fv\\Ffs\\52C05B14-0B98-496c-BC3B-04B50211D680PeiMain\\52C05B14-0B98-496c-BC3B-04B5021\hich\af39\dbch\af31505\loch\f39 1D680.ffs
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Core/Pei/PeiMain/GNUmakefile:MODULE_GUID = 52C05B14-0B98-496c-BC3B-04B50211D680
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Core/Pei/PeiMain/GNUmakefile:FILE_GUID = 52C05B14-0B98-496c-BC3B-04B50211D680
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Core/Pei/PeiMain/OUTPUT/PeiCore.inf:  FILE_GUID                  = 52C05B14-0B98-496c-BC3B-04B50211D680
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/MdeModulePkg/Core/Pei/PeiMain.inf:  FILE_GUID                      = 52C05B14-0B98-496c-BC3B-04B50211D680
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:FILE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Core/Pei/PeiMain/GNUmakefile	/^FILE_GUID = 52C05B14-0B98-496c-BC3B-04B50211D680$/;"	m
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:MODULE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Core/Pei/PeiMain/GNUmakefile	/^MODULE_GUID = 52C05B14-0B98-496c-BC3B-04B50211D680$/;"	m
+80F1DE13-3C6E-4A78-A802-1AC5FF3750FB
+38317FC0-2795-4DE6-B207-680CA768CFB1
+34C8C28F-B61C-45A2-8F2E-89E46BECC63B
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Variable/Pei/VariablePei/GNUmakefile:MODULE_GUID = 34C8C28F-B61C-45a2-8F2E-89E46BECC63B
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Variable/Pei/VariablePei/GNUmakefile:FILE_GUID = 34C8C28F-B61C-45a2-8F2E-89E46BECC63B
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Variable/Pei/VariablePei/OUTPUT/PeiVariable.inf:  FILE_GUID                  = 34C8C28F-B61C-45a2-8F2E-89E46BECC63B
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/MdeModulePkg/Universal/Variable/Pei/VariablePei.inf:  FILE_GUID                      = 34C8C28F-B61C-45a2-8F2E-89E46BECC63B
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:FILE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Variable/Pei/VariablePei/GNUmakefile	/^FILE_GUID = 34C8C28F-B61C-45a2-8F2E-89E46BECC63B$/;"	m
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:MODULE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Variable/Pei/VariablePei/GNUmakefile	/^MODULE_GUID = 34C8C28F-B61C-45a2-8F2E-89E46BECC63B$/;"	m
+01359D99-9446-456D-ADA4-50A711C03ADA
+C24A946F-8BC6-412B-9ACE-307E08E68125
+53984C6A-1B4A-4174-9512-A65E5BC8B278
+996D8FF2-703F-492C-9A50-1DBEB32AAEB1
+320A5BFC-E508-4D92-9255-BBB10AEF6A30
+01187BBB-DD3E-4D06-BA29-F09B92496599
+C779F6D8-7113-4AA1-9648-EB1633C7D53B
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/CapsulePei/CapsulePei/GNUmakefile:MODULE_GUID = C779F6D8-7113-4AA1-9648-EB1633C7D53B
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/CapsulePei/CapsulePei/GNUmakefile:FILE_GUID = C779F6D8-7113-4AA1-9648-EB1633C7D53B
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/CapsulePei/CapsulePei/OUTPUT/CapsulePei.inf:  FILE_GUID                  = C779F6D8-7113-4AA1-9648-EB1633C7D53B
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/MdeModulePkg/Universal/CapsulePei/CapsulePei.inf:  FILE_GUID                      = C779F6D8-7113-4AA1-9648-EB1633C7D53B
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:FILE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/CapsulePei/CapsulePei/GNUmakefile	/^FILE_GUID = C779F6D8-7113-4AA1-9648-EB1633C7D53B$/;"	m
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:MODULE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/CapsulePei/CapsulePei/GNUmakefile	/^MODULE_GUID = C779F6D8-7113-4AA1-9648-EB1633C7D53B$/;"	m
+233DF097-3218-47B2-9E09-FE58C2B20D22
+732AD700-3747-40AD-A069-F9F59297E0DB
+FD236AE7-0791-48C4-B29E-29BDEEE1A838
+643DF777-F312-42ED-81CC-1B1F57E18AD6
+1D88C542-9DF7-424A-AA90-02B61F286938
+147B4839-5DBE-413F-917F-DFEB687C6312
+3B42EF57-16D3-44CB-8632-9FDB06B41451
+FD236AE7-0791-48C4-B29E-29BDEEE1A811
+B6A2AFF3-767C-5658-C37A-D1C82EF76543
+4862AFF3-667C-5458-B274-A1C62DF8BA80
+8BCEDDD7-E285-4168-9B3F-09AF66C93FFE
+8AC57518-8934-423D-BB39-F5FC88840CCF
+1ACEEB06-5A6F-4077-A934-865B78C8DC03
+4B30B764-6C1C-4BF9-95DA-9782918EB398
+CD2B6EB3-EA11-4848-B687-AFE57D3D1C0F
+6ECFCE51-5724-450C-A38A-58553E954422
+C866BD71-7C79-4BF1-A93B-066B830D8F9A
+8B8214F9-4ADB-47DD-AC62-8313C537E9FA
+6406C7D3-B5E4-4F76-B35A-BF07D1CF58D2
+ADA7DBB8-2E6F-4FF6-8963-7CD5C0040C52
+3D17205B-4C49-47E2-8157-864CD3D80DBD
+66ACB016-A1D4-4E74-BA7D-EF93A85F112F
+C3E36D09-8294-4B97-A857-D5288FE33E28
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Vlv2TbltDevicePkg/PlatformPkg.fdf:FILE FREEFORM = C3E36D09-8294-4b97-A857-D5288FE33E28 {
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Vlv2TbltDevicePkg/PlatformPkgGcc.fdf:FILE FREEFORM = C3E36D09-8294-4b97-A857-D5288FE33E28 {
+B535ABF6-967D-43F2-B494-A1EB8E21A28E
+52C05B14-0B98-496C-BC3B-04B50211D680
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/BaseTools/UserManuals/GenFfs_Utility_Man_Page.rtf:GenFfs -t EFI_FV_FILETYPE_PEI_CORE -g 52C05B14-0B98-496c-BC3B-04B50211D680 -i PeiMain.pe32 -i PeiMain.ui -i PeiMain.ver -o 52C05B14-0B98-496c-BC3B-04B50211D680-PeiMai\hich\af39\dbch\af31505\loch\f39 n.ffs
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/BaseTools/UserManuals/GenFfs_Utility_Man_Page.rtf:\par }{\rtlch\fcs1 \ab\af39\afs18 \ltrch\fcs0 \b\fs18\cf1\insrsid2566036 \hich\af39\dbch\af31505\loch\f39 GenFfs -t EFI_FV_FILETYPE_PEI_CORE -g 52C05B14-0B98-496c-BC3B-04B50211D680 }{\rtlch\fcs1 \ab\af39\afs18 \ltrch\fcs0 \b\fs18\cf6\insrsid2566036 
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/BaseTools/UserManuals/GenFfs_Utility_Man_Page.rtf: -i PeiMain.ui -i PeiMain.ver -o 52C05B14-0B98-496c-BC3B-04B50211D680-PeiMain.ffs
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/BaseTools/UserManuals/GenFv_Utility_Man_Page.rtf:\par \hich\af39\dbch\af31505\loch\f39 EFI_FILE_NAME = K:\\Build\\NT32\\DEBUG_MYTOOLS\\Fv\\Ffs\\52C05B14-0B98-496c-BC3B-04B50211D680PeiMain\\52C05B14-0B98-496c-BC3B-04B5021\hich\af39\dbch\af31505\loch\f39 1D680.ffs
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Core/Pei/PeiMain/GNUmakefile:MODULE_GUID = 52C05B14-0B98-496c-BC3B-04B50211D680
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Core/Pei/PeiMain/GNUmakefile:FILE_GUID = 52C05B14-0B98-496c-BC3B-04B50211D680
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Core/Pei/PeiMain/OUTPUT/PeiCore.inf:  FILE_GUID                  = 52C05B14-0B98-496c-BC3B-04B50211D680
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/MdeModulePkg/Core/Pei/PeiMain.inf:  FILE_GUID                      = 52C05B14-0B98-496c-BC3B-04B50211D680
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:FILE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Core/Pei/PeiMain/GNUmakefile	/^FILE_GUID = 52C05B14-0B98-496c-BC3B-04B50211D680$/;"	m
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:MODULE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Core/Pei/PeiMain/GNUmakefile	/^MODULE_GUID = 52C05B14-0B98-496c-BC3B-04B50211D680$/;"	m
+80F1DE13-3C6E-4A78-A802-1AC5FF3750FB
+38317FC0-2795-4DE6-B207-680CA768CFB1
+34C8C28F-B61C-45A2-8F2E-89E46BECC63B
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Variable/Pei/VariablePei/GNUmakefile:MODULE_GUID = 34C8C28F-B61C-45a2-8F2E-89E46BECC63B
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Variable/Pei/VariablePei/GNUmakefile:FILE_GUID = 34C8C28F-B61C-45a2-8F2E-89E46BECC63B
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Variable/Pei/VariablePei/OUTPUT/PeiVariable.inf:  FILE_GUID                  = 34C8C28F-B61C-45a2-8F2E-89E46BECC63B
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/MdeModulePkg/Universal/Variable/Pei/VariablePei.inf:  FILE_GUID                      = 34C8C28F-B61C-45a2-8F2E-89E46BECC63B
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:FILE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Variable/Pei/VariablePei/GNUmakefile	/^FILE_GUID = 34C8C28F-B61C-45a2-8F2E-89E46BECC63B$/;"	m
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:MODULE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Variable/Pei/VariablePei/GNUmakefile	/^MODULE_GUID = 34C8C28F-B61C-45a2-8F2E-89E46BECC63B$/;"	m
+01359D99-9446-456D-ADA4-50A711C03ADA
+C24A946F-8BC6-412B-9ACE-307E08E68125
+53984C6A-1B4A-4174-9512-A65E5BC8B278
+996D8FF2-703F-492C-9A50-1DBEB32AAEB1
+320A5BFC-E508-4D92-9255-BBB10AEF6A30
+01187BBB-DD3E-4D06-BA29-F09B92496599
+C779F6D8-7113-4AA1-9648-EB1633C7D53B
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/CapsulePei/CapsulePei/GNUmakefile:MODULE_GUID = C779F6D8-7113-4AA1-9648-EB1633C7D53B
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/CapsulePei/CapsulePei/GNUmakefile:FILE_GUID = C779F6D8-7113-4AA1-9648-EB1633C7D53B
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/CapsulePei/CapsulePei/OUTPUT/CapsulePei.inf:  FILE_GUID                  = C779F6D8-7113-4AA1-9648-EB1633C7D53B
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/MdeModulePkg/Universal/CapsulePei/CapsulePei.inf:  FILE_GUID                      = C779F6D8-7113-4AA1-9648-EB1633C7D53B
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:FILE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/CapsulePei/CapsulePei/GNUmakefile	/^FILE_GUID = C779F6D8-7113-4AA1-9648-EB1633C7D53B$/;"	m
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:MODULE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/CapsulePei/CapsulePei/GNUmakefile	/^MODULE_GUID = C779F6D8-7113-4AA1-9648-EB1633C7D53B$/;"	m
+233DF097-3218-47B2-9E09-FE58C2B20D22
+732AD700-3747-40AD-A069-F9F59297E0DB
+FD236AE7-0791-48C4-B29E-29BDEEE1A838
+643DF777-F312-42ED-81CC-1B1F57E18AD6
+1D88C542-9DF7-424A-AA90-02B61F286938
+147B4839-5DBE-413F-917F-DFEB687C6312
+3B42EF57-16D3-44CB-8632-9FDB06B41451
+FD236AE7-0791-48C4-B29E-29BDEEE1A811
+B6A2AFF3-767C-5658-C37A-D1C82EF76543
+4862AFF3-667C-5458-B274-A1C62DF8BA80
+8BCEDDD7-E285-4168-9B3F-09AF66C93FFE
+8AC57518-8934-423D-BB39-F5FC88840CCF
+1ACEEB06-5A6F-4077-A934-865B78C8DC03
+4B30B764-6C1C-4BF9-95DA-9782918EB398
+CD2B6EB3-EA11-4848-B687-AFE57D3D1C0F
+6ECFCE51-5724-450C-A38A-58553E954422
+C866BD71-7C79-4BF1-A93B-066B830D8F9A
+8B8214F9-4ADB-47DD-AC62-8313C537E9FA
+6406C7D3-B5E4-4F76-B35A-BF07D1CF58D2
+ADA7DBB8-2E6F-4FF6-8963-7CD5C0040C52
+3D17205B-4C49-47E2-8157-864CD3D80DBD
+66ACB016-A1D4-4E74-BA7D-EF93A85F112F
+C3E36D09-8294-4B97-A857-D5288FE33E28
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Vlv2TbltDevicePkg/PlatformPkg.fdf:FILE FREEFORM = C3E36D09-8294-4b97-A857-D5288FE33E28 {
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Vlv2TbltDevicePkg/PlatformPkgGcc.fdf:FILE FREEFORM = C3E36D09-8294-4b97-A857-D5288FE33E28 {
+B535ABF6-967D-43F2-B494-A1EB8E21A28E
+95C8C131-4467-4447-8A71-F087AFCA07A5
+4E6C7E95-8DE2-437F-A773-C584A06661F8
+B2CB10B1-714A-4E0C-9ED3-35688B2C99F0
+64ED8B7E-B1D0-4E9E-9D2A-696718CB8347
+693CB617-2F91-44D2-9F40-0747F77DF3E6
+BF7F6F3A-5523-488E-8A60-F04863B975C3
+A17B39CE-1916-4CFC-9581-7298A745F7A3
+E6FD74BA-5D61-4050-AB75-5FAF824969E1
+3C2507D7-6986-4597-8DE2-E3A1AE39E757
+860BD9B5-EB36-429A-9CFB-6E2FD750F764
+D409CBA9-1BA8-4F07-9703-D02DEA45E0FC
+D1A04D55-75B9-41A3-9036-8F4A261CBBA2
+AB1AA515-00E1-4107-A453-19ED7FA4A6E4
+E117644A-8A61-4532-BA14-505937B76A7B
+FBA385F4-C430-4C51-A70F-E3B54F9A5CF9
+D357D673-4816-486C-9982-A8F6B7E0F569
+A56B43BB-BA03-4B72-9C52-1D81545B17F0
+D68AC0DC-FA5E-4A30-800A-EDC62E0CED2E
+6A9586F3-A9D0-4AB4-9486-3B78C799AA10
+9707F7B9-2C0F-42EC-B847-D03C65DE45DD
+339370BD-CFC6-4454-8EF7-704653120818
+9D8CF312-96BA-4493-88F3-95186EB0916E
+050A8608-63FA-4096-8CB7-791658E91AC5
+10F49A50-8F23-42E5-883B-735753E2AC45
+F282204D-D58A-4A82-B285-F775377BE683
+D4A4B482-D4C6-4B0F-97B3-5A3775D18CF3
+A7B52C18-6BFD-4593-995A-A3911801BDBB
+4898FEC4-6DEE-4235-B949-28BC535FB6AB
+51871CB9-E25D-44B4-9699-0EE8644CED69
+7B249582-28AD-47D6-AEEB-A13D7C70E77F
+F33528CA-8596-4AC1-BB74-6D9C1B323151
+C3E36D09-8294-4B97-A857-D5288FE33E28
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Vlv2TbltDevicePkg/PlatformPkg.fdf:FILE FREEFORM = C3E36D09-8294-4b97-A857-D5288FE33E28 {
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Vlv2TbltDevicePkg/PlatformPkgGcc.fdf:FILE FREEFORM = C3E36D09-8294-4b97-A857-D5288FE33E28 {
+B535ABF6-967D-43F2-B494-A1EB8E21A28E
+04244C90-B041-5DEA-8486-EDD164204E1B
+078F54D4-CC22-4048-9E94-879C214D562F
+BB697DB5-ED60-46AC-8754-7580B8B27ED0
+7DA04C46-2E86-4A24-B50B-3E6C445D730F
+078F54D4-CC22-4048-9E94-879C214D562F
+1BA0062E-C779-4582-8566-336AE8F78F09
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/BaseTools/Source/Python/Eot/FvImage.py:    VTF_GUID = "1BA0062E-C779-4582-8566-336AE8F78F09"
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/BaseTools/Source/Python/Eot/FvImage.pyc matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/IntelFspPkg/FspSecCore/FspSecCore.inf:  FILE_GUID                      = 1BA0062E-C779-4582-8566-336AE8F78F09
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/IntelFspWrapperPkg/FspWrapperSecCore/FspWrapperSecCore.inf:  FILE_GUID                      = 1BA0062E-C779-4582-8566-336AE8F78F09
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/OvmfPkg/ResetVector/ResetVector.inf:  FILE_GUID                      = 1BA0062E-C779-4582-8566-336AE8F78F09
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:VTF_GUID	BaseTools/Source/Python/Eot/FvImage.py	/^    VTF_GUID = "1BA0062E-C779-4582-8566-336AE8F78F09"$/;"	v	class:Ffs
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/UefiCpuPkg/ResetVector/FixupVtf/Vtf.inf:  FILE_GUID                      = 1BA0062E-C779-4582-8566-336AE8F78F09
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/UefiCpuPkg/ResetVector/Vtf0/Bin/ResetVector.inf:  FILE_GUID                      = 1BA0062E-C779-4582-8566-336AE8F78F09
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/UefiCpuPkg/ResetVector/Vtf0/Vtf0.inf:  FILE_GUID                      = 1BA0062E-C779-4582-8566-336AE8F78F09
+7DA04C46-2E86-4A24-B50B-3E6C445D730F
+078F54D4-CC22-4048-9E94-879C214D562F
+1BA0062E-C779-4582-8566-336AE8F78F09
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/BaseTools/Source/Python/Eot/FvImage.py:    VTF_GUID = "1BA0062E-C779-4582-8566-336AE8F78F09"
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/BaseTools/Source/Python/Eot/FvImage.pyc matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/IntelFspPkg/FspSecCore/FspSecCore.inf:  FILE_GUID                      = 1BA0062E-C779-4582-8566-336AE8F78F09
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/IntelFspWrapperPkg/FspWrapperSecCore/FspWrapperSecCore.inf:  FILE_GUID                      = 1BA0062E-C779-4582-8566-336AE8F78F09
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/OvmfPkg/ResetVector/ResetVector.inf:  FILE_GUID                      = 1BA0062E-C779-4582-8566-336AE8F78F09
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:VTF_GUID	BaseTools/Source/Python/Eot/FvImage.py	/^    VTF_GUID = "1BA0062E-C779-4582-8566-336AE8F78F09"$/;"	v	class:Ffs
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/UefiCpuPkg/ResetVector/FixupVtf/Vtf.inf:  FILE_GUID                      = 1BA0062E-C779-4582-8566-336AE8F78F09
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/UefiCpuPkg/ResetVector/Vtf0/Bin/ResetVector.inf:  FILE_GUID                      = 1BA0062E-C779-4582-8566-336AE8F78F09
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/UefiCpuPkg/ResetVector/Vtf0/Vtf0.inf:  FILE_GUID                      = 1BA0062E-C779-4582-8566-336AE8F78F09
+C3E36D09-8294-4B97-A857-D5288FE33E28
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Vlv2TbltDevicePkg/PlatformPkg.fdf:FILE FREEFORM = C3E36D09-8294-4b97-A857-D5288FE33E28 {
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Vlv2TbltDevicePkg/PlatformPkgGcc.fdf:FILE FREEFORM = C3E36D09-8294-4b97-A857-D5288FE33E28 {
+B535ABF6-967D-43F2-B494-A1EB8E21A28E
+A2F436EA-A127-4EF8-957C-8048606FF670
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/SnpDxe/SnpDxe/GNUmakefile:MODULE_GUID = A2f436EA-A127-4EF8-957C-8048606FF670
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/SnpDxe/SnpDxe/GNUmakefile:FILE_GUID = A2f436EA-A127-4EF8-957C-8048606FF670
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/SnpDxe/SnpDxe/OUTPUT/SnpDxe.inf:  FILE_GUID                  = A2f436EA-A127-4EF8-957C-8048606FF670
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/MdeModulePkg/Universal/Network/SnpDxe/SnpDxe.inf:  FILE_GUID                      = A2f436EA-A127-4EF8-957C-8048606FF670
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:FILE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/SnpDxe/SnpDxe/GNUmakefile	/^FILE_GUID = A2f436EA-A127-4EF8-957C-8048606FF670$/;"	m
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:MODULE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/SnpDxe/SnpDxe/GNUmakefile	/^MODULE_GUID = A2f436EA-A127-4EF8-957C-8048606FF670$/;"	m
+A210F973-229D-4F4D-AA37-9895E6C9EABA
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/DpcDxe/DpcDxe/GNUmakefile:MODULE_GUID = A210F973-229D-4f4d-AA37-9895E6C9EABA
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/DpcDxe/DpcDxe/GNUmakefile:FILE_GUID = A210F973-229D-4f4d-AA37-9895E6C9EABA
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/DpcDxe/DpcDxe/OUTPUT/DpcDxe.inf:  FILE_GUID                  = A210F973-229D-4f4d-AA37-9895E6C9EABA
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/MdeModulePkg/Universal/Network/DpcDxe/DpcDxe.inf:  FILE_GUID                 = A210F973-229D-4f4d-AA37-9895E6C9EABA
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:FILE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/DpcDxe/DpcDxe/GNUmakefile	/^FILE_GUID = A210F973-229D-4f4d-AA37-9895E6C9EABA$/;"	m
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:MODULE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/DpcDxe/DpcDxe/GNUmakefile	/^MODULE_GUID = A210F973-229D-4f4d-AA37-9895E6C9EABA$/;"	m
+025BBFC7-E6A9-4B8B-82AD-6815A1AEAF4A
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/MnpDxe/MnpDxe/GNUmakefile:MODULE_GUID = 025BBFC7-E6A9-4b8b-82AD-6815A1AEAF4A
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/MnpDxe/MnpDxe/GNUmakefile:FILE_GUID = 025BBFC7-E6A9-4b8b-82AD-6815A1AEAF4A
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/MnpDxe/MnpDxe/OUTPUT/MnpDxe.inf:  FILE_GUID                  = 025BBFC7-E6A9-4b8b-82AD-6815A1AEAF4A
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/MdeModulePkg/Universal/Network/MnpDxe/MnpDxe.inf:  FILE_GUID                      = 025BBFC7-E6A9-4b8b-82AD-6815A1AEAF4A
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:FILE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/MnpDxe/MnpDxe/GNUmakefile	/^FILE_GUID = 025BBFC7-E6A9-4b8b-82AD-6815A1AEAF4A$/;"	m
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:MODULE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/MnpDxe/MnpDxe/GNUmakefile	/^MODULE_GUID = 025BBFC7-E6A9-4b8b-82AD-6815A1AEAF4A$/;"	m
+529D3F93-E8E9-4E73-B1E1-BDF6A9D50113
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/ArpDxe/ArpDxe/GNUmakefile:MODULE_GUID = 529D3F93-E8E9-4e73-B1E1-BDF6A9D50113
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/ArpDxe/ArpDxe/GNUmakefile:FILE_GUID = 529D3F93-E8E9-4e73-B1E1-BDF6A9D50113
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/ArpDxe/ArpDxe/OUTPUT/ArpDxe.inf:  FILE_GUID                  = 529D3F93-E8E9-4e73-B1E1-BDF6A9D50113
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/MdeModulePkg/Universal/Network/ArpDxe/ArpDxe.inf:  FILE_GUID                      = 529D3F93-E8E9-4e73-B1E1-BDF6A9D50113
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:FILE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/ArpDxe/ArpDxe/GNUmakefile	/^FILE_GUID = 529D3F93-E8E9-4e73-B1E1-BDF6A9D50113$/;"	m
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:MODULE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/ArpDxe/ArpDxe/GNUmakefile	/^MODULE_GUID = 529D3F93-E8E9-4e73-B1E1-BDF6A9D50113$/;"	m
+9FB1A1F3-3B71-4324-B39A-745CBB015FFF
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/Ip4Dxe/Ip4Dxe/GNUmakefile:MODULE_GUID = 9FB1A1F3-3B71-4324-B39A-745CBB015FFF
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/Ip4Dxe/Ip4Dxe/GNUmakefile:FILE_GUID = 9FB1A1F3-3B71-4324-B39A-745CBB015FFF
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/Ip4Dxe/Ip4Dxe/OUTPUT/Ip4Dxe.inf:  FILE_GUID                  = 9FB1A1F3-3B71-4324-B39A-745CBB015FFF
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/MdeModulePkg/Universal/Network/Ip4Dxe/Ip4Dxe.inf:  FILE_GUID                      = 9FB1A1F3-3B71-4324-B39A-745CBB015FFF
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:FILE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/Ip4Dxe/Ip4Dxe/GNUmakefile	/^FILE_GUID = 9FB1A1F3-3B71-4324-B39A-745CBB015FFF$/;"	m
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:MODULE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/Ip4Dxe/Ip4Dxe/GNUmakefile	/^MODULE_GUID = 9FB1A1F3-3B71-4324-B39A-745CBB015FFF$/;"	m
+26841BDE-920A-4E7A-9FBE-637F477143A6
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/Ip4ConfigDxe/Ip4ConfigDxe/GNUmakefile:MODULE_GUID = 26841BDE-920A-4e7a-9FBE-637F477143A6
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/Ip4ConfigDxe/Ip4ConfigDxe/GNUmakefile:FILE_GUID = 26841BDE-920A-4e7a-9FBE-637F477143A6
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/Ip4ConfigDxe/Ip4ConfigDxe/OUTPUT/Ip4ConfigDxe.inf:  FILE_GUID                  = 26841BDE-920A-4e7a-9FBE-637F477143A6
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/MdeModulePkg/Universal/Network/Ip4ConfigDxe/Ip4ConfigDxe.inf:  FILE_GUID                      = 26841BDE-920A-4e7a-9FBE-637F477143A6
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:FILE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/Ip4ConfigDxe/Ip4ConfigDxe/GNUmakefile	/^FILE_GUID = 26841BDE-920A-4e7a-9FBE-637F477143A6$/;"	m
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:MODULE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/Ip4ConfigDxe/Ip4ConfigDxe/GNUmakefile	/^MODULE_GUID = 26841BDE-920A-4e7a-9FBE-637F477143A6$/;"	m
+6D6963AB-906D-4A65-A7CA-BD40E5D6AF2B
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/Udp4Dxe/Udp4Dxe/GNUmakefile:MODULE_GUID = 6d6963ab-906d-4a65-a7ca-bd40e5d6af2b
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/Udp4Dxe/Udp4Dxe/GNUmakefile:FILE_GUID = 6d6963ab-906d-4a65-a7ca-bd40e5d6af2b
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/Udp4Dxe/Udp4Dxe/OUTPUT/Udp4Dxe.inf:  FILE_GUID                  = 6d6963ab-906d-4a65-a7ca-bd40e5d6af2b
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/MdeModulePkg/Universal/Network/Udp4Dxe/Udp4Dxe.inf:  FILE_GUID                      = 6d6963ab-906d-4a65-a7ca-bd40e5d6af2b
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:FILE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/Udp4Dxe/Udp4Dxe/GNUmakefile	/^FILE_GUID = 6d6963ab-906d-4a65-a7ca-bd40e5d6af2b$/;"	m
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:MODULE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/Udp4Dxe/Udp4Dxe/GNUmakefile	/^MODULE_GUID = 6d6963ab-906d-4a65-a7ca-bd40e5d6af2b$/;"	m
+DC3641B8-2FA8-4ED3-BC1F-F9962A03454B
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/Mtftp4Dxe/Mtftp4Dxe/GNUmakefile:MODULE_GUID = DC3641B8-2FA8-4ed3-BC1F-F9962A03454B
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/Mtftp4Dxe/Mtftp4Dxe/GNUmakefile:FILE_GUID = DC3641B8-2FA8-4ed3-BC1F-F9962A03454B
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/Mtftp4Dxe/Mtftp4Dxe/OUTPUT/Mtftp4Dxe.inf:  FILE_GUID                  = DC3641B8-2FA8-4ed3-BC1F-F9962A03454B
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/MdeModulePkg/Universal/Network/Mtftp4Dxe/Mtftp4Dxe.inf:  FILE_GUID                      = DC3641B8-2FA8-4ed3-BC1F-F9962A03454B
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:FILE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/Mtftp4Dxe/Mtftp4Dxe/GNUmakefile	/^FILE_GUID = DC3641B8-2FA8-4ed3-BC1F-F9962A03454B$/;"	m
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:MODULE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/Mtftp4Dxe/Mtftp4Dxe/GNUmakefile	/^MODULE_GUID = DC3641B8-2FA8-4ed3-BC1F-F9962A03454B$/;"	m
+6D6963AB-906D-4A65-A7CA-BD40E5D6AF4D
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/Tcp4Dxe/Tcp4Dxe/GNUmakefile:MODULE_GUID = 6d6963ab-906d-4a65-a7ca-bd40e5d6af4d
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/Tcp4Dxe/Tcp4Dxe/GNUmakefile:FILE_GUID = 6d6963ab-906d-4a65-a7ca-bd40e5d6af4d
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/Tcp4Dxe/Tcp4Dxe/OUTPUT/Tcp4Dxe.inf:  FILE_GUID                  = 6d6963ab-906d-4a65-a7ca-bd40e5d6af4d
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/MdeModulePkg/Universal/Network/Tcp4Dxe/Tcp4Dxe.inf:  FILE_GUID                      = 6d6963ab-906d-4a65-a7ca-bd40e5d6af4d
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:FILE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/Tcp4Dxe/Tcp4Dxe/GNUmakefile	/^FILE_GUID = 6d6963ab-906d-4a65-a7ca-bd40e5d6af4d$/;"	m
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/tags:MODULE_GUID	Build/MdeModule/DEBUG_GCC46/X64/MdeModulePkg/Universal/Network/Tcp4Dxe/Tcp4Dxe/GNUmakefile	/^MODULE_GUID = 6d6963ab-906d-4a65-a7ca-bd40e5d6af4d$/;"	m
+76FDC1AE-A42A-416A-98E3-A2F29146DAC3
+320E0C11-B5FE-4C20-B8A8-815A20700CEF
+F77CB08E-6682-4DF7-82A3-BBBB52704C1F
+F4FA2E94-36CA-455C-B449-9AC710B8E79D
+69B8D0A9-5A57-482F-A85F-8AD986A8DEEF
+F19B5EA5-7CDF-4CB2-9C37-F1BE08AC588B
+D81D1706-BE6F-4734-B2AF-F885FFDCB16D
+0C76E32C-04FD-4267-B2A2-7828341A81B2
+D1A26C1F-ABF5-4806-BB24-68D317E071D5
+2906CC1F-09CA-4457-9A4F-C212C545D3D3
+F0CE024A-617E-45B4-A8E5-0CED8D53771E
+DBC227B1-39CC-46EE-86C4-B9D081ECA75B
+D5B366C7-DB85-455F-B50B-900A694E4C8C
+37347E20-5C3D-47B7-B233-1E353A7E0145
+144880E7-8251-4409-BED6-C7F6340C6345
+D59A538B-69BE-4D37-9827-C8829C3D7D50
+5B0FD7A8-CFE8-4850-B645-0503794241E7
+8C363D8B-392D-47B3-9243-8839794A9FCE
+4C409FE1-B590-44D1-884F-30FA93738C5B
+E364A338-2842-4F57-A7C7-CDC8CFDF6CD7
+0E93C52B-4B73-5C32-86D5-69250A0BA723
+E1628C66-2A2D-4DC5-BD41-B20F3538AAF7
+56AAA799-5273-406E-85D7-05A8DF24BF2C
+D3231048-B7D7-46FC-80F8-2F7B229586C5
+9EBA2D25-BBE3-4AC2-A2C6-C87F44A1278C
+D0CFD67C-E8BE-499E-A6C7-5A90348A170B
+C6C071D0-50FC-4347-A19B-FDA8AB37C39B
+7EC21E57-CE8A-4FDE-B147-0F7C0959CD3F
+32F8943E-76FF-5083-9658-6E5E2C5AFEC4
+4355A5B6-4BF4-55D4-A555-7CA8457DB128
+8CE0E1E9-26DC-4F24-ADBD-6871B8223703
+5BF3654C-7E7D-4FBA-8BC6-2AEBCD6F68EB
+1E82B556-4EB6-479F-955A-78A5FE0C0CB2
+1A10742F-FA80-4B79-9DA6-357058CC397B
+7914C493-F439-4C6C-AB23-7F72150E72D4
+F5D14DB5-2F0C-4611-9DDC-7C182B173A71
+B10ADFA1-9E43-487F-AAF3-A7A9BDEAF4AC
+EA449C41-8236-4B97-9FF9-084E4BA70020
+7EF21E8C-2FC1-4BC3-A84A-73025EAAB896
+1448C340-0202-4711-9C4B-2D063AA6475B
+6B309956-6617-472B-BBC7-2A09E55E3E52
+21A05FD5-DB4A-4CFC-B84B-EB0DBB569934
+D872AEFA-7C5F-4C66-8836-AA57EFF0D9F8
+410C1D0C-656F-4769-8DFB-90F9A0303E9F
+809FBBFD-127A-4249-88BC-FD0E767F4FFD
+6F92E393-03C0-427B-BBEB-4EF807B55BD8
+E6F930E0-BAE5-40E6-98C9-4CD2298278E7
+5B6DAB96-195D-4D24-9727-A7D0E93665C6
+A0AAFF71-35DA-41EE-863F-A24F429E59E4
+1BFC532E-F48A-4EBE-B2FB-2B286D70A6EB
+C0512F00-0181-48C0-8B71-90504B8F991E
+6E72A82C-14A5-4F02-A377-4A423BB1817F
+E8A59290-A2AF-4099-B0AF-323FF9B7AB41
+B4339807-7CAC-49BA-9FB7-6231C622F270
+4308B1F6-60F0-49FE-9E51-3A25992515BF
+03DBB540-E186-4615-8A7F-A427863B4E56
+79C3AC4A-DEC6-48F1-AFFE-E7B95A1CCB32
+C6A957E4-8303-4761-A084-92C0692D90F9
+F38C34DE-9C38-438C-9AF6-69F584F17EC0
+6776572C-FE56-42CA-9B93-3D0960E7583A
+13ECD928-87AB-4460-BBE0-B520F9EB1D32
+F2C1819D-10F5-4223-9236-9B4EBF1B9AE7
+E646C3A8-C7E2-4DC2-A7F2-E32A270B0B26
+8F98528C-F736-4A84-AAA3-376A8E43BF51
+5D8111C9-B4F9-46F3-9DDB-73A41AC696C5
+71F3B066-936A-4C84-9228-23230FD47C79
+BB1A3984-D171-4003-9094-46AF866B45A2
+689CDA29-29A8-42F6-93FC-46BA5F180651
+AA57B619-3288-53E2-A932-012FF336507B
+22073B02-BDC8-5A94-BB11-0C2D54E11B65
+8D19A405-933F-5E49-9997-A151D5977FE1
+D7D12963-724A-58BE-85F5-11E03ACED0FC
+BCCEC19C-D8D8-5096-A3FE-5612095E5E93
+AC42ACB9-5E4F-50DF-8CA1-96A7A4E09775
+67DB94A5-4DCD-5D0C-A5E3-73DB92729B44
+405B6889-84AF-56A6-B4F8-7F341B5574A6
+D478C511-B310-5596-9FB9-EFFE65A83487
+848C0D54-38C0-5DF0-8F89-EC6BD4CCBB6D
+45B8D81D-5122-5AFD-B026-9763A2E42D6E
+AD27668D-1378-5900-8D3D-30D964F10281
+4C726BE8-30AF-5DEC-8349-7F4C050232E1
+C89430FE-BBD1-57B3-8808-6EDB27C75C2E
+9D4409D3-C1D5-5B48-81D8-18C762A6CE13
+67DCD697-7671-570F-A9E9-9AF37B1D1E91
+43544783-B242-56C2-998E-C04CD6D63006
+1CE0134E-6D58-5B7D-96BB-F8F6B733DADB
+9A01B4F6-17A4-55FF-801C-58E57ED9CCEE
+76A51573-5EF4-53BD-96ED-FC605D81135E
+4B9D5907-E49A-56A0-8CD0-6A980FA131B0
+6C5E432D-AF52-5FAD-9EA5-31034895C300
+585C4CAB-FFFA-56BF-BFC0-CFFC188564DC
+AA1A8DC4-8F64-5E39-A15B-57F702EA7810
+3C7D19BA-9C6E-57D3-A6B1-413BC4102E02
+1EBF6DD6-9CF1-5DF7-A477-334FE8FB5EEE
+0862259B-A62F-5D02-9A05-10C1554487E8
+3FDD7DD7-732E-5B2A-A3B2-82B4EDF98E4A
+BE1939A3-F2C6-52F0-A181-8960201E5F77
+F11DB655-2C24-5637-8252-FE5B02D91E55
+224FBFE4-ADB6-4DF2-B835-602182AEEF20
+FC788727-C2D0-469C-BD03-5AEA03323C67
+6E66DAE5-4108-40B5-89A9-C6103F0639EC
+3BEB6B06-09CE-4386-8884-F323ADD04F1F
+022218B8-FE5E-4EBC-BC96-74058A4E7E83
+AD0D149F-BA67-4E0B-A6A2-4E8853673EA5
+290B026F-6905-4612-BA0F-F635DDE35285
+D9F11A26-249C-46AC-9CB5-E4F77E035C90
+FA4585F1-303B-4725-80E4-BB42BBD0249C
+681A0BB1-0CC1-5D66-BAC0-1C3AE85924E1
+63F22C5E-D696-5B1A-BF60-5AB1FAE27012
+5CFC956D-41AD-51DA-9B48-CADC013E8A4B
+4B359EC7-17A3-5243-891F-1B1B6E4FAE7F
+755874C2-FE55-5D17-8676-B567E109268D
+A830E58D-E0FC-51C9-967A-8D4762F02467
+8A1B0E00-C1BD-55A9-9973-D1BFBA1D41B1
+A1D6F2D1-0C09-5FAB-8B07-4025CDBDAB42
+3DDB79F1-C119-52F7-BEDB-3939C22BAC9D
+04DDC987-B098-5F37-BEAE-1DC7623DF106
+8CACE6D1-B2E6-51BE-88CC-85581E6C6A2C
+294C0365-B5A1-53F3-A8D1-EB9435C89507
+A4B51628-3633-5B2E-92CD-6E17746D4248
+6E1338C1-5F05-544C-8AD0-E817196D5C31
+AF3B4463-526C-5D03-B938-FA183DF3542D
+ECF69A07-7712-5EE6-9736-4BC5EBB0280F
+D93523E1-8E3D-5867-BF3B-FCE75CF8CFE4
+23D56AD2-428B-54B5-9A84-844D95C41438
+4F6DF9C1-CBCA-5994-9CE8-58D417B9EB3C
+BAE1EA36-D0DC-5F6F-9F1A-FB05E2500F82
+406452D6-3AEA-56FB-AD75-7FAC9FD1CF14
+68B9F70B-9657-5F85-8971-40C753ED1A66
+03B1EF6E-CD3E-5921-8D3E-2119BF548959
+09C43291-9447-53A6-B3F8-8D35193C9424
+F8B085DA-4A73-50BB-AD13-0E1C997E8448
+297638DB-1BDC-57CB-96C4-8C6B9D78B22D
+0E4BEBC8-4765-59A3-960D-D8AEBC38A32C
+DD11AEF1-41B8-5DE2-9661-628F81E475DB
+0C160584-AE83-5AB0-B94C-54EA808CF0E0
+B8F161F4-4172-5710-9894-5964ED4C0F9F
+6ECEFFFD-614D-452E-A81D-25E56B0DEF98
+23D1280D-43F0-4713-90B2-0E5E4221AF4C
+53531469-558E-4AF1-803A-F966F27C573B
+3BBCB209-26C8-4BA9-AD25-B95B45A04D26
+ED8DCDD5-D037-4B1F-98DD-BDFDAD4DD7DD
+637E0BA6-C5BB-41B7-A23B-3A65CFC3E9DB
+7A627E16-679D-4814-8F82-EEAF3881F098
+386A4B1C-DDE4-4FC5-9B03-9C928FCC6FD2
+9759BD61-F11E-4FEE-9004-1E8C88E72223
+8C542316-A1E5-4001-89E7-15EDFF12577D
+BA87DD62-AB60-46DE-8FD8-023510D52D11
+E1CF12E4-762B-4576-A158-9B255A828AA7
+FB547927-DAEC-4884-A12E-94109FEDF18C
+C9E057D7-3B6D-475C-B8C2-7C955D2F58B3
+5DF9946D-8170-4FB5-854F-A98865F9878F
+563C75D2-045D-43FD-A7C0-A472B0AD0255
+B7E329EC-AD60-4D61-86E3-01A7904E223D
+EA5D72C1-4455-4FF8-91A1-4352DC1EE112
+8977B212-0A43-4048-993B-B39AC7B0FE21
+704EA695-F373-42D4-BF1B-44BB7F60C295
+0C5FCE90-1C03-4ED2-9EFE-B1D02E72B3B0
+3399DA41-CE44-4FDD-8D32-E578381FEBE0
+DA9F192F-BAE4-4F20-8C6C-55C1ACDE80B0
+8D4A8276-1994-4E82-983A-A71753617797
+94796E10-7CF6-4A20-A3A0-4CF1A8341A16
+21ADC483-021F-4F3B-8DCE-613CC981A269
+47FD99EB-C1E6-4F77-A31A-9F7FB4A8E7DE
+A6077307-B297-4051-9AC0-A0DC8147E601
+36B37F21-9D04-44B5-95EC-4DE4CB2FE6FB
+C19783FD-E21E-451A-830E-C7CB23DB52CC
+A023D3F6-F297-4307-8552-E6572B30B520
+F866AD0F-1FBB-4D52-813D-7EB95E2F19D4
+C54F4B67-E527-4379-BF61-193C7A68C661
+97E35ADE-233D-4F18-828A-8A0524EBEDDE
+0284F846-2CB7-4960-8DB2-47AA71513AD5
+FB15CB3F-D373-45A1-B9B1-0079D4E9D6B2
+9DC0DDAA-56BD-447A-95CC-5180433110F9
+6D5C61C2-7694-4775-9F03-ED1E80DEC318
+180636A5-871B-496D-B8F3-E83EF196D100
+2E5CFC2C-9CC0-4D78-BEAF-D84CBF20D1C8
+B703C820-4D3D-4658-8EED-5B2F9DE54711
+2A9D5E7F-A43A-4FC7-A25E-6E28D412FA6F
+8962C28B-0DFE-4739-A73F-092D374A7A13
+BA658945-DEE1-42B3-9FA4-BB6B22FB03E4
+795231E2-A205-4B8D-8C8D-7353B713DF7D
+04F75442-A593-4281-BD4B-095935B7D2F8
+3FFFB2AA-4692-42E8-865E-7E111986FABE
+16A4ADD0-EF11-4C86-B159-88A2A8C4501C
+81E67795-D8A3-43B2-8B5F-E0326F76AB91
+73F70B77-943B-4090-99E8-4F8E4D824A43
+63FA7900-6DD2-4BB3-9976-870FE27A53C2
+728CAE6C-1FFC-449B-8681-BB2A621E0022
+2F08C089-2073-4BD9-9E7E-308A18327B53
+88C61F0D-DFA9-4087-8687-626A8B010E0C
+9D60F495-DBF2-4B06-AFCA-F62C1C89647F
+133D55B5-8852-57AC-A842-F9EEBF840C99
+3DC14303-871E-5DF4-ABEA-D9A9C940F4C6
+02543A29-E732-5B08-88F0-01F0F4321097
+B35A902A-875E-5427-9AA6-76F53523D30A
+CCA3DBCA-BEB3-5403-A7F3-DB8D469ED116
+E17A548C-4768-5122-AE4C-9EFAD8B049B7
+A1AA13B6-9424-5591-8A36-AD7C8FD4EC6D
+855B2D5C-D063-5047-861F-53BE6D3C8163
+D023E875-B503-55B0-B569-AD1254C0475C
+07A14517-3040-588B-80A2-559F88DA6CA8
+3F3F9D11-E4D4-52F2-B955-C18AA0770755
+DA3A0494-71D4-56C9-96BD-56342DEB87E6
+72438FD4-2788-5D9F-BE6C-FBA20238E86C
+4C087EDF-3268-5000-A610-EE0707A73C20
+282F0885-0F80-503D-A734-037F2EC4FB9F
+F5947B08-E1FE-50F5-AF49-4A81CAD46E6F
+AA2B655E-743C-5B32-B5F9-B27B38E72FF6
+C559D1A0-AC63-591D-859E-AAE15396E63C
+B955FF4C-FA7C-5E0D-A9AC-044C08A3B8C4
+BDD705D1-8AD0-5DEC-A161-4E4392688165
+9ED4237E-9558-5E03-8186-B2C4134D9C65
+C070B3C6-24C0-5AE1-9DA6-CEFAA6AB3D56
+71CFD111-2C06-59B4-9649-C79B0BA9425A
+8F84701C-A85C-5DC3-BF1D-B3713D0836B0
+AB1E6245-8DE5-5E46-A231-18897DD46119
+D2ED9775-298E-5BED-96B8-B5828205C305
+C0F03E35-6149-5739-A84C-70C571584E9F
+13340FE5-7786-54FC-A329-DFE378FD295E
+F05B0AFF-9667-5F71-8342-B49E6CDB218B
+EFDA6FD8-1F94-5C68-AAA7-7AF38C5350CE
+0E97CF89-386A-5E99-8AAA-A6D998A1012C
+8B33D136-356F-5AA8-BE35-79D1EB078C0E
+A6853C78-4C97-5145-8AF5-C6C97652F241
+8A9C8ACB-BEFB-57C0-B560-6E4031AF7BEC
+C7456A5C-452D-5C1C-8CBE-ED22F5650587
+C5AC6640-970D-50FB-B296-9D048BFC7E80
+231B1EF2-75F6-548A-81DA-1BF20EA09D3A
+A335C16B-D9E0-58BE-BE1E-CD265FAE58EC
+D8EE215B-DEA8-5190-B8E5-3E18B9D02324
+B6F77194-30E4-59E8-9604-5EC74362AC8B
+250CCBE6-7B2B-595C-9632-BAAF72659F2D
+DC8BF57B-887E-52F2-BD85-A41E08661C2F
+7EBB4C07-EA79-50B9-B13F-E6FDBCCAFED1
+58489E99-EC98-5853-BA7B-832EBB4927C2
+9B6BF1EB-421A-5D3D-BD7E-FDE101720059
+A72C786A-063D-5B3B-9F8C-CDA7BD09B10E
+4FA44171-9AD2-53EB-A496-FDF3852B3301
+2073B84F-9090-5152-8521-08BD45F1DD82
+D641DECF-DEC6-56D1-A71C-37FF479E9516
+642BE5EF-FC94-54B7-ABA6-A03481293349
+3EF01EE8-24B8-5024-B734-8766129A1321
+BB1DD5CF-65AA-5BB6-A6C9-DFB596D86F8F
+CA1340FA-CD1A-547B-9F0F-358CAF905E29
+84B472B1-9ABC-5EA3-9F0C-449E6E3F54C4
+8E81A691-1F08-5B46-99D8-E1EC662E33D9
+AC5C4905-899F-55C0-B9B8-019712DDC40D
+6EC1E764-9D1C-5EEA-99EB-9CEEF03CB64E
+871214E8-67DD-5786-995F-AEBA1F19A1F2
+9D9E666F-E37E-5888-AF90-02D8E2ED8768
+AAF7EFC0-374E-54FF-8D0D-D7BC9964D67E
+E8754E32-1B46-570C-8072-E463F109114E
+ABB47BD8-230E-591F-8329-679A62AA7131
+704CA678-40AC-5820-A16A-0BD9E618FD80
+34F0B761-CAC7-504F-853D-70D31ED23BFF
+24636074-C0F2-55E2-B7F6-E03651105611
+16A308F7-21A9-5853-A34A-AF39DB7C61B2
+AAC5D473-5EDC-5C1F-A53D-B0C4D32F23B2
+EE7ADE19-1481-5DC7-9E35-56F5A13AE1C2
+03A33A02-D093-5BF2-8523-0783DC766641
+39C6F9A7-A100-516D-852D-8ECC7AE18BB1
+B29FAD21-322A-5152-BF26-544E90C9C384
+2A082BF3-18E1-5112-8D99-D6361002BB15
+1B4764E0-31EB-59F6-BDFC-BBD5EF313DD9
+D4CD83B6-976C-5285-85EF-01A40475C659
+71C883F9-D78B-52BD-9FB5-525CD7FACDBC
+09C51700-3564-5A9B-A049-C64DFE4B83EC
+B8E2F3BE-DEAB-5761-9C02-0A40708A126A
+D8DF300F-5016-558E-9A13-0A73517C26B2
+DB1E673D-CB51-50DF-BEFD-6F86E3FDAA40
+8288685E-2A56-569D-B80E-6DEA5CB9AD4D
+1C993333-C3BC-5EFB-9EC7-D3F719FF0DE9
+DC68F49F-E160-524E-9BB0-26503094AFF4
+A0942C01-4104-533F-A45F-D7B696998888
+C23BE1F8-8A11-5978-97F0-655E8936CF75
+0DC9D31F-CD34-55A2-9E45-16F944CBC6EE
+8E415618-85E2-53C3-9D64-A55483148077
+FF91193F-91A4-5909-AF7C-DF1031910F5E
+B6E6C494-994B-5942-8A04-928CE19FF95C
+6931D4D5-09A3-5F15-AF70-367E54819C25
+63127B54-937C-5ECD-B57B-2BC97C27D27D
+6506E932-93AA-53A5-BAEF-4F7320BABD2B
+1A1CB434-746B-51F3-BFE2-FAF5546533E4
+DD5F14FE-10D7-511A-9705-6AE0821567DB
+AD13BEC8-F8C0-5FEB-BC86-0CBB1812F26C
+AC37F31D-E57D-5B1D-999B-84D9CAA5B9DA
+5142984D-BDD2-527E-BCFF-351BE556FC2F
+31F68A3B-CF63-5C47-BCB3-05B37F62A6D4
+D0BA48B6-B533-551A-95BB-B6282FA934E7
+63E1AFB2-DAD7-5B26-97FA-590BF1579E44
+D7836594-2643-5A0E-8C21-D1FDDD67CBDB
+1A65EF18-C931-5C27-B8CA-7EA025A83736
+80AD3907-2BF9-540C-9C29-EB8071479A3A
+8EA10B89-8F5F-5A77-A1AC-A02838B99142
+E1A7CC5E-B14B-5CBC-80F0-E506DEE1C4B7
+E5A5B23C-08A1-54CF-84A1-7B2AA6B65056
+D8487BB7-E24A-574F-92BA-674739A64125
+1A6BEDFA-74F2-53E9-B597-618AA022CBE2
+8C98B757-AF36-5D9F-8CAF-D892D75FD92C
+EB9218FE-AFCF-5572-B1F8-481278C5ECD5
+393D500A-A0C4-52BA-83F1-14679E1FE0FC
+37F55686-7DD0-5AA4-8E5A-70DF52CD1CC1
+26928BB1-4639-52C7-B0CA-0C57A49EE4C1
+823D20B1-C8C5-59E6-BA60-3712342D1087
+582AD4D6-5EC6-5FEB-9414-4293755882F5
+0F0A1BB2-A02A-5D24-95EF-182ADF1DBFAA
+B5C102CC-42FC-5DF1-B554-FEAD2C130557
+98FD820B-D87A-5D63-9F26-2DA0E807DEBE
+05E37B32-7289-5FF3-8235-611013E6D7B9
+35B9054B-5012-5B14-892E-6DC0AB02D877
+F7CE3D3F-E652-546F-9EC1-7EA69114A675
+20092682-9DD2-5990-BB75-B2FC814FA082
+EE448439-6647-5880-BC58-315C248A3CD4
+3583F767-9C53-59FB-97FE-CBF2BEE5053C
+5EC3F28A-3793-566A-8878-1D52F90C3C8F
+CAE780AE-2FA0-5F01-9A4F-D5AE5EF423CD
+18DB9B1C-8ADA-588F-8373-F84BC490E406
+111B676A-D782-582B-B3C6-EF392C2FFDB0
+62BCEBE0-E91B-5FF2-956A-A4A838B4455A
+D651A97B-3784-5276-8647-FED28B4B137C
+A3A6F3E5-135F-5908-8EB8-A3DE52544DD8
+94FD0093-2C64-52F7-A40F-21B80705D138
+5D12D2E2-EA71-551A-A85D-30A20E51D90A
+25BC4B39-0C51-574F-8C2C-340E9BE33AB1
+D96FE431-792E-5B89-95FE-D08B8028F701
+CF15A814-BC3E-5764-A211-D770EA4C62DA
+23EC7D68-A382-59D4-B0FE-ED57903792A6
+CA162966-39AA-503A-9EA4-6E69532D68BC
+67A90B1D-8253-57D6-B94A-67068FE3DB5E
+F34EBDBF-D77B-5091-A6A2-3BF2A7299FF2
+7EBD5379-8C85-5CA4-A39D-3C751DF44027
+3A34BED2-CA0B-5EF9-8244-878DE0DB206A
+7DCC3AB2-A3F2-5571-837D-2D448822BF18
+691391B4-5EEA-5F50-8FDB-1DFFD7DBC35B
+BF2D0B24-308D-5B90-B05E-E86E32965BDD
+07F7EE09-54C2-5491-8733-7382123A9CDC
+E97D5C80-DAD9-5FEF-88D8-495D659DD677
+E6D0DFCD-08BB-5075-BBAE-97DBF4BED965
+351F45D0-2BD5-5B10-8784-6866E1823B1D
+AFB90434-E5F1-533B-9A10-F8ED416AB78D
+6E8CEA0E-09FF-5EB1-B5B2-D0B627E46CB0
+94193D70-ECA9-5AA6-B616-B0E771FACA90
+949146A3-A345-5DC1-81DE-875A3586D654
+8E33BCC8-0B9D-5A55-AD68-45F043CF7280
+24348D2F-F209-5E66-B92D-8602C30F0D12
+3F17C79C-ED9B-5EA9-ADF3-3A4D29741F15
+04167D17-E78F-5EEA-A884-BF3FF209191D
+1208F933-FABA-5C37-9FB0-0B596003C47D
+8667F3CD-632E-5213-94F5-5E45D33F04EA
+73A660C8-356A-54C4-AA14-5CB27004F2D7
+C3E36D09-8294-4B97-A857-D5288FE33E28
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Vlv2TbltDevicePkg/PlatformPkg.fdf:FILE FREEFORM = C3E36D09-8294-4b97-A857-D5288FE33E28 {
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Vlv2TbltDevicePkg/PlatformPkgGcc.fdf:FILE FREEFORM = C3E36D09-8294-4b97-A857-D5288FE33E28 {
+B535ABF6-967D-43F2-B494-A1EB8E21A28E
+5BDDE605-B107-419E-9510-AA3C434EBBE4
+F122A15C-C10B-4D54-8F48-60F4F06DD1AD
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/IntelFrameworkModuleAll/DEBUG_GCC46/X64/IntelFrameworkModulePkg/Csm/LegacyBiosDxe/LegacyBiosDxe/GNUmakefile:MODULE_GUID = F122A15C-C10B-4d54-8F48-60F4F06DD1AD
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/IntelFrameworkModuleAll/DEBUG_GCC46/X64/IntelFrameworkModulePkg/Csm/LegacyBiosDxe/LegacyBiosDxe/GNUmakefile:FILE_GUID = F122A15C-C10B-4d54-8F48-60F4F06DD1AD
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Build/IntelFrameworkModuleAll/DEBUG_GCC46/X64/IntelFrameworkModulePkg/Csm/LegacyBiosDxe/LegacyBiosDxe/OUTPUT/LegacyBiosDxe.inf:  FILE_GUID                  = F122A15C-C10B-4d54-8F48-60F4F06DD1AD
+Binary file /Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/Conf/.cache/build.db matches
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/IntelFrameworkModulePkg/Csm/LegacyBiosDxe/LegacyBiosDxe.inf:  FILE_GUID                      = F122A15C-C10B-4d54-8F48-60F4F06DD1AD
+29CF55F8-B675-4F5D-8F2F-B87A3ECFD063
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/DuetPkg/BiosVideoThunkDxe/BiosVideo.inf:  FILE_GUID                      = 29CF55F8-B675-4f5d-8F2F-B87A3ECFD063
+1547B4F3-3E8A-4FEF-81C8-328ED647AB1A
+/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2/OvmfPkg/Csm/Csm16/Csm16.inf:  FILE_GUID                      = 1547B4F3-3E8A-4FEF-81C8-328ED647AB1A
+DF9A9591-B646-4621-AF0D-18143A73289F
+

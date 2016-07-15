@@ -14,7 +14,10 @@ for line in lines :
 #		count = count + 1
 		GUID = (line.split(":")[1]).strip()
 		splitGUID = GUID.split("-")
-		SearchGUID = "{ "
+		print( GUID )
+		subprocess.call(["grep", "-ri", GUID, "/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2"])
+
+'''		SearchGUID = "{ "
 		SearchGUID += "0x" + splitGUID[0] + ", "
 		SearchGUID += "0x" + splitGUID[1] + ", "
 		SearchGUID += "0x" + splitGUID[2] + ", "
@@ -27,8 +30,7 @@ for line in lines :
 		SearchGUID += "0x" + splitGUID[4][8:10] + ", "
 		SearchGUID += "0x" + splitGUID[4][10:12] + " }"
 		print( GUID + " : " + SearchGUID )
-
-		subprocess.call(["grep", "-ri", SearchGUID, "/Users/jjh/Desktop/JJH/Mac_Security_S3/EDK2/edk2"])
+'''
 #print(count)
 
 #C3E36D09-8294-4B97-A857-D5288FE33E28

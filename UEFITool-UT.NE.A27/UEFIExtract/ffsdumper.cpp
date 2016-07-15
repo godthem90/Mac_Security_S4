@@ -44,7 +44,7 @@ STATUS FfsDumper::recursiveDump(const QModelIndex & index, const QString & path,
         guidToQString(*(const EFI_GUID*)model->header(index).constData()) == guid ||
         guidToQString(*(const EFI_GUID*)model->header(model->findParentOfType(index, Types::File)).constData()) == guid) {
 
-        /*if (dir.cd(path))
+        if (dir.cd(path))
             return ERR_DIR_ALREADY_EXIST;
 
         if (!dir.mkpath(path))
@@ -73,16 +73,13 @@ STATUS FfsDumper::recursiveDump(const QModelIndex & index, const QString & path,
             .arg(itemTypeToQString(model->type(index)))
             .arg(itemSubtypeToQString(model->type(index), model->subtype(index)))
             .arg(model->text(index).isEmpty() ? QObject::tr("") : QObject::tr("Text: %1\n").arg(model->text(index)))
-            .arg(model->info(index));*/
-        QString info = QObject::tr("%4")
             .arg(model->info(index));
-		//std::cout << info.toStdString() << "\n";
-        /*file.setFileName(QObject::tr("%1/info.txt").arg(path));
+        file.setFileName(QObject::tr("%1/info.txt").arg(path));
         if (!file.open(QFile::Text | QFile::WriteOnly))
             return ERR_FILE_OPEN;
 
         file.write(info.toLatin1());
-        file.close();*/
+        file.close();
         dumped = true;
     }
 
