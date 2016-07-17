@@ -4,21 +4,17 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-A	omf.h	/^            A:3;                       \/\/ Alignment$/;"	m	struct:OMF_SAttrib::__anon14
 ASM_SEGMENT_ABSOLUTE	disasm.h	/^#define ASM_SEGMENT_ABSOLUTE /;"	d
 ASM_SEGMENT_ERROR	disasm.h	/^#define ASM_SEGMENT_ERROR /;"	d
 ASM_SEGMENT_FLAT	disasm.h	/^#define ASM_SEGMENT_FLAT /;"	d
 ASM_SEGMENT_IMGREL	disasm.h	/^#define ASM_SEGMENT_IMGREL /;"	d
 ASM_SEGMENT_NOTHING	disasm.h	/^#define ASM_SEGMENT_NOTHING /;"	d
 ASM_SEGMENT_UNKNOWN	disasm.h	/^#define ASM_SEGMENT_UNKNOWN /;"	d
-Action	cmdline.h	/^   int    Action;                          \/\/ Action to take on symbol$/;"	m	struct:SSymbolChange
-AddObjectToLibrary	cmdline.cpp	/^void CCommandLineInterpreter::AddObjectToLibrary(char * filename, char * membername) {$/;"	f	class:CCommandLineInterpreter
 AddRelocation	disasm1.cpp	/^void CDisassembler::AddRelocation($/;"	f	class:CDisassembler
 AddSection	disasm1.cpp	/^void CDisassembler::AddSection($/;"	f	class:CDisassembler
 AddSectionGroup	disasm1.cpp	/^int32 CDisassembler::AddSectionGroup(const char * Name, int32 MemberSegment) {$/;"	f	class:CDisassembler
 AddSymbol	disasm1.cpp	/^uint32 CDisassembler::AddSymbol($/;"	f	class:CDisassembler
 AddSymbol	disasm1.cpp	/^uint32 CSymbolTable::AddSymbol(int32 Section, uint32 Offset, uint32 Size, $/;"	f	class:CSymbolTable
-AddSymbol	macho.cpp	/^void MacSymbolTableBuilder<TMAC_nlist, MInt>::AddSymbol(int OldIndex, const char * name, int type, int Desc, int section, MInt value) {$/;"	f	class:MacSymbolTableBuilder
 Addend	disasm.h	/^   int32   Addend;                               \/\/ Addend to add to target address, $/;"	m	struct:SARelocation
 Addr	coff.h	/^  uint32 Addr;     \/\/ section-relative address of code that corresponds to line$/;"	m	union:SCOFF_LineNumbers::__anon3
 AddressField	disasm.h	/^   uint32 AddressField;                          \/\/ Beginning of address\/displacement field$/;"	m	struct:SOpcodeProp
@@ -30,9 +26,6 @@ AddressSize	disasm.h	/^   uint32 AddressSize;                           \/\/ Add
 AddressTableEntries	coff.h	/^   uint32 AddressTableEntries;         \/\/ Number of entries in export address table$/;"	m	struct:SCOFF_ExportDirectory
 Align	containers.cpp	/^void CMemoryBuffer::Align(uint32 a) {$/;"	f	class:CMemoryBuffer
 Align	disasm.h	/^   uint32  Align;                                \/\/ Alignment = 1 << Align$/;"	m	struct:SASection
-Align	omf.h	/^   uint32 Align;                       \/\/ Alignment = 1 << Align$/;"	m	struct:SOMFSegment
-Align	omf.h	/^   uint32 Align;                       \/\/ Alignment = 2^Align$/;"	m	struct:SOMFSegmentList
-AlignBy	library.h	/^    uint32 AlignBy;                     \/\/ Member alignment$/;"	m	class:CLibrary
 AllowedPrefixes	disasm.h	/^   uint32 AllowedPrefixes;             \/\/ prefixes allowed for this opcode$/;"	m	struct:SOpcodeDef
 Architecture	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY Architecture;   \/\/ 0$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 Architecture	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY Architecture;   \/\/ 0$/;"	m	struct:SCOFF_OptionalHeader::__anon2
@@ -45,34 +38,22 @@ AsmWarningTexts2	disasm2.cpp	/^SIntTxt AsmWarningTexts2[] = {$/;"	v
 AssignName	disasm1.cpp	/^void CSymbolTable::AssignName(uint32 symi, const char *name) {$/;"	f	class:CSymbolTable
 AssignNames	disasm1.cpp	/^void CSymbolTable::AssignNames() {$/;"	f	class:CSymbolTable
 Assumes	disasm.h	/^   int32   Assumes[6];                           \/\/ Assumed value of segment register es, cs, ss, ds, fs, gs. See CDisassembler::WriteSectionName for values$/;"	m	class:CDisassembler
-B	omf.h	/^            B:1,                       \/\/ Big$/;"	m	struct:OMF_SAttrib::__anon14
 BaseOfCode	coff.h	/^      uint32 BaseOfCode;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 BaseOfCode	coff.h	/^      uint32 BaseOfCode;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
 BaseOfData	coff.h	/^      uint32 BaseOfData;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 BaseReg	disasm.h	/^   uint32 BaseReg;                               \/\/ Base  register + 1. (0 if none)$/;"	m	struct:SOpcodeProp
 BaseRelocationTable	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY BaseRelocationTable;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 BaseRelocationTable	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY BaseRelocationTable;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
-BlockD	library.h	/^    uint16 BlockD;                      \/\/ Block step size in search$/;"	m	class:COMFHashTable
 BlockSize	coff.h	/^   uint32 BlockSize;                   \/\/ Size of SCOFF_BaseRelocationBlock plus all SCOFF_BaseRelocation$/;"	m	struct:SCOFF_BaseRelocationBlock
 BoundImportTable	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY BoundImportTable;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 BoundImportTable	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY BoundImportTable;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
-BucketD	library.h	/^    uint16 BucketD;                     \/\/ Bucket step size in search$/;"	m	class:COMFHashTable
-Buckets	library.h	/^        uint8 Buckets[OMFNumBuckets];    \/\/ Indicators for each bucket$/;"	m	struct:SOMFHashBlock::__anon13
 Buf	containers.h	/^   int8 * Buf() {return buffer;};                \/\/ Access to buffer$/;"	f	class:CMemoryBuffer
-BufOffset	omf.h	/^   uint32 BufOffset;                   \/\/ Offset of raw data into SegmentData buffer$/;"	m	struct:SOMFSegment
 Buffer	disasm.h	/^   uint8 * Buffer;                               \/\/ Point to start of binary data$/;"	m	class:CDisassembler
 BufferSize	containers.h	/^   uint32 BufferSize;                            \/\/ Size of allocated buffer ( > DataSize)$/;"	m	class:CMemoryBuffer
-C	omf.h	/^            C:3,                       \/\/ Combination (private, public, stack, common)$/;"	m	struct:OMF_SAttrib::__anon14
 CArrayBuf	containers.h	/^   CArrayBuf() {                                 \/\/ Default constructor$/;"	f	class:CArrayBuf
 CArrayBuf	containers.h	/^class CArrayBuf {$/;"	c
 CCOF2ASM	cof2asm.cpp	/^CCOF2ASM::CCOF2ASM () {$/;"	f	class:CCOF2ASM
 CCOF2ASM	converters.h	/^class CCOF2ASM : public CCOFF {$/;"	c
-CCOF2COF	cof2cof.cpp	/^CCOF2COF::CCOF2COF () {$/;"	f	class:CCOF2COF
-CCOF2COF	converters.h	/^class CCOF2COF : public CCOFF {$/;"	c
-CCOF2ELF	cof2elf.cpp	/^CCOF2ELF<ELFSTRUCTURES>::CCOF2ELF () {$/;"	f	class:CCOF2ELF
-CCOF2ELF	converters.h	/^class CCOF2ELF : public CCOFF {$/;"	c
-CCOF2OMF	cof2omf.cpp	/^CCOF2OMF::CCOF2OMF () {$/;"	f	class:CCOF2OMF
-CCOF2OMF	converters.h	/^class CCOF2OMF : public CCOFF {$/;"	c
 CCOFF	coff.cpp	/^CCOFF::CCOFF() {$/;"	f	class:CCOFF
 CCOFF	converters.h	/^class CCOFF : public CFileBuffer {$/;"	c
 CCommandLineInterpreter	cmdline.cpp	/^CCommandLineInterpreter::CCommandLineInterpreter() {$/;"	f	class:CCommandLineInterpreter
@@ -81,16 +62,6 @@ CConverter	converters.h	/^class CConverter : public CFileBuffer {$/;"	c
 CConverter	main.cpp	/^CConverter::CConverter() {$/;"	f	class:CConverter
 CDisassembler	disasm.h	/^class CDisassembler {$/;"	c
 CDisassembler	disasm1.cpp	/^CDisassembler::CDisassembler() {$/;"	f	class:CDisassembler
-CELF	converters.h	/^class CELF : public CFileBuffer {$/;"	c
-CELF	elf.cpp	/^CELF<ELFSTRUCTURES>::CELF() {$/;"	f	class:CELF
-CELF2ASM	converters.h	/^class CELF2ASM : public CELF<ELFSTRUCTURES> {$/;"	c
-CELF2ASM	elf2asm.cpp	/^CELF2ASM<ELFSTRUCTURES>::CELF2ASM() {$/;"	f	class:CELF2ASM
-CELF2COF	converters.h	/^class CELF2COF : public CELF<ELFSTRUCTURES> {$/;"	c
-CELF2COF	elf2cof.cpp	/^CELF2COF<ELFSTRUCTURES>::CELF2COF() {$/;"	f	class:CELF2COF
-CELF2ELF	converters.h	/^class CELF2ELF : public CELF<ELFSTRUCTURES> {$/;"	c
-CELF2ELF	elf2elf.cpp	/^CELF2ELF<ELFSTRUCTURES>::CELF2ELF() {$/;"	f	class:CELF2ELF
-CELF2MAC	converters.h	/^class CELF2MAC : public CELF<ELFSTRUCTURES> {$/;"	c
-CELF2MAC	elf2mac.cpp	/^   CELF2MAC<ELFSTRUCTURES,MACSTRUCTURES>::CELF2MAC() {$/;"	f	class:CELF2MAC
 CErrorReporter	error.cpp	/^CErrorReporter::CErrorReporter() {$/;"	f	class:CErrorReporter
 CErrorReporter	error.h	/^class CErrorReporter {$/;"	c
 CFileBuffer	containers.cpp	/^CFileBuffer::CFileBuffer() : CMemoryBuffer() {  $/;"	f	class:CFileBuffer
@@ -98,62 +69,24 @@ CFileBuffer	containers.cpp	/^CFileBuffer::CFileBuffer(char const * filename) : C
 CFileBuffer	containers.h	/^class CFileBuffer : public CMemoryBuffer {$/;"	c
 CLRRuntimeHeader	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY CLRRuntimeHeader;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 CLRRuntimeHeader	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY CLRRuntimeHeader;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
-CLibrary	library.cpp	/^CLibrary::CLibrary() {$/;"	f	class:CLibrary
-CLibrary	library.h	/^class CLibrary : public CFileBuffer {$/;"	c
 CMAC2ASM	converters.h	/^class CMAC2ASM : public CMACHO<MACSTRUCTURES> {$/;"	c
 CMAC2ASM	mac2asm.cpp	/^CMAC2ASM<MACSTRUCTURES>::CMAC2ASM() {$/;"	f	class:CMAC2ASM
-CMAC2ELF	converters.h	/^class CMAC2ELF : public CMACHO<MACSTRUCTURES> {$/;"	c
-CMAC2ELF	mac2elf.cpp	/^CMAC2ELF<MACSTRUCTURES,ELFSTRUCTURES>::CMAC2ELF () {$/;"	f	class:CMAC2ELF
-CMAC2MAC	converters.h	/^class CMAC2MAC : public CMACHO<MACSTRUCTURES> {$/;"	c
-CMAC2MAC	mac2mac.cpp	/^CMAC2MAC<MACSTRUCTURES>::CMAC2MAC() {$/;"	f	class:CMAC2MAC
 CMACHO	converters.h	/^class CMACHO : public CFileBuffer {$/;"	c
 CMACHO	macho.cpp	/^CMACHO<MACSTRUCTURES>::CMACHO() {$/;"	f	class:CMACHO
-CMACUNIV	converters.h	/^class CMACUNIV : public CFileBuffer {$/;"	c
-CMACUNIV	macho.cpp	/^CMACUNIV::CMACUNIV() {$/;"	f	class:CMACUNIV
 CMDLINE_H	cmdline.h	/^#define CMDLINE_H$/;"	d
-CMDL_DEBUG_DEFAULT	cmdline.h	/^#define CMDL_DEBUG_DEFAULT /;"	d
-CMDL_DEBUG_LINNUM	cmdline.h	/^#define CMDL_DEBUG_LINNUM /;"	d
-CMDL_DEBUG_PRESERVE	cmdline.h	/^#define CMDL_DEBUG_PRESERVE /;"	d
-CMDL_DEBUG_STRIP	cmdline.h	/^#define CMDL_DEBUG_STRIP /;"	d
-CMDL_DEBUG_SYMBOLS	cmdline.h	/^#define CMDL_DEBUG_SYMBOLS /;"	d
-CMDL_EXCEPTION_DEFAULT	cmdline.h	/^#define CMDL_EXCEPTION_DEFAULT /;"	d
-CMDL_EXCEPTION_PRESERVE	cmdline.h	/^#define CMDL_EXCEPTION_PRESERVE /;"	d
-CMDL_EXCEPTION_STRIP	cmdline.h	/^#define CMDL_EXCEPTION_STRIP /;"	d
 CMDL_FILE_INPUT	cmdline.h	/^#define CMDL_FILE_INPUT /;"	d
 CMDL_FILE_IN_IF_EXISTS	cmdline.h	/^#define CMDL_FILE_IN_IF_EXISTS /;"	d
 CMDL_FILE_IN_OUT_SAME	cmdline.h	/^#define CMDL_FILE_IN_OUT_SAME /;"	d
 CMDL_FILE_OUTPUT	cmdline.h	/^#define CMDL_FILE_OUTPUT /;"	d
-CMDL_KEEP_ALIAS	cmdline.h	/^#define CMDL_KEEP_ALIAS /;"	d
-CMDL_LIBRARY_ADDMEMBER	cmdline.h	/^#define CMDL_LIBRARY_ADDMEMBER /;"	d
-CMDL_LIBRARY_CONVERT	cmdline.h	/^#define CMDL_LIBRARY_CONVERT /;"	d
-CMDL_LIBRARY_DEFAULT	cmdline.h	/^#define CMDL_LIBRARY_DEFAULT /;"	d
-CMDL_LIBRARY_EXTRACTALL	cmdline.h	/^#define CMDL_LIBRARY_EXTRACTALL /;"	d
-CMDL_LIBRARY_EXTRACTMEM	cmdline.h	/^#define CMDL_LIBRARY_EXTRACTMEM /;"	d
 CMDL_OUTPUT_DUMP	cmdline.h	/^#define CMDL_OUTPUT_DUMP /;"	d
-CMDL_OUTPUT_ELF	cmdline.h	/^#define CMDL_OUTPUT_ELF /;"	d
 CMDL_OUTPUT_MACHO	cmdline.h	/^#define CMDL_OUTPUT_MACHO /;"	d
 CMDL_OUTPUT_MASM	cmdline.h	/^#define CMDL_OUTPUT_MASM /;"	d
-CMDL_OUTPUT_OMF	cmdline.h	/^#define CMDL_OUTPUT_OMF /;"	d
 CMDL_OUTPUT_PE	cmdline.h	/^#define CMDL_OUTPUT_PE /;"	d
-CMDL_SECTIONDOT_CHANGE	cmdline.h	/^#define CMDL_SECTIONDOT_CHANGE /;"	d
-CMDL_SECTIONDOT_DOT2U	cmdline.h	/^#define CMDL_SECTIONDOT_DOT2U /;"	d
-CMDL_SECTIONDOT_NOCHANGE	cmdline.h	/^#define CMDL_SECTIONDOT_NOCHANGE /;"	d
-CMDL_SECTIONDOT_U2DOT	cmdline.h	/^#define CMDL_SECTIONDOT_U2DOT /;"	d
-CMDL_UNDERSCORE_ADD	cmdline.h	/^#define CMDL_UNDERSCORE_ADD /;"	d
-CMDL_UNDERSCORE_CHANGE	cmdline.h	/^#define CMDL_UNDERSCORE_CHANGE /;"	d
-CMDL_UNDERSCORE_NOCHANGE	cmdline.h	/^#define CMDL_UNDERSCORE_NOCHANGE /;"	d
-CMDL_UNDERSCORE_REMOVE	cmdline.h	/^#define CMDL_UNDERSCORE_REMOVE /;"	d
-CMDL_VERBOSE_DIAGNOSTICS	cmdline.h	/^#define CMDL_VERBOSE_DIAGNOSTICS /;"	d
-CMDL_VERBOSE_NO	cmdline.h	/^#define CMDL_VERBOSE_NO /;"	d
-CMDL_VERBOSE_YES	cmdline.h	/^#define CMDL_VERBOSE_YES /;"	d
 CMain	converters.h	/^class CMain : public CFileBuffer {$/;"	c
 CMain	main.cpp	/^CMain::CMain() : CFileBuffer() {$/;"	f	class:CMain
 CMemoryBuffer	containers.cpp	/^CMemoryBuffer::CMemoryBuffer() {  $/;"	f	class:CMemoryBuffer
 CMemoryBuffer	containers.h	/^class CMemoryBuffer {$/;"	c
 COF2ASM	main.cpp	/^void CConverter::COF2ASM() {$/;"	f	class:CConverter
-COF2COF	main.cpp	/^void CConverter::COF2COF() {$/;"	f	class:CConverter
-COF2ELF	main.cpp	/^void CConverter::COF2ELF() {$/;"	f	class:CConverter
-COF2OMF	main.cpp	/^void CConverter::COF2OMF() {$/;"	f	class:CConverter
 COFF32RelNames	coff.cpp	/^SIntTxt COFF32RelNames[] = {$/;"	v
 COFF32_RELOC_ABS	coff.h	/^#define COFF32_RELOC_ABS /;"	d
 COFF32_RELOC_DIR16	coff.h	/^#define COFF32_RELOC_DIR16 /;"	d
@@ -243,18 +176,8 @@ COFF_SECTION_REMOVE_ME	coff.h	/^#define COFF_SECTION_REMOVE_ME /;"	d
 COFF_SECTION_UNDEF	coff.h	/^#define COFF_SECTION_UNDEF /;"	d
 COFF_TYPE_FUNCTION	coff.h	/^#define COFF_TYPE_FUNCTION /;"	d
 COFF_TYPE_NOT_FUNCTION	coff.h	/^#define COFF_TYPE_NOT_FUNCTION /;"	d
-COMF	converters.h	/^class COMF : public CFileBuffer {$/;"	c
-COMF	omf.cpp	/^COMF::COMF() {$/;"	f	class:COMF
-COMF2ASM	converters.h	/^class COMF2ASM : public COMF {$/;"	c
-COMF2ASM	omf2asm.cpp	/^COMF2ASM::COMF2ASM() {$/;"	f	class:COMF2ASM
-COMF2COF	converters.h	/^class COMF2COF : public COMF {$/;"	c
-COMF2COF	omf2cof.cpp	/^COMF2COF::COMF2COF() {$/;"	f	class:COMF2COF
-COMFFileBuilder	omf.cpp	/^COMFFileBuilder::COMFFileBuilder() {$/;"	f	class:COMFFileBuilder
-COMFFileBuilder	omf.h	/^class COMFFileBuilder : public CFileBuffer {$/;"	c
-COMFHashTable	library.h	/^class COMFHashTable {$/;"	c
 CONTAINERS_H	containers.h	/^#define CONTAINERS_H$/;"	d
 CONVERTERS_H	converters.h	/^#define CONVERTERS_H$/;"	d
-CResponseFileBuffer	converters.h	/^class CResponseFileBuffer : public CFileBuffer {$/;"	c
 CSList	containers.h	/^class CSList : private CMemoryBuffer {$/;"	c
 CSymbolTable	disasm.h	/^class CSymbolTable {$/;"	c
 CSymbolTable	disasm1.cpp	/^CSymbolTable::CSymbolTable() {$/;"	f	class:CSymbolTable
@@ -262,13 +185,8 @@ CTextFileBuffer	containers.cpp	/^CTextFileBuffer::CTextFileBuffer() {$/;"	f	clas
 CTextFileBuffer	containers.h	/^class CTextFileBuffer : public CFileBuffer {$/;"	c
 CertificateTable	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY CertificateTable;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 CertificateTable	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY CertificateTable;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
-ChangeImportTable	mac2mac.cpp	/^void CMAC2MAC<MACSTRUCTURES>::ChangeImportTable(uint32 FileOffset, uint32 Num) {$/;"	f	class:CMAC2MAC
-ChangeSections	elf2elf.cpp	/^void CELF2ELF<ELFSTRUCTURES>::ChangeSections() {$/;"	f	class:CELF2ELF
-ChangeSections	mac2mac.cpp	/^void CMAC2MAC<MACSTRUCTURES>::ChangeSections(uint32 HeaderOffset, uint32 Num) {$/;"	f	class:CMAC2MAC
-ChangeSegments	mac2mac.cpp	/^void CMAC2MAC<MACSTRUCTURES>::ChangeSegments() {$/;"	f	class:CMAC2MAC
 Characteristics	coff.h	/^      uint32 Characteristics; \/\/$/;"	m	struct:SCOFF_SymTableEntry::__anon7
 CheckEndianness	main.cpp	/^static void CheckEndianness() {$/;"	f	file:
-CheckExtractSuccess	cmdline.cpp	/^void CCommandLineInterpreter::CheckExtractSuccess() {$/;"	f	class:CCommandLineInterpreter
 CheckForFunctionBegin	disasm1.cpp	/^void CDisassembler::CheckForFunctionBegin() {$/;"	f	class:CDisassembler
 CheckForFunctionEnd	disasm1.cpp	/^void CDisassembler::CheckForFunctionEnd() {$/;"	f	class:CDisassembler
 CheckForMisplacedLabel	disasm1.cpp	/^void CDisassembler::CheckForMisplacedLabel() {$/;"	f	class:CDisassembler
@@ -278,146 +196,23 @@ CheckIntegerTypes	main.cpp	/^static void CheckIntegerTypes() {$/;"	f	file:
 CheckJumpTarget	disasm1.cpp	/^void CDisassembler::CheckJumpTarget(uint32 symi) {$/;"	f	class:CDisassembler
 CheckLabel	disasm1.cpp	/^void CDisassembler::CheckLabel() {$/;"	f	class:CDisassembler
 CheckNamesValid	disasm1.cpp	/^void CDisassembler::CheckNamesValid() {$/;"	f	class:CDisassembler
-CheckOMFHash	library.cpp	/^void CLibrary::CheckOMFHash(CMemoryBuffer &stringbuf, CSList<SStringEntry> &index) {$/;"	f	class:CLibrary
 CheckOutputFileName	containers.cpp	/^void CFileBuffer::CheckOutputFileName() {$/;"	f	class:CFileBuffer
 CheckRelocationTarget	disasm1.cpp	/^void CDisassembler::CheckRelocationTarget(uint32 IRel, uint32 TargetType, uint32 TargetSize) {$/;"	f	class:CDisassembler
 CheckSum	coff.h	/^      uint32 CheckSum;             \/\/ Pointer to line number entry$/;"	m	struct:SCOFF_SymTableEntry::__anon10
 CheckSum	coff.h	/^      uint32 CheckSum;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 CheckSum	coff.h	/^      uint32 CheckSum;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
-CheckSymbolModifySuccess	cmdline.cpp	/^void CCommandLineInterpreter::CheckSymbolModifySuccess() {$/;"	f	class:CCommandLineInterpreter
-CheckUnsupportedRecords	omf2cof.cpp	/^void COMF2COF::CheckUnsupportedRecords() {$/;"	f	class:COMF2COF
-Class	omf.h	/^   uint32 Class;                       \/\/ Class in new file$/;"	m	struct:SOMFSegmentList
 ClearError	error.cpp	/^void CErrorReporter::ClearError(int ErrorNumber) {$/;"	f	class:CErrorReporter
 CodeMode	disasm.h	/^   uint32  CodeMode;                             \/\/ 1 if current position contains code, 2 if dubiuos, 4 if data$/;"	m	class:CDisassembler
-CommandOffset	converters.h	/^   uint32 CommandOffset;               \/\/ Offset to first load command = segment header$/;"	m	class:CELF2MAC
 CommentSeparator	disasm.h	/^   const char * CommentSeparator;                \/\/ "; " or "# " Start of comment string$/;"	m	class:CDisassembler
 Conflicts	disasm.h	/^   uint8  Conflicts[8];                          \/\/ Counts prefix conflicts as different prefixes in the same category$/;"	m	struct:SOpcodeProp
 Convert	cof2asm.cpp	/^void CCOF2ASM::Convert() {$/;"	f	class:CCOF2ASM
-Convert	cof2cof.cpp	/^void CCOF2COF::Convert() {$/;"	f	class:CCOF2COF
-Convert	cof2elf.cpp	/^void CCOF2ELF<ELFSTRUCTURES>::Convert() {$/;"	f	class:CCOF2ELF
-Convert	cof2omf.cpp	/^void CCOF2OMF::Convert() {$/;"	f	class:CCOF2OMF
-Convert	elf2asm.cpp	/^void CELF2ASM<ELFSTRUCTURES>::Convert() {$/;"	f	class:CELF2ASM
-Convert	elf2cof.cpp	/^void CELF2COF<ELFSTRUCTURES>::Convert() {$/;"	f	class:CELF2COF
-Convert	elf2elf.cpp	/^void CELF2ELF<ELFSTRUCTURES>::Convert() {$/;"	f	class:CELF2ELF
-Convert	elf2mac.cpp	/^   void CELF2MAC<ELFSTRUCTURES,MACSTRUCTURES>::Convert() {$/;"	f	class:CELF2MAC
 Convert	mac2asm.cpp	/^void CMAC2ASM<MACSTRUCTURES>::Convert() {$/;"	f	class:CMAC2ASM
-Convert	mac2elf.cpp	/^void CMAC2ELF<MACSTRUCTURES,ELFSTRUCTURES>::Convert() {$/;"	f	class:CMAC2ELF
-Convert	mac2mac.cpp	/^void CMAC2MAC<MACSTRUCTURES>::Convert() {$/;"	f	class:CMAC2MAC
-Convert	omf2asm.cpp	/^void COMF2ASM::Convert() {$/;"	f	class:COMF2ASM
-Convert	omf2cof.cpp	/^void COMF2COF::Convert() {$/;"	f	class:COMF2COF
-CountDebugRemoved	cmdline.cpp	/^void CCommandLineInterpreter::CountDebugRemoved() {$/;"	f	class:CCommandLineInterpreter
-CountDebugSectionsRemoved	cmdline.h	/^   int CountDebugSectionsRemoved;            \/\/ Count number of debug sections removed$/;"	m	class:CCommandLineInterpreter
 CountErrors	disasm.h	/^   uint32  CountErrors;                          \/\/ Number of errors since last label$/;"	m	class:CDisassembler
-CountExceptionRemoved	cmdline.cpp	/^void CCommandLineInterpreter::CountExceptionRemoved() {$/;"	f	class:CCommandLineInterpreter
-CountExceptionSectionsRemoved	cmdline.h	/^   int CountExceptionSectionsRemoved;        \/\/ Count number of exception handler sections removed$/;"	m	class:CCommandLineInterpreter
 CountInstructions	disasm2.cpp	/^void CDisassembler::CountInstructions() {$/;"	f	class:CDisassembler
-CountSectionDotConversions	cmdline.h	/^   int CountSectionDotConversions;           \/\/ Count number of times leading character is changed on section names$/;"	m	class:CCommandLineInterpreter
-CountSegments	omf2asm.cpp	/^void COMF2ASM::CountSegments() {$/;"	f	class:COMF2ASM
-CountSymbolNameAliases	cmdline.h	/^   int CountSymbolNameAliases;               \/\/ Count number of times symbol names are aliased at specific command or underscore command$/;"	m	class:CCommandLineInterpreter
-CountSymbolNameChanges	cmdline.h	/^   int CountSymbolNameChanges;               \/\/ Count number of times symbol names are changed at specific command$/;"	m	class:CCommandLineInterpreter
-CountSymbolsHidden	cmdline.cpp	/^void CCommandLineInterpreter::CountSymbolsHidden() {$/;"	f	class:CCommandLineInterpreter
-CountSymbolsMadeLocal	cmdline.h	/^   int CountSymbolsMadeLocal;                \/\/ Count number of times symbol names are made local at specific command$/;"	m	class:CCommandLineInterpreter
-CountSymbolsWeakened	cmdline.h	/^   int CountSymbolsWeakened;                 \/\/ Count number of times symbol names are made weak at specific command$/;"	m	class:CCommandLineInterpreter
-CountUnderscoreConversions	cmdline.h	/^   int CountUnderscoreConversions;           \/\/ Count number of times symbol leading underscores are changed$/;"	m	class:CCommandLineInterpreter
-CountUnusedSymbolsHidden	cmdline.h	/^   int CountUnusedSymbolsHidden;             \/\/ Count number of times unused symbols are hidden$/;"	m	class:CCommandLineInterpreter
-CurrentNumber	library.h	/^    uint32 CurrentNumber;               \/\/ Number of current member$/;"	m	class:CLibrary
-CurrentOffset	library.h	/^    uint32 CurrentOffset;               \/\/ Offset to current member$/;"	m	class:CLibrary
-CurrentSymbol	cmdline.h	/^   uint32 CurrentSymbol;                     \/\/ Pointer into SymbolList$/;"	m	class:CCommandLineInterpreter
-D	omf.h	/^             D:1,                      \/\/ 0 = Target thread, 1 = Frame thread$/;"	m	struct:OMF_STrdDat::__anon17
-DF_1_CONFALT	elf.h	/^#define DF_1_CONFALT /;"	d
-DF_1_DIRECT	elf.h	/^#define DF_1_DIRECT /;"	d
-DF_1_ENDFILTEE	elf.h	/^#define DF_1_ENDFILTEE /;"	d
-DF_1_GLOBAL	elf.h	/^#define DF_1_GLOBAL /;"	d
-DF_1_GROUP	elf.h	/^#define DF_1_GROUP /;"	d
-DF_1_INITFIRST	elf.h	/^#define DF_1_INITFIRST /;"	d
-DF_1_INTERPOSE	elf.h	/^#define DF_1_INTERPOSE /;"	d
-DF_1_LOADFLTR	elf.h	/^#define DF_1_LOADFLTR /;"	d
-DF_1_NODEFLIB	elf.h	/^#define DF_1_NODEFLIB /;"	d
-DF_1_NODELETE	elf.h	/^#define DF_1_NODELETE /;"	d
-DF_1_NODUMP	elf.h	/^#define DF_1_NODUMP /;"	d
-DF_1_NOOPEN	elf.h	/^#define DF_1_NOOPEN /;"	d
-DF_1_NOW	elf.h	/^#define DF_1_NOW /;"	d
-DF_1_ORIGIN	elf.h	/^#define DF_1_ORIGIN /;"	d
-DF_1_TRANS	elf.h	/^#define DF_1_TRANS /;"	d
-DF_BIND_NOW	elf.h	/^#define DF_BIND_NOW /;"	d
-DF_ORIGIN	elf.h	/^#define DF_ORIGIN /;"	d
-DF_P1_GROUPPERM	elf.h	/^#define DF_P1_GROUPPERM /;"	d
-DF_P1_LAZYLOAD	elf.h	/^#define DF_P1_LAZYLOAD /;"	d
-DF_SYMBOLIC	elf.h	/^#define DF_SYMBOLIC /;"	d
-DF_TEXTREL	elf.h	/^#define DF_TEXTREL /;"	d
 DISASM_H	disasm.h	/^#define DISASM_H$/;"	d
 DLLName	disasm.h	/^   uint32  DLLName;                              \/\/ Name of DLL if symbol imported by dynamic linking$/;"	m	struct:SASymbol
 DLLNameRVA	coff.h	/^   uint32 DLLNameRVA;                  \/\/ Image-relative address of DLL name string$/;"	m	struct:SCOFF_ImportDirectory
 DLLNameRVA	coff.h	/^   uint32 DLLNameRVA;                  \/\/ Image-relative address of DLL name$/;"	m	struct:SCOFF_ExportDirectory
-DTF_1_CONFEXP	elf.h	/^#define DTF_1_CONFEXP /;"	d
-DTF_1_PARINIT	elf.h	/^#define DTF_1_PARINIT /;"	d
-DT_ADDRRNGHI	elf.h	/^#define DT_ADDRRNGHI /;"	d
-DT_ADDRRNGLO	elf.h	/^#define DT_ADDRRNGLO /;"	d
-DT_AUXILIARY	elf.h	/^#define DT_AUXILIARY /;"	d
-DT_BIND_NOW	elf.h	/^#define DT_BIND_NOW /;"	d
-DT_CHECKSUM	elf.h	/^#define DT_CHECKSUM /;"	d
-DT_DEBUG	elf.h	/^#define DT_DEBUG /;"	d
-DT_ENCODING	elf.h	/^#define DT_ENCODING /;"	d
-DT_EXTRANUM	elf.h	/^#define DT_EXTRANUM /;"	d
-DT_EXTRATAGIDX	elf.h	/^#define DT_EXTRATAGIDX(/;"	d
-DT_FEATURE_1	elf.h	/^#define DT_FEATURE_1 /;"	d
-DT_FILTER	elf.h	/^#define DT_FILTER /;"	d
-DT_FINI	elf.h	/^#define DT_FINI /;"	d
-DT_FINI_ARRAY	elf.h	/^#define DT_FINI_ARRAY /;"	d
-DT_FINI_ARRAYSZ	elf.h	/^#define DT_FINI_ARRAYSZ /;"	d
-DT_FLAGS	elf.h	/^#define DT_FLAGS /;"	d
-DT_FLAGS_1	elf.h	/^#define DT_FLAGS_1 /;"	d
-DT_HASH	elf.h	/^#define DT_HASH /;"	d
-DT_HIOS	elf.h	/^#define DT_HIOS /;"	d
-DT_HIPROC	elf.h	/^#define DT_HIPROC /;"	d
-DT_INIT	elf.h	/^#define DT_INIT /;"	d
-DT_INIT_ARRAY	elf.h	/^#define DT_INIT_ARRAY /;"	d
-DT_INIT_ARRAYSZ	elf.h	/^#define DT_INIT_ARRAYSZ /;"	d
-DT_JMPREL	elf.h	/^#define DT_JMPREL /;"	d
-DT_LOOS	elf.h	/^#define DT_LOOS /;"	d
-DT_LOPROC	elf.h	/^#define DT_LOPROC /;"	d
-DT_MOVEENT	elf.h	/^#define DT_MOVEENT /;"	d
-DT_MOVESZ	elf.h	/^#define DT_MOVESZ /;"	d
-DT_NEEDED	elf.h	/^#define DT_NEEDED /;"	d
-DT_NULL	elf.h	/^#define DT_NULL /;"	d
-DT_NUM	elf.h	/^#define DT_NUM /;"	d
-DT_PLTGOT	elf.h	/^#define DT_PLTGOT /;"	d
-DT_PLTPADSZ	elf.h	/^#define DT_PLTPADSZ /;"	d
-DT_PLTREL	elf.h	/^#define DT_PLTREL /;"	d
-DT_PLTRELSZ	elf.h	/^#define DT_PLTRELSZ /;"	d
-DT_POSFLAG_1	elf.h	/^#define DT_POSFLAG_1 /;"	d
-DT_PREINIT_ARRAY	elf.h	/^#define DT_PREINIT_ARRAY /;"	d
-DT_PREINIT_ARRAYSZ	elf.h	/^#define DT_PREINIT_ARRAYSZ /;"	d
-DT_PROCNUM	elf.h	/^#define DT_PROCNUM /;"	d
-DT_REL	elf.h	/^#define DT_REL /;"	d
-DT_RELA	elf.h	/^#define DT_RELA /;"	d
-DT_RELACOUNT	elf.h	/^#define DT_RELACOUNT /;"	d
-DT_RELAENT	elf.h	/^#define DT_RELAENT /;"	d
-DT_RELASZ	elf.h	/^#define DT_RELASZ /;"	d
-DT_RELCOUNT	elf.h	/^#define DT_RELCOUNT /;"	d
-DT_RELENT	elf.h	/^#define DT_RELENT /;"	d
-DT_RELSZ	elf.h	/^#define DT_RELSZ /;"	d
-DT_RPATH	elf.h	/^#define DT_RPATH /;"	d
-DT_RUNPATH	elf.h	/^#define DT_RUNPATH /;"	d
-DT_SONAME	elf.h	/^#define DT_SONAME /;"	d
-DT_STRSZ	elf.h	/^#define DT_STRSZ /;"	d
-DT_STRTAB	elf.h	/^#define DT_STRTAB /;"	d
-DT_SYMBOLIC	elf.h	/^#define DT_SYMBOLIC /;"	d
-DT_SYMENT	elf.h	/^#define DT_SYMENT /;"	d
-DT_SYMINENT	elf.h	/^#define DT_SYMINENT /;"	d
-DT_SYMINFO	elf.h	/^#define DT_SYMINFO /;"	d
-DT_SYMINSZ	elf.h	/^#define DT_SYMINSZ /;"	d
-DT_SYMTAB	elf.h	/^#define DT_SYMTAB /;"	d
-DT_TEXTREL	elf.h	/^#define DT_TEXTREL /;"	d
-DT_VALRNGHI	elf.h	/^#define DT_VALRNGHI /;"	d
-DT_VALRNGLO	elf.h	/^#define DT_VALRNGLO /;"	d
-DT_VERDEF	elf.h	/^#define DT_VERDEF /;"	d
-DT_VERDEFNUM	elf.h	/^#define DT_VERDEFNUM /;"	d
-DT_VERNEED	elf.h	/^#define DT_VERNEED /;"	d
-DT_VERNEEDNUM	elf.h	/^#define DT_VERNEEDNUM /;"	d
-DT_VERSIONTAGIDX	elf.h	/^#define DT_VERSIONTAGIDX(/;"	d
-DT_VERSIONTAGNUM	elf.h	/^#define DT_VERSIONTAGNUM /;"	d
-DT_VERSYM	elf.h	/^#define DT_VERSYM /;"	d
 DUMP_COMMENT	cmdline.h	/^#define DUMP_COMMENT /;"	d
 DUMP_FILEHDR	cmdline.h	/^#define DUMP_FILEHDR /;"	d
 DUMP_NONE	cmdline.h	/^#define DUMP_NONE /;"	d
@@ -425,224 +220,29 @@ DUMP_RELTAB	cmdline.h	/^#define DUMP_RELTAB /;"	d
 DUMP_SECTHDR	cmdline.h	/^#define DUMP_SECTHDR /;"	d
 DUMP_STRINGTB	cmdline.h	/^#define DUMP_STRINGTB /;"	d
 DUMP_SYMTAB	cmdline.h	/^#define DUMP_SYMTAB /;"	d
-Data	library.h	/^        uint8 Data[OMFBlockSize-OMFNumBuckets-1]; \/\/ Contains strings and module indices$/;"	m	struct:SOMFHashBlock::__anon13
-DataBuffer	library.h	/^    CMemoryBuffer DataBuffer;           \/\/ Buffer containing raw members$/;"	m	class:CLibrary
 DataSize	containers.h	/^   uint32 DataSize;                              \/\/ Size of data, offset to vacant space$/;"	m	class:CMemoryBuffer
 DataSize	disasm.h	/^   uint32  DataSize;                             \/\/ Size of current data$/;"	m	class:CDisassembler
 DataType	disasm.h	/^   uint32  DataType;                             \/\/ Type of current data$/;"	m	class:CDisassembler
-Date	library.h	/^    char Date[12];                      \/\/ Member date, seconds, decimal ASCII$/;"	m	struct:SUNIXLibraryHeader
 DateTime	coff.h	/^   uint32 DateTime;$/;"	m	struct:SCOFF_ExportDirectory
 DateTime	coff.h	/^   uint32 DateTime;$/;"	m	struct:SCOFF_ImportDirectory
 Debug	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY Debug;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 Debug	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY Debug;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
-DebugInfo	cmdline.h	/^   uint32 DebugInfo;                         \/\/ Strip or convert debug info$/;"	m	class:CCommandLineInterpreter
 DelayImportDescriptor	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY DelayImportDescriptor;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 DelayImportDescriptor	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY DelayImportDescriptor;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
 DesiredWordSize	cmdline.h	/^   int    DesiredWordSize;                   \/\/ Desired word size for output file$/;"	m	class:CCommandLineInterpreter
 Destination	disasm.h	/^   uint16 Destination;                 \/\/ type and size of destination operand$/;"	m	struct:SOpcodeDef
-DictionaryOffset	library.h	/^    uint32 DictionaryOffset;            \/\/ Offset to hash table$/;"	m	class:CLibrary
-DictionarySize	library.h	/^    uint32 DictionarySize;              \/\/ Dictionary size, in 512 bytes blocks$/;"	m	class:CLibrary
 Disasm	converters.h	/^   CDisassembler Disasm;                         \/\/ Disassembler$/;"	m	class:CCOF2ASM
-Disasm	converters.h	/^   CDisassembler Disasm;                         \/\/ Disassembler$/;"	m	class:CELF2ASM
 Disasm	converters.h	/^   CDisassembler Disasm;                         \/\/ Disassembler$/;"	m	class:CMAC2ASM
-Disasm	converters.h	/^   CDisassembler Disasm;                         \/\/ Disassembler$/;"	m	class:COMF2ASM
 DllCharacteristics	coff.h	/^      uint16 DllCharacteristics;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 DllCharacteristics	coff.h	/^      uint16 DllCharacteristics;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
-Done	cmdline.h	/^   int    Done;                            \/\/ Count how many times this has been done$/;"	m	struct:SSymbolChange
 Dump	coff.cpp	/^void CCOFF::Dump(int options) {$/;"	f	class:CCOFF
-Dump	elf.cpp	/^void CELF<ELFSTRUCTURES>::Dump(int options) {$/;"	f	class:CELF
-Dump	library.cpp	/^void CLibrary::Dump() {$/;"	f	class:CLibrary
 Dump	macho.cpp	/^void CMACHO<MACSTRUCTURES>::Dump(int options) {$/;"	f	class:CMACHO
-Dump	omf.cpp	/^void COMF::Dump(int options) {$/;"	f	class:COMF
 DumpCOF	main.cpp	/^void CConverter::DumpCOF() {$/;"	f	class:CConverter
-DumpComments	omf.cpp	/^void COMF::DumpComments() {$/;"	f	class:COMF
-DumpELF	main.cpp	/^void CConverter::DumpELF() {$/;"	f	class:CConverter
 DumpMACHO	main.cpp	/^void CConverter::DumpMACHO() {$/;"	f	class:CConverter
-DumpNames	omf.cpp	/^void COMF::DumpNames() {$/;"	f	class:COMF
-DumpOMF	library.cpp	/^void CLibrary::DumpOMF() {$/;"	f	class:CLibrary
-DumpOMF	main.cpp	/^void CConverter::DumpOMF() {$/;"	f	class:CConverter
 DumpOptions	cmdline.h	/^   uint32 DumpOptions;                       \/\/ Options for dumping file$/;"	m	class:CCommandLineInterpreter
-DumpRecordTypes	omf.cpp	/^void COMF::DumpRecordTypes() {$/;"	f	class:COMF
-DumpRelocations	omf.cpp	/^void COMF::DumpRelocations() {$/;"	f	class:COMF
-DumpSegments	omf.cpp	/^void COMF::DumpSegments() {$/;"	f	class:COMF
-DumpSymbols	omf.cpp	/^void COMF::DumpSymbols() {$/;"	f	class:COMF
-DumpUNIX	library.cpp	/^void CLibrary::DumpUNIX() {$/;"	f	class:CLibrary
-EI_ABIVERSION	elf.h	/^#define EI_ABIVERSION /;"	d
-EI_CLASS	elf.h	/^#define EI_CLASS /;"	d
-EI_DATA	elf.h	/^#define EI_DATA /;"	d
-EI_OSABI	elf.h	/^#define EI_OSABI /;"	d
-EI_PAD	elf.h	/^#define EI_PAD /;"	d
-EI_VERSION	elf.h	/^#define EI_VERSION /;"	d
-ELF2ASM	main.cpp	/^void CConverter::ELF2ASM() {$/;"	f	class:CConverter
-ELF2COF	main.cpp	/^void CConverter::ELF2COF() {$/;"	f	class:CConverter
-ELF2ELF	main.cpp	/^void CConverter::ELF2ELF() {$/;"	f	class:CConverter
-ELF2MAC	main.cpp	/^void CConverter::ELF2MAC() {$/;"	f	class:CConverter
-ELF32RelocationNames	elf.cpp	/^SIntTxt ELF32RelocationNames[] = {$/;"	v
-ELF32STRUCTURES	elf.h	/^#define ELF32STRUCTURES /;"	d
-ELF32_M_INFO	elf.h	/^#define ELF32_M_INFO(/;"	d
-ELF32_M_SIZE	elf.h	/^#define ELF32_M_SIZE(/;"	d
-ELF32_M_SYM	elf.h	/^#define ELF32_M_SYM(/;"	d
-ELF32_ST_VISIBILITY	elf.h	/^#define ELF32_ST_VISIBILITY(/;"	d
-ELF64RelocationNames	elf.cpp	/^SIntTxt ELF64RelocationNames[] = {$/;"	v
-ELF64STRUCTURES	elf.h	/^#define ELF64STRUCTURES /;"	d
-ELF64_M_INFO	elf.h	/^#define ELF64_M_INFO(/;"	d
-ELF64_M_SIZE	elf.h	/^#define ELF64_M_SIZE(/;"	d
-ELF64_M_SYM	elf.h	/^#define ELF64_M_SYM(/;"	d
-ELF64_ST_VISIBILITY	elf.h	/^#define ELF64_ST_VISIBILITY(/;"	d
-ELFABINames	elf.cpp	/^SIntTxt ELFABINames[] = {$/;"	v
-ELFCLASS32	elf.h	/^#define ELFCLASS32 /;"	d
-ELFCLASS64	elf.h	/^#define ELFCLASS64 /;"	d
-ELFCLASSNONE	elf.h	/^#define ELFCLASSNONE /;"	d
-ELFCLASSNUM	elf.h	/^#define ELFCLASSNUM /;"	d
-ELFDATA2LSB	elf.h	/^#define ELFDATA2LSB /;"	d
-ELFDATA2MSB	elf.h	/^#define ELFDATA2MSB /;"	d
-ELFDATANONE	elf.h	/^#define ELFDATANONE /;"	d
-ELFDATANUM	elf.h	/^#define ELFDATANUM /;"	d
-ELFDataEncodeNames	elf.cpp	/^SIntTxt ELFDataEncodeNames[] = {$/;"	v
-ELFFileClassNames	elf.cpp	/^SIntTxt ELFFileClassNames[] = {$/;"	v
-ELFFileTypeNames	elf.cpp	/^SIntTxt ELFFileTypeNames[] = {$/;"	v
-ELFMAG	elf.h	/^#define ELFMAG /;"	d
-ELFMachineNames	elf.cpp	/^SIntTxt ELFMachineNames[] = {$/;"	v
-ELFOSABI_ARM	elf.h	/^#define ELFOSABI_ARM /;"	d
-ELFOSABI_HPUX	elf.h	/^#define ELFOSABI_HPUX /;"	d
-ELFOSABI_STANDALONE	elf.h	/^#define ELFOSABI_STANDALONE /;"	d
-ELFOSABI_SYSV	elf.h	/^#define ELFOSABI_SYSV /;"	d
-ELFSTRUCTURES	elf.h	/^#define ELFSTRUCTURES /;"	d
-ELFSectionFlagNames	elf.cpp	/^SIntTxt ELFSectionFlagNames[] = {$/;"	v
-ELFSectionTypeNames	elf.cpp	/^SIntTxt ELFSectionTypeNames[] = {$/;"	v
-ELFSymbolBindingNames	elf.cpp	/^SIntTxt ELFSymbolBindingNames[] = {$/;"	v
-ELFSymbolTypeNames	elf.cpp	/^SIntTxt ELFSymbolTypeNames[] = {$/;"	v
-ELF_CONSTRUCTOR_NAME	elf.h	/^#define ELF_CONSTRUCTOR_NAME /;"	d
-ELF_H	elf.h	/^#define ELF_H$/;"	d
-ELF_NOTE_ABI	elf.h	/^#define ELF_NOTE_ABI /;"	d
-ELF_NOTE_GNU	elf.h	/^#define ELF_NOTE_GNU /;"	d
-ELF_NOTE_OS_GNU	elf.h	/^#define ELF_NOTE_OS_GNU /;"	d
-ELF_NOTE_OS_LINUX	elf.h	/^#define ELF_NOTE_OS_LINUX /;"	d
-ELF_NOTE_OS_SOLARIS2	elf.h	/^#define ELF_NOTE_OS_SOLARIS2 /;"	d
-ELF_NOTE_PAGESIZE_HINT	elf.h	/^#define ELF_NOTE_PAGESIZE_HINT /;"	d
-ELF_NOTE_SOLARIS	elf.h	/^#define ELF_NOTE_SOLARIS /;"	d
-EM_386	elf.h	/^#define EM_386 /;"	d
-EM_68HC05	elf.h	/^#define EM_68HC05 /;"	d
-EM_68HC08	elf.h	/^#define EM_68HC08 /;"	d
-EM_68HC11	elf.h	/^#define EM_68HC11 /;"	d
-EM_68HC12	elf.h	/^#define EM_68HC12 /;"	d
-EM_68HC16	elf.h	/^#define EM_68HC16 /;"	d
-EM_68K	elf.h	/^#define EM_68K /;"	d
-EM_860	elf.h	/^#define EM_860 /;"	d
-EM_88K	elf.h	/^#define EM_88K /;"	d
-EM_960	elf.h	/^#define EM_960 /;"	d
-EM_ALPHA	elf.h	/^#define EM_ALPHA /;"	d
-EM_ARC	elf.h	/^#define EM_ARC /;"	d
-EM_ARM	elf.h	/^#define EM_ARM /;"	d
-EM_AT19	elf.h	/^#define EM_AT19 /;"	d
-EM_AVR	elf.h	/^#define EM_AVR /;"	d
-EM_COLDFIRE	elf.h	/^#define EM_COLDFIRE /;"	d
-EM_CRIS	elf.h	/^#define EM_CRIS /;"	d
-EM_D10V	elf.h	/^#define EM_D10V /;"	d
-EM_D30V	elf.h	/^#define EM_D30V /;"	d
-EM_FAKE_ALPHA	elf.h	/^#define EM_FAKE_ALPHA /;"	d
-EM_FIREPATH	elf.h	/^#define EM_FIREPATH /;"	d
-EM_FR20	elf.h	/^#define EM_FR20 /;"	d
-EM_FR30	elf.h	/^#define EM_FR30 /;"	d
-EM_FX66	elf.h	/^#define EM_FX66 /;"	d
-EM_H8S	elf.h	/^#define EM_H8S /;"	d
-EM_H8_300	elf.h	/^#define EM_H8_300 /;"	d
-EM_H8_300H	elf.h	/^#define EM_H8_300H /;"	d
-EM_H8_500	elf.h	/^#define EM_H8_500 /;"	d
-EM_HUANY	elf.h	/^#define EM_HUANY /;"	d
-EM_IA_64	elf.h	/^#define EM_IA_64 /;"	d
-EM_JAVELIN	elf.h	/^#define EM_JAVELIN /;"	d
-EM_M32	elf.h	/^#define EM_M32 /;"	d
-EM_M32R	elf.h	/^#define EM_M32R /;"	d
-EM_ME16	elf.h	/^#define EM_ME16 /;"	d
-EM_MIPS	elf.h	/^#define EM_MIPS /;"	d
-EM_MIPS_RS3_LE	elf.h	/^#define EM_MIPS_RS3_LE /;"	d
-EM_MIPS_X	elf.h	/^#define EM_MIPS_X /;"	d
-EM_MMA	elf.h	/^#define EM_MMA /;"	d
-EM_MMIX	elf.h	/^#define EM_MMIX /;"	d
-EM_MN10200	elf.h	/^#define EM_MN10200 /;"	d
-EM_MN10300	elf.h	/^#define EM_MN10300 /;"	d
-EM_NCPU	elf.h	/^#define EM_NCPU /;"	d
-EM_NDR1	elf.h	/^#define EM_NDR1 /;"	d
-EM_NONE	elf.h	/^#define EM_NONE /;"	d
-EM_NUM	elf.h	/^#define EM_NUM /;"	d
-EM_PARISC	elf.h	/^#define EM_PARISC /;"	d
-EM_PCP	elf.h	/^#define EM_PCP /;"	d
-EM_PDSP	elf.h	/^#define EM_PDSP /;"	d
-EM_PJ	elf.h	/^#define EM_PJ /;"	d
-EM_PPC	elf.h	/^#define EM_PPC /;"	d
-EM_PPC64	elf.h	/^#define EM_PPC64 /;"	d
-EM_PRISM	elf.h	/^#define EM_PRISM /;"	d
-EM_RCE	elf.h	/^#define EM_RCE /;"	d
-EM_RH32	elf.h	/^#define EM_RH32 /;"	d
-EM_S370	elf.h	/^#define EM_S370 /;"	d
-EM_S390	elf.h	/^#define EM_S390 /;"	d
-EM_SH	elf.h	/^#define EM_SH /;"	d
-EM_SPARC	elf.h	/^#define EM_SPARC /;"	d
-EM_SPARC32PLUS	elf.h	/^#define EM_SPARC32PLUS /;"	d
-EM_SPARCV9	elf.h	/^#define EM_SPARCV9 /;"	d
-EM_ST100	elf.h	/^#define EM_ST100 /;"	d
-EM_ST7	elf.h	/^#define EM_ST7 /;"	d
-EM_ST9PLUS	elf.h	/^#define EM_ST9PLUS /;"	d
-EM_STARCORE	elf.h	/^#define EM_STARCORE /;"	d
-EM_SVX	elf.h	/^#define EM_SVX /;"	d
-EM_TINYJ	elf.h	/^#define EM_TINYJ /;"	d
-EM_TRICORE	elf.h	/^#define EM_TRICORE /;"	d
-EM_V800	elf.h	/^#define EM_V800 /;"	d
-EM_V850	elf.h	/^#define EM_V850 /;"	d
-EM_VAX	elf.h	/^#define EM_VAX /;"	d
-EM_VPP500	elf.h	/^#define EM_VPP500 /;"	d
-EM_X86_64	elf.h	/^#define EM_X86_64 /;"	d
-EM_ZSP	elf.h	/^#define EM_ZSP /;"	d
-ET_CORE	elf.h	/^#define ET_CORE /;"	d
-ET_DYN	elf.h	/^#define ET_DYN /;"	d
-ET_EXEC	elf.h	/^#define ET_EXEC /;"	d
-ET_HIOS	elf.h	/^#define ET_HIOS /;"	d
-ET_HIPROC	elf.h	/^#define ET_HIPROC /;"	d
-ET_LOOS	elf.h	/^#define ET_LOOS /;"	d
-ET_LOPROC	elf.h	/^#define ET_LOPROC /;"	d
-ET_NONE	elf.h	/^#define ET_NONE /;"	d
-ET_NUM	elf.h	/^#define ET_NUM /;"	d
-ET_REL	elf.h	/^#define ET_REL /;"	d
 EVEX	disasm.h	/^   uint16 EVEX;                        \/\/ options for interpreting EVEX prefix, may be used for 4. source operand otherwise (unused)$/;"	m	struct:SOpcodeDef
 EVEXRoundingNames	opcodes.cpp	/^const char * EVEXRoundingNames[5] = {$/;"	v
-EV_CURRENT	elf.h	/^#define EV_CURRENT /;"	d
-EV_NONE	elf.h	/^#define EV_NONE /;"	d
-EV_NUM	elf.h	/^#define EV_NUM /;"	d
-Elf2MacRelocations	elf2mac.cpp	/^void CELF2MAC<ELFSTRUCTURES,MACSTRUCTURES>::Elf2MacRelocations(Elf32_Shdr & OldRelHeader, MAC_section_32 & NewHeader, uint32 NewRawDataOffset, uint32 oldsec) {$/;"	f	class:CELF2MAC
-Elf2MacRelocations	elf2mac.cpp	/^void CELF2MAC<ELFSTRUCTURES,MACSTRUCTURES>::Elf2MacRelocations(Elf64_Shdr & OldRelHeader, MAC_section_64 & NewHeader, uint32 NewRawDataOffset, uint32 oldsec) {$/;"	f	class:CELF2MAC
-Elf32_Dyn	elf.h	/^struct Elf32_Dyn {$/;"	s
-Elf32_Ehdr	elf.h	/^struct Elf32_Ehdr {$/;"	s
-Elf32_Move	elf.h	/^struct Elf32_Move {$/;"	s
-Elf32_Nhdr	elf.h	/^struct Elf32_Nhdr {$/;"	s
-Elf32_Phdr	elf.h	/^struct Elf32_Phdr {$/;"	s
-Elf32_Rel	elf.h	/^struct Elf32_Rel {$/;"	s
-Elf32_Rela	elf.h	/^struct Elf32_Rela {$/;"	s
-Elf32_Shdr	elf.h	/^struct Elf32_Shdr {$/;"	s
-Elf32_Sym	elf.h	/^struct Elf32_Sym {$/;"	s
-Elf32_Syminfo	elf.h	/^struct Elf32_Syminfo {$/;"	s
-Elf32_Verdaux	elf.h	/^struct Elf32_Verdaux {$/;"	s
-Elf32_Verdef	elf.h	/^struct Elf32_Verdef  {$/;"	s
-Elf32_Vernaux	elf.h	/^struct Elf32_Vernaux {$/;"	s
-Elf32_Verneed	elf.h	/^struct Elf32_Verneed {$/;"	s
-Elf64_Dyn	elf.h	/^struct Elf64_Dyn {$/;"	s
-Elf64_Ehdr	elf.h	/^struct Elf64_Ehdr {$/;"	s
-Elf64_Move	elf.h	/^struct Elf64_Move {$/;"	s
-Elf64_Nhdr	elf.h	/^struct Elf64_Nhdr {$/;"	s
-Elf64_Phdr	elf.h	/^struct Elf64_Phdr {$/;"	s
-Elf64_Rel	elf.h	/^struct Elf64_Rel {$/;"	s
-Elf64_Rela	elf.h	/^struct Elf64_Rela {$/;"	s
-Elf64_Shdr	elf.h	/^struct Elf64_Shdr {$/;"	s
-Elf64_Sym	elf.h	/^struct Elf64_Sym {$/;"	s
-Elf64_Syminfo	elf.h	/^struct Elf64_Syminfo {$/;"	s
-Elf64_Verdaux	elf.h	/^struct Elf64_Verdaux {$/;"	s
-Elf64_Verdef	elf.h	/^struct Elf64_Verdef {$/;"	s
-Elf64_Vernaux	elf.h	/^struct Elf64_Vernaux {$/;"	s
-Elf64_Verneed	elf.h	/^struct Elf64_Verneed {$/;"	s
 End	disasm.h	/^   uint32 End;                                   \/\/ Offset of function end$/;"	m	struct:SFunctionRecord
-End	omf.h	/^   uint32 End;             \/\/ Offset to checksum byte from start of record$/;"	m	struct:SOMFRecordPointer
-EndRecord	omf.cpp	/^void COMFFileBuilder::EndRecord() {$/;"	f	class:COMFFileBuilder
-EndianChange	library.cpp	/^uint32 EndianChange(uint32 n) {$/;"	f
 EntryPoint	converters.h	/^   uint32 EntryPoint;                            \/\/ Entry point (for executable files)$/;"	m	class:CCOFF
 ErrorNumber	error.h	/^   int  ErrorNumber;    \/\/ Error number$/;"	m	struct:SErrorText
 ErrorTexts	error.cpp	/^SErrorText ErrorTexts[] = {$/;"	v
@@ -650,20 +250,12 @@ Errors	disasm.h	/^   uint32 Errors;                                \/\/ Errors t
 Esss	disasm.h	/^   uint32 Esss;                                  \/\/ EVEX.zLLb = MVEX.Esss option bits$/;"	m	struct:SOpcodeProp
 ExceptionTable	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY ExceptionTable;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 ExceptionTable	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY ExceptionTable;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
-ExeType	converters.h	/^   uint32 ExeType;                               \/\/ File type: 0 = object, 1 = DLL\/shared object, 2 = executable$/;"	m	class:CELF2ASM
 ExeType	disasm.h	/^   uint32  ExeType;                              \/\/ File type: 0 = object, 1 = position independent shared object, 2 = executable$/;"	m	class:CDisassembler
 Executable	containers.h	/^   int Executable;                               \/\/ File is executable$/;"	m	class:CFileBuffer
-ExeptionInfo	cmdline.h	/^   uint32 ExeptionInfo;                      \/\/ Strip or preserve exception handler info and other incompatible info$/;"	m	class:CCommandLineInterpreter
 Exists	containers.h	/^   int32 Exists(RecordType const & x) {$/;"	f	class:CSList
 ExportAddressTableRVA	coff.h	/^   uint32 ExportAddressTableRVA;       \/\/ Image-relative address of export address table$/;"	m	struct:SCOFF_ExportDirectory
 ExportTable	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY ExportTable;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 ExportTable	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY ExportTable;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
-ExtdefTranslation	converters.h	/^   CSList<uint32> ExtdefTranslation;             \/\/ Translate old external symbol number to disasm symbol table index$/;"	m	class:COMF2ASM
-ExtdefTranslation	converters.h	/^   CSList<uint32> ExtdefTranslation;             \/\/ Translate old external symbol number to new symbol table index$/;"	m	class:COMF2COF
-ExtractMember	library.cpp	/^char * CLibrary::ExtractMember(CFileBuffer * Destination) {$/;"	f	class:CLibrary
-ExtractMemberOMF	library.cpp	/^char * CLibrary::ExtractMemberOMF(CFileBuffer * Destination) {$/;"	f	class:CLibrary
-ExtractMemberUNIX	library.cpp	/^char * CLibrary::ExtractMemberUNIX(CFileBuffer * Destination) {$/;"	f	class:CLibrary
-F	omf.h	/^             F:1;                      \/\/ 0 = target frame field present, 1 = frame defined by thread$/;"	m	struct:OMF_SFixData::__anon16
 FILETYPE_ASM	maindef.h	/^#define FILETYPE_ASM /;"	d
 FILETYPE_COFF	maindef.h	/^#define FILETYPE_COFF /;"	d
 FILETYPE_DOS	maindef.h	/^#define FILETYPE_DOS /;"	d
@@ -678,22 +270,15 @@ FILETYPE_OMF	maindef.h	/^#define FILETYPE_OMF /;"	d
 FILETYPE_OMFLIBRARY	maindef.h	/^#define FILETYPE_OMFLIBRARY /;"	d
 FILETYPE_WIN3X	maindef.h	/^#define FILETYPE_WIN3X /;"	d
 FILETYPE_WIN_UNKNOWN	maindef.h	/^#define FILETYPE_WIN_UNKNOWN /;"	d
-FakeGOTSection	converters.h	/^   int FakeGOTSection;                            \/\/ Fake GOT section number$/;"	m	class:CMAC2ELF
-FakeGOTSymbol	converters.h	/^   int FakeGOTSymbol;                             \/\/ Symbol index for fake GOT$/;"	m	class:CMAC2ELF
 FileAlignment	coff.h	/^      uint32 FileAlignment;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 FileAlignment	coff.h	/^      uint32 FileAlignment;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
-FileEnd	omf.h	/^   uint32 FileEnd;         \/\/ End of file = file size$/;"	m	struct:SOMFRecordPointer
 FileFormatNames	containers.cpp	/^SIntTxt FileFormatNames[] = {$/;"	v
 FileHeader	converters.h	/^   SCOFF_FileHeader * FileHeader;                \/\/ File header$/;"	m	class:CCOFF
-FileHeader	converters.h	/^   TFileHeader FileHeader;                       \/\/ Copy of file header$/;"	m	class:CELF
 FileHeader	converters.h	/^   TMAC_header FileHeader;                       \/\/ Copy of file header$/;"	m	class:CMACHO
-FileMode	library.h	/^    char FileMode[8];                   \/\/ Member file mode, octal$/;"	m	struct:SUNIXLibraryHeader
 FileName	coff.h	/^      char FileName[18];\/\/ File name$/;"	m	struct:SCOFF_SymTableEntry::__anon8
 FileName	containers.h	/^   char const * FileName;                        \/\/ Name of input file$/;"	m	class:CFileBuffer
 FileOffset	coff.h	/^   uint32 FileOffset;                  \/\/ Offset relative to file$/;"	m	struct:SCOFF_ImageDirAddress
-FileOffset	omf.h	/^   uint32 FileOffset;      \/\/ Position in file$/;"	m	struct:SOMFRecordPointer
 FileOptions	cmdline.h	/^   uint32 FileOptions;                       \/\/ Options for input and output files$/;"	m	class:CCommandLineInterpreter
-FileSize	library.h	/^    char FileSize[10];                  \/\/ Member file size, decimal ASCII$/;"	m	struct:SUNIXLibraryHeader
 FileType	containers.h	/^   int FileType;                                 \/\/ Object file type$/;"	m	class:CFileBuffer
 FinalErrorCheck	disasm1.cpp	/^void CDisassembler::FinalErrorCheck() {$/;"	f	class:CDisassembler
 FindBroadcast	disasm1.cpp	/^void CDisassembler::FindBroadcast() {$/;"	f	class:CDisassembler
@@ -702,19 +287,13 @@ FindByAddress	disasm1.cpp	/^uint32 CSymbolTable::FindByAddress(int32 Section, ui
 FindError	error.cpp	/^SErrorText * CErrorReporter::FindError(int ErrorNumber) {$/;"	f	class:CErrorReporter
 FindErrors	disasm1.cpp	/^void CDisassembler::FindErrors() {$/;"	f	class:CDisassembler
 FindFirst	containers.h	/^   int32 FindFirst(RecordType const & x) {$/;"	f	class:CSList
-FindImageBase	elf2asm.cpp	/^void CELF2ASM<ELFSTRUCTURES>::FindImageBase() {$/;"	f	class:CELF2ASM
 FindInstructionSet	disasm1.cpp	/^void CDisassembler::FindInstructionSet() {$/;"	f	class:CDisassembler
 FindLabels	disasm1.cpp	/^void CDisassembler::FindLabels() {$/;"	f	class:CDisassembler
 FindMapEntry	disasm1.cpp	/^void CDisassembler::FindMapEntry() {$/;"	f	class:CDisassembler
 FindOperandTypes	disasm1.cpp	/^void CDisassembler::FindOperandTypes() {$/;"	f	class:CDisassembler
 FindOperands	disasm1.cpp	/^void CDisassembler::FindOperands() {$/;"	f	class:CDisassembler
 FindRelocations	disasm1.cpp	/^void CDisassembler::FindRelocations() {$/;"	f	class:CDisassembler
-FindString	omfhash.cpp	/^int  COMFHashTable::FindString(uint32 & ModulePage, uint32 & Conflicts) {$/;"	f	class:COMFHashTable
-FindUnusedSymbols	elf2mac.cpp	/^void CELF2MAC<ELFSTRUCTURES,MACSTRUCTURES>::FindUnusedSymbols() {$/;"	f	class:CELF2MAC
 FindWarnings	disasm1.cpp	/^void CDisassembler::FindWarnings() {$/;"	f	class:CDisassembler
-FirstComDatSection	converters.h	/^   int32 FirstComDatSection;                     \/\/ First COMDAT section. All sections before this are SEGDEF segments$/;"	m	class:COMF2ASM
-FirstGlobalSymbol	converters.h	/^   uint32 FirstGlobalSymbol;                     \/\/ Index to first global symbol in .symtab$/;"	m	class:CELF2ELF
-FixNames	library.cpp	/^void CLibrary::FixNames() {$/;"	f	class:CLibrary
 FixRelocationTargetAddresses	disasm1.cpp	/^void CDisassembler::FixRelocationTargetAddresses() {$/;"	f	class:CDisassembler
 FlagPrevious	disasm.h	/^   uint32  FlagPrevious;                         \/\/ 1: previous instruction was a NOP. $/;"	m	class:CDisassembler
 Flags	coff.h	/^   uint32 Flags;$/;"	m	struct:SCOFF_ExportDirectory
@@ -724,74 +303,44 @@ FloorLog2	main.cpp	/^int FloorLog2(uint32 x) {$/;"	f
 Fname	coff.h	/^  uint32 Fname;    \/\/ function name symbol table index, if Line == 0$/;"	m	union:SCOFF_LineNumbers::__anon3
 FollowJumpTable	disasm1.cpp	/^void CDisassembler::FollowJumpTable(uint32 symi, uint32 RelType) {$/;"	f	class:CDisassembler
 ForwarderChain	coff.h	/^   uint32 ForwarderChain;$/;"	m	struct:SCOFF_ImportDirectory
-Frame	omf.h	/^             Frame:3,                  \/\/ Frame method (F=0) or frame thread (F=1)$/;"	m	struct:OMF_SFixData::__anon16
-FreeSpace	library.h	/^        uint8 FreeSpace;                 \/\/ Pointer to free space$/;"	m	struct:SOMFHashBlock::__anon13
 FunctionEnd	disasm.h	/^   uint32  FunctionEnd;                          \/\/ End address of current function (pass 2)$/;"	m	class:CDisassembler
 FunctionList	disasm.h	/^   CSList<SFunctionRecord> FunctionList;         \/\/ List of functions $/;"	m	class:CDisassembler
-GOTSymbols	converters.h	/^   CSList<int> GOTSymbols;                        \/\/ List of symbols needing GOT entry$/;"	m	class:CMAC2ELF
-GRP_COMDAT	elf.h	/^#define GRP_COMDAT /;"	d
 Get	containers.h	/^   template <class TX> TX & Get(uint32 Offset) { \/\/ Get object of arbitrary type from buffer$/;"	f	class:CMemoryBuffer
 Get	disasm.h	/^   template <class TX> TX & Get(uint32 Offset) { \/\/ Get object of arbitrary type from buffer$/;"	f	class:CDisassembler
 GetBufferSize	containers.h	/^   uint32 GetBufferSize(){return BufferSize;};   \/\/ Buffer size$/;"	f	class:CMemoryBuffer
-GetByte	omf.cpp	/^uint8  SOMFRecordPointer::GetByte() {$/;"	f	class:SOMFRecordPointer
 GetColumn	containers.h	/^   uint32 GetColumn() {return column;}           \/\/ Get column number$/;"	f	class:CTextFileBuffer
 GetDLLName	disasm1.cpp	/^const char * CSymbolTable::GetDLLName(uint32 symi) {$/;"	f	class:CSymbolTable
 GetDataElementSize	disasm1.cpp	/^uint32 CDisassembler::GetDataElementSize(uint32 Type) {$/;"	f	class:CDisassembler
 GetDataItemSize	disasm1.cpp	/^uint32 CDisassembler::GetDataItemSize(uint32 Type) {$/;"	f	class:CDisassembler
 GetDataSize	containers.h	/^   uint32 GetDataSize()  {return DataSize;};     \/\/ File data size$/;"	f	class:CMemoryBuffer
-GetDword	omf.cpp	/^uint32 SOMFRecordPointer::GetDword() {$/;"	f	class:SOMFRecordPointer
 GetFileFormatName	containers.cpp	/^char const * CFileBuffer::GetFileFormatName(int FileType) {$/;"	f	class:CFileBuffer
 GetFileName	coff.cpp	/^const char * CCOFF::GetFileName(SCOFF_SymTableEntry * syme) {$/;"	f	class:CCOFF
 GetFileType	containers.cpp	/^int CFileBuffer::GetFileType() {$/;"	f	class:CFileBuffer
-GetGroupName	omf.cpp	/^const char * COMF::GetGroupName(uint32 i) {$/;"	f	class:COMF
 GetImageDir	coff.cpp	/^int CCOFF::GetImageDir(uint32 n, SCOFF_ImageDirAddress * dir) {$/;"	f	class:CCOFF
-GetImagebaseSymbol	elf2mac.cpp	/^int CELF2MAC<ELFSTRUCTURES,MACSTRUCTURES>::GetImagebaseSymbol() {$/;"	f	class:CELF2MAC
-GetIndex	omf.cpp	/^uint32 SOMFRecordPointer::GetIndex() {$/;"	f	class:SOMFRecordPointer
 GetLastIndex	containers.cpp	/^uint32 CMemoryBuffer::GetLastIndex() {$/;"	f	class:CMemoryBuffer
-GetLength	omf.cpp	/^uint32 SOMFRecordPointer::GetLength() {$/;"	f	class:SOMFRecordPointer
 GetLimit	disasm.h	/^   uint32 GetLimit() {return OldNum;}            \/\/ Get highest old symbol number + 1$/;"	f	class:CSymbolTable
-GetLocalName	omf.cpp	/^char * COMF::GetLocalName(uint32 i) {$/;"	f	class:COMF
-GetLocalNameO	omf.cpp	/^uint32 COMF::GetLocalNameO(uint32 i) {$/;"	f	class:COMF
-GetMemberToAdd	cmdline.cpp	/^SSymbolChange const * CCommandLineInterpreter::GetMemberToAdd() {$/;"	f	class:CCommandLineInterpreter
-GetModuleName	library.cpp	/^const char * CLibrary::GetModuleName(uint32 Index) {$/;"	f	class:CLibrary
 GetName	disasm1.cpp	/^const char * CSymbolTable::GetName(uint32 symi) {$/;"	f	class:CSymbolTable
 GetNameO	disasm1.cpp	/^const char * CSymbolTable::GetNameO(uint32 symo) {$/;"	f	class:CSymbolTable
-GetNext	omf.cpp	/^uint8 SOMFRecordPointer::GetNext(uint32 align) {$/;"	f	class:SOMFRecordPointer
 GetNumEntries	containers.h	/^   uint32 GetNumEntries() {$/;"	f	class:CArrayBuf
 GetNumEntries	containers.h	/^   uint32 GetNumEntries() {$/;"	f	class:CSList
 GetNumEntries	containers.h	/^   uint32 GetNumEntries(){return NumEntries;};   \/\/ Get number of entries$/;"	f	class:CMemoryBuffer
 GetNumEntries	disasm.h	/^   uint32 GetNumEntries() {return List.GetNumEntries();}\/\/ Get highest new symbol number + 1$/;"	f	class:CSymbolTable
-GetNumeric	omf.cpp	/^uint32 SOMFRecordPointer::GetNumeric(){$/;"	f	class:SOMFRecordPointer
-GetOMFWordSize	containers.cpp	/^void CFileBuffer::GetOMFWordSize() {$/;"	f	class:CFileBuffer
-GetRecordTypeName	omf.cpp	/^const char * COMF::GetRecordTypeName(uint32 i) {$/;"	f	class:COMF
 GetSectionName	coff.cpp	/^char const * CCOFF::GetSectionName(int8* Symbol) {$/;"	f	class:CCOFF
-GetSegmentName	omf.cpp	/^const char * COMF::GetSegmentName(uint32 i) {$/;"	f	class:COMF
 GetSegmentRegisterFromPrefix	disasm1.cpp	/^int32 CDisassembler::GetSegmentRegisterFromPrefix() {$/;"	f	class:CDisassembler
 GetShortFileName	coff.cpp	/^const char * CCOFF::GetShortFileName(SCOFF_SymTableEntry * syme) {$/;"	f	class:CCOFF
-GetSize	omf.cpp	/^uint32 COMFFileBuilder::GetSize() {$/;"	f	class:COMFFileBuilder
 GetStorageClassName	coff.cpp	/^char const * CCOFF::GetStorageClassName(uint8 sc) {$/;"	f	class:CCOFF
-GetString	omf.cpp	/^char * SOMFRecordPointer::GetString() {$/;"	f	class:SOMFRecordPointer
 GetSymbolName	coff.cpp	/^char const * CCOFF::GetSymbolName(int8* Symbol) {$/;"	f	class:CCOFF
-GetSymbolName	omf.cpp	/^const char * COMF::GetSymbolName(uint32 i) {$/;"	f	class:COMF
-GetWord	omf.cpp	/^uint16 SOMFRecordPointer::GetWord() {$/;"	f	class:SOMFRecordPointer
 GetWorstError	error.cpp	/^int CErrorReporter::GetWorstError() {$/;"	f	class:CErrorReporter
 GlobalPtr	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY GlobalPtr;      \/\/ 0$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 GlobalPtr	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY GlobalPtr;      \/\/ 0$/;"	m	struct:SCOFF_OptionalHeader::__anon2
 Go	disasm1.cpp	/^void CDisassembler::Go() {$/;"	f	class:CDisassembler
-Go	library.cpp	/^void CLibrary::Go() {$/;"	f	class:CLibrary
-Go	macho.cpp	/^void CMACUNIV::Go(int options) {$/;"	f	class:CMACUNIV
 Go	main.cpp	/^void CConverter::Go() {$/;"	f	class:CConverter
 Go	main.cpp	/^void CMain::Go() {$/;"	f	class:CMain
 Group	disasm.h	/^   int32   Group;                                \/\/ Group that the segment is member of. 0 = none, -2 = flat, > 0 = defined group$/;"	m	struct:SASection
-GroupID	library.h	/^    char GroupID[6];                    \/\/ Member Group ID, decimal ASCII$/;"	m	struct:SUNIXLibraryHeader
-GroupNameOffset	converters.h	/^   CSList<uint32> GroupNameOffset;               \/\/ Offset into NameBuffer of group names$/;"	m	class:COMF
 HandleError	error.cpp	/^void CErrorReporter::HandleError(SErrorText * err, char const * text) {$/;"	f	class:CErrorReporter
-HasGOT	converters.h	/^   uint32 HasGOT;                                 \/\/ Contains references to global offset table$/;"	m	class:CMAC2ELF
 HasName	disasm1.cpp	/^const char * CSymbolTable::HasName(uint32 symo) {$/;"	f	class:CSymbolTable
-HeaderEnd	library.h	/^    char HeaderEnd[2];                  \/\/ "`\\n"$/;"	m	struct:SUNIXLibraryHeader
 Help	cmdline.cpp	/^void CCommandLineInterpreter::Help() {$/;"	f	class:CCommandLineInterpreter
 HereOperator	disasm.h	/^   const char * HereOperator;                    \/\/ "$" or "." indicating current position$/;"	m	class:CDisassembler
-HideUnusedSymbols	elf2cof.cpp	/^void CELF2COF<ELFSTRUCTURES>::HideUnusedSymbols() {$/;"	f	class:CELF2COF
 HighDWord	maindef.h	/^static inline uint32 HighDWord (uint64 x) {$/;"	f
 Hint	coff.h	/^   uint16 Hint;                        \/\/ Index into export name pointer table$/;"	m	struct:SCOFF_ImportHintName
 IBegin	disasm.h	/^   uint32  IBegin;                               \/\/ Begin of current instruction$/;"	m	class:CDisassembler
@@ -801,10 +350,8 @@ IMAGE_WEAK_EXTERN_SEARCH_ALIAS	coff.h	/^#define IMAGE_WEAK_EXTERN_SEARCH_ALIAS /
 IMAGE_WEAK_EXTERN_SEARCH_LIBRARY	coff.h	/^#define IMAGE_WEAK_EXTERN_SEARCH_LIBRARY /;"	d
 IMAGE_WEAK_EXTERN_SEARCH_NOLIBRARY	coff.h	/^#define IMAGE_WEAK_EXTERN_SEARCH_NOLIBRARY /;"	d
 IMPORT_LIBRARY_MEMBER	maindef.h	/^#define IMPORT_LIBRARY_MEMBER /;"	d
-ImageBase	cmdline.h	/^   uint32 ImageBase;                         \/\/ Specified image base$/;"	m	class:CCommandLineInterpreter
 ImageBase	coff.h	/^      int32  ImageBase;                \/\/ Image base$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 ImageBase	coff.h	/^      int64  ImageBase;                \/\/ Image base$/;"	m	struct:SCOFF_OptionalHeader::__anon2
-ImageBase	converters.h	/^   int64 ImageBase;                              \/\/ Image base if executable file$/;"	m	class:CELF2ASM
 ImageBase	converters.h	/^   uint64 ImageBase;                             \/\/ Image base (for executable files)$/;"	m	class:CCOFF
 ImageBase	converters.h	/^   uint64 ImageBase;                             \/\/ Image base for executable file$/;"	m	class:CMACHO
 ImageBase	disasm.h	/^   int64   ImageBase;                            \/\/ Image base for executable files$/;"	m	class:CDisassembler
@@ -819,22 +366,14 @@ ImportSections	converters.h	/^   CSList<TMAC_section*> ImportSections;          
 ImportTable	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY ImportTable;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 ImportTable	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY ImportTable;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
 ImportTablePrefix	disasm.h	/^   const char * ImportTablePrefix;               \/\/ Prefix for pointers in import table$/;"	m	class:CSymbolTable
-Index	omf.h	/^   uint32 Index;                       \/\/ Index to current offset$/;"	m	class:COMFFileBuilder
-Index	omf.h	/^   uint32 Index;           \/\/ Offset to current byte while parsing from start of record$/;"	m	struct:SOMFRecordPointer
 IndexReg	disasm.h	/^   uint32 IndexReg;                              \/\/ Index register + 1. (0 if none)$/;"	m	struct:SOpcodeProp
-Indexes	library.h	/^    CSList<uint32> Indexes;             \/\/ Buffer containing indexes into DataBuffer$/;"	m	class:CLibrary
 IndirectSymTabNumber	converters.h	/^   uint32 IndirectSymTabNumber;                  \/\/ number of indirect symbol table entries$/;"	m	class:CMACHO
 IndirectSymTabOffset	converters.h	/^   uint32 IndirectSymTabOffset;                  \/\/ file offset to the indirect symbol table$/;"	m	class:CMACHO
 Init	disasm1.cpp	/^void CDisassembler::Init(uint32 ExeType, int64 ImageBase) {$/;"	f	class:CDisassembler
-Init	omfhash.cpp	/^void COMFHashTable::Init(SOMFHashBlock * blocks, uint32 NumBlocks) {$/;"	f	class:COMFHashTable
 InitSize	disasm.h	/^   uint32  InitSize;                             \/\/ Size of initialized data in section$/;"	m	struct:SASection
 InitialErrorCheck	disasm1.cpp	/^void CDisassembler::InitialErrorCheck() {$/;"	f	class:CDisassembler
 InputFile	cmdline.h	/^   char * InputFile;                         \/\/ Input file name$/;"	m	class:CCommandLineInterpreter
 InputType	cmdline.h	/^   int    InputType;                         \/\/ Input file type (detected from file)$/;"	m	class:CCommandLineInterpreter
-InsertMember	library.cpp	/^void CLibrary::InsertMember(CFileBuffer * member) {$/;"	f	class:CLibrary
-InsertMemberOMF	library.cpp	/^void CLibrary::InsertMemberOMF(CFileBuffer * member) {$/;"	f	class:CLibrary
-InsertMemberUNIX	library.cpp	/^void CLibrary::InsertMemberUNIX(CFileBuffer * member) {$/;"	f	class:CLibrary
-InsertString	omfhash.cpp	/^int COMFHashTable::InsertString(uint16 & ModulePage) {$/;"	f	class:COMFHashTable
 InstructionFormat	disasm.h	/^   uint16 InstructionFormat;           \/\/ opcode type, number of operands$/;"	m	struct:SOpcodeDef
 InstructionSet	disasm.h	/^   uint32 InstructionSet;              \/\/ mmx, sse, 3dnow, x64, etc.$/;"	m	struct:SOpcodeDef
 InstructionSetAMDMAX	disasm.h	/^   uint8   InstructionSetAMDMAX;                 \/\/ Highest AMD-specific instruction set encountered$/;"	m	class:CDisassembler
@@ -843,19 +382,10 @@ InstructionSetNames	disasm2.cpp	/^const char * InstructionSetNames[] = {$/;"	v
 InstructionSetNamesLen	disasm2.cpp	/^const int InstructionSetNamesLen = TableSize(InstructionSetNames);$/;"	v
 InstructionSetOR	disasm.h	/^   uint16  InstructionSetOR;                     \/\/ Bitwise OR of all instruction sets encountered$/;"	m	class:CDisassembler
 InterpretCommandOption	cmdline.cpp	/^void CCommandLineInterpreter::InterpretCommandOption(char * string) {$/;"	f	class:CCommandLineInterpreter
-InterpretDebugInfoOption	cmdline.cpp	/^void CCommandLineInterpreter::InterpretDebugInfoOption(char * string) {$/;"	f	class:CCommandLineInterpreter
 InterpretDumpOption	cmdline.cpp	/^void CCommandLineInterpreter::InterpretDumpOption(char * string) {$/;"	f	class:CCommandLineInterpreter
-InterpretErrorOption	cmdline.cpp	/^void CCommandLineInterpreter::InterpretErrorOption(char * string) {$/;"	f	class:CCommandLineInterpreter
-InterpretExceptionInfoOption	cmdline.cpp	/^void CCommandLineInterpreter::InterpretExceptionInfoOption(char * string) {$/;"	f	class:CCommandLineInterpreter
 InterpretFileName	cmdline.cpp	/^void CCommandLineInterpreter::InterpretFileName(char * string) {$/;"	f	class:CCommandLineInterpreter
-InterpretImagebaseOption	cmdline.cpp	/^void CCommandLineInterpreter::InterpretImagebaseOption(char * string) {$/;"	f	class:CCommandLineInterpreter
-InterpretLIDATABlock	omf.cpp	/^uint32 SOMFRecordPointer::InterpretLIDATABlock() {$/;"	f	class:SOMFRecordPointer
-InterpretLibraryOption	cmdline.cpp	/^void CCommandLineInterpreter::InterpretLibraryOption(char * string) {$/;"	f	class:CCommandLineInterpreter
 InterpretOutputTypeOption	cmdline.cpp	/^void CCommandLineInterpreter::InterpretOutputTypeOption(char * string) {$/;"	f	class:CCommandLineInterpreter
-InterpretSymbolNameChangeOption	cmdline.cpp	/^void CCommandLineInterpreter::InterpretSymbolNameChangeOption(char * string) {$/;"	f	class:CCommandLineInterpreter
-InterpretVerboseOption	cmdline.cpp	/^void CCommandLineInterpreter::InterpretVerboseOption(char * string) {$/;"	f	class:CCommandLineInterpreter
 Kreg	disasm.h	/^   uint32 Kreg;                                  \/\/ EVEX.aaa = MVEX.kkk mask register$/;"	m	struct:SOpcodeProp
-LIBRARY_H	library.h	/^#define LIBRARY_H$/;"	d
 LIBTYPE_BSD_MAC	maindef.h	/^#define LIBTYPE_BSD_MAC /;"	d
 LIBTYPE_LINUX	maindef.h	/^#define LIBTYPE_LINUX /;"	d
 LIBTYPE_OMF	maindef.h	/^#define LIBTYPE_OMF /;"	d
@@ -865,8 +395,6 @@ LabelBegin	disasm.h	/^   uint32  LabelBegin;                           \/\/ Addr
 LabelEnd	disasm.h	/^   uint32  LabelEnd;                             \/\/ Address of next label$/;"	m	class:CDisassembler
 LabelInaccessible	disasm.h	/^   uint32  LabelInaccessible;                    \/\/ Address of inaccessible code$/;"	m	class:CDisassembler
 Length	coff.h	/^      uint32 Length;$/;"	m	struct:SCOFF_SymTableEntry::__anon10
-LibraryOptions	cmdline.h	/^   uint32 LibraryOptions;                    \/\/ Options for manipulating library$/;"	m	class:CCommandLineInterpreter
-LibrarySubtype	cmdline.h	/^   uint32 LibrarySubtype;                    \/\/ Options for manipulating library$/;"	m	class:CCommandLineInterpreter
 Line	coff.h	/^ uint16 Line;      \/\/ line number$/;"	m	struct:SCOFF_LineNumbers
 LineType	containers.h	/^   int  LineType;                                \/\/ 0 = DOS\/Windows linefeeds, 1 = UNIX linefeeds$/;"	m	class:CTextFileBuffer
 LinkerMajorVersion	coff.h	/^      uint8  LinkerMajorVersion;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
@@ -878,18 +406,9 @@ LoadConfigTable	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY LoadConfigTable;$/;"	m
 LoadConfigTable	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY LoadConfigTable;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
 LoaderFlags	coff.h	/^      uint32 LoaderFlags;              \/\/ 0$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 LoaderFlags	coff.h	/^      uint32 LoaderFlags;              \/\/ 0$/;"	m	struct:SCOFF_OptionalHeader::__anon2
-LocalNameOffset	converters.h	/^   CSList<uint32> LocalNameOffset;               \/\/ Offset into NameBuffer of segment names by name index$/;"	m	class:COMF
-LocalSymbols	converters.h	/^   CSList<SOMFLocalSymbol> LocalSymbols;         \/\/ List for assigning names to unnamed local symbols$/;"	m	class:COMF2COF
-Location	omf.h	/^             Location:4,               \/\/ Relocation method$/;"	m	struct:OMF_SLocat::__anon15
-LongNames	library.h	/^    uint32 LongNames;                   \/\/ Offset to long names member$/;"	m	class:CLibrary
-LongNamesBuffer	library.h	/^    CMemoryBuffer LongNamesBuffer;      \/\/ Buffer for building the "\/\/" longnames member$/;"	m	class:CLibrary
-LongNamesSize	library.h	/^    uint32 LongNamesSize;               \/\/ Size of long names member$/;"	m	class:CLibrary
 Lookup	maindef.h	/^#define Lookup(/;"	d
 LookupText	maindef.h	/^static inline char const * LookupText(SIntTxt const * p, int n, uint32 x) {$/;"	f
-M	omf.h	/^             M:1,                      \/\/ 0 = self-relative, 1 = direct$/;"	m	struct:OMF_SLocat::__anon15
 MAC2ASM	main.cpp	/^void CConverter::MAC2ASM() {$/;"	f	class:CConverter
-MAC2ELF	main.cpp	/^void CConverter::MAC2ELF() {$/;"	f	class:CConverter
-MAC2MAC	main.cpp	/^void CConverter::MAC2MAC() {$/;"	f	class:CConverter
 MAC32STRUCTURES	macho.h	/^#define MAC32STRUCTURES /;"	d
 MAC32_RELOC_LOCAL_SECTDIFF	macho.h	/^#define MAC32_RELOC_LOCAL_SECTDIFF /;"	d
 MAC32_RELOC_PAIR	macho.h	/^#define MAC32_RELOC_PAIR /;"	d
@@ -1090,7 +609,6 @@ MacMachineNames	macho.cpp	/^SIntTxt MacMachineNames[] = {$/;"	v
 MacSymbolDescriptorFlagNames	macho.cpp	/^SIntTxt MacSymbolDescriptorFlagNames[] = {$/;"	v
 MacSymbolRecord	macho.h	/^struct MacSymbolRecord : public TMAC_nlist {$/;"	s
 MacSymbolReferenceTypeNames	macho.cpp	/^SIntTxt MacSymbolReferenceTypeNames[] = {$/;"	v
-MacSymbolTableBuilder	macho.cpp	/^MacSymbolTableBuilder<TMAC_nlist, MInt>::MacSymbolTableBuilder() {                       \/\/ Constructor$/;"	f	class:MacSymbolTableBuilder
 MacSymbolTableBuilder	macho.h	/^class MacSymbolTableBuilder : public CMemoryBuffer {$/;"	c
 MacSymbolTypeNames	macho.cpp	/^SIntTxt MacSymbolTypeNames[] = {$/;"	v
 Machine	coff.h	/^ uint16 Machine;              \/\/ Machine ID (magic number)$/;"	m	struct:SCOFF_FileHeader
@@ -1102,96 +620,24 @@ MajorOperatingSystemVersion	coff.h	/^      uint16 MajorOperatingSystemVersion;$/
 MajorOperatingSystemVersion	coff.h	/^      uint16 MajorOperatingSystemVersion;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
 MajorSubsystemVersion	coff.h	/^      uint16 MajorSubsystemVersion;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 MajorSubsystemVersion	coff.h	/^      uint16 MajorSubsystemVersion;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
-MakeBinaryFile	cof2cof.cpp	/^void CCOF2COF::MakeBinaryFile() {$/;"	f	class:CCOF2COF
-MakeBinaryFile	cof2elf.cpp	/^void CCOF2ELF<ELFSTRUCTURES>::MakeBinaryFile() {$/;"	f	class:CCOF2ELF
-MakeBinaryFile	elf2cof.cpp	/^void CELF2COF<ELFSTRUCTURES>::MakeBinaryFile() {$/;"	f	class:CELF2COF
-MakeBinaryFile	elf2elf.cpp	/^void CELF2ELF<ELFSTRUCTURES>::MakeBinaryFile() {$/;"	f	class:CELF2ELF
-MakeBinaryFile	elf2mac.cpp	/^void CELF2MAC<ELFSTRUCTURES,MACSTRUCTURES>::MakeBinaryFile() {$/;"	f	class:CELF2MAC
-MakeBinaryFile	library.cpp	/^void CLibrary::MakeBinaryFile() {$/;"	f	class:CLibrary
-MakeBinaryFile	mac2elf.cpp	/^void CMAC2ELF<MACSTRUCTURES,ELFSTRUCTURES>::MakeBinaryFile() {$/;"	f	class:CMAC2ELF
-MakeBinaryFile	mac2mac.cpp	/^void CMAC2MAC<MACSTRUCTURES>::MakeBinaryFile() {$/;"	f	class:CMAC2MAC
-MakeBinaryFile	omf2cof.cpp	/^void COMF2COF::MakeBinaryFile() {$/;"	f	class:COMF2COF
-MakeBinaryFileOMF	library.cpp	/^void CLibrary::MakeBinaryFileOMF() {$/;"	f	class:CLibrary
-MakeBinaryFileUNIX	library.cpp	/^void CLibrary::MakeBinaryFileUNIX() {$/;"	f	class:CLibrary
-MakeCommunalSymbolsTable	omf2asm.cpp	/^void COMF2ASM::MakeCommunalSymbolsTable() {$/;"	f	class:COMF2ASM
 MakeDynamicRelocations	cof2asm.cpp	/^void CCOF2ASM::MakeDynamicRelocations() {$/;"	f	class:CCOF2ASM
-MakeEXTDEF	cof2omf.cpp	/^void CCOF2OMF::MakeEXTDEF() {$/;"	f	class:CCOF2OMF
 MakeExportList	cof2asm.cpp	/^void CCOF2ASM::MakeExportList() {$/;"	f	class:CCOF2ASM
-MakeExportList	elf2asm.cpp	/^void CELF2ASM<ELFSTRUCTURES>::MakeExportList() {$/;"	f	class:CELF2ASM
-MakeExternalSymbolsTable	omf2asm.cpp	/^void COMF2ASM::MakeExternalSymbolsTable() {$/;"	f	class:COMF2ASM
-MakeFileHeader	elf2cof.cpp	/^void CELF2COF<ELFSTRUCTURES>::MakeFileHeader() {$/;"	f	class:CELF2COF
-MakeFileHeader	elf2mac.cpp	/^void CELF2MAC<ELFSTRUCTURES,MACSTRUCTURES>::MakeFileHeader() {$/;"	f	class:CELF2MAC
-MakeFileHeader	omf2cof.cpp	/^void COMF2COF::MakeFileHeader() {$/;"	f	class:COMF2COF
-MakeGOT	mac2elf.cpp	/^void CMAC2ELF<MACSTRUCTURES,ELFSTRUCTURES>::MakeGOT() {$/;"	f	class:CMAC2ELF
-MakeGOTEntry	mac2elf.cpp	/^uint32 CMAC2ELF<MACSTRUCTURES,ELFSTRUCTURES>::MakeGOTEntry(int symbol) {$/;"	f	class:CMAC2ELF
-MakeGroupDefinitions	omf2asm.cpp	/^void COMF2ASM::MakeGroupDefinitions() {$/;"	f	class:COMF2ASM
-MakeHash	omfhash.cpp	/^void COMFHashTable::MakeHash(int8 * name) {$/;"	f	class:COMFHashTable
-MakeHashTable	omfhash.cpp	/^void COMFHashTable::MakeHashTable(CSList<SStringEntry> & StringEntries, $/;"	f	class:COMFHashTable
 MakeImportList	cof2asm.cpp	/^void CCOF2ASM::MakeImportList() {$/;"	f	class:CCOF2ASM
-MakeImportList	elf2asm.cpp	/^void CELF2ASM<ELFSTRUCTURES>::MakeImportList() {$/;"	f	class:CELF2ASM
-MakeImportTables	mac2elf.cpp	/^void CMAC2ELF<MACSTRUCTURES,ELFSTRUCTURES>::MakeImportTables() {$/;"	f	class:CMAC2ELF
 MakeImports	mac2asm.cpp	/^void CMAC2ASM<MACSTRUCTURES>::MakeImports() {$/;"	f	class:CMAC2ASM
-MakeLEDATA	cof2omf.cpp	/^void CCOF2OMF::MakeLEDATA() {$/;"	f	class:CCOF2OMF
-MakeLNAMES	cof2omf.cpp	/^void CCOF2OMF::MakeLNAMES() {$/;"	f	class:CCOF2OMF
 MakeListLabels	cof2asm.cpp	/^void CCOF2ASM::MakeListLabels() {$/;"	f	class:CCOF2ASM
-MakeListLabels	elf2asm.cpp	/^void CELF2ASM<ELFSTRUCTURES>::MakeListLabels() {$/;"	f	class:CELF2ASM
-MakeMODEND	cof2omf.cpp	/^void CCOF2OMF::MakeMODEND() {$/;"	f	class:CCOF2OMF
 MakeMissingRelocation	disasm1.cpp	/^uint32 CDisassembler::MakeMissingRelocation(int32 Section, uint32 Offset, uint32 RelType, uint32 TargetType, uint32 TargetScope, uint32 SourceSize, uint32 RefPoint) {$/;"	f	class:CDisassembler
-MakePUBDEF	cof2omf.cpp	/^void CCOF2OMF::MakePUBDEF() {$/;"	f	class:CCOF2OMF
-MakePublicSymbolsTable	omf2asm.cpp	/^void COMF2ASM::MakePublicSymbolsTable() {$/;"	f	class:COMF2ASM
-MakeRelocationTables	cof2elf.cpp	/^void CCOF2ELF<ELFSTRUCTURES>::MakeRelocationTables() {$/;"	f	class:CCOF2ELF
-MakeRelocationTables	mac2elf.cpp	/^void CMAC2ELF<MACSTRUCTURES,ELFSTRUCTURES>::MakeRelocationTables(MAC_header_32&) {$/;"	f	class:CMAC2ELF
-MakeRelocationTables	mac2elf.cpp	/^void CMAC2ELF<MACSTRUCTURES,ELFSTRUCTURES>::MakeRelocationTables(MAC_header_64&) {$/;"	f	class:CMAC2ELF
-MakeRelocations	elf2asm.cpp	/^void CELF2ASM<ELFSTRUCTURES>::MakeRelocations() {$/;"	f	class:CELF2ASM
 MakeRelocations	mac2asm.cpp	/^void CMAC2ASM<MACSTRUCTURES>::MakeRelocations() {$/;"	f	class:CMAC2ASM
-MakeRelocations	omf2asm.cpp	/^void COMF2ASM::MakeRelocations(int32 Segment, uint32 RecNum, uint32 SOffset, uint32 RSize, uint8 * SData) {$/;"	f	class:COMF2ASM
-MakeRelocationsList	cof2omf.cpp	/^void CCOF2OMF::MakeRelocationsList() {$/;"	f	class:CCOF2OMF
-MakeSEGDEF	cof2omf.cpp	/^void CCOF2OMF::MakeSEGDEF() {$/;"	f	class:CCOF2OMF
 MakeSectionList	cof2asm.cpp	/^void CCOF2ASM::MakeSectionList() {$/;"	f	class:CCOF2ASM
-MakeSectionList	elf2asm.cpp	/^void CELF2ASM<ELFSTRUCTURES>::MakeSectionList() {$/;"	f	class:CELF2ASM
 MakeSectionList	mac2asm.cpp	/^void CMAC2ASM<MACSTRUCTURES>::MakeSectionList() {$/;"	f	class:CMAC2ASM
-MakeSections	elf2cof.cpp	/^void CELF2COF<ELFSTRUCTURES>::MakeSections() {$/;"	f	class:CELF2COF
-MakeSections	elf2mac.cpp	/^void CELF2MAC<ELFSTRUCTURES,MACSTRUCTURES>::MakeSections() {$/;"	f	class:CELF2MAC
-MakeSections	omf2cof.cpp	/^void COMF2COF::MakeSections() {$/;"	f	class:COMF2COF
-MakeSectionsIndex	elf2cof.cpp	/^void CELF2COF<ELFSTRUCTURES>::MakeSectionsIndex() {$/;"	f	class:CELF2COF
-MakeSectionsIndex	elf2mac.cpp	/^void CELF2MAC<ELFSTRUCTURES,MACSTRUCTURES>::MakeSectionsIndex() {$/;"	f	class:CELF2MAC
-MakeSegmentList	cof2omf.cpp	/^void CCOF2OMF::MakeSegmentList() {$/;"	f	class:CCOF2OMF
-MakeSegmentList	omf2asm.cpp	/^void COMF2ASM::MakeSegmentList() {$/;"	f	class:COMF2ASM
-MakeSegments	cof2elf.cpp	/^void CCOF2ELF<ELFSTRUCTURES>::MakeSegments() {$/;"	f	class:CCOF2ELF
-MakeSegments	mac2elf.cpp	/^void CMAC2ELF<MACSTRUCTURES,ELFSTRUCTURES>::MakeSegments() {$/;"	f	class:CMAC2ELF
 MakeSymbolList	cof2asm.cpp	/^void CCOF2ASM::MakeSymbolList() {$/;"	f	class:CCOF2ASM
-MakeSymbolList	cof2omf.cpp	/^void CCOF2OMF::MakeSymbolList() {$/;"	f	class:CCOF2OMF
-MakeSymbolList	elf2asm.cpp	/^void CELF2ASM<ELFSTRUCTURES>::MakeSymbolList() {$/;"	f	class:CELF2ASM
 MakeSymbolList	mac2asm.cpp	/^void CMAC2ASM<MACSTRUCTURES>::MakeSymbolList() {$/;"	f	class:CMAC2ASM
-MakeSymbolTable	cof2cof.cpp	/^void CCOF2COF::MakeSymbolTable() {$/;"	f	class:CCOF2COF
-MakeSymbolTable	cof2elf.cpp	/^void CCOF2ELF<ELFSTRUCTURES>::MakeSymbolTable() {$/;"	f	class:CCOF2ELF
-MakeSymbolTable	elf2cof.cpp	/^void CELF2COF<ELFSTRUCTURES>::MakeSymbolTable() {$/;"	f	class:CELF2COF
-MakeSymbolTable	elf2elf.cpp	/^void CELF2ELF<ELFSTRUCTURES>::MakeSymbolTable() {$/;"	f	class:CELF2ELF
-MakeSymbolTable	elf2mac.cpp	/^void CELF2MAC<ELFSTRUCTURES,MACSTRUCTURES>::MakeSymbolTable() {$/;"	f	class:CELF2MAC
-MakeSymbolTable	mac2elf.cpp	/^void CMAC2ELF<MACSTRUCTURES,ELFSTRUCTURES>::MakeSymbolTable() {$/;"	f	class:CMAC2ELF
-MakeSymbolTable	mac2mac.cpp	/^void CMAC2MAC<MACSTRUCTURES>::MakeSymbolTable() {$/;"	f	class:CMAC2MAC
-MakeSymbolTable1	omf2cof.cpp	/^void COMF2COF::MakeSymbolTable1() {$/;"	f	class:COMF2COF
-MakeSymbolTable2	omf2cof.cpp	/^void COMF2COF::MakeSymbolTable2() {$/;"	f	class:COMF2COF
-MakeSymbolTable3	omf2cof.cpp	/^void COMF2COF::MakeSymbolTable3() {$/;"	f	class:COMF2COF
-MakeSymbolTable4	omf2cof.cpp	/^void COMF2COF::MakeSymbolTable4() {$/;"	f	class:COMF2COF
-MakeSymbolTable5	omf2cof.cpp	/^void COMF2COF::MakeSymbolTable5() {$/;"	f	class:COMF2COF
-MakeSymbolTableUnix	library.cpp	/^void CLibrary::MakeSymbolTableUnix() {$/;"	f	class:CLibrary
 MarkCodeAsDubious	disasm1.cpp	/^void CDisassembler::MarkCodeAsDubious() {$/;"	f	class:CDisassembler
 MasmOptions	disasm.h	/^   uint32  MasmOptions;                          \/\/ Options needed for MASM: 1: dotname, 2: fs used, 4: gs used$/;"	m	class:CDisassembler
 MaxErrors	error.h	/^   int MaxErrors;       \/\/ Max number of error messages to print$/;"	m	class:CErrorReporter
 MaxNumOperands	disasm.h	/^   uint32 MaxNumOperands;                        \/\/ Number of opcode table operands to check$/;"	m	struct:SOpcodeProp
 MaxOffset	coff.h	/^   uint32 MaxOffset;                   \/\/ Section size - SectionOffset$/;"	m	struct:SCOFF_ImageDirAddress
-MaxSectionsNew	converters.h	/^   int MaxSectionsNew;                            \/\/ Number of section buffers allocated for 'to' file$/;"	m	class:CCOF2ELF
-MaxSectionsNew	converters.h	/^   uint32 MaxSectionsNew;                         \/\/ Number of section buffers allocated for 'to' file$/;"	m	class:CMAC2ELF
 MaxType	cmdline.cpp	/^const uint32 MaxType = FILETYPE_MACHO_LE;$/;"	v
 MaxWarnings	error.h	/^   int MaxWarnings;     \/\/ Max number of warning messages to pring$/;"	m	class:CErrorReporter
-Member	converters.h	/^   uint32 Member;                      \/\/ Library member$/;"	m	struct:SStringEntry
-MemberBuffer	library.h	/^    CConverter MemberBuffer;            \/\/ Buffer containing single library member$/;"	m	class:CLibrary
-MemberFileType	library.h	/^    int  MemberFileType;                \/\/ File type of members$/;"	m	class:CLibrary
-MemberNames	cmdline.h	/^   CMemoryBuffer MemberNames;                \/\/ Buffer containing truncated member names$/;"	m	class:CCommandLineInterpreter
-MemberNamesAllocated	cmdline.h	/^   uint32 MemberNamesAllocated;              \/\/ Size of buffer in MemberNames$/;"	m	class:CCommandLineInterpreter
-MemberType	cmdline.h	/^   int    MemberType;                        \/\/ File type of library members$/;"	m	class:CCommandLineInterpreter
-Method	omf.h	/^             Method:3,                 \/\/ Method (T0 - T3, F0 - F6)$/;"	m	struct:OMF_STrdDat::__anon17
 MinorImageVersion	coff.h	/^      uint16 MinorImageVersion;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 MinorImageVersion	coff.h	/^      uint16 MinorImageVersion;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
 MinorOperatingSystemVersion	coff.h	/^      uint16 MinorOperatingSystemVersion;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
@@ -1199,26 +645,9 @@ MinorOperatingSystemVersion	coff.h	/^      uint16 MinorOperatingSystemVersion;$/
 MinorSubsystemVersion	coff.h	/^      uint16 MinorSubsystemVersion;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 MinorSubsystemVersion	coff.h	/^      uint16 MinorSubsystemVersion;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
 Mod	disasm.h	/^   uint32 Mod;                                   \/\/ mod bits of mod\/reg\/rm byte$/;"	m	struct:SOpcodeProp
-Mode	omf.h	/^   int32  Mode;                        \/\/ 0 = EIP-relative, 1 = direct, -1 = unsupported$/;"	m	struct:SOMFRelocation
 NLineNumbers	coff.h	/^ uint16  NLineNumbers;   \/\/ number of line number entries$/;"	m	struct:SCOFF_SectionHeader
 NRelocations	coff.h	/^ uint16  NRelocations;   \/\/ number of relocation entries$/;"	m	struct:SCOFF_SectionHeader
 NSections	converters.h	/^   int NSections;                                \/\/ Number of sections$/;"	m	class:CCOFF
-NSections	converters.h	/^   uint32 NSections;                             \/\/ Number of sections$/;"	m	class:CELF
-NT_AUXV	elf.h	/^#define NT_AUXV /;"	d
-NT_FPREGSET	elf.h	/^#define NT_FPREGSET /;"	d
-NT_GWINDOWS	elf.h	/^#define NT_GWINDOWS /;"	d
-NT_LWPSINFO	elf.h	/^#define NT_LWPSINFO /;"	d
-NT_LWPSTATUS	elf.h	/^#define NT_LWPSTATUS /;"	d
-NT_PLATFORM	elf.h	/^#define NT_PLATFORM /;"	d
-NT_PRCRED	elf.h	/^#define NT_PRCRED /;"	d
-NT_PRFPXREG	elf.h	/^#define NT_PRFPXREG /;"	d
-NT_PRPSINFO	elf.h	/^#define NT_PRPSINFO /;"	d
-NT_PRSTATUS	elf.h	/^#define NT_PRSTATUS /;"	d
-NT_PRXREG	elf.h	/^#define NT_PRXREG /;"	d
-NT_PSINFO	elf.h	/^#define NT_PSINFO /;"	d
-NT_PSTATUS	elf.h	/^#define NT_PSTATUS /;"	d
-NT_UTSNAME	elf.h	/^#define NT_UTSNAME /;"	d
-NT_VERSION	elf.h	/^#define NT_VERSION /;"	d
 Name	coff.h	/^      char   Name[8];$/;"	m	struct:SCOFF_SymTableEntry::__anon4
 Name	coff.h	/^   char   Name[2];                     \/\/ Variable length$/;"	m	struct:SCOFF_ImportHintName
 Name	coff.h	/^   const char * Name;                  \/\/ Name of table$/;"	m	struct:SCOFF_ImageDirAddress
@@ -1226,111 +655,30 @@ Name	coff.h	/^ char    Name[8];        \/\/ section name$/;"	m	struct:SCOFF_Sect
 Name	disasm.h	/^   const char * Name;                  \/\/ opcode name$/;"	m	struct:SOpcodeDef
 Name	disasm.h	/^   uint32  Name;                                 \/\/ Name, as index into CDisassembler::NameBuffer$/;"	m	struct:SASection
 Name	disasm.h	/^   uint32  Name;                                 \/\/ Name, as index into CDisassembler::SymbolNameBuffer. 0 = no name yet$/;"	m	struct:SASymbol
-Name	library.h	/^    char Name[16];                      \/\/ Member name$/;"	m	struct:SUNIXLibraryHeader
 Name	macho.h	/^   uint32 Name;                        \/\/ Index into MacSymbolTableBuilder::StringBuffer$/;"	m	struct:MacSymbolRecord
-Name	omf.h	/^   uint32 Name;                        \/\/ Assigned name as index into new string table$/;"	m	struct:SOMFLocalSymbol
-Name	omf.h	/^   uint32 Name;                        \/\/ Symbol name in new file as index into NameBuffer$/;"	m	struct:SOMFSymbolList
-Name1	cmdline.h	/^   char * Name1;                           \/\/ Symbol name to look for$/;"	m	struct:SSymbolChange
-Name2	cmdline.h	/^   char * Name2;                           \/\/ Replace with this name$/;"	m	struct:SSymbolChange
-NameBuffer	converters.h	/^   CMemoryBuffer NameBuffer;                      \/\/ Temporary storage of text strings$/;"	m	class:CCOF2OMF
-NameBuffer	converters.h	/^   CMemoryBuffer NameBuffer;                     \/\/ Store segment names and symbol names$/;"	m	class:COMF
 NameBuffer	disasm.h	/^   CMemoryBuffer NameBuffer;                     \/\/ String buffer for names of sections. First is 0.$/;"	m	class:CDisassembler
-NameIndex	omf.h	/^   uint32 NameIndex;                   \/\/ Name index, used for COMDAT segment only$/;"	m	struct:SOMFSegment
-NameO	omf.h	/^   uint32 NameO;                       \/\/ Segment name, as offset into NameBuffer$/;"	m	struct:SOMFSegment
 NamePointerEntries	coff.h	/^   uint32 NamePointerEntries;          \/\/ Number of entries in name pointer table$/;"	m	struct:SCOFF_ExportDirectory
 NamePointerTableRVA	coff.h	/^   uint32 NamePointerTableRVA;         \/\/ Image-relative address of export name pointer table$/;"	m	struct:SCOFF_ExportDirectory
 NamesChanged	disasm.h	/^   uint32  NamesChanged;                         \/\/ Symbol names containing invalid characters changed$/;"	m	class:CDisassembler
-NewData	converters.h	/^   CMemoryBuffer NewData;                        \/\/ Raw data for each section in new file and its relocation table$/;"	m	class:COMF2COF
-NewFileHeader	converters.h	/^   SCOFF_FileHeader NewFileHeader;               \/\/ New file header$/;"	m	class:CELF2COF
-NewFileHeader	converters.h	/^   SCOFF_FileHeader NewFileHeader;               \/\/ New file header$/;"	m	class:COMF2COF
-NewFileHeader	converters.h	/^   TELF_Header NewFileHeader;                     \/\/ New file header$/;"	m	class:CCOF2ELF
-NewFileHeader	converters.h	/^   TELF_Header NewFileHeader;                     \/\/ New file header$/;"	m	class:CMAC2ELF
-NewFileOffset	mac2mac.cpp	/^uint32 CMAC2MAC<MACSTRUCTURES>::NewFileOffset(uint32 OldOffset) {$/;"	f	class:CMAC2MAC
-NewIextdefsym	converters.h	/^   uint32 NewIextdefsym;	                      \/\/ index to public symbols$/;"	m	class:CMAC2MAC
-NewIlocalsym	converters.h	/^   uint32 NewIlocalsym;	                         \/\/ index to local symbols$/;"	m	class:CMAC2MAC
-NewIndex	omf.h	/^   uint32 NewIndex;                    \/\/ PUBDEF index if Scope = 1, EXTDEF index if scope = 2$/;"	m	struct:SOMFSymbolList
-NewIundefsym	converters.h	/^   uint32 NewIundefsym;	                         \/\/ index to external symbols$/;"	m	class:CMAC2MAC
 NewLine	containers.cpp	/^void CTextFileBuffer::NewLine() {$/;"	f	class:CTextFileBuffer
-NewName	omf.h	/^   uint32 NewName;                     \/\/ Segment name in new file as index into NameBuffer$/;"	m	struct:SOMFSegmentList
-NewNameI	omf.h	/^   uint32 NewNameI;                    \/\/ Segment name in new file as index into LNAMES record. Zero for subsequent entries with same segment name$/;"	m	struct:SOMFSegmentList
-NewNextdefsym	converters.h	/^   uint32 NewNextdefsym;	                      \/\/ number of public symbols $/;"	m	class:CMAC2MAC
-NewNlocalsym	converters.h	/^   uint32 NewNlocalsym;	                         \/\/ number of local symbols $/;"	m	class:CMAC2MAC
 NewNum	disasm.h	/^   uint32 NewNum;                                \/\/ Number of entries in List$/;"	m	class:CSymbolTable
-NewNumber	omf.h	/^   uint32 NewNumber;                   \/\/ Segment index in new file$/;"	m	struct:SOMFSegmentList
-NewNundefsym	converters.h	/^   uint32 NewNundefsym;	                         \/\/ number of external symbols$/;"	m	class:CMAC2MAC
-NewRawData	converters.h	/^   CMemoryBuffer NewRawData;                     \/\/ Buffer for building new raw data area$/;"	m	class:CELF2COF
-NewRawData	converters.h	/^   CMemoryBuffer NewRawData;           \/\/ Buffer for building new raw data area$/;"	m	class:CELF2MAC
-NewRelocationTab	converters.h	/^   CMemoryBuffer NewRelocationTab;     \/\/ Buffer for new relocation tables$/;"	m	class:CELF2MAC
-NewSectHeadOffset	converters.h	/^   uint32 NewSectHeadOffset;           \/\/ File offset to first section header$/;"	m	class:CELF2MAC
-NewSectIndex	converters.h	/^   CArrayBuf<int32> NewSectIndex;                \/\/ Array of new section indices$/;"	m	class:CELF2COF
-NewSectIndex	converters.h	/^   CArrayBuf<int> NewSectIndex;                   \/\/ Array of new section indices$/;"	m	class:CMAC2ELF
-NewSectIndex	converters.h	/^   CArrayBuf<int> NewSectIndex;                   \/\/ Buffers for array of new section indices$/;"	m	class:CCOF2ELF
-NewSectIndex	converters.h	/^   CArrayBuf<int> NewSectIndex;        \/\/ Array of new section indices$/;"	m	class:CELF2MAC
-NewSectOffset	converters.h	/^   CArrayBuf<MInt> NewSectOffset;      \/\/ Array of new section offsets$/;"	m	class:CELF2MAC
-NewSectionHeaders	converters.h	/^   CArrayBuf<TELF_SectionHeader> NewSectionHeaders;\/\/ Array of temporary section headers$/;"	m	class:CMAC2ELF
-NewSectionHeaders	converters.h	/^   CArrayBuf<TELF_SectionHeader> NewSectionHeaders;\/\/ Buffer for temporary section headers$/;"	m	class:CCOF2ELF
-NewSectionHeaders	converters.h	/^   CSList<SCOFF_SectionHeader> NewSectionHeaders;\/\/ New section headers$/;"	m	class:COMF2COF
-NewSections	converters.h	/^   CArrayBuf<CMemoryBuffer> NewSections;          \/\/ Buffers for building each section$/;"	m	class:CCOF2ELF
-NewSections	converters.h	/^   CArrayBuf<CMemoryBuffer> NewSections;          \/\/ Buffers for building each section$/;"	m	class:CMAC2ELF
-NewStringTable	converters.h	/^   CMemoryBuffer NewStringTable;                 \/\/ Buffer for building new string table$/;"	m	class:CELF2COF
-NewStringTable	converters.h	/^   CMemoryBuffer NewStringTable;                 \/\/ Buffer for building new string table$/;"	m	class:CMAC2MAC
-NewStringTable	converters.h	/^   CMemoryBuffer NewStringTable;                 \/\/ Buffer for building new string table$/;"	m	class:COMF2COF
-NewStringTable	converters.h	/^   CMemoryBuffer NewStringTable;                 \/\/ Buffers for building new string table$/;"	m	class:CCOF2COF
-NewStringTable	converters.h	/^   CMemoryBuffer NewStringTable;       \/\/ Buffer for building new string table$/;"	m	class:CELF2MAC
-NewStringTable	converters.h	/^   CMemoryBuffer NewStringTable[4];              \/\/ Buffers for building new string tables: symbols, dynamic symbols, sections, debug$/;"	m	class:CELF2ELF
-NewStringtabEnd	converters.h	/^   uint32 NewStringtabEnd;                       \/\/ Offset to end of new string table$/;"	m	class:CMAC2MAC
-NewStringtabOffset	converters.h	/^   uint32 NewStringtabOffset;                    \/\/ Offset to new string table$/;"	m	class:CMAC2MAC
-NewSymTab	converters.h	/^   MacSymbolTableBuilder<TMAC_nlist, MInt> NewSymTab[3]; \/\/ New symbol tables for local, public, external symbols$/;"	m	class:CELF2MAC
 NewSymbol	disasm1.cpp	/^uint32 CSymbolTable::NewSymbol(SASymbol & sym) {$/;"	f	class:CSymbolTable
 NewSymbol	disasm1.cpp	/^uint32 CSymbolTable::NewSymbol(int32 Section, uint32 Offset, uint32 Scope) {$/;"	f	class:CSymbolTable
-NewSymbolIndex	converters.h	/^   CArrayBuf<int> NewSymbolIndex;                 \/\/ Array of new symbol indices$/;"	m	class:CMAC2ELF
-NewSymbolIndex	converters.h	/^   CArrayBuf<int> NewSymbolIndex;                 \/\/ Buffers for array of new symbol indices$/;"	m	class:CCOF2ELF
-NewSymbolIndex	converters.h	/^   CArrayBuf<uint32> NewSymbolIndex;             \/\/ Array for translating old to new symbol indices$/;"	m	class:CELF2ELF
-NewSymbolIndex	converters.h	/^   CSList<int32> NewSymbolIndex;                 \/\/ Buffer for array of new symbol indices$/;"	m	class:CELF2COF
-NewSymbolIndex	mac2mac.cpp	/^int CMAC2MAC<MACSTRUCTURES>::NewSymbolIndex(int32 OldIndex) {$/;"	f	class:CMAC2MAC
-NewSymbolTable	converters.h	/^   CMemoryBuffer NewSymbolTable;                 \/\/ Buffer for building new symbol table$/;"	m	class:CELF2COF
-NewSymbolTable	converters.h	/^   CMemoryBuffer NewSymbolTable;                 \/\/ Buffer for building new symbol table$/;"	m	class:CMAC2MAC
-NewSymbolTable	converters.h	/^   CMemoryBuffer NewSymbolTable;                 \/\/ Buffers for building new symbol table$/;"	m	class:CCOF2COF
-NewSymbolTable	converters.h	/^   CMemoryBuffer NewSymbolTable[2];              \/\/ Buffers for building new symbol tables: static, dynamic$/;"	m	class:CELF2ELF
-NewSymbolTable	converters.h	/^   CSList<SCOFF_SymTableEntry> NewSymbolTable;   \/\/ New symbol table entries$/;"	m	class:COMF2COF
-NewSymbols	converters.h	/^   MacSymbolTableBuilder<TMAC_nlist, MInt> NewSymbols[3];\/\/ Buffers for building new symbol tables: local, public, external$/;"	m	class:CMAC2MAC
-NewSymtabIndex	omf.h	/^   uint32 NewSymtabIndex;              \/\/ Index into new symbol table$/;"	m	struct:SOMFLocalSymbol
-NewSymtabOffset	converters.h	/^   uint32 NewSymtabOffset;                       \/\/ Offset to new symbol table$/;"	m	class:CMAC2MAC
-NewSymtabOffset	converters.h	/^   uint32 NewSymtabOffset;             \/\/ File offset to symtab command$/;"	m	class:CELF2MAC
 NextFunction2	disasm1.cpp	/^int CDisassembler::NextFunction2() {$/;"	f	class:CDisassembler
-NextHeader	library.cpp	/^uint32 CLibrary::NextHeader(uint32 Offset) {$/;"	f	class:CLibrary
 NextInstruction1	disasm1.cpp	/^int CDisassembler::NextInstruction1() {$/;"	f	class:CDisassembler
 NextInstruction2	disasm1.cpp	/^int CDisassembler::NextInstruction2() {$/;"	f	class:CDisassembler
 NextLabel	disasm1.cpp	/^int CDisassembler::NextLabel() {$/;"	f	class:CDisassembler
 NumAuxSymbols	coff.h	/^      uint8  NumAuxSymbols;$/;"	m	struct:SCOFF_SymTableEntry::__anon4
-NumBlocks	library.h	/^    uint32 NumBlocks;                   \/\/ Number of blocks$/;"	m	class:COMFHashTable
-NumBuffers	cmdline.h	/^   int NumBuffers;                           \/\/ Number of response file buffers$/;"	m	class:CCommandLineInterpreter
 NumEntries	containers.h	/^   uint32 NumEntries;                            \/\/ Number of objects pushed$/;"	m	class:CMemoryBuffer
 NumErrors	error.h	/^   int NumErrors;       \/\/ Number of errors detected$/;"	m	class:CErrorReporter
-NumExternalSymbols	converters.h	/^   uint32 NumExternalSymbols;                     \/\/ Number of external symbols in new file$/;"	m	class:CCOF2OMF
 NumImageDirs	converters.h	/^   uint32 NumImageDirs;                          \/\/ Number of image directories (for executable files)$/;"	m	class:CCOFF
-NumOldSymbols	converters.h	/^   uint32 NumOldSymbols;                         \/\/ Size of NewSymbolIndex table$/;"	m	class:CELF2ELF
-NumOldSymbols	converters.h	/^   uint32 NumOldSymbols;                         \/\/ Size of NewSymbolIndex table$/;"	m	class:CMAC2MAC
-NumOldSymbols	converters.h	/^   uint32 NumOldSymbols;               \/\/ Number of symbols in old file$/;"	m	class:CELF2MAC
 NumOpcodeStartPageVEX	opcodes.cpp	/^const uint32 NumOpcodeStartPageVEX = TableSize(OpcodeStartPageVEX);$/;"	v
 NumOpcodeStartPageXOP	opcodes.cpp	/^const uint32 NumOpcodeStartPageXOP = TableSize(OpcodeStartPageXOP);$/;"	v
 NumOpcodeTables1	opcodes.cpp	/^const uint32 NumOpcodeTables1 = TableSize(OpcodeTables);         $/;"	v
 NumOpcodeTables2	opcodes.cpp	/^const uint32 NumOpcodeTables2 = TableSize(OpcodeTableLength);         $/;"	v
-NumPublicSymbols	converters.h	/^   uint32 NumPublicSymbols;                       \/\/ Number of public symbols in new file$/;"	m	class:CCOF2OMF
-NumRecords	converters.h	/^   uint32 NumRecords;                            \/\/ Number of records$/;"	m	class:COMF
 NumReloc	macho.h	/^   uint32 NumReloc;                    \/\/ Number of relocations records for this section$/;"	m	struct:MAC_SECT_WITH_RELOC
-NumRelocations	converters.h	/^   uint32 NumRelocations;                         \/\/ Number of entries in RelocationBuffer$/;"	m	class:CCOF2OMF
 NumSections	converters.h	/^   uint32 NumSections;                           \/\/ Number of sections$/;"	m	class:CMACHO
-NumSectionsNew	converters.h	/^   int  NumSectionsNew;                          \/\/ Number of sections in new file$/;"	m	class:COMF2COF
-NumSectionsNew	converters.h	/^   int NumSectionsNew;                            \/\/ Number of sections generated for 'to' file$/;"	m	class:CCOF2ELF
-NumSectionsNew	converters.h	/^   int NumSectionsNew;                           \/\/ Number of sections in new file$/;"	m	class:CELF2COF
-NumSectionsNew	converters.h	/^   int NumSectionsNew;                 \/\/ Number of sections in new file$/;"	m	class:CELF2MAC
-NumSectionsNew	converters.h	/^   uint32 NumSectionsNew;                         \/\/ Number of sections generated for 'to' file$/;"	m	class:CMAC2ELF
-NumSegments	converters.h	/^   int  NumSegments;                              \/\/ Number of segments in new file$/;"	m	class:CCOF2OMF
-NumSegments	converters.h	/^   int32 NumSegments;                            \/\/ Number of segments$/;"	m	class:COMF2ASM
 NumStandardNames	cmdline.cpp	/^const int NumStandardNames = sizeof(StandardNames32) \/ sizeof(StandardNames32[0]);$/;"	v
-NumSymbols	converters.h	/^   uint32 NumSymbols;                            \/\/ Number of symbols defined$/;"	m	class:CELF2ASM
-NumSymbols	converters.h	/^   uint32 NumSymbols[4];               \/\/ Accumulated number of entries in each NewSymTab[]$/;"	m	class:CELF2MAC
 NumWarnings	error.h	/^   int NumWarnings;     \/\/ Number of warnings detected$/;"	m	class:CErrorReporter
 Number	coff.h	/^      uint16 Number;               \/\/ Symbol table index of next function$/;"	m	struct:SCOFF_SymTableEntry::__anon10
 Number	error.cpp	/^int CErrorReporter::Number() {$/;"	f	class:CErrorReporter
@@ -1344,85 +692,15 @@ NumberOfSymbols	converters.h	/^   int NumberOfSymbols;                          
 OBJCONV_ERROR_H	error.h	/^#define OBJCONV_ERROR_H$/;"	d
 OBJCONV_STDAFX_H	stdafx.h	/^#define OBJCONV_STDAFX_H$/;"	d
 OBJCONV_VERSION	maindef.h	/^#define OBJCONV_VERSION /;"	d
-OMF2ASM	main.cpp	/^void CConverter::OMF2ASM() {$/;"	f	class:CConverter
-OMF2COF	main.cpp	/^void CConverter::OMF2COF() {$/;"	f	class:CConverter
-OMFAlignTranslate	omf.cpp	/^static const uint32 OMFAlignTranslate[8] = {0,1,2,16,256,4,0,0};$/;"	v	file:
-OMFAlignTranslate	omf2cof.cpp	/^static const uint32 OMFAlignTranslate[8] = {0,1,2,16,256,4,0,0};$/;"	v	file:
-OMFBlockSize	library.h	/^#define OMFBlockSize /;"	d
-OMFFixupLocationNames	omf.cpp	/^static SIntTxt OMFFixupLocationNames[] = {$/;"	v	file:
-OMFLibraryFlags	library.cpp	/^SIntTxt OMFLibraryFlags[] = {$/;"	v
-OMFNumBuckets	library.h	/^#define OMFNumBuckets /;"	d
-OMFRecordTypeNames	omf.cpp	/^SIntTxt OMFRecordTypeNames[] = {$/;"	v
-OMFRelocationModeNames	omf.cpp	/^static SIntTxt OMFRelocationModeNames[] = {$/;"	v	file:
-OMFSegmentCombinationNames	omf.cpp	/^SIntTxt OMFSegmentCombinationNames[] = {$/;"	v
-OMF_ALIAS	omf.h	/^#define OMF_ALIAS /;"	d
-OMF_BAKPAT	omf.h	/^#define OMF_BAKPAT /;"	d
-OMF_CEXTDEF	omf.h	/^#define OMF_CEXTDEF /;"	d
-OMF_COMDAT	omf.h	/^#define OMF_COMDAT /;"	d
-OMF_COMDEF	omf.h	/^#define OMF_COMDEF /;"	d
-OMF_COMENT	omf.h	/^#define OMF_COMENT /;"	d
-OMF_EXTDEF	omf.h	/^#define OMF_EXTDEF /;"	d
-OMF_FIXUPP	omf.h	/^#define OMF_FIXUPP /;"	d
-OMF_Fixup_16bit	omf.h	/^#define OMF_Fixup_16bit /;"	d
-OMF_Fixup_16bitLoader	omf.h	/^#define OMF_Fixup_16bitLoader /;"	d
-OMF_Fixup_32bit	omf.h	/^#define OMF_Fixup_32bit /;"	d
-OMF_Fixup_32bitLoader	omf.h	/^#define OMF_Fixup_32bitLoader /;"	d
-OMF_Fixup_8bit	omf.h	/^#define OMF_Fixup_8bit /;"	d
-OMF_Fixup_Far	omf.h	/^#define OMF_Fixup_Far /;"	d
-OMF_Fixup_Farword	omf.h	/^#define OMF_Fixup_Farword /;"	d
-OMF_Fixup_Hi8bit	omf.h	/^#define OMF_Fixup_Hi8bit /;"	d
-OMF_Fixup_Pharlab48	omf.h	/^#define OMF_Fixup_Pharlab48 /;"	d
-OMF_Fixup_Segment	omf.h	/^#define OMF_Fixup_Segment /;"	d
-OMF_GRPDEF	omf.h	/^#define OMF_GRPDEF /;"	d
-OMF_H	omf.h	/^#define OMF_H$/;"	d
-OMF_LCOMDEF	omf.h	/^#define OMF_LCOMDEF /;"	d
-OMF_LEDATA	omf.h	/^#define OMF_LEDATA /;"	d
-OMF_LEXTDEF	omf.h	/^#define OMF_LEXTDEF /;"	d
-OMF_LHEADR	omf.h	/^#define OMF_LHEADR /;"	d
-OMF_LIBEND	omf.h	/^#define OMF_LIBEND /;"	d
-OMF_LIBEXT	omf.h	/^#define OMF_LIBEXT /;"	d
-OMF_LIBHEAD	omf.h	/^#define OMF_LIBHEAD /;"	d
-OMF_LIDATA	omf.h	/^#define OMF_LIDATA /;"	d
-OMF_LINNUM	omf.h	/^#define OMF_LINNUM /;"	d
-OMF_LINSYM	omf.h	/^#define OMF_LINSYM /;"	d
-OMF_LLNAMES	omf.h	/^#define OMF_LLNAMES /;"	d
-OMF_LNAMES	omf.h	/^#define OMF_LNAMES /;"	d
-OMF_LNAME_BSS	omf.h	/^#define OMF_LNAME_BSS /;"	d
-OMF_LNAME_CODE	omf.h	/^#define OMF_LNAME_CODE /;"	d
-OMF_LNAME_CONST	omf.h	/^#define OMF_LNAME_CONST /;"	d
-OMF_LNAME_DATA	omf.h	/^#define OMF_LNAME_DATA /;"	d
-OMF_LNAME_FLAT	omf.h	/^#define OMF_LNAME_FLAT /;"	d
-OMF_LNAME_LAST	omf.h	/^#define OMF_LNAME_LAST /;"	d
-OMF_LPUBDEF	omf.h	/^#define OMF_LPUBDEF /;"	d
-OMF_MODEND	omf.h	/^#define OMF_MODEND /;"	d
-OMF_NBKPAT	omf.h	/^#define OMF_NBKPAT /;"	d
-OMF_PUBDEF	omf.h	/^#define OMF_PUBDEF /;"	d
-OMF_SAttrib	omf.h	/^union OMF_SAttrib { \/\/ Structure of attributes in SEGDEF record$/;"	u
-OMF_SEGDEF	omf.h	/^#define OMF_SEGDEF /;"	d
-OMF_SFixData	omf.h	/^union OMF_SFixData { \/\/ Structure of FixData field in FIXUP subrecord of FIXUPP record$/;"	u
-OMF_SLocat	omf.h	/^union OMF_SLocat { \/\/ Structure of first two bytes of FIXUP subrecord swapped = Locat field$/;"	u
-OMF_STrdDat	omf.h	/^union OMF_STrdDat { \/\/ Structure of Thread Data field in THREAD subrecord of FIXUPP record$/;"	u
-OMF_THEADR	omf.h	/^#define OMF_THEADR /;"	d
-OMF_VENDEXT	omf.h	/^#define OMF_VENDEXT /;"	d
-OMF_VERNUM	omf.h	/^#define OMF_VERNUM /;"	d
 Offset	coff.h	/^   uint16 Offset:12;                   \/\/ Offset relative to PageRVA$/;"	m	struct:SCOFF_BaseRelocation
 Offset	disasm.h	/^   uint32  Offset;                               \/\/ Offset into section. (Value for absolute symbol)$/;"	m	struct:SASymbol
 Offset	disasm.h	/^   uint32  Offset;                               \/\/ Offset of relocation source into section$/;"	m	struct:SARelocation
-Offset	omf.h	/^      uint16 Offset:10,                \/\/ Offset into LEDATA (or LIDATA)$/;"	m	struct:OMF_SLocat::__anon15
-Offset	omf.h	/^   uint32 Offset;                      \/\/ Offset into segment$/;"	m	struct:SOMFLocalSymbol
-Offset	omf.h	/^   uint32 Offset;                      \/\/ Offset of section in old file to first section with same name$/;"	m	struct:SOMFSegmentList
-Offset	omf.h	/^   uint32 Offset;                      \/\/ Offset relative to segment = first section with same name$/;"	m	struct:SOMFSymbolList
-Offset	omf.h	/^   uint32 Offset;                      \/\/ Segment address$/;"	m	struct:SOMFSegment
 OffsetMultiplier	disasm.h	/^   uint32 OffsetMultiplier;                      \/\/ Multiplier for 1-byte offset calculated from EVEX or obtained from MVEX.sss and table lookup$/;"	m	struct:SOpcodeProp
 Old2NewIndex	disasm1.cpp	/^uint32 CSymbolTable::Old2NewIndex(uint32 OldIndex) {$/;"	f	class:CSymbolTable
 OldIndex	disasm.h	/^   uint32  OldIndex;                             \/\/ Index in original symbol table. Used for tracking relocation entries$/;"	m	struct:SASymbol
 OldIndex	macho.h	/^   int OldIndex;                       \/\/ Old symbol index$/;"	m	struct:MacSymbolRecord
-OldName	omf.h	/^   uint32 OldName;                     \/\/ Segment name in old file as index into NameBuffer$/;"	m	struct:SOMFSegmentList
 OldNum	disasm.h	/^   uint32 OldNum;                                \/\/ = 1 + max OldIndex$/;"	m	class:CSymbolTable
 OldSymbolIndex	disasm.h	/^   uint32 OldSymbolIndex;                        \/\/ Old symbol table index$/;"	m	struct:SFunctionRecord
-OldSymbolScope	converters.h	/^   CArrayBuf<int> OldSymbolScope;      \/\/ Table of symbol bindings: 0 = local, 1 = public, 2 = external$/;"	m	class:CELF2MAC
-OldSymbolUsed	converters.h	/^   CArrayBuf<int> OldSymbolUsed;       \/\/ Check if symbol is used$/;"	m	class:CELF2MAC
-OldTablesEnd	converters.h	/^   uint32 OldTablesEnd;                          \/\/ End of old symbol table and string table$/;"	m	class:CMAC2MAC
 OpComment	disasm.h	/^   const char * OpComment;                       \/\/ Additional comment for opcode$/;"	m	struct:SOpcodeProp
 OpcodeDef	disasm.h	/^   SOpcodeDef const * OpcodeDef;                 \/\/ Points to entry in opcode map$/;"	m	struct:SOpcodeProp
 OpcodeMap0	opcodes.cpp	/^SOpcodeDef OpcodeMap0[256] = {$/;"	v
@@ -1760,12 +1038,9 @@ Options	disasm.h	/^   uint16 Options;                     \/\/ miscellaneous opt
 OrdinalBase	coff.h	/^   uint32 OrdinalBase;                 \/\/ Ordinal number of first export$/;"	m	struct:SCOFF_ExportDirectory
 OrdinalTableRVA	coff.h	/^   uint32 OrdinalTableRVA;             \/\/ Image-relative address of ordinal table$/;"	m	struct:SCOFF_ExportDirectory
 OutFile	disasm.h	/^   CTextFileBuffer   OutFile;                    \/\/ Output file$/;"	m	class:CDisassembler
-OutFile	library.h	/^    CFileBuffer OutFile;                \/\/ Buffer for building output file$/;"	m	class:CLibrary
 OutputFile	cmdline.h	/^   char * OutputFile;                        \/\/ Output file name$/;"	m	class:CCommandLineInterpreter
 OutputFileName	containers.h	/^   char const * OutputFileName;                  \/\/ Output file name$/;"	m	class:CFileBuffer
 OutputType	cmdline.h	/^   int    OutputType;                        \/\/ Output type (file type or dump)$/;"	m	class:CCommandLineInterpreter
-P	omf.h	/^             P:1,                      \/\/ 0 = target displacement field present, 1 = displacement is zero$/;"	m	struct:OMF_SFixData::__anon16
-P	omf.h	/^      uint8 P:1,                       \/\/ 0: 16 bit, 1: 32 bit$/;"	m	struct:OMF_SAttrib::__anon14
 PECOFF_H	coff.h	/^#define PECOFF_H$/;"	d
 PE_F_EXEC	coff.h	/^#define PE_F_EXEC /;"	d
 PE_F_LNNO	coff.h	/^#define PE_F_LNNO /;"	d
@@ -1802,35 +1077,14 @@ PE_SCN_MEM_NOT_PAGED	coff.h	/^#define PE_SCN_MEM_NOT_PAGED /;"	d
 PE_SCN_MEM_READ	coff.h	/^#define PE_SCN_MEM_READ /;"	d
 PE_SCN_MEM_SHARED	coff.h	/^#define PE_SCN_MEM_SHARED /;"	d
 PE_SCN_MEM_WRITE	coff.h	/^#define PE_SCN_MEM_WRITE /;"	d
-PF_MASKOS	elf.h	/^#define PF_MASKOS /;"	d
-PF_MASKPROC	elf.h	/^#define PF_MASKPROC /;"	d
-PF_R	elf.h	/^#define PF_R /;"	d
-PF_W	elf.h	/^#define PF_W /;"	d
-PF_X	elf.h	/^#define PF_X /;"	d
 PLineNumbers	coff.h	/^ uint32  PLineNumbers;   \/\/ file  to line number entries$/;"	m	struct:SCOFF_SectionHeader
 PRawData	coff.h	/^ uint32  PRawData;       \/\/ file  to raw data for section$/;"	m	struct:SCOFF_SectionHeader
 PRelocations	coff.h	/^ uint32  PRelocations;   \/\/ file  to relocation entries$/;"	m	struct:SCOFF_SectionHeader
 PSymbolTable	coff.h	/^ uint32 PSymbolTable;         \/\/ file pointer to symbol table$/;"	m	struct:SCOFF_FileHeader
-PT_DYNAMIC	elf.h	/^#define PT_DYNAMIC /;"	d
-PT_HIOS	elf.h	/^#define PT_HIOS /;"	d
-PT_HIPROC	elf.h	/^#define PT_HIPROC /;"	d
-PT_INTERP	elf.h	/^#define PT_INTERP /;"	d
-PT_LOAD	elf.h	/^#define PT_LOAD /;"	d
-PT_LOOS	elf.h	/^#define PT_LOOS /;"	d
-PT_LOPROC	elf.h	/^#define PT_LOPROC /;"	d
-PT_NOTE	elf.h	/^#define PT_NOTE /;"	d
-PT_NULL	elf.h	/^#define PT_NULL /;"	d
-PT_NUM	elf.h	/^#define PT_NUM /;"	d
-PT_PHDR	elf.h	/^#define PT_PHDR /;"	d
-PT_SHLIB	elf.h	/^#define PT_SHLIB /;"	d
 PageRVA	coff.h	/^   uint32 PageRVA;                     \/\/ Image-relative base to add to offset$/;"	m	struct:SCOFF_BaseRelocationBlock
-PageSize	library.h	/^    uint32 PageSize;                    \/\/ Alignment of members$/;"	m	class:CLibrary
 ParseFile	coff.cpp	/^void CCOFF::ParseFile(){$/;"	f	class:CCOFF
-ParseFile	elf.cpp	/^void CELF<ELFSTRUCTURES>::ParseFile(){$/;"	f	class:CELF
 ParseFile	macho.cpp	/^void CMACHO<MACSTRUCTURES>::ParseFile(){$/;"	f	class:CMACHO
-ParseFile	omf.cpp	/^void COMF::ParseFile() {$/;"	f	class:COMF
 ParseInstruction	disasm1.cpp	/^void CDisassembler::ParseInstruction() {$/;"	f	class:CDisassembler
-ParseMACUnivBin	main.cpp	/^void CConverter::ParseMACUnivBin() {$/;"	f	class:CConverter
 Pass	disasm.h	/^   uint32  Pass;                                 \/\/ 1 = pass 1, 2-3 = pass 1 repeated, 0x10 = pass 2, 0x100 = repetition requested$/;"	m	class:CDisassembler
 Pass1	disasm1.cpp	/^void CDisassembler::Pass1() {$/;"	f	class:CDisassembler
 Pass2	disasm1.cpp	/^void CDisassembler::Pass2() {$/;"	f	class:CDisassembler
@@ -1840,16 +1094,9 @@ PointerToNextFunction	coff.h	/^      uint32 PointerToNextFunction; \/\/ Symbol t
 Prefixes	disasm.h	/^   uint8  Prefixes[8];                           \/\/ Stores the last prefix encountered in each category$/;"	m	struct:SOpcodeProp
 PreviousOpcodeOptions	disasm.h	/^   uint16  PreviousOpcodeOptions;                \/\/ Option flags for previous instruction$/;"	m	class:CDisassembler
 PreviousOpcodei	disasm.h	/^   uint16  PreviousOpcodei;                      \/\/ Opcode for previous instruction$/;"	m	class:CDisassembler
-PrimeNumbers	omfhash.cpp	/^static const uint32 PrimeNumbers[] = {$/;"	v	file:
-PrimeNumbersLen	omfhash.cpp	/^static const uint32 PrimeNumbersLen = sizeof(PrimeNumbers)\/sizeof(PrimeNumbers[0]);$/;"	v	file:
 PrintImportExport	coff.cpp	/^void CCOFF::PrintImportExport() {$/;"	f	class:CCOFF
 PrintSegmentCharacteristics	coff.cpp	/^void CCOFF::PrintSegmentCharacteristics(uint32 flags) {$/;"	f	class:CCOFF
 PrintSymbolTable	coff.cpp	/^void CCOFF::PrintSymbolTable(int symnum) {$/;"	f	class:CCOFF
-PubdefTranslation	converters.h	/^   CSList<uint32> PubdefTranslation;             \/\/ Translate old public symbol number to disasm symbol table index$/;"	m	class:COMF2ASM
-PublicNames	coff.cpp	/^void CCOFF::PublicNames(CMemoryBuffer * Strings, CSList<SStringEntry> * Index, int m) {$/;"	f	class:CCOFF
-PublicNames	elf.cpp	/^void CELF<ELFSTRUCTURES>::PublicNames(CMemoryBuffer * Strings, CSList<SStringEntry> * Index, int m) {$/;"	f	class:CELF
-PublicNames	macho.cpp	/^void CMACHO<MACSTRUCTURES>::PublicNames(CMemoryBuffer * Strings, CSList<SStringEntry> * Index, int m) {$/;"	f	class:CMACHO
-PublicNames	omf.cpp	/^void COMF::PublicNames(CMemoryBuffer * Strings, CSList<SStringEntry> * Index, int m) {$/;"	f	class:COMF
 Push	containers.cpp	/^uint32 CMemoryBuffer::Push(void const * obj, uint32 size) {$/;"	f	class:CMemoryBuffer
 Push	containers.h	/^   void Push(RecordType const & x) {$/;"	f	class:CSList
 PushSort	containers.h	/^   int32 PushSort(RecordType const & x) {$/;"	f	class:CSList
@@ -1859,61 +1106,18 @@ PushUnique	containers.h	/^   int32 PushUnique(RecordType const & x) {$/;"	f	clas
 PushZero	containers.h	/^   void PushZero() {$/;"	f	class:CSList
 Put	containers.cpp	/^void CTextFileBuffer::Put(const char * text) {$/;"	f	class:CTextFileBuffer
 Put	containers.cpp	/^void CTextFileBuffer::Put(const char character) {$/;"	f	class:CTextFileBuffer
-PutBinary	omf.cpp	/^void COMFFileBuilder::PutBinary(void * p, uint32 Size) {$/;"	f	class:COMFFileBuilder
-PutByte	omf.cpp	/^void COMFFileBuilder::PutByte(uint8 x) {$/;"	f	class:COMFFileBuilder
 PutDecimal	containers.cpp	/^void CTextFileBuffer::PutDecimal(int32 x, int IsSigned) {$/;"	f	class:CTextFileBuffer
-PutDword	omf.cpp	/^void COMFFileBuilder::PutDword(uint32 x) {$/;"	f	class:COMFFileBuilder
 PutFloat	containers.cpp	/^void CTextFileBuffer::PutFloat(double x) {$/;"	f	class:CTextFileBuffer
 PutFloat	containers.cpp	/^void CTextFileBuffer::PutFloat(float x) {$/;"	f	class:CTextFileBuffer
 PutHex	containers.cpp	/^void CTextFileBuffer::PutHex(uint16 x, int MasmForm) {$/;"	f	class:CTextFileBuffer
 PutHex	containers.cpp	/^void CTextFileBuffer::PutHex(uint32 x, int MasmForm) {$/;"	f	class:CTextFileBuffer
 PutHex	containers.cpp	/^void CTextFileBuffer::PutHex(uint64 x, int MasmForm) {$/;"	f	class:CTextFileBuffer
 PutHex	containers.cpp	/^void CTextFileBuffer::PutHex(uint8 x, int MasmForm) {$/;"	f	class:CTextFileBuffer
-PutIndex	omf.cpp	/^void COMFFileBuilder::PutIndex(uint32 x) {$/;"	f	class:COMFFileBuilder
-PutNumeric	omf.cpp	/^void COMFFileBuilder::PutNumeric(uint32 x) {$/;"	f	class:COMFFileBuilder
-PutString	omf.cpp	/^void COMFFileBuilder::PutString(const char * s) {$/;"	f	class:COMFFileBuilder
-PutWord	omf.cpp	/^void COMFFileBuilder::PutWord(uint16 x) {$/;"	f	class:COMFFileBuilder
 RM	disasm.h	/^   uint32 RM;                                    \/\/ r\/m bits of mod\/reg\/rm byte$/;"	m	struct:SOpcodeProp
-R_386_32	elf.h	/^#define R_386_32 /;"	d
-R_386_COPY	elf.h	/^#define R_386_COPY /;"	d
-R_386_GLOB_DAT	elf.h	/^#define R_386_GLOB_DAT /;"	d
-R_386_GOT32	elf.h	/^#define R_386_GOT32 /;"	d
-R_386_GOTOFF	elf.h	/^#define R_386_GOTOFF /;"	d
-R_386_GOTPC	elf.h	/^#define R_386_GOTPC /;"	d
-R_386_IRELATIVE	elf.h	/^#define R_386_IRELATIVE /;"	d
-R_386_JMP_SLOT	elf.h	/^#define R_386_JMP_SLOT /;"	d
-R_386_NONE	elf.h	/^#define R_386_NONE /;"	d
-R_386_PC32	elf.h	/^#define R_386_PC32 /;"	d
-R_386_PLT32	elf.h	/^#define R_386_PLT32 /;"	d
-R_386_RELATIVE	elf.h	/^#define R_386_RELATIVE /;"	d
 R_SCATTERED	macho.h	/^#define R_SCATTERED /;"	d
-R_UNSUPPORTED_IMAGEREL	elf.h	/^#define R_UNSUPPORTED_IMAGEREL /;"	d
-R_X86_64_16	elf.h	/^#define R_X86_64_16 /;"	d
-R_X86_64_32	elf.h	/^#define R_X86_64_32 /;"	d
-R_X86_64_32S	elf.h	/^#define R_X86_64_32S /;"	d
-R_X86_64_64	elf.h	/^#define R_X86_64_64 /;"	d
-R_X86_64_8	elf.h	/^#define R_X86_64_8 /;"	d
-R_X86_64_COPY	elf.h	/^#define R_X86_64_COPY /;"	d
-R_X86_64_GLOB_DAT	elf.h	/^#define R_X86_64_GLOB_DAT /;"	d
-R_X86_64_GOT32	elf.h	/^#define R_X86_64_GOT32 /;"	d
-R_X86_64_GOTPCREL	elf.h	/^#define R_X86_64_GOTPCREL /;"	d
-R_X86_64_IRELATIVE	elf.h	/^#define R_X86_64_IRELATIVE /;"	d
-R_X86_64_JUMP_SLOT	elf.h	/^#define R_X86_64_JUMP_SLOT /;"	d
-R_X86_64_NONE	elf.h	/^#define R_X86_64_NONE /;"	d
-R_X86_64_PC16	elf.h	/^#define R_X86_64_PC16 /;"	d
-R_X86_64_PC32	elf.h	/^#define R_X86_64_PC32 /;"	d
-R_X86_64_PC8	elf.h	/^#define R_X86_64_PC8 /;"	d
-R_X86_64_PLT32	elf.h	/^#define R_X86_64_PLT32 /;"	d
-R_X86_64_RELATIVE	elf.h	/^#define R_X86_64_RELATIVE /;"	d
-RawDataOffset	converters.h	/^   uint32 RawDataOffset;                         \/\/ File offset for raw data$/;"	m	class:CELF2COF
-RawDataOffset	converters.h	/^   uint32 RawDataOffset;               \/\/ Offset to raw data in old file$/;"	m	class:CELF2MAC
 Read	containers.cpp	/^void CFileBuffer::Read(int IgnoreError) {                   $/;"	f	class:CFileBuffer
-ReadCommandFile	cmdline.cpp	/^void CCommandLineInterpreter::ReadCommandFile(char * filename) {$/;"	f	class:CCommandLineInterpreter
 ReadCommandItem	cmdline.cpp	/^void CCommandLineInterpreter::ReadCommandItem(char * string) {$/;"	f	class:CCommandLineInterpreter
 ReadCommandLine	cmdline.cpp	/^void CCommandLineInterpreter::ReadCommandLine(int argc, char * argv[]) {$/;"	f	class:CCommandLineInterpreter
-RebuildOMF	library.cpp	/^void CLibrary::RebuildOMF() {$/;"	f	class:CLibrary
-RecordStart	omf.h	/^   uint32 RecordStart;                 \/\/ Index to start of current record$/;"	m	class:COMFFileBuilder
-Records	converters.h	/^   CSList<SOMFRecordPointer> Records;            \/\/ Record pointers (List is 0-based)$/;"	m	class:COMF
 RefOldIndex	disasm.h	/^   uint32  RefOldIndex;                          \/\/ Old symbol table index of reference point if Type = 8, 0x10, 0x200$/;"	m	struct:SARelocation
 Reg	disasm.h	/^   uint32 Reg;                                   \/\/ reg bits of mod\/reg\/rm byte$/;"	m	struct:SOpcodeProp
 Regist	disasm.h	/^   uint8  Regist[16];                            \/\/ Defines the type of information contained in each g.p. register$/;"	m	struct:SATracer
@@ -1924,7 +1128,6 @@ RegisterNames8	opcodes.cpp	/^const char * RegisterNames8[8] = {$/;"	v
 RegisterNames8x	opcodes.cpp	/^const char * RegisterNames8x[16] = {$/;"	v
 RegisterNamesCR	opcodes.cpp	/^const char * RegisterNamesCR[16] = {$/;"	v
 RegisterNamesSeg	opcodes.cpp	/^const char * RegisterNamesSeg[8] = {$/;"	v
-RelocationBuffer	converters.h	/^   CSList<SOMFRelocation> RelocationBuffer;       \/\/ Summarize and sort relocations$/;"	m	class:CCOF2OMF
 RelocationQueue	converters.h	/^   CSList<MAC_SECT_WITH_RELOC> RelocationQueue;  \/\/ List of relocation tables$/;"	m	class:CMAC2ASM
 RelocationTypeNames	disasm2.cpp	/^SIntTxt RelocationTypeNames[] = {$/;"	v
 Relocations	disasm.h	/^   CSList<SARelocation> Relocations;             \/\/ List of cross references. First is 0$/;"	m	class:CDisassembler
@@ -1932,8 +1135,6 @@ RelocationsInSource	disasm.h	/^   uint32  RelocationsInSource;                  
 ReltabOffset	macho.h	/^   uint32 ReltabOffset;                \/\/ File offset of relocation table for this section$/;"	m	struct:MAC_SECT_WITH_RELOC
 Remove	containers.h	/^   void Remove(uint32 index) {$/;"	f	class:CSList
 ReplaceIllegalChars	disasm.h	/^#define ReplaceIllegalChars /;"	d
-ReportStatistics	cmdline.cpp	/^void CCommandLineInterpreter::ReportStatistics() {$/;"	f	class:CCommandLineInterpreter
-RepressWarnings	library.h	/^    int RepressWarnings;                \/\/ Repress warnings when rebuilding library$/;"	m	class:CLibrary
 Reserved	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY Reserved;       \/\/ 0$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 Reserved	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY Reserved;       \/\/ 0$/;"	m	struct:SCOFF_OptionalHeader::__anon2
 Reset	containers.cpp	/^void CFileBuffer::Reset() {$/;"	f	class:CFileBuffer
@@ -1942,11 +1143,6 @@ Reset	disasm.h	/^   void   Reset() {                              \/\/ Set every
 Reset	disasm.h	/^   void Reset() {                                \/\/ Set to zero$/;"	f	struct:SATracer
 ResourceTable	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY ResourceTable;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 ResourceTable	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY ResourceTable;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
-ResponseFiles	cmdline.h	/^   CArrayBuf<CFileBuffer> ResponseFiles;     \/\/ Array of up to 10 response file buffers$/;"	m	class:CCommandLineInterpreter
-RotL	omfhash.cpp	/^uint16 RotL(uint16 x, uint16 bits) {$/;"	f
-RotR	omfhash.cpp	/^uint16 RotR(uint16 x, uint16 bits) {$/;"	f
-Round4	library.cpp	/^uint32 Round4(uint32 n) {$/;"	f
-RoundEven	library.cpp	/^uint32 RoundEven(uint32 n) {$/;"	f
 SARelocation	disasm.h	/^struct SARelocation {$/;"	s
 SASection	disasm.h	/^struct SASection {$/;"	s
 SASymbol	disasm.h	/^struct SASymbol {$/;"	s
@@ -1966,130 +1162,15 @@ SCOFF_SectionHeader	coff.h	/^struct SCOFF_SectionHeader {$/;"	s
 SCOFF_SymTableEntry	coff.h	/^union SCOFF_SymTableEntry {$/;"	u
 SErrorText	error.h	/^struct SErrorText {$/;"	s
 SFunctionRecord	disasm.h	/^struct SFunctionRecord {$/;"	s
-SHF_ALLOC	elf.h	/^#define SHF_ALLOC /;"	d
-SHF_EXECINSTR	elf.h	/^#define SHF_EXECINSTR /;"	d
-SHF_INFO_LINK	elf.h	/^#define SHF_INFO_LINK /;"	d
-SHF_LINK_ORDER	elf.h	/^#define SHF_LINK_ORDER /;"	d
-SHF_MASKOS	elf.h	/^#define SHF_MASKOS /;"	d
-SHF_MASKPROC	elf.h	/^#define SHF_MASKPROC /;"	d
-SHF_MERGE	elf.h	/^#define SHF_MERGE /;"	d
-SHF_OS_NONCONFORMING	elf.h	/^#define SHF_OS_NONCONFORMING /;"	d
-SHF_STRINGS	elf.h	/^#define SHF_STRINGS /;"	d
-SHF_WRITE	elf.h	/^#define SHF_WRITE /;"	d
-SHN_ABS	elf.h	/^#define SHN_ABS /;"	d
-SHN_COMMON	elf.h	/^#define SHN_COMMON /;"	d
-SHN_HIOS	elf.h	/^#define SHN_HIOS /;"	d
-SHN_HIPROC	elf.h	/^#define SHN_HIPROC /;"	d
-SHN_HIRESERVE	elf.h	/^#define SHN_HIRESERVE /;"	d
-SHN_LOOS	elf.h	/^#define SHN_LOOS /;"	d
-SHN_LOPROC	elf.h	/^#define SHN_LOPROC /;"	d
-SHN_LORESERVE	elf.h	/^#define SHN_LORESERVE /;"	d
-SHN_UNDEF	elf.h	/^#define SHN_UNDEF /;"	d
-SHN_XINDEX	elf.h	/^#define SHN_XINDEX /;"	d
-SHT_CHECKSUM	elf.h	/^#define SHT_CHECKSUM /;"	d
-SHT_DYNAMIC	elf.h	/^#define SHT_DYNAMIC /;"	d
-SHT_DYNSYM	elf.h	/^#define SHT_DYNSYM /;"	d
-SHT_FINI_ARRAY	elf.h	/^#define SHT_FINI_ARRAY /;"	d
-SHT_GNU_verdef	elf.h	/^#define SHT_GNU_verdef /;"	d
-SHT_GNU_verneed	elf.h	/^#define SHT_GNU_verneed /;"	d
-SHT_GNU_versym	elf.h	/^#define SHT_GNU_versym /;"	d
-SHT_GROUP	elf.h	/^#define SHT_GROUP /;"	d
-SHT_HASH	elf.h	/^#define SHT_HASH /;"	d
-SHT_HIOS	elf.h	/^#define SHT_HIOS /;"	d
-SHT_HIPROC	elf.h	/^#define SHT_HIPROC /;"	d
-SHT_HISUNW	elf.h	/^#define SHT_HISUNW /;"	d
-SHT_HIUSER	elf.h	/^#define SHT_HIUSER /;"	d
-SHT_INIT_ARRAY	elf.h	/^#define SHT_INIT_ARRAY /;"	d
-SHT_LOOS	elf.h	/^#define SHT_LOOS /;"	d
-SHT_LOPROC	elf.h	/^#define SHT_LOPROC /;"	d
-SHT_LOSUNW	elf.h	/^#define SHT_LOSUNW /;"	d
-SHT_LOUSER	elf.h	/^#define SHT_LOUSER /;"	d
-SHT_NOBITS	elf.h	/^#define SHT_NOBITS /;"	d
-SHT_NOTE	elf.h	/^#define SHT_NOTE /;"	d
-SHT_NULL	elf.h	/^#define SHT_NULL /;"	d
-SHT_NUM	elf.h	/^#define SHT_NUM /;"	d
-SHT_PREINIT_ARRAY	elf.h	/^#define SHT_PREINIT_ARRAY /;"	d
-SHT_PROGBITS	elf.h	/^#define SHT_PROGBITS /;"	d
-SHT_REL	elf.h	/^#define SHT_REL /;"	d
-SHT_RELA	elf.h	/^#define SHT_RELA /;"	d
-SHT_REMOVE_ME	elf.h	/^#define SHT_REMOVE_ME /;"	d
-SHT_SHLIB	elf.h	/^#define SHT_SHLIB /;"	d
-SHT_STRTAB	elf.h	/^#define SHT_STRTAB /;"	d
-SHT_SUNW_COMDAT	elf.h	/^#define SHT_SUNW_COMDAT /;"	d
-SHT_SUNW_move	elf.h	/^#define SHT_SUNW_move /;"	d
-SHT_SUNW_syminfo	elf.h	/^#define SHT_SUNW_syminfo /;"	d
-SHT_SYMTAB	elf.h	/^#define SHT_SYMTAB /;"	d
-SHT_SYMTAB_SHNDX	elf.h	/^#define SHT_SYMTAB_SHNDX /;"	d
 SIZE_SCOFF_LineNumbers	coff.h	/^#define SIZE_SCOFF_LineNumbers /;"	d
 SIZE_SCOFF_Relocation	coff.h	/^#define SIZE_SCOFF_Relocation /;"	d
 SIZE_SCOFF_SymTableEntry	coff.h	/^#define SIZE_SCOFF_SymTableEntry /;"	d
 SIntTxt	maindef.h	/^struct SIntTxt {$/;"	s
-SOMFHashBlock	library.h	/^union SOMFHashBlock {$/;"	u
-SOMFLocalSymbol	omf.h	/^struct SOMFLocalSymbol {$/;"	s
-SOMFRecordPointer	omf.h	/^struct SOMFRecordPointer {$/;"	s
-SOMFRelocation	omf.h	/^struct SOMFRelocation {$/;"	s
-SOMFSegment	omf.h	/^struct SOMFSegment {$/;"	s
-SOMFSegmentList	omf.h	/^struct SOMFSegmentList {$/;"	s
-SOMFSymbolList	omf.h	/^struct SOMFSymbolList {$/;"	s
 SOpcodeDef	disasm.h	/^struct SOpcodeDef {$/;"	s
 SOpcodeProp	disasm.h	/^struct SOpcodeProp {$/;"	s
-SStringEntry	converters.h	/^struct SStringEntry {$/;"	s
-SSymbolChange	cmdline.h	/^struct SSymbolChange {$/;"	s
-STB_GLOBAL	elf.h	/^#define STB_GLOBAL /;"	d
-STB_HIOS	elf.h	/^#define STB_HIOS /;"	d
-STB_HIPROC	elf.h	/^#define STB_HIPROC /;"	d
-STB_LOCAL	elf.h	/^#define STB_LOCAL /;"	d
-STB_LOOS	elf.h	/^#define STB_LOOS /;"	d
-STB_LOPROC	elf.h	/^#define STB_LOPROC /;"	d
-STB_NUM	elf.h	/^#define STB_NUM /;"	d
-STB_WEAK	elf.h	/^#define STB_WEAK /;"	d
-STN_UNDEF	elf.h	/^#define STN_UNDEF /;"	d
-STT_COMMON	elf.h	/^#define STT_COMMON /;"	d
-STT_FILE	elf.h	/^#define STT_FILE /;"	d
-STT_FUNC	elf.h	/^#define STT_FUNC /;"	d
-STT_GNU_IFUNC	elf.h	/^#define STT_GNU_IFUNC /;"	d
-STT_HIOS	elf.h	/^#define STT_HIOS /;"	d
-STT_HIPROC	elf.h	/^#define STT_HIPROC /;"	d
-STT_LOOS	elf.h	/^#define STT_LOOS /;"	d
-STT_LOPROC	elf.h	/^#define STT_LOPROC /;"	d
-STT_NOTYPE	elf.h	/^#define STT_NOTYPE /;"	d
-STT_NUM	elf.h	/^#define STT_NUM /;"	d
-STT_OBJECT	elf.h	/^#define STT_OBJECT /;"	d
-STT_SECTION	elf.h	/^#define STT_SECTION /;"	d
-STV_DEFAULT	elf.h	/^#define STV_DEFAULT /;"	d
-STV_HIDDEN	elf.h	/^#define STV_HIDDEN /;"	d
-STV_INTERNAL	elf.h	/^#define STV_INTERNAL /;"	d
-STV_PROTECTED	elf.h	/^#define STV_PROTECTED /;"	d
 SUBTYPE_GASM	cmdline.h	/^#define SUBTYPE_GASM /;"	d
 SUBTYPE_MASM	cmdline.h	/^#define SUBTYPE_MASM /;"	d
 SUBTYPE_YASM	cmdline.h	/^#define SUBTYPE_YASM /;"	d
-SUNIXLibraryHeader	library.h	/^struct SUNIXLibraryHeader {$/;"	s
-SYMA_ADD_MEMBER	cmdline.h	/^#define SYMA_ADD_MEMBER /;"	d
-SYMA_ALIAS	cmdline.h	/^#define SYMA_ALIAS /;"	d
-SYMA_CHANGE_NAME	cmdline.h	/^#define SYMA_CHANGE_NAME /;"	d
-SYMA_CHANGE_PREFIX	cmdline.h	/^#define SYMA_CHANGE_PREFIX /;"	d
-SYMA_CHANGE_SUFFIX	cmdline.h	/^#define SYMA_CHANGE_SUFFIX /;"	d
-SYMA_DELETE_MEMBER	cmdline.h	/^#define SYMA_DELETE_MEMBER /;"	d
-SYMA_EXTRACT_MEMBER	cmdline.h	/^#define SYMA_EXTRACT_MEMBER /;"	d
-SYMA_MAKE_LOCAL	cmdline.h	/^#define SYMA_MAKE_LOCAL /;"	d
-SYMA_MAKE_WEAK	cmdline.h	/^#define SYMA_MAKE_WEAK /;"	d
-SYMA_NOCHANGE	cmdline.h	/^#define SYMA_NOCHANGE /;"	d
-SYMINFO_BT_LOWRESERVE	elf.h	/^#define SYMINFO_BT_LOWRESERVE /;"	d
-SYMINFO_BT_PARENT	elf.h	/^#define SYMINFO_BT_PARENT /;"	d
-SYMINFO_BT_SELF	elf.h	/^#define SYMINFO_BT_SELF /;"	d
-SYMINFO_CURRENT	elf.h	/^#define SYMINFO_CURRENT /;"	d
-SYMINFO_FLG_COPY	elf.h	/^#define SYMINFO_FLG_COPY /;"	d
-SYMINFO_FLG_DIRECT	elf.h	/^#define SYMINFO_FLG_DIRECT /;"	d
-SYMINFO_FLG_LAZYLOAD	elf.h	/^#define SYMINFO_FLG_LAZYLOAD /;"	d
-SYMINFO_FLG_PASSTHRU	elf.h	/^#define SYMINFO_FLG_PASSTHRU /;"	d
-SYMINFO_NONE	elf.h	/^#define SYMINFO_NONE /;"	d
-SYMINFO_NUM	elf.h	/^#define SYMINFO_NUM /;"	d
-SYMT_EXTERNAL	cmdline.h	/^#define SYMT_EXTERNAL /;"	d
-SYMT_LIBRARYMEMBER	cmdline.h	/^#define SYMT_LIBRARYMEMBER /;"	d
-SYMT_LOCAL	cmdline.h	/^#define SYMT_LOCAL /;"	d
-SYMT_OTHER	cmdline.h	/^#define SYMT_OTHER /;"	d
-SYMT_PUBLIC	cmdline.h	/^#define SYMT_PUBLIC /;"	d
-SYMT_SECTION	cmdline.h	/^#define SYMT_SECTION /;"	d
 S_EXTERNAL	maindef.h	/^#define S_EXTERNAL /;"	d
 S_LOCAL	maindef.h	/^#define S_LOCAL /;"	d
 S_PUBLIC	maindef.h	/^#define S_PUBLIC /;"	d
@@ -2097,12 +1178,8 @@ Scale	disasm.h	/^   uint32 Scale;                                 \/\/ Scale fac
 ScanPrefixes	disasm1.cpp	/^void CDisassembler::ScanPrefixes() {$/;"	f	class:CDisassembler
 Scope	disasm.h	/^   uint32  Scope;                                \/\/ 0 = inaccessible, 1 = function local, 2 = file local, 4 = public, 8 = weak public, 0x10 = communal, 0x20 = external, 0x100 = has been written$/;"	m	struct:SASymbol
 Scope	disasm.h	/^   uint32 Scope;                                 \/\/ Scope of function. 0 = inaccessible, 1 = function local, 2 = file local, 4 = public, 8 = weak public, 0x10 = communal, 0x20 = external$/;"	m	struct:SFunctionRecord
-Scope	omf.h	/^   uint32 Scope;                       \/\/ 0 = local, 1 = public, 2 = external$/;"	m	struct:SOMFSymbolList
-Scope	omf.h	/^   uint32 Scope;                       \/\/ 0 = local, 2 = external$/;"	m	struct:SOMFRelocation
 Sdummy	opcodes.cpp	/^SwizSpec Sdummy[8] = {  \/\/ For unused entries$/;"	v
 Search	macho.cpp	/^int MacSymbolTableBuilder<TMAC_nlist, MInt>::Search(const char * name) {$/;"	f	class:MacSymbolTableBuilder
-SecStringTable	converters.h	/^   char * SecStringTable;                        \/\/ Section header string table$/;"	m	class:CELF
-SecStringTableLen	converters.h	/^   uint32 SecStringTableLen;                     \/\/ Length of section header string table$/;"	m	class:CELF
 SectOffset	macho.h	/^   uint32 SectOffset;                  \/\/ File offset of section binary data$/;"	m	struct:MAC_SECT_WITH_RELOC
 Section	coff.h	/^   int32  Section;                     \/\/ Section containing table$/;"	m	struct:SCOFF_ImageDirAddress
 Section	disasm.h	/^   int32   Section;                              \/\/ Section number. 0 = external, -1 = absolute symbol, -16 = section to be found from image-relative offset$/;"	m	struct:SASymbol
@@ -2110,35 +1187,19 @@ Section	disasm.h	/^   int32   Section;                              \/\/ Section
 Section	disasm.h	/^   int32  Section;                               \/\/ Section containing function$/;"	m	struct:SFunctionRecord
 Section	disasm.h	/^   uint32  Section;                              \/\/ Current section\/segment$/;"	m	class:CDisassembler
 Section	macho.h	/^   int32  Section;                     \/\/ Section index$/;"	m	struct:MAC_SECT_WITH_RELOC
-Section	omf.h	/^   uint32 Section;                     \/\/ Section number in old file$/;"	m	struct:SOMFRelocation
 SectionAddress	disasm.h	/^   uint32  SectionAddress;                       \/\/ Address of beginning of this section$/;"	m	class:CDisassembler
 SectionAddress	disasm.h	/^   uint32  SectionAddress;                       \/\/ Address of section (image relative)$/;"	m	struct:SASection
 SectionAlignment	coff.h	/^      uint32 SectionAlignment;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 SectionAlignment	coff.h	/^      uint32 SectionAlignment;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
-SectionBuffer	converters.h	/^   CArrayBuf<SOMFSegmentList> SectionBuffer;      \/\/ Summarize old sections. Translate section index to segment index$/;"	m	class:CCOF2OMF
-SectionBufferNum	converters.h	/^   int  SectionBufferNum;                         \/\/ Number of entries in SectionBuffer$/;"	m	class:CCOF2OMF
-SectionDotOptionNames	main.cpp	/^SIntTxt SectionDotOptionNames[] = {$/;"	v
 SectionEnd	disasm.h	/^   uint32  SectionEnd;                           \/\/ End of current section$/;"	m	class:CDisassembler
 SectionHeaderOffset	converters.h	/^   uint32 SectionHeaderOffset;                   \/\/ File offset of section headers$/;"	m	class:CMACHO
-SectionHeaderSize	converters.h	/^   int SectionHeaderSize;                        \/\/ Size of each section header$/;"	m	class:CELF
 SectionHeaders	converters.h	/^   CArrayBuf<SCOFF_SectionHeader> SectionHeaders;\/\/ Copy of section headers$/;"	m	class:CCOFF
-SectionHeaders	converters.h	/^   CArrayBuf<TSectionHeader> SectionHeaders;     \/\/ Copy of section headers$/;"	m	class:CELF
 SectionNumber	coff.h	/^      int16  SectionNumber;$/;"	m	struct:SCOFF_SymTableEntry::__anon4
-SectionNumberTranslate	converters.h	/^   CArrayBuf<int32>SectionNumberTranslate;       \/\/ Translate section numbers in source file to section numbers in asm file$/;"	m	class:CELF2ASM
 SectionOffset	coff.h	/^   uint32 SectionOffset;               \/\/ Offset relative to section$/;"	m	struct:SCOFF_ImageDirAddress
-SectionSymbols	converters.h	/^   CArrayBuf<int> SectionSymbols;                 \/\/ Array of new symbol indices for sections$/;"	m	class:CMAC2ELF
 SectionType	disasm.h	/^   uint32  SectionType;                          \/\/ 0 = unknown, 1 = code, 2 = data, 3 = uninitialized data, 4 = constant data$/;"	m	class:CDisassembler
 Sections	disasm.h	/^   CSList<SASection> Sections;                   \/\/ List of sections. First is 0$/;"	m	class:CDisassembler
-Segment	omf.h	/^   uint32 Segment;                     \/\/ New segment index$/;"	m	struct:SOMFSymbolList
-Segment	omf.h	/^   uint32 Segment;                     \/\/ Segment number in old file$/;"	m	struct:SOMFLocalSymbol
-SegmentData	converters.h	/^   CMemoryBuffer SegmentData;                    \/\/ Binary segment data$/;"	m	class:COMF2ASM
-SegmentDot	cmdline.h	/^   uint32 SegmentDot;                        \/\/ Change underscore\/dot in beginning of segment names$/;"	m	class:CCommandLineInterpreter
-SegmentNameOffset	converters.h	/^   CSList<uint32> SegmentNameOffset;             \/\/ Offset into NameBuffer of segment names by segment index$/;"	m	class:COMF
 SegmentOffset	converters.h	/^   uint32 SegmentOffset;                         \/\/ File offset of segment$/;"	m	class:CMACHO
 SegmentSize	converters.h	/^   uint32 SegmentSize;                           \/\/ Size of segment$/;"	m	class:CMACHO
-SegmentSize	omf.h	/^   uint32 SegmentSize;                 \/\/ Size of segment = combined size of all sections with same name. Stored only in first section of segment$/;"	m	struct:SOMFSegmentList
-SegmentTranslation	converters.h	/^   CSList<uint32> SegmentTranslation;            \/\/ Translate old segment number to new symbol table index$/;"	m	class:COMF2COF
-Segments	converters.h	/^   CSList<SOMFSegment> Segments;                 \/\/ Name, size, etc. of all segments$/;"	m	class:COMF2ASM
 Selection	coff.h	/^      uint8  Selection;            \/\/ Unused$/;"	m	struct:SCOFF_SymTableEntry::__anon10
 SetFileNameExtension	containers.cpp	/^char * CFileBuffer::SetFileNameExtension(const char * f) {$/;"	f	class:CFileBuffer
 SetFileType	containers.cpp	/^void CFileBuffer::SetFileType(int type) {$/;"	f	class:CFileBuffer
@@ -2152,7 +1213,6 @@ Sf32mfmadd233	opcodes.cpp	/^SwizSpec Sf32mfmadd233[8] = {  \/\/ 32-bit float mem
 Sf32r	opcodes.cpp	/^SwizSpec Sf32r[8] = {  \/\/ 32-bit float or integer register permutation$/;"	v
 Sf64m	opcodes.cpp	/^SwizSpec Sf64m[8] = {  \/\/ 64-bit float memory broadcast (no conversion)$/;"	v
 Sf64r	opcodes.cpp	/^SwizSpec Sf64r[8] = {  \/\/ 64-bit float or integer register permutation$/;"	v
-ShortenMemberName	library.cpp	/^char * CLibrary::ShortenMemberName(char const *name) {$/;"	f	class:CLibrary
 ShowHelp	cmdline.h	/^   int    ShowHelp;                          \/\/ Help screen printed$/;"	m	class:CCommandLineInterpreter
 Si32m	opcodes.cpp	/^SwizSpec Si32m[8] = {  \/\/ 32-bit integer memory broadcast or conversion$/;"	v
 Si32mHalf	opcodes.cpp	/^SwizSpec Si32mHalf[8] = {  \/\/ 32-bit integer memory broadcast with conversion to double (VCVTDQ2PD)$/;"	v
@@ -2162,9 +1222,6 @@ Signore1	opcodes.cpp	/^SwizSpec Signore1[8] = {  \/\/ sss bits ignored or used o
 Size	coff.h	/^   uint32 Size;                        \/\/ Size of table$/;"	m	struct:SCOFF_IMAGE_DATA_DIRECTORY
 Size	disasm.h	/^   uint32  Size;                                 \/\/ 1 = byte, 2 = word, 4 = dword, 6 = fword, 8 = qword$/;"	m	struct:SARelocation
 Size	disasm.h	/^   uint32  Size;                                 \/\/ Number of bytes used by symbol or function. 0 = unknown$/;"	m	struct:SASymbol
-Size	omf.h	/^   uint32 Size;                        \/\/ Segment size$/;"	m	struct:SOMFSegment
-Size	omf.h	/^   uint32 Size;                        \/\/ Size of section. First record has combined size of all sections with same name$/;"	m	struct:SOMFSegmentList
-SizeDifference	converters.h	/^   int32  SizeDifference;                        \/\/ Size of new file minus size of old file$/;"	m	class:CMAC2MAC
 SizeOfCode	coff.h	/^      uint32 SizeOfCode;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 SizeOfCode	coff.h	/^      uint32 SizeOfCode;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
 SizeOfHeaders	coff.h	/^      uint32 SizeOfHeaders;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
@@ -2188,41 +1245,27 @@ SizeOfUninitializedData	coff.h	/^      uint32 SizeOfUninitializedData;$/;"	m	str
 Snone	opcodes.cpp	/^SwizSpec Snone[8] = {  \/\/ No swizzle$/;"	v
 Sort	containers.h	/^   void Sort() {                                 $/;"	f	class:CSList
 SortList	macho.cpp	/^void MacSymbolTableBuilder<TMAC_nlist, MInt>::SortList() {$/;"	f	class:MacSymbolTableBuilder
-SortStringTable	library.cpp	/^void CLibrary::SortStringTable() {$/;"	f	class:CLibrary
 Source1	disasm.h	/^   uint16 Source1;                     \/\/ type and size of 1. source operand$/;"	m	struct:SOpcodeDef
 Source2	disasm.h	/^   uint16 Source2;                     \/\/ type and size of 2. source operand$/;"	m	struct:SOpcodeDef
 Source3	disasm.h	/^   uint16 Source3;                     \/\/ type and size of 3. source operand$/;"	m	struct:SOpcodeDef
 SourceLineNumber	coff.h	/^      uint16 SourceLineNumber; \/\/ Line number in source file$/;"	m	struct:SCOFF_SymTableEntry::__anon6
-SourceOffset	omf.h	/^   uint32 SourceOffset;                \/\/ Offset of source relative to section$/;"	m	struct:SOMFRelocation
+SpecifiedOption	cmdline.h	/^   int	SpecifiedOption;$/;"	m	class:CCommandLineInterpreter
 Sround_1	opcodes.cpp	/^SwizSpec Sround_1[8] = {  \/\/ Register operand rounding mode and suppress all exceptions$/;"	v
 Sround_2	opcodes.cpp	/^SwizSpec Sround_2[8] = {  \/\/ Register operand rounding mode and suppress all exceptions$/;"	v
 StandardNames32	cmdline.cpp	/^const char * StandardNames32[][MaxType+1] = {$/;"	v
 StandardNames64	cmdline.cpp	/^const char * StandardNames64[][MaxType+1] = {$/;"	v
 Start	disasm.h	/^   uint32 Start;                                 \/\/ Offset of function start$/;"	m	struct:SFunctionRecord
 Start	disasm.h	/^   uint8 * Start;                                \/\/ Point to start of binary data$/;"	m	struct:SASection
-Start	omf.cpp	/^void SOMFRecordPointer::Start(int8 * Buffer, uint32 FileOffset, uint32 FileEnd) {$/;"	f	class:SOMFRecordPointer
-StartBlock	library.h	/^    uint16 StartBlock;                  \/\/ Start block for search$/;"	m	class:COMFHashTable
-StartBucket	library.h	/^    uint16 StartBucket;                 \/\/ Start bucket for search$/;"	m	class:COMFHashTable
-StartExtracting	library.cpp	/^void CLibrary::StartExtracting() {$/;"	f	class:CLibrary
-StartRecord	omf.cpp	/^void COMFFileBuilder::StartRecord(uint8 type) {$/;"	f	class:COMFFileBuilder
 Status	error.h	/^   int  Status;         \/\/ bit 0-3 = severity: 0 = ignore, 1 = warning, 2 = error, 9 = abort$/;"	m	struct:SErrorText
 StorageClass	coff.h	/^      uint8  StorageClass;$/;"	m	struct:SCOFF_SymTableEntry::__anon4
 StoreList	macho.cpp	/^void MacSymbolTableBuilder<TMAC_nlist, MInt>::StoreList(CMemoryBuffer * SymbolTable, CMemoryBuffer * StringTable) {$/;"	f	class:MacSymbolTableBuilder
 StorePrefix	disasm1.cpp	/^void CDisassembler::StorePrefix(uint32 Category, uint8 Byte) {$/;"	f	class:CDisassembler
-String	converters.h	/^   uint32 String;                      \/\/ Offset to string$/;"	m	struct:SStringEntry
-String	library.h	/^    uint8 * String;                     \/\/ String to search for or insert$/;"	m	class:COMFHashTable
 StringBuffer	converters.h	/^   CMemoryBuffer StringBuffer;                   \/\/ Buffer for making section names$/;"	m	class:CMAC2ASM
-StringBuffer	library.h	/^    CMemoryBuffer StringBuffer;         \/\/ Buffer containing strings$/;"	m	class:CLibrary
 StringBuffer	macho.h	/^   CMemoryBuffer StringBuffer;                   \/\/ Temporary storage of symbol names$/;"	m	class:MacSymbolTableBuilder
-StringEntries	library.h	/^    CSList<SStringEntry> StringEntries; \/\/ String table using SStringEntry$/;"	m	class:CLibrary
-StringLength	library.h	/^    uint32 StringLength;                \/\/ Length of string$/;"	m	class:COMFHashTable
 StringTabOffset	converters.h	/^   uint32 StringTabOffset;                       \/\/ File offset of string table$/;"	m	class:CMACHO
 StringTabSize	converters.h	/^   uint32 StringTabSize;                         \/\/ Size of string table$/;"	m	class:CMACHO
 StringTable	converters.h	/^   char * StringTable;                           \/\/ Pointer to string table (for object files)$/;"	m	class:CCOFF
 StringTableSize	converters.h	/^   uint32 StringTableSize;                       \/\/ Size of string table (for object files)$/;"	m	class:CCOFF
-Strings	library.h	/^    uint8 Strings[OMFBlockSize];        \/\/ Start of each string = length$/;"	m	union:SOMFHashBlock
-StripMemberName	library.cpp	/^char * CLibrary::StripMemberName(char * name) {$/;"	f	class:CLibrary
-StripMemberNamesUNIX	library.cpp	/^void CLibrary::StripMemberNamesUNIX() {$/;"	f	class:CLibrary
 SubType	cmdline.h	/^   int    SubType;                           \/\/ Subtype of output type. Assembly language dialect or library type$/;"	m	class:CCommandLineInterpreter
 Subsystem	coff.h	/^      uint16 Subsystem;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 Subsystem	coff.h	/^      uint16 Subsystem;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
@@ -2234,29 +1277,11 @@ SwizTableLookup	disasm1.cpp	/^void CDisassembler::SwizTableLookup() {$/;"	f	clas
 SwizTables	opcodes.cpp	/^SwizSpec const * SwizTables[][2] = {$/;"	v
 SymTabNumber	converters.h	/^   uint32 SymTabNumber;                          \/\/ Number of entries in symbol table$/;"	m	class:CMACHO
 SymTabOffset	converters.h	/^   uint32 SymTabOffset;                          \/\/ File offset of symbol table$/;"	m	class:CMACHO
-SymbolBuffer	converters.h	/^   CArrayBuf<SOMFSymbolList> SymbolBuffer;        \/\/ Translate old symbol index to new public\/external index$/;"	m	class:CCOF2OMF
-SymbolChange	cmdline.cpp	/^int CCommandLineInterpreter::SymbolChange(char const * oldname, char const ** newname, int symtype) {$/;"	f	class:CCommandLineInterpreter
-SymbolChangeEntries	cmdline.h	/^   int SymbolChangeEntries;                  \/\/ Number of entries in SymbolList, except library entries$/;"	m	class:CCommandLineInterpreter
-SymbolChangesRequested	cmdline.cpp	/^int CCommandLineInterpreter::SymbolChangesRequested() {$/;"	f	class:CCommandLineInterpreter
-SymbolIsInList	cmdline.cpp	/^int CCommandLineInterpreter::SymbolIsInList(char const * name) {$/;"	f	class:CCommandLineInterpreter
-SymbolList	cmdline.h	/^   CMemoryBuffer SymbolList;                 \/\/ List of symbol names to change. Contains entries of type SSymbolChange$/;"	m	class:CCommandLineInterpreter
-SymbolName	elf.cpp	/^const char * CELF<ELFSTRUCTURES>::SymbolName(uint32 index) {$/;"	f	class:CELF
 SymbolNameBuffer	disasm.h	/^   CMemoryBuffer    SymbolNameBuffer;            \/\/ String buffer for names of symbols$/;"	m	class:CSymbolTable
-SymbolNameOffset	converters.h	/^   CSList<uint32> SymbolNameOffset;              \/\/ Offset into NameBuffer of external symbol names$/;"	m	class:COMF
-SymbolOverflow	elf2cof.cpp	/^static int SymbolOverflow(uint32 x) {  \/\/ Overloaded 32 bit version$/;"	f	file:
-SymbolOverflow	elf2cof.cpp	/^static int SymbolOverflow(uint64 x) {$/;"	f	file:
-SymbolStringTableOffset	converters.h	/^   uint32 SymbolStringTableOffset;               \/\/ Offset to symbol string table$/;"	m	class:CELF
-SymbolStringTableSize	converters.h	/^   uint32 SymbolStringTableSize;                 \/\/ Size of symbol string table$/;"	m	class:CELF
 SymbolTable	converters.h	/^   SCOFF_SymTableEntry * SymbolTable;            \/\/ Pointer to symbol table (for object files)$/;"	m	class:CCOFF
-SymbolTableEntries	converters.h	/^   uint32 SymbolTableEntries;                    \/\/ Number of symbols$/;"	m	class:CELF
-SymbolTableEntrySize	converters.h	/^   uint32 SymbolTableEntrySize;                  \/\/ Entry size of symbol table$/;"	m	class:CELF
 SymbolTableIndex	coff.h	/^  uint32 SymbolTableIndex; \/\/ Zero-based index into symbol table$/;"	m	struct:SCOFF_Relocation
-SymbolTableOffset	converters.h	/^   CArrayBuf<uint32>SymbolTableOffset;           \/\/ Addend to add to symbol number for each symbol table$/;"	m	class:CELF2ASM
-SymbolTableOffset	converters.h	/^   uint32 SymbolTableOffset;                     \/\/ Offset to symbol table$/;"	m	class:CELF
 Symbols	disasm.h	/^   CSymbolTable Symbols;                         \/\/ Table of symbols$/;"	m	class:CDisassembler
-SymbolsUsed	converters.h	/^   CArrayBuf<int32> SymbolsUsed;                 \/\/ Array of new symbol indices$/;"	m	class:CELF2COF
 Syntax	disasm.h	/^   uint32  Syntax;                               \/\/ Assembly syntax dialect: 1: MASM\/TASM, 2: NASM\/YASM, 4: GAS$/;"	m	class:CDisassembler
-T	omf.h	/^             T:1,                      \/\/ 0 = target field present, 1 = target defined by thread$/;"	m	struct:OMF_SFixData::__anon16
 TLSTable	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY TLSTable;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 TLSTable	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY TLSTable;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
 TableLink	disasm.h	/^   uint16 TableLink;                   \/\/ this entry is a link to another map$/;"	m	struct:SOpcodeDef
@@ -2264,26 +1289,12 @@ TableSize	maindef.h	/^#define TableSize(/;"	d
 Tabulate	containers.cpp	/^void CTextFileBuffer::Tabulate(uint32 i) {$/;"	f	class:CTextFileBuffer
 TagIndex	coff.h	/^      uint32 TagIndex; \/\/ Index to .bf entry$/;"	m	struct:SCOFF_SymTableEntry::__anon5
 TagIndex	coff.h	/^      uint32 TagIndex; \/\/ Symbol table index of alternative symbol2$/;"	m	struct:SCOFF_SymTableEntry::__anon7
-Target	omf.h	/^      uint8  Target:2,                 \/\/ Target method (T=0) or target thread number (T=1)$/;"	m	struct:OMF_SFixData::__anon16
-TargetOffset	omf.h	/^   uint32 TargetOffset;                \/\/ Offset relative to segment in new file of target$/;"	m	struct:SOMFRelocation
 TargetOldIndex	disasm.h	/^   uint32  TargetOldIndex;                       \/\/ Old symbol table index of target$/;"	m	struct:SARelocation
-TargetSegment	omf.h	/^   uint32 TargetSegment;               \/\/ Segment index or EXTDEF index of target in new file $/;"	m	struct:SOMFRelocation
 Text	error.h	/^   char const * Text;   \/\/ Error text$/;"	m	struct:SErrorText
-Thread	omf.h	/^      uint8  Thread:2,                 \/\/ Thread number$/;"	m	struct:OMF_STrdDat::__anon17
 TimeDateStamp	coff.h	/^ uint32 TimeDateStamp;        \/\/ time & date stamp $/;"	m	struct:SCOFF_FileHeader
-ToFile	converters.h	/^   CFileBuffer   ToFile;               \/\/ File buffer for new Mach-O file$/;"	m	class:CELF2MAC
-ToFile	converters.h	/^   CFileBuffer ToFile;                            \/\/ File buffer for ELF file$/;"	m	class:CCOF2ELF
-ToFile	converters.h	/^   CFileBuffer ToFile;                            \/\/ File buffer for ELF file$/;"	m	class:CMAC2ELF
-ToFile	converters.h	/^   CFileBuffer ToFile;                           \/\/ File buffer for PE\/COFF file$/;"	m	class:CELF2COF
-ToFile	converters.h	/^   CFileBuffer ToFile;                           \/\/ File buffer for PE\/COFF file$/;"	m	class:COMF2COF
-ToFile	converters.h	/^   CFileBuffer ToFile;                           \/\/ File buffer for modified PE file$/;"	m	class:CCOF2COF
-ToFile	converters.h	/^   CFileBuffer ToFile;                           \/\/ File buffer for modified PE file$/;"	m	class:CELF2ELF
-ToFile	converters.h	/^   CFileBuffer ToFile;                           \/\/ File buffer for modified PE file$/;"	m	class:CMAC2MAC
-ToFile	converters.h	/^   COMFFileBuilder ToFile;                        \/\/ File buffer for new OMF file$/;"	m	class:CCOF2OMF
 TotalSize	coff.h	/^      uint32 TotalSize; \/\/ Size of function code$/;"	m	struct:SCOFF_SymTableEntry::__anon5
 TotalSize	disasm.h	/^   uint32  TotalSize;                            \/\/ Size of initialized and uninitialized data in section$/;"	m	struct:SASection
 TranslateAbsAddress	disasm1.cpp	/^int CDisassembler::TranslateAbsAddress(int64 Addr, int32 &Sect, uint32 &Offset) {$/;"	f	class:CDisassembler
-TranslateAddress	mac2elf.cpp	/^void CMAC2ELF<MACSTRUCTURES,ELFSTRUCTURES>::TranslateAddress(MInt addr, uint32 & section, uint32 & offset) {$/;"	f	class:CMAC2ELF
 TranslateIndex	macho.cpp	/^int MacSymbolTableBuilder<TMAC_nlist, MInt>::TranslateIndex(int OldIndex) {$/;"	f	class:MacSymbolTableBuilder
 TranslateOldIndex	disasm.h	/^   CSList<uint32>   TranslateOldIndex;           \/\/ Table to translate old symbol index to new symbol index$/;"	m	class:CSymbolTable
 Type	coff.h	/^      uint16 Type;$/;"	m	struct:SCOFF_SymTableEntry::__anon4
@@ -2292,10 +1303,6 @@ Type	coff.h	/^  uint16 Type;             \/\/ Relocation type$/;"	m	struct:SCOFF
 Type	disasm.h	/^   uint32  Type;                                 \/\/ 0 = unknown, 1 = code, $/;"	m	struct:SASection
 Type	disasm.h	/^   uint32  Type;                                 \/\/ Relocation types:$/;"	m	struct:SARelocation
 Type	disasm.h	/^   uint32  Type;                                 \/\/ Use values listed above for SOpcodeDef operands. 0 = unknown type$/;"	m	struct:SASymbol
-Type	omf.h	/^   uint32 Type;                        \/\/ Segment type (as defined in disasm.h)$/;"	m	struct:SOMFSegment
-Type	omf.h	/^   uint8  Type;                        \/\/ Record type$/;"	m	class:COMFFileBuilder
-Type	omf.h	/^   uint8  Type;            \/\/ Record type$/;"	m	struct:SOMFRecordPointer
-Type2	omf.h	/^   uint8  Type2;           \/\/ Record type, made even$/;"	m	struct:SOMFRecordPointer
 TypeOptionNames	cmdline.cpp	/^static SIntTxt TypeOptionNames[] = {$/;"	v	file:
 Uf32m	opcodes.cpp	/^SwizSpec Uf32m[8] = {  \/\/ 32-bit float memory up- or down-conversion$/;"	v
 Uf32mx4	opcodes.cpp	/^SwizSpec Uf32mx4[8] = {  \/\/ 32-bit float memory up-conversion, broadcast * 4, vbroadcastf32x4$/;"	v
@@ -2305,15 +1312,9 @@ Ui32m	opcodes.cpp	/^SwizSpec Ui32m[8] = {  \/\/ 32-bit integer memory up- or dow
 Ui32mx4	opcodes.cpp	/^SwizSpec Ui32mx4[8] = {  \/\/ 32-bit integer memory up-conversion, broadcast * 4, vbroadcasti32x4$/;"	v
 Ui64m	opcodes.cpp	/^SwizSpec Ui64m[8] = {  \/\/ 64-bit integer memory, no up- or down-conversion$/;"	v
 Ui64mx4	opcodes.cpp	/^SwizSpec Ui64mx4[8] = {  \/\/ 64-bit integer memory, no up-conversion, broadcast * 4, vbroadcasti64x4$/;"	v
-Underscore	cmdline.h	/^   uint32 Underscore;                        \/\/ Add\/remove underscores in symbol names$/;"	m	class:CCommandLineInterpreter
-UnderscoreOptionNames	main.cpp	/^SIntTxt UnderscoreOptionNames[] = {$/;"	v
 UnnamedNum	disasm.h	/^   uint32 UnnamedNum;                            \/\/ Number of unnamed symbols$/;"	m	class:CSymbolTable
 UnnamedSymFormat	disasm.h	/^   const char * UnnamedSymFormat;                \/\/ Format string for giving names to unnamed symbols$/;"	m	class:CSymbolTable
 UnnamedSymbolsPrefix	disasm.h	/^   const char * UnnamedSymbolsPrefix;            \/\/ Prefix for names of unnamed symbols$/;"	m	class:CSymbolTable
-UnnamedSymbolsTable	converters.h	/^   CMemoryBuffer UnnamedSymbolsTable;  \/\/ Buffer for assigning names to unnamed symbols$/;"	m	class:CELF2MAC
-UnpackLIDATABlock	omf.cpp	/^uint32 SOMFRecordPointer::UnpackLIDATABlock(int8 * destination, uint32 MaxSize) {$/;"	f	class:SOMFRecordPointer
-Unused	omf.h	/^             Unused:1,                 \/\/ 0$/;"	m	struct:OMF_STrdDat::__anon17
-Unused	omf.h	/^   uint16 Unused;          \/\/ Align$/;"	m	struct:SOMFRecordPointer
 Unused1	coff.h	/^      uint32 Unused1; $/;"	m	struct:SCOFF_SymTableEntry::__anon7
 Unused1	coff.h	/^      uint32 Unused1;$/;"	m	struct:SCOFF_SymTableEntry::__anon6
 Unused1	coff.h	/^      uint8  Unused1[3];$/;"	m	struct:SCOFF_SymTableEntry::__anon10
@@ -2325,18 +1326,8 @@ Unused4	coff.h	/^      uint16 Unused4;      \/\/ Unused$/;"	m	struct:SCOFF_SymTa
 UpdateIndex	disasm1.cpp	/^void CSymbolTable::UpdateIndex() {$/;"	f	class:CSymbolTable
 UpdateSymbols	disasm1.cpp	/^void CDisassembler::UpdateSymbols() {$/;"	f	class:CDisassembler
 UpdateTracer	disasm1.cpp	/^void CDisassembler::UpdateTracer() {$/;"	f	class:CDisassembler
-UserID	library.h	/^    char UserID[6];                     \/\/ Member User ID, decimal ASCII$/;"	m	struct:SUNIXLibraryHeader
-VER_DEF_CURRENT	elf.h	/^#define VER_DEF_CURRENT /;"	d
-VER_DEF_NONE	elf.h	/^#define VER_DEF_NONE /;"	d
-VER_DEF_NUM	elf.h	/^#define VER_DEF_NUM /;"	d
-VER_FLG_BASE	elf.h	/^#define VER_FLG_BASE /;"	d
-VER_FLG_WEAK	elf.h	/^#define VER_FLG_WEAK /;"	d
-VER_NEED_CURRENT	elf.h	/^#define VER_NEED_CURRENT /;"	d
-VER_NEED_NONE	elf.h	/^#define VER_NEED_NONE /;"	d
-VER_NEED_NUM	elf.h	/^#define VER_NEED_NUM /;"	d
 Value	coff.h	/^      uint32 Value;$/;"	m	struct:SCOFF_SymTableEntry::__anon4
 Value	disasm.h	/^   uint32 Value[16];                             \/\/ Meaning depends on the value of Regist[i]$/;"	m	struct:SATracer
-Verbose	cmdline.h	/^   uint32 Verbose;                           \/\/ How much diagnostics to print on screen$/;"	m	class:CCommandLineInterpreter
 VersionMajor	coff.h	/^   uint16 VersionMajor;$/;"	m	struct:SCOFF_ExportDirectory
 VersionMinor	coff.h	/^   uint16 VersionMinor;$/;"	m	struct:SCOFF_ExportDirectory
 VirtualAddress	coff.h	/^   uint32 VirtualAddress;              \/\/ Image relative address of table$/;"	m	struct:SCOFF_IMAGE_DATA_DIRECTORY
@@ -2351,7 +1342,6 @@ Win32VersionValue	coff.h	/^      uint32 Win32VersionValue;        \/\/ must be 0
 WordSize	containers.h	/^   int WordSize;                                 \/\/ Segment word size (16, 32, 64)$/;"	m	class:CFileBuffer
 WordSize	disasm.h	/^   uint32  WordSize;                             \/\/ Segment word size: 16, 32, 64$/;"	m	class:CDisassembler
 WordSize	disasm.h	/^   uint32  WordSize;                             \/\/ Word size, 16, 32, 64$/;"	m	struct:SASection
-WordSize	omf.h	/^   uint32 WordSize;                    \/\/ 16 or 32 bits$/;"	m	struct:SOMFSegment
 WorstError	error.h	/^   int WorstError;      \/\/ Highest error number encountered$/;"	m	class:CErrorReporter
 Write	containers.cpp	/^void CFileBuffer::Write() {                  $/;"	f	class:CFileBuffer
 WriteAlign	disasm2.cpp	/^void CDisassembler::WriteAlign(uint32 a) {$/;"	f	class:CDisassembler
@@ -2413,24 +1403,16 @@ WriteUninitDataItemsGASM	disasm2.cpp	/^void CDisassembler::WriteUninitDataItemsG
 WriteUninitDataItemsMASM	disasm2.cpp	/^void CDisassembler::WriteUninitDataItemsMASM(uint32 size, uint32 count) {$/;"	f	class:CDisassembler
 WriteUninitDataItemsYASM	disasm2.cpp	/^void CDisassembler::WriteUninitDataItemsYASM(uint32 size, uint32 count) {$/;"	f	class:CDisassembler
 WriteVEXOperand	disasm2.cpp	/^void CDisassembler::WriteVEXOperand(uint32 Type, int i) {$/;"	f	class:CDisassembler
-Zero	omf.h	/^             Zero:1;                   \/\/ 1 = FIXUP subrecord, 0 = THREAD subrecord$/;"	m	struct:OMF_STrdDat::__anon17
 a	maindef.h	/^   uint32 a;$/;"	m	struct:SIntTxt
 addr	macho.h	/^	uint32	addr;		      \/* memory address of this section *\/$/;"	m	struct:MAC_section_32
 addr	macho.h	/^	uint64	addr;		      \/* memory address of this section *\/$/;"	m	struct:MAC_section_64
 align	macho.h	/^	uint32	align;		   \/* section alignment (power of 2) *\/$/;"	m	struct:MAC_section_32
 align	macho.h	/^	uint32	align;		   \/* section alignment (power of 2) *\/$/;"	m	struct:MAC_section_64
 align	macho.h	/^   uint32 align;                       \/\/ alignment in file = 2^align$/;"	m	struct:MAC_UNIV_FAT_ARCH
-b	library.h	/^    } b;$/;"	m	union:SOMFHashBlock	typeref:struct:SOMFHashBlock::__anon13
 b	maindef.h	/^   const char * b;$/;"	m	struct:SIntTxt
-b	omf.h	/^   uint8 b;                            \/\/ Byte$/;"	m	union:OMF_SAttrib
-b	omf.h	/^   uint8 b;                            \/\/ Byte$/;"	m	union:OMF_SFixData
-b	omf.h	/^   uint8 b;                            \/\/ Byte$/;"	m	union:OMF_STrdDat
 bfef	coff.h	/^   } bfef;$/;"	m	union:SCOFF_SymTableEntry	typeref:struct:SCOFF_SymTableEntry::__anon6
-blocks	library.h	/^    SOMFHashBlock * blocks;             \/\/ Pointer to blocks$/;"	m	class:COMFHashTable
 buffer	containers.h	/^   RecordType * buffer;                          \/\/ Dynamically allocated memory$/;"	m	class:CArrayBuf
 buffer	containers.h	/^   int8 * buffer;                                \/\/ Buffer containing binary data. To be modified only by SetSize and operator >>$/;"	m	class:CMemoryBuffer
-buffer	omf.h	/^   int8 * buffer;          \/\/ Pointer to file buffer$/;"	m	struct:SOMFRecordPointer
-bytes	omf.h	/^   uint8 bytes[2];                     \/\/ First two bytes swapped$/;"	m	union:OMF_SLocat
 cmd	cmdline.cpp	/^CCommandLineInterpreter cmd;                  \/\/ Instantiate command line interpreter$/;"	v
 cmd	macho.h	/^	uint32	cmd;		      \/* LC_SEGMENT *\/$/;"	m	struct:MAC_segment_command_32
 cmd	macho.h	/^	uint32	cmd;		    \/* LC_SEGMENT_64 *\/$/;"	m	struct:MAC_segment_command_64
@@ -2449,47 +1431,10 @@ cpusubtype	macho.h	/^   uint32 cpusubtype;                  \/\/ cpu subtype$/;"
 cputype	macho.h	/^	uint32	cputype;	   \/\/ cpu specifier$/;"	m	struct:MAC_header_32
 cputype	macho.h	/^	uint32	cputype;	   \/\/ cpu specifier$/;"	m	struct:MAC_header_64
 cputype	macho.h	/^   uint32 cputype;                     \/\/ cpu type$/;"	m	struct:MAC_UNIV_FAT_ARCH
-d_ptr	elf.h	/^      uint32 d_ptr;      \/* Address value *\/$/;"	m	union:Elf32_Dyn::__anon11
-d_ptr	elf.h	/^      uint64 d_ptr;      \/* Address value *\/$/;"	m	union:Elf64_Dyn::__anon12
-d_tag	elf.h	/^  int32  d_tag;          \/* Dynamic entry type *\/$/;"	m	struct:Elf32_Dyn
-d_tag	elf.h	/^  int64  d_tag;          \/* Dynamic entry type *\/$/;"	m	struct:Elf64_Dyn
-d_un	elf.h	/^    } d_un;$/;"	m	struct:Elf32_Dyn	typeref:union:Elf32_Dyn::__anon11
-d_un	elf.h	/^    } d_un;$/;"	m	struct:Elf64_Dyn	typeref:union:Elf64_Dyn::__anon12
-d_val	elf.h	/^      uint32 d_val;      \/* Integer value *\/$/;"	m	union:Elf32_Dyn::__anon11
-d_val	elf.h	/^      uint64 d_val;      \/* Integer value *\/$/;"	m	union:Elf64_Dyn::__anon12
-e_ehsize	elf.h	/^  uint16  e_ehsize;      \/\/ ELF header size in bytes$/;"	m	struct:Elf32_Ehdr
-e_ehsize	elf.h	/^  uint16  e_ehsize;      \/\/ ELF header size in bytes$/;"	m	struct:Elf64_Ehdr
-e_entry	elf.h	/^  uint32  e_entry;       \/\/ Entry point virtual address$/;"	m	struct:Elf32_Ehdr
-e_entry	elf.h	/^  uint64  e_entry;       \/\/ Entry point virtual address$/;"	m	struct:Elf64_Ehdr
-e_flags	elf.h	/^  uint32  e_flags;       \/\/ Processor-specific flags$/;"	m	struct:Elf32_Ehdr
-e_flags	elf.h	/^  uint32  e_flags;       \/\/ Processor-specific flags$/;"	m	struct:Elf64_Ehdr
-e_ident	elf.h	/^  uint8   e_ident[16];   \/\/ Magic number and other info$/;"	m	struct:Elf32_Ehdr
-e_ident	elf.h	/^  uint8   e_ident[16];   \/\/ Magic number and other info$/;"	m	struct:Elf64_Ehdr
-e_machine	elf.h	/^  uint16  e_machine;     \/\/ Architecture$/;"	m	struct:Elf32_Ehdr
-e_machine	elf.h	/^  uint16  e_machine;     \/\/ Architecture$/;"	m	struct:Elf64_Ehdr
-e_phentsize	elf.h	/^  uint16  e_phentsize;   \/\/ Program header table entry size$/;"	m	struct:Elf32_Ehdr
-e_phentsize	elf.h	/^  uint16  e_phentsize;   \/\/ Program header table entry size$/;"	m	struct:Elf64_Ehdr
-e_phnum	elf.h	/^  uint16  e_phnum;       \/\/ Program header table entry count$/;"	m	struct:Elf32_Ehdr
-e_phnum	elf.h	/^  uint16  e_phnum;       \/\/ Program header table entry count$/;"	m	struct:Elf64_Ehdr
-e_phoff	elf.h	/^  uint32  e_phoff;       \/\/ Program header table file offset$/;"	m	struct:Elf32_Ehdr
-e_phoff	elf.h	/^  uint64  e_phoff;       \/\/ Program header table file offset$/;"	m	struct:Elf64_Ehdr
-e_shentsize	elf.h	/^  uint16  e_shentsize;   \/\/ Section header table entry size$/;"	m	struct:Elf32_Ehdr
-e_shentsize	elf.h	/^  uint16  e_shentsize;   \/\/ Section header table entry size$/;"	m	struct:Elf64_Ehdr
-e_shnum	elf.h	/^  uint16  e_shnum;       \/\/ Section header table entry count$/;"	m	struct:Elf32_Ehdr
-e_shnum	elf.h	/^  uint16  e_shnum;       \/\/ Section header table entry count$/;"	m	struct:Elf64_Ehdr
-e_shoff	elf.h	/^  uint32  e_shoff;       \/\/ Section header table file offset$/;"	m	struct:Elf32_Ehdr
-e_shoff	elf.h	/^  uint64  e_shoff;       \/\/ Section header table file offset$/;"	m	struct:Elf64_Ehdr
-e_shstrndx	elf.h	/^  uint16  e_shstrndx;    \/\/ Section header string table index$/;"	m	struct:Elf32_Ehdr
-e_shstrndx	elf.h	/^  uint16  e_shstrndx;    \/\/ Section header string table index$/;"	m	struct:Elf64_Ehdr
-e_type	elf.h	/^  uint16  e_type;        \/\/ Object file type$/;"	m	struct:Elf32_Ehdr
-e_type	elf.h	/^  uint16  e_type;        \/\/ Object file type$/;"	m	struct:Elf64_Ehdr
-e_version	elf.h	/^  uint32  e_version;     \/\/ Object file version$/;"	m	struct:Elf32_Ehdr
-e_version	elf.h	/^  uint32  e_version;     \/\/ Object file version$/;"	m	struct:Elf64_Ehdr
 elementsize	disasm.h	/^    uint32 elementsize; \/\/ memory operand size for broadcast, gather and scatter instructions$/;"	m	struct:SwizSpec
 err	error.cpp	/^CErrorReporter err;$/;"	v
 extrefsymoff	macho.h	/^    uint32 extrefsymoff;  \/* offset to referenced symbol table *\/$/;"	m	struct:MAC_dysymtab_command
 extreloff	macho.h	/^    uint32 extreloff;	\/* offset to external relocation entries *\/$/;"	m	struct:MAC_dysymtab_command
-filelength	stdafx.h	/^  #define filelength /;"	d
 filename	coff.h	/^   } filename;$/;"	m	union:SCOFF_SymTableEntry	typeref:struct:SCOFF_SymTableEntry::__anon8
 fileoff	macho.h	/^	uint32	fileoff;	      \/* file offset of this segment *\/$/;"	m	struct:MAC_segment_command_32
 fileoff	macho.h	/^	uint64	fileoff;	    \/* file offset of this segment *\/$/;"	m	struct:MAC_segment_command_64
@@ -2522,22 +1467,9 @@ int64	maindef.h	/^typedef __int64            int64;      \/\/ 64 bit signed inte
 int64	maindef.h	/^typedef long long          int64;      \/\/ 64 bit signed integer$/;"	t
 int8	maindef.h	/^  typedef char             int8;       \/\/ 8 bit  signed integer$/;"	t
 int8	maindef.h	/^typedef char               int8;       \/\/ 8 bit  signed integer$/;"	t
-istrtab	converters.h	/^   uint32 istrtab[4];                            \/\/ string table section number: symbols, dynamic symbols, sections, debug$/;"	m	class:CELF2ELF
-isymtab	converters.h	/^   uint32 isymtab[2];                            \/\/ static and dynamic symbol table section number$/;"	m	class:CELF2ELF
 iundefsym	converters.h	/^   uint32 iundefsym;	                            \/\/ index to external symbols$/;"	m	class:CMACHO
 iundefsym	macho.h	/^    uint32 iundefsym;	\/\/ index to undefined symbols$/;"	m	struct:MAC_dysymtab_command
-libmode	cmdline.h	/^   int  libmode;                             \/\/ -lib option has been encountered$/;"	m	class:CCommandLineInterpreter
 locreloff	macho.h	/^    uint32 locreloff;	\/* offset to local relocation entries *\/$/;"	m	struct:MAC_dysymtab_command
-m_info	elf.h	/^  uint32 m_info;       \/* Size and index.  *\/$/;"	m	struct:Elf32_Move
-m_info	elf.h	/^  uint64 m_info;      \/* Size and index.  *\/$/;"	m	struct:Elf64_Move
-m_poffset	elf.h	/^  uint32 m_poffset;    \/* Symbol offset.  *\/$/;"	m	struct:Elf32_Move
-m_poffset	elf.h	/^  uint64 m_poffset;   \/* Symbol offset.  *\/$/;"	m	struct:Elf64_Move
-m_repeat	elf.h	/^  uint16 m_repeat;     \/* Repeat count.  *\/$/;"	m	struct:Elf32_Move
-m_repeat	elf.h	/^  uint16 m_repeat;    \/* Repeat count.  *\/$/;"	m	struct:Elf64_Move
-m_stride	elf.h	/^  uint16 m_stride;     \/* Stride info.  *\/$/;"	m	struct:Elf32_Move
-m_stride	elf.h	/^  uint16 m_stride;    \/* Stride info.  *\/$/;"	m	struct:Elf64_Move
-m_value	elf.h	/^  uint64 m_value;      \/* Symbol value.  *\/$/;"	m	struct:Elf32_Move
-m_value	elf.h	/^  uint64 m_value;     \/* Symbol value.  *\/$/;"	m	struct:Elf64_Move
 magic	macho.h	/^	uint32	magic;		\/\/ mach magic number identifier$/;"	m	struct:MAC_header_32
 magic	macho.h	/^	uint32	magic;		\/\/ mach magic number identifier$/;"	m	struct:MAC_header_64
 magic	macho.h	/^   uint32 magic;                       \/\/ Magic number 0xCAFEBABE, big endian$/;"	m	struct:MAC_UNIV_FAT_HEADER
@@ -2549,16 +1481,10 @@ memopsize	disasm.h	/^    uint32 memopsize;   \/\/ memory operand size = byte off
 modtaboff	macho.h	/^    uint32 modtaboff;	\/* file offset to module table *\/$/;"	m	struct:MAC_dysymtab_command
 n_desc	macho.h	/^   int16   n_desc;   \/\/ see <mach-o\/stab.h> $/;"	m	struct:MAC_nlist_32
 n_desc	macho.h	/^   int16   n_desc;   \/\/ see <mach-o\/stab.h> $/;"	m	struct:MAC_nlist_64
-n_descsz	elf.h	/^  uint32 n_descsz;      \/* Length of the note's descriptor.  *\/$/;"	m	struct:Elf32_Nhdr
-n_descsz	elf.h	/^  uint32 n_descsz;      \/* Length of the note's descriptor.  *\/$/;"	m	struct:Elf64_Nhdr
-n_namesz	elf.h	/^  uint32 n_namesz;      \/* Length of the note's name.  *\/$/;"	m	struct:Elf32_Nhdr
-n_namesz	elf.h	/^  uint32 n_namesz;      \/* Length of the note's name.  *\/$/;"	m	struct:Elf64_Nhdr
 n_sect	macho.h	/^   uint8   n_sect;   \/\/ section number or NO_SECT $/;"	m	struct:MAC_nlist_32
 n_sect	macho.h	/^   uint8   n_sect;   \/\/ section number or NO_SECT $/;"	m	struct:MAC_nlist_64
 n_strx	macho.h	/^   uint32  n_strx;   \/\/ index into the string table $/;"	m	struct:MAC_nlist_32
 n_strx	macho.h	/^   uint32  n_strx;   \/\/ index into the string table $/;"	m	struct:MAC_nlist_64
-n_type	elf.h	/^  uint32 n_type;        \/* Type of the note.  *\/$/;"	m	struct:Elf32_Nhdr
-n_type	elf.h	/^  uint32 n_type;        \/* Type of the note.  *\/$/;"	m	struct:Elf64_Nhdr
 n_type	macho.h	/^   uint8   n_type;   \/\/ type flag, see below $/;"	m	struct:MAC_nlist_32
 n_type	macho.h	/^   uint8   n_type;   \/\/ type flag, see below $/;"	m	struct:MAC_nlist_64
 n_value	macho.h	/^   uint32  n_value;  \/\/ value of this symbol (or stab offset) $/;"	m	struct:MAC_nlist_32
@@ -2566,7 +1492,6 @@ n_value	macho.h	/^   uint64  n_value;  \/\/ value of this symbol (or stab offset
 name	disasm.h	/^    const char * name;  \/\/ name of permutation, conversion or rounding$/;"	m	struct:SwizSpec
 ncmds	macho.h	/^	uint32	ncmds;		\/\/ number of load commands$/;"	m	struct:MAC_header_32
 ncmds	macho.h	/^	uint32	ncmds;		\/\/ number of load commands$/;"	m	struct:MAC_header_64
-next	converters.h	/^   CResponseFileBuffer * next;                   \/\/ Linked list if more than one buffer$/;"	m	class:CResponseFileBuffer
 nextdefsym	converters.h	/^   uint32 nextdefsym;	                         \/\/ number of public symbols $/;"	m	class:CMACHO
 nextdefsym	macho.h	/^    uint32 nextdefsym;	\/\/ number of externally defined symbols $/;"	m	struct:MAC_dysymtab_command
 nextrefsyms	macho.h	/^    uint32 nextrefsyms;	  \/* number of referenced symbol table entries *\/$/;"	m	struct:MAC_dysymtab_command
@@ -2590,12 +1515,9 @@ offset	coff.h	/^      uint32 offset; \/\/ string table entry$/;"	m	struct:SCOFF_
 offset	macho.h	/^	uint32	offset;		   \/* file offset of this section *\/$/;"	m	struct:MAC_section_64
 offset	macho.h	/^	uint32	offset;	   	\/* file offset of this section *\/$/;"	m	struct:MAC_section_32
 offset	macho.h	/^   uint32 offset;                      \/\/ file offset of member$/;"	m	struct:MAC_UNIV_FAT_ARCH
-one	omf.h	/^             one:1;                    \/\/ 1 = FIXUP subrecord, 0 = THREAD subrecord$/;"	m	struct:OMF_SLocat::__anon15
 operator <	disasm.h	/^   int operator < (const SARelocation & y) const{\/\/ Operator for sorting relocation table by source address$/;"	f	struct:SARelocation
 operator <	disasm.h	/^   int operator < (const SASymbol & y) const {   \/\/ Operator for sorting symbol table$/;"	f	struct:SASymbol
 operator <	disasm.h	/^   int operator < (const SFunctionRecord & y) const{\/\/ Operator for sorting function table by source address$/;"	f	struct:SFunctionRecord
-operator <	omf.h	/^   int operator < (SOMFRelocation const & x) const {\/\/ operator < for sorting by CSList::Sort()$/;"	f	struct:SOMFRelocation
-operator <	omf.h	/^   int operator < (const SOMFLocalSymbol & b) const {$/;"	f	struct:SOMFLocalSymbol
 operator <<	containers.h	/^static inline void operator << (CFileBuffer & b, CFileBuffer & a) {a >> b;} \/\/ Same as operator << above$/;"	f
 operator >>	containers.cpp	/^void operator >> (CFileBuffer & a, CFileBuffer & b) {$/;"	f
 operator []	containers.h	/^   RecordType & operator[] (uint32 i) {          \/\/ Access array element [i]$/;"	f	class:CArrayBuf
@@ -2603,46 +1525,15 @@ operator []	containers.h	/^   RecordType & operator[] (uint32 i) {$/;"	f	class:C
 operator []	disasm.h	/^   SASymbol & operator [](uint32 NewIndex) {     \/\/ Access symbol by new index$/;"	f	class:CSymbolTable
 operator []	macho.cpp	/^MacSymbolRecord<TMAC_nlist> & MacSymbolTableBuilder<TMAC_nlist, MInt>::operator[] (uint32 i) {$/;"	f	class:MacSymbolTableBuilder
 pImageDirs	converters.h	/^   SCOFF_IMAGE_DATA_DIRECTORY * pImageDirs;      \/\/ Pointer to image directories (for executable files)$/;"	m	class:CCOFF
-p_align	elf.h	/^  uint32  p_align;     \/* Segment alignment *\/$/;"	m	struct:Elf32_Phdr
-p_align	elf.h	/^  uint64  p_align;     \/* Segment alignment *\/$/;"	m	struct:Elf64_Phdr
-p_filesz	elf.h	/^  uint32  p_filesz;    \/* Segment size in file *\/$/;"	m	struct:Elf32_Phdr
-p_filesz	elf.h	/^  uint64  p_filesz;    \/* Segment size in file *\/$/;"	m	struct:Elf64_Phdr
-p_flags	elf.h	/^  uint32  p_flags;     \/* Segment flags *\/$/;"	m	struct:Elf32_Phdr
-p_flags	elf.h	/^  uint32  p_flags;     \/* Segment flags *\/$/;"	m	struct:Elf64_Phdr
-p_memsz	elf.h	/^  uint32  p_memsz;     \/* Segment size in memory *\/$/;"	m	struct:Elf32_Phdr
-p_memsz	elf.h	/^  uint64  p_memsz;     \/* Segment size in memory *\/$/;"	m	struct:Elf64_Phdr
-p_offset	elf.h	/^  uint32  p_offset;    \/* Segment file offset *\/$/;"	m	struct:Elf32_Phdr
-p_offset	elf.h	/^  uint64  p_offset;    \/* Segment file offset *\/$/;"	m	struct:Elf64_Phdr
-p_paddr	elf.h	/^  uint32  p_paddr;     \/* Segment physical address *\/$/;"	m	struct:Elf32_Phdr
-p_paddr	elf.h	/^  uint64  p_paddr;     \/* Segment physical address *\/$/;"	m	struct:Elf64_Phdr
-p_type	elf.h	/^  uint32  p_type;      \/* Segment type *\/$/;"	m	struct:Elf32_Phdr
-p_type	elf.h	/^  uint32  p_type;      \/* Segment type *\/$/;"	m	struct:Elf64_Phdr
-p_vaddr	elf.h	/^  uint32  p_vaddr;     \/* Segment virtual address *\/$/;"	m	struct:Elf32_Phdr
-p_vaddr	elf.h	/^  uint64  p_vaddr;     \/* Segment virtual address *\/$/;"	m	struct:Elf64_Phdr
-psechdr	omf.h	/^   SCOFF_SectionHeader * psechdr;      \/\/ Pointer to old section header$/;"	m	struct:SOMFSegmentList
-r_addend	elf.h	/^  int32   r_addend;               \/\/ Addend$/;"	m	struct:Elf32_Rela
-r_addend	elf.h	/^  int64   r_addend;               \/\/ Addend$/;"	m	struct:Elf64_Rela
 r_address	macho.h	/^   uint32  r_address:24,   \/\/ offset in the section to what is being relocated (source)$/;"	m	struct:MAC_scattered_relocation_info
 r_address	macho.h	/^   uint32  r_address;      \/\/ offset in the section to what is being relocated (source)$/;"	m	struct:MAC_relocation_info
 r_extern	macho.h	/^           r_extern:1,     \/\/ r_extern = 1 for symbols in symbol table$/;"	m	struct:MAC_relocation_info
 r_length	macho.h	/^           r_length:2,     \/\/ 0=byte, 1=word, 2=dword$/;"	m	struct:MAC_relocation_info
 r_length	macho.h	/^           r_length:2,     \/\/ 0=byte, 1=word, 2=dword, 3=qword$/;"	m	struct:MAC_scattered_relocation_info
-r_offset	elf.h	/^  uint32  r_offset;               \/\/ Address$/;"	m	struct:Elf32_Rela
-r_offset	elf.h	/^  uint32  r_offset;             \/\/ Address$/;"	m	struct:Elf32_Rel
-r_offset	elf.h	/^  uint64  r_offset;               \/\/ Address$/;"	m	struct:Elf64_Rela
-r_offset	elf.h	/^  uint64  r_offset;             \/\/ Address$/;"	m	struct:Elf64_Rel
 r_pcrel	macho.h	/^           r_pcrel:1,      \/\/ pc relative. The target address (inline) is already pc relative$/;"	m	struct:MAC_relocation_info
 r_pcrel	macho.h	/^           r_pcrel:1,      \/\/ pc relative. The target address is already pc relative$/;"	m	struct:MAC_scattered_relocation_info
 r_scattered	macho.h	/^           r_scattered:1;  \/\/ 1=scattered, 0=non-scattered (see above)$/;"	m	struct:MAC_scattered_relocation_info
-r_sym	elf.h	/^          r_sym: 24;              \/\/ Symbol index$/;"	m	struct:Elf32_Rela
-r_sym	elf.h	/^          r_sym: 24;            \/\/ Symbol index$/;"	m	struct:Elf32_Rel
-r_sym	elf.h	/^  uint32  r_sym;                  \/\/ Symbol index$/;"	m	struct:Elf64_Rela
-r_sym	elf.h	/^  uint32  r_sym;                \/\/ Symbol index$/;"	m	struct:Elf64_Rel
 r_symbolnum	macho.h	/^   uint32  r_symbolnum:24, \/\/ symbol table index (0-based) if r_extern == 1 or section number (1-based) if r_extern == 0$/;"	m	struct:MAC_relocation_info
-r_type	elf.h	/^  uint32  r_type: 8,              \/\/ Relocation type$/;"	m	struct:Elf32_Rela
-r_type	elf.h	/^  uint32  r_type: 8,            \/\/ Relocation type$/;"	m	struct:Elf32_Rel
-r_type	elf.h	/^  uint32  r_type;                 \/\/ Relocation type$/;"	m	struct:Elf64_Rela
-r_type	elf.h	/^  uint32  r_type;               \/\/ Relocation type$/;"	m	struct:Elf64_Rel
 r_type	macho.h	/^           r_type:4,       \/\/ if not 0, machine specific relocation type$/;"	m	struct:MAC_scattered_relocation_info
 r_type	macho.h	/^           r_type:4;       \/\/ if not 0, machine specific relocation type$/;"	m	struct:MAC_relocation_info
 r_value	macho.h	/^   int32   r_value;        \/\/ target address (without any offset added. The offset is stored inline in the source)$/;"	m	struct:MAC_scattered_relocation_info
@@ -2656,9 +1547,6 @@ reserved2	macho.h	/^	uint32	reserved2;	   \/* reserved *\/$/;"	m	struct:MAC_sect
 reserved3	macho.h	/^	uint32	reserved3;	   \/\/ reserved (Note: specified in loader.h, but not in MachORuntime.pdf)$/;"	m	struct:MAC_section_64
 s	coff.h	/^   } s;$/;"	m	union:SCOFF_SymTableEntry	typeref:struct:SCOFF_SymTableEntry::__anon4
 s	disasm.h	/^   SOpcodeProp s;                                \/\/ Properties of current opcode$/;"	m	class:CDisassembler
-s	omf.h	/^   } s;$/;"	m	union:OMF_SFixData	typeref:struct:OMF_SFixData::__anon16
-s	omf.h	/^   } s;$/;"	m	union:OMF_SLocat	typeref:struct:OMF_SLocat::__anon15
-s	omf.h	/^   } s;$/;"	m	union:OMF_STrdDat	typeref:struct:OMF_STrdDat::__anon17
 section	coff.h	/^   } section;$/;"	m	union:SCOFF_SymTableEntry	typeref:struct:SCOFF_SymTableEntry::__anon10
 sectname	macho.h	/^	char		sectname[16];	\/* name of this section *\/$/;"	m	struct:MAC_section_32
 sectname	macho.h	/^	char		sectname[16];	\/* name of this section *\/$/;"	m	struct:MAC_section_64
@@ -2666,61 +1554,17 @@ segname	macho.h	/^	char		segname[16];	\/* segment name *\/$/;"	m	struct:MAC_segm
 segname	macho.h	/^	char		segname[16];	\/* segment this section goes in *\/$/;"	m	struct:MAC_section_32
 segname	macho.h	/^	char		segname[16];	\/* segment this section goes in *\/$/;"	m	struct:MAC_section_64
 segname	macho.h	/^	char		segname[16]; \/* segment name *\/$/;"	m	struct:MAC_segment_command_64
-sh_addr	elf.h	/^  uint32  sh_addr;      \/\/ Section virtual addr at execution$/;"	m	struct:Elf32_Shdr
-sh_addr	elf.h	/^  uint64  sh_addr;      \/\/ Section virtual addr at execution$/;"	m	struct:Elf64_Shdr
-sh_addralign	elf.h	/^  uint32  sh_addralign; \/\/ Section alignment$/;"	m	struct:Elf32_Shdr
-sh_addralign	elf.h	/^  uint64  sh_addralign; \/\/ Section alignment$/;"	m	struct:Elf64_Shdr
-sh_entsize	elf.h	/^  uint32  sh_entsize;   \/\/ Entry size if section holds table$/;"	m	struct:Elf32_Shdr
-sh_entsize	elf.h	/^  uint64  sh_entsize;   \/\/ Entry size if section holds table$/;"	m	struct:Elf64_Shdr
-sh_flags	elf.h	/^  uint32  sh_flags;     \/\/ Section flags$/;"	m	struct:Elf32_Shdr
-sh_flags	elf.h	/^  uint64  sh_flags;     \/\/ Section flags$/;"	m	struct:Elf64_Shdr
-sh_info	elf.h	/^  uint32  sh_info;      \/\/ Additional section information$/;"	m	struct:Elf32_Shdr
-sh_info	elf.h	/^  uint32  sh_info;      \/\/ Additional section information$/;"	m	struct:Elf64_Shdr
-sh_link	elf.h	/^  uint32  sh_link;      \/\/ Link to another section$/;"	m	struct:Elf32_Shdr
-sh_link	elf.h	/^  uint32  sh_link;      \/\/ Link to another section$/;"	m	struct:Elf64_Shdr
-sh_name	elf.h	/^  uint32  sh_name;      \/\/ Section name (string tbl index)$/;"	m	struct:Elf32_Shdr
-sh_name	elf.h	/^  uint32  sh_name;      \/\/ Section name (string tbl index)$/;"	m	struct:Elf64_Shdr
-sh_offset	elf.h	/^  uint32  sh_offset;    \/\/ Section file offset$/;"	m	struct:Elf32_Shdr
-sh_offset	elf.h	/^  uint64  sh_offset;    \/\/ Section file offset$/;"	m	struct:Elf64_Shdr
-sh_size	elf.h	/^  uint32  sh_size;      \/\/ Section size in bytes$/;"	m	struct:Elf32_Shdr
-sh_size	elf.h	/^  uint64  sh_size;      \/\/ Section size in bytes$/;"	m	struct:Elf64_Shdr
-sh_type	elf.h	/^  uint32  sh_type;      \/\/ Section type$/;"	m	struct:Elf32_Shdr
-sh_type	elf.h	/^  uint32  sh_type;      \/\/ Section type$/;"	m	struct:Elf64_Shdr
-shstrtab	converters.h	/^   int shstrtab;                                  \/\/ Section name string table section number$/;"	m	class:CCOF2ELF
-shstrtab	converters.h	/^   int shstrtab;                                  \/\/ Section name string table section number$/;"	m	class:CMAC2ELF
-si_boundto	elf.h	/^  uint16 si_boundto;    \/* Direct bindings, symbol bound to *\/$/;"	m	struct:Elf32_Syminfo
-si_boundto	elf.h	/^  uint16 si_boundto;    \/* Direct bindings, symbol bound to *\/$/;"	m	struct:Elf64_Syminfo
-si_flags	elf.h	/^  uint16 si_flags;      \/* Per symbol flags *\/$/;"	m	struct:Elf32_Syminfo
-si_flags	elf.h	/^  uint16 si_flags;      \/* Per symbol flags *\/$/;"	m	struct:Elf64_Syminfo
 size	macho.h	/^	uint32	size;		      \/* size in bytes of this section *\/$/;"	m	struct:MAC_section_32
 size	macho.h	/^	uint64	size;		      \/* size in bytes of this section *\/$/;"	m	struct:MAC_section_64
 size	macho.h	/^   uint32 size;                        \/\/ size of member$/;"	m	struct:MAC_UNIV_FAT_ARCH
 sizeofcmds	macho.h	/^	uint32	sizeofcmds;	\/\/ the size of all the load commands$/;"	m	struct:MAC_header_32
 sizeofcmds	macho.h	/^	uint32	sizeofcmds;	\/\/ the size of all the load commands$/;"	m	struct:MAC_header_64
 sorted	macho.h	/^   int sorted;                                   \/\/ Remember if list is sorted$/;"	m	class:MacSymbolTableBuilder
-st_bind	elf.h	/^          st_bind: 4;    \/\/ Symbol binding$/;"	m	struct:Elf32_Sym
-st_bind	elf.h	/^          st_bind: 4;    \/\/ Symbol binding$/;"	m	struct:Elf64_Sym
-st_name	elf.h	/^  uint32  st_name;       \/\/ Symbol name (string tbl index)$/;"	m	struct:Elf32_Sym
-st_name	elf.h	/^  uint32  st_name;       \/\/ Symbol name (string tbl index)$/;"	m	struct:Elf64_Sym
-st_other	elf.h	/^  uint8   st_other;      \/\/ Symbol visibility$/;"	m	struct:Elf32_Sym
-st_other	elf.h	/^  uint8   st_other;      \/\/ Symbol visibility$/;"	m	struct:Elf64_Sym
-st_shndx	elf.h	/^  uint16  st_shndx;      \/\/ Section index$/;"	m	struct:Elf32_Sym
-st_shndx	elf.h	/^  uint16  st_shndx;      \/\/ Section index$/;"	m	struct:Elf64_Sym
-st_size	elf.h	/^  uint32  st_size;       \/\/ Symbol size$/;"	m	struct:Elf32_Sym
-st_size	elf.h	/^  uint64  st_size;       \/\/ Symbol size$/;"	m	struct:Elf64_Sym
-st_type	elf.h	/^  uint8   st_type: 4,    \/\/ Symbol type$/;"	m	struct:Elf32_Sym
-st_type	elf.h	/^  uint8   st_type: 4,    \/\/ Symbol type$/;"	m	struct:Elf64_Sym
-st_value	elf.h	/^  uint32  st_value;      \/\/ Symbol value$/;"	m	struct:Elf32_Sym
-st_value	elf.h	/^  uint64  st_value;      \/\/ Symbol value$/;"	m	struct:Elf64_Sym
-stabstr	converters.h	/^   int stabstr;                                   \/\/ Debug string table section number$/;"	m	class:CCOF2ELF
-stabstr	converters.h	/^   int stabstr;                                   \/\/ Debug string table section number$/;"	m	class:CMAC2ELF
-stricmp	stdafx.h	/^  #define stricmp /;"	d
+stricmp	stdafx.h	/^#define stricmp /;"	d
 stringindex	coff.h	/^   } stringindex;$/;"	m	union:SCOFF_SymTableEntry	typeref:struct:SCOFF_SymTableEntry::__anon9
-strnicmp	stdafx.h	/^  #define strnicmp /;"	d
+strnicmp	stdafx.h	/^#define strnicmp /;"	d
 stroff	macho.h	/^	uint32	stroff;		\/* string table offset *\/$/;"	m	struct:MAC_symtab_command
 strsize	macho.h	/^	uint32	strsize;	   \/* string table size in bytes *\/$/;"	m	struct:MAC_symtab_command
-strtab	converters.h	/^   int strtab;                                    \/\/ Object name string table section number$/;"	m	class:CCOF2ELF
-strtab	converters.h	/^   int strtab;                                    \/\/ Object name string table section number$/;"	m	class:CMAC2ELF
 submit	error.cpp	/^void CErrorReporter::submit(int ErrorNumber) {$/;"	f	class:CErrorReporter
 submit	error.cpp	/^void CErrorReporter::submit(int ErrorNumber, char const * extra) {$/;"	f	class:CErrorReporter
 submit	error.cpp	/^void CErrorReporter::submit(int ErrorNumber, char const * extra1, char const * extra2) {$/;"	f	class:CErrorReporter
@@ -2728,12 +1572,9 @@ submit	error.cpp	/^void CErrorReporter::submit(int ErrorNumber, int extra) { $/;
 submit	error.cpp	/^void CErrorReporter::submit(int ErrorNumber, int extra1, char const * extra2) {$/;"	f	class:CErrorReporter
 submit	error.cpp	/^void CErrorReporter::submit(int ErrorNumber, int extra1, int extra2) { $/;"	f	class:CErrorReporter
 symoff	macho.h	/^	uint32	symoff;		\/* symbol table offset *\/$/;"	m	struct:MAC_symtab_command
-symtab	converters.h	/^   int symtab;                                    \/\/ Symbol table section number$/;"	m	class:CCOF2ELF
-symtab	converters.h	/^   int symtab;                                    \/\/ Symbol table section number$/;"	m	class:CMAC2ELF
 t	disasm.h	/^   SATracer t;                                   \/\/ Trace of register contents$/;"	m	class:CDisassembler
 timestring	main.cpp	/^const char * timestring(uint32 t) {$/;"	f
 tocoff	macho.h	/^    uint32 tocoff;	\/* file offset to table of contents *\/$/;"	m	struct:MAC_dysymtab_command
-u	omf.h	/^   } u;$/;"	m	union:OMF_SAttrib	typeref:struct:OMF_SAttrib::__anon14
 uint16	maindef.h	/^  typedef uint16_t         uint16;     \/\/ 16 bit unsigned integer$/;"	t
 uint16	maindef.h	/^typedef unsigned short int uint16;     \/\/ 16 bit unsigned integer$/;"	t
 uint32	maindef.h	/^  typedef uint32_t         uint32;     \/\/ 32 bit unsigned integer$/;"	t
@@ -2743,48 +1584,10 @@ uint64	maindef.h	/^typedef unsigned __int64   uint64;     \/\/ 64 bit unsigned i
 uint64	maindef.h	/^typedef unsigned long long uint64;     \/\/ 64 bit unsigned integer$/;"	t
 uint8	maindef.h	/^  typedef uint8_t          uint8;      \/\/ 8 bit  unsigned integer$/;"	t
 uint8	maindef.h	/^typedef unsigned char      uint8;      \/\/ 8 bit  unsigned integer$/;"	t
-vd_aux	elf.h	/^  uint32  vd_aux;      \/* Offset in bytes to verdaux array *\/$/;"	m	struct:Elf32_Verdef
-vd_aux	elf.h	/^  uint32  vd_aux;      \/* Offset in bytes to verdaux array *\/$/;"	m	struct:Elf64_Verdef
-vd_cnt	elf.h	/^  uint16  vd_cnt;      \/* Number of associated aux entries *\/$/;"	m	struct:Elf32_Verdef
-vd_cnt	elf.h	/^  uint16  vd_cnt;      \/* Number of associated aux entries *\/$/;"	m	struct:Elf64_Verdef
-vd_flags	elf.h	/^  uint16  vd_flags;    \/* Version information *\/$/;"	m	struct:Elf32_Verdef
-vd_flags	elf.h	/^  uint16  vd_flags;    \/* Version information *\/$/;"	m	struct:Elf64_Verdef
-vd_hash	elf.h	/^  uint32  vd_hash;     \/* Version name hash value *\/$/;"	m	struct:Elf32_Verdef
-vd_hash	elf.h	/^  uint32  vd_hash;     \/* Version name hash value *\/$/;"	m	struct:Elf64_Verdef
-vd_ndx	elf.h	/^  uint16  vd_ndx;      \/* Version Index *\/$/;"	m	struct:Elf32_Verdef
-vd_ndx	elf.h	/^  uint16  vd_ndx;      \/* Version Index *\/$/;"	m	struct:Elf64_Verdef
-vd_next	elf.h	/^  uint32  vd_next;     \/* Offset in bytes to next verdef entry *\/$/;"	m	struct:Elf32_Verdef
-vd_next	elf.h	/^  uint32  vd_next;     \/* Offset in bytes to next verdef entry *\/$/;"	m	struct:Elf64_Verdef
-vd_version	elf.h	/^  uint16  vd_version;  \/* Version revision *\/$/;"	m	struct:Elf32_Verdef
-vd_version	elf.h	/^  uint16  vd_version;  \/* Version revision *\/$/;"	m	struct:Elf64_Verdef
-vda_name	elf.h	/^  uint32  vda_name;    \/* Version or dependency names *\/$/;"	m	struct:Elf32_Verdaux
-vda_name	elf.h	/^  uint32  vda_name;    \/* Version or dependency names *\/$/;"	m	struct:Elf64_Verdaux
-vda_next	elf.h	/^  uint32  vda_next;    \/* Offset in bytes to next verdaux entry *\/$/;"	m	struct:Elf32_Verdaux
-vda_next	elf.h	/^  uint32  vda_next;    \/* Offset in bytes to next verdaux entry *\/$/;"	m	struct:Elf64_Verdaux
 vmaddr	macho.h	/^	uint32	vmaddr;		   \/* memory address of this segment *\/$/;"	m	struct:MAC_segment_command_32
 vmaddr	macho.h	/^	uint64	vmaddr;		 \/* memory address of this segment *\/$/;"	m	struct:MAC_segment_command_64
 vmsize	macho.h	/^	uint32	vmsize;		   \/* memory size of this segment *\/$/;"	m	struct:MAC_segment_command_32
 vmsize	macho.h	/^	uint64	vmsize;		 \/* memory size of this segment *\/$/;"	m	struct:MAC_segment_command_64
-vn_aux	elf.h	/^  uint32  vn_aux;        \/* Offset in bytes to vernaux array *\/$/;"	m	struct:Elf32_Verneed
-vn_aux	elf.h	/^  uint32  vn_aux;        \/* Offset in bytes to vernaux array *\/$/;"	m	struct:Elf64_Verneed
-vn_cnt	elf.h	/^  uint16  vn_cnt;        \/* Number of associated aux entries *\/$/;"	m	struct:Elf32_Verneed
-vn_cnt	elf.h	/^  uint16  vn_cnt;        \/* Number of associated aux entries *\/$/;"	m	struct:Elf64_Verneed
-vn_file	elf.h	/^  uint32  vn_file;       \/* Offset of filename for this dependency *\/$/;"	m	struct:Elf32_Verneed
-vn_file	elf.h	/^  uint32  vn_file;       \/* Offset of filename for this dependency *\/$/;"	m	struct:Elf64_Verneed
-vn_next	elf.h	/^  uint32  vn_next;       \/* Offset in bytes to next verneed entry *\/$/;"	m	struct:Elf32_Verneed
-vn_next	elf.h	/^  uint32  vn_next;       \/* Offset in bytes to next verneed entry *\/$/;"	m	struct:Elf64_Verneed
-vn_version	elf.h	/^  uint16  vn_version;    \/* Version of structure *\/$/;"	m	struct:Elf32_Verneed
-vn_version	elf.h	/^  uint16  vn_version;    \/* Version of structure *\/$/;"	m	struct:Elf64_Verneed
-vna_flags	elf.h	/^  uint16  vna_flags;    \/* Dependency specific information *\/$/;"	m	struct:Elf32_Vernaux
-vna_flags	elf.h	/^  uint16  vna_flags;    \/* Dependency specific information *\/$/;"	m	struct:Elf64_Vernaux
-vna_hash	elf.h	/^  uint32  vna_hash;     \/* Hash value of dependency name *\/$/;"	m	struct:Elf32_Vernaux
-vna_hash	elf.h	/^  uint32  vna_hash;     \/* Hash value of dependency name *\/$/;"	m	struct:Elf64_Vernaux
-vna_name	elf.h	/^  uint32  vna_name;     \/* Dependency name string offset *\/$/;"	m	struct:Elf32_Vernaux
-vna_name	elf.h	/^  uint32  vna_name;     \/* Dependency name string offset *\/$/;"	m	struct:Elf64_Vernaux
-vna_next	elf.h	/^  uint32  vna_next;     \/* Offset in bytes to next vernaux entry *\/$/;"	m	struct:Elf32_Vernaux
-vna_next	elf.h	/^  uint32  vna_next;     \/* Offset in bytes to next vernaux entry *\/$/;"	m	struct:Elf64_Vernaux
-vna_other	elf.h	/^  uint16  vna_other;    \/* Unused *\/$/;"	m	struct:Elf32_Vernaux
-vna_other	elf.h	/^  uint16  vna_other;    \/* Unused *\/$/;"	m	struct:Elf64_Vernaux
 weak	coff.h	/^   } weak;$/;"	m	union:SCOFF_SymTableEntry	typeref:struct:SCOFF_SymTableEntry::__anon7
 x_tvndx	coff.h	/^      uint16 x_tvndx;      \/\/ Unused$/;"	m	struct:SCOFF_SymTableEntry::__anon5
 zeroes	coff.h	/^      uint32 zeroes; \/\/ zeroes if name file name longer than 18$/;"	m	struct:SCOFF_SymTableEntry::__anon9

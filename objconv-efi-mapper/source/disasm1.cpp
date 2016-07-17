@@ -1285,16 +1285,6 @@ void CDisassembler::Pass2() {
         SectionType = Sections[Section].Type;
         if (SectionType & 0x800) continue;         // This is a group
 
-        if (((SectionType & 0xFF) == 0x10) && cmd.DebugInfo == CMDL_DEBUG_STRIP) {
-            // Skip debug section
-            cmd.CountDebugRemoved();
-            continue;
-        }
-        if (((SectionType & 0xFF) == 0x11) && cmd.ExeptionInfo == CMDL_EXCEPTION_STRIP) {
-            // Skip exception section
-            cmd.CountExceptionRemoved();
-            continue;
-        }
         // Is this code or data?
         CodeMode = ((SectionType & 0xFF) == 1) ? 1 : 4;
 

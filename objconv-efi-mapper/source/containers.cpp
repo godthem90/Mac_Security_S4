@@ -186,27 +186,6 @@ void CFileBuffer::Read(int IgnoreError) {
     // Read file into buffer
     uint32 status;                             // Error status
 
-#ifdef _MSC_VER  // Microsoft compiler prefers this:
-
-    int fh;                                    // File handle
-    fh = _open(FileName, O_RDONLY | O_BINARY); // Open file in binary mode
-    if (fh == -1) {
-        // Cannot read file
-        if (!IgnoreError) err.submit(2103, FileName); // Error. Input file must be read
-        SetSize(0); return;                     // Make empty file buffer
-    }
-    DataSize = filelength(fh);                 // Get file size
-    if (DataSize <= 0) {
-        if (!IgnoreError) err.submit(2105, FileName); // Wrong size
-        return;}
-    SetSize(DataSize + 2048);                  // Allocate buffer, 2k extra
-    status = _read(fh, Buf(), DataSize);       // Read from file
-    if (status != DataSize) err.submit(2103, FileName);
-    status = _close(fh);                       // Close file
-    if (status != 0) err.submit(2103, FileName);
-
-#else            // Works with most compilers:
-
     FILE * fh = fopen(FileName, "rb");
     if (!fh) {
         // Cannot read file
@@ -229,33 +208,12 @@ void CFileBuffer::Read(int IgnoreError) {
     if (status != DataSize) err.submit(2103, FileName);
     status = fclose(fh);
     if (status != 0) err.submit(2103, FileName);
-
-#endif
 }
 
 void CFileBuffer::Write() {                  
     // Write buffer to file:
     if (OutputFileName) FileName = OutputFileName;
     // Two alternative ways to write a file:
-
-#ifdef _MSC_VER       // Microsoft compiler prefers this:
-
-    int fh;                                       // File handle
-    uint32 status;                                // Error status
-    // Open file in binary mode
-    fh = _open(FileName, O_RDWR | O_BINARY | O_CREAT | O_TRUNC, _S_IREAD | _S_IWRITE); 
-    // Check if error
-    if (fh == -1) {err.submit(2104, FileName);  return;}
-    // Write file
-    status = _write(fh, Buf(), DataSize);
-    // Check if error
-    if (status != DataSize) err.submit(2104, FileName);
-    // Close file
-    status = _close(fh);
-    // Check if error
-    if (status != 0) err.submit(2104, FileName);
-
-#else                // Works with most compilers:
 
     // Open file in binary mode
     FILE * ff = fopen(FileName, "wb");
@@ -270,7 +228,6 @@ void CFileBuffer::Write() {
     // Check if error
     if (n) {err.submit(2104, FileName);  return;}
 
-#endif
 }
 
 int CFileBuffer::GetFileType() {
@@ -385,22 +342,6 @@ char * CFileBuffer::SetFileNameExtension(const char * f) {
     if (cmd.OutputType == FILETYPE_ASM) {
         strcpy(name+i, ".asm"); // Assembly file
     }
-    else if (cmd.OutputType == FILETYPE_COFF || cmd.OutputType == FILETYPE_OMF) {
-        if ((FileType & (FILETYPE_LIBRARY | FILETYPE_OMFLIBRARY)) || (cmd.LibraryOptions & CMDL_LIBRARY_ADDMEMBER)) {
-            strcpy(name+i, ".lib"); // Windows function library
-        }
-        else {
-            strcpy(name+i, ".obj"); // Windows object file
-        }
-    }
-    else { // output type is ELF or MACHO
-        if ((FileType & (FILETYPE_LIBRARY | FILETYPE_OMFLIBRARY)) || (cmd.LibraryOptions & CMDL_LIBRARY_ADDMEMBER)) {
-            strcpy(name+i, ".a");   // Linux/BSD/Mac function library
-        }
-        else {
-            strcpy(name+i, ".o");   // Linux/BSD/Mac object file
-        }
-    }
     return name;
 }
 
@@ -436,57 +377,6 @@ void operator >> (CFileBuffer & a, CFileBuffer & b) {
     if (a.GetFileType())  b.FileType = a.GetFileType();       // Object file type
     a.SetSize(0);                            // Reset a's properties
 }
-
-void CFileBuffer::GetOMFWordSize() {
-    // Determine word size for OMF file.
-    // There is no simple way to get the word size. Looking for odd-numbered
-    // record types is not sufficient. A 32-bit OMF file may use 16-bit SEGDEF 
-    // records. We have to look for segments with the 'P' attribute set. And
-    // even this is not completely safe, because MASM may generate empty 32-bit
-    // segments so we have to look only at segments with nonzero size. 
-    // We can still have any mixture of 16- and 32-bit segments, though, so no
-    // method is absolutely safe.
-
-    // We have to parse through all records in file buffer
-    uint8  RecordType;                            // Type of current record
-    uint32 RecordStart;                           // Index to start of current record
-    uint32 RecordEnd;                             // Index to end of current record
-    uint32 RecordLength;                          // Length of current record
-    uint32 Index = 0;                             // Current offset from buffer while reading
-    OMF_SAttrib SegAttr;                          // Segment attributed
-    uint32 SegLength;                             // Segment length
-
-    WordSize = 16;                                // WordSize = 16 if no 32 bit records found
-
-    while (Index < GetDataSize()) {
-        RecordStart = Index;                       // Record starts here
-        RecordType = Get<uint8>(Index++);          // Get first byte of record = type
-        RecordLength = Get<uint16>(Index);         // Next two bytes = length
-        Index += 2;
-        RecordEnd = RecordStart + RecordLength + 3;// End of record
-        if (RecordEnd > GetDataSize()) {
-            // Record goes beyond end of file
-            err.submit(2301);  break;
-        }
-        if ((RecordType & 1) && RecordType < OMF_LIBHEAD) { // Odd-numbered type means 32 bit
-            WordSize = 32;                                   // ..but this method is not safe
-        }
-        if ((RecordType & 0xFE) == OMF_SEGDEF) {   // Segment definition record
-            SegAttr.b = Get<uint8>(Index++);        // Get segment attributes
-            if (SegAttr.u.A == 0) {
-                // Frame and Offset only included if A = 0
-                Index += 2+1;
-            }
-            SegLength = (RecordType & 1) ? Get<uint32>(Index) : Get<uint16>(Index); // Segment length
-
-            if (SegAttr.u.P && SegLength) {         // if segment has P attribute and nonzero length
-                WordSize = 32;                       // .. then it is a 32-bit segment
-            }
-        }
-        Index = RecordEnd;                         // Point to next record
-    }
-}
-
 
 // Class CTextFileBuffer is used for building text files
 // Constructor

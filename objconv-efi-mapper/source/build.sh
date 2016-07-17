@@ -14,4 +14,4 @@
 
 # Alternatively, run the following line:
 
-g++ -o objconv -O2 *.cpp
+g++ -g -o objconv *.cpp

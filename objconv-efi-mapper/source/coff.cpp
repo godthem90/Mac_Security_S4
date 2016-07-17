@@ -638,49 +638,6 @@ void CCOFF::PrintSymbolTable(int symnum) {
    }
 }
 
-void CCOFF::PublicNames(CMemoryBuffer * Strings, CSList<SStringEntry> * Index, int m) {
-   // Make list of public names in object file
-   // Strings will receive ASCIIZ strings
-   // Index will receive records of type SStringEntry with Member = m
-
-   // Interpret header:
-   ParseFile();
-
-   int isym = 0;  // current symbol table entry
-   union {        // Pointer to symbol table
-      SCOFF_SymTableEntry * p;  // Normal pointer
-      int8 * b;                 // Used for address calculation
-   } Symtab;
-
-   // Loop through symbol table
-   Symtab.p = SymbolTable;
-   while (isym < NumberOfSymbols) {
-      // Check within buffer
-      if (Symtab.b >= Buf() + DataSize) {
-         err.submit(2040);
-         break;
-      }
-
-      // Search for public symbol
-      if ((Symtab.p->s.SectionNumber > 0 && Symtab.p->s.StorageClass == COFF_CLASS_EXTERNAL) 
-      || Symtab.p->s.StorageClass == COFF_CLASS_ALIAS) {
-         // Public symbol found
-         SStringEntry se;
-         se.Member = m;
-
-         // Store name
-         se.String = Strings->PushString(GetSymbolName(Symtab.p->s.Name));
-         // Store name index
-         Index->Push(se);
-      }
-      if ((int8)Symtab.p->s.NumAuxSymbols < 0) Symtab.p->s.NumAuxSymbols = 0;
-
-      // Increment point
-      isym += Symtab.p->s.NumAuxSymbols + 1;
-      Symtab.b += (1 + Symtab.p->s.NumAuxSymbols) * SIZE_SCOFF_SymTableEntry;
-   }
-}
-
 int CCOFF::GetImageDir(uint32 n, SCOFF_ImageDirAddress * dir) {
    // Find address of image directory for executable files
    int32  Section;
