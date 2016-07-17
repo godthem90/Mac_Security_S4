@@ -15,6 +15,7 @@
 // Program version
 #define OBJCONV_VERSION         2.42
 
+extern char *input_file_name;
 
 // Integer type definitions with platform-independent sizes:
 #include <limits.h>
@@ -73,22 +74,6 @@ static inline uint32 HighDWord (uint64 x) {
 
 
 // File types 
-#define FILETYPE_COFF              1         // Windows COFF/PE file
-#define FILETYPE_OMF               2         // Windows OMF file
-#define FILETYPE_ELF               3         // Linux or BSD ELF file
-#define FILETYPE_MACHO_LE          4         // Mach-O file, little endian
-#define FILETYPE_MACHO_BE          5         // Mach-O file, big endian
-#define FILETYPE_DOS               6         // DOS file
-#define FILETYPE_WIN3X             7         // Windows 3.x file
-#define IMPORT_LIBRARY_MEMBER   0x10         // Member of import library, Windows
-#define FILETYPE_MAC_UNIVBIN    0x11         // Macintosh universal binary
-#define FILETYPE_MS_WPO         0x20         // Object file for whole program optimization, MS
-#define FILETYPE_INTEL_WPO      0x21         // Object file for whole program optimization, Intel
-#define FILETYPE_WIN_UNKNOWN    0x29         // Unknown subtype, Windows
-#define FILETYPE_ASM           0x100         // Disassembly output
-#define FILETYPE_LIBRARY      0x1000         // UNIX-style library/archive
-#define FILETYPE_OMFLIBRARY   0x2000         // OMF-style  library
-
 // Library subtypes
 #define LIBTYPE_OMF             0x01         // OMF library
 #define LIBTYPE_SHORTNAMES      0x10         // Short member names only, compatible with all systems

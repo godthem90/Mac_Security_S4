@@ -14,7 +14,6 @@
 *
 * Copyright 2006-2008 GNU General Public License http://www.gnu.org/licenses
 *****************************************************************************/
-
 #include "stdafx.h"
 
 // Names of file formats
@@ -230,83 +229,6 @@ void CFileBuffer::Write() {
 
 }
 
-int CFileBuffer::GetFileType() {
-    // Detect file type
-    if (FileType) return FileType;            // File type already known
-    if (!DataSize) return 0;                  // No file
-    if (!Buf()) return 0;                     // No contents
-
-    uint32 namelen = FileName ? (uint32)strlen(FileName) : 0;
-
-    if (Get<uint32>(0) == MAC_MAGIC_32) {
-        // Mach-O 32 little endian
-        FileType = FILETYPE_MACHO_LE;
-        WordSize = 32;
-        Executable = Get<MAC_header_32>(0).filetype != MAC_OBJECT;
-    }
-    else if (Get<uint32>(0) == MAC_MAGIC_64) {
-        // Mach-O 64 little endian
-        FileType = FILETYPE_MACHO_LE;
-        WordSize = 64;
-        Executable = Get<MAC_header_64>(0).filetype != MAC_OBJECT;
-    }
-    else if (Get<uint32>(0) == MAC_CIGAM_32) {
-        // Mach-O 32 big endian
-        FileType = FILETYPE_MACHO_BE;
-        WordSize = 32;
-    }
-    else if (Get<uint32>(0) == MAC_CIGAM_64) {
-        // Mach-O 64 big endian
-        FileType = FILETYPE_MACHO_BE;
-        WordSize = 64;
-    }
-    else if (Get<uint16>(0) == PE_MACHINE_I386) {
-        // COFF/PE 32
-        FileType = FILETYPE_COFF;
-        WordSize = 32;
-        Executable = (Get<SCOFF_FileHeader>(0).Flags & PE_F_EXEC) != 0;
-    }
-    else if (Get<uint16>(0) == PE_MACHINE_X8664) {
-        // COFF64/PE32+
-        FileType = FILETYPE_COFF;
-        WordSize = 64;
-        Executable = (Get<SCOFF_FileHeader>(0).Flags & PE_F_EXEC) != 0;
-    }
-    else if ((Get<uint16>(0) & 0xFFF9) == 0x5A49) {
-        // DOS file or file with DOS stub
-        FileType = FILETYPE_DOS;
-        WordSize = 16;
-        Executable = 1;
-        uint32 Signature = Get<uint32>(0x3C);
-        if (Signature + 8 < DataSize) {
-            if (Get<uint16>(Signature) == 0x454E) {
-                // Windows 3.x file
-                FileType = FILETYPE_WIN3X;
-            }
-            else if (Get<uint16>(Signature) == 0x4550) {
-                // COFF file
-                uint16 MachineType = Get<uint16>(Signature + 4);
-                if (MachineType == PE_MACHINE_I386) {
-                    FileType = FILETYPE_COFF;
-                    WordSize = 32;
-                }
-                else if (MachineType == PE_MACHINE_X8664) {
-                    FileType = FILETYPE_COFF;
-                    WordSize = 64;
-                }
-            }
-        }
-    }
-    else {
-        // Unknown file type
-        int utype = Get<uint32>(0);        
-        err.submit(2018, utype, FileName); 
-        FileType = 0;
-    }
-    return FileType;
-}
-
-
 char const * CFileBuffer::GetFileFormatName(int FileType) {
     // Get name of file format type
     return Lookup (FileFormatNames, FileType);
@@ -324,43 +246,8 @@ void CFileBuffer::Reset() {
     memset(this, 0, sizeof(*this));
 }
 
-char * CFileBuffer::SetFileNameExtension(const char * f) {
-    // Set file name extension according to FileType
-    static char name[MAXFILENAMELENGTH+8];
-    int i;
-
-    if (strlen(f) > MAXFILENAMELENGTH) err.submit(2203, f);
-    strncpy(name, f, MAXFILENAMELENGTH);
-
-    // Search for last '.' in file name
-    for (i = (int)strlen(name)-1; i > 0; i--) if (name[i] == '.') break;
-    if (i < 1) {
-        // '.' not found. Append '.' to name
-        i = (int)strlen(name); if (i > MAXFILENAMELENGTH-4) i = MAXFILENAMELENGTH-4;
-    }
-    // Get default extension
-    if (cmd.OutputType == FILETYPE_ASM) {
-        strcpy(name+i, ".asm"); // Assembly file
-    }
-    return name;
-}
-
-void CFileBuffer::CheckOutputFileName() {
-    // Make output file name or check that requested name is valid
-    if (!(cmd.FileOptions & CMDL_FILE_OUTPUT)) return;
-
-    OutputFileName = cmd.OutputFile;
-    if (OutputFileName == 0) {
-        // Output file name not specified. Make filename
-        OutputFileName = cmd.OutputFile = SetFileNameExtension(FileName);
-    }
-    /*if (strcmp(FileName,OutputFileName) == 0 && !(cmd.FileOptions & CMDL_FILE_IN_OUT_SAME)) {
-        // Input and output files have same name
-        err.submit(2005, FileName);
-    }*/
-}
-
-void operator >> (CFileBuffer & a, CFileBuffer & b) {
+void operator >> (CFileBuffer & a, CFileBuffer & b)
+{ 
     // Transfer ownership of buffer and other properties from a to b
     b.SetSize(0);                            // De-allocate old buffer from target if it has one
     b.buffer = a.buffer;                     // Transfer buffer
@@ -371,19 +258,19 @@ void operator >> (CFileBuffer & a, CFileBuffer & b) {
     b.BufferSize = a.GetBufferSize();        // Size of allocated buffer
     b.NumEntries = a.GetNumEntries();        // Number of objects pushed
     b.Executable = a.Executable;             // File is executable
+	b.OutSubType = a.OutSubType;
     if (a.WordSize) b.WordSize = a.WordSize; // Segment word size (16, 32, 64)
-    if (a.FileName) b.FileName = a.FileName; // Name of input file
-    if (a.OutputFileName) b.OutputFileName = a.OutputFileName;// Name of output file
-    if (a.GetFileType())  b.FileType = a.GetFileType();       // Object file type
-    a.SetSize(0);                            // Reset a's properties
+    if (a.FileType)  b.FileType = a.FileType;       // Object file type
+    a.SetSize(0);     
 }
+
 
 // Class CTextFileBuffer is used for building text files
 // Constructor
 CTextFileBuffer::CTextFileBuffer() {
     column = 0;
     // Use UNIX linefeeds only if GASM output
-    LineType = (cmd.SubType == SUBTYPE_GASM) ? 1 : 0;
+    LineType = (OutSubType == SUBTYPE_GASM) ? 1 : 0;
 }
 
 void CTextFileBuffer::Put(const char * text) {
@@ -431,7 +318,7 @@ void CTextFileBuffer::PutHex(uint8 x, int MasmForm) {
     // If MasmForm >= 1 then the function will write the number in a
     // way that can be read by the assembler, e.g. 0FFH or 0xFF
     char text[16];
-    if (MasmForm && cmd.SubType == SUBTYPE_GASM) {
+    if (MasmForm && OutSubType == SUBTYPE_GASM) {
         // Needs 0x prefix
         sprintf(text, "0x%02X", x);
         Put(text);
@@ -451,7 +338,7 @@ void CTextFileBuffer::PutHex(uint16 x, int MasmForm) {
     // way that can be read by the assembler, e.g. 0FFH or 0xFF
     // If MasmForm == 2 then leading zeroes are stripped
     char text[16];
-    if (MasmForm && cmd.SubType == SUBTYPE_GASM) {
+    if (MasmForm && OutSubType == SUBTYPE_GASM) {
         // Needs 0x prefix
         sprintf(text, MasmForm==1 ? "0x%04X" : "0x%X", x);
         Put(text);
@@ -472,7 +359,7 @@ void CTextFileBuffer::PutHex(uint32 x, int MasmForm) {
     // way that can be read by the assembler, e.g. 0FFH or 0xFF
     // If MasmForm == 2 then leading zeroes are stripped
     char text[16];
-    if (MasmForm && cmd.SubType == SUBTYPE_GASM) {
+    if (MasmForm && OutSubType == SUBTYPE_GASM) {
         // Needs 0x prefix
         sprintf(text, MasmForm==1 ? "0x%08X" : "0x%X", x);
         Put(text);
@@ -506,7 +393,7 @@ void CTextFileBuffer::PutHex(uint64 x, int MasmForm) {
         }
     }
     if (MasmForm) {
-        if (cmd.SubType == SUBTYPE_GASM) {
+        if (OutSubType == SUBTYPE_GASM) {
             // Needs 0x prefix
             Put("0x");
             Put(text);

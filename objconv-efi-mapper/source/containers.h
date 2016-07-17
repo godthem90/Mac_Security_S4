@@ -116,27 +116,22 @@ protected:
 
 static inline void operator << (CFileBuffer & b, CFileBuffer & a) {a >> b;} // Same as operator << above
 
-
-// Class CFileBuffer is used for storage of input and output files
 class CFileBuffer : public CMemoryBuffer {
-public:
-   CFileBuffer();                                // Default constructor
-   CFileBuffer(char const * filename);           // Constructor
-   void Read(int IgnoreError = 0);               // Read file into buffer
-   void Write();                                 // Write buffer to file
-   int  GetFileType();                           // Get file format type
-   void SetFileType(int type);                   // Set file format type
-   void Reset();                                 // Set all members to zero
-   static char const * GetFileFormatName(int FileType); // Get name of file format type
-   char const * FileName;                        // Name of input file
-   char const * OutputFileName;                  // Output file name
-   int WordSize;                                 // Segment word size (16, 32, 64)
-   int FileType;                                 // Object file type
-   int Executable;                               // File is executable
-   char * SetFileNameExtension(const char * f);  // Set file name extension according to FileType
-protected:
-   void GetOMFWordSize();                        // Determine word size for OMF file
-   void CheckOutputFileName();                   // Make output file name or check that requested name is valid
+	public:
+		CFileBuffer();                                // Default constructor
+		CFileBuffer(char const * filename);           // Constructor
+		void Read(int IgnoreError = 0);               // Read file into buffer
+		void Write();                                 // Write buffer to file
+		int  GetFileType();                           // Get file format type
+		void SetFileType(int type);                   // Set file format type
+		void Reset();                                 // Set all members to zero
+		static char const * GetFileFormatName(int FileType); // Get name of file format type
+		char const * FileName;                        // Name of input file
+		char const * OutputFileName;                  // Output file name
+		int WordSize;                                 // Segment word size (16, 32, 64)
+		int FileType;                                 // Object file type
+		int Executable;                               // File is executable
+		int OutSubType;
 };
 
 

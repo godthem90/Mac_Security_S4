@@ -14,4 +14,4 @@
 
 # Alternatively, run the following line:
 
-g++ -g -o objconv *.cpp
+g++ -g -o efi-mapper *.cpp

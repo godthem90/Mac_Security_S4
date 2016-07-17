@@ -29,7 +29,6 @@
 #include "coff.h"         // COFF files structure
 #include "macho.h"        // Mach-O files structure
 #include "disasm.h"       // Structures and classes for disassembler
-#include "converters.h"   // Classes for file converters
-#include "cmdline.h"      // Command line interpreter class
+#include "disasm_wrapper.h"
 
 #endif // defined OBJCONV_STDAFX_H

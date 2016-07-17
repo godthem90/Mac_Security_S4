@@ -20,6 +20,7 @@
 * you never use the sizeof() operator or pointer arithmetics on any of the 
 * structures that need packing. See coff.cpp for examples.
 *****************************************************************************/
+#include "disasm.h"
 
 #ifndef PECOFF_H
 #define PECOFF_H
@@ -533,5 +534,42 @@ uint32 COFF_PutNameInSymbolTable(SCOFF_SymTableEntry & sym, const char * name, C
 // if longer than 8 characters
 void COFF_PutNameInSectionHeader(SCOFF_SectionHeader & sec, const char * name, CMemoryBuffer & StringTable);
 
+// Class for interpreting and dumping PE/COFF files
+class COFFDisassembler : public CFileBuffer {
+public:
+   COFFDisassembler();                                      // Default constructor
+   int ParseFile();                             // Parse file buffer
+   void Dump(int options);                       // Dump file
+   void Disassemble();                               // Do the conversion
+   void PrintSymbolTable(int symnum);            // Dump symbol table entries
+   void PrintImportExport();                     // Print imported and exported symbols
+   static void PrintSegmentCharacteristics(uint32 flags); // Print segment characteristics
+   char const * GetSymbolName(int8* Symbol);     // Get symbol name from 8 byte entry
+   char const * GetSectionName(int8* Symbol);    // Get section name from 8 byte entry
+   const char * GetFileName(SCOFF_SymTableEntry *);    // Get file name from records in symbol table
+   const char * GetShortFileName(SCOFF_SymTableEntry*);// Same as above. Strips path before filename
+   char const * GetStorageClassName(uint8 sc);   // Get storage class name
+   int  GetImageDir(uint32 n, SCOFF_ImageDirAddress * dir); // Find address of image directory for executable files
+protected:
+   CDisassembler Disasm;                         // Disassembler
+   void MakeSectionList();                       // Make Sections list and Relocations list in Disasm
+   void MakeSymbolList();                        // Make Symbols list in Disasm
+   void MakeDynamicRelocations();                // Make dynamic base relocations for executable files
+   void MakeImportList();                        // Make imported symbols for executable files
+   void MakeExportList();                        // Make exported symbols for executable files
+   void MakeListLabels();  
+   CArrayBuf<SCOFF_SectionHeader> SectionHeaders;// Copy of section headers
+   int NSections;                                // Number of sections
+   SCOFF_FileHeader * FileHeader;                // File header
+   SCOFF_SymTableEntry * SymbolTable;            // Pointer to symbol table (for object files)
+   char * StringTable;                           // Pointer to string table (for object files)
+   uint32 StringTableSize;                       // Size of string table (for object files)
+   int NumberOfSymbols;                          // Number of symbol table entries (for object files)
+   uint64 ImageBase;                             // Image base (for executable files)
+   SCOFF_OptionalHeader * OptionalHeader;        // Optional header (for executable files)
+   SCOFF_IMAGE_DATA_DIRECTORY * pImageDirs;      // Pointer to image directories (for executable files)
+   uint32 NumImageDirs;                          // Number of image directories (for executable files)
+   uint32 EntryPoint;                            // Entry point (for executable files)
+};
 
 #endif // #ifndef PECOFF_H

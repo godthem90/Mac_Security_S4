@@ -2442,7 +2442,7 @@ void CDisassembler::WriteFileBegin() {
     // Initial comment
     OutFile.Put(CommentSeparator);
     OutFile.Put("Disassembly of file: ");
-    OutFile.Put(cmd.InputFile);
+    OutFile.Put(input_file_name);
     OutFile.NewLine();
     // Date and time. 
     // Note: will fail after year 2038 on computers that use 32-bit time_t

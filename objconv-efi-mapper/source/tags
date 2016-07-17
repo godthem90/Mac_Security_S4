@@ -54,14 +54,6 @@ Buffer	disasm.h	/^   uint8 * Buffer;                               \/\/ Point to
 BufferSize	containers.h	/^   uint32 BufferSize;                            \/\/ Size of allocated buffer ( > DataSize)$/;"	m	class:CMemoryBuffer
 CArrayBuf	containers.h	/^   CArrayBuf() {                                 \/\/ Default constructor$/;"	f	class:CArrayBuf
 CArrayBuf	containers.h	/^class CArrayBuf {$/;"	c
-CCOF2ASM	cof2asm.cpp	/^CCOF2ASM::CCOF2ASM () {$/;"	f	class:CCOF2ASM
-CCOF2ASM	converters.h	/^class CCOF2ASM : public CCOFF {$/;"	c
-CCOFF	coff.cpp	/^CCOFF::CCOFF() {$/;"	f	class:CCOFF
-CCOFF	converters.h	/^class CCOFF : public CFileBuffer {$/;"	c
-CCommandLineInterpreter	cmdline.cpp	/^CCommandLineInterpreter::CCommandLineInterpreter() {$/;"	f	class:CCommandLineInterpreter
-CCommandLineInterpreter	cmdline.h	/^class CCommandLineInterpreter {$/;"	c
-CConverter	converters.h	/^class CConverter : public CFileBuffer {$/;"	c
-CConverter	main.cpp	/^CConverter::CConverter() {$/;"	f	class:CConverter
 CDisassembler	disasm.h	/^class CDisassembler {$/;"	c
 CDisassembler	disasm1.cpp	/^CDisassembler::CDisassembler() {$/;"	f	class:CDisassembler
 CErrorReporter	error.cpp	/^CErrorReporter::CErrorReporter() {$/;"	f	class:CErrorReporter
@@ -71,24 +63,8 @@ CFileBuffer	containers.cpp	/^CFileBuffer::CFileBuffer(char const * filename) : C
 CFileBuffer	containers.h	/^class CFileBuffer : public CMemoryBuffer {$/;"	c
 CLRRuntimeHeader	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY CLRRuntimeHeader;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 CLRRuntimeHeader	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY CLRRuntimeHeader;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
-CMAC2ASM	converters.h	/^class CMAC2ASM : public CMACHO<MACSTRUCTURES> {$/;"	c
-CMAC2ASM	mac2asm.cpp	/^CMAC2ASM<MACSTRUCTURES>::CMAC2ASM() {$/;"	f	class:CMAC2ASM
-CMACHO	converters.h	/^class CMACHO : public CFileBuffer {$/;"	c
-CMACHO	macho.cpp	/^CMACHO<MACSTRUCTURES>::CMACHO() {$/;"	f	class:CMACHO
-CMDLINE_H	cmdline.h	/^#define CMDLINE_H$/;"	d
-CMDL_FILE_INPUT	cmdline.h	/^#define CMDL_FILE_INPUT /;"	d
-CMDL_FILE_IN_IF_EXISTS	cmdline.h	/^#define CMDL_FILE_IN_IF_EXISTS /;"	d
-CMDL_FILE_IN_OUT_SAME	cmdline.h	/^#define CMDL_FILE_IN_OUT_SAME /;"	d
-CMDL_FILE_OUTPUT	cmdline.h	/^#define CMDL_FILE_OUTPUT /;"	d
-CMDL_OUTPUT_DUMP	cmdline.h	/^#define CMDL_OUTPUT_DUMP /;"	d
-CMDL_OUTPUT_MACHO	cmdline.h	/^#define CMDL_OUTPUT_MACHO /;"	d
-CMDL_OUTPUT_MASM	cmdline.h	/^#define CMDL_OUTPUT_MASM /;"	d
-CMDL_OUTPUT_PE	cmdline.h	/^#define CMDL_OUTPUT_PE /;"	d
-CMain	converters.h	/^class CMain : public CFileBuffer {$/;"	c
-CMain	main.cpp	/^CMain::CMain() : CFileBuffer() {$/;"	f	class:CMain
 CMemoryBuffer	containers.cpp	/^CMemoryBuffer::CMemoryBuffer() {  $/;"	f	class:CMemoryBuffer
 CMemoryBuffer	containers.h	/^class CMemoryBuffer {$/;"	c
-COF2ASM	main.cpp	/^void CConverter::COF2ASM() {$/;"	f	class:CConverter
 COFF32RelNames	coff.cpp	/^SIntTxt COFF32RelNames[] = {$/;"	v
 COFF32_RELOC_ABS	coff.h	/^#define COFF32_RELOC_ABS /;"	d
 COFF32_RELOC_DIR16	coff.h	/^#define COFF32_RELOC_DIR16 /;"	d
@@ -124,6 +100,8 @@ COFF64_RELOC_SECREL7	coff.h	/^#define COFF64_RELOC_SECREL7 /;"	d
 COFF64_RELOC_SECTION	coff.h	/^#define COFF64_RELOC_SECTION /;"	d
 COFF64_RELOC_SREL32	coff.h	/^#define COFF64_RELOC_SREL32 /;"	d
 COFF64_RELOC_TOKEN	coff.h	/^#define COFF64_RELOC_TOKEN /;"	d
+COFFDisassembler	coff.cpp	/^COFFDisassembler::COFFDisassembler() {$/;"	f	class:COFFDisassembler
+COFFDisassembler	coff.h	/^class COFFDisassembler : public CFileBuffer {$/;"	c
 COFFImageDirNames	coff.cpp	/^SIntTxt COFFImageDirNames[] = {$/;"	v
 COFFMachineNames	coff.cpp	/^SIntTxt COFFMachineNames[] = {$/;"	v
 COFFSectionFlagNames	coff.cpp	/^SIntTxt COFFSectionFlagNames[] = {$/;"	v
@@ -179,7 +157,6 @@ COFF_SECTION_UNDEF	coff.h	/^#define COFF_SECTION_UNDEF /;"	d
 COFF_TYPE_FUNCTION	coff.h	/^#define COFF_TYPE_FUNCTION /;"	d
 COFF_TYPE_NOT_FUNCTION	coff.h	/^#define COFF_TYPE_NOT_FUNCTION /;"	d
 CONTAINERS_H	containers.h	/^#define CONTAINERS_H$/;"	d
-CONVERTERS_H	converters.h	/^#define CONVERTERS_H$/;"	d
 CSList	containers.h	/^class CSList : private CMemoryBuffer {$/;"	c
 CSymbolTable	disasm.h	/^class CSymbolTable {$/;"	c
 CSymbolTable	disasm1.cpp	/^CSymbolTable::CSymbolTable() {$/;"	f	class:CSymbolTable
@@ -188,7 +165,6 @@ CTextFileBuffer	containers.h	/^class CTextFileBuffer : public CFileBuffer {$/;"	
 CertificateTable	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY CertificateTable;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 CertificateTable	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY CertificateTable;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
 Characteristics	coff.h	/^      uint32 Characteristics; \/\/$/;"	m	struct:SCOFF_SymTableEntry::__anon7
-CheckEndianness	main.cpp	/^static void CheckEndianness() {$/;"	f	file:
 CheckForBlockBegin	disasm1.cpp	/^void CDisassembler::CheckForBlockBegin() {$/;"	f	class:CDisassembler
 CheckForBlockEnd	disasm1.cpp	/^void CDisassembler::CheckForBlockEnd() {$/;"	f	class:CDisassembler
 CheckForFunctionBegin	disasm1.cpp	/^void CDisassembler::CheckForFunctionBegin() {$/;"	f	class:CDisassembler
@@ -196,7 +172,6 @@ CheckForFunctionEnd	disasm1.cpp	/^void CDisassembler::CheckForFunctionEnd() {$/;
 CheckForMisplacedLabel	disasm1.cpp	/^void CDisassembler::CheckForMisplacedLabel() {$/;"	f	class:CDisassembler
 CheckForNops	disasm1.cpp	/^void CDisassembler::CheckForNops() {$/;"	f	class:CDisassembler
 CheckImportSymbol	disasm1.cpp	/^void CDisassembler::CheckImportSymbol(uint32 symi) {$/;"	f	class:CDisassembler
-CheckIntegerTypes	main.cpp	/^static void CheckIntegerTypes() {$/;"	f	file:
 CheckJumpTarget	disasm1.cpp	/^void CDisassembler::CheckJumpTarget(uint32 symi) {$/;"	f	class:CDisassembler
 CheckLabel	disasm1.cpp	/^void CDisassembler::CheckLabel() {$/;"	f	class:CDisassembler
 CheckNamesValid	disasm1.cpp	/^void CDisassembler::CheckNamesValid() {$/;"	f	class:CDisassembler
@@ -210,21 +185,21 @@ CodeBlock	disasm.h	/^struct CodeBlock$/;"	s
 CodeMode	disasm.h	/^   uint32  CodeMode;                             \/\/ 1 if current position contains code, 2 if dubiuos, 4 if data$/;"	m	class:CDisassembler
 CommentSeparator	disasm.h	/^   const char * CommentSeparator;                \/\/ "; " or "# " Start of comment string$/;"	m	class:CDisassembler
 Conflicts	disasm.h	/^   uint8  Conflicts[8];                          \/\/ Counts prefix conflicts as different prefixes in the same category$/;"	m	struct:SOpcodeProp
-Convert	cof2asm.cpp	/^void CCOF2ASM::Convert() {$/;"	f	class:CCOF2ASM
-Convert	mac2asm.cpp	/^void CMAC2ASM<MACSTRUCTURES>::Convert() {$/;"	f	class:CMAC2ASM
+CorrectEndianness	main.cpp	/^bool CorrectEndianness() {$/;"	f
+CorrectIntegerTypes	main.cpp	/^bool CorrectIntegerTypes() {$/;"	f
 CountErrors	disasm.h	/^   uint32  CountErrors;                          \/\/ Number of errors since last label$/;"	m	class:CDisassembler
 CountInstructions	disasm2.cpp	/^void CDisassembler::CountInstructions() {$/;"	f	class:CDisassembler
 DISASM_H	disasm.h	/^#define DISASM_H$/;"	d
 DLLName	disasm.h	/^   uint32  DLLName;                              \/\/ Name of DLL if symbol imported by dynamic linking$/;"	m	struct:SASymbol
 DLLNameRVA	coff.h	/^   uint32 DLLNameRVA;                  \/\/ Image-relative address of DLL name string$/;"	m	struct:SCOFF_ImportDirectory
 DLLNameRVA	coff.h	/^   uint32 DLLNameRVA;                  \/\/ Image-relative address of DLL name$/;"	m	struct:SCOFF_ExportDirectory
-DUMP_COMMENT	cmdline.h	/^#define DUMP_COMMENT /;"	d
-DUMP_FILEHDR	cmdline.h	/^#define DUMP_FILEHDR /;"	d
-DUMP_NONE	cmdline.h	/^#define DUMP_NONE /;"	d
-DUMP_RELTAB	cmdline.h	/^#define DUMP_RELTAB /;"	d
-DUMP_SECTHDR	cmdline.h	/^#define DUMP_SECTHDR /;"	d
-DUMP_STRINGTB	cmdline.h	/^#define DUMP_STRINGTB /;"	d
-DUMP_SYMTAB	cmdline.h	/^#define DUMP_SYMTAB /;"	d
+DUMP_COMMENT	objparser.h	/^#define DUMP_COMMENT /;"	d
+DUMP_FILEHDR	objparser.h	/^#define DUMP_FILEHDR /;"	d
+DUMP_NONE	objparser.h	/^#define DUMP_NONE /;"	d
+DUMP_RELTAB	objparser.h	/^#define DUMP_RELTAB /;"	d
+DUMP_SECTHDR	objparser.h	/^#define DUMP_SECTHDR /;"	d
+DUMP_STRINGTB	objparser.h	/^#define DUMP_STRINGTB /;"	d
+DUMP_SYMTAB	objparser.h	/^#define DUMP_SYMTAB /;"	d
 DataSize	containers.h	/^   uint32 DataSize;                              \/\/ Size of data, offset to vacant space$/;"	m	class:CMemoryBuffer
 DataSize	disasm.h	/^   uint32  DataSize;                             \/\/ Size of current data$/;"	m	class:CDisassembler
 DataType	disasm.h	/^   uint32  DataType;                             \/\/ Type of current data$/;"	m	class:CDisassembler
@@ -234,22 +209,22 @@ Debug	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY Debug;$/;"	m	struct:SCOFF_Option
 Debug	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY Debug;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
 DelayImportDescriptor	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY DelayImportDescriptor;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 DelayImportDescriptor	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY DelayImportDescriptor;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
-DesiredWordSize	cmdline.h	/^   int    DesiredWordSize;                   \/\/ Desired word size for output file$/;"	m	class:CCommandLineInterpreter
 Destination	disasm.h	/^   uint16 Destination;                 \/\/ type and size of destination operand$/;"	m	struct:SOpcodeDef
-Disasm	converters.h	/^   CDisassembler Disasm;                         \/\/ Disassembler$/;"	m	class:CCOF2ASM
-Disasm	converters.h	/^   CDisassembler Disasm;                         \/\/ Disassembler$/;"	m	class:CMAC2ASM
+Disasm	coff.h	/^   CDisassembler Disasm;                         \/\/ Disassembler$/;"	m	class:COFFDisassembler
+Disasm	macho.h	/^   CDisassembler Disasm;                         \/\/ Disassembler$/;"	m	class:MACHODisassembler
+Disassemble	coff.cpp	/^void COFFDisassembler::Disassemble() {$/;"	f	class:COFFDisassembler
+Disassemble	macho.cpp	/^void MACHODisassembler<MACSTRUCTURES>::Disassemble() {$/;"	f	class:MACHODisassembler
+Disassembler	objparser.cpp	/^Disassembler::Disassembler()$/;"	f	class:Disassembler
+Disassembler	objparser.h	/^class Disassembler : public CFileBuffer$/;"	c
 DllCharacteristics	coff.h	/^      uint16 DllCharacteristics;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 DllCharacteristics	coff.h	/^      uint16 DllCharacteristics;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
-Dump	coff.cpp	/^void CCOFF::Dump(int options) {$/;"	f	class:CCOFF
-Dump	macho.cpp	/^void CMACHO<MACSTRUCTURES>::Dump(int options) {$/;"	f	class:CMACHO
-DumpCOF	main.cpp	/^void CConverter::DumpCOF() {$/;"	f	class:CConverter
-DumpMACHO	main.cpp	/^void CConverter::DumpMACHO() {$/;"	f	class:CConverter
-DumpOptions	cmdline.h	/^   uint32 DumpOptions;                       \/\/ Options for dumping file$/;"	m	class:CCommandLineInterpreter
+Dump	coff.cpp	/^void COFFDisassembler::Dump(int options) {$/;"	f	class:COFFDisassembler
+Dump	macho.cpp	/^void MACHODisassembler<MACSTRUCTURES>::Dump(int options) {$/;"	f	class:MACHODisassembler
 EVEX	disasm.h	/^   uint16 EVEX;                        \/\/ options for interpreting EVEX prefix, may be used for 4. source operand otherwise (unused)$/;"	m	struct:SOpcodeDef
 EVEXRoundingNames	opcodes.cpp	/^const char * EVEXRoundingNames[5] = {$/;"	v
 End	disasm.h	/^   uint32 End;                                   \/\/ Offset of function end$/;"	m	struct:CodeBlock
 End	disasm.h	/^   uint32 End;                                   \/\/ Offset of function end$/;"	m	struct:SFunctionRecord
-EntryPoint	converters.h	/^   uint32 EntryPoint;                            \/\/ Entry point (for executable files)$/;"	m	class:CCOFF
+EntryPoint	coff.h	/^   uint32 EntryPoint;                            \/\/ Entry point (for executable files)$/;"	m	class:COFFDisassembler
 ErrorNumber	error.h	/^   int  ErrorNumber;    \/\/ Error number$/;"	m	struct:SErrorText
 ErrorTexts	error.cpp	/^SErrorText ErrorTexts[] = {$/;"	v
 Errors	disasm.h	/^   uint32 Errors;                                \/\/ Errors that will prevent execution or are unlikely to be intentional$/;"	m	struct:SOpcodeProp
@@ -257,36 +232,35 @@ Esss	disasm.h	/^   uint32 Esss;                                  \/\/ EVEX.zLLb 
 ExceptionTable	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY ExceptionTable;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 ExceptionTable	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY ExceptionTable;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
 ExeType	disasm.h	/^   uint32  ExeType;                              \/\/ File type: 0 = object, 1 = position independent shared object, 2 = executable$/;"	m	class:CDisassembler
-Executable	containers.h	/^   int Executable;                               \/\/ File is executable$/;"	m	class:CFileBuffer
+Executable	containers.h	/^		int Executable;                               \/\/ File is executable$/;"	m	class:CFileBuffer
 Exists	containers.h	/^   int32 Exists(RecordType const & x) {$/;"	f	class:CSList
 ExportAddressTableRVA	coff.h	/^   uint32 ExportAddressTableRVA;       \/\/ Image-relative address of export address table$/;"	m	struct:SCOFF_ExportDirectory
 ExportTable	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY ExportTable;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 ExportTable	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY ExportTable;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
-ExtractBlock	mac2asm.cpp	/^void CMAC2ASM<MACSTRUCTURES>::ExtractBlock() {$/;"	f	class:CMAC2ASM
-FILETYPE_ASM	maindef.h	/^#define FILETYPE_ASM /;"	d
-FILETYPE_COFF	maindef.h	/^#define FILETYPE_COFF /;"	d
-FILETYPE_DOS	maindef.h	/^#define FILETYPE_DOS /;"	d
-FILETYPE_ELF	maindef.h	/^#define FILETYPE_ELF /;"	d
-FILETYPE_INTEL_WPO	maindef.h	/^#define FILETYPE_INTEL_WPO /;"	d
-FILETYPE_LIBRARY	maindef.h	/^#define FILETYPE_LIBRARY /;"	d
-FILETYPE_MACHO_BE	maindef.h	/^#define FILETYPE_MACHO_BE /;"	d
-FILETYPE_MACHO_LE	maindef.h	/^#define FILETYPE_MACHO_LE /;"	d
-FILETYPE_MAC_UNIVBIN	maindef.h	/^#define FILETYPE_MAC_UNIVBIN /;"	d
-FILETYPE_MS_WPO	maindef.h	/^#define FILETYPE_MS_WPO /;"	d
-FILETYPE_OMF	maindef.h	/^#define FILETYPE_OMF /;"	d
-FILETYPE_OMFLIBRARY	maindef.h	/^#define FILETYPE_OMFLIBRARY /;"	d
-FILETYPE_WIN3X	maindef.h	/^#define FILETYPE_WIN3X /;"	d
-FILETYPE_WIN_UNKNOWN	maindef.h	/^#define FILETYPE_WIN_UNKNOWN /;"	d
+ExtractBlock	macho.cpp	/^void MACHODisassembler<MACSTRUCTURES>::ExtractBlock() {$/;"	f	class:MACHODisassembler
+FILETYPE_ASM	objparser.h	/^#define FILETYPE_ASM /;"	d
+FILETYPE_COFF	objparser.h	/^#define FILETYPE_COFF /;"	d
+FILETYPE_DOS	objparser.h	/^#define FILETYPE_DOS /;"	d
+FILETYPE_ELF	objparser.h	/^#define FILETYPE_ELF /;"	d
+FILETYPE_INTEL_WPO	objparser.h	/^#define FILETYPE_INTEL_WPO /;"	d
+FILETYPE_LIBRARY	objparser.h	/^#define FILETYPE_LIBRARY /;"	d
+FILETYPE_MACHO_BE	objparser.h	/^#define FILETYPE_MACHO_BE /;"	d
+FILETYPE_MACHO_LE	objparser.h	/^#define FILETYPE_MACHO_LE /;"	d
+FILETYPE_MAC_UNIVBIN	objparser.h	/^#define FILETYPE_MAC_UNIVBIN /;"	d
+FILETYPE_MS_WPO	objparser.h	/^#define FILETYPE_MS_WPO /;"	d
+FILETYPE_OMF	objparser.h	/^#define FILETYPE_OMF /;"	d
+FILETYPE_OMFLIBRARY	objparser.h	/^#define FILETYPE_OMFLIBRARY /;"	d
+FILETYPE_WIN3X	objparser.h	/^#define FILETYPE_WIN3X /;"	d
+FILETYPE_WIN_UNKNOWN	objparser.h	/^#define FILETYPE_WIN_UNKNOWN /;"	d
 FileAlignment	coff.h	/^      uint32 FileAlignment;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 FileAlignment	coff.h	/^      uint32 FileAlignment;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
 FileFormatNames	containers.cpp	/^SIntTxt FileFormatNames[] = {$/;"	v
-FileHeader	converters.h	/^   SCOFF_FileHeader * FileHeader;                \/\/ File header$/;"	m	class:CCOFF
-FileHeader	converters.h	/^   TMAC_header FileHeader;                       \/\/ Copy of file header$/;"	m	class:CMACHO
+FileHeader	coff.h	/^   SCOFF_FileHeader * FileHeader;                \/\/ File header$/;"	m	class:COFFDisassembler
+FileHeader	macho.h	/^   TMAC_header FileHeader;                       \/\/ Copy of file header$/;"	m	class:MACHODisassembler
 FileName	coff.h	/^      char FileName[18];\/\/ File name$/;"	m	struct:SCOFF_SymTableEntry::__anon8
-FileName	containers.h	/^   char const * FileName;                        \/\/ Name of input file$/;"	m	class:CFileBuffer
+FileName	containers.h	/^		char const * FileName;                        \/\/ Name of input file$/;"	m	class:CFileBuffer
 FileOffset	coff.h	/^   uint32 FileOffset;                  \/\/ Offset relative to file$/;"	m	struct:SCOFF_ImageDirAddress
-FileOptions	cmdline.h	/^   uint32 FileOptions;                       \/\/ Options for input and output files$/;"	m	class:CCommandLineInterpreter
-FileType	containers.h	/^   int FileType;                                 \/\/ Object file type$/;"	m	class:CFileBuffer
+FileType	containers.h	/^		int FileType;                                 \/\/ Object file type$/;"	m	class:CFileBuffer
 FinalErrorCheck	disasm1.cpp	/^void CDisassembler::FinalErrorCheck() {$/;"	f	class:CDisassembler
 FindBlock	disasm1.cpp	/^void CDisassembler::FindBlock() {$/;"	f	class:CDisassembler
 FindBroadcast	disasm1.cpp	/^void CDisassembler::FindBroadcast() {$/;"	f	class:CDisassembler
@@ -307,7 +281,6 @@ FlagPrevious	disasm.h	/^   uint32  FlagPrevious;                         \/\/ 1:
 Flags	coff.h	/^   uint32 Flags;$/;"	m	struct:SCOFF_ExportDirectory
 Flags	coff.h	/^ uint16 Flags;                \/\/ Flags indicating attributes$/;"	m	struct:SCOFF_FileHeader
 Flags	coff.h	/^ uint32  Flags;          \/\/ flags   $/;"	m	struct:SCOFF_SectionHeader
-FloorLog2	main.cpp	/^int FloorLog2(uint32 x) {$/;"	f
 Fname	coff.h	/^  uint32 Fname;    \/\/ function name symbol table index, if Line == 0$/;"	m	union:SCOFF_LineNumbers::__anon3
 FollowJumpTable	disasm1.cpp	/^void CDisassembler::FollowJumpTable(uint32 symi, uint32 RelType) {$/;"	f	class:CDisassembler
 ForwarderChain	coff.h	/^   uint32 ForwarderChain;$/;"	m	struct:SCOFF_ImportDirectory
@@ -322,9 +295,9 @@ GetDataElementSize	disasm1.cpp	/^uint32 CDisassembler::GetDataElementSize(uint32
 GetDataItemSize	disasm1.cpp	/^uint32 CDisassembler::GetDataItemSize(uint32 Type) {$/;"	f	class:CDisassembler
 GetDataSize	containers.h	/^   uint32 GetDataSize()  {return DataSize;};     \/\/ File data size$/;"	f	class:CMemoryBuffer
 GetFileFormatName	containers.cpp	/^char const * CFileBuffer::GetFileFormatName(int FileType) {$/;"	f	class:CFileBuffer
-GetFileName	coff.cpp	/^const char * CCOFF::GetFileName(SCOFF_SymTableEntry * syme) {$/;"	f	class:CCOFF
-GetFileType	containers.cpp	/^int CFileBuffer::GetFileType() {$/;"	f	class:CFileBuffer
-GetImageDir	coff.cpp	/^int CCOFF::GetImageDir(uint32 n, SCOFF_ImageDirAddress * dir) {$/;"	f	class:CCOFF
+GetFileName	coff.cpp	/^const char * COFFDisassembler::GetFileName(SCOFF_SymTableEntry * syme) {$/;"	f	class:COFFDisassembler
+GetFileType	objparser.cpp	/^int Disassembler::GetFileType() {$/;"	f	class:Disassembler
+GetImageDir	coff.cpp	/^int COFFDisassembler::GetImageDir(uint32 n, SCOFF_ImageDirAddress * dir) {$/;"	f	class:COFFDisassembler
 GetLastIndex	containers.cpp	/^uint32 CMemoryBuffer::GetLastIndex() {$/;"	f	class:CMemoryBuffer
 GetLimit	disasm.h	/^   uint32 GetLimit() {return OldNum;}            \/\/ Get highest old symbol number + 1$/;"	f	class:CSymbolTable
 GetName	disasm1.cpp	/^const char * CSymbolTable::GetName(uint32 symi) {$/;"	f	class:CSymbolTable
@@ -333,21 +306,18 @@ GetNumEntries	containers.h	/^   uint32 GetNumEntries() {$/;"	f	class:CArrayBuf
 GetNumEntries	containers.h	/^   uint32 GetNumEntries() {$/;"	f	class:CSList
 GetNumEntries	containers.h	/^   uint32 GetNumEntries(){return NumEntries;};   \/\/ Get number of entries$/;"	f	class:CMemoryBuffer
 GetNumEntries	disasm.h	/^   uint32 GetNumEntries() {return List.GetNumEntries();}\/\/ Get highest new symbol number + 1$/;"	f	class:CSymbolTable
-GetSectionName	coff.cpp	/^char const * CCOFF::GetSectionName(int8* Symbol) {$/;"	f	class:CCOFF
+GetSectionName	coff.cpp	/^char const * COFFDisassembler::GetSectionName(int8* Symbol) {$/;"	f	class:COFFDisassembler
 GetSegmentRegisterFromPrefix	disasm1.cpp	/^int32 CDisassembler::GetSegmentRegisterFromPrefix() {$/;"	f	class:CDisassembler
-GetShortFileName	coff.cpp	/^const char * CCOFF::GetShortFileName(SCOFF_SymTableEntry * syme) {$/;"	f	class:CCOFF
-GetStorageClassName	coff.cpp	/^char const * CCOFF::GetStorageClassName(uint8 sc) {$/;"	f	class:CCOFF
-GetSymbolName	coff.cpp	/^char const * CCOFF::GetSymbolName(int8* Symbol) {$/;"	f	class:CCOFF
+GetShortFileName	coff.cpp	/^const char * COFFDisassembler::GetShortFileName(SCOFF_SymTableEntry * syme) {$/;"	f	class:COFFDisassembler
+GetStorageClassName	coff.cpp	/^char const * COFFDisassembler::GetStorageClassName(uint8 sc) {$/;"	f	class:COFFDisassembler
+GetSymbolName	coff.cpp	/^char const * COFFDisassembler::GetSymbolName(int8* Symbol) {$/;"	f	class:COFFDisassembler
 GetWorstError	error.cpp	/^int CErrorReporter::GetWorstError() {$/;"	f	class:CErrorReporter
 GlobalPtr	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY GlobalPtr;      \/\/ 0$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 GlobalPtr	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY GlobalPtr;      \/\/ 0$/;"	m	struct:SCOFF_OptionalHeader::__anon2
 Go	disasm1.cpp	/^void CDisassembler::Go() {$/;"	f	class:CDisassembler
-Go	main.cpp	/^void CConverter::Go() {$/;"	f	class:CConverter
-Go	main.cpp	/^void CMain::Go() {$/;"	f	class:CMain
 Group	disasm.h	/^   int32   Group;                                \/\/ Group that the segment is member of. 0 = none, -2 = flat, > 0 = defined group$/;"	m	struct:SASection
 HandleError	error.cpp	/^void CErrorReporter::HandleError(SErrorText * err, char const * text) {$/;"	f	class:CErrorReporter
 HasName	disasm1.cpp	/^const char * CSymbolTable::HasName(uint32 symo) {$/;"	f	class:CSymbolTable
-Help	cmdline.cpp	/^void CCommandLineInterpreter::Help() {$/;"	f	class:CCommandLineInterpreter
 HereOperator	disasm.h	/^   const char * HereOperator;                    \/\/ "$" or "." indicating current position$/;"	m	class:CDisassembler
 HighDWord	maindef.h	/^static inline uint32 HighDWord (uint64 x) {$/;"	f
 Hint	coff.h	/^   uint16 Hint;                        \/\/ Index into export name pointer table$/;"	m	struct:SCOFF_ImportHintName
@@ -358,12 +328,12 @@ IFunction	disasm.h	/^   uint32  IFunction;                            \/\/ Index
 IMAGE_WEAK_EXTERN_SEARCH_ALIAS	coff.h	/^#define IMAGE_WEAK_EXTERN_SEARCH_ALIAS /;"	d
 IMAGE_WEAK_EXTERN_SEARCH_LIBRARY	coff.h	/^#define IMAGE_WEAK_EXTERN_SEARCH_LIBRARY /;"	d
 IMAGE_WEAK_EXTERN_SEARCH_NOLIBRARY	coff.h	/^#define IMAGE_WEAK_EXTERN_SEARCH_NOLIBRARY /;"	d
-IMPORT_LIBRARY_MEMBER	maindef.h	/^#define IMPORT_LIBRARY_MEMBER /;"	d
+IMPORT_LIBRARY_MEMBER	objparser.h	/^#define IMPORT_LIBRARY_MEMBER /;"	d
 ImageBase	coff.h	/^      int32  ImageBase;                \/\/ Image base$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 ImageBase	coff.h	/^      int64  ImageBase;                \/\/ Image base$/;"	m	struct:SCOFF_OptionalHeader::__anon2
-ImageBase	converters.h	/^   uint64 ImageBase;                             \/\/ Image base (for executable files)$/;"	m	class:CCOFF
-ImageBase	converters.h	/^   uint64 ImageBase;                             \/\/ Image base for executable file$/;"	m	class:CMACHO
+ImageBase	coff.h	/^   uint64 ImageBase;                             \/\/ Image base (for executable files)$/;"	m	class:COFFDisassembler
 ImageBase	disasm.h	/^   int64   ImageBase;                            \/\/ Image base for executable files$/;"	m	class:CDisassembler
+ImageBase	macho.h	/^   uint64 ImageBase;                             \/\/ Image base for executable file$/;"	m	class:MACHODisassembler
 ImmediateField	disasm.h	/^   uint32 ImmediateField;                        \/\/ Beginning of immediate operand or jump address field$/;"	m	struct:SOpcodeProp
 ImmediateFieldSize	disasm.h	/^   uint32 ImmediateFieldSize;                    \/\/ Size of immediate operand or jump address field$/;"	m	struct:SOpcodeProp
 ImmediateRelocation	disasm.h	/^   uint32 ImmediateRelocation;                   \/\/ Relocation pointing to immediate operand or jump address field$/;"	m	struct:SOpcodeProp
@@ -371,17 +341,16 @@ ImportAddressTable	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY ImportAddressTable;
 ImportAddressTable	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY ImportAddressTable;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
 ImportAddressTableRVA	coff.h	/^   uint32 ImportAddressTableRVA;       \/\/ Image-relative address of import address table$/;"	m	struct:SCOFF_ImportDirectory
 ImportLookupTableRVA	coff.h	/^   uint32 ImportLookupTableRVA;        \/\/ Image-relative address of import lookup table$/;"	m	struct:SCOFF_ImportDirectory
-ImportSections	converters.h	/^   CSList<TMAC_section*> ImportSections;          \/\/ List of sections needing extra symbols: import tables, literals, etc.$/;"	m	class:CMAC2ASM
+ImportSections	macho.h	/^   CSList<TMAC_section*> ImportSections;          \/\/ List of sections needing extra symbols: import tables, literals, etc.$/;"	m	class:MACHODisassembler
 ImportTable	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY ImportTable;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 ImportTable	coff.h	/^      SCOFF_IMAGE_DATA_DIRECTORY ImportTable;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
 ImportTablePrefix	disasm.h	/^   const char * ImportTablePrefix;               \/\/ Prefix for pointers in import table$/;"	m	class:CSymbolTable
 IndexReg	disasm.h	/^   uint32 IndexReg;                              \/\/ Index register + 1. (0 if none)$/;"	m	struct:SOpcodeProp
-IndirectSymTabNumber	converters.h	/^   uint32 IndirectSymTabNumber;                  \/\/ number of indirect symbol table entries$/;"	m	class:CMACHO
-IndirectSymTabOffset	converters.h	/^   uint32 IndirectSymTabOffset;                  \/\/ file offset to the indirect symbol table$/;"	m	class:CMACHO
+IndirectSymTabNumber	macho.h	/^   uint32 IndirectSymTabNumber;                  \/\/ number of indirect symbol table entries$/;"	m	class:MACHODisassembler
+IndirectSymTabOffset	macho.h	/^   uint32 IndirectSymTabOffset;                  \/\/ file offset to the indirect symbol table$/;"	m	class:MACHODisassembler
 Init	disasm1.cpp	/^void CDisassembler::Init(uint32 ExeType, int64 ImageBase) {$/;"	f	class:CDisassembler
 InitSize	disasm.h	/^   uint32  InitSize;                             \/\/ Size of initialized data in section$/;"	m	struct:SASection
 InitialErrorCheck	disasm1.cpp	/^void CDisassembler::InitialErrorCheck() {$/;"	f	class:CDisassembler
-InputFile	cmdline.h	/^   char * InputFile;                         \/\/ Input file name$/;"	m	class:CCommandLineInterpreter
 InstructionFormat	disasm.h	/^   uint16 InstructionFormat;           \/\/ opcode type, number of operands$/;"	m	struct:SOpcodeDef
 InstructionSet	disasm.h	/^   uint32 InstructionSet;              \/\/ mmx, sse, 3dnow, x64, etc.$/;"	m	struct:SOpcodeDef
 InstructionSetAMDMAX	disasm.h	/^   uint8   InstructionSetAMDMAX;                 \/\/ Highest AMD-specific instruction set encountered$/;"	m	class:CDisassembler
@@ -389,10 +358,6 @@ InstructionSetMax	disasm.h	/^   uint8   InstructionSetMax;                    \/
 InstructionSetNames	disasm2.cpp	/^const char * InstructionSetNames[] = {$/;"	v
 InstructionSetNamesLen	disasm2.cpp	/^const int InstructionSetNamesLen = TableSize(InstructionSetNames);$/;"	v
 InstructionSetOR	disasm.h	/^   uint16  InstructionSetOR;                     \/\/ Bitwise OR of all instruction sets encountered$/;"	m	class:CDisassembler
-InterpretCommandOption	cmdline.cpp	/^void CCommandLineInterpreter::InterpretCommandOption(char * string) {$/;"	f	class:CCommandLineInterpreter
-InterpretDumpOption	cmdline.cpp	/^void CCommandLineInterpreter::InterpretDumpOption(char * string) {$/;"	f	class:CCommandLineInterpreter
-InterpretFileName	cmdline.cpp	/^void CCommandLineInterpreter::InterpretFileName(char * string) {$/;"	f	class:CCommandLineInterpreter
-InterpretOutputTypeOption	cmdline.cpp	/^void CCommandLineInterpreter::InterpretOutputTypeOption(char * string) {$/;"	f	class:CCommandLineInterpreter
 Kreg	disasm.h	/^   uint32 Kreg;                                  \/\/ EVEX.aaa = MVEX.kkk mask register$/;"	m	struct:SOpcodeProp
 LIBTYPE_BSD_MAC	maindef.h	/^#define LIBTYPE_BSD_MAC /;"	d
 LIBTYPE_LINUX	maindef.h	/^#define LIBTYPE_LINUX /;"	d
@@ -416,7 +381,6 @@ LoaderFlags	coff.h	/^      uint32 LoaderFlags;              \/\/ 0$/;"	m	struct:
 LoaderFlags	coff.h	/^      uint32 LoaderFlags;              \/\/ 0$/;"	m	struct:SCOFF_OptionalHeader::__anon2
 Lookup	maindef.h	/^#define Lookup(/;"	d
 LookupText	maindef.h	/^static inline char const * LookupText(SIntTxt const * p, int n, uint32 x) {$/;"	f
-MAC2ASM	main.cpp	/^void CConverter::MAC2ASM() {$/;"	f	class:CConverter
 MAC32STRUCTURES	macho.h	/^#define MAC32STRUCTURES /;"	d
 MAC32_RELOC_LOCAL_SECTDIFF	macho.h	/^#define MAC32_RELOC_LOCAL_SECTDIFF /;"	d
 MAC32_RELOC_PAIR	macho.h	/^#define MAC32_RELOC_PAIR /;"	d
@@ -433,6 +397,8 @@ MAC64_RELOC_SIGNED_2	macho.h	/^#define MAC64_RELOC_SIGNED_2 /;"	d
 MAC64_RELOC_SIGNED_4	macho.h	/^#define MAC64_RELOC_SIGNED_4 /;"	d
 MAC64_RELOC_SUBTRACTOR	macho.h	/^#define MAC64_RELOC_SUBTRACTOR /;"	d
 MAC64_RELOC_UNSIGNED	macho.h	/^#define MAC64_RELOC_UNSIGNED /;"	d
+MACHODisassembler	macho.cpp	/^MACHODisassembler<MACSTRUCTURES>::MACHODisassembler() {$/;"	f	class:MACHODisassembler
+MACHODisassembler	macho.h	/^class MACHODisassembler : public CFileBuffer {$/;"	c
 MACHO_H	macho.h	/^#define MACHO_H$/;"	d
 MACSTRUCTURES	macho.h	/^#define MACSTRUCTURES /;"	d
 MAC_ALLMODSBOUND	macho.h	/^#define MAC_ALLMODSBOUND /;"	d
@@ -603,8 +569,6 @@ MAC_segment_command_64	macho.h	/^struct MAC_segment_command_64 {	\/* for 64-bit 
 MAC_symtab_command	macho.h	/^struct MAC_symtab_command {$/;"	s
 MAINDEF_H	maindef.h	/^#define MAINDEF_H$/;"	d
 MAXFILENAMELENGTH	maindef.h	/^#define MAXFILENAMELENGTH /;"	d
-MAXSYMBOLLENGTH	cmdline.h	/^#define MAXSYMBOLLENGTH /;"	d
-MAX_COMMAND_FILES	cmdline.h	/^#define MAX_COMMAND_FILES /;"	d
 MAX_ERROR_TEXT_LENGTH	error.cpp	/^#define MAX_ERROR_TEXT_LENGTH /;"	d	file:
 MFlags	disasm.h	/^   uint32 MFlags;                                \/\/ Memory operand type: 1=has memory operand, 2=has mod\/reg\/rm byte, 4=has SIB byte, 8=has VEX or DREX byte, 0x100=is rip-relative$/;"	m	struct:SOpcodeProp
 MVEX	disasm.h	/^   uint16 MVEX;                        \/\/ options for interpreting MVEX prefix: swizzle, convert, mask options$/;"	m	struct:SOpcodeDef
@@ -629,23 +593,22 @@ MajorOperatingSystemVersion	coff.h	/^      uint16 MajorOperatingSystemVersion;$/
 MajorSubsystemVersion	coff.h	/^      uint16 MajorSubsystemVersion;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 MajorSubsystemVersion	coff.h	/^      uint16 MajorSubsystemVersion;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
 MakeBlockList	disasm1.cpp	/^void CDisassembler::MakeBlockList()$/;"	f	class:CDisassembler
-MakeDynamicRelocations	cof2asm.cpp	/^void CCOF2ASM::MakeDynamicRelocations() {$/;"	f	class:CCOF2ASM
-MakeExportList	cof2asm.cpp	/^void CCOF2ASM::MakeExportList() {$/;"	f	class:CCOF2ASM
-MakeImportList	cof2asm.cpp	/^void CCOF2ASM::MakeImportList() {$/;"	f	class:CCOF2ASM
-MakeImports	mac2asm.cpp	/^void CMAC2ASM<MACSTRUCTURES>::MakeImports() {$/;"	f	class:CMAC2ASM
-MakeListLabels	cof2asm.cpp	/^void CCOF2ASM::MakeListLabels() {$/;"	f	class:CCOF2ASM
+MakeDynamicRelocations	coff.cpp	/^void COFFDisassembler::MakeDynamicRelocations() {$/;"	f	class:COFFDisassembler
+MakeExportList	coff.cpp	/^void COFFDisassembler::MakeExportList() {$/;"	f	class:COFFDisassembler
+MakeImportList	coff.cpp	/^void COFFDisassembler::MakeImportList() {$/;"	f	class:COFFDisassembler
+MakeImports	macho.cpp	/^void MACHODisassembler<MACSTRUCTURES>::MakeImports() {$/;"	f	class:MACHODisassembler
+MakeListLabels	coff.cpp	/^void COFFDisassembler::MakeListLabels() {$/;"	f	class:COFFDisassembler
 MakeMissingRelocation	disasm1.cpp	/^uint32 CDisassembler::MakeMissingRelocation(int32 Section, uint32 Offset, uint32 RelType, uint32 TargetType, uint32 TargetScope, uint32 SourceSize, uint32 RefPoint) {$/;"	f	class:CDisassembler
-MakeRelocations	mac2asm.cpp	/^void CMAC2ASM<MACSTRUCTURES>::MakeRelocations() {$/;"	f	class:CMAC2ASM
-MakeSectionList	cof2asm.cpp	/^void CCOF2ASM::MakeSectionList() {$/;"	f	class:CCOF2ASM
-MakeSectionList	mac2asm.cpp	/^void CMAC2ASM<MACSTRUCTURES>::MakeSectionList() {$/;"	f	class:CMAC2ASM
-MakeSymbolList	cof2asm.cpp	/^void CCOF2ASM::MakeSymbolList() {$/;"	f	class:CCOF2ASM
-MakeSymbolList	mac2asm.cpp	/^void CMAC2ASM<MACSTRUCTURES>::MakeSymbolList() {$/;"	f	class:CMAC2ASM
+MakeRelocations	macho.cpp	/^void MACHODisassembler<MACSTRUCTURES>::MakeRelocations() {$/;"	f	class:MACHODisassembler
+MakeSectionList	coff.cpp	/^void COFFDisassembler::MakeSectionList() {$/;"	f	class:COFFDisassembler
+MakeSectionList	macho.cpp	/^void MACHODisassembler<MACSTRUCTURES>::MakeSectionList() {$/;"	f	class:MACHODisassembler
+MakeSymbolList	coff.cpp	/^void COFFDisassembler::MakeSymbolList() {$/;"	f	class:COFFDisassembler
+MakeSymbolList	macho.cpp	/^void MACHODisassembler<MACSTRUCTURES>::MakeSymbolList() {$/;"	f	class:MACHODisassembler
 MarkCodeAsDubious	disasm1.cpp	/^void CDisassembler::MarkCodeAsDubious() {$/;"	f	class:CDisassembler
 MasmOptions	disasm.h	/^   uint32  MasmOptions;                          \/\/ Options needed for MASM: 1: dotname, 2: fs used, 4: gs used$/;"	m	class:CDisassembler
 MaxErrors	error.h	/^   int MaxErrors;       \/\/ Max number of error messages to print$/;"	m	class:CErrorReporter
 MaxNumOperands	disasm.h	/^   uint32 MaxNumOperands;                        \/\/ Number of opcode table operands to check$/;"	m	struct:SOpcodeProp
 MaxOffset	coff.h	/^   uint32 MaxOffset;                   \/\/ Section size - SectionOffset$/;"	m	struct:SCOFF_ImageDirAddress
-MaxType	cmdline.cpp	/^const uint32 MaxType = FILETYPE_MACHO_LE;$/;"	v
 MaxWarnings	error.h	/^   int MaxWarnings;     \/\/ Max number of warning messages to pring$/;"	m	class:CErrorReporter
 MinorImageVersion	coff.h	/^      uint16 MinorImageVersion;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 MinorImageVersion	coff.h	/^      uint16 MinorImageVersion;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
@@ -656,7 +619,7 @@ MinorSubsystemVersion	coff.h	/^      uint16 MinorSubsystemVersion;$/;"	m	struct:
 Mod	disasm.h	/^   uint32 Mod;                                   \/\/ mod bits of mod\/reg\/rm byte$/;"	m	struct:SOpcodeProp
 NLineNumbers	coff.h	/^ uint16  NLineNumbers;   \/\/ number of line number entries$/;"	m	struct:SCOFF_SectionHeader
 NRelocations	coff.h	/^ uint16  NRelocations;   \/\/ number of relocation entries$/;"	m	struct:SCOFF_SectionHeader
-NSections	converters.h	/^   int NSections;                                \/\/ Number of sections$/;"	m	class:CCOFF
+NSections	coff.h	/^   int NSections;                                \/\/ Number of sections$/;"	m	class:COFFDisassembler
 Name	coff.h	/^      char   Name[8];$/;"	m	struct:SCOFF_SymTableEntry::__anon4
 Name	coff.h	/^   char   Name[2];                     \/\/ Variable length$/;"	m	struct:SCOFF_ImportHintName
 Name	coff.h	/^   const char * Name;                  \/\/ Name of table$/;"	m	struct:SCOFF_ImageDirAddress
@@ -680,14 +643,13 @@ NextLabel	disasm1.cpp	/^int CDisassembler::NextLabel() {$/;"	f	class:CDisassembl
 NumAuxSymbols	coff.h	/^      uint8  NumAuxSymbols;$/;"	m	struct:SCOFF_SymTableEntry::__anon4
 NumEntries	containers.h	/^   uint32 NumEntries;                            \/\/ Number of objects pushed$/;"	m	class:CMemoryBuffer
 NumErrors	error.h	/^   int NumErrors;       \/\/ Number of errors detected$/;"	m	class:CErrorReporter
-NumImageDirs	converters.h	/^   uint32 NumImageDirs;                          \/\/ Number of image directories (for executable files)$/;"	m	class:CCOFF
+NumImageDirs	coff.h	/^   uint32 NumImageDirs;                          \/\/ Number of image directories (for executable files)$/;"	m	class:COFFDisassembler
 NumOpcodeStartPageVEX	opcodes.cpp	/^const uint32 NumOpcodeStartPageVEX = TableSize(OpcodeStartPageVEX);$/;"	v
 NumOpcodeStartPageXOP	opcodes.cpp	/^const uint32 NumOpcodeStartPageXOP = TableSize(OpcodeStartPageXOP);$/;"	v
 NumOpcodeTables1	opcodes.cpp	/^const uint32 NumOpcodeTables1 = TableSize(OpcodeTables);         $/;"	v
 NumOpcodeTables2	opcodes.cpp	/^const uint32 NumOpcodeTables2 = TableSize(OpcodeTableLength);         $/;"	v
 NumReloc	macho.h	/^   uint32 NumReloc;                    \/\/ Number of relocations records for this section$/;"	m	struct:MAC_SECT_WITH_RELOC
-NumSections	converters.h	/^   uint32 NumSections;                           \/\/ Number of sections$/;"	m	class:CMACHO
-NumStandardNames	cmdline.cpp	/^const int NumStandardNames = sizeof(StandardNames32) \/ sizeof(StandardNames32[0]);$/;"	v
+NumSections	macho.h	/^   uint32 NumSections;                           \/\/ Number of sections$/;"	m	class:MACHODisassembler
 NumWarnings	error.h	/^   int NumWarnings;     \/\/ Number of warnings detected$/;"	m	class:CErrorReporter
 Number	coff.h	/^      uint16 Number;               \/\/ Symbol table index of next function$/;"	m	struct:SCOFF_SymTableEntry::__anon10
 Number	error.cpp	/^int CErrorReporter::Number() {$/;"	f	class:CErrorReporter
@@ -696,8 +658,8 @@ NumberOfRelocations	coff.h	/^      uint16 NumberOfRelocations;  \/\/ Line number
 NumberOfRvaAndSizes	coff.h	/^      uint32 NumberOfRvaAndSizes;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 NumberOfRvaAndSizes	coff.h	/^      uint32 NumberOfRvaAndSizes;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
 NumberOfSections	coff.h	/^ uint16 NumberOfSections;     \/\/ number of sections$/;"	m	struct:SCOFF_FileHeader
+NumberOfSymbols	coff.h	/^   int NumberOfSymbols;                          \/\/ Number of symbol table entries (for object files)$/;"	m	class:COFFDisassembler
 NumberOfSymbols	coff.h	/^ uint32 NumberOfSymbols;      \/\/ number of symbol table entries $/;"	m	struct:SCOFF_FileHeader
-NumberOfSymbols	converters.h	/^   int NumberOfSymbols;                          \/\/ Number of symbol table entries (for object files)$/;"	m	class:CCOFF
 OBJCONV_ERROR_H	error.h	/^#define OBJCONV_ERROR_H$/;"	d
 OBJCONV_STDAFX_H	stdafx.h	/^#define OBJCONV_STDAFX_H$/;"	d
 OBJCONV_VERSION	maindef.h	/^#define OBJCONV_VERSION /;"	d
@@ -1042,14 +1004,12 @@ OpcodeTables	opcodes.cpp	/^const SOpcodeDef * const OpcodeTables[] = {    $/;"	v
 Opcodei	disasm.h	/^   uint16  Opcodei;                              \/\/ Map number and index in opcodes.cpp$/;"	m	class:CDisassembler
 OperandSize	disasm.h	/^   uint32 OperandSize;                           \/\/ Operand size: 16, 32 or 64$/;"	m	struct:SOpcodeProp
 Operands	disasm.h	/^   uint32 Operands[5];                           \/\/ Operand types for destination, source, immediate$/;"	m	struct:SOpcodeProp
-OptionalHeader	converters.h	/^   SCOFF_OptionalHeader * OptionalHeader;        \/\/ Optional header (for executable files)$/;"	m	class:CCOFF
+OptionalHeader	coff.h	/^   SCOFF_OptionalHeader * OptionalHeader;        \/\/ Optional header (for executable files)$/;"	m	class:COFFDisassembler
 Options	disasm.h	/^   uint16 Options;                     \/\/ miscellaneous options$/;"	m	struct:SOpcodeDef
 OrdinalBase	coff.h	/^   uint32 OrdinalBase;                 \/\/ Ordinal number of first export$/;"	m	struct:SCOFF_ExportDirectory
 OrdinalTableRVA	coff.h	/^   uint32 OrdinalTableRVA;             \/\/ Image-relative address of ordinal table$/;"	m	struct:SCOFF_ExportDirectory
 OutFile	disasm.h	/^   CTextFileBuffer   OutFile;                    \/\/ Output file$/;"	m	class:CDisassembler
-OutputFile	cmdline.h	/^   char * OutputFile;                        \/\/ Output file name$/;"	m	class:CCommandLineInterpreter
-OutputFileName	containers.h	/^   char const * OutputFileName;                  \/\/ Output file name$/;"	m	class:CFileBuffer
-OutputType	cmdline.h	/^   int	  OutputType;$/;"	m	class:CCommandLineInterpreter
+OutputFileName	containers.h	/^		char const * OutputFileName;                  \/\/ Output file name$/;"	m	class:CFileBuffer
 PECOFF_H	coff.h	/^#define PECOFF_H$/;"	d
 PE_F_EXEC	coff.h	/^#define PE_F_EXEC /;"	d
 PE_F_LNNO	coff.h	/^#define PE_F_LNNO /;"	d
@@ -1091,9 +1051,13 @@ PRawData	coff.h	/^ uint32  PRawData;       \/\/ file  to raw data for section$/;
 PRelocations	coff.h	/^ uint32  PRelocations;   \/\/ file  to relocation entries$/;"	m	struct:SCOFF_SectionHeader
 PSymbolTable	coff.h	/^ uint32 PSymbolTable;         \/\/ file pointer to symbol table$/;"	m	struct:SCOFF_FileHeader
 PageRVA	coff.h	/^   uint32 PageRVA;                     \/\/ Image-relative base to add to offset$/;"	m	struct:SCOFF_BaseRelocationBlock
-ParseFile	coff.cpp	/^void CCOFF::ParseFile(){$/;"	f	class:CCOFF
-ParseFile	macho.cpp	/^void CMACHO<MACSTRUCTURES>::ParseFile(){$/;"	f	class:CMACHO
+Parse	objparser.cpp	/^void Disassembler::Parse()$/;"	f	class:Disassembler
+ParseCOF	objparser.cpp	/^void Disassembler::ParseCOF() {$/;"	f	class:Disassembler
+ParseFile	coff.cpp	/^void COFFDisassembler::ParseFile(){$/;"	f	class:COFFDisassembler
+ParseFile	macho.cpp	/^void MACHODisassembler<MACSTRUCTURES>::ParseFile(){$/;"	f	class:MACHODisassembler
 ParseInstruction	disasm1.cpp	/^void CDisassembler::ParseInstruction() {$/;"	f	class:CDisassembler
+ParseMACHO	objparser.cpp	/^void Disassembler::ParseMACHO() {$/;"	f	class:Disassembler
+Parsed	objparser.h	/^	int Parsed;$/;"	m	class:Disassembler
 Pass	disasm.h	/^   uint32  Pass;                                 \/\/ 1 = pass 1, 2-3 = pass 1 repeated, 0x10 = pass 2, 0x100 = repetition requested$/;"	m	class:CDisassembler
 Pass1	disasm1.cpp	/^void CDisassembler::Pass1() {$/;"	f	class:CDisassembler
 Pass2	disasm1.cpp	/^void CDisassembler::Pass2() {$/;"	f	class:CDisassembler
@@ -1103,9 +1067,9 @@ PointerToNextFunction	coff.h	/^      uint32 PointerToNextFunction; \/\/ Symbol t
 Prefixes	disasm.h	/^   uint8  Prefixes[8];                           \/\/ Stores the last prefix encountered in each category$/;"	m	struct:SOpcodeProp
 PreviousOpcodeOptions	disasm.h	/^   uint16  PreviousOpcodeOptions;                \/\/ Option flags for previous instruction$/;"	m	class:CDisassembler
 PreviousOpcodei	disasm.h	/^   uint16  PreviousOpcodei;                      \/\/ Opcode for previous instruction$/;"	m	class:CDisassembler
-PrintImportExport	coff.cpp	/^void CCOFF::PrintImportExport() {$/;"	f	class:CCOFF
-PrintSegmentCharacteristics	coff.cpp	/^void CCOFF::PrintSegmentCharacteristics(uint32 flags) {$/;"	f	class:CCOFF
-PrintSymbolTable	coff.cpp	/^void CCOFF::PrintSymbolTable(int symnum) {$/;"	f	class:CCOFF
+PrintImportExport	coff.cpp	/^void COFFDisassembler::PrintImportExport() {$/;"	f	class:COFFDisassembler
+PrintSegmentCharacteristics	coff.cpp	/^void COFFDisassembler::PrintSegmentCharacteristics(uint32 flags) {$/;"	f	class:COFFDisassembler
+PrintSymbolTable	coff.cpp	/^void COFFDisassembler::PrintSymbolTable(int symnum) {$/;"	f	class:COFFDisassembler
 Push	containers.cpp	/^uint32 CMemoryBuffer::Push(void const * obj, uint32 size) {$/;"	f	class:CMemoryBuffer
 Push	containers.h	/^   uint32 Push(RecordType const & x) {$/;"	f	class:CSList
 PushSort	containers.h	/^   int32 PushSort(RecordType const & x) {$/;"	f	class:CSList
@@ -1125,8 +1089,6 @@ PutHex	containers.cpp	/^void CTextFileBuffer::PutHex(uint8 x, int MasmForm) {$/;
 RM	disasm.h	/^   uint32 RM;                                    \/\/ r\/m bits of mod\/reg\/rm byte$/;"	m	struct:SOpcodeProp
 R_SCATTERED	macho.h	/^#define R_SCATTERED /;"	d
 Read	containers.cpp	/^void CFileBuffer::Read(int IgnoreError) {                   $/;"	f	class:CFileBuffer
-ReadCommandItem	cmdline.cpp	/^void CCommandLineInterpreter::ReadCommandItem(char * string) {$/;"	f	class:CCommandLineInterpreter
-ReadCommandLine	cmdline.cpp	/^void CCommandLineInterpreter::ReadCommandLine(int argc, char * argv[]) {$/;"	f	class:CCommandLineInterpreter
 RefOldIndex	disasm.h	/^   uint32  RefOldIndex;                          \/\/ Old symbol table index of reference point if Type = 8, 0x10, 0x200$/;"	m	struct:SARelocation
 Reg	disasm.h	/^   uint32 Reg;                                   \/\/ reg bits of mod\/reg\/rm byte$/;"	m	struct:SOpcodeProp
 Regist	disasm.h	/^   uint8  Regist[16];                            \/\/ Defines the type of information contained in each g.p. register$/;"	m	struct:SATracer
@@ -1137,7 +1099,7 @@ RegisterNames8	opcodes.cpp	/^const char * RegisterNames8[8] = {$/;"	v
 RegisterNames8x	opcodes.cpp	/^const char * RegisterNames8x[16] = {$/;"	v
 RegisterNamesCR	opcodes.cpp	/^const char * RegisterNamesCR[16] = {$/;"	v
 RegisterNamesSeg	opcodes.cpp	/^const char * RegisterNamesSeg[8] = {$/;"	v
-RelocationQueue	converters.h	/^   CSList<MAC_SECT_WITH_RELOC> RelocationQueue;  \/\/ List of relocation tables$/;"	m	class:CMAC2ASM
+RelocationQueue	macho.h	/^   CSList<MAC_SECT_WITH_RELOC> RelocationQueue;  \/\/ List of relocation tables$/;"	m	class:MACHODisassembler
 RelocationTypeNames	disasm2.cpp	/^SIntTxt RelocationTypeNames[] = {$/;"	v
 Relocations	disasm.h	/^   CSList<SARelocation> Relocations;             \/\/ List of cross references. First is 0$/;"	m	class:CDisassembler
 RelocationsInSource	disasm.h	/^   uint32  RelocationsInSource;                  \/\/ Number of relocations in source file$/;"	m	class:CDisassembler
@@ -1177,9 +1139,6 @@ SIZE_SCOFF_SymTableEntry	coff.h	/^#define SIZE_SCOFF_SymTableEntry /;"	d
 SIntTxt	maindef.h	/^struct SIntTxt {$/;"	s
 SOpcodeDef	disasm.h	/^struct SOpcodeDef {$/;"	s
 SOpcodeProp	disasm.h	/^struct SOpcodeProp {$/;"	s
-SUBTYPE_GASM	cmdline.h	/^#define SUBTYPE_GASM /;"	d
-SUBTYPE_MASM	cmdline.h	/^#define SUBTYPE_MASM /;"	d
-SUBTYPE_YASM	cmdline.h	/^#define SUBTYPE_YASM /;"	d
 S_EXTERNAL	maindef.h	/^#define S_EXTERNAL /;"	d
 S_LOCAL	maindef.h	/^#define S_LOCAL /;"	d
 S_PUBLIC	maindef.h	/^#define S_PUBLIC /;"	d
@@ -1202,14 +1161,14 @@ SectionAddress	disasm.h	/^   uint32  SectionAddress;                       \/\/ 
 SectionAlignment	coff.h	/^      uint32 SectionAlignment;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 SectionAlignment	coff.h	/^      uint32 SectionAlignment;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
 SectionEnd	disasm.h	/^   uint32  SectionEnd;                           \/\/ End of current section$/;"	m	class:CDisassembler
-SectionHeaderOffset	converters.h	/^   uint32 SectionHeaderOffset;                   \/\/ File offset of section headers$/;"	m	class:CMACHO
-SectionHeaders	converters.h	/^   CArrayBuf<SCOFF_SectionHeader> SectionHeaders;\/\/ Copy of section headers$/;"	m	class:CCOFF
+SectionHeaderOffset	macho.h	/^   uint32 SectionHeaderOffset;                   \/\/ File offset of section headers$/;"	m	class:MACHODisassembler
+SectionHeaders	coff.h	/^   CArrayBuf<SCOFF_SectionHeader> SectionHeaders;\/\/ Copy of section headers$/;"	m	class:COFFDisassembler
 SectionNumber	coff.h	/^      int16  SectionNumber;$/;"	m	struct:SCOFF_SymTableEntry::__anon4
 SectionOffset	coff.h	/^   uint32 SectionOffset;               \/\/ Offset relative to section$/;"	m	struct:SCOFF_ImageDirAddress
 SectionType	disasm.h	/^   uint32  SectionType;                          \/\/ 0 = unknown, 1 = code, 2 = data, 3 = uninitialized data, 4 = constant data$/;"	m	class:CDisassembler
 Sections	disasm.h	/^   CSList<SASection> Sections;                   \/\/ List of sections. First is 0$/;"	m	class:CDisassembler
-SegmentOffset	converters.h	/^   uint32 SegmentOffset;                         \/\/ File offset of segment$/;"	m	class:CMACHO
-SegmentSize	converters.h	/^   uint32 SegmentSize;                           \/\/ Size of segment$/;"	m	class:CMACHO
+SegmentOffset	macho.h	/^   uint32 SegmentOffset;                         \/\/ File offset of segment$/;"	m	class:MACHODisassembler
+SegmentSize	macho.h	/^   uint32 SegmentSize;                           \/\/ Size of segment$/;"	m	class:MACHODisassembler
 Selection	coff.h	/^      uint8  Selection;            \/\/ Unused$/;"	m	struct:SCOFF_SymTableEntry::__anon10
 SetFileNameExtension	containers.cpp	/^char * CFileBuffer::SetFileNameExtension(const char * f) {$/;"	f	class:CFileBuffer
 SetFileType	containers.cpp	/^void CFileBuffer::SetFileType(int type) {$/;"	f	class:CFileBuffer
@@ -1223,7 +1182,6 @@ Sf32mfmadd233	opcodes.cpp	/^SwizSpec Sf32mfmadd233[8] = {  \/\/ 32-bit float mem
 Sf32r	opcodes.cpp	/^SwizSpec Sf32r[8] = {  \/\/ 32-bit float or integer register permutation$/;"	v
 Sf64m	opcodes.cpp	/^SwizSpec Sf64m[8] = {  \/\/ 64-bit float memory broadcast (no conversion)$/;"	v
 Sf64r	opcodes.cpp	/^SwizSpec Sf64r[8] = {  \/\/ 64-bit float or integer register permutation$/;"	v
-ShowHelp	cmdline.h	/^   int    ShowHelp;                          \/\/ Help screen printed$/;"	m	class:CCommandLineInterpreter
 Si32m	opcodes.cpp	/^SwizSpec Si32m[8] = {  \/\/ 32-bit integer memory broadcast or conversion$/;"	v
 Si32mHalf	opcodes.cpp	/^SwizSpec Si32mHalf[8] = {  \/\/ 32-bit integer memory broadcast with conversion to double (VCVTDQ2PD)$/;"	v
 Si64m	opcodes.cpp	/^SwizSpec Si64m[8] = {  \/\/ 64-bit integer memory broadcast (no conversion)$/;"	v
@@ -1259,11 +1217,8 @@ Source1	disasm.h	/^   uint16 Source1;                     \/\/ type and size of 
 Source2	disasm.h	/^   uint16 Source2;                     \/\/ type and size of 2. source operand$/;"	m	struct:SOpcodeDef
 Source3	disasm.h	/^   uint16 Source3;                     \/\/ type and size of 3. source operand$/;"	m	struct:SOpcodeDef
 SourceLineNumber	coff.h	/^      uint16 SourceLineNumber; \/\/ Line number in source file$/;"	m	struct:SCOFF_SymTableEntry::__anon6
-SpecifiedOption	cmdline.h	/^   int	SpecifiedOption;$/;"	m	class:CCommandLineInterpreter
 Sround_1	opcodes.cpp	/^SwizSpec Sround_1[8] = {  \/\/ Register operand rounding mode and suppress all exceptions$/;"	v
 Sround_2	opcodes.cpp	/^SwizSpec Sround_2[8] = {  \/\/ Register operand rounding mode and suppress all exceptions$/;"	v
-StandardNames32	cmdline.cpp	/^const char * StandardNames32[][MaxType+1] = {$/;"	v
-StandardNames64	cmdline.cpp	/^const char * StandardNames64[][MaxType+1] = {$/;"	v
 Start	disasm.h	/^   uint32 Start;                                 \/\/ Offset of function start$/;"	m	struct:CodeBlock
 Start	disasm.h	/^   uint32 Start;                                 \/\/ Offset of function start$/;"	m	struct:SFunctionRecord
 Start	disasm.h	/^   uint8 * Start;                                \/\/ Point to start of binary data$/;"	m	struct:SASection
@@ -1271,25 +1226,23 @@ Status	error.h	/^   int  Status;         \/\/ bit 0-3 = severity: 0 = ignore, 1 
 StorageClass	coff.h	/^      uint8  StorageClass;$/;"	m	struct:SCOFF_SymTableEntry::__anon4
 StoreList	macho.cpp	/^void MacSymbolTableBuilder<TMAC_nlist, MInt>::StoreList(CMemoryBuffer * SymbolTable, CMemoryBuffer * StringTable) {$/;"	f	class:MacSymbolTableBuilder
 StorePrefix	disasm1.cpp	/^void CDisassembler::StorePrefix(uint32 Category, uint8 Byte) {$/;"	f	class:CDisassembler
-StringBuffer	converters.h	/^   CMemoryBuffer StringBuffer;                   \/\/ Buffer for making section names$/;"	m	class:CMAC2ASM
+StringBuffer	macho.h	/^   CMemoryBuffer StringBuffer;                   \/\/ Buffer for making section names$/;"	m	class:MACHODisassembler
 StringBuffer	macho.h	/^   CMemoryBuffer StringBuffer;                   \/\/ Temporary storage of symbol names$/;"	m	class:MacSymbolTableBuilder
-StringTabOffset	converters.h	/^   uint32 StringTabOffset;                       \/\/ File offset of string table$/;"	m	class:CMACHO
-StringTabSize	converters.h	/^   uint32 StringTabSize;                         \/\/ Size of string table$/;"	m	class:CMACHO
-StringTable	converters.h	/^   char * StringTable;                           \/\/ Pointer to string table (for object files)$/;"	m	class:CCOFF
-StringTableSize	converters.h	/^   uint32 StringTableSize;                       \/\/ Size of string table (for object files)$/;"	m	class:CCOFF
-SubType	cmdline.h	/^   int	  SubType;$/;"	m	class:CCommandLineInterpreter
+StringTabOffset	macho.h	/^   uint32 StringTabOffset;                       \/\/ File offset of string table$/;"	m	class:MACHODisassembler
+StringTabSize	macho.h	/^   uint32 StringTabSize;                         \/\/ Size of string table$/;"	m	class:MACHODisassembler
+StringTable	coff.h	/^   char * StringTable;                           \/\/ Pointer to string table (for object files)$/;"	m	class:COFFDisassembler
+StringTableSize	coff.h	/^   uint32 StringTableSize;                       \/\/ Size of string table (for object files)$/;"	m	class:COFFDisassembler
 Subsystem	coff.h	/^      uint16 Subsystem;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 Subsystem	coff.h	/^      uint16 Subsystem;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
-SubtypeNames	cmdline.cpp	/^static SIntTxt SubtypeNames[] = {$/;"	v	file:
 SwizRecord	disasm.h	/^   SwizSpec const * SwizRecord;                  \/\/ Selected entry in MVEX table for MVEX code$/;"	m	struct:SOpcodeProp
 SwizRoundTables	opcodes.cpp	/^SwizSpec const * SwizRoundTables[1][2] = {$/;"	v
 SwizSpec	disasm.h	/^struct SwizSpec {$/;"	s
 SwizTableLookup	disasm1.cpp	/^void CDisassembler::SwizTableLookup() {$/;"	f	class:CDisassembler
 SwizTables	opcodes.cpp	/^SwizSpec const * SwizTables[][2] = {$/;"	v
-SymTabNumber	converters.h	/^   uint32 SymTabNumber;                          \/\/ Number of entries in symbol table$/;"	m	class:CMACHO
-SymTabOffset	converters.h	/^   uint32 SymTabOffset;                          \/\/ File offset of symbol table$/;"	m	class:CMACHO
+SymTabNumber	macho.h	/^   uint32 SymTabNumber;                          \/\/ Number of entries in symbol table$/;"	m	class:MACHODisassembler
+SymTabOffset	macho.h	/^   uint32 SymTabOffset;                          \/\/ File offset of symbol table$/;"	m	class:MACHODisassembler
 SymbolNameBuffer	disasm.h	/^   CMemoryBuffer    SymbolNameBuffer;            \/\/ String buffer for names of symbols$/;"	m	class:CSymbolTable
-SymbolTable	converters.h	/^   SCOFF_SymTableEntry * SymbolTable;            \/\/ Pointer to symbol table (for object files)$/;"	m	class:CCOFF
+SymbolTable	coff.h	/^   SCOFF_SymTableEntry * SymbolTable;            \/\/ Pointer to symbol table (for object files)$/;"	m	class:COFFDisassembler
 SymbolTableIndex	coff.h	/^  uint32 SymbolTableIndex; \/\/ Zero-based index into symbol table$/;"	m	struct:SCOFF_Relocation
 Symbols	disasm.h	/^   CSymbolTable Symbols;                         \/\/ Table of symbols$/;"	m	class:CDisassembler
 Syntax	disasm.h	/^   uint32  Syntax;                               \/\/ Assembly syntax dialect: 1: MASM\/TASM, 2: NASM\/YASM, 4: GAS$/;"	m	class:CDisassembler
@@ -1314,7 +1267,6 @@ Type	coff.h	/^  uint16 Type;             \/\/ Relocation type$/;"	m	struct:SCOFF
 Type	disasm.h	/^   uint32  Type;                                 \/\/ 0 = unknown, 1 = code, $/;"	m	struct:SASection
 Type	disasm.h	/^   uint32  Type;                                 \/\/ Relocation types:$/;"	m	struct:SARelocation
 Type	disasm.h	/^   uint32  Type;                                 \/\/ Use values listed above for SOpcodeDef operands. 0 = unknown type$/;"	m	struct:SASymbol
-TypeOptionNames	cmdline.cpp	/^static SIntTxt TypeOptionNames[] = {$/;"	v	file:
 Uf32m	opcodes.cpp	/^SwizSpec Uf32m[8] = {  \/\/ 32-bit float memory up- or down-conversion$/;"	v
 Uf32mx4	opcodes.cpp	/^SwizSpec Uf32mx4[8] = {  \/\/ 32-bit float memory up-conversion, broadcast * 4, vbroadcastf32x4$/;"	v
 Uf64m	opcodes.cpp	/^SwizSpec Uf64m[8] = {  \/\/ 64-bit float memory, no up- or down-conversion$/;"	v
@@ -1350,7 +1302,7 @@ Warnings1	disasm.h	/^   uint32 Warnings1;                             \/\/ Warni
 Warnings2	disasm.h	/^   uint32 Warnings2;                             \/\/ Warnings about possible misinterpretation$/;"	m	struct:SOpcodeProp
 Win32VersionValue	coff.h	/^      uint32 Win32VersionValue;        \/\/ must be 0$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 Win32VersionValue	coff.h	/^      uint32 Win32VersionValue;        \/\/ must be 0$/;"	m	struct:SCOFF_OptionalHeader::__anon2
-WordSize	containers.h	/^   int WordSize;                                 \/\/ Segment word size (16, 32, 64)$/;"	m	class:CFileBuffer
+WordSize	containers.h	/^		int WordSize;                                 \/\/ Segment word size (16, 32, 64)$/;"	m	class:CFileBuffer
 WordSize	disasm.h	/^   uint32  WordSize;                             \/\/ Segment word size: 16, 32, 64$/;"	m	class:CDisassembler
 WordSize	disasm.h	/^   uint32  WordSize;                             \/\/ Word size, 16, 32, 64$/;"	m	struct:SASection
 WorstError	error.h	/^   int WorstError;      \/\/ Highest error number encountered$/;"	m	class:CErrorReporter
@@ -1424,7 +1376,6 @@ b	maindef.h	/^   const char * b;$/;"	m	struct:SIntTxt
 bfef	coff.h	/^   } bfef;$/;"	m	union:SCOFF_SymTableEntry	typeref:struct:SCOFF_SymTableEntry::__anon6
 buffer	containers.h	/^   RecordType * buffer;                          \/\/ Dynamically allocated memory$/;"	m	class:CArrayBuf
 buffer	containers.h	/^   int8 * buffer;                                \/\/ Buffer containing binary data. To be modified only by SetSize and operator >>$/;"	m	class:CMemoryBuffer
-cmd	cmdline.cpp	/^CCommandLineInterpreter cmd;                  \/\/ Instantiate command line interpreter$/;"	v
 cmd	macho.h	/^	uint32	cmd;		      \/* LC_SEGMENT *\/$/;"	m	struct:MAC_segment_command_32
 cmd	macho.h	/^	uint32	cmd;		    \/* LC_SEGMENT_64 *\/$/;"	m	struct:MAC_segment_command_64
 cmd	macho.h	/^	uint32	cmd;		   \/* LC_SYMTAB *\/$/;"	m	struct:MAC_symtab_command
@@ -1435,6 +1386,7 @@ cmdsize	macho.h	/^	uint32	cmdsize;	    \/* includes sizeof section_64 structs *\
 cmdsize	macho.h	/^	uint32	cmdsize;	   \/* sizeof(MAC_symtab_command) *\/$/;"	m	struct:MAC_symtab_command
 cmdsize	macho.h	/^	uint32 cmdsize;	      \/\/ total size of command in bytes$/;"	m	struct:MAC_load_command
 cmdsize	macho.h	/^    uint32 cmdsize;	\/* sizeof(struct dysymtab_command) *\/$/;"	m	struct:MAC_dysymtab_command
+coff	objparser.h	/^	COFFDisassembler *coff;$/;"	m	class:Disassembler
 column	containers.h	/^   uint32 column;                                \/\/ Current column$/;"	m	class:CTextFileBuffer
 cpusubtype	macho.h	/^	uint32	cpusubtype;	\/\/ machine specifier$/;"	m	struct:MAC_header_32
 cpusubtype	macho.h	/^	uint32	cpusubtype;	\/\/ machine specifier$/;"	m	struct:MAC_header_64
@@ -1462,13 +1414,14 @@ flags	macho.h	/^	uint32   flags;		\/\/ flags$/;"	m	struct:MAC_header_64
 func	coff.h	/^   } func;$/;"	m	union:SCOFF_SymTableEntry	typeref:struct:SCOFF_SymTableEntry::__anon5
 h32	coff.h	/^   } h32;$/;"	m	union:SCOFF_OptionalHeader	typeref:struct:SCOFF_OptionalHeader::__anon1
 h64	coff.h	/^   } h64;$/;"	m	union:SCOFF_OptionalHeader	typeref:struct:SCOFF_OptionalHeader::__anon2
-iextdefsym	converters.h	/^   uint32 iextdefsym;	                         \/\/ index to public symbols$/;"	m	class:CMACHO
 iextdefsym	macho.h	/^    uint32 iextdefsym;	\/\/ index to externally defined symbols$/;"	m	struct:MAC_dysymtab_command
-ilocalsym	converters.h	/^   uint32 ilocalsym;	                            \/\/ index to local symbols$/;"	m	class:CMACHO
+iextdefsym	macho.h	/^   uint32 iextdefsym;	                         \/\/ index to public symbols$/;"	m	class:MACHODisassembler
 ilocalsym	macho.h	/^    uint32 ilocalsym;	\/\/ index to local symbols$/;"	m	struct:MAC_dysymtab_command
+ilocalsym	macho.h	/^   uint32 ilocalsym;	                            \/\/ index to local symbols$/;"	m	class:MACHODisassembler
 indirectsymoff	macho.h	/^    uint32 indirectsymoff; \/\/ file offset to the indirect symbol table$/;"	m	struct:MAC_dysymtab_command
 initprot	macho.h	/^	uint32	initprot;	   \/* initial VM protection *\/$/;"	m	struct:MAC_segment_command_32
 initprot	macho.h	/^	uint32	initprot;	 \/* initial VM protection *\/$/;"	m	struct:MAC_segment_command_64
+input_file_name	main.cpp	/^char *input_file_name = 0;$/;"	v
 int16	maindef.h	/^  typedef int16_t          int16;      \/\/ 16 bit signed integer$/;"	t
 int16	maindef.h	/^typedef short int          int16;      \/\/ 16 bit signed integer$/;"	t
 int32	maindef.h	/^  typedef int32_t          int32;      \/\/ 32 bit signed integer$/;"	t
@@ -1478,9 +1431,11 @@ int64	maindef.h	/^typedef __int64            int64;      \/\/ 64 bit signed inte
 int64	maindef.h	/^typedef long long          int64;      \/\/ 64 bit signed integer$/;"	t
 int8	maindef.h	/^  typedef char             int8;       \/\/ 8 bit  signed integer$/;"	t
 int8	maindef.h	/^typedef char               int8;       \/\/ 8 bit  signed integer$/;"	t
-iundefsym	converters.h	/^   uint32 iundefsym;	                            \/\/ index to external symbols$/;"	m	class:CMACHO
 iundefsym	macho.h	/^    uint32 iundefsym;	\/\/ index to undefined symbols$/;"	m	struct:MAC_dysymtab_command
+iundefsym	macho.h	/^   uint32 iundefsym;	                            \/\/ index to external symbols$/;"	m	class:MACHODisassembler
 locreloff	macho.h	/^    uint32 locreloff;	\/* offset to local relocation entries *\/$/;"	m	struct:MAC_dysymtab_command
+macho32	objparser.h	/^	MACHODisassembler<MAC32STRUCTURES> *macho32;$/;"	m	class:Disassembler
+macho64	objparser.h	/^	MACHODisassembler<MAC64STRUCTURES> *macho64;$/;"	m	class:Disassembler
 magic	macho.h	/^	uint32	magic;		\/\/ mach magic number identifier$/;"	m	struct:MAC_header_32
 magic	macho.h	/^	uint32	magic;		\/\/ mach magic number identifier$/;"	m	struct:MAC_header_64
 magic	macho.h	/^   uint32 magic;                       \/\/ Magic number 0xCAFEBABE, big endian$/;"	m	struct:MAC_UNIV_FAT_HEADER
@@ -1503,13 +1458,13 @@ n_value	macho.h	/^   uint64  n_value;  \/\/ value of this symbol (or stab offset
 name	disasm.h	/^    const char * name;  \/\/ name of permutation, conversion or rounding$/;"	m	struct:SwizSpec
 ncmds	macho.h	/^	uint32	ncmds;		\/\/ number of load commands$/;"	m	struct:MAC_header_32
 ncmds	macho.h	/^	uint32	ncmds;		\/\/ number of load commands$/;"	m	struct:MAC_header_64
-nextdefsym	converters.h	/^   uint32 nextdefsym;	                         \/\/ number of public symbols $/;"	m	class:CMACHO
 nextdefsym	macho.h	/^    uint32 nextdefsym;	\/\/ number of externally defined symbols $/;"	m	struct:MAC_dysymtab_command
+nextdefsym	macho.h	/^   uint32 nextdefsym;	                         \/\/ number of public symbols $/;"	m	class:MACHODisassembler
 nextrefsyms	macho.h	/^    uint32 nextrefsyms;	  \/* number of referenced symbol table entries *\/$/;"	m	struct:MAC_dysymtab_command
 nextrel	macho.h	/^    uint32 nextrel;	   \/* number of external relocation entries *\/$/;"	m	struct:MAC_dysymtab_command
 nindirectsyms	macho.h	/^    uint32 nindirectsyms;  \/\/ number of indirect symbol table entries$/;"	m	struct:MAC_dysymtab_command
-nlocalsym	converters.h	/^   uint32 nlocalsym;	                            \/\/ number of local symbols $/;"	m	class:CMACHO
 nlocalsym	macho.h	/^    uint32 nlocalsym;	\/\/ number of local symbols $/;"	m	struct:MAC_dysymtab_command
+nlocalsym	macho.h	/^   uint32 nlocalsym;	                            \/\/ number of local symbols $/;"	m	class:MACHODisassembler
 nlocrel	macho.h	/^    uint32 nlocrel;	\/* number of local relocation entries *\/$/;"	m	struct:MAC_dysymtab_command
 nmodtab	macho.h	/^    uint32 nmodtab;	   \/* number of module table entries *\/$/;"	m	struct:MAC_dysymtab_command
 nreloc	macho.h	/^	uint32	nreloc;		   \/* number of relocation entries *\/$/;"	m	struct:MAC_section_32
@@ -1520,8 +1475,8 @@ nsyms	macho.h	/^	uint32	nsyms;		\/* number of symbol table entries *\/$/;"	m	str
 ntoc	macho.h	/^    uint32 ntoc;		\/* number of entries in table of contents *\/$/;"	m	struct:MAC_dysymtab_command
 num	containers.h	/^   uint32 num;                                   \/\/ Number of entries in array$/;"	m	class:CArrayBuf
 num_arch	macho.h	/^   uint32 num_arch;                    \/\/ Number of members, big endian$/;"	m	struct:MAC_UNIV_FAT_HEADER
-nundefsym	converters.h	/^   uint32 nundefsym;	                            \/\/ number of external symbols$/;"	m	class:CMACHO
 nundefsym	macho.h	/^    uint32 nundefsym;	\/\/ number of undefined symbols$/;"	m	struct:MAC_dysymtab_command
+nundefsym	macho.h	/^   uint32 nundefsym;	                            \/\/ number of external symbols$/;"	m	class:MACHODisassembler
 offset	coff.h	/^      uint32 offset; \/\/ string table entry$/;"	m	struct:SCOFF_SymTableEntry::__anon9
 offset	macho.h	/^	uint32	offset;		   \/* file offset of this section *\/$/;"	m	struct:MAC_section_64
 offset	macho.h	/^	uint32	offset;	   	\/* file offset of this section *\/$/;"	m	struct:MAC_section_32
@@ -1531,12 +1486,13 @@ operator <	disasm.h	/^   int operator < (const SARelocation & y) const{\/\/ Oper
 operator <	disasm.h	/^   int operator < (const SASymbol & y) const {   \/\/ Operator for sorting symbol table$/;"	f	struct:SASymbol
 operator <	disasm.h	/^   int operator < (const SFunctionRecord & y) const{\/\/ Operator for sorting function table by source address$/;"	f	struct:SFunctionRecord
 operator <<	containers.h	/^static inline void operator << (CFileBuffer & b, CFileBuffer & a) {a >> b;} \/\/ Same as operator << above$/;"	f
-operator >>	containers.cpp	/^void operator >> (CFileBuffer & a, CFileBuffer & b) {$/;"	f
+operator >>	containers.cpp	/^void operator >> (CFileBuffer & a, CFileBuffer & b)$/;"	f
 operator []	containers.h	/^   RecordType & operator[] (uint32 i) {          \/\/ Access array element [i]$/;"	f	class:CArrayBuf
 operator []	containers.h	/^   RecordType & operator[] (uint32 i) {$/;"	f	class:CSList
 operator []	disasm.h	/^   SASymbol & operator [](uint32 NewIndex) {     \/\/ Access symbol by new index$/;"	f	class:CSymbolTable
 operator []	macho.cpp	/^MacSymbolRecord<TMAC_nlist> & MacSymbolTableBuilder<TMAC_nlist, MInt>::operator[] (uint32 i) {$/;"	f	class:MacSymbolTableBuilder
-pImageDirs	converters.h	/^   SCOFF_IMAGE_DATA_DIRECTORY * pImageDirs;      \/\/ Pointer to image directories (for executable files)$/;"	m	class:CCOFF
+output_file_name	main.cpp	/^char *output_file_name = 0;$/;"	v
+pImageDirs	coff.h	/^   SCOFF_IMAGE_DATA_DIRECTORY * pImageDirs;      \/\/ Pointer to image directories (for executable files)$/;"	m	class:COFFDisassembler
 r_address	macho.h	/^   uint32  r_address:24,   \/\/ offset in the section to what is being relocated (source)$/;"	m	struct:MAC_scattered_relocation_info
 r_address	macho.h	/^   uint32  r_address;      \/\/ offset in the section to what is being relocated (source)$/;"	m	struct:MAC_relocation_info
 r_extern	macho.h	/^           r_extern:1,     \/\/ r_extern = 1 for symbols in symbol table$/;"	m	struct:MAC_relocation_info
@@ -1585,7 +1541,6 @@ submit	error.cpp	/^void CErrorReporter::submit(int ErrorNumber, int extra1, char
 submit	error.cpp	/^void CErrorReporter::submit(int ErrorNumber, int extra1, int extra2) { $/;"	f	class:CErrorReporter
 symoff	macho.h	/^	uint32	symoff;		\/* symbol table offset *\/$/;"	m	struct:MAC_symtab_command
 t	disasm.h	/^   SATracer t;                                   \/\/ Trace of register contents$/;"	m	class:CDisassembler
-timestring	main.cpp	/^const char * timestring(uint32 t) {$/;"	f
 tocoff	macho.h	/^    uint32 tocoff;	\/* file offset to table of contents *\/$/;"	m	struct:MAC_dysymtab_command
 uint16	maindef.h	/^  typedef uint16_t         uint16;     \/\/ 16 bit unsigned integer$/;"	t
 uint16	maindef.h	/^typedef unsigned short int uint16;     \/\/ 16 bit unsigned integer$/;"	t
@@ -1596,6 +1551,7 @@ uint64	maindef.h	/^typedef unsigned __int64   uint64;     \/\/ 64 bit unsigned i
 uint64	maindef.h	/^typedef unsigned long long uint64;     \/\/ 64 bit unsigned integer$/;"	t
 uint8	maindef.h	/^  typedef uint8_t          uint8;      \/\/ 8 bit  unsigned integer$/;"	t
 uint8	maindef.h	/^typedef unsigned char      uint8;      \/\/ 8 bit  unsigned integer$/;"	t
+usage	main.cpp	/^void usage()$/;"	f
 vmaddr	macho.h	/^	uint32	vmaddr;		   \/* memory address of this segment *\/$/;"	m	struct:MAC_segment_command_32
 vmaddr	macho.h	/^	uint64	vmaddr;		 \/* memory address of this segment *\/$/;"	m	struct:MAC_segment_command_64
 vmsize	macho.h	/^	uint32	vmsize;		   \/* memory size of this segment *\/$/;"	m	struct:MAC_segment_command_32
@@ -1604,5 +1560,4 @@ weak	coff.h	/^   } weak;$/;"	m	union:SCOFF_SymTableEntry	typeref:struct:SCOFF_Sy
 x_tvndx	coff.h	/^      uint16 x_tvndx;      \/\/ Unused$/;"	m	struct:SCOFF_SymTableEntry::__anon5
 zeroes	coff.h	/^      uint32 zeroes; \/\/ zeroes if name file name longer than 18$/;"	m	struct:SCOFF_SymTableEntry::__anon9
 ~CArrayBuf	containers.h	/^   ~CArrayBuf() {                                \/\/ Destructor$/;"	f	class:CArrayBuf
-~CCommandLineInterpreter	cmdline.cpp	/^CCommandLineInterpreter::~CCommandLineInterpreter() { \/\/ Destructor$/;"	f	class:CCommandLineInterpreter
 ~CMemoryBuffer	containers.cpp	/^CMemoryBuffer::~CMemoryBuffer() {$/;"	f	class:CMemoryBuffer

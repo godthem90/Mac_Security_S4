@@ -49,7 +49,8 @@ CSymbolTable::CSymbolTable() {
     NewNum = 0;                                   // Initialize
     UnnamedNum = 0;                               // Number of unnamed symbols
     UnnamedSymFormat = 0;                         // Format string for giving names to unnamed symbols
-    UnnamedSymbolsPrefix = cmd.SubType == SUBTYPE_GASM ? "$_" : "?_";// Prefix to add to unnamed symbols
+    //UnnamedSymbolsPrefix = cmd.SubType == SUBTYPE_GASM ? "$_" : "?_";// Prefix to add to unnamed symbols
+    UnnamedSymbolsPrefix = SUBTYPE_YASM == SUBTYPE_GASM ? "$_" : "?_";// Prefix to add to unnamed symbols
     ImportTablePrefix = "imp_";                   // Prefix for pointers in import table
 
     // Make dummy symbol number 0
@@ -459,7 +460,6 @@ CDisassembler::CDisassembler() {
     InstructionSetOR = FlagPrevious = NamesChanged = 0;
     WordSize = MasmOptions = RelocationsInSource = ExeType = 0;
     ImageBase = 0;
-    Syntax = cmd.SubType;                         // Assembly syntax dialect
     if (Syntax == SUBTYPE_GASM) {
         CommentSeparator = "# ";                   // Symbol for indicating comment
         HereOperator = ".";                        // Symbol for current address
@@ -474,6 +474,11 @@ void CDisassembler::Init(uint32 ExeType, int64 ImageBase) {
     // Define file type and imagebase if executable file
     this->ExeType = ExeType;
     this->ImageBase = ImageBase;
+}
+
+void CDisassembler::SetOutType(int OutType) {
+    // Define file type and imagebase if executable file
+    this->Syntax = OutType;
 }
 
 void CDisassembler::AddSection(

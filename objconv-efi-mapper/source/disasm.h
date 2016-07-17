@@ -9,6 +9,7 @@
 *
 * Copyright 2007-2014 GNU General Public License http://www.gnu.org/licenses
 *****************************************************************************/
+
 #ifndef DISASM_H
 #define DISASM_H
 
@@ -617,6 +618,7 @@ public:
    void FindBlock();
    void Go();                                    // Do the disassembly
    void Init(uint32 ExeType, int64 ImageBase);   // Define file type and imagebase if executable file
+   void SetOutType(int OutType);
                                                  // ExeType: 0 = object, 1 = position independent shared object, 2 = executable file
                                                  // Set ExeType = 2 if addresses have been relocated to a nonzero image base and there is no base relocation table.
    void AddSection(                              // Define section to be disassembled
