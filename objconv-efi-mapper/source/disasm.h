@@ -471,6 +471,16 @@ struct SOpcodeProp {
 // Note that the 66 and REX.W prefixes belong to two categories. The interpretation
 // is determined by AllowedPrefixes in SOpcodeDef
 
+struct CodeBlock
+{
+   int32  Section;                               // Section containing function
+   uint32 Start;                                 // Offset of function start
+   uint32 End;                                   // Offset of function end
+
+   int operator < (const CodeBlock & y) const{// Operator for sorting function table by source address
+      return Section < y.Section || (Section == y.Section && Start < y.Start);}
+};
+
 // Structure for tracing register values etc.
 // See CDisassembler::UpdateTracer() in disasm.cpp for an explanation
 struct SATracer {
@@ -604,6 +614,7 @@ public:
 class CDisassembler {
 public:
    CDisassembler();                              // Constructor. Initializes tables etc.
+   void FindBlock();
    void Go();                                    // Do the disassembly
    void Init(uint32 ExeType, int64 ImageBase);   // Define file type and imagebase if executable file
                                                  // ExeType: 0 = object, 1 = position independent shared object, 2 = executable file
@@ -649,6 +660,7 @@ public:
    const char * HereOperator;                    // "$" or "." indicating current position
    CTextFileBuffer   OutFile;                    // Output file
 protected:
+   CSList<CodeBlock> BlockList;
    CSymbolTable Symbols;                         // Table of symbols
    CSList<SASection> Sections;                   // List of sections. First is 0
    CSList<SARelocation> Relocations;             // List of cross references. First is 0
@@ -670,6 +682,8 @@ protected:
    uint32  SectionAddress;                       // Address of beginning of this section
    uint32  SectionType;                          // 0 = unknown, 1 = code, 2 = data, 3 = uninitialized data, 4 = constant data
    uint32  CodeMode;                             // 1 if current position contains code, 2 if dubiuos, 4 if data
+   uint32  IBlock;                            // Index into FunctionList
+   uint32  BlockEnd;                          // End address of current function (pass 2)
    uint32  IFunction;                            // Index into FunctionList
    uint32  FunctionEnd;                          // End address of current function (pass 2)
    uint32  LabelBegin;                           // Address of nearest preceding label
@@ -725,6 +739,9 @@ protected:
    void    FollowJumpTable(uint32 symi, uint32 RelType);// Check jump/call table and its targets
    uint32  MakeMissingRelocation(int32 Section, uint32 Offset, uint32 RelType, uint32 TargetType, uint32 TargetScope, uint32 SourceSize = 0, uint32 RefPoint = 0); // Make a relocation and its target symbol from inline address
    void    CheckImportSymbol(uint32 symi);       // Check for indirect jump to import table entry
+   void	   MakeBlockList();
+   void    CheckForBlockBegin();
+   void    CheckForBlockEnd();
    void    CheckForFunctionBegin();              // Check if function begins at current position
    void    CheckForFunctionEnd();                // Check if function ends at current position
    void    CheckLabel();                         // Check if a label is needed before instruction

@@ -354,10 +354,10 @@ void CFileBuffer::CheckOutputFileName() {
         // Output file name not specified. Make filename
         OutputFileName = cmd.OutputFile = SetFileNameExtension(FileName);
     }
-    if (strcmp(FileName,OutputFileName) == 0 && !(cmd.FileOptions & CMDL_FILE_IN_OUT_SAME)) {
+    /*if (strcmp(FileName,OutputFileName) == 0 && !(cmd.FileOptions & CMDL_FILE_IN_OUT_SAME)) {
         // Input and output files have same name
         err.submit(2005, FileName);
-    }
+    }*/
 }
 
 void operator >> (CFileBuffer & a, CFileBuffer & b) {

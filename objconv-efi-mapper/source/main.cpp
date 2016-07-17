@@ -15,6 +15,9 @@
 
 #include "stdafx.h"
 
+char *InputFile = 0;
+char *OutputFile = 0;
+
 // Check that integer type definitions are correct.
 // Will generate an error message if the compiler makes the integer types 
 // with wrong size.

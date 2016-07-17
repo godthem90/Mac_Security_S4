@@ -130,6 +130,7 @@ class CMAC2ASM : public CMACHO<MACSTRUCTURES> {
 public:
    CMAC2ASM();                                   // Constructor
    void Convert();                               // Do the conversion
+   void ExtractBlock();
 protected:
    void MakeSectionList();                       // Make Sections list in Disasm
    void MakeSymbolList();                        // Make Symbols list in Disasm

@@ -261,9 +261,9 @@ public:
 template <class RecordType> 
 class CSList : private CMemoryBuffer {
 public:
-   void Push(RecordType const & x) {
+   uint32 Push(RecordType const & x) {
       // Add member to list
-      CMemoryBuffer::Push(&x, sizeof(x));
+      return CMemoryBuffer::Push(&x, sizeof(x));
    }
    void PushZero() {
       // Add blank entry to list

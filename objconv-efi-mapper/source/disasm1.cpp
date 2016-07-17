@@ -452,6 +452,7 @@ CDisassembler::CDisassembler() {
     Relocations.PushZero();                       // Make first relocation entry zero
     NameBuffer.Push(0, 1);                        // Make first string entry zero   
     FunctionList.PushZero();                      // Make first function entry zero
+	BlockList.PushZero();
     // Initialize variables
     Buffer = 0;
     InstructionSetMax = InstructionSetAMDMAX = 0;
@@ -467,7 +468,7 @@ CDisassembler::CDisassembler() {
         CommentSeparator = "; ";                   // Symbol for indicating comment
         HereOperator = "$";                        // Symbol for current address
     }
-};
+}
 
 void CDisassembler::Init(uint32 ExeType, int64 ImageBase) {
     // Define file type and imagebase if executable file
@@ -663,6 +664,82 @@ uint32 ReferenceIndex) {                      // Symbol index of reference point
     }
 }
 
+void CDisassembler::MakeBlockList()
+{
+
+    // Loop through sections, pass 1
+    for (Section = 1; Section < Sections.GetNumEntries(); Section++) {
+
+        // Get section type
+        SectionType = Sections[Section].Type;
+        if (SectionType & 0x800) continue;         // This is a group
+
+        // Code or data
+        CodeMode = (SectionType & 1) ? 1 : 4;
+        LabelBegin = FlagPrevious = CountErrors = 0;
+
+        if ((Sections[Section].Type & 0xFF) == 1) {
+            // This is a code section
+
+            // Initialize code parser
+            Buffer     = Sections[Section].Start;
+            SectionEnd = FunctionEnd = LabelInaccessible = Sections[Section].TotalSize;
+            WordSize   = Sections[Section].WordSize;
+            SectionAddress = Sections[Section].SectionAddress;
+            if (Buffer == 0) continue;
+
+            IBegin = IEnd = LabelEnd = 0;
+            IFunction = 0;
+			IBlock = 0;
+
+            // Loop through instructions
+            while (NextInstruction1()) {
+
+				CheckForFunctionBegin();
+                // check if function beings here
+                CheckForBlockBegin();
+
+				FindLabels();
+
+                // Check if code
+                if (CodeMode < 4) {
+                    // This is code
+                    // Parse instruction
+					printf("%x : ",Buffer[IBegin]);
+                    ParseInstruction();
+                }
+                else {
+                    // This is data. Skip to next label
+                    IEnd = LabelEnd;
+                }
+                // check if function ends here
+                CheckForBlockEnd();
+
+				CheckForFunctionEnd();
+            }
+        }
+        else {
+            // This is a data section
+            // Make a single entry in FunctionList covering the whole section
+            SFunctionRecord fun = {(int)Section, 0, Sections[Section].TotalSize, 0, 0};
+            FunctionList.PushUnique(fun);
+        }
+    }
+}
+
+
+void CDisassembler::FindBlock() {
+    // Do the disassembly
+
+    // Check for illegal entries in relocations table
+    InitialErrorCheck();
+
+    // Find missing relocation target addresses
+    FixRelocationTargetAddresses();
+
+	MakeBlockList();
+}
+
 void CDisassembler::Go() {
     // Do the disassembly
 
@@ -675,7 +752,7 @@ void CDisassembler::Go() {
     // Pass 1: Find symbols types and unnamed symbols
     Pass = 1;
     Pass1();
-    Pass = 2;
+    /*Pass = 2;
     Pass1(); 
 
     if (Pass & 0x100) {
@@ -684,7 +761,7 @@ void CDisassembler::Go() {
         Pass1();
         Pass = 4;
         Pass1();
-    }
+    }*/
 
     // Put names on unnamed symbols
     Symbols.AssignNames();
@@ -730,7 +807,7 @@ void CDisassembler::Go() {
 
     // Finish writing output file
     WriteFileEnd();
-};
+}
 
 void CDisassembler::Pass1() {
 
@@ -994,6 +1071,56 @@ int CDisassembler::NextFunction2() {
 
     // return IFunction for success
     return 1;
+}
+
+void CDisassembler::CheckForBlockBegin() {
+    // Check if function begins at current position
+    CodeBlock block;                          // New function record
+    IBegin = IEnd;
+
+    if (IBlock == 0) {
+
+		block.Section = Section;
+        block.Start = IBegin;
+		block.End = IBegin;
+
+        IBlock = BlockList.PushUnique(block);
+
+        // End of function not known yet
+        BlockEnd = SectionEnd;
+
+		printf("--------------block %d begin--------------\n", IBlock);
+    }
+}
+
+void CDisassembler::CheckForBlockEnd() {
+
+    // Function ends if section ends here
+    if (IEnd >= SectionEnd) {
+        // Current function must end because section ends here
+        BlockList[IBlock].End = SectionEnd;
+		printf("\n--------------block %d end--------------\n", IBlock);
+
+        IBlock = 0;
+        return;
+    }
+
+    // Function ends after ret or unconditional jump and preceding code had no 
+    // jumps beyond this position:
+    /*if (Buffer[IBegin] == ??) {*/
+    if (s.OpcodeDef && s.OpcodeDef->Options & 0x10) {
+        if (IEnd >= BlockList[IBlock].End) {
+            // Indicate current function ends here
+            BlockList[IBlock].End = IEnd;
+			printf("\n--------------block %d end--------------\n", IBlock);
+
+            IBlock = 0;
+            return;
+        }
+    }
+
+    // Function does not end here
+    return;
 }
 
 void CDisassembler::CheckForFunctionBegin() {

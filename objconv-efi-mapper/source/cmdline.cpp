@@ -91,10 +91,10 @@ void CCommandLineInterpreter::ReadCommandLine(int argc, char * argv[]) {
 	{	
 		DumpOptions |= DUMP_FILEHDR;
 		DumpOptions |= DUMP_SECTHDR;
-		DumpOptions |= DUMP_SYMTAB;
+		/*DumpOptions |= DUMP_SYMTAB;
 		DumpOptions |= DUMP_RELTAB;
 		DumpOptions |= DUMP_STRINGTB;
-		DumpOptions |= DUMP_COMMENT;
+		DumpOptions |= DUMP_COMMENT;*/
 
 		OutputType = CMDL_OUTPUT_MASM;
 		SubType = SUBTYPE_YASM;

@@ -16,6 +16,63 @@ template <class TMAC_header, class TMAC_segment_command, class TMAC_section, cla
 CMAC2ASM<MACSTRUCTURES>::CMAC2ASM() {
 }
 
+template <class TMAC_header, class TMAC_segment_command, class TMAC_section, class TMAC_nlist, class MInt>
+void CMAC2ASM<MACSTRUCTURES>::ExtractBlock() {
+
+   // Check cpu type
+   switch (this->FileHeader.cputype) {
+   case MAC_CPU_TYPE_I386:
+      this->WordSize = 32;  break;
+
+   case MAC_CPU_TYPE_X86_64:
+      this->WordSize = 64;  break;
+
+   default:
+      // Wrong type
+      err.submit(2011, "");  return;
+   }
+
+   // check object/executable file type
+   uint32 ExeType;                     // File type: 0 = object, 1 = position independent shared object, 2 = executable
+
+   switch (this->FileHeader.filetype) {
+   case MAC_OBJECT:   // Relocatable object file
+      ExeType = 0;  break;
+
+   case MAC_FVMLIB:   // fixed VM shared library file
+   case MAC_DYLIB:    // dynamicly bound shared library file
+   case MAC_BUNDLE:   // part of universal binary
+      ExeType = 1;  break;
+
+   case MAC_EXECUTE:  // demand paged executable file
+   case MAC_CORE:     // core file
+   case MAC_PRELOAD:  // preloaded executable file
+      ExeType = 2;  break;
+
+   default:  // Other types
+      err.submit(2011, "");  return;
+   }
+
+   // Tell disassembler
+   // Disasm.Init(ExeType, this->ImageBase);
+   Disasm.Init(ExeType, 0);
+
+   // Make Sections list and relocations list
+   MakeSectionList();
+
+   // Make Symbols list in Disasm
+   MakeSymbolList();
+
+   // Make relocations list in Disasm
+   MakeRelocations();
+
+   // Make symbol entries for imported symbols
+   MakeImports();
+
+   Disasm.FindBlock();
+
+}
+
 // Convert
 template <class TMAC_header, class TMAC_segment_command, class TMAC_section, class TMAC_nlist, class MInt>
 void CMAC2ASM<MACSTRUCTURES>::Convert() {
