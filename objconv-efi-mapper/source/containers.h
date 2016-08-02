@@ -151,7 +151,9 @@ public:
    void PutHex(uint64 x, int MasmForm = 0);      // Write hexadecimal number to buffer
    void PutFloat(float x);                       // Write floating point number to buffer
    void PutFloat(double x);                      // Write floating point number to buffer
+   uint32 GetBufSize() {return DataSize;}
    uint32 GetColumn() {return column;}           // Get column number
+
 protected:
    uint32 column;                                // Current column
 private:
@@ -256,9 +258,9 @@ public:
 template <class RecordType> 
 class CSList : private CMemoryBuffer {
 public:
-   uint32 Push(RecordType const & x) {
+   void Push(RecordType const & x) {
       // Add member to list
-      return CMemoryBuffer::Push(&x, sizeof(x));
+      CMemoryBuffer::Push(&x, sizeof(x));
    }
    void PushZero() {
       // Add blank entry to list

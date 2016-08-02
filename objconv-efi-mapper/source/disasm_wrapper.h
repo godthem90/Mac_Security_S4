@@ -28,27 +28,24 @@
 #define SUBTYPE_YASM                 1       // Disassembly NASM/YASM
 #define SUBTYPE_GASM                 2       // Disassembly GAS(Intel)
 
-class Disassembler : public CFileBuffer
+class Parser : public CFileBuffer
 {
 public:
-	Disassembler();
-	~Disassembler();
-	void Parse();
+	Parser();
+	~Parser();
+	void Parse(CDisassembler *Disasm);
 	void Dump();
-	void Disassemble();
 	void Free();
 
 private:
 	int Parsed;
-	COFFDisassembler *coff;
-	MACHODisassembler<MAC32STRUCTURES> *macho32;
-	MACHODisassembler<MAC64STRUCTURES> *macho64;
+	COFFParser *coff;
+	MACHOParser<MAC32STRUCTURES> *macho32;
+	MACHOParser<MAC64STRUCTURES> *macho64;
 	
 	int  GetFileType();
-	void ParseCOF();
-	void ParseMACHO();
+	void ParseCOF(CDisassembler *Disasm);
+	void ParseMACHO(CDisassembler *Disasm);
 	void DumpCOF();
 	void DumpMACHO();
-	void DisassembleCOF();
-	void DisassembleMACHO();
 };

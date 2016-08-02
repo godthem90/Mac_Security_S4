@@ -7,7 +7,7 @@
 * Description:
 * Module for reading PE/COFF files
 *
-* Class COFFDisassembler is used for reading, interpreting and dumping PE/COFF files.
+* Class COFFParser is used for reading, interpreting and dumping PE/COFF files.
 *
 * Copyright 2006-2009 GNU General Public License http://www.gnu.org/licenses
 *****************************************************************************/
@@ -175,14 +175,14 @@ const char * timestring(uint32 t) {
 	return string;
 }    
 
-// Class COFFDisassembler members:
+// Class COFFParser members:
 // Constructor
-COFFDisassembler::COFFDisassembler() {
-   // Set everything to zero
-   memset(this, 0, sizeof(*this));
+COFFParser::COFFParser() {
+   // TODO memset except COF2ASM member
+   //memset(this, 0, sizeof(*this));
 }
 
-int COFFDisassembler::ParseFile(){
+int COFFParser::ParseFile(CDisassembler *Disasm){
    // Load and parse file buffer
    // Get offset to file header
    uint32 FileHeaderOffset = 0;
@@ -250,11 +250,24 @@ int COFFDisassembler::ParseFile(){
    StringTable = (Buf() + FileHeader->PSymbolTable + NumberOfSymbols * SIZE_SCOFF_SymTableEntry);
    StringTableSize = *(int*)StringTable; // First 4 bytes of string table contains its size
 
+   if (ImageBase) Disasm->Init(2, ImageBase);     // Executable file or DLL. Set image base
+   Disasm->SetOutType(OutSubType);
+   MakeSectionList(Disasm);                            // Make Sections list and Relocations list in Disasm
+   MakeSymbolList(Disasm);                             // Make Symbols list in Disasm
+   if (ImageBase) {
+      // Executable file
+      MakeDynamicRelocations(Disasm);                  // Make dynamic base relocations for executable files
+      MakeImportList(Disasm);                          // Make imported symbols for executable files
+      MakeExportList(Disasm);                          // Make exported symbols for executable files
+      MakeListLabels(Disasm);                          // Put labels on all image directory tables
+   }
+   Disasm->Go();                                  // Disassemble
+
    return 0;
 }
 
 // Debug dump
-void COFFDisassembler::Dump(int options) {
+void COFFParser::Dump(int options) {
    uint32 i, j;
 
    if (options & DUMP_FILEHDR) {
@@ -429,7 +442,7 @@ void COFFDisassembler::Dump(int options) {
 }
 
 
-char const * COFFDisassembler::GetSymbolName(int8* Symbol) {
+char const * COFFParser::GetSymbolName(int8* Symbol) {
    // Get symbol name from 8 byte entry
    static char text[16];
    if (*(uint32*)Symbol != 0) {
@@ -448,7 +461,7 @@ char const * COFFDisassembler::GetSymbolName(int8* Symbol) {
 }
 
 
-char const * COFFDisassembler::GetSectionName(int8* Symbol) {
+char const * COFFParser::GetSectionName(int8* Symbol) {
    // Get section name from 8 byte entry
    static char text[16];
    memcpy(text, Symbol, 8);        // Copy to local buffer
@@ -469,12 +482,12 @@ char const * COFFDisassembler::GetSectionName(int8* Symbol) {
    return "NULL";                           // In case of error
 }
 
-char const * COFFDisassembler::GetStorageClassName(uint8 sc) {
+char const * COFFParser::GetStorageClassName(uint8 sc) {
    // Get storage class name
    return Lookup(COFFStorageClassNames, sc);
 }
 
-void COFFDisassembler::PrintSegmentCharacteristics(uint32 flags) {
+void COFFParser::PrintSegmentCharacteristics(uint32 flags) {
    // Print segment characteristics
    int n = 0;
    // Loop through all bits of integer
@@ -491,7 +504,7 @@ void COFFDisassembler::PrintSegmentCharacteristics(uint32 flags) {
    if (n == 0) printf("None");
 }
 
-const char * COFFDisassembler::GetFileName(SCOFF_SymTableEntry * syme) {
+const char * COFFParser::GetFileName(SCOFF_SymTableEntry * syme) {
    // Get file name from records in symbol table
    if (syme->s.NumAuxSymbols < 1 || syme->s.StorageClass != COFF_CLASS_FILE) {
       return ""; // No file name found
@@ -511,7 +524,7 @@ const char * COFFDisassembler::GetFileName(SCOFF_SymTableEntry * syme) {
    return text;
 }
 
-const char * COFFDisassembler::GetShortFileName(SCOFF_SymTableEntry * syme) {
+const char * COFFParser::GetShortFileName(SCOFF_SymTableEntry * syme) {
    // Same as above. Strips path before filename
    // Full file name
    const char * fullname = GetFileName(syme);
@@ -530,7 +543,7 @@ const char * COFFDisassembler::GetShortFileName(SCOFF_SymTableEntry * syme) {
    return fullname;
 }
 
-void COFFDisassembler::PrintSymbolTable(int symnum) {
+void COFFParser::PrintSymbolTable(int symnum) {
    // Print one or all public symbols for object file.
    // Dump symbol table if symnum = -1, or
    // Dump symbol number symnum (zero based) when symnum >= 0
@@ -655,7 +668,7 @@ void COFFDisassembler::PrintSymbolTable(int symnum) {
    }
 }
 
-int COFFDisassembler::GetImageDir(uint32 n, SCOFF_ImageDirAddress * dir) {
+int COFFParser::GetImageDir(uint32 n, SCOFF_ImageDirAddress * dir) {
    // Find address of image directory for executable files
    int32  Section;
    uint32 FileOffset;
@@ -704,7 +717,7 @@ int COFFDisassembler::GetImageDir(uint32 n, SCOFF_ImageDirAddress * dir) {
    return 0;
 }
 
-void COFFDisassembler::PrintImportExport() {
+void COFFParser::PrintImportExport() {
    // Print imported and exported symbols
 
    // Table directory address
@@ -883,8 +896,8 @@ void COFF_PutNameInSectionHeader(SCOFF_SectionHeader & sec, const char * name, C
       sprintf(sec.Name, "/%i", StringTable.PushString(name));
    }
 }
-
-void COFFDisassembler::Disassemble() {
+/*
+void COFFParser::Disassemble() {
    // Do the conversion
    if (ImageBase) Disasm.Init(2, ImageBase);     // Executable file or DLL. Set image base
    Disasm.SetOutType(OutSubType);
@@ -900,8 +913,8 @@ void COFFDisassembler::Disassemble() {
    Disasm.Go();                                  // Disassemble
    *this << Disasm.OutFile;                      // Take over output file from Disasm
 }
-
-void COFFDisassembler::MakeSectionList() {
+*/
+void COFFParser::MakeSectionList(CDisassembler *Disasm) {
    // Make Sections list and Relocations list in Disasm
    uint32 isec;                                  // Section index
    uint32 irel;                                  // Relocation index
@@ -946,7 +959,7 @@ void COFFDisassembler::MakeSectionList() {
       if (Align) Align--;
 
       // Save section record
-      Disasm.AddSection(Buffer, InitSize, TotalSize, SectionAddress, Type, Align, WordSize, Name);
+      Disasm->AddSection(Buffer, InitSize, TotalSize, SectionAddress, Type, Align, WordSize, Name);
 
       // Get relocations 
       // Pointer to relocation entry
@@ -1034,12 +1047,12 @@ void COFFDisassembler::MakeSectionList() {
             }
          }
          // Save relocation record
-         Disasm.AddRelocation(Section, Offset, Addend, Type, Size, TargetIndex);
+         Disasm->AddRelocation(Section, Offset, Addend, Type, Size, TargetIndex);
       }
    }
 }
 
-void COFFDisassembler::MakeSymbolList() {
+void COFFParser::MakeSymbolList(CDisassembler *Disasm) {
    // Make Symbols list in Disasm
    uint32 isym;                                  // Symbol index
    uint32 naux = 0;                              // Number of auxiliary entries in old symbol table
@@ -1115,11 +1128,11 @@ void COFFDisassembler::MakeSymbolList() {
       }
 
       // Store new symbol record
-      Disasm.AddSymbol(Section, Offset, Size, Type, Scope, Index, Name);
+      Disasm->AddSymbol(Section, Offset, Size, Type, Scope, Index, Name);
    }
 }
 
-void COFFDisassembler::MakeDynamicRelocations() {
+void COFFParser::MakeDynamicRelocations(CDisassembler *Disasm) {
    // Make dynamic base relocations for executable files
    
    // Find base relocation table
@@ -1169,11 +1182,11 @@ void COFFDisassembler::MakeDynamicRelocations() {
             // Add relocation record, 32 bit
             // Section = ASM_SEGMENT_IMGREL means offset is image-relative
             // Type = 0x20 means already relocated to image base
-            Disasm.AddRelocation(ASM_SEGMENT_IMGREL, Pointer.entry->Offset + PageOffset, 0, 0x21, 4, 0);
+            Disasm->AddRelocation(ASM_SEGMENT_IMGREL, Pointer.entry->Offset + PageOffset, 0, 0x21, 4, 0);
          }
          else if (Pointer.entry->Type == COFF_REL_BASED_DIR64) {
             // Add relocation record, 64 bit
-            Disasm.AddRelocation(ASM_SEGMENT_IMGREL, Pointer.entry->Offset + PageOffset, 0, 0x21, 8, 0);
+            Disasm->AddRelocation(ASM_SEGMENT_IMGREL, Pointer.entry->Offset + PageOffset, 0, 0x21, 8, 0);
          }
 
          // Go to next
@@ -1185,7 +1198,7 @@ void COFFDisassembler::MakeDynamicRelocations() {
    }
 }
 
-void COFFDisassembler::MakeImportList() {
+void COFFParser::MakeImportList(CDisassembler *Disasm) {
    // Make imported symbols for executable files
 
    // Find import table
@@ -1267,7 +1280,7 @@ void COFFDisassembler::MakeImportList() {
             SymbolName = HintNameEntry->Name;
          }
          // Add symbol
-         Disasm.AddSymbol(ASM_SEGMENT_IMGREL, impdir.VirtualAddress + SectionOffset + AddressTableOffset,
+         Disasm->AddSymbol(ASM_SEGMENT_IMGREL, impdir.VirtualAddress + SectionOffset + AddressTableOffset,
             EntrySize, 0xC, 0x20, 0, SymbolName, DLLName);
 
          // Loop next
@@ -1281,16 +1294,16 @@ void COFFDisassembler::MakeImportList() {
 
    // Make label for import name table
    if (FirstHintNameOffset) {
-      Disasm.AddSymbol(ASM_SEGMENT_IMGREL, impdir.VirtualAddress + FirstHintNameOffset, 1, 1, 1, 0, "Import_name_table");
+      Disasm->AddSymbol(ASM_SEGMENT_IMGREL, impdir.VirtualAddress + FirstHintNameOffset, 1, 1, 1, 0, "Import_name_table");
    }
 }
 
-void COFFDisassembler::MakeExportList() {
+void COFFParser::MakeExportList(CDisassembler *Disasm) {
    // Make exported symbols for executable files
 
    // Define entry point
    if (OptionalHeader->h32.AddressOfEntryPoint) {
-      Disasm.AddSymbol(ASM_SEGMENT_IMGREL, OptionalHeader->h32.AddressOfEntryPoint, 0, 0x83, 4, 0, "Entry_point");
+      Disasm->AddSymbol(ASM_SEGMENT_IMGREL, OptionalHeader->h32.AddressOfEntryPoint, 0, 0x83, 4, 0, "Entry_point");
    }
 
    // Get export table directory address
@@ -1369,20 +1382,20 @@ void COFFDisassembler::MakeExportList() {
       }
 
       // Define symbol
-      Disasm.AddSymbol(ASM_SEGMENT_IMGREL, Address, 0, 0x83, 4, 0, Name);
+      Disasm->AddSymbol(ASM_SEGMENT_IMGREL, Address, 0, 0x83, 4, 0, Name);
    }
 
    // Make label for export section
-   Disasm.AddSymbol(ASM_SEGMENT_IMGREL, expdir.VirtualAddress, 4, 3, 2, 0, "Export_tables");
+   Disasm->AddSymbol(ASM_SEGMENT_IMGREL, expdir.VirtualAddress, 4, 3, 2, 0, "Export_tables");
 
    // Make labels for export tables
-   Disasm.AddSymbol(ASM_SEGMENT_IMGREL, ExportAddressTableOffset - expdir.FileOffset + expdir.VirtualAddress, 4, 3, 2, 0, "Export_address_table");
-   Disasm.AddSymbol(ASM_SEGMENT_IMGREL, ExportOrdinalTableOffset - expdir.FileOffset + expdir.VirtualAddress, 4, 3, 2, 0, "Export_ordinal_table");
-   Disasm.AddSymbol(ASM_SEGMENT_IMGREL, ExportNameTableOffset - expdir.FileOffset + expdir.VirtualAddress, 4, 3, 2, 0, "Export_name_pointer_table");
-   Disasm.AddSymbol(ASM_SEGMENT_IMGREL, FirstName, 1, 1, 2, 0, "Export_name_table");
+   Disasm->AddSymbol(ASM_SEGMENT_IMGREL, ExportAddressTableOffset - expdir.FileOffset + expdir.VirtualAddress, 4, 3, 2, 0, "Export_address_table");
+   Disasm->AddSymbol(ASM_SEGMENT_IMGREL, ExportOrdinalTableOffset - expdir.FileOffset + expdir.VirtualAddress, 4, 3, 2, 0, "Export_ordinal_table");
+   Disasm->AddSymbol(ASM_SEGMENT_IMGREL, ExportNameTableOffset - expdir.FileOffset + expdir.VirtualAddress, 4, 3, 2, 0, "Export_name_pointer_table");
+   Disasm->AddSymbol(ASM_SEGMENT_IMGREL, FirstName, 1, 1, 2, 0, "Export_name_table");
 }
 
-void COFFDisassembler::MakeListLabels() {
+void COFFParser::MakeListLabels(CDisassembler *Disasm) {
    // Attach names to all image directories
    SCOFF_ImageDirAddress dir;
    uint32 i;
@@ -1390,7 +1403,7 @@ void COFFDisassembler::MakeListLabels() {
    for (i = 0; i < NumImageDirs; i++) {
       if (GetImageDir(i, &dir)) {
          // Found a directory. Make label for it
-         Disasm.AddSymbol(ASM_SEGMENT_IMGREL, dir.VirtualAddress, 4, 0, 1, 0, dir.Name);
+         Disasm->AddSymbol(ASM_SEGMENT_IMGREL, dir.VirtualAddress, 4, 0, 1, 0, dir.Name);
       }
    }
 }

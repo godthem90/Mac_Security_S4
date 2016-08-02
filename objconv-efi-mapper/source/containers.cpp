@@ -424,3 +424,5 @@ void CTextFileBuffer::PutFloat(double x) {
     sprintf(text, "%.16G", x);
     Put(text);
 }
+
+

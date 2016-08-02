@@ -783,40 +783,37 @@ struct MAC_SECT_WITH_RELOC {
 
 // Class for interpreting and dumping Mach-O files. Has templates for 32 and 64 bit version
 template <class TMAC_header, class TMAC_segment_command, class TMAC_section, class TMAC_nlist, class MInt>
-class MACHODisassembler : public CFileBuffer {
-public:
-   MACHODisassembler();                                     // Default constructor
-   int ParseFile();                             // Parse file buffer
-   void Dump(int options);                       // Dump file
-   void Disassemble();                               // Do the conversion
-   void ExtractBlock();
-protected:
-   CDisassembler Disasm;                         // Disassembler
-   CMemoryBuffer StringBuffer;                   // Buffer for making section names
-   CSList<MAC_SECT_WITH_RELOC> RelocationQueue;  // List of relocation tables
-   CSList<TMAC_section*> ImportSections;          // List of sections needing extra symbols: import tables, literals, etc.
-   TMAC_header FileHeader;                       // Copy of file header
-   uint64 ImageBase;                             // Image base for executable file
-   uint32 SegmentOffset;                         // File offset of segment
-   uint32 SegmentSize;                           // Size of segment
-   uint32 SectionHeaderOffset;                   // File offset of section headers
-   uint32 NumSections;                           // Number of sections
-   uint32 SymTabOffset;                          // File offset of symbol table
-   uint32 SymTabNumber;                          // Number of entries in symbol table
-   uint32 StringTabOffset;                       // File offset of string table
-   uint32 StringTabSize;                         // Size of string table
-   uint32 ilocalsym;	                            // index to local symbols
-   uint32 nlocalsym;	                            // number of local symbols 
-   uint32 iextdefsym;	                         // index to public symbols
-   uint32 nextdefsym;	                         // number of public symbols 
-   uint32 iundefsym;	                            // index to external symbols
-   uint32 nundefsym;	                            // number of external symbols
-   uint32 IndirectSymTabOffset;                  // file offset to the indirect symbol table
-   uint32 IndirectSymTabNumber;                  // number of indirect symbol table entries
-   void MakeSectionList();                       // Make Sections list in Disasm
-   void MakeSymbolList();                        // Make Symbols list in Disasm
-   void MakeRelocations();                       // Make relocation list in Disasm
-   void MakeImports();                           // Make symbol entries for imported symbols
+class MACHOParser : public CFileBuffer {
+	public:
+		MACHOParser();                                     // Default constructor
+		int ParseFile(CDisassembler *Disasm);                             // Parse file buffer
+		void Dump(int options);                       // Dump file
+	protected:
+		CMemoryBuffer StringBuffer;                   // Buffer for making section names
+		CSList<MAC_SECT_WITH_RELOC> RelocationQueue;  // List of relocation tables
+		CSList<TMAC_section*> ImportSections;          // List of sections needing extra symbols: import tables, literals, etc.
+		TMAC_header FileHeader;                       // Copy of file header
+		uint64 ImageBase;                             // Image base for executable file
+		uint32 SegmentOffset;                         // File offset of segment
+		uint32 SegmentSize;                           // Size of segment
+		uint32 SectionHeaderOffset;                   // File offset of section headers
+		uint32 NumSections;                           // Number of sections
+		uint32 SymTabOffset;                          // File offset of symbol table
+		uint32 SymTabNumber;                          // Number of entries in symbol table
+		uint32 StringTabOffset;                       // File offset of string table
+		uint32 StringTabSize;                         // Size of string table
+		uint32 ilocalsym;	                            // index to local symbols
+		uint32 nlocalsym;	                            // number of local symbols 
+		uint32 iextdefsym;	                         // index to public symbols
+		uint32 nextdefsym;	                         // number of public symbols 
+		uint32 iundefsym;	                            // index to external symbols
+		uint32 nundefsym;	                            // number of external symbols
+		uint32 IndirectSymTabOffset;                  // file offset to the indirect symbol table
+		uint32 IndirectSymTabNumber;                  // number of indirect symbol table entries
+		void MakeSectionList(CDisassembler *Disasm);                       // Make Sections list in Disasm
+		void MakeSymbolList(CDisassembler *Disasm);                        // Make Symbols list in Disasm
+		void MakeRelocations(CDisassembler *Disasm);                       // Make relocation list in Disasm
+		void MakeImports(CDisassembler *Disasm);                           // Make symbol entries for imported symbols
 };
 
 

@@ -1,16 +1,16 @@
 #include "stdafx.h"
 
-Disassembler::Disassembler()
+Parser::Parser()
 {
 	memset(this, 0, sizeof(*this));
 }
 
-Disassembler::~Disassembler()
+Parser::~Parser()
 {
 	Free();
 }
 
-int Disassembler::GetFileType() {
+int Parser::GetFileType() {
     if (FileType) return FileType;
     if (!DataSize) return -1;
     if (!Buf()) return -1;
@@ -83,36 +83,36 @@ int Disassembler::GetFileType() {
     return FileType;
 }
 
-void Disassembler::Parse()
+void Parser::Parse(CDisassembler *Disasm)
 {
 	if(Parsed)
 		return;
 
-	int obj_type = GetFileType();
-	if(obj_type == -1)
+	GetFileType();
+	if(!FileType)
 	{
 		fprintf(stderr,"[error] Determine Object Type Failed\n");
 		return;
 	}
 
-	switch(obj_type) {
+	switch(FileType) {
 		case FILETYPE_COFF:
-			ParseCOF();
+			ParseCOF(Disasm);
 			break;
 
 		case FILETYPE_MACHO_LE:
-			ParseMACHO();
+			ParseMACHO(Disasm);
 			break;
 
 		default:
-			fprintf(stderr,"[error] Unsupported Object Type For Parsing\n");
+			fprintf(stderr,"[error] Unsupported Object Type For Parse\n");
 	}
 }
 
-void Disassembler::ParseCOF() {
-	coff = new COFFDisassembler();
+void Parser::ParseCOF(CDisassembler *Disasm) {
+	coff = new COFFParser();
 	*this >> *coff;                       // Give it my buffer
-	if(coff->ParseFile() == -1)
+	if(coff->ParseFile(Disasm) == -1)
 	{
 		Parsed = 0;
 		return;
@@ -121,19 +121,19 @@ void Disassembler::ParseCOF() {
 	//*this << *coff;                       // Take back my buffer
 }
 
-void Disassembler::ParseMACHO() {
+void Parser::ParseMACHO(CDisassembler *Disasm) {
 	int ret;
 	if (WordSize == 32) {
-		macho32 = new MACHODisassembler<MAC32STRUCTURES>();
+		macho32 = new MACHOParser<MAC32STRUCTURES>();
 		*this >> *macho32;                     // Give it my buffer
-		ret = macho32->ParseFile();                  // Parse file buffer
+		ret = macho32->ParseFile(Disasm);                  // Parse file buffer
 		//macho32.Dump(cmd.DumpOptions);        // Dump file
 		//*this << macho;                     // Take back my buffer
 	}
 	else {
-		macho64 = new MACHODisassembler<MAC64STRUCTURES>();
+		macho64 = new MACHOParser<MAC64STRUCTURES>();
 		*this >> *macho64;                     // Give it my buffer
-		ret = macho64->ParseFile();                  // Parse file buffer
+		ret = macho64->ParseFile(Disasm);                  // Parse file buffer
 		//macho64.Dump(cmd.DumpOptions);        // Dump file
 		//*this << *macho;                     // Take back my buffer
 	}
@@ -146,22 +146,15 @@ void Disassembler::ParseMACHO() {
 	Parsed = 1;
 }
 
-void Disassembler::Dump()
+void Parser::Dump()
 {
 	if(!Parsed)
 	{
-		fprintf(stderr, "[error] Dump Before Parse Can't be Executed\n");
+		fprintf(stderr, "[error] Dump Before Parse Can't be Done\n");
 		return;
 	}
 
-	int obj_type = GetFileType();
-	if(obj_type == -1)
-	{
-		fprintf(stderr,"[error] Determine Object Type Failed\n");
-		return;
-	}
-
-	switch(obj_type) {
+	switch(FileType) {
 		case FILETYPE_COFF:
 			DumpCOF();
 			break;
@@ -171,11 +164,11 @@ void Disassembler::Dump()
 			break;
 
 		default:
-			fprintf(stderr,"[error] Unsupported Object Type For Dumping\n");
+			fprintf(stderr,"[error] Unsupported Object Type For Dump\n");
 	}
 }
 
-void Disassembler::DumpCOF()
+void Parser::DumpCOF()
 {
 	int DumpOptions = 0;
 	DumpOptions |= DUMP_FILEHDR;
@@ -183,7 +176,7 @@ void Disassembler::DumpCOF()
 	coff->Dump(DumpOptions);
 }
 
-void Disassembler::DumpMACHO()
+void Parser::DumpMACHO()
 {
 	int DumpOptions = 0;
 	DumpOptions |= DUMP_FILEHDR;
@@ -195,7 +188,7 @@ void Disassembler::DumpMACHO()
 		macho64->Dump(DumpOptions);
 }
 
-void Disassembler::Free()
+void Parser::Free()
 {
 	if(Parsed)
 	{

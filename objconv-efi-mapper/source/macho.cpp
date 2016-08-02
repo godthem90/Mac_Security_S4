@@ -7,7 +7,7 @@
 * Description:
 * Module for reading Mach-O files
 *
-* Class MACHODisassembler is used for reading, interpreting and dumping Mach-O files.
+* Class MACHOParser is used for reading, interpreting and dumping Mach-O files.
 *
 * Copyright 2007-2008 GNU General Public License http://www.gnu.org/licenses
 *****************************************************************************/
@@ -124,16 +124,16 @@ SIntTxt MacSymbolDescriptorFlagNames[] = {
 
 
 
-// Class MACHODisassembler members:
+// Class MACHOParser members:
 // Constructor
 template <class TMAC_header, class TMAC_segment_command, class TMAC_section, class TMAC_nlist, class MInt>
-MACHODisassembler<MACSTRUCTURES>::MACHODisassembler() {
-   // Set everything to zero
-   memset(this, 0, sizeof(*this));
+MACHOParser<MACSTRUCTURES>::MACHOParser() {
+   // TODO memset except MAC2ASM member
+   //memset(this, 0, sizeof(*this));
 }
 
 template <class TMAC_header, class TMAC_segment_command, class TMAC_section, class TMAC_nlist, class MInt>
-int MACHODisassembler<MACSTRUCTURES>::ParseFile(){
+int MACHOParser<MACSTRUCTURES>::ParseFile(CDisassembler *Disasm){
    // Load and parse file buffer
    FileHeader = *(TMAC_header*)Buf();   // Copy file header
 
@@ -192,12 +192,64 @@ int MACHODisassembler<MACSTRUCTURES>::ParseFile(){
       currentoffset += cmdsize;
    }
 
+   // Check cpu type
+   switch (this->FileHeader.cputype) {
+   case MAC_CPU_TYPE_I386:
+      this->WordSize = 32;  break;
+
+   case MAC_CPU_TYPE_X86_64:
+      this->WordSize = 64;  break;
+
+   default:
+      // Wrong type
+      err.submit(2011, "");  return -1;
+   }
+
+   // check object/executable file type
+   uint32 ExeType;                     // File type: 0 = object, 1 = position independent shared object, 2 = executable
+
+   switch (this->FileHeader.filetype) {
+   case MAC_OBJECT:   // Relocatable object file
+      ExeType = 0;  break;
+
+   case MAC_FVMLIB:   // fixed VM shared library file
+   case MAC_DYLIB:    // dynamicly bound shared library file
+   case MAC_BUNDLE:   // part of universal binary
+      ExeType = 1;  break;
+
+   case MAC_EXECUTE:  // demand paged executable file
+   case MAC_CORE:     // core file
+   case MAC_PRELOAD:  // preloaded executable file
+      ExeType = 2;  break;
+
+   default:  // Other types
+      err.submit(2011, "");  return -1;
+   }
+
+   // Tell disassembler
+   // Disasm.Init(ExeType, this->ImageBase);
+   Disasm->Init(ExeType, 0);
+
+   // Make Sections list and relocations list
+   MakeSectionList(Disasm);
+
+   // Make Symbols list in Disasm
+   MakeSymbolList(Disasm);
+
+   // Make relocations list in Disasm
+   MakeRelocations(Disasm);
+
+   // Make symbol entries for imported symbols
+   MakeImports(Disasm);
+
+   Disasm->Go();
+
    return 0;
 }
 
 // Debug dump
 template <class TMAC_header, class TMAC_segment_command, class TMAC_section, class TMAC_nlist, class MInt>
-void MACHODisassembler<MACSTRUCTURES>::Dump(int options) {
+void MACHOParser<MACSTRUCTURES>::Dump(int options) {
    uint32 icmd;                        // Command index
    int32  isec1;                       // Section index within segment
    int32  isec2;                       // Section index global
@@ -610,66 +662,9 @@ MacSymbolRecord<TMAC_nlist> & MacSymbolTableBuilder<TMAC_nlist, MInt>::operator[
    return Get<MacSymbolRecord<TMAC_nlist> >(Offset);
 }
 
-template <class TMAC_header, class TMAC_segment_command, class TMAC_section, class TMAC_nlist, class MInt>
-void MACHODisassembler<MACSTRUCTURES>::ExtractBlock() {
-
-   // Check cpu type
-   switch (this->FileHeader.cputype) {
-   case MAC_CPU_TYPE_I386:
-      this->WordSize = 32;  break;
-
-   case MAC_CPU_TYPE_X86_64:
-      this->WordSize = 64;  break;
-
-   default:
-      // Wrong type
-      err.submit(2011, "");  return;
-   }
-
-   // check object/executable file type
-   uint32 ExeType;                     // File type: 0 = object, 1 = position independent shared object, 2 = executable
-
-   switch (this->FileHeader.filetype) {
-   case MAC_OBJECT:   // Relocatable object file
-      ExeType = 0;  break;
-
-   case MAC_FVMLIB:   // fixed VM shared library file
-   case MAC_DYLIB:    // dynamicly bound shared library file
-   case MAC_BUNDLE:   // part of universal binary
-      ExeType = 1;  break;
-
-   case MAC_EXECUTE:  // demand paged executable file
-   case MAC_CORE:     // core file
-   case MAC_PRELOAD:  // preloaded executable file
-      ExeType = 2;  break;
-
-   default:  // Other types
-      err.submit(2011, "");  return;
-   }
-
-   // Tell disassembler
-   // Disasm.Init(ExeType, this->ImageBase);
-   Disasm.Init(ExeType, 0);
-
-   // Make Sections list and relocations list
-   MakeSectionList();
-
-   // Make Symbols list in Disasm
-   MakeSymbolList();
-
-   // Make relocations list in Disasm
-   MakeRelocations();
-
-   // Make symbol entries for imported symbols
-   MakeImports();
-
-   Disasm.FindBlock();
-
-}
-
 // Convert
-template <class TMAC_header, class TMAC_segment_command, class TMAC_section, class TMAC_nlist, class MInt>
-void MACHODisassembler<MACSTRUCTURES>::Disassemble() {
+/*template <class TMAC_header, class TMAC_segment_command, class TMAC_section, class TMAC_nlist, class MInt>
+void MACHOParser<MACSTRUCTURES>::Disassemble() {
    // Do the conversion
 
    // Check cpu type
@@ -727,12 +722,12 @@ void MACHODisassembler<MACSTRUCTURES>::Disassemble() {
    Disasm.Go();                                  // Disassemble
 
    *this << Disasm.OutFile;                      // Take over output file from Disasm
-}
+}*/
 
 // MakeSectionList
 
 template <class TMAC_header, class TMAC_segment_command, class TMAC_section, class TMAC_nlist, class MInt>
-void MACHODisassembler<MACSTRUCTURES>::MakeSectionList() {
+void MACHOParser<MACSTRUCTURES>::MakeSectionList(CDisassembler *Disasm) {
    // Make Sections list and Relocations list in Disasm
 
    uint32 icmd;                        // Command index
@@ -803,7 +798,7 @@ void MACHODisassembler<MACSTRUCTURES>::MakeSectionList() {
             char * Name = StringBuffer.Buf() + NameOffset;
 
             // Save section record
-            Disasm.AddSection(Buffer, InitSize, TotalSize, SectionAddress, Type, Align, this->WordSize, Name);
+            Disasm->AddSection(Buffer, InitSize, TotalSize, SectionAddress, Type, Align, this->WordSize, Name);
 
             // Save information about relocation list for this section
             if (sectp->nreloc) {
@@ -829,7 +824,7 @@ void MACHODisassembler<MACSTRUCTURES>::MakeSectionList() {
 
 // MakeRelocations
 template <class TMAC_header, class TMAC_segment_command, class TMAC_section, class TMAC_nlist, class MInt>
-void MACHODisassembler<MACSTRUCTURES>::MakeRelocations() {
+void MACHOParser<MACSTRUCTURES>::MakeRelocations(CDisassembler *Disasm) {
    // Make relocations for object and executable files
    uint32 iqq;                         // Index into RelocationQueue = table of relocation tables
    uint32 irel;                        // Index into relocation table
@@ -926,7 +921,7 @@ void MACHODisassembler<MACSTRUCTURES>::MakeRelocations() {
 
             if (ReferenceSymbol == 0) {
                // Reference point has no symbol index. Make one
-               ReferenceSymbol = Disasm.AddSymbol(ASM_SEGMENT_IMGREL, ReferenceAddress, 0, 0, 2, 0, 0);
+               ReferenceSymbol = Disasm->AddSymbol(ASM_SEGMENT_IMGREL, ReferenceAddress, 0, 0, 2, 0, 0);
             }
          }
 
@@ -987,7 +982,7 @@ void MACHODisassembler<MACSTRUCTURES>::MakeRelocations() {
 
          if (TargetSymbol == 0) {
             // Target has no symbol index. Make one
-            TargetSymbol = Disasm.AddSymbol(ASM_SEGMENT_IMGREL, TargetAddress, 0, 0, 2, 0, 0);
+            TargetSymbol = Disasm->AddSymbol(ASM_SEGMENT_IMGREL, TargetAddress, 0, 0, 2, 0, 0);
          }
 
          // Find type
@@ -1051,7 +1046,7 @@ void MACHODisassembler<MACSTRUCTURES>::MakeRelocations() {
          }
 
          // Make relocation record
-         Disasm.AddRelocation(Section, SourceOffset, Addend, 
+         Disasm->AddRelocation(Section, SourceOffset, Addend, 
             RelType, SourceSize, TargetSymbol, ReferenceSymbol);
       }
    }
@@ -1059,7 +1054,7 @@ void MACHODisassembler<MACSTRUCTURES>::MakeRelocations() {
 
 // MakeSymbolList
 template <class TMAC_header, class TMAC_segment_command, class TMAC_section, class TMAC_nlist, class MInt>
-void MACHODisassembler<MACSTRUCTURES>::MakeSymbolList() {
+void MACHOParser<MACSTRUCTURES>::MakeSymbolList(CDisassembler *Disasm) {
    // Make Symbols list in Disasm
    uint32 symi;                        // Symbol index, 0-based
    uint32 symn = 0;                    // Symbol number, 1-based
@@ -1126,13 +1121,13 @@ void MACHODisassembler<MACSTRUCTURES>::MakeSymbolList() {
          if (Section > 0) Section = ASM_SEGMENT_IMGREL;
 
          // Add symbol to diassembler
-         Disasm.AddSymbol(Section, Offset, 0, Type, Scope, symn, Name);
+         Disasm->AddSymbol(Section, Offset, 0, Type, Scope, symn, Name);
       }
    }
 }
 
 template <class TMAC_header, class TMAC_segment_command, class TMAC_section, class TMAC_nlist, class MInt>
-void MACHODisassembler<MACSTRUCTURES>::MakeImports() {
+void MACHOParser<MACSTRUCTURES>::MakeImports(CDisassembler *Disasm) {
    // Make symbol entries for all import tables
    uint32 isec;                        // Index into ImportSections list
    uint32 SectionType;                 // Section type
@@ -1208,24 +1203,24 @@ void MACHODisassembler<MACSTRUCTURES>::MakeImports() {
             }
 
             // Make symbol record for disassembler
-            Disasm.AddSymbol(ASM_SEGMENT_IMGREL, ImportAddress, 4, Type, 2, 0, Name, DLLName);
+            Disasm->AddSymbol(ASM_SEGMENT_IMGREL, ImportAddress, 4, Type, 2, 0, Name, DLLName);
          }
       }
       else if (SectionType == MAC_S_4BYTE_LITERALS) {
          // Section contains 4-byte float constants. 
          // Make symbol
-         Disasm.AddSymbol(ASM_SEGMENT_IMGREL, (uint32)sectp->addr, 4, 0x43, 2, 0, "Float_constants");
+         Disasm->AddSymbol(ASM_SEGMENT_IMGREL, (uint32)sectp->addr, 4, 0x43, 2, 0, "Float_constants");
       }
       else if (SectionType == MAC_S_8BYTE_LITERALS) {
          // Section contains 8-byte double constants. 
          // Make symbol
-         Disasm.AddSymbol(ASM_SEGMENT_IMGREL, (uint32)sectp->addr, 8, 0x44, 2, 0, "Double_constants");
+         Disasm->AddSymbol(ASM_SEGMENT_IMGREL, (uint32)sectp->addr, 8, 0x44, 2, 0, "Double_constants");
       }
    }
 }
 
 // Make template instances for 32 and 64 bits
-template class MACHODisassembler<MAC32STRUCTURES>;
-template class MACHODisassembler<MAC64STRUCTURES>;
+template class MACHOParser<MAC32STRUCTURES>;
+template class MACHOParser<MAC64STRUCTURES>;
 template class MacSymbolTableBuilder<MAC_nlist_32, int32>;
 template class MacSymbolTableBuilder<MAC_nlist_64, int64>;

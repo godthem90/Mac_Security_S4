@@ -43,6 +43,13 @@ To find a symbol by its address, use FindByAddress().
 
 ******************************************************************************/
 
+#define SplitInsnNum 21
+const char *BlockSplitTable[] ={
+	"jmp", "ret", "jo", "jno", "jc", "jnc", "jz", "jnz", "jbe", "ja",
+	"js", "jns", "jpe", "jpe", "jl", "jge", "jle", "jg", "jcxz", "jecxz",
+	"jrcxz"
+};
+
 CSymbolTable::CSymbolTable() {
     // Constructor
     OldNum = 1;
@@ -669,80 +676,38 @@ uint32 ReferenceIndex) {                      // Symbol index of reference point
     }
 }
 
-void CDisassembler::MakeBlockList()
+int CDisassembler::GetCodeBlockNum()
 {
-
-    // Loop through sections, pass 1
-    for (Section = 1; Section < Sections.GetNumEntries(); Section++) {
-
-        // Get section type
-        SectionType = Sections[Section].Type;
-        if (SectionType & 0x800) continue;         // This is a group
-
-        // Code or data
-        CodeMode = (SectionType & 1) ? 1 : 4;
-        LabelBegin = FlagPrevious = CountErrors = 0;
-
-        if ((Sections[Section].Type & 0xFF) == 1) {
-            // This is a code section
-
-            // Initialize code parser
-            Buffer     = Sections[Section].Start;
-            SectionEnd = FunctionEnd = LabelInaccessible = Sections[Section].TotalSize;
-            WordSize   = Sections[Section].WordSize;
-            SectionAddress = Sections[Section].SectionAddress;
-            if (Buffer == 0) continue;
-
-            IBegin = IEnd = LabelEnd = 0;
-            IFunction = 0;
-			IBlock = 0;
-
-            // Loop through instructions
-            while (NextInstruction1()) {
-
-				CheckForFunctionBegin();
-                // check if function beings here
-                CheckForBlockBegin();
-
-				FindLabels();
-
-                // Check if code
-                if (CodeMode < 4) {
-                    // This is code
-                    // Parse instruction
-					printf("%x : ",Buffer[IBegin]);
-                    ParseInstruction();
-                }
-                else {
-                    // This is data. Skip to next label
-                    IEnd = LabelEnd;
-                }
-                // check if function ends here
-                CheckForBlockEnd();
-
-				CheckForFunctionEnd();
-            }
-        }
-        else {
-            // This is a data section
-            // Make a single entry in FunctionList covering the whole section
-            SFunctionRecord fun = {(int)Section, 0, Sections[Section].TotalSize, 0, 0};
-            FunctionList.PushUnique(fun);
-        }
-    }
+	return BlockList.GetNumEntries();
 }
 
+int CDisassembler::GetOpcodeNumInBlock(int block_idx)
+{
+	return BlockList[block_idx].OpNum;
+}
 
-void CDisassembler::FindBlock() {
-    // Do the disassembly
+short CDisassembler::GetOpcodeInBlock(int block_idx, int op_idx)
+{
 
-    // Check for illegal entries in relocations table
-    InitialErrorCheck();
+	Buffer     = Sections[Section].Start;
+	SectionEnd = FunctionEnd = LabelInaccessible = Sections[Section].TotalSize;
+	WordSize   = Sections[Section].WordSize;
+	SectionAddress = Sections[Section].SectionAddress;
 
-    // Find missing relocation target addresses
-    FixRelocationTargetAddresses();
+	IBegin = BlockList[block_idx].Start;
+	IEnd = IBegin;
 
-	MakeBlockList();
+	int i;
+	for( i = 0; i < op_idx; i++ )
+	{
+		s.Reset();
+		IBegin = IEnd;
+		ParseInstruction();
+		if(IEnd > BlockList[block_idx].End)
+			return -1;
+	}
+
+	return Buffer[IBegin];
 }
 
 void CDisassembler::Go() {
@@ -812,6 +777,19 @@ void CDisassembler::Go() {
 
     // Finish writing output file
     WriteFileEnd();
+
+	FILE * ff = stdout; 
+	// Check if error
+	//if (!ff) {err.submit(2104, FileName);  return;}
+	// Write file
+	uint32 n = (uint32)fwrite(OutFile.Buf(), 1, OutFile.GetBufSize(), ff);
+	// Check if error
+	//if (n != DataSize) err.submit(2104, FileName);
+	// Close file
+	//n = fclose(ff);
+	// Check if error
+	//if (n) {err.submit(2104, FileName);  return;}
+	
 }
 
 void CDisassembler::Pass1() {
@@ -844,7 +822,6 @@ void CDisassembler::Pass1() {
     in the output of pass 2.
     */
 
-    // Loop through sections, pass 1
     for (Section = 1; Section < Sections.GetNumEntries(); Section++) {
 
         // Get section type
@@ -867,20 +844,19 @@ void CDisassembler::Pass1() {
 
             IBegin = IEnd = LabelEnd = 0;
             IFunction = 0;
+			IBlock = 0;
+			IBlockOpNum = 0;
 
             // Loop through instructions
             while (NextInstruction1()) {
 
-                // check if function beings here
-                CheckForFunctionBegin();
-
-                // Find any label here
-                FindLabels();
+				CheckForFunctionBegin();
+                CheckForBlockBegin();
+				FindLabels();
 
                 // Check if code
                 if (CodeMode < 4) {
                     // This is code
-
                     // Parse instruction
                     ParseInstruction();
                 }
@@ -889,7 +865,9 @@ void CDisassembler::Pass1() {
                     IEnd = LabelEnd;
                 }
                 // check if function ends here
-                CheckForFunctionEnd();
+                CheckForBlockEnd();
+
+				CheckForFunctionEnd();
             }
         }
         else {
@@ -899,6 +877,7 @@ void CDisassembler::Pass1() {
             FunctionList.PushUnique(fun);
         }
     }
+
 }
 
 void CDisassembler::FindLabels() {
@@ -1088,41 +1067,44 @@ void CDisassembler::CheckForBlockBegin() {
 		block.Section = Section;
         block.Start = IBegin;
 		block.End = IBegin;
+		block.OpNum = IBlockOpNum;
 
         IBlock = BlockList.PushUnique(block);
 
         // End of function not known yet
         BlockEnd = SectionEnd;
-
-		printf("--------------block %d begin--------------\n", IBlock);
     }
 }
 
 void CDisassembler::CheckForBlockEnd() {
 
-    // Function ends if section ends here
+	IBlockOpNum++;
+    // Block ends if section ends here
     if (IEnd >= SectionEnd) {
         // Current function must end because section ends here
         BlockList[IBlock].End = SectionEnd;
-		printf("\n--------------block %d end--------------\n", IBlock);
 
         IBlock = 0;
         return;
     }
 
-    // Function ends after ret or unconditional jump and preceding code had no 
+    // Block ends with ret or jump and preceding code had no 
     // jumps beyond this position:
-    /*if (Buffer[IBegin] == ??) {*/
-    if (s.OpcodeDef && s.OpcodeDef->Options & 0x10) {
-        if (IEnd >= BlockList[IBlock].End) {
-            // Indicate current function ends here
-            BlockList[IBlock].End = IEnd;
-			printf("\n--------------block %d end--------------\n", IBlock);
+	int i;
+	for( i = 0; i < SplitInsnNum; i++ )
+	{
+		if (s.OpcodeDef && s.OpcodeDef->Name) {
+			if (!strcmp(s.OpcodeDef->Name, BlockSplitTable[i])) {
+				if (IEnd >= BlockList[IBlock].End) {
+					BlockList[IBlock].End = IEnd;
+					BlockList[IBlock].OpNum = IBlockOpNum;
 
-            IBlock = 0;
-            return;
-        }
-    }
+					IBlock = 0;
+					return;
+				}
+			}
+		}
+	}
 
     // Function does not end here
     return;
@@ -1575,9 +1557,9 @@ Values of SATracer::Regist[i] tells what kind of information register i contains
 4     Contains a constant = Value[i]
 8     Contains a value < Value[i]. (Not implemented yet)
 0x10  Contains the value of a symbol. Value[i] contains the old index of the symbol
-0x11  Contains the value of an array element. Value[i] contains the symbol old index of the array
+0x11  Contains the va )lue of an array element. Value[i] contains the symbol old index of the array
 0x12  Contains the value of an array element + image base. Value[i] contains the symbol old index of the array. (array may contain image-relative jump addresses)
-0x13  Contains the value of an array element + array base. Value[i] contains the symbol old index of the array. (array may contain jump addresses relative to array base)
+0x13  Contains the v )alue of an array element + array base. Value[i] contains the symbol old index of the array. (array may contain jump addresses relative to array base)
 0x18  Contains the address of a symbol. Value[i] contains the symbol old index
 0x19  Contains the address of an array element. Value[i] contains the symbol old index of the array
 */
@@ -2138,6 +2120,12 @@ void CDisassembler::FollowJumpTable(uint32 symi, uint32 RelType) {
     // Loop through table of jump/call addresses
     for (Pos = SourceOffset; Pos < NextLabel; Pos += SourceSize) {
 
+		if( SwitchCheck == 5 && !SwitchtableLength-- )
+		{
+			SwitchCheck = 0;
+			break;
+		}
+
         // Search for relocation source at table entry
         rel.Section = SourceSection;
         rel.Offset  = Pos;
@@ -2543,6 +2531,8 @@ void CDisassembler::ParseInstruction() {
     if (!s.Errors && CodeMode == 1) {
         // Find instruction set
         FindInstructionSet();
+
+		FindSwitch();
 
         // Update symbol types for operands of this instruction
         UpdateSymbols();
@@ -4360,6 +4350,184 @@ void CDisassembler::FindInstructionSet() {
     }
 }
 
+bool IsImmediate( char *str )
+{
+	int i;
+	char num_table[11] = "0123456789";
+	for( i = 0; str[i] != '\0'; i++ )
+	{
+		if( i == 0 && str[i] == '-')
+			continue;
+		else
+		{
+			int j;
+			for( j = 0; j < 10; j++ )
+			{
+				if( str[i] == num_table[j] )
+					break;
+			}
+			if( j == 10 )
+				return false;
+		}
+	}
+
+	return true;
+}
+
+int MapRegister( char *reg )
+{
+	char reg64_table[16][4] = {"rax", "rcx", "rdx", "rbx", "rsp", "rbp", "rsi", "rdi", "r8", "r9", "r10", "r11", "r12", "r13", "r14", "r15"};
+	char reg32_table[16][5] = {"eax", "ecx", "edx", "ebx", "esp", "ebp", "esi", "edi", "r8d", "r9d", "r10d", "r11d", "r12d", "r13d", "r14d", "r15d"};
+	char reg16_table[16][5] = {"ax", "cx", "dx", "bx", "sp", "bp", "si", "di", "r8w", "r9w", "r10w", "r11w", "r12w", "r13w", "r14w", "r15w"};
+	char reg8_table[16][5] = {"al", "cl", "dl", "bl", "spl", "bpl", "sil", "dil", "r8b", "r9b", "r10b", "r11b", "r12b", "r13b", "r14b", "r15b"};
+
+	int i;
+	for( i = 0; i < 16; i++ )
+	{
+		if( !strcmp( reg, reg64_table[i] ) )
+			return i;
+	}
+	for( i = 0; i < 16; i++ )
+	{
+		if( !strcmp( reg, reg32_table[i] ) )
+			return i;
+	}
+	for( i = 0; i < 16; i++ )
+	{
+		if( !strcmp( reg, reg16_table[i] ) )
+			return i;
+	}
+	for( i = 0; i < 16; i++ )
+	{
+		if( !strcmp( reg, reg8_table[i] ) )
+			return i;
+	}
+
+	return -1;
+}
+
+void TokenizeInstruction( CTextFileBuffer *assembly_buf, char *opcode, char *op1, char *op2 )
+{
+	int i = 0, state = 0;
+	char *buffer = assembly_buf->Buf();
+	int data_size = assembly_buf->GetDataSize();
+	for( i = 0; i < data_size; i++ )
+	{
+		if( buffer[i] == ';' )
+			break;
+		else if( buffer[i] == ' ' || buffer[i] == '\t' )
+			continue;
+		else
+		{
+			if( state == 0 )
+			{
+				int j = 0;
+				while( buffer[i] != ' ' && buffer[i] != '\t' && buffer[i] != '\0')
+				{
+					opcode[j++] = buffer[i++];
+					if( j == 9 )
+						break;
+				}
+				opcode[j] = 0;
+				state++;
+			}
+			else if( state == 1 )
+			{
+				int j = 0;
+				while( buffer[i] != ',' && buffer[i] != '\t' && buffer[i] != '\0' )
+				{
+					op1[j++] = buffer[i++];
+					if( j == 29 )
+						break;
+				}
+				op1[j] = 0;
+				state++;
+			}
+			else if( state == 2 )
+			{
+				int j = 0;
+				while( buffer[i] != '\t' && buffer[i] != '\0' )
+				{
+					op2[j++] = buffer[i++];
+					if( j == 29 )
+						break;
+				}
+				op2[j] = 0;
+			}
+		}
+	}
+}
+
+void CDisassembler::FindSwitch()
+{
+	CTextFileBuffer temp_file;
+	WriteInstruction( &temp_file );
+	char opcode[10], op1[30], op2[30];
+	TokenizeInstruction( &temp_file, opcode, op1, op2 );
+			
+	if( SwitchCheck == 0 && !strcmp( opcode, "cmp" ) )
+	{
+		if( !IsImmediate(op2) )
+			SwitchCheck = 0;
+		else
+		{
+			SwitchReg = MapRegister(op1);
+			SwitchtableLength = atoi(op2)+1;
+			SwitchCheck = 1;
+		}
+	}
+	else if( SwitchCheck == 1 && !strcmp( opcode, "ja" ) )
+		SwitchCheck = 2;
+	else if( SwitchCheck == 2 && !strcmp( opcode, "movsxd" ) )
+	{
+		char op2_1[5], op2_2[5], op2_3[5];
+		int i, j;
+		for( i = 0; op2[i] != '['; i++ );
+		i++;
+		j = 0;
+		while( op2[i] != '+' && op2[i] != ']' && j != 4)
+			op2_1[j++] = op2[i++];
+		op2_1[j] = 0;
+		i++;
+		j = 0;
+		while( op2[i] != '*' && op2[i] != ']' && j != 4)
+			op2_2[j++] = op2[i++];
+		op2_2[j] = 0;
+		i++;
+		j = 0;
+		while( op2[i] != ']' && j != 4 )
+			op2_3[j++] = op2[i++];
+		op2_3[j] = 0;
+
+		if( t.Regist[MapRegister(op2_1)] == 0x18 && MapRegister(op2_2) == SwitchReg && atoi(op2_3) == 4 )
+		{
+			JumpReg = MapRegister(op1);
+			JumptableAddrReg = MapRegister(op2_1);
+			SwitchCheck = 3;
+		}
+		else
+			SwitchCheck = 0;
+	}
+	else if( SwitchCheck == 3 && !strcmp( opcode, "add" ) )
+	{
+		if( MapRegister(op1) == JumpReg && MapRegister(op2) == JumptableAddrReg )
+			SwitchCheck = 4;
+		else
+			SwitchCheck = 0;
+	}
+	else if( SwitchCheck == 4 && !strcmp( opcode, "jmp" ) )
+	{
+		if( MapRegister(op1) == JumpReg )
+			SwitchCheck = 5;
+		else
+			SwitchCheck = 0;
+	}
+	else if( !strcmp( opcode, "call" ) || !strcmp( opcode, "ret" )
+			|| !strcmp( opcode, "jz" ) || !strcmp( opcode, "jnz" ) 
+			|| !strcmp( opcode, "jc" ) || !strcmp( opcode, "jmp" )
+			|| !strcmp( opcode, "je" ) || !strcmp( opcode, "jns" ) )		
+		SwitchCheck = 0;
+}
 
 void CDisassembler::CheckLabel() {
     // Check if there is a label at instruction, and write it

@@ -5,13 +5,14 @@
 ./disasm.h
 ./disasm1.cpp
 ./disasm2.cpp
+./disasm3.cpp
+./disasm_wrapper.cpp
+./disasm_wrapper.h
 ./error.cpp
 ./error.h
 ./macho.cpp
 ./macho.h
 ./main.cpp
 ./maindef.h
-./objparser.cpp
-./objparser.h
 ./opcodes.cpp
 ./stdafx.h

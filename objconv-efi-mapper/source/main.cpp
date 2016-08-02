@@ -1,6 +1,8 @@
 #include "stdafx.h"
 
 char *input_file_name = 0;
+char *input_file_name1 = 0;
+char *input_file_name2 = 0;
 char *output_file_name = 0;
 
 bool CorrectIntegerTypes() {
@@ -25,8 +27,116 @@ bool CorrectEndianness() {
 
 void usage()
 {
-	printf("./efi-mapper inputfile\n");
+	printf("./efi-mapper inputfile1 inputfile2\n");
 }
+
+struct MappedBlock
+{
+	int idx1;
+	int idx2;
+};
+
+/*class BlockMapper
+{
+public:
+	BlockMapper(Disassembler *d1, Disassembler *d2);
+	void MapCodeBlock();
+	void MappedBlockDump();
+	void Dump();
+
+private:
+	Disassembler *dis1;
+	Disassembler *dis2;
+	CSList<MappedBlock> MappedBlockList;
+
+	int DiffBlock(int i, int j);
+};
+
+BlockMapper::BlockMapper(Disassembler *d1, Disassembler *d2)
+{
+	dis1 = d1;
+	dis2 = d2;
+}
+
+int BlockMapper::DiffBlock(int block_idx1, int block_idx2)
+{
+	int op1, op2;
+	int op_idx1 = 0, op_idx2 = 0;
+	int op_num1 = dis1->GetOpcodeNumInBlock(block_idx1);
+	int op_num2 = dis2->GetOpcodeNumInBlock(block_idx2);
+	bool *matched = new bool[op_num2];
+	for( int i = 0; i < op_num2; i++ )
+		matched[i] = false;
+
+	int all_insn = 0, match_insn = 0;
+	all_insn = (op_num1 > op_num2 ? op_num1 : op_num2);
+
+	while( (op1 = dis1->GetOpcodeInBlock(block_idx1, op_idx1++)) != -1 )
+	{
+		while( (op2 = dis2->GetOpcodeInBlock(block_idx2, op_idx2++)) != -1 )
+		{
+			if( op1 == op2 && !matched[op_idx2] )
+			{
+				matched[op_idx2] = true;
+				match_insn++;
+				break;
+			}
+		}
+		op_idx2 = 0;
+	}
+	delete[] matched;
+
+	return match_insn * 100 / all_insn;
+}
+
+void BlockMapper::MapCodeBlock()
+{
+	int block_num1 = dis1->GetCodeBlockNum();
+	int block_num2 = dis2->GetCodeBlockNum();
+	int mapped_block_idx;
+	int max_percentage = 0;
+
+	int i, j;
+	for( i = 1; i <= block_num1; i++ )
+	{
+		for( j = 1; j <= block_num2; j++ )
+		{
+			int percentage = DiffBlock(i, j);
+			if( percentage >= max_percentage )
+			{
+				mapped_block_idx = j;
+				max_percentage = percentage;
+			}
+		}
+		if( max_percentage >= 50 )
+		{
+			struct MappedBlock mapped_block;
+			mapped_block.idx1 = i;
+			mapped_block.idx2 = mapped_block_idx;
+			MappedBlockList.Push(mapped_block);
+		}
+	}
+}
+
+void BlockMapper::Dump()
+{
+	int block_num1 = dis1->GetCodeBlockNum();
+
+	int block_idx;
+	for( block_idx = 1; block_idx <= block_num1; block_idx++ )
+	{
+		int op_num1 = dis1->GetOpcodeNumInBlock(block_idx);
+		printf("op num #%d :  ",op_num1);
+
+		short op1;
+		int op_idx1 = 0;
+		while( (op1 = dis1->GetOpcodeInBlock(block_idx, op_idx1++)) != -1 )
+		{
+			printf("%x  ",op1);
+		}
+		printf("\n");
+	}
+}*/
 
 int main(int argc, char * argv[]) {
 	if(!CorrectIntegerTypes())
@@ -40,95 +150,36 @@ int main(int argc, char * argv[]) {
 		return -1;
 	}
 
-	if(argc != 2)
+	if(argc != 3)
 	{
 		fprintf(stderr, "[error] Wrong Usage\n");
 		usage();
 		return -1;
 	}
 
-	input_file_name = argv[1];
+	input_file_name1 = argv[1];
+	input_file_name2 = argv[2];
 
-	CFileBuffer input_buffer(input_file_name);
-	input_buffer.Read();
+	CFileBuffer input_buffer1(input_file_name1);
+	input_buffer1.Read();
+	CFileBuffer input_buffer2(input_file_name2);
+	input_buffer2.Read();
 
-	Disassembler disassembler;
-	input_buffer >> disassembler;
-	disassembler.Parse();
-	disassembler.Dump();
-	disassembler.Free();
+	Parser parser1, parser2;
+	CDisassembler disasm_engine1, disasm_engine2;
+	input_buffer1 >> parser1;
+	input_buffer2 >> parser2;
+	parser1.Parse(&disasm_engine1);
+	parser2.Parse(&disasm_engine2);
+	//disassembler1.GetCodeBlockInfo();
+	//disassembler2.GetCodeBlockInfo();
+
+	//BlockMapper block_mapper( &disassembler1, &disassembler2 );
+	//block_mapper.Dump();
+
+	parser1.Free();
+	parser2.Free();
 
 	return 0;
 }
 
-/*
-void CMain::Go() {
-   if ((cmd.FileOptions & CMDL_FILE_OUTPUT) && OutputFileName) {
-      // There is an output file to write
-      FileName = OutputFileName;       // Output file name
-      Write();                         // Write output file
-   }
-}
-
-void CConverter::COF2ASM() {
-   // Disassemble COFF file
-   CCOF2ASM conv;                      // Make object for conversion 
-   *this >> conv;                      // Give it my buffer
-   conv.ParseFile();                   // Parse file buffer
-   if (err.Number()) return;           // Return if error
-   conv.Convert();                     // Convert
-   *this << conv;                      // Take back converted buffer
-}
-
-void CConverter::MAC2ASM() {
-   // Disassemble Mach-O file
-   if (WordSize == 32) {
-      // Make instance of converter, 32 bit template
-      CMAC2ASM<MAC32STRUCTURES> conv;
-      *this >> conv;                      // Give it my buffer
-      conv.ParseFile();                   // Parse file buffer
-      if (err.Number()) return;           // Return if error
-      conv.Convert();                     // Convert
-      *this << conv;                      // Take back converted buffer
-   }
-   else {
-      // Make instance of converter, 64 bit template
-      CMAC2ASM<MAC64STRUCTURES> conv;
-      *this >> conv;                      // Give it my buffer
-      conv.ParseFile();                   // Parse file buffer
-      if (err.Number()) return;           // Return if error
-      conv.Convert();                     // Convert
-      *this << conv;                      // Take back converted buffer
-   }
-}
-
-void CConverter::Go() {
-	// File conversion requested
-	if (cmd.DesiredWordSize == 0) cmd.DesiredWordSize = WordSize;
-	if (WordSize && WordSize != cmd.DesiredWordSize) {
-		err.submit(2012, WordSize, cmd.DesiredWordSize); // Cannot convert word size
-		return;
-	}
-	if (err.Number()) return;        // Return if error
-
-	// Choose conversion
-	switch (FileType) {
-
-		// Conversion from COFF
-		case FILETYPE_COFF:
-			COF2ASM();                 // Disassemble
-
-			break;
-
-			// Conversions from Mach-O
-		case FILETYPE_MACHO_LE:
-
-			MAC2ASM();                 // Disassemble
-
-			break;
-
-			// Conversion from other types
-		default:
-			err.submit(2006, FileName, GetFileFormatName(FileType));   // Conversion of this file type not supported
-	}
-}*/
