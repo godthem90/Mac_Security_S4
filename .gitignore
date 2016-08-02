@@ -1,10 +1,10 @@
 행정/*
 협약/*
 제안서/*
-중간보고서/*
 firmware-MBA/*/*
 firmware-MBP/*/*
 edk2-master/*
 tmp/*
 *.swp
+*.zip
 Thumbs.db
