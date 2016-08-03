@@ -1413,7 +1413,8 @@ void CDisassembler::WriteInstruction( CTextFileBuffer *out_file ) {
         return;
     }
 
-    out_file->Tabulate(AsmTab1);                     // Tabulate
+    //out_file->Tabulate(AsmTab1);                     // Tabulate
+	out_file->Put(" ");	// jjh
 
     if ((s.OpcodeDef->AllowedPrefixes & 0xC40) == 0xC40) {
         switch (s.Prefixes[5]) {
@@ -1538,7 +1539,7 @@ void CDisassembler::WriteInstruction( CTextFileBuffer *out_file ) {
     }   
 
     // Space between opcode name and operands
-    out_file->Put(" "); out_file->Tabulate(AsmTab2);  // Tabulate. At least one space
+    out_file->Put(" "); //out_file->Tabulate(AsmTab2);  // Tabulate. At least one space // jjh
 
     // Loop for all operands to write
     for (i = 0; i < s.MaxNumOperands; i++) {

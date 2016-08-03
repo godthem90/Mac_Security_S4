@@ -54,7 +54,6 @@ int CDisassembler::GetBlockAssembly( uint32 blocki, char *buf )
 		s.AddressRelocation = 0;
 		s.ImmediateRelocation = 0;
 		temp_file.PutHex( SectionAddress + IBegin );
-		temp_file.Tabulate( AsmTab2 );
 		WriteInstruction( &temp_file );
 		temp_file.NewLine();
 
