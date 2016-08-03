@@ -42,7 +42,8 @@ int CDisassembler::GetBlockAssembly( uint32 blocki, char *buf )
 	SectionAddress = Sections[Section].SectionAddress;
 	IBegin = IEnd = LabelEnd = BlockList[blocki].Start;
 
-	CodeMode = (SectionType & 1) ? 1 : 4;
+	//CodeMode = (SectionType & 1) ? 1 : 4;
+	CodeMode = 1;
 
 	while( IEnd < BlockList[blocki].End )
 	{
@@ -50,6 +51,10 @@ int CDisassembler::GetBlockAssembly( uint32 blocki, char *buf )
 
 		s.Reset();
 		ParseInstruction();
+		s.AddressRelocation = 0;
+		s.ImmediateRelocation = 0;
+		temp_file.PutHex( SectionAddress + IBegin );
+		temp_file.Tabulate( AsmTab2 );
 		WriteInstruction( &temp_file );
 		temp_file.NewLine();
 

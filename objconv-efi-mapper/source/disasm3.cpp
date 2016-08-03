@@ -677,7 +677,10 @@ void CDisassembler::WriteImmediateOperand( CTextFileBuffer *out_file, uint32 Typ
     if ((Type & 0xFC) == 0x80 && !s.ImmediateRelocation) {
         // Self-relative jump or call without relocation. Adjust immediate value
         Value += IEnd;                             // Get absolute address of target
+		Value += SectionAddress; // jjh
 
+		// jjh
+		/*
         // Look for symbol at target address
         uint32 ISymbol = Symbols.FindByAddress(Section, (uint32)Value);
         if (ISymbol && (Symbols[ISymbol].Name || CodeMode == 1)) {
@@ -686,6 +689,7 @@ void CDisassembler::WriteImmediateOperand( CTextFileBuffer *out_file, uint32 Typ
             // No offset to write
             return;
         }
+		*/
         // Target address has no name
         Type |= 0x4000;                            // Write target as hexadecimal
     }
@@ -715,6 +719,7 @@ void CDisassembler::WriteImmediateOperand( CTextFileBuffer *out_file, uint32 Typ
         }
     }
 
+    OSize = 32; //jjh
     if (Components) {
         // There was a relocated name
         if (Value) {
