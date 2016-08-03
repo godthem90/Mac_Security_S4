@@ -10,6 +10,8 @@ ASM_SEGMENT_FLAT	disasm.h	/^#define ASM_SEGMENT_FLAT /;"	d
 ASM_SEGMENT_IMGREL	disasm.h	/^#define ASM_SEGMENT_IMGREL /;"	d
 ASM_SEGMENT_NOTHING	disasm.h	/^#define ASM_SEGMENT_NOTHING /;"	d
 ASM_SEGMENT_UNKNOWN	disasm.h	/^#define ASM_SEGMENT_UNKNOWN /;"	d
+ASSUME	tmp.asm	/^ASSUME  fs:NOTHING$/;"	l
+ASSUME	tmp.asm	/^ASSUME  gs:NOTHING$/;"	l
 AddRelocation	disasm1.cpp	/^void CDisassembler::AddRelocation($/;"	f	class:CDisassembler
 AddSection	disasm1.cpp	/^void CDisassembler::AddSection($/;"	f	class:CDisassembler
 AddSectionGroup	disasm1.cpp	/^int32 CDisassembler::AddSectionGroup(const char * Name, int32 MemberSegment) {$/;"	f	class:CDisassembler
@@ -273,6 +275,7 @@ FindMapEntry	disasm1.cpp	/^void CDisassembler::FindMapEntry() {$/;"	f	class:CDis
 FindOperandTypes	disasm1.cpp	/^void CDisassembler::FindOperandTypes() {$/;"	f	class:CDisassembler
 FindOperands	disasm1.cpp	/^void CDisassembler::FindOperands() {$/;"	f	class:CDisassembler
 FindRelocations	disasm1.cpp	/^void CDisassembler::FindRelocations() {$/;"	f	class:CDisassembler
+FindSwitch	disasm1.cpp	/^void CDisassembler::FindSwitch()$/;"	f	class:CDisassembler
 FindWarnings	disasm1.cpp	/^void CDisassembler::FindWarnings() {$/;"	f	class:CDisassembler
 FixRelocationTargetAddresses	disasm1.cpp	/^void CDisassembler::FixRelocationTargetAddresses() {$/;"	f	class:CDisassembler
 FlagPrevious	disasm.h	/^   uint32  FlagPrevious;                         \/\/ 1: previous instruction was a NOP. $/;"	m	class:CDisassembler
@@ -362,6 +365,9 @@ InstructionSetMax	disasm.h	/^   uint8   InstructionSetMax;                    \/
 InstructionSetNames	disasm2.cpp	/^const char * InstructionSetNames[] = {$/;"	v
 InstructionSetNamesLen	disasm2.cpp	/^const int InstructionSetNamesLen = TableSize(InstructionSetNames);$/;"	v
 InstructionSetOR	disasm.h	/^   uint16  InstructionSetOR;                     \/\/ Bitwise OR of all instruction sets encountered$/;"	m	class:CDisassembler
+IsImmediate	disasm1.cpp	/^bool IsImmediate( char *str )$/;"	f
+JumpReg	disasm.h	/^   uint32  JumpReg;$/;"	m	class:CDisassembler
+JumptableAddrReg	disasm.h	/^   uint32  JumptableAddrReg;$/;"	m	class:CDisassembler
 Kreg	disasm.h	/^   uint32 Kreg;                                  \/\/ EVEX.aaa = MVEX.kkk mask register$/;"	m	struct:SOpcodeProp
 LIBTYPE_BSD_MAC	maindef.h	/^#define LIBTYPE_BSD_MAC /;"	d
 LIBTYPE_LINUX	maindef.h	/^#define LIBTYPE_LINUX /;"	d
@@ -607,6 +613,7 @@ MakeSectionList	coff.cpp	/^void COFFParser::MakeSectionList(CDisassembler *Disas
 MakeSectionList	macho.cpp	/^void MACHOParser<MACSTRUCTURES>::MakeSectionList(CDisassembler *Disasm) {$/;"	f	class:MACHOParser
 MakeSymbolList	coff.cpp	/^void COFFParser::MakeSymbolList(CDisassembler *Disasm) {$/;"	f	class:COFFParser
 MakeSymbolList	macho.cpp	/^void MACHOParser<MACSTRUCTURES>::MakeSymbolList(CDisassembler *Disasm) {$/;"	f	class:MACHOParser
+MapRegister	disasm1.cpp	/^int MapRegister( char *reg )$/;"	f
 MappedBlock	main.cpp	/^struct MappedBlock$/;"	s	file:
 MarkCodeAsDubious	disasm1.cpp	/^void CDisassembler::MarkCodeAsDubious() {$/;"	f	class:CDisassembler
 MasmOptions	disasm.h	/^   uint32  MasmOptions;                          \/\/ Options needed for MASM: 1: dotname, 2: fs used, 4: gs used$/;"	m	class:CDisassembler
@@ -1162,6 +1169,7 @@ SUBTYPE_YASM	disasm_wrapper.h	/^#define SUBTYPE_YASM /;"	d
 S_EXTERNAL	maindef.h	/^#define S_EXTERNAL /;"	d
 S_LOCAL	maindef.h	/^#define S_LOCAL /;"	d
 S_PUBLIC	maindef.h	/^#define S_PUBLIC /;"	d
+SavedGdt	tmp.asm	/^SavedGdt label byte$/;"	l
 Scale	disasm.h	/^   uint32 Scale;                                 \/\/ Scale factor = 2^Scale$/;"	m	struct:SOpcodeProp
 ScanPrefixes	disasm1.cpp	/^void CDisassembler::ScanPrefixes() {$/;"	f	class:CDisassembler
 Scope	disasm.h	/^   uint32  Scope;                                \/\/ 0 = inaccessible, 1 = function local, 2 = file local, 4 = public, 8 = weak public, 0x10 = communal, 0x20 = external, 0x100 = has been written$/;"	m	struct:SASymbol
@@ -1255,6 +1263,9 @@ StringTable	coff.h	/^		char * StringTable;                           \/\/ Pointe
 StringTableSize	coff.h	/^		uint32 StringTableSize;                       \/\/ Size of string table (for object files)$/;"	m	class:COFFParser
 Subsystem	coff.h	/^      uint16 Subsystem;$/;"	m	struct:SCOFF_OptionalHeader::__anon1
 Subsystem	coff.h	/^      uint16 Subsystem;$/;"	m	struct:SCOFF_OptionalHeader::__anon2
+SwitchCheck	disasm.h	/^   uint32  SwitchCheck;$/;"	m	class:CDisassembler
+SwitchReg	disasm.h	/^   uint32  SwitchReg;$/;"	m	class:CDisassembler
+SwitchtableLength	disasm.h	/^   uint32  SwitchtableLength;$/;"	m	class:CDisassembler
 SwizRecord	disasm.h	/^   SwizSpec const * SwizRecord;                  \/\/ Selected entry in MVEX table for MVEX code$/;"	m	struct:SOpcodeProp
 SwizRoundTables	opcodes.cpp	/^SwizSpec const * SwizRoundTables[1][2] = {$/;"	v
 SwizSpec	disasm.h	/^struct SwizSpec {$/;"	s
@@ -1277,6 +1288,7 @@ TagIndex	coff.h	/^      uint32 TagIndex; \/\/ Symbol table index of alternative 
 TargetOldIndex	disasm.h	/^   uint32  TargetOldIndex;                       \/\/ Old symbol table index of target$/;"	m	struct:SARelocation
 Text	error.h	/^   char const * Text;   \/\/ Error text$/;"	m	struct:SErrorText
 TimeDateStamp	coff.h	/^ uint32 TimeDateStamp;        \/\/ time & date stamp $/;"	m	struct:SCOFF_FileHeader
+TokenizeInstruction	disasm1.cpp	/^void TokenizeInstruction( CTextFileBuffer *assembly_buf, char *opcode, char *op1, char *op2 )$/;"	f
 TotalSize	coff.h	/^      uint32 TotalSize; \/\/ Size of function code$/;"	m	struct:SCOFF_SymTableEntry::__anon5
 TotalSize	disasm.h	/^   uint32  TotalSize;                            \/\/ Size of initialized and uninitialized data in section$/;"	m	struct:SASection
 TranslateAbsAddress	disasm1.cpp	/^int CDisassembler::TranslateAbsAddress(int64 Addr, int32 &Sect, uint32 &Offset) {$/;"	f	class:CDisassembler
@@ -1299,6 +1311,618 @@ Ui64mx4	opcodes.cpp	/^SwizSpec Ui64mx4[8] = {  \/\/ 64-bit integer memory, no up
 UnnamedNum	disasm.h	/^   uint32 UnnamedNum;                            \/\/ Number of unnamed symbols$/;"	m	class:CSymbolTable
 UnnamedSymFormat	disasm.h	/^   const char * UnnamedSymFormat;                \/\/ Format string for giving names to unnamed symbols$/;"	m	class:CSymbolTable
 UnnamedSymbolsPrefix	disasm.h	/^   const char * UnnamedSymbolsPrefix;            \/\/ Prefix for names of unnamed symbols$/;"	m	class:CSymbolTable
+Unnamed_1_0	tmp.asm	/^Unnamed_1_0 LABEL NEAR$/;"	l
+Unnamed_1_1168	tmp.asm	/^Unnamed_1_1168:$/;"	l
+Unnamed_1_117	tmp.asm	/^Unnamed_1_117:$/;"	l
+Unnamed_1_119C	tmp.asm	/^Unnamed_1_119C:$/;"	l
+Unnamed_1_11D4	tmp.asm	/^Unnamed_1_11D4:$/;"	l
+Unnamed_1_121F	tmp.asm	/^Unnamed_1_121F:$/;"	l
+Unnamed_1_1279	tmp.asm	/^Unnamed_1_1279:$/;"	l
+Unnamed_1_1312	tmp.asm	/^Unnamed_1_1312:$/;"	l
+Unnamed_1_132A	tmp.asm	/^Unnamed_1_132A:$/;"	l
+Unnamed_1_138D	tmp.asm	/^Unnamed_1_138D:$/;"	l
+Unnamed_1_13CB	tmp.asm	/^Unnamed_1_13CB:$/;"	l
+Unnamed_1_13CE	tmp.asm	/^Unnamed_1_13CE:$/;"	l
+Unnamed_1_147	tmp.asm	/^Unnamed_1_147:$/;"	l
+Unnamed_1_14A8	tmp.asm	/^Unnamed_1_14A8:$/;"	l
+Unnamed_1_14D4	tmp.asm	/^Unnamed_1_14D4:$/;"	l
+Unnamed_1_154	tmp.asm	/^Unnamed_1_154 LABEL NEAR$/;"	l
+Unnamed_1_1566	tmp.asm	/^Unnamed_1_1566:$/;"	l
+Unnamed_1_156D	tmp.asm	/^Unnamed_1_156D:$/;"	l
+Unnamed_1_1584	tmp.asm	/^Unnamed_1_1584 LABEL NEAR$/;"	l
+Unnamed_1_1596	tmp.asm	/^Unnamed_1_1596:$/;"	l
+Unnamed_1_164D	tmp.asm	/^Unnamed_1_164D:$/;"	l
+Unnamed_1_177	tmp.asm	/^Unnamed_1_177:$/;"	l
+Unnamed_1_177B	tmp.asm	/^Unnamed_1_177B:$/;"	l
+Unnamed_1_177E	tmp.asm	/^Unnamed_1_177E:$/;"	l
+Unnamed_1_17B8	tmp.asm	/^Unnamed_1_17B8:$/;"	l
+Unnamed_1_18C3	tmp.asm	/^Unnamed_1_18C3:$/;"	l
+Unnamed_1_18C5	tmp.asm	/^Unnamed_1_18C5:$/;"	l
+Unnamed_1_18D	tmp.asm	/^Unnamed_1_18D LABEL NEAR$/;"	l
+Unnamed_1_1948	tmp.asm	/^Unnamed_1_1948:$/;"	l
+Unnamed_1_195D	tmp.asm	/^Unnamed_1_195D:$/;"	l
+Unnamed_1_19A6	tmp.asm	/^Unnamed_1_19A6 LABEL NEAR$/;"	l
+Unnamed_1_1A1C	tmp.asm	/^Unnamed_1_1A1C:$/;"	l
+Unnamed_1_1A92	tmp.asm	/^Unnamed_1_1A92:$/;"	l
+Unnamed_1_1AA0	tmp.asm	/^Unnamed_1_1AA0:$/;"	l
+Unnamed_1_1AA8	tmp.asm	/^Unnamed_1_1AA8:$/;"	l
+Unnamed_1_1AE	tmp.asm	/^Unnamed_1_1AE LABEL NEAR$/;"	l
+Unnamed_1_1B1	tmp.asm	/^Unnamed_1_1B1 LABEL NEAR$/;"	l
+Unnamed_1_1B37	tmp.asm	/^Unnamed_1_1B37:$/;"	l
+Unnamed_1_1B50	tmp.asm	/^Unnamed_1_1B50 LABEL NEAR$/;"	l
+Unnamed_1_1B94	tmp.asm	/^Unnamed_1_1B94 LABEL NEAR$/;"	l
+Unnamed_1_1BD8	tmp.asm	/^Unnamed_1_1BD8:$/;"	l
+Unnamed_1_1C3	tmp.asm	/^Unnamed_1_1C3:$/;"	l
+Unnamed_1_1C66	tmp.asm	/^Unnamed_1_1C66:$/;"	l
+Unnamed_1_1CA4	tmp.asm	/^Unnamed_1_1CA4:$/;"	l
+Unnamed_1_1D20	tmp.asm	/^Unnamed_1_1D20:$/;"	l
+Unnamed_1_1D3A	tmp.asm	/^Unnamed_1_1D3A LABEL NEAR$/;"	l
+Unnamed_1_1D44	tmp.asm	/^Unnamed_1_1D44 LABEL NEAR$/;"	l
+Unnamed_1_1DC5	tmp.asm	/^Unnamed_1_1DC5:$/;"	l
+Unnamed_1_1E1	tmp.asm	/^Unnamed_1_1E1:$/;"	l
+Unnamed_1_1E78	tmp.asm	/^Unnamed_1_1E78:$/;"	l
+Unnamed_1_1EA3	tmp.asm	/^Unnamed_1_1EA3:$/;"	l
+Unnamed_1_1F04	tmp.asm	/^Unnamed_1_1F04:$/;"	l
+Unnamed_1_1F4F	tmp.asm	/^Unnamed_1_1F4F:$/;"	l
+Unnamed_1_1F5	tmp.asm	/^Unnamed_1_1F5:$/;"	l
+Unnamed_1_1F87	tmp.asm	/^Unnamed_1_1F87:$/;"	l
+Unnamed_1_1FA4	tmp.asm	/^Unnamed_1_1FA4:$/;"	l
+Unnamed_1_1FD	tmp.asm	/^Unnamed_1_1FD LABEL NEAR$/;"	l
+Unnamed_1_20	tmp.asm	/^Unnamed_1_20 LABEL NEAR$/;"	l
+Unnamed_1_2006	tmp.asm	/^Unnamed_1_2006:$/;"	l
+Unnamed_1_2021	tmp.asm	/^Unnamed_1_2021:$/;"	l
+Unnamed_1_2035	tmp.asm	/^Unnamed_1_2035 LABEL NEAR$/;"	l
+Unnamed_1_2081	tmp.asm	/^Unnamed_1_2081:$/;"	l
+Unnamed_1_20CC	tmp.asm	/^Unnamed_1_20CC:$/;"	l
+Unnamed_1_21B8	tmp.asm	/^Unnamed_1_21B8:$/;"	l
+Unnamed_1_21D1	tmp.asm	/^Unnamed_1_21D1:$/;"	l
+Unnamed_1_21D8	tmp.asm	/^Unnamed_1_21D8:$/;"	l
+Unnamed_1_222	tmp.asm	/^Unnamed_1_222 LABEL NEAR$/;"	l
+Unnamed_1_223A	tmp.asm	/^Unnamed_1_223A:$/;"	l
+Unnamed_1_2281	tmp.asm	/^Unnamed_1_2281:$/;"	l
+Unnamed_1_22DB	tmp.asm	/^Unnamed_1_22DB:$/;"	l
+Unnamed_1_22E	tmp.asm	/^Unnamed_1_22E:$/;"	l
+Unnamed_1_238B	tmp.asm	/^Unnamed_1_238B:$/;"	l
+Unnamed_1_23A4	tmp.asm	/^Unnamed_1_23A4:$/;"	l
+Unnamed_1_2404	tmp.asm	/^Unnamed_1_2404:$/;"	l
+Unnamed_1_2410	tmp.asm	/^Unnamed_1_2410:$/;"	l
+Unnamed_1_245C	tmp.asm	/^Unnamed_1_245C:$/;"	l
+Unnamed_1_2494	tmp.asm	/^Unnamed_1_2494 LABEL NEAR$/;"	l
+Unnamed_1_24C4	tmp.asm	/^Unnamed_1_24C4 LABEL NEAR$/;"	l
+Unnamed_1_24C8	tmp.asm	/^Unnamed_1_24C8:$/;"	l
+Unnamed_1_24D	tmp.asm	/^Unnamed_1_24D:$/;"	l
+Unnamed_1_24E5	tmp.asm	/^Unnamed_1_24E5:$/;"	l
+Unnamed_1_2503	tmp.asm	/^Unnamed_1_2503:$/;"	l
+Unnamed_1_251D	tmp.asm	/^Unnamed_1_251D:$/;"	l
+Unnamed_1_25A7	tmp.asm	/^Unnamed_1_25A7:$/;"	l
+Unnamed_1_25D1	tmp.asm	/^Unnamed_1_25D1:$/;"	l
+Unnamed_1_25DE	tmp.asm	/^Unnamed_1_25DE LABEL NEAR$/;"	l
+Unnamed_1_25F0	tmp.asm	/^Unnamed_1_25F0:$/;"	l
+Unnamed_1_25FC	tmp.asm	/^Unnamed_1_25FC:$/;"	l
+Unnamed_1_261	tmp.asm	/^Unnamed_1_261:$/;"	l
+Unnamed_1_2642	tmp.asm	/^Unnamed_1_2642:$/;"	l
+Unnamed_1_2654	tmp.asm	/^Unnamed_1_2654:$/;"	l
+Unnamed_1_2663	tmp.asm	/^Unnamed_1_2663:$/;"	l
+Unnamed_1_2697	tmp.asm	/^Unnamed_1_2697:$/;"	l
+Unnamed_1_26CB	tmp.asm	/^Unnamed_1_26CB:$/;"	l
+Unnamed_1_26DA	tmp.asm	/^Unnamed_1_26DA:$/;"	l
+Unnamed_1_27D	tmp.asm	/^Unnamed_1_27D:$/;"	l
+Unnamed_1_27E	tmp.asm	/^Unnamed_1_27E LABEL NEAR$/;"	l
+Unnamed_1_2804	tmp.asm	/^Unnamed_1_2804:$/;"	l
+Unnamed_1_282B	tmp.asm	/^Unnamed_1_282B:$/;"	l
+Unnamed_1_284A	tmp.asm	/^Unnamed_1_284A:$/;"	l
+Unnamed_1_285A	tmp.asm	/^Unnamed_1_285A:$/;"	l
+Unnamed_1_2871	tmp.asm	/^Unnamed_1_2871:$/;"	l
+Unnamed_1_288C	tmp.asm	/^Unnamed_1_288C:$/;"	l
+Unnamed_1_288D	tmp.asm	/^Unnamed_1_288D:$/;"	l
+Unnamed_1_28E4	tmp.asm	/^Unnamed_1_28E4:$/;"	l
+Unnamed_1_292C	tmp.asm	/^Unnamed_1_292C:$/;"	l
+Unnamed_1_2970	tmp.asm	/^Unnamed_1_2970:$/;"	l
+Unnamed_1_29AC	tmp.asm	/^Unnamed_1_29AC:$/;"	l
+Unnamed_1_29B7	tmp.asm	/^Unnamed_1_29B7:$/;"	l
+Unnamed_1_29C5	tmp.asm	/^Unnamed_1_29C5:$/;"	l
+Unnamed_1_29E9	tmp.asm	/^Unnamed_1_29E9:$/;"	l
+Unnamed_1_29F	tmp.asm	/^Unnamed_1_29F LABEL NEAR$/;"	l
+Unnamed_1_2A40	tmp.asm	/^Unnamed_1_2A40:$/;"	l
+Unnamed_1_2AAA	tmp.asm	/^Unnamed_1_2AAA:$/;"	l
+Unnamed_1_2AC2	tmp.asm	/^Unnamed_1_2AC2:$/;"	l
+Unnamed_1_2B1B	tmp.asm	/^Unnamed_1_2B1B:$/;"	l
+Unnamed_1_2B33	tmp.asm	/^Unnamed_1_2B33:$/;"	l
+Unnamed_1_2B7	tmp.asm	/^Unnamed_1_2B7:$/;"	l
+Unnamed_1_2B8C	tmp.asm	/^Unnamed_1_2B8C:$/;"	l
+Unnamed_1_2BA4	tmp.asm	/^Unnamed_1_2BA4:$/;"	l
+Unnamed_1_2C25	tmp.asm	/^Unnamed_1_2C25:$/;"	l
+Unnamed_1_2C4C	tmp.asm	/^Unnamed_1_2C4C:$/;"	l
+Unnamed_1_2C5B	tmp.asm	/^Unnamed_1_2C5B:$/;"	l
+Unnamed_1_2C72	tmp.asm	/^Unnamed_1_2C72:$/;"	l
+Unnamed_1_2CAE	tmp.asm	/^Unnamed_1_2CAE:$/;"	l
+Unnamed_1_2CD4	tmp.asm	/^Unnamed_1_2CD4:$/;"	l
+Unnamed_1_2CDE	tmp.asm	/^Unnamed_1_2CDE:$/;"	l
+Unnamed_1_2D02	tmp.asm	/^Unnamed_1_2D02:$/;"	l
+Unnamed_1_2D5E	tmp.asm	/^Unnamed_1_2D5E:$/;"	l
+Unnamed_1_2D63	tmp.asm	/^Unnamed_1_2D63:$/;"	l
+Unnamed_1_2DCC	tmp.asm	/^Unnamed_1_2DCC:$/;"	l
+Unnamed_1_2DF2	tmp.asm	/^Unnamed_1_2DF2:$/;"	l
+Unnamed_1_2DF3	tmp.asm	/^Unnamed_1_2DF3 LABEL NEAR$/;"	l
+Unnamed_1_2E50	tmp.asm	/^Unnamed_1_2E50:$/;"	l
+Unnamed_1_2E5B	tmp.asm	/^Unnamed_1_2E5B LABEL NEAR$/;"	l
+Unnamed_1_2E89	tmp.asm	/^Unnamed_1_2E89:$/;"	l
+Unnamed_1_2E9F	tmp.asm	/^Unnamed_1_2E9F:$/;"	l
+Unnamed_1_2EA1	tmp.asm	/^Unnamed_1_2EA1:$/;"	l
+Unnamed_1_2F18	tmp.asm	/^Unnamed_1_2F18:$/;"	l
+Unnamed_1_2F1E	tmp.asm	/^Unnamed_1_2F1E:$/;"	l
+Unnamed_1_2F32	tmp.asm	/^Unnamed_1_2F32 LABEL NEAR$/;"	l
+Unnamed_1_2F78	tmp.asm	/^Unnamed_1_2F78:$/;"	l
+Unnamed_1_2FE1	tmp.asm	/^Unnamed_1_2FE1:$/;"	l
+Unnamed_1_2FEB	tmp.asm	/^Unnamed_1_2FEB:$/;"	l
+Unnamed_1_300D	tmp.asm	/^Unnamed_1_300D:$/;"	l
+Unnamed_1_3057	tmp.asm	/^Unnamed_1_3057:$/;"	l
+Unnamed_1_3070	tmp.asm	/^Unnamed_1_3070:$/;"	l
+Unnamed_1_3084	tmp.asm	/^Unnamed_1_3084:$/;"	l
+Unnamed_1_3092	tmp.asm	/^Unnamed_1_3092:$/;"	l
+Unnamed_1_30DB	tmp.asm	/^Unnamed_1_30DB:$/;"	l
+Unnamed_1_30F2	tmp.asm	/^Unnamed_1_30F2:$/;"	l
+Unnamed_1_3103	tmp.asm	/^Unnamed_1_3103 LABEL NEAR$/;"	l
+Unnamed_1_3131	tmp.asm	/^Unnamed_1_3131:$/;"	l
+Unnamed_1_318B	tmp.asm	/^Unnamed_1_318B:$/;"	l
+Unnamed_1_31B1	tmp.asm	/^Unnamed_1_31B1:$/;"	l
+Unnamed_1_320	tmp.asm	/^Unnamed_1_320:$/;"	l
+Unnamed_1_322B	tmp.asm	/^Unnamed_1_322B:$/;"	l
+Unnamed_1_327F	tmp.asm	/^Unnamed_1_327F:$/;"	l
+Unnamed_1_32A5	tmp.asm	/^Unnamed_1_32A5:$/;"	l
+Unnamed_1_32A8	tmp.asm	/^Unnamed_1_32A8:$/;"	l
+Unnamed_1_32B9	tmp.asm	/^Unnamed_1_32B9:$/;"	l
+Unnamed_1_32BE	tmp.asm	/^Unnamed_1_32BE:$/;"	l
+Unnamed_1_32E5	tmp.asm	/^Unnamed_1_32E5:$/;"	l
+Unnamed_1_3357	tmp.asm	/^Unnamed_1_3357:$/;"	l
+Unnamed_1_335A	tmp.asm	/^Unnamed_1_335A:$/;"	l
+Unnamed_1_3371	tmp.asm	/^Unnamed_1_3371 LABEL NEAR$/;"	l
+Unnamed_1_33BA	tmp.asm	/^Unnamed_1_33BA:$/;"	l
+Unnamed_1_33C3	tmp.asm	/^Unnamed_1_33C3:$/;"	l
+Unnamed_1_33E1	tmp.asm	/^Unnamed_1_33E1:$/;"	l
+Unnamed_1_3419	tmp.asm	/^Unnamed_1_3419:$/;"	l
+Unnamed_1_3425	tmp.asm	/^Unnamed_1_3425:$/;"	l
+Unnamed_1_3427	tmp.asm	/^Unnamed_1_3427:$/;"	l
+Unnamed_1_348	tmp.asm	/^Unnamed_1_348:$/;"	l
+Unnamed_1_3499	tmp.asm	/^Unnamed_1_3499:$/;"	l
+Unnamed_1_34F9	tmp.asm	/^Unnamed_1_34F9:$/;"	l
+Unnamed_1_3511	tmp.asm	/^Unnamed_1_3511:$/;"	l
+Unnamed_1_3519	tmp.asm	/^Unnamed_1_3519:$/;"	l
+Unnamed_1_353E	tmp.asm	/^Unnamed_1_353E:$/;"	l
+Unnamed_1_35EB	tmp.asm	/^Unnamed_1_35EB:$/;"	l
+Unnamed_1_3615	tmp.asm	/^Unnamed_1_3615:$/;"	l
+Unnamed_1_362D	tmp.asm	/^Unnamed_1_362D:$/;"	l
+Unnamed_1_365A	tmp.asm	/^Unnamed_1_365A:$/;"	l
+Unnamed_1_36D0	tmp.asm	/^Unnamed_1_36D0:$/;"	l
+Unnamed_1_36E9	tmp.asm	/^Unnamed_1_36E9:$/;"	l
+Unnamed_1_3713	tmp.asm	/^Unnamed_1_3713:$/;"	l
+Unnamed_1_3717	tmp.asm	/^Unnamed_1_3717:$/;"	l
+Unnamed_1_3725	tmp.asm	/^Unnamed_1_3725:$/;"	l
+Unnamed_1_377D	tmp.asm	/^Unnamed_1_377D:$/;"	l
+Unnamed_1_3810	tmp.asm	/^Unnamed_1_3810:$/;"	l
+Unnamed_1_3825	tmp.asm	/^Unnamed_1_3825:$/;"	l
+Unnamed_1_383B	tmp.asm	/^Unnamed_1_383B:$/;"	l
+Unnamed_1_38D	tmp.asm	/^Unnamed_1_38D:$/;"	l
+Unnamed_1_38E	tmp.asm	/^Unnamed_1_38E LABEL NEAR$/;"	l
+Unnamed_1_390F	tmp.asm	/^Unnamed_1_390F:$/;"	l
+Unnamed_1_394E	tmp.asm	/^Unnamed_1_394E:$/;"	l
+Unnamed_1_396	tmp.asm	/^Unnamed_1_396 LABEL NEAR$/;"	l
+Unnamed_1_39A1	tmp.asm	/^Unnamed_1_39A1:$/;"	l
+Unnamed_1_39E8	tmp.asm	/^Unnamed_1_39E8:$/;"	l
+Unnamed_1_39FD	tmp.asm	/^Unnamed_1_39FD:$/;"	l
+Unnamed_1_3A5	tmp.asm	/^Unnamed_1_3A5:$/;"	l
+Unnamed_1_3A51	tmp.asm	/^Unnamed_1_3A51:$/;"	l
+Unnamed_1_3A52	tmp.asm	/^Unnamed_1_3A52:$/;"	l
+Unnamed_1_3A71	tmp.asm	/^Unnamed_1_3A71:$/;"	l
+Unnamed_1_3AB3	tmp.asm	/^Unnamed_1_3AB3:$/;"	l
+Unnamed_1_3AEE	tmp.asm	/^Unnamed_1_3AEE:$/;"	l
+Unnamed_1_3B5	tmp.asm	/^Unnamed_1_3B5 LABEL NEAR$/;"	l
+Unnamed_1_3C12	tmp.asm	/^Unnamed_1_3C12:$/;"	l
+Unnamed_1_3C7E	tmp.asm	/^Unnamed_1_3C7E:$/;"	l
+Unnamed_1_3C82	tmp.asm	/^Unnamed_1_3C82:$/;"	l
+Unnamed_1_3CAE	tmp.asm	/^Unnamed_1_3CAE:$/;"	l
+Unnamed_1_3CD9	tmp.asm	/^Unnamed_1_3CD9:$/;"	l
+Unnamed_1_3CEF	tmp.asm	/^Unnamed_1_3CEF:$/;"	l
+Unnamed_1_3D7E	tmp.asm	/^Unnamed_1_3D7E:$/;"	l
+Unnamed_1_3D89	tmp.asm	/^Unnamed_1_3D89:$/;"	l
+Unnamed_1_3DAF	tmp.asm	/^Unnamed_1_3DAF:$/;"	l
+Unnamed_1_3DB	tmp.asm	/^Unnamed_1_3DB:$/;"	l
+Unnamed_1_3DC5	tmp.asm	/^Unnamed_1_3DC5:$/;"	l
+Unnamed_1_3DD3	tmp.asm	/^Unnamed_1_3DD3:$/;"	l
+Unnamed_1_3E6C	tmp.asm	/^Unnamed_1_3E6C:$/;"	l
+Unnamed_1_3E6E	tmp.asm	/^Unnamed_1_3E6E:$/;"	l
+Unnamed_1_3EA3	tmp.asm	/^Unnamed_1_3EA3:$/;"	l
+Unnamed_1_3EB4	tmp.asm	/^Unnamed_1_3EB4 LABEL NEAR$/;"	l
+Unnamed_1_3EE1	tmp.asm	/^Unnamed_1_3EE1:$/;"	l
+Unnamed_1_3EF0	tmp.asm	/^Unnamed_1_3EF0:$/;"	l
+Unnamed_1_3F2A	tmp.asm	/^Unnamed_1_3F2A:$/;"	l
+Unnamed_1_3F80	tmp.asm	/^Unnamed_1_3F80:$/;"	l
+Unnamed_1_3F96	tmp.asm	/^Unnamed_1_3F96:$/;"	l
+Unnamed_1_3FA0	tmp.asm	/^Unnamed_1_3FA0 LABEL NEAR$/;"	l
+Unnamed_1_4012	tmp.asm	/^Unnamed_1_4012 LABEL NEAR$/;"	l
+Unnamed_1_40AB	tmp.asm	/^Unnamed_1_40AB:$/;"	l
+Unnamed_1_416B	tmp.asm	/^Unnamed_1_416B:$/;"	l
+Unnamed_1_41C7	tmp.asm	/^Unnamed_1_41C7:$/;"	l
+Unnamed_1_41FA	tmp.asm	/^Unnamed_1_41FA:$/;"	l
+Unnamed_1_4204	tmp.asm	/^Unnamed_1_4204 LABEL NEAR$/;"	l
+Unnamed_1_4224	tmp.asm	/^Unnamed_1_4224:$/;"	l
+Unnamed_1_4282	tmp.asm	/^Unnamed_1_4282:$/;"	l
+Unnamed_1_42A3	tmp.asm	/^Unnamed_1_42A3:$/;"	l
+Unnamed_1_42BE	tmp.asm	/^Unnamed_1_42BE:$/;"	l
+Unnamed_1_42C9	tmp.asm	/^Unnamed_1_42C9 LABEL NEAR$/;"	l
+Unnamed_1_42D9	tmp.asm	/^Unnamed_1_42D9:$/;"	l
+Unnamed_1_42EF	tmp.asm	/^Unnamed_1_42EF:$/;"	l
+Unnamed_1_42FD	tmp.asm	/^Unnamed_1_42FD:$/;"	l
+Unnamed_1_42FE	tmp.asm	/^Unnamed_1_42FE:$/;"	l
+Unnamed_1_4348	tmp.asm	/^Unnamed_1_4348:$/;"	l
+Unnamed_1_4378	tmp.asm	/^Unnamed_1_4378:$/;"	l
+Unnamed_1_439F	tmp.asm	/^Unnamed_1_439F:$/;"	l
+Unnamed_1_444A	tmp.asm	/^Unnamed_1_444A:$/;"	l
+Unnamed_1_4457	tmp.asm	/^Unnamed_1_4457:$/;"	l
+Unnamed_1_4464	tmp.asm	/^Unnamed_1_4464:$/;"	l
+Unnamed_1_447	tmp.asm	/^Unnamed_1_447:$/;"	l
+Unnamed_1_4478	tmp.asm	/^Unnamed_1_4478 LABEL NEAR$/;"	l
+Unnamed_1_447A	tmp.asm	/^Unnamed_1_447A:$/;"	l
+Unnamed_1_4514	tmp.asm	/^Unnamed_1_4514:$/;"	l
+Unnamed_1_4578	tmp.asm	/^Unnamed_1_4578:$/;"	l
+Unnamed_1_4588	tmp.asm	/^Unnamed_1_4588:$/;"	l
+Unnamed_1_4592	tmp.asm	/^Unnamed_1_4592 LABEL NEAR$/;"	l
+Unnamed_1_45D7	tmp.asm	/^Unnamed_1_45D7:$/;"	l
+Unnamed_1_45DA	tmp.asm	/^Unnamed_1_45DA LABEL NEAR$/;"	l
+Unnamed_1_462D	tmp.asm	/^Unnamed_1_462D LABEL NEAR$/;"	l
+Unnamed_1_468E	tmp.asm	/^Unnamed_1_468E:$/;"	l
+Unnamed_1_46A1	tmp.asm	/^Unnamed_1_46A1 LABEL NEAR$/;"	l
+Unnamed_1_46E2	tmp.asm	/^Unnamed_1_46E2:$/;"	l
+Unnamed_1_4705	tmp.asm	/^Unnamed_1_4705 LABEL NEAR$/;"	l
+Unnamed_1_4710	tmp.asm	/^Unnamed_1_4710:$/;"	l
+Unnamed_1_4723	tmp.asm	/^Unnamed_1_4723:$/;"	l
+Unnamed_1_4727	tmp.asm	/^Unnamed_1_4727 LABEL NEAR$/;"	l
+Unnamed_1_47B4	tmp.asm	/^Unnamed_1_47B4:$/;"	l
+Unnamed_1_47C0	tmp.asm	/^Unnamed_1_47C0:$/;"	l
+Unnamed_1_47D0	tmp.asm	/^Unnamed_1_47D0:$/;"	l
+Unnamed_1_481D	tmp.asm	/^Unnamed_1_481D:$/;"	l
+Unnamed_1_4843	tmp.asm	/^Unnamed_1_4843:$/;"	l
+Unnamed_1_486B	tmp.asm	/^Unnamed_1_486B:$/;"	l
+Unnamed_1_4893	tmp.asm	/^Unnamed_1_4893:$/;"	l
+Unnamed_1_4895	tmp.asm	/^Unnamed_1_4895:$/;"	l
+Unnamed_1_48CA	tmp.asm	/^Unnamed_1_48CA:$/;"	l
+Unnamed_1_48DD	tmp.asm	/^Unnamed_1_48DD:$/;"	l
+Unnamed_1_490E	tmp.asm	/^Unnamed_1_490E:$/;"	l
+Unnamed_1_4921	tmp.asm	/^Unnamed_1_4921 LABEL NEAR$/;"	l
+Unnamed_1_492C	tmp.asm	/^Unnamed_1_492C:$/;"	l
+Unnamed_1_4943	tmp.asm	/^Unnamed_1_4943:$/;"	l
+Unnamed_1_4957	tmp.asm	/^Unnamed_1_4957:$/;"	l
+Unnamed_1_4973	tmp.asm	/^Unnamed_1_4973:$/;"	l
+Unnamed_1_498	tmp.asm	/^Unnamed_1_498:$/;"	l
+Unnamed_1_4992	tmp.asm	/^Unnamed_1_4992:$/;"	l
+Unnamed_1_49CE	tmp.asm	/^Unnamed_1_49CE LABEL NEAR$/;"	l
+Unnamed_1_49EF	tmp.asm	/^Unnamed_1_49EF:$/;"	l
+Unnamed_1_4A10	tmp.asm	/^Unnamed_1_4A10:$/;"	l
+Unnamed_1_4A2A	tmp.asm	/^Unnamed_1_4A2A:$/;"	l
+Unnamed_1_4A45	tmp.asm	/^Unnamed_1_4A45:$/;"	l
+Unnamed_1_4A5C	tmp.asm	/^Unnamed_1_4A5C:$/;"	l
+Unnamed_1_4A68	tmp.asm	/^Unnamed_1_4A68:$/;"	l
+Unnamed_1_4A77	tmp.asm	/^Unnamed_1_4A77:$/;"	l
+Unnamed_1_4A79	tmp.asm	/^Unnamed_1_4A79 LABEL NEAR$/;"	l
+Unnamed_1_4AEA	tmp.asm	/^Unnamed_1_4AEA:$/;"	l
+Unnamed_1_4AEF	tmp.asm	/^Unnamed_1_4AEF:$/;"	l
+Unnamed_1_4AFA	tmp.asm	/^Unnamed_1_4AFA LABEL NEAR$/;"	l
+Unnamed_1_4B29	tmp.asm	/^Unnamed_1_4B29:$/;"	l
+Unnamed_1_4B31	tmp.asm	/^Unnamed_1_4B31:$/;"	l
+Unnamed_1_4B92	tmp.asm	/^Unnamed_1_4B92:$/;"	l
+Unnamed_1_4BB2	tmp.asm	/^Unnamed_1_4BB2:$/;"	l
+Unnamed_1_4BC6	tmp.asm	/^Unnamed_1_4BC6:$/;"	l
+Unnamed_1_4BD1	tmp.asm	/^Unnamed_1_4BD1 LABEL NEAR$/;"	l
+Unnamed_1_4BF6	tmp.asm	/^Unnamed_1_4BF6:$/;"	l
+Unnamed_1_4D1	tmp.asm	/^Unnamed_1_4D1:$/;"	l
+Unnamed_1_4D14	tmp.asm	/^Unnamed_1_4D14:$/;"	l
+Unnamed_1_4D7D	tmp.asm	/^Unnamed_1_4D7D:$/;"	l
+Unnamed_1_4D8E	tmp.asm	/^Unnamed_1_4D8E LABEL NEAR$/;"	l
+Unnamed_1_4DDD	tmp.asm	/^Unnamed_1_4DDD LABEL NEAR$/;"	l
+Unnamed_1_4DFC	tmp.asm	/^Unnamed_1_4DFC:$/;"	l
+Unnamed_1_4E34	tmp.asm	/^Unnamed_1_4E34 LABEL NEAR$/;"	l
+Unnamed_1_4E41	tmp.asm	/^Unnamed_1_4E41:$/;"	l
+Unnamed_1_4E5A	tmp.asm	/^Unnamed_1_4E5A:$/;"	l
+Unnamed_1_4E6B	tmp.asm	/^Unnamed_1_4E6B:$/;"	l
+Unnamed_1_4E86	tmp.asm	/^Unnamed_1_4E86:$/;"	l
+Unnamed_1_4E9F	tmp.asm	/^Unnamed_1_4E9F:$/;"	l
+Unnamed_1_4EAF	tmp.asm	/^Unnamed_1_4EAF LABEL NEAR$/;"	l
+Unnamed_1_4EB7	tmp.asm	/^Unnamed_1_4EB7:$/;"	l
+Unnamed_1_4ECA	tmp.asm	/^Unnamed_1_4ECA:$/;"	l
+Unnamed_1_4EDE	tmp.asm	/^Unnamed_1_4EDE:$/;"	l
+Unnamed_1_4EE3	tmp.asm	/^Unnamed_1_4EE3:$/;"	l
+Unnamed_1_4EEA	tmp.asm	/^Unnamed_1_4EEA:$/;"	l
+Unnamed_1_4EF3	tmp.asm	/^Unnamed_1_4EF3:$/;"	l
+Unnamed_1_4F34	tmp.asm	/^Unnamed_1_4F34 LABEL NEAR$/;"	l
+Unnamed_1_4F3B	tmp.asm	/^Unnamed_1_4F3B:$/;"	l
+Unnamed_1_4F48	tmp.asm	/^Unnamed_1_4F48:$/;"	l
+Unnamed_1_4F50	tmp.asm	/^Unnamed_1_4F50:$/;"	l
+Unnamed_1_4F73	tmp.asm	/^Unnamed_1_4F73:$/;"	l
+Unnamed_1_4F91	tmp.asm	/^Unnamed_1_4F91:$/;"	l
+Unnamed_1_4F9A	tmp.asm	/^Unnamed_1_4F9A LABEL NEAR$/;"	l
+Unnamed_1_50	tmp.asm	/^Unnamed_1_50 LABEL NEAR$/;"	l
+Unnamed_1_5030	tmp.asm	/^Unnamed_1_5030 LABEL NEAR$/;"	l
+Unnamed_1_505E	tmp.asm	/^Unnamed_1_505E LABEL NEAR$/;"	l
+Unnamed_1_5084	tmp.asm	/^Unnamed_1_5084:$/;"	l
+Unnamed_1_50BE	tmp.asm	/^Unnamed_1_50BE:$/;"	l
+Unnamed_1_5115	tmp.asm	/^Unnamed_1_5115:$/;"	l
+Unnamed_1_5119	tmp.asm	/^Unnamed_1_5119:$/;"	l
+Unnamed_1_5149	tmp.asm	/^Unnamed_1_5149:$/;"	l
+Unnamed_1_515	tmp.asm	/^Unnamed_1_515:$/;"	l
+Unnamed_1_5192	tmp.asm	/^Unnamed_1_5192:$/;"	l
+Unnamed_1_51B1	tmp.asm	/^Unnamed_1_51B1:$/;"	l
+Unnamed_1_51C3	tmp.asm	/^Unnamed_1_51C3:$/;"	l
+Unnamed_1_51EB	tmp.asm	/^Unnamed_1_51EB:$/;"	l
+Unnamed_1_51FA	tmp.asm	/^Unnamed_1_51FA LABEL NEAR$/;"	l
+Unnamed_1_5254	tmp.asm	/^Unnamed_1_5254:$/;"	l
+Unnamed_1_52C	tmp.asm	/^Unnamed_1_52C:$/;"	l
+Unnamed_1_52D5	tmp.asm	/^Unnamed_1_52D5:$/;"	l
+Unnamed_1_52E6	tmp.asm	/^Unnamed_1_52E6:$/;"	l
+Unnamed_1_5326	tmp.asm	/^Unnamed_1_5326:$/;"	l
+Unnamed_1_5335	tmp.asm	/^Unnamed_1_5335:$/;"	l
+Unnamed_1_5378	tmp.asm	/^Unnamed_1_5378:$/;"	l
+Unnamed_1_537B	tmp.asm	/^Unnamed_1_537B:$/;"	l
+Unnamed_1_53B5	tmp.asm	/^Unnamed_1_53B5:$/;"	l
+Unnamed_1_53D3	tmp.asm	/^Unnamed_1_53D3:$/;"	l
+Unnamed_1_53EE	tmp.asm	/^Unnamed_1_53EE:$/;"	l
+Unnamed_1_541A	tmp.asm	/^Unnamed_1_541A:$/;"	l
+Unnamed_1_54A9	tmp.asm	/^Unnamed_1_54A9:$/;"	l
+Unnamed_1_54E	tmp.asm	/^Unnamed_1_54E:$/;"	l
+Unnamed_1_5519	tmp.asm	/^Unnamed_1_5519:$/;"	l
+Unnamed_1_5555	tmp.asm	/^Unnamed_1_5555:$/;"	l
+Unnamed_1_55B4	tmp.asm	/^Unnamed_1_55B4:$/;"	l
+Unnamed_1_561B	tmp.asm	/^Unnamed_1_561B:$/;"	l
+Unnamed_1_565	tmp.asm	/^Unnamed_1_565:$/;"	l
+Unnamed_1_568F	tmp.asm	/^Unnamed_1_568F:$/;"	l
+Unnamed_1_5777	tmp.asm	/^Unnamed_1_5777:$/;"	l
+Unnamed_1_5797	tmp.asm	/^Unnamed_1_5797:$/;"	l
+Unnamed_1_579F	tmp.asm	/^Unnamed_1_579F:$/;"	l
+Unnamed_1_581C	tmp.asm	/^Unnamed_1_581C LABEL NEAR$/;"	l
+Unnamed_1_5872	tmp.asm	/^Unnamed_1_5872:$/;"	l
+Unnamed_1_5879	tmp.asm	/^Unnamed_1_5879 LABEL NEAR$/;"	l
+Unnamed_1_5885	tmp.asm	/^Unnamed_1_5885:$/;"	l
+Unnamed_1_5918	tmp.asm	/^Unnamed_1_5918:$/;"	l
+Unnamed_1_598E	tmp.asm	/^Unnamed_1_598E:$/;"	l
+Unnamed_1_599	tmp.asm	/^Unnamed_1_599:$/;"	l
+Unnamed_1_59D6	tmp.asm	/^Unnamed_1_59D6:$/;"	l
+Unnamed_1_5A26	tmp.asm	/^Unnamed_1_5A26:$/;"	l
+Unnamed_1_5A4E	tmp.asm	/^Unnamed_1_5A4E:$/;"	l
+Unnamed_1_5A5A	tmp.asm	/^Unnamed_1_5A5A:$/;"	l
+Unnamed_1_5A8A	tmp.asm	/^Unnamed_1_5A8A:$/;"	l
+Unnamed_1_5AA0	tmp.asm	/^Unnamed_1_5AA0:$/;"	l
+Unnamed_1_5B30	tmp.asm	/^Unnamed_1_5B30:$/;"	l
+Unnamed_1_5B45	tmp.asm	/^Unnamed_1_5B45 LABEL NEAR$/;"	l
+Unnamed_1_5B69	tmp.asm	/^Unnamed_1_5B69:$/;"	l
+Unnamed_1_5B73	tmp.asm	/^Unnamed_1_5B73 LABEL NEAR$/;"	l
+Unnamed_1_5BA	tmp.asm	/^Unnamed_1_5BA LABEL NEAR$/;"	l
+Unnamed_1_5BE1	tmp.asm	/^Unnamed_1_5BE1:$/;"	l
+Unnamed_1_5BE8	tmp.asm	/^Unnamed_1_5BE8 LABEL NEAR$/;"	l
+Unnamed_1_5C66	tmp.asm	/^Unnamed_1_5C66:$/;"	l
+Unnamed_1_5C7D	tmp.asm	/^Unnamed_1_5C7D LABEL NEAR$/;"	l
+Unnamed_1_5CE3	tmp.asm	/^Unnamed_1_5CE3:$/;"	l
+Unnamed_1_5D2F	tmp.asm	/^Unnamed_1_5D2F:$/;"	l
+Unnamed_1_5D3B	tmp.asm	/^Unnamed_1_5D3B:$/;"	l
+Unnamed_1_5D5C	tmp.asm	/^Unnamed_1_5D5C:$/;"	l
+Unnamed_1_5D7E	tmp.asm	/^Unnamed_1_5D7E:$/;"	l
+Unnamed_1_5D83	tmp.asm	/^Unnamed_1_5D83:$/;"	l
+Unnamed_1_5DF0	tmp.asm	/^Unnamed_1_5DF0:$/;"	l
+Unnamed_1_5E01	tmp.asm	/^Unnamed_1_5E01:$/;"	l
+Unnamed_1_5E4	tmp.asm	/^Unnamed_1_5E4:$/;"	l
+Unnamed_1_5E47	tmp.asm	/^Unnamed_1_5E47:$/;"	l
+Unnamed_1_5E4F	tmp.asm	/^Unnamed_1_5E4F:$/;"	l
+Unnamed_1_5E55	tmp.asm	/^Unnamed_1_5E55:$/;"	l
+Unnamed_1_5E7C	tmp.asm	/^Unnamed_1_5E7C:$/;"	l
+Unnamed_1_5EA	tmp.asm	/^Unnamed_1_5EA:$/;"	l
+Unnamed_1_5ED1	tmp.asm	/^Unnamed_1_5ED1:$/;"	l
+Unnamed_1_5EDF	tmp.asm	/^Unnamed_1_5EDF:$/;"	l
+Unnamed_1_5EF7	tmp.asm	/^Unnamed_1_5EF7:$/;"	l
+Unnamed_1_5F07	tmp.asm	/^Unnamed_1_5F07 LABEL NEAR$/;"	l
+Unnamed_1_5F3E	tmp.asm	/^Unnamed_1_5F3E:$/;"	l
+Unnamed_1_5F56	tmp.asm	/^Unnamed_1_5F56:$/;"	l
+Unnamed_1_5F9B	tmp.asm	/^Unnamed_1_5F9B:$/;"	l
+Unnamed_1_5F9D	tmp.asm	/^Unnamed_1_5F9D:$/;"	l
+Unnamed_1_5FB5	tmp.asm	/^Unnamed_1_5FB5:$/;"	l
+Unnamed_1_5FC0	tmp.asm	/^Unnamed_1_5FC0:$/;"	l
+Unnamed_1_5FD1	tmp.asm	/^Unnamed_1_5FD1 LABEL NEAR$/;"	l
+Unnamed_1_5FFC	tmp.asm	/^Unnamed_1_5FFC:$/;"	l
+Unnamed_1_6014	tmp.asm	/^Unnamed_1_6014:$/;"	l
+Unnamed_1_605B	tmp.asm	/^Unnamed_1_605B:$/;"	l
+Unnamed_1_6069	tmp.asm	/^Unnamed_1_6069 LABEL NEAR$/;"	l
+Unnamed_1_607B	tmp.asm	/^Unnamed_1_607B LABEL NEAR$/;"	l
+Unnamed_1_6087	tmp.asm	/^Unnamed_1_6087:$/;"	l
+Unnamed_1_60C	tmp.asm	/^Unnamed_1_60C LABEL NEAR$/;"	l
+Unnamed_1_6111	tmp.asm	/^Unnamed_1_6111:$/;"	l
+Unnamed_1_6123	tmp.asm	/^Unnamed_1_6123 LABEL NEAR$/;"	l
+Unnamed_1_6187	tmp.asm	/^Unnamed_1_6187 LABEL NEAR$/;"	l
+Unnamed_1_61DC	tmp.asm	/^Unnamed_1_61DC LABEL NEAR$/;"	l
+Unnamed_1_624F	tmp.asm	/^Unnamed_1_624F:$/;"	l
+Unnamed_1_62F8	tmp.asm	/^Unnamed_1_62F8:$/;"	l
+Unnamed_1_630C	tmp.asm	/^Unnamed_1_630C LABEL NEAR$/;"	l
+Unnamed_1_636	tmp.asm	/^Unnamed_1_636:$/;"	l
+Unnamed_1_638	tmp.asm	/^Unnamed_1_638:$/;"	l
+Unnamed_1_638B	tmp.asm	/^Unnamed_1_638B:$/;"	l
+Unnamed_1_63B7	tmp.asm	/^Unnamed_1_63B7 LABEL NEAR$/;"	l
+Unnamed_1_6403	tmp.asm	/^Unnamed_1_6403:$/;"	l
+Unnamed_1_644F	tmp.asm	/^Unnamed_1_644F:$/;"	l
+Unnamed_1_6458	tmp.asm	/^Unnamed_1_6458:$/;"	l
+Unnamed_1_64B5	tmp.asm	/^Unnamed_1_64B5:$/;"	l
+Unnamed_1_6512	tmp.asm	/^Unnamed_1_6512 LABEL NEAR$/;"	l
+Unnamed_1_6530	tmp.asm	/^Unnamed_1_6530 LABEL NEAR$/;"	l
+Unnamed_1_656E	tmp.asm	/^Unnamed_1_656E LABEL NEAR$/;"	l
+Unnamed_1_65B8	tmp.asm	/^Unnamed_1_65B8:$/;"	l
+Unnamed_1_65BE	tmp.asm	/^Unnamed_1_65BE LABEL NEAR$/;"	l
+Unnamed_1_65EE	tmp.asm	/^Unnamed_1_65EE:$/;"	l
+Unnamed_1_65FE	tmp.asm	/^Unnamed_1_65FE LABEL NEAR$/;"	l
+Unnamed_1_663E	tmp.asm	/^Unnamed_1_663E:$/;"	l
+Unnamed_1_6645	tmp.asm	/^Unnamed_1_6645 LABEL NEAR$/;"	l
+Unnamed_1_6667	tmp.asm	/^Unnamed_1_6667 LABEL NEAR$/;"	l
+Unnamed_1_669B	tmp.asm	/^Unnamed_1_669B LABEL NEAR$/;"	l
+Unnamed_1_66A	tmp.asm	/^Unnamed_1_66A:$/;"	l
+Unnamed_1_66F8	tmp.asm	/^Unnamed_1_66F8:$/;"	l
+Unnamed_1_67	tmp.asm	/^Unnamed_1_67:$/;"	l
+Unnamed_1_670E	tmp.asm	/^Unnamed_1_670E LABEL NEAR$/;"	l
+Unnamed_1_6717	tmp.asm	/^Unnamed_1_6717:$/;"	l
+Unnamed_1_679	tmp.asm	/^Unnamed_1_679:$/;"	l
+Unnamed_1_684D	tmp.asm	/^Unnamed_1_684D:$/;"	l
+Unnamed_1_68AA	tmp.asm	/^Unnamed_1_68AA:$/;"	l
+Unnamed_1_6903	tmp.asm	/^Unnamed_1_6903 LABEL NEAR$/;"	l
+Unnamed_1_69A9	tmp.asm	/^Unnamed_1_69A9:$/;"	l
+Unnamed_1_69B8	tmp.asm	/^Unnamed_1_69B8:$/;"	l
+Unnamed_1_69C8	tmp.asm	/^Unnamed_1_69C8 LABEL NEAR$/;"	l
+Unnamed_1_6A0	tmp.asm	/^Unnamed_1_6A0:$/;"	l
+Unnamed_1_6ABB	tmp.asm	/^Unnamed_1_6ABB LABEL NEAR$/;"	l
+Unnamed_1_6B91	tmp.asm	/^Unnamed_1_6B91:$/;"	l
+Unnamed_1_6B98	tmp.asm	/^Unnamed_1_6B98 LABEL NEAR$/;"	l
+Unnamed_1_6BBC	tmp.asm	/^Unnamed_1_6BBC:$/;"	l
+Unnamed_1_6C3D	tmp.asm	/^Unnamed_1_6C3D:$/;"	l
+Unnamed_1_6C49	tmp.asm	/^Unnamed_1_6C49 LABEL NEAR$/;"	l
+Unnamed_1_6C82	tmp.asm	/^Unnamed_1_6C82:$/;"	l
+Unnamed_1_6C94	tmp.asm	/^Unnamed_1_6C94:$/;"	l
+Unnamed_1_6D08	tmp.asm	/^Unnamed_1_6D08:$/;"	l
+Unnamed_1_6E0	tmp.asm	/^Unnamed_1_6E0:$/;"	l
+Unnamed_1_6E3	tmp.asm	/^Unnamed_1_6E3:$/;"	l
+Unnamed_1_6E5A	tmp.asm	/^Unnamed_1_6E5A:$/;"	l
+Unnamed_1_6ED6	tmp.asm	/^Unnamed_1_6ED6 LABEL NEAR$/;"	l
+Unnamed_1_6FA8	tmp.asm	/^Unnamed_1_6FA8:$/;"	l
+Unnamed_1_6FB7	tmp.asm	/^Unnamed_1_6FB7:$/;"	l
+Unnamed_1_6FC9	tmp.asm	/^Unnamed_1_6FC9 LABEL NEAR$/;"	l
+Unnamed_1_705C	tmp.asm	/^Unnamed_1_705C:$/;"	l
+Unnamed_1_70C5	tmp.asm	/^Unnamed_1_70C5 LABEL NEAR$/;"	l
+Unnamed_1_719B	tmp.asm	/^Unnamed_1_719B:$/;"	l
+Unnamed_1_71A	tmp.asm	/^Unnamed_1_71A:$/;"	l
+Unnamed_1_71A2	tmp.asm	/^Unnamed_1_71A2 LABEL NEAR$/;"	l
+Unnamed_1_71D5	tmp.asm	/^Unnamed_1_71D5:$/;"	l
+Unnamed_1_7256	tmp.asm	/^Unnamed_1_7256:$/;"	l
+Unnamed_1_7397	tmp.asm	/^Unnamed_1_7397:$/;"	l
+Unnamed_1_73C	tmp.asm	/^Unnamed_1_73C LABEL NEAR$/;"	l
+Unnamed_1_741D	tmp.asm	/^Unnamed_1_741D LABEL NEAR$/;"	l
+Unnamed_1_747C	tmp.asm	/^Unnamed_1_747C:$/;"	l
+Unnamed_1_74E9	tmp.asm	/^Unnamed_1_74E9:$/;"	l
+Unnamed_1_74F8	tmp.asm	/^Unnamed_1_74F8:$/;"	l
+Unnamed_1_7508	tmp.asm	/^Unnamed_1_7508 LABEL NEAR$/;"	l
+Unnamed_1_7595	tmp.asm	/^Unnamed_1_7595:$/;"	l
+Unnamed_1_75F3	tmp.asm	/^Unnamed_1_75F3 LABEL NEAR$/;"	l
+Unnamed_1_762	tmp.asm	/^Unnamed_1_762:$/;"	l
+Unnamed_1_76BF	tmp.asm	/^Unnamed_1_76BF:$/;"	l
+Unnamed_1_7760	tmp.asm	/^Unnamed_1_7760:$/;"	l
+Unnamed_1_7796	tmp.asm	/^Unnamed_1_7796:$/;"	l
+Unnamed_1_77CC	tmp.asm	/^Unnamed_1_77CC:$/;"	l
+Unnamed_1_77EF	tmp.asm	/^Unnamed_1_77EF:$/;"	l
+Unnamed_1_795A	tmp.asm	/^Unnamed_1_795A:$/;"	l
+Unnamed_1_7985	tmp.asm	/^Unnamed_1_7985:$/;"	l
+Unnamed_1_7A01	tmp.asm	/^Unnamed_1_7A01 LABEL NEAR$/;"	l
+Unnamed_1_7A1	tmp.asm	/^Unnamed_1_7A1:$/;"	l
+Unnamed_1_7AA4	tmp.asm	/^Unnamed_1_7AA4:$/;"	l
+Unnamed_1_7B13	tmp.asm	/^Unnamed_1_7B13:$/;"	l
+Unnamed_1_7B2A	tmp.asm	/^Unnamed_1_7B2A LABEL NEAR$/;"	l
+Unnamed_1_7C63	tmp.asm	/^Unnamed_1_7C63 LABEL NEAR$/;"	l
+Unnamed_1_7C7D	tmp.asm	/^Unnamed_1_7C7D:$/;"	l
+Unnamed_1_7D24	tmp.asm	/^Unnamed_1_7D24:$/;"	l
+Unnamed_1_7D26	tmp.asm	/^Unnamed_1_7D26:$/;"	l
+Unnamed_1_7D32	tmp.asm	/^Unnamed_1_7D32:$/;"	l
+Unnamed_1_7D34	tmp.asm	/^Unnamed_1_7D34:$/;"	l
+Unnamed_1_7D36	tmp.asm	/^Unnamed_1_7D36:$/;"	l
+Unnamed_1_7D46	tmp.asm	/^Unnamed_1_7D46:$/;"	l
+Unnamed_1_7D5A	tmp.asm	/^Unnamed_1_7D5A:$/;"	l
+Unnamed_1_7D6C	tmp.asm	/^Unnamed_1_7D6C:$/;"	l
+Unnamed_1_7DAA	tmp.asm	/^Unnamed_1_7DAA:$/;"	l
+Unnamed_1_7DAC	tmp.asm	/^Unnamed_1_7DAC:$/;"	l
+Unnamed_1_7DAE	tmp.asm	/^Unnamed_1_7DAE:$/;"	l
+Unnamed_1_7DB6	tmp.asm	/^Unnamed_1_7DB6:$/;"	l
+Unnamed_1_7DB8	tmp.asm	/^Unnamed_1_7DB8:$/;"	l
+Unnamed_1_7DBE	tmp.asm	/^Unnamed_1_7DBE:$/;"	l
+Unnamed_1_7DCA	tmp.asm	/^Unnamed_1_7DCA:$/;"	l
+Unnamed_1_7DD	tmp.asm	/^Unnamed_1_7DD:$/;"	l
+Unnamed_1_7DD4	tmp.asm	/^Unnamed_1_7DD4:$/;"	l
+Unnamed_1_7DD6	tmp.asm	/^Unnamed_1_7DD6:$/;"	l
+Unnamed_1_7DDC	tmp.asm	/^Unnamed_1_7DDC:$/;"	l
+Unnamed_1_7DE6	tmp.asm	/^Unnamed_1_7DE6:$/;"	l
+Unnamed_1_7E06	tmp.asm	/^Unnamed_1_7E06:$/;"	l
+Unnamed_1_7E14	tmp.asm	/^Unnamed_1_7E14:$/;"	l
+Unnamed_1_7E3	tmp.asm	/^Unnamed_1_7E3 LABEL NEAR$/;"	l
+Unnamed_1_7E32	tmp.asm	/^Unnamed_1_7E32:$/;"	l
+Unnamed_1_7E52	tmp.asm	/^Unnamed_1_7E52:$/;"	l
+Unnamed_1_7F2C	tmp.asm	/^Unnamed_1_7F2C:$/;"	l
+Unnamed_1_7F8E	tmp.asm	/^Unnamed_1_7F8E:$/;"	l
+Unnamed_1_7F9C	tmp.asm	/^Unnamed_1_7F9C:$/;"	l
+Unnamed_1_7FA2	tmp.asm	/^Unnamed_1_7FA2:$/;"	l
+Unnamed_1_7FB	tmp.asm	/^Unnamed_1_7FB:$/;"	l
+Unnamed_1_7FB2	tmp.asm	/^Unnamed_1_7FB2:$/;"	l
+Unnamed_1_7FC0	tmp.asm	/^Unnamed_1_7FC0:$/;"	l
+Unnamed_1_7FD0	tmp.asm	/^Unnamed_1_7FD0:$/;"	l
+Unnamed_1_7FD2	tmp.asm	/^Unnamed_1_7FD2:$/;"	l
+Unnamed_1_8004	tmp.asm	/^Unnamed_1_8004:$/;"	l
+Unnamed_1_8146	tmp.asm	/^Unnamed_1_8146:$/;"	l
+Unnamed_1_8148	tmp.asm	/^Unnamed_1_8148:$/;"	l
+Unnamed_1_8160	tmp.asm	/^Unnamed_1_8160:$/;"	l
+Unnamed_1_8162	tmp.asm	/^Unnamed_1_8162:$/;"	l
+Unnamed_1_8176	tmp.asm	/^Unnamed_1_8176:$/;"	l
+Unnamed_1_8178	tmp.asm	/^Unnamed_1_8178:$/;"	l
+Unnamed_1_81C2	tmp.asm	/^Unnamed_1_81C2:$/;"	l
+Unnamed_1_81CE	tmp.asm	/^Unnamed_1_81CE:$/;"	l
+Unnamed_1_81E0	tmp.asm	/^Unnamed_1_81E0:$/;"	l
+Unnamed_1_81E2	tmp.asm	/^Unnamed_1_81E2:$/;"	l
+Unnamed_1_81FC	tmp.asm	/^Unnamed_1_81FC:$/;"	l
+Unnamed_1_8202	tmp.asm	/^Unnamed_1_8202:$/;"	l
+Unnamed_1_821	tmp.asm	/^Unnamed_1_821:$/;"	l
+Unnamed_1_8288	tmp.asm	/^Unnamed_1_8288:$/;"	l
+Unnamed_1_828E	tmp.asm	/^Unnamed_1_828E:$/;"	l
+Unnamed_1_82C	tmp.asm	/^Unnamed_1_82C:$/;"	l
+Unnamed_1_831	tmp.asm	/^Unnamed_1_831 LABEL NEAR$/;"	l
+Unnamed_1_832	tmp.asm	/^Unnamed_1_832:$/;"	l
+Unnamed_1_852	tmp.asm	/^Unnamed_1_852 LABEL NEAR$/;"	l
+Unnamed_1_8542	tmp.asm	/^Unnamed_1_8542:$/;"	l
+Unnamed_1_8544	tmp.asm	/^Unnamed_1_8544:$/;"	l
+Unnamed_1_85AE	tmp.asm	/^Unnamed_1_85AE:$/;"	l
+Unnamed_1_85B0	tmp.asm	/^Unnamed_1_85B0:$/;"	l
+Unnamed_1_85B8	tmp.asm	/^Unnamed_1_85B8:$/;"	l
+Unnamed_1_85CC	tmp.asm	/^Unnamed_1_85CC:$/;"	l
+Unnamed_1_8614	tmp.asm	/^Unnamed_1_8614:$/;"	l
+Unnamed_1_861C	tmp.asm	/^Unnamed_1_861C:$/;"	l
+Unnamed_1_869F	tmp.asm	/^Unnamed_1_869F:$/;"	l
+Unnamed_1_86AF	tmp.asm	/^Unnamed_1_86AF:$/;"	l
+Unnamed_1_8702	tmp.asm	/^Unnamed_1_8702:$/;"	l
+Unnamed_1_888	tmp.asm	/^Unnamed_1_888 LABEL NEAR$/;"	l
+Unnamed_1_88D	tmp.asm	/^Unnamed_1_88D:$/;"	l
+Unnamed_1_8A6	tmp.asm	/^Unnamed_1_8A6 LABEL NEAR$/;"	l
+Unnamed_1_8BC	tmp.asm	/^Unnamed_1_8BC:$/;"	l
+Unnamed_1_8C7	tmp.asm	/^Unnamed_1_8C7 LABEL NEAR$/;"	l
+Unnamed_1_8E8	tmp.asm	/^Unnamed_1_8E8 LABEL NEAR$/;"	l
+Unnamed_1_90C	tmp.asm	/^Unnamed_1_90C LABEL NEAR$/;"	l
+Unnamed_1_91E	tmp.asm	/^Unnamed_1_91E:$/;"	l
+Unnamed_1_93	tmp.asm	/^Unnamed_1_93:$/;"	l
+Unnamed_1_930	tmp.asm	/^Unnamed_1_930 LABEL NEAR$/;"	l
+Unnamed_1_951	tmp.asm	/^Unnamed_1_951 LABEL NEAR$/;"	l
+Unnamed_1_96F	tmp.asm	/^Unnamed_1_96F LABEL NEAR$/;"	l
+Unnamed_1_97F	tmp.asm	/^Unnamed_1_97F:$/;"	l
+Unnamed_1_990	tmp.asm	/^Unnamed_1_990 LABEL NEAR$/;"	l
+Unnamed_1_9AE	tmp.asm	/^Unnamed_1_9AE LABEL NEAR$/;"	l
+Unnamed_1_9AE	tmp.asm	/^Unnamed_1_9AE:$/;"	l
+Unnamed_1_9E2	tmp.asm	/^Unnamed_1_9E2:$/;"	l
+Unnamed_1_9E8	tmp.asm	/^Unnamed_1_9E8:$/;"	l
+Unnamed_1_9EB	tmp.asm	/^Unnamed_1_9EB:$/;"	l
+Unnamed_1_9F8	tmp.asm	/^Unnamed_1_9F8 LABEL NEAR$/;"	l
+Unnamed_1_A00	tmp.asm	/^Unnamed_1_A00:$/;"	l
+Unnamed_1_A2B	tmp.asm	/^Unnamed_1_A2B LABEL NEAR$/;"	l
+Unnamed_1_A53	tmp.asm	/^Unnamed_1_A53:$/;"	l
+Unnamed_1_A60	tmp.asm	/^Unnamed_1_A60:$/;"	l
+Unnamed_1_A98	tmp.asm	/^Unnamed_1_A98 LABEL NEAR$/;"	l
+Unnamed_1_AAD	tmp.asm	/^Unnamed_1_AAD:$/;"	l
+Unnamed_1_ADD	tmp.asm	/^Unnamed_1_ADD:$/;"	l
+Unnamed_1_AFA	tmp.asm	/^Unnamed_1_AFA:$/;"	l
+Unnamed_1_B13	tmp.asm	/^Unnamed_1_B13 LABEL NEAR$/;"	l
+Unnamed_1_B34	tmp.asm	/^Unnamed_1_B34 LABEL NEAR$/;"	l
+Unnamed_1_B4F	tmp.asm	/^Unnamed_1_B4F:$/;"	l
+Unnamed_1_B95	tmp.asm	/^Unnamed_1_B95 LABEL NEAR$/;"	l
+Unnamed_1_BB4	tmp.asm	/^Unnamed_1_BB4:$/;"	l
+Unnamed_1_CB	tmp.asm	/^Unnamed_1_CB LABEL NEAR$/;"	l
+Unnamed_1_E1A	tmp.asm	/^Unnamed_1_E1A:$/;"	l
+Unnamed_1_E2E	tmp.asm	/^Unnamed_1_E2E:$/;"	l
+Unnamed_1_E56	tmp.asm	/^Unnamed_1_E56:$/;"	l
+Unnamed_1_E91	tmp.asm	/^Unnamed_1_E91:$/;"	l
+Unnamed_1_ED1	tmp.asm	/^Unnamed_1_ED1:$/;"	l
+Unnamed_1_F1	tmp.asm	/^Unnamed_1_F1:$/;"	l
+Unnamed_1_FF	tmp.asm	/^Unnamed_1_FF LABEL NEAR$/;"	l
 Unused1	coff.h	/^      uint32 Unused1; $/;"	m	struct:SCOFF_SymTableEntry::__anon7
 Unused1	coff.h	/^      uint32 Unused1;$/;"	m	struct:SCOFF_SymTableEntry::__anon6
 Unused1	coff.h	/^      uint8  Unused1[3];$/;"	m	struct:SCOFF_SymTableEntry::__anon10
@@ -1336,6 +1960,7 @@ WriteCodeLabelGASM	disasm2.cpp	/^void CDisassembler::WriteCodeLabelGASM(uint32 s
 WriteCodeLabelMASM	disasm2.cpp	/^void CDisassembler::WriteCodeLabelMASM(uint32 symi, uint32 scope) {$/;"	f	class:CDisassembler
 WriteCodeLabelYASM	disasm2.cpp	/^void CDisassembler::WriteCodeLabelYASM(uint32 symi, uint32 scope) {$/;"	f	class:CDisassembler
 WriteDREXOperand	disasm2.cpp	/^void CDisassembler::WriteDREXOperand(uint32 Type) {$/;"	f	class:CDisassembler
+WriteDREXOperand	disasm3.cpp	/^void CDisassembler::WriteDREXOperand( CTextFileBuffer *out_file, uint32 Type ) {$/;"	f	class:CDisassembler
 WriteDataComment	disasm2.cpp	/^void CDisassembler::WriteDataComment(uint32 ElementSize, uint32 LinePos, uint32 Pos, uint32 irel) {$/;"	f	class:CDisassembler
 WriteDataDirectiveGASM	disasm2.cpp	/^void CDisassembler::WriteDataDirectiveGASM(uint32 size) {$/;"	f	class:CDisassembler
 WriteDataDirectiveMASM	disasm2.cpp	/^void CDisassembler::WriteDataDirectiveMASM(uint32 size) {$/;"	f	class:CDisassembler
@@ -1360,20 +1985,33 @@ WriteFunctionEndGASM	disasm2.cpp	/^void CDisassembler::WriteFunctionEndGASM(uint
 WriteFunctionEndMASM	disasm2.cpp	/^void CDisassembler::WriteFunctionEndMASM(uint32 symi) {$/;"	f	class:CDisassembler
 WriteFunctionEndYASM	disasm2.cpp	/^void CDisassembler::WriteFunctionEndYASM(uint32 symi) {$/;"	f	class:CDisassembler
 WriteImmediateOperand	disasm2.cpp	/^void CDisassembler::WriteImmediateOperand(uint32 Type) {$/;"	f	class:CDisassembler
+WriteImmediateOperand	disasm3.cpp	/^void CDisassembler::WriteImmediateOperand( CTextFileBuffer *out_file, uint32 Type ) {$/;"	f	class:CDisassembler
 WriteInstruction	disasm2.cpp	/^void CDisassembler::WriteInstruction() {$/;"	f	class:CDisassembler
+WriteInstruction	disasm3.cpp	/^void CDisassembler::WriteInstruction( CTextFileBuffer *out_file ) {$/;"	f	class:CDisassembler
 WriteOperandAttributeEVEX	disasm2.cpp	/^void CDisassembler::WriteOperandAttributeEVEX(int i, int isMem) {$/;"	f	class:CDisassembler
+WriteOperandAttributeEVEX	disasm3.cpp	/^void CDisassembler::WriteOperandAttributeEVEX( CTextFileBuffer *out_file, int i, int isMem ) {$/;"	f	class:CDisassembler
 WriteOperandAttributeMVEX	disasm2.cpp	/^void CDisassembler::WriteOperandAttributeMVEX(int i, int isMem) {$/;"	f	class:CDisassembler
+WriteOperandAttributeMVEX	disasm3.cpp	/^void CDisassembler::WriteOperandAttributeMVEX( CTextFileBuffer *out_file, int i, int isMem ) {$/;"	f	class:CDisassembler
 WriteOperandType	disasm2.cpp	/^void CDisassembler::WriteOperandType(uint32 type) {$/;"	f	class:CDisassembler
+WriteOperandType	disasm3.cpp	/^void CDisassembler::WriteOperandType( CTextFileBuffer *out_file, uint32 type ) {$/;"	f	class:CDisassembler
 WriteOperandTypeGASM	disasm2.cpp	/^void CDisassembler::WriteOperandTypeGASM(uint32 type) {$/;"	f	class:CDisassembler
+WriteOperandTypeGASM	disasm3.cpp	/^void CDisassembler::WriteOperandTypeGASM( CTextFileBuffer *out_file, uint32 type ) {$/;"	f	class:CDisassembler
 WriteOperandTypeMASM	disasm2.cpp	/^void CDisassembler::WriteOperandTypeMASM(uint32 type) {$/;"	f	class:CDisassembler
+WriteOperandTypeMASM	disasm3.cpp	/^void CDisassembler::WriteOperandTypeMASM( CTextFileBuffer *out_file, uint32 type ) {$/;"	f	class:CDisassembler
 WriteOperandTypeYASM	disasm2.cpp	/^void CDisassembler::WriteOperandTypeYASM(uint32 type) {$/;"	f	class:CDisassembler
+WriteOperandTypeYASM	disasm3.cpp	/^void CDisassembler::WriteOperandTypeYASM( CTextFileBuffer *out_file, uint32 type ) {$/;"	f	class:CDisassembler
 WriteOtherOperand	disasm2.cpp	/^void CDisassembler::WriteOtherOperand(uint32 Type) {$/;"	f	class:CDisassembler
+WriteOtherOperand	disasm3.cpp	/^void CDisassembler::WriteOtherOperand( CTextFileBuffer *out_file, uint32 Type ) {$/;"	f	class:CDisassembler
 WritePublicsAndExternalsMASM	disasm2.cpp	/^void CDisassembler::WritePublicsAndExternalsMASM() {$/;"	f	class:CDisassembler
 WritePublicsAndExternalsYASMGASM	disasm2.cpp	/^void CDisassembler::WritePublicsAndExternalsYASMGASM() {$/;"	f	class:CDisassembler
 WriteRMOperand	disasm2.cpp	/^void CDisassembler::WriteRMOperand(uint32 Type) {$/;"	f	class:CDisassembler
+WriteRMOperand	disasm3.cpp	/^void CDisassembler::WriteRMOperand( CTextFileBuffer *out_file, uint32 Type ) {$/;"	f	class:CDisassembler
 WriteRegOperand	disasm2.cpp	/^void CDisassembler::WriteRegOperand(uint32 Type) {$/;"	f	class:CDisassembler
+WriteRegOperand	disasm3.cpp	/^void CDisassembler::WriteRegOperand( CTextFileBuffer *out_file, uint32 Type ) {$/;"	f	class:CDisassembler
 WriteRegisterName	disasm2.cpp	/^void CDisassembler::WriteRegisterName(uint32 Value, uint32 Type) {$/;"	f	class:CDisassembler
+WriteRegisterName	disasm3.cpp	/^void CDisassembler::WriteRegisterName( CTextFileBuffer *out_file, uint32 Value, uint32 Type ) {$/;"	f	class:CDisassembler
 WriteRelocationTarget	disasm2.cpp	/^void CDisassembler::WriteRelocationTarget(uint32 irel, uint32 Context, int64 Addend) {$/;"	f	class:CDisassembler
+WriteRelocationTarget	disasm3.cpp	/^void CDisassembler::WriteRelocationTarget( CTextFileBuffer *out_file, uint32 irel, uint32 Context, int64 Addend ) {$/;"	f	class:CDisassembler
 WriteSectionName	disasm2.cpp	/^void CDisassembler::WriteSectionName(int32 SegIndex) {$/;"	f	class:CDisassembler
 WriteSegmentBegin	disasm2.cpp	/^void CDisassembler::WriteSegmentBegin() {$/;"	f	class:CDisassembler
 WriteSegmentBeginGASM	disasm2.cpp	/^void CDisassembler::WriteSegmentBeginGASM() {$/;"	f	class:CDisassembler
@@ -1381,12 +2019,176 @@ WriteSegmentBeginMASM	disasm2.cpp	/^void CDisassembler::WriteSegmentBeginMASM() 
 WriteSegmentBeginYASM	disasm2.cpp	/^void CDisassembler::WriteSegmentBeginYASM() {$/;"	f	class:CDisassembler
 WriteSegmentEnd	disasm2.cpp	/^void CDisassembler::WriteSegmentEnd() {$/;"	f	class:CDisassembler
 WriteShortRegOperand	disasm2.cpp	/^void CDisassembler::WriteShortRegOperand(uint32 Type) {$/;"	f	class:CDisassembler
+WriteShortRegOperand	disasm3.cpp	/^void CDisassembler::WriteShortRegOperand( CTextFileBuffer *out_file, uint32 Type ) {$/;"	f	class:CDisassembler
 WriteStringInstruction	disasm2.cpp	/^void CDisassembler::WriteStringInstruction() {$/;"	f	class:CDisassembler
+WriteStringInstruction	disasm3.cpp	/^void CDisassembler::WriteStringInstruction( CTextFileBuffer *out_file ) {$/;"	f	class:CDisassembler
 WriteSymbolName	disasm2.cpp	/^void CDisassembler::WriteSymbolName(uint32 symi) {$/;"	f	class:CDisassembler
 WriteUninitDataItemsGASM	disasm2.cpp	/^void CDisassembler::WriteUninitDataItemsGASM(uint32 size, uint32 count) {$/;"	f	class:CDisassembler
 WriteUninitDataItemsMASM	disasm2.cpp	/^void CDisassembler::WriteUninitDataItemsMASM(uint32 size, uint32 count) {$/;"	f	class:CDisassembler
 WriteUninitDataItemsYASM	disasm2.cpp	/^void CDisassembler::WriteUninitDataItemsYASM(uint32 size, uint32 count) {$/;"	f	class:CDisassembler
 WriteVEXOperand	disasm2.cpp	/^void CDisassembler::WriteVEXOperand(uint32 Type, int i) {$/;"	f	class:CDisassembler
+WriteVEXOperand	disasm3.cpp	/^void CDisassembler::WriteVEXOperand( CTextFileBuffer *out_file, uint32 Type, int i ) {$/;"	f	class:CDisassembler
+_16Code	tmp.asm	/^_16Code LABEL NEAR$/;"	l
+_16Data	tmp.asm	/^_16Data LABEL NEAR$/;"	l
+_16Idtr	tmp.asm	/^_16Idtr LABEL NEAR$/;"	l
+_32Data	tmp.asm	/^_32Data LABEL NEAR$/;"	l
+_AllocateAlignedPages	tmp.asm	/^_AllocateAlignedPages PROC$/;"	l
+_AllocateCopyPool	tmp.asm	/^_AllocateCopyPool PROC$/;"	l
+_AllocatePool	tmp.asm	/^_AllocatePool PROC$/;"	l
+_AllocateZeroPool	tmp.asm	/^_AllocateZeroPool PROC$/;"	l
+_AsciiStrCmp	tmp.asm	/^_AsciiStrCmp PROC$/;"	l
+_AsciiStrCpyS	tmp.asm	/^_AsciiStrCpyS PROC$/;"	l
+_AsciiStrHexToUintn	tmp.asm	/^_AsciiStrHexToUintn PROC$/;"	l
+_AsciiStrLen	tmp.asm	/^_AsciiStrLen PROC$/;"	l
+_AsciiStrSize	tmp.asm	/^_AsciiStrSize PROC$/;"	l
+_AsciiStriCmp	tmp.asm	/^_AsciiStriCmp PROC$/;"	l
+_AsciiStrnCmp	tmp.asm	/^_AsciiStrnCmp PROC$/;"	l
+_AsmCpuid	tmp.asm	/^_AsmCpuid PROC$/;"	l
+_AsmCpuidEx	tmp.asm	/^_AsmCpuidEx PROC$/;"	l
+_AsmDisableCache	tmp.asm	/^_AsmDisableCache PROC$/;"	l
+_AsmEnableCache	tmp.asm	/^_AsmEnableCache PROC$/;"	l
+_AsmRdRand16	tmp.asm	/^_AsmRdRand16 PROC$/;"	l
+_AsmRdRand32	tmp.asm	/^_AsmRdRand32 PROC$/;"	l
+_AsmRdRand64	tmp.asm	/^_AsmRdRand64 PROC$/;"	l
+_BackFromUserCode	tmp.asm	/^_BackFromUserCode LABEL NEAR$/;"	l
+_BasePrintLibSPrint	tmp.asm	/^_BasePrintLibSPrint LABEL NEAR$/;"	l
+_BasePrintLibSPrintMarker	tmp.asm	/^_BasePrintLibSPrintMarker PROC$/;"	l
+_BasePrintLibValueToString	tmp.asm	/^_BasePrintLibValueToString PROC$/;"	l
+_CompareGuid	tmp.asm	/^_CompareGuid PROC$/;"	l
+_CompareMem	tmp.asm	/^_CompareMem PROC$/;"	l
+_CopyGuid	tmp.asm	/^_CopyGuid PROC$/;"	l
+_CopyMem	tmp.asm	/^_CopyMem PROC$/;"	l
+_DebugAssert	tmp.asm	/^_DebugAssert PROC$/;"	l
+_DebugAssertEnabled	tmp.asm	/^_DebugAssertEnabled PROC$/;"	l
+_DebugPrint	tmp.asm	/^_DebugPrint PROC$/;"	l
+_DebugPrintEnabled	tmp.asm	/^_DebugPrintEnabled PROC$/;"	l
+_DebugPrintLevelEnabled	tmp.asm	/^_DebugPrintLevelEnabled PROC$/;"	l
+_DevicePathNodeLength	tmp.asm	/^_DevicePathNodeLength PROC$/;"	l
+_DevicePathSubType	tmp.asm	/^_DevicePathSubType PROC$/;"	l
+_DevicePathType	tmp.asm	/^_DevicePathType PROC$/;"	l
+_DivU64x32Remainder	tmp.asm	/^_DivU64x32Remainder PROC$/;"	l
+_DxeServicesTableLibConstructor	tmp.asm	/^_DxeServicesTableLibConstructor PROC$/;"	l
+_EfiGetNameGuidFromFwVolDevicePathNode	tmp.asm	/^_EfiGetNameGuidFromFwVolDevicePathNode PROC$/;"	l
+_EfiGetSystemConfigurationTable	tmp.asm	/^_EfiGetSystemConfigurationTable PROC$/;"	l
+_EnableDisableInterrupts	tmp.asm	/^_EnableDisableInterrupts PROC$/;"	l
+_EntryPoint	tmp.asm	/^_EntryPoint LABEL NEAR$/;"	l
+_FaultTolerantUpdateOnPartFv	tmp.asm	/^_FaultTolerantUpdateOnPartFv PROC$/;"	l
+_FaultTolerantUpdateOnWholeFv	tmp.asm	/^_FaultTolerantUpdateOnWholeFv PROC$/;"	l
+_FreeAllList	tmp.asm	/^_FreeAllList PROC$/;"	l
+_FreePool	tmp.asm	/^_FreePool PROC$/;"	l
+_GetBestLanguage	tmp.asm	/^_GetBestLanguage PROC$/;"	l
+_GetEfiGlobalVariable2	tmp.asm	/^_GetEfiGlobalVariable2 PROC$/;"	l
+_GetVariable2	tmp.asm	/^_GetVariable2 PROC$/;"	l
+_HiiAddPackages	tmp.asm	/^_HiiAddPackages PROC$/;"	l
+_HiiGetString	tmp.asm	/^_HiiGetString PROC$/;"	l
+_HiiGetSupportedLanguages	tmp.asm	/^_HiiGetSupportedLanguages PROC$/;"	l
+_InitializeUpdateDriver	tmp.asm	/^_InitializeUpdateDriver PROC$/;"	l
+_InternalAllocateAlignedPages	tmp.asm	/^_InternalAllocateAlignedPages PROC$/;"	l
+_InternalAllocateCopyPool	tmp.asm	/^_InternalAllocateCopyPool PROC$/;"	l
+_InternalAllocatePool	tmp.asm	/^_InternalAllocatePool PROC$/;"	l
+_InternalAllocateZeroPool	tmp.asm	/^_InternalAllocateZeroPool PROC$/;"	l
+_InternalAsmThunk16	tmp.asm	/^_InternalAsmThunk16 LABEL NEAR$/;"	l
+_InternalAssertJumpBuffer	tmp.asm	/^_InternalAssertJumpBuffer PROC$/;"	l
+_InternalLongJump	tmp.asm	/^_InternalLongJump PROC$/;"	l
+_InternalMathDivRemU64x32	tmp.asm	/^_InternalMathDivRemU64x32 PROC$/;"	l
+_InternalMemCompareMem	tmp.asm	/^_InternalMemCompareMem PROC$/;"	l
+_InternalMemCopyMem	tmp.asm	/^_InternalMemCopyMem PROC$/;"	l
+_InternalMemSetMem	tmp.asm	/^_InternalMemSetMem PROC$/;"	l
+_InternalMemZeroMem	tmp.asm	/^_InternalMemZeroMem PROC$/;"	l
+_InternalPrint	tmp.asm	/^_InternalPrint PROC$/;"	l
+_InternalSwitchStack	tmp.asm	/^_InternalSwitchStack PROC$/;"	l
+_InternalX86DisablePaging64	tmp.asm	/^_InternalX86DisablePaging64 PROC$/;"	l
+_IsDevicePathEnd	tmp.asm	/^_IsDevicePathEnd PROC$/;"	l
+_IsDevicePathEndType	tmp.asm	/^_IsDevicePathEndType PROC$/;"	l
+_NextDevicePathNode	tmp.asm	/^_NextDevicePathNode PROC$/;"	l
+_NonFaultTolerantUpdateOnPartFv	tmp.asm	/^_NonFaultTolerantUpdateOnPartFv PROC$/;"	l
+_NonFaultTolerantUpdateOnWholeFv	tmp.asm	/^_NonFaultTolerantUpdateOnWholeFv PROC$/;"	l
+_NullSeg	tmp.asm	/^_NullSeg LABEL NEAR$/;"	l
+_ParseUpdateDataFile	tmp.asm	/^_ParseUpdateDataFile PROC$/;"	l
+_PerformUpdate	tmp.asm	/^_PerformUpdate PROC$/;"	l
+_PerformUpdateOnFirmwareVolume	tmp.asm	/^_PerformUpdateOnFirmwareVolume PROC$/;"	l
+_PerformUpdateOnFlashArea	tmp.asm	/^_PerformUpdateOnFlashArea PROC$/;"	l
+_PerformUpdateOnFvFile	tmp.asm	/^_PerformUpdateOnFvFile PROC$/;"	l
+_PerformUpdateOnWholeFv	tmp.asm	/^_PerformUpdateOnWholeFv PROC$/;"	l
+_PreProcessDataFile	tmp.asm	/^_PreProcessDataFile PROC$/;"	l
+_Print	tmp.asm	/^_Print  PROC$/;"	l
+_ProcessLibraryConstructorList	tmp.asm	/^_ProcessLibraryConstructorList PROC$/;"	l
+_ProcessLibraryDestructorList	tmp.asm	/^_ProcessLibraryDestructorList PROC$/;"	l
+_ProcessModuleEntryPointList	tmp.asm	/^_ProcessModuleEntryPointList PROC$/;"	l
+_ProcessModuleUnloadList	tmp.asm	/^_ProcessModuleUnloadList PROC$/;"	l
+_ProcessUpdateImage	tmp.asm	/^_ProcessUpdateImage PROC$/;"	l
+_ProfileGetComments	tmp.asm	/^_ProfileGetComments PROC$/;"	l
+_ProfileGetEntry	tmp.asm	/^_ProfileGetEntry PROC$/;"	l
+_ProfileGetLine	tmp.asm	/^_ProfileGetLine PROC$/;"	l
+_ProfileGetSection	tmp.asm	/^_ProfileGetSection PROC$/;"	l
+_ProfileTrim	tmp.asm	/^_ProfileTrim PROC$/;"	l
+_ReadUnaligned16	tmp.asm	/^_ReadUnaligned16 PROC$/;"	l
+_ReadUnaligned32	tmp.asm	/^_ReadUnaligned32 PROC$/;"	l
+_ReadUnaligned64	tmp.asm	/^_ReadUnaligned64 PROC$/;"	l
+_RetrieveLastWrite	tmp.asm	/^_RetrieveLastWrite PROC$/;"	l
+_SetJump	tmp.asm	/^_SetJump PROC$/;"	l
+_SetMem	tmp.asm	/^_SetMem PROC$/;"	l
+_StrLen	tmp.asm	/^_StrLen PROC$/;"	l
+_StrSize	tmp.asm	/^_StrSize PROC$/;"	l
+_ToUserCode	tmp.asm	/^_ToUserCode LABEL NEAR$/;"	l
+_UefiBootServicesTableLibConstructor	tmp.asm	/^_UefiBootServicesTableLibConstructor PROC$/;"	l
+_UefiHiiServicesLibConstructor	tmp.asm	/^_UefiHiiServicesLibConstructor PROC$/;"	l
+_UefiLibConstructor	tmp.asm	/^_UefiLibConstructor PROC$/;"	l
+_UefiRuntimeServicesTableLibConstructor	tmp.asm	/^_UefiRuntimeServicesTableLibConstructor PROC$/;"	l
+_UnicodeVSPrint	tmp.asm	/^_UnicodeVSPrint PROC$/;"	l
+_UpdateAtoi	tmp.asm	/^_UpdateAtoi PROC$/;"	l
+_UpdateBufferInOneBlock	tmp.asm	/^_UpdateBufferInOneBlock PROC$/;"	l
+_UpdateDriverDxeStrings	tmp.asm	/^_UpdateDriverDxeStrings label byte$/;"	l
+_UpdateGetProfileString	tmp.asm	/^_UpdateGetProfileString PROC$/;"	l
+_UpdateOneBlock	tmp.asm	/^_UpdateOneBlock PROC$/;"	l
+_UpdateStringToGuid	tmp.asm	/^_UpdateStringToGuid PROC$/;"	l
+_UpdateValueToString	tmp.asm	/^_UpdateValueToString PROC$/;"	l
+_WriteUnaligned64	tmp.asm	/^_WriteUnaligned64 PROC$/;"	l
+_ZeroMem	tmp.asm	/^_ZeroMem PROC$/;"	l
+__DriverUnloadHandler	tmp.asm	/^__DriverUnloadHandler PROC$/;"	l
+__ModuleEntryPoint	tmp.asm	/^__ModuleEntryPoint PROC$/;"	l
+__gDriverUnloadImageCount	tmp.asm	/^__gDriverUnloadImageCount label byte$/;"	l
+__gPcd_FixedAtBuild_PcdMaximumAsciiStringLength	tmp.asm	/^__gPcd_FixedAtBuild_PcdMaximumAsciiStringLength label dword$/;"	l
+__gPcd_FixedAtBuild_PcdMaximumUnicodeStringLength	tmp.asm	/^__gPcd_FixedAtBuild_PcdMaximumUnicodeStringLength label dword$/;"	l
+__gPcd_FixedAtBuild_PcdUefiLibMaxPrintBufferSize	tmp.asm	/^__gPcd_FixedAtBuild_PcdUefiLibMaxPrintBufferSize label dword$/;"	l
+__gUefiDriverRevision	tmp.asm	/^__gUefiDriverRevision label dword$/;"	l
+_data	tmp.asm	/^_data   SEGMENT BYTE 'CODE'                             ; section number 2$/;"	l
+_gBS	tmp.asm	/^_gBS    label qword$/;"	l
+_gDS	tmp.asm	/^_gDS    label qword$/;"	l
+_gEfiCallerIdGuid	tmp.asm	/^_gEfiCallerIdGuid label byte$/;"	l
+_gEfiConfigFileNameGuid	tmp.asm	/^_gEfiConfigFileNameGuid label byte$/;"	l
+_gEfiDxeServicesTableGuid	tmp.asm	/^_gEfiDxeServicesTableGuid label byte$/;"	l
+_gEfiFaultTolerantWriteProtocolGuid	tmp.asm	/^_gEfiFaultTolerantWriteProtocolGuid label byte$/;"	l
+_gEfiFirmwareVolume2ProtocolGuid	tmp.asm	/^_gEfiFirmwareVolume2ProtocolGuid label byte$/;"	l
+_gEfiFirmwareVolumeBlockProtocolGuid	tmp.asm	/^_gEfiFirmwareVolumeBlockProtocolGuid label byte$/;"	l
+_gEfiGlobalVariableGuid	tmp.asm	/^_gEfiGlobalVariableGuid label byte$/;"	l
+_gEfiHiiConfigRoutingProtocolGuid	tmp.asm	/^_gEfiHiiConfigRoutingProtocolGuid label byte$/;"	l
+_gEfiHiiDatabaseProtocolGuid	tmp.asm	/^_gEfiHiiDatabaseProtocolGuid label byte$/;"	l
+_gEfiHiiFontProtocolGuid	tmp.asm	/^_gEfiHiiFontProtocolGuid label byte$/;"	l
+_gEfiHiiImageProtocolGuid	tmp.asm	/^_gEfiHiiImageProtocolGuid label byte$/;"	l
+_gEfiHiiStringProtocolGuid	tmp.asm	/^_gEfiHiiStringProtocolGuid label byte$/;"	l
+_gEfiLoadedImageProtocolGuid	tmp.asm	/^_gEfiLoadedImageProtocolGuid label byte$/;"	l
+_gEfiUpdateDataFileGuid	tmp.asm	/^_gEfiUpdateDataFileGuid label byte$/;"	l
+_gHiiConfigRouting	tmp.asm	/^_gHiiConfigRouting label byte$/;"	l
+_gHiiDatabase	tmp.asm	/^_gHiiDatabase label qword$/;"	l
+_gHiiFont	tmp.asm	/^_gHiiFont label byte$/;"	l
+_gHiiHandle	tmp.asm	/^_gHiiHandle label qword$/;"	l
+_gHiiImage	tmp.asm	/^_gHiiImage label byte$/;"	l
+_gHiiString	tmp.asm	/^_gHiiString label qword$/;"	l
+_gImageHandle	tmp.asm	/^_gImageHandle label qword$/;"	l
+_gRT	tmp.asm	/^_gRT    label qword$/;"	l
+_gST	tmp.asm	/^_gST    label qword$/;"	l
+_m16Gdt	tmp.asm	/^_m16Gdt label byte$/;"	l
+_m16GdtrBase	tmp.asm	/^_m16GdtrBase label byte$/;"	l
+_m16Size	tmp.asm	/^_m16Size label byte$/;"	l
+_m16Start	tmp.asm	/^_m16Start label byte$/;"	l
+_mEndOfPakageList	tmp.asm	/^_mEndOfPakageList label byte$/;"	l
+_mHexStr	tmp.asm	/^_mHexStr label byte$/;"	l
+_mStatusString	tmp.asm	/^_mStatusString label byte$/;"	l
+_mThunk16Attr	tmp.asm	/^_mThunk16Attr label byte$/;"	l
+_mTransition	tmp.asm	/^_mTransition label byte$/;"	l
+_mTransitionEnd	tmp.asm	/^_mTransitionEnd LABEL NEAR$/;"	l
+_text	tmp.asm	/^_text   SEGMENT BYTE 'CODE'                             ; section number 1$/;"	l
 a	maindef.h	/^   uint32 a;$/;"	m	struct:SIntTxt
 addr	macho.h	/^	uint32	addr;		      \/* memory address of this section *\/$/;"	m	struct:MAC_section_32
 addr	macho.h	/^	uint64	addr;		      \/* memory address of this section *\/$/;"	m	struct:MAC_section_64
@@ -1516,8 +2318,159 @@ operator []	containers.h	/^   RecordType & operator[] (uint32 i) {          \/\/
 operator []	containers.h	/^   RecordType & operator[] (uint32 i) {$/;"	f	class:CSList
 operator []	disasm.h	/^   SASymbol & operator [](uint32 NewIndex) {     \/\/ Access symbol by new index$/;"	f	class:CSymbolTable
 operator []	macho.cpp	/^MacSymbolRecord<TMAC_nlist> & MacSymbolTableBuilder<TMAC_nlist, MInt>::operator[] (uint32 i) {$/;"	f	class:MacSymbolTableBuilder
+option	tmp.asm	/^option dotname$/;"	l
 output_file_name	main.cpp	/^char *output_file_name = 0;$/;"	v
 pImageDirs	coff.h	/^		SCOFF_IMAGE_DATA_DIRECTORY * pImageDirs;      \/\/ Pointer to image directories (for executable files)$/;"	m	class:COFFParser
+public	tmp.asm	/^public _AllocateAlignedPages$/;"	l
+public	tmp.asm	/^public _AllocateCopyPool$/;"	l
+public	tmp.asm	/^public _AllocatePool$/;"	l
+public	tmp.asm	/^public _AllocateZeroPool$/;"	l
+public	tmp.asm	/^public _AsciiStrCmp$/;"	l
+public	tmp.asm	/^public _AsciiStrCpyS$/;"	l
+public	tmp.asm	/^public _AsciiStrHexToUintn$/;"	l
+public	tmp.asm	/^public _AsciiStrLen$/;"	l
+public	tmp.asm	/^public _AsciiStrSize$/;"	l
+public	tmp.asm	/^public _AsciiStriCmp$/;"	l
+public	tmp.asm	/^public _AsciiStrnCmp$/;"	l
+public	tmp.asm	/^public _AsmCpuid$/;"	l
+public	tmp.asm	/^public _AsmCpuidEx$/;"	l
+public	tmp.asm	/^public _AsmDisableCache$/;"	l
+public	tmp.asm	/^public _AsmEnableCache$/;"	l
+public	tmp.asm	/^public _AsmRdRand16$/;"	l
+public	tmp.asm	/^public _AsmRdRand32$/;"	l
+public	tmp.asm	/^public _AsmRdRand64$/;"	l
+public	tmp.asm	/^public _BasePrintLibSPrint$/;"	l
+public	tmp.asm	/^public _BasePrintLibSPrintMarker$/;"	l
+public	tmp.asm	/^public _BasePrintLibValueToString$/;"	l
+public	tmp.asm	/^public _CompareGuid$/;"	l
+public	tmp.asm	/^public _CompareMem$/;"	l
+public	tmp.asm	/^public _CopyGuid$/;"	l
+public	tmp.asm	/^public _CopyMem$/;"	l
+public	tmp.asm	/^public _DebugAssert$/;"	l
+public	tmp.asm	/^public _DebugAssertEnabled$/;"	l
+public	tmp.asm	/^public _DebugPrint$/;"	l
+public	tmp.asm	/^public _DebugPrintEnabled$/;"	l
+public	tmp.asm	/^public _DebugPrintLevelEnabled$/;"	l
+public	tmp.asm	/^public _DevicePathNodeLength$/;"	l
+public	tmp.asm	/^public _DevicePathSubType$/;"	l
+public	tmp.asm	/^public _DevicePathType$/;"	l
+public	tmp.asm	/^public _DivU64x32Remainder$/;"	l
+public	tmp.asm	/^public _DxeServicesTableLibConstructor$/;"	l
+public	tmp.asm	/^public _EfiGetNameGuidFromFwVolDevicePathNode$/;"	l
+public	tmp.asm	/^public _EfiGetSystemConfigurationTable$/;"	l
+public	tmp.asm	/^public _EnableDisableInterrupts$/;"	l
+public	tmp.asm	/^public _FaultTolerantUpdateOnPartFv$/;"	l
+public	tmp.asm	/^public _FaultTolerantUpdateOnWholeFv$/;"	l
+public	tmp.asm	/^public _FreeAllList$/;"	l
+public	tmp.asm	/^public _FreePool$/;"	l
+public	tmp.asm	/^public _GetBestLanguage$/;"	l
+public	tmp.asm	/^public _GetEfiGlobalVariable2$/;"	l
+public	tmp.asm	/^public _GetVariable2$/;"	l
+public	tmp.asm	/^public _HiiAddPackages$/;"	l
+public	tmp.asm	/^public _HiiGetString$/;"	l
+public	tmp.asm	/^public _HiiGetSupportedLanguages$/;"	l
+public	tmp.asm	/^public _InitializeUpdateDriver$/;"	l
+public	tmp.asm	/^public _InternalAllocateAlignedPages$/;"	l
+public	tmp.asm	/^public _InternalAllocateCopyPool$/;"	l
+public	tmp.asm	/^public _InternalAllocatePool$/;"	l
+public	tmp.asm	/^public _InternalAllocateZeroPool$/;"	l
+public	tmp.asm	/^public _InternalAsmThunk16$/;"	l
+public	tmp.asm	/^public _InternalAssertJumpBuffer$/;"	l
+public	tmp.asm	/^public _InternalLongJump$/;"	l
+public	tmp.asm	/^public _InternalMathDivRemU64x32$/;"	l
+public	tmp.asm	/^public _InternalMemCompareMem$/;"	l
+public	tmp.asm	/^public _InternalMemCopyMem$/;"	l
+public	tmp.asm	/^public _InternalMemSetMem$/;"	l
+public	tmp.asm	/^public _InternalMemZeroMem$/;"	l
+public	tmp.asm	/^public _InternalPrint$/;"	l
+public	tmp.asm	/^public _InternalSwitchStack$/;"	l
+public	tmp.asm	/^public _InternalX86DisablePaging64$/;"	l
+public	tmp.asm	/^public _IsDevicePathEnd$/;"	l
+public	tmp.asm	/^public _IsDevicePathEndType$/;"	l
+public	tmp.asm	/^public _NextDevicePathNode$/;"	l
+public	tmp.asm	/^public _NonFaultTolerantUpdateOnPartFv$/;"	l
+public	tmp.asm	/^public _NonFaultTolerantUpdateOnWholeFv$/;"	l
+public	tmp.asm	/^public _ParseUpdateDataFile$/;"	l
+public	tmp.asm	/^public _PerformUpdate$/;"	l
+public	tmp.asm	/^public _PerformUpdateOnFirmwareVolume$/;"	l
+public	tmp.asm	/^public _PerformUpdateOnFlashArea$/;"	l
+public	tmp.asm	/^public _PerformUpdateOnFvFile$/;"	l
+public	tmp.asm	/^public _PerformUpdateOnWholeFv$/;"	l
+public	tmp.asm	/^public _PreProcessDataFile$/;"	l
+public	tmp.asm	/^public _Print$/;"	l
+public	tmp.asm	/^public _ProcessLibraryConstructorList$/;"	l
+public	tmp.asm	/^public _ProcessLibraryDestructorList$/;"	l
+public	tmp.asm	/^public _ProcessModuleEntryPointList$/;"	l
+public	tmp.asm	/^public _ProcessModuleUnloadList$/;"	l
+public	tmp.asm	/^public _ProcessUpdateImage$/;"	l
+public	tmp.asm	/^public _ProfileGetComments$/;"	l
+public	tmp.asm	/^public _ProfileGetEntry$/;"	l
+public	tmp.asm	/^public _ProfileGetLine$/;"	l
+public	tmp.asm	/^public _ProfileGetSection$/;"	l
+public	tmp.asm	/^public _ProfileTrim$/;"	l
+public	tmp.asm	/^public _ReadUnaligned16$/;"	l
+public	tmp.asm	/^public _ReadUnaligned32$/;"	l
+public	tmp.asm	/^public _ReadUnaligned64$/;"	l
+public	tmp.asm	/^public _RetrieveLastWrite$/;"	l
+public	tmp.asm	/^public _SetJump$/;"	l
+public	tmp.asm	/^public _SetMem$/;"	l
+public	tmp.asm	/^public _StrLen$/;"	l
+public	tmp.asm	/^public _StrSize$/;"	l
+public	tmp.asm	/^public _UefiBootServicesTableLibConstructor$/;"	l
+public	tmp.asm	/^public _UefiHiiServicesLibConstructor$/;"	l
+public	tmp.asm	/^public _UefiLibConstructor$/;"	l
+public	tmp.asm	/^public _UefiRuntimeServicesTableLibConstructor$/;"	l
+public	tmp.asm	/^public _UnicodeVSPrint$/;"	l
+public	tmp.asm	/^public _UpdateAtoi$/;"	l
+public	tmp.asm	/^public _UpdateBufferInOneBlock$/;"	l
+public	tmp.asm	/^public _UpdateDriverDxeStrings$/;"	l
+public	tmp.asm	/^public _UpdateGetProfileString$/;"	l
+public	tmp.asm	/^public _UpdateOneBlock$/;"	l
+public	tmp.asm	/^public _UpdateStringToGuid$/;"	l
+public	tmp.asm	/^public _UpdateValueToString$/;"	l
+public	tmp.asm	/^public _WriteUnaligned64$/;"	l
+public	tmp.asm	/^public _ZeroMem$/;"	l
+public	tmp.asm	/^public __DriverUnloadHandler$/;"	l
+public	tmp.asm	/^public __ModuleEntryPoint$/;"	l
+public	tmp.asm	/^public __gDriverUnloadImageCount$/;"	l
+public	tmp.asm	/^public __gPcd_FixedAtBuild_PcdMaximumAsciiStringLength$/;"	l
+public	tmp.asm	/^public __gPcd_FixedAtBuild_PcdMaximumUnicodeStringLength$/;"	l
+public	tmp.asm	/^public __gPcd_FixedAtBuild_PcdUefiLibMaxPrintBufferSize$/;"	l
+public	tmp.asm	/^public __gUefiDriverRevision$/;"	l
+public	tmp.asm	/^public _gBS$/;"	l
+public	tmp.asm	/^public _gDS$/;"	l
+public	tmp.asm	/^public _gEfiCallerIdGuid$/;"	l
+public	tmp.asm	/^public _gEfiConfigFileNameGuid$/;"	l
+public	tmp.asm	/^public _gEfiDxeServicesTableGuid$/;"	l
+public	tmp.asm	/^public _gEfiFaultTolerantWriteProtocolGuid$/;"	l
+public	tmp.asm	/^public _gEfiFirmwareVolume2ProtocolGuid$/;"	l
+public	tmp.asm	/^public _gEfiFirmwareVolumeBlockProtocolGuid$/;"	l
+public	tmp.asm	/^public _gEfiGlobalVariableGuid$/;"	l
+public	tmp.asm	/^public _gEfiHiiConfigRoutingProtocolGuid$/;"	l
+public	tmp.asm	/^public _gEfiHiiDatabaseProtocolGuid$/;"	l
+public	tmp.asm	/^public _gEfiHiiFontProtocolGuid$/;"	l
+public	tmp.asm	/^public _gEfiHiiImageProtocolGuid$/;"	l
+public	tmp.asm	/^public _gEfiHiiStringProtocolGuid$/;"	l
+public	tmp.asm	/^public _gEfiLoadedImageProtocolGuid$/;"	l
+public	tmp.asm	/^public _gEfiUpdateDataFileGuid$/;"	l
+public	tmp.asm	/^public _gHiiConfigRouting$/;"	l
+public	tmp.asm	/^public _gHiiDatabase$/;"	l
+public	tmp.asm	/^public _gHiiFont$/;"	l
+public	tmp.asm	/^public _gHiiHandle$/;"	l
+public	tmp.asm	/^public _gHiiImage$/;"	l
+public	tmp.asm	/^public _gHiiString$/;"	l
+public	tmp.asm	/^public _gImageHandle$/;"	l
+public	tmp.asm	/^public _gRT$/;"	l
+public	tmp.asm	/^public _gST$/;"	l
+public	tmp.asm	/^public _m16Gdt$/;"	l
+public	tmp.asm	/^public _m16GdtrBase$/;"	l
+public	tmp.asm	/^public _m16Size$/;"	l
+public	tmp.asm	/^public _m16Start$/;"	l
+public	tmp.asm	/^public _mEndOfPakageList$/;"	l
+public	tmp.asm	/^public _mHexStr$/;"	l
+public	tmp.asm	/^public _mStatusString$/;"	l
+public	tmp.asm	/^public _mThunk16Attr$/;"	l
+public	tmp.asm	/^public _mTransition$/;"	l
 r_address	macho.h	/^   uint32  r_address:24,   \/\/ offset in the section to what is being relocated (source)$/;"	m	struct:MAC_scattered_relocation_info
 r_address	macho.h	/^   uint32  r_address;      \/\/ offset in the section to what is being relocated (source)$/;"	m	struct:MAC_relocation_info
 r_extern	macho.h	/^           r_extern:1,     \/\/ r_extern = 1 for symbols in symbol table$/;"	m	struct:MAC_relocation_info
@@ -1538,6 +2491,9 @@ reserved1	macho.h	/^	uint32	reserved1;	   \/* reserved *\/$/;"	m	struct:MAC_sect
 reserved2	macho.h	/^	uint32	reserved2;	   \/* reserved (for count or sizeof) *\/$/;"	m	struct:MAC_section_64
 reserved2	macho.h	/^	uint32	reserved2;	   \/* reserved *\/$/;"	m	struct:MAC_section_32
 reserved3	macho.h	/^	uint32	reserved3;	   \/\/ reserved (Note: specified in loader.h, but not in MachORuntime.pdf)$/;"	m	struct:MAC_section_64
+rn16_ok	tmp.asm	/^rn16_ok LABEL NEAR$/;"	l
+rn32_ok	tmp.asm	/^rn32_ok LABEL NEAR$/;"	l
+rn64_ok	tmp.asm	/^rn64_ok LABEL NEAR$/;"	l
 s	coff.h	/^   } s;$/;"	m	union:SCOFF_SymTableEntry	typeref:struct:SCOFF_SymTableEntry::__anon4
 s	disasm.h	/^   SOpcodeProp s;                                \/\/ Properties of current opcode$/;"	m	class:CDisassembler
 section	coff.h	/^   } section;$/;"	m	union:SCOFF_SymTableEntry	typeref:struct:SCOFF_SymTableEntry::__anon10
@@ -1547,6 +2503,12 @@ segname	macho.h	/^	char		segname[16];	\/* segment name *\/$/;"	m	struct:MAC_segm
 segname	macho.h	/^	char		segname[16];	\/* segment this section goes in *\/$/;"	m	struct:MAC_section_32
 segname	macho.h	/^	char		segname[16];	\/* segment this section goes in *\/$/;"	m	struct:MAC_section_64
 segname	macho.h	/^	char		segname[16]; \/* segment name *\/$/;"	m	struct:MAC_segment_command_64
+sete	tmp.asm	/^        sete    dl                                      ; 2792 _ 0F 94. C2$/;"	d
+sete	tmp.asm	/^        sete    dl                                      ; 50C6 _ 0F 94. C2$/;"	d
+setne	tmp.asm	/^        setne   dl                                      ; 14FE _ 0F 95. C2$/;"	d
+setne	tmp.asm	/^        setne   dl                                      ; 348A _ 0F 95. C2$/;"	d
+setne	tmp.asm	/^        setne   dl                                      ; 54B5 _ 0F 95. C2$/;"	d
+sets	tmp.asm	/^        sets    dl                                      ; 1ECA _ 0F 98. C2$/;"	d
 size	macho.h	/^	uint32	size;		      \/* size in bytes of this section *\/$/;"	m	struct:MAC_section_32
 size	macho.h	/^	uint64	size;		      \/* size in bytes of this section *\/$/;"	m	struct:MAC_section_64
 size	macho.h	/^   uint32 size;                        \/\/ size of member$/;"	m	struct:MAC_UNIV_FAT_ARCH

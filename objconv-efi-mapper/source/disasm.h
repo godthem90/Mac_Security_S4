@@ -629,54 +629,63 @@ public:
 
 class CDisassembler {
 public:
-   CDisassembler();                              // Constructor. Initializes tables etc.
-	int GetCodeBlockNum();
-	int GetOpcodeNumInBlock(int block_idx);
-	short GetOpcodeInBlock(int block_idx, int op_idx);
-   void Go();                                    // Do the disassembly
-   void Init(uint32 ExeType, int64 ImageBase);   // Define file type and imagebase if executable file
-   void SetOutType(int OutType);
-                                                 // ExeType: 0 = object, 1 = position independent shared object, 2 = executable file
-                                                 // Set ExeType = 2 if addresses have been relocated to a nonzero image base and there is no base relocation table.
-   void AddSection(                              // Define section to be disassembled
-      uint8 * Buffer,                            // Buffer containing raw data
-      uint32  InitSize,                          // Size of initialized data in section
-      uint32  TotalSize,                         // Size of initialized and uninitialized data in section
-      uint32  SectionAddress,                    // Start address of section (image relative)
-      uint32  Type,                              // 0 = unknown, 1 = code, 2 = data, 3 = uninitialized data, 4 = constant data
-      uint32  Align,                             // Alignment = 1 << Align
-      uint32  WordSize,                          // Segment word size: 16, 32 or 64
-      const char * Name,                         // Name of section
-      uint32  NameLength = 0);                   // Length of name if not zero terminated
-   uint32 AddSymbol(                             // Define symbol for disassembler
-      int32   Section,                           // Section number (1-based). 0 = external, -1 = absolute, -16 = Offset contains image-relative address
-      uint32  Offset,                            // Offset into section. (Value for absolute symbol)
-      uint32  Size,                              // Number of bytes used by symbol or function. 0 = unknown
-      uint32  Type,                              // Symbol type. Use values listed above for SOpcodeDef operands. 0 = unknown type
-      uint32  Scope,                             // 1 = function local, 2 = file local, 4 = public, 8 = weak public, 0x10 = communal, 0x20 = external
-      uint32  OldIndex,                          // Unique identifier used in relocation entries. Value must be > 0 and limited because an array is created with this as index. 
-      const char * Name,                         // Name of symbol. Zero-terminated ASCII string. A name will be assigned if 0.
-      const char * DLLName = 0);                 // Name of DLL if imported dynamically                    
-   void AddRelocation(                           // Define relocation or cross-reference for disassembler
-      int32   Section,                           // Section of relocation source:
-                                                 // Sections (and groups) are numbered in the order they are defined, starting at 1
-                                                 // 0 = none or external, -1 = absolute symbol
-                                                 // -16 = Offset contains image-relative address
-      uint32  Offset,                            // Offset of relocation source into section
-      int32   Addend,                            // Addend to add to target address, 
-                                                 // including distance from source to instruction pointer in self-relative addresses,
-                                                 // not including inline addend.
-      uint32  Type,                              // see above at SARelocation for definition of relocation types
-      uint32  Size,                              // 1 = byte, 2 = word, 4 = dword, 8 = qword
-      uint32  TargetIndex,                       // Symbol index of target
-      uint32  ReferenceIndex = 0);               // Symbol index of reference point if Type 0x10, Segment index if Type = 8 or 0x200
-   int32 AddSectionGroup(                        // Define section group (from OMF file)
-      const char * Name,                         // Name of group
-      int32 MemberSegment);                      // Group member. Repeat for multiple members. 0 if none.
-   static void CountInstructions();              // Count total number of instructions defined in opcodes.cpp
-   const char * CommentSeparator;                // "; " or "# " Start of comment string
-   const char * HereOperator;                    // "$" or "." indicating current position
-   CTextFileBuffer   OutFile;                    // Output file
+	CDisassembler();                              // Constructor. Initializes tables etc.
+
+	int		GetFunctionIndex( uint32 addr );
+	int		GetBlockIndex( uint32 addr );
+	uint32	GetNextBlockAddress( uint32 addr );
+	int		GetBlockInFunction( char *buf );
+	int		SetFunctionDescriptor( uint32 addr );
+	int		GetBlockAssembly( uint32 addr, char *buf );
+		
+	int		GetCodeBlockNum();
+	int		GetOpcodeNumInBlock(int block_idx);
+	short	GetOpcodeInBlock(int block_idx, int op_idx);
+		
+	void	Go();                                    // Do the disassembly
+	void	Init(uint32 ExeType, int64 ImageBase);   // Define file type and imagebase if executable file
+	void	SetOutType(int OutType);		// ExeType: 0 = object, 1 = position independent shared object, 2 = executable file
+	// Set ExeType = 2 if addresses have been relocated to a nonzero image base and there is no base relocation table.
+	void AddSection(                              // Define section to be disassembled
+			uint8 * Buffer,                            // Buffer containing raw data
+			uint32  InitSize,                          // Size of initialized data in section
+			uint32  TotalSize,                         // Size of initialized and uninitialized data in section
+			uint32  SectionAddress,                    // Start address of section (image relative)
+			uint32  Type,                              // 0 = unknown, 1 = code, 2 = data, 3 = uninitialized data, 4 = constant data
+			uint32  Align,                             // Alignment = 1 << Align
+			uint32  WordSize,                          // Segment word size: 16, 32 or 64
+			const char * Name,                         // Name of section
+			uint32  NameLength = 0);                   // Length of name if not zero terminated
+	uint32 AddSymbol(                             // Define symbol for disassembler
+			int32   Section,                           // Section number (1-based). 0 = external, -1 = absolute, -16 = Offset contains image-relative address
+			uint32  Offset,                            // Offset into section. (Value for absolute symbol)
+			uint32  Size,                              // Number of bytes used by symbol or function. 0 = unknown
+			uint32  Type,                              // Symbol type. Use values listed above for SOpcodeDef operands. 0 = unknown type
+			uint32  Scope,                             // 1 = function local, 2 = file local, 4 = public, 8 = weak public, 0x10 = communal, 0x20 = external
+			uint32  OldIndex,                          // Unique identifier used in relocation entries. Value must be > 0 and limited because an array is created with this as index. 
+			const char * Name,                         // Name of symbol. Zero-terminated ASCII string. A name will be assigned if 0.
+			const char * DLLName = 0);                 // Name of DLL if imported dynamically                    
+	void AddRelocation(                           // Define relocation or cross-reference for disassembler
+			int32   Section,                           // Section of relocation source:
+			// Sections (and groups) are numbered in the order they are defined, starting at 1
+			// 0 = none or external, -1 = absolute symbol
+			// -16 = Offset contains image-relative address
+			uint32  Offset,                            // Offset of relocation source into section
+			int32   Addend,                            // Addend to add to target address, 
+			// including distance from source to instruction pointer in self-relative addresses,
+			// not including inline addend.
+			uint32  Type,                              // see above at SARelocation for definition of relocation types
+			uint32  Size,                              // 1 = byte, 2 = word, 4 = dword, 8 = qword
+			uint32  TargetIndex,                       // Symbol index of target
+			uint32  ReferenceIndex = 0);               // Symbol index of reference point if Type 0x10, Segment index if Type = 8 or 0x200
+	int32 AddSectionGroup(                        // Define section group (from OMF file)
+			const char * Name,                         // Name of group
+			int32 MemberSegment);                      // Group member. Repeat for multiple members. 0 if none.
+	static void CountInstructions();              // Count total number of instructions defined in opcodes.cpp
+	const char * CommentSeparator;                // "; " or "# " Start of comment string
+	const char * HereOperator;                    // "$" or "." indicating current position
+	CTextFileBuffer   OutFile;                    // Output file
+
 protected:
    CSList<CodeBlock> BlockList;
    CSymbolTable Symbols;                         // Table of symbols
@@ -694,7 +703,11 @@ protected:
    SOpcodeProp s;                                // Properties of current opcode
    SATracer t;                                   // Trace of register contents
    uint32  Pass;                                 // 1 = pass 1, 2-3 = pass 1 repeated, 0x10 = pass 2, 0x100 = repetition requested
+   uint32  BlockDescriptor;
+   uint32  FunctionDescriptor;
    uint32  SwitchCheck;
+   uint32  SwitchtableCheck;
+   uint32  SwitchtableEnd;
    uint32  SwitchtableLength;
    uint32  SwitchReg;
    uint32  JumptableAddrReg;
@@ -705,9 +718,9 @@ protected:
    uint32  SectionAddress;                       // Address of beginning of this section
    uint32  SectionType;                          // 0 = unknown, 1 = code, 2 = data, 3 = uninitialized data, 4 = constant data
    uint32  CodeMode;                             // 1 if current position contains code, 2 if dubiuos, 4 if data
-   uint32  IBlock;                            // Index into FunctionList
-   uint32  IBlockOpNum;                            // Index into FunctionList
-   uint32  BlockEnd;                          // End address of current function (pass 2)
+   uint32  IBlock;
+   uint32  IBlockOpNum;
+   uint32  BlockEnd;
    uint32  IFunction;                            // Index into FunctionList
    uint32  FunctionEnd;                          // End address of current function (pass 2)
    uint32  LabelBegin;                           // Address of nearest preceding label
@@ -766,6 +779,7 @@ protected:
    void    CheckImportSymbol(uint32 symi);       // Check for indirect jump to import table entry
    void    CheckForBlockBegin();
    void    CheckForBlockEnd();
+   void    SplitBlockBySymbol();
    void    CheckForFunctionBegin();              // Check if function begins at current position
    void    CheckForFunctionEnd();                // Check if function ends at current position
    void    CheckLabel();                         // Check if a label is needed before instruction
@@ -855,7 +869,6 @@ protected:
    void    WriteOperandTypeMASM( CTextFileBuffer *out_file, uint32 type);    // Write type override before operand, e.g. "dword ptr", MASM syntax
    void    WriteOperandTypeYASM( CTextFileBuffer *out_file, uint32 type);    // Write type override before operand, e.g. "dword", YASM syntax
    void    WriteOperandTypeGASM( CTextFileBuffer *out_file, uint32 type);    // Write type override before operand, e.g. "dword ptr", GAS syntax
-
 
    template <class TX> TX & Get(uint32 Offset) { // Get object of arbitrary type from buffer
       return *(TX*)(Buffer + Offset);}

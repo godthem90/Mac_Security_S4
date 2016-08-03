@@ -1,4 +1,4 @@
-cscope 15 $HOME/Desktop/JJH/Mac_Security_S4/objconv-efi-mapper/source               0001042256
+cscope 15 $HOME/Desktop/JJH/Mac_Security_S4/objconv-efi-mapper/source               0001076386
 	@coff.cpp
 
 14 
@@ -9419,21 +9419,21 @@ cﬁumn
 	}
 }
 
-156 
+157 
 	g¥Ÿe˘ed
 :
 
-157 
+158 
 uöt32
  
 cﬁumn
 ;
 
-158 
+159 
 	g¥iv©e
 :
 
-159 
+160 
 uöt32
  
 	$PushSåög
@@ -9443,7 +9443,7 @@ s
 	}
 };
 
-167 
+168 
 	gãm∂©e
  <
 ˛ass
@@ -9451,47 +9451,47 @@ s
 	gRec‹dTy≥
 >
 
-168 ˛as†
+169 ˛as†
 	cCAºayBuf
  {
 
-169 
+170 
 	m¥iv©e
 :
 
-170 
+171 
 Rec‹dTy≥
  * 
 buf„r
 ;
 
-171 
+172 
 uöt32
  
 	mnum
 ;
 
-172 
+173 
 CAºayBuf
  (CArrayBuf &);
 
-173 
+174 
 	mpublic
 :
 
-174 
+175 
 	$CAºayBuf
 () {
 
-175 
+176 
 num
  = 0;
 
-177 ~
+178 ~
 	$CAºayBuf
 () {
 
-178 i‡(
+179 i‡(
 num
 Ë
 dñëe
@@ -9499,11 +9499,11 @@ dñëe
 buf„r
 ;
 
-179 
+180 
 	}
 }
 
-180 
+181 
 	$SëNum
 (
 uöt32
@@ -9511,23 +9511,23 @@ uöt32
 n
 ) {
 
-181 i‡(
+182 i‡(
 n
  <
 num
 ) ;
 
-182 i‡(
+183 i‡(
 num
 ) {
 
-183 
+184 
 îr
 .
 	`submô
 (9004);
 
-186 
+187 
 buf„r
  = 
 √w
@@ -9537,23 +9537,23 @@ Rec‹dTy≥
 n
 ];
 
-187 i‡(!
+188 i‡(!
 buf„r
 ) {
 
-188 
+189 
 îr
 .
 	`submô
 (9006);
 
-191 
+192 
 num
  = 
 n
 ;
 
-192 
+193 
 	`mem£t
 (
 buf„r
@@ -9563,25 +9563,25 @@ n
 Rec‹dTy≥
 ));
 
-195 
+196 
 	}
 }
 
-196 
+197 
 uöt32
  
 	$GëNumE¡rõs
 () {
 
-197  
+198  
 num
 ;
 
-198 
+199 
 	}
 }
 
-199 
+200 
 	gRec‹dTy≥
  & 
 	g›î©‹
@@ -9591,13 +9591,13 @@ uöt32
 	gi
 ) {
 
-200 i‡(
+201 i‡(
 	gi
  >
 num
 ) {
 
-201 
+202 
 îr
 .
 submô
@@ -9605,17 +9605,17 @@ submô
 	gi
  = 0;
 
-203  
+204  
 	gbuf„r
 [
 i
 ];
 
-205 
+206 
 	$SëZîo
 () {
 
-206 
+207 
 	`mem£t
 (
 buf„r
@@ -9625,11 +9625,11 @@ num
 Rec‹dTy≥
 ));
 
-207 
+208 
 	}
 }
 
-257 
+258 
 	gãm∂©e
  <
 ˛ass
@@ -9637,7 +9637,7 @@ Rec‹dTy≥
 	gRec‹dTy≥
 >
 
-258 ˛as†
+259 ˛as†
 	cCSLi°
  : 
 ¥iv©e
@@ -9645,11 +9645,11 @@ Rec‹dTy≥
 CMem‹yBuf„r
  {
 
-259 
+260 
 public
 :
 
-260 
+261 
 	$Push
 (
 Rec‹dTy≥
@@ -9657,7 +9657,7 @@ Rec‹dTy≥
 x
 ) {
 
-262 
+263 
 CMem‹yBuf„r
 ::
 	`Push
@@ -9665,11 +9665,11 @@ CMem‹yBuf„r
 x
 , (x));
 
-264 
+265 
 	$PushZîo
 () {
 
-266 
+267 
 CMem‹yBuf„r
 ::
 	`Push
@@ -9677,11 +9677,11 @@ CMem‹yBuf„r
 Rec‹dTy≥
 ));
 
-267 
+268 
 	}
 }
 
-268 
+269 
 	$SëNum
 (
 uöt32
@@ -9689,7 +9689,7 @@ uöt32
 n
 ) {
 
-270 
+271 
 	`SëSize
 (
 n
@@ -9697,7 +9697,7 @@ n
 Rec‹dTy≥
 ));
 
-271 
+272 
 NumE¡rõs
  = 
 n
@@ -9707,25 +9707,25 @@ D©aSize
 Rec‹dTy≥
 );
 
-272 
+273 
 	}
 }
 
-273 
+274 
 uöt32
  
 	$GëNumE¡rõs
 () {
 
-275  
+276  
 NumE¡rõs
 ;
 
-276 
+277 
 	}
 }
 
-277 
+278 
 	gRec‹dTy≥
  & 
 	g›î©‹
@@ -9735,13 +9735,13 @@ uöt32
 	gi
 ) {
 
-279 i‡(
+280 i‡(
 	gi
  >
 NumE¡rõs
 ) {
 
-280 
+281 
 îr
 .
 submô
@@ -9749,7 +9749,7 @@ submô
 	gi
  = 0;}
 
-281  *(
+282  *(
 	gRec‹dTy≥
 *)(
 Buf
@@ -9757,11 +9757,11 @@ Buf
 i
  * (RecordType));
 
-283 
+284 
 	$S‹t
 () {
 
-287 
+288 
 öt32
  
 i
@@ -9769,7 +9769,7 @@ i
 j
 ;
 
-288 
+289 
 Rec‹dTy≥
  
 ãmp
@@ -9779,7 +9779,7 @@ p1
 p2
 ;
 
-289 
+290 
 i
  = 0; i < (
 öt32
@@ -9787,7 +9787,7 @@ i
 NumE¡rõs
 ; i++) {
 
-290 
+291 
 j
  = 0; j < (
 öt32
@@ -9797,7 +9797,7 @@ NumE¡rõs
 i
  - 1; j++) {
 
-291 
+292 
 p1
  = (
 Rec‹dTy≥
@@ -9807,7 +9807,7 @@ Rec‹dTy≥
 j
  * (RecordType));
 
-292 
+293 
 p2
  = (
 Rec‹dTy≥
@@ -9817,13 +9817,13 @@ Rec‹dTy≥
 j
 +1) * (RecordType));
 
-293 i‡(*
+294 i‡(*
 p2
  < *
 p1
 ) {
 
-295 
+296 
 ãmp
  = *
 p1
@@ -9831,11 +9831,11 @@ p1
 p2
 ; *p2 =Åemp;
 
-299 
+300 
 	}
 }
 
-300 
+301 
 öt32
  
 	$FödFú°
@@ -9845,13 +9845,13 @@ Rec‹dTy≥
 x
 ) {
 
-306 
+307 
 uöt32
  
 a
  = 0;
 
-307 
+308 
 uöt32
  
 b
@@ -9859,19 +9859,19 @@ b
 NumE¡rõs
 ;
 
-308 
+309 
 uöt32
  
 c
  = 0;
 
-310 
+311 
 a
  < 
 b
 ) {
 
-311 
+312 
 c
  = (
 a
@@ -9879,7 +9879,7 @@ a
 b
 ) / 2;
 
-312 i‡((*
+313 i‡((*
 this
 )[
 c
@@ -9887,29 +9887,29 @@ c
 x
 ) {
 
-313 
+314 
 a
  = 
 c
  + 1;}
 
-315 
+316 
 b
  = 
 c
 ;}
 
-317  (
+318  (
 öt32
 )
 a
 ;
 
-318 
+319 
 	}
 }
 
-319 
+320 
 öt32
  
 	$Exi°s
@@ -9919,7 +9919,7 @@ Rec‹dTy≥
 x
 ) {
 
-323 
+324 
 uöt32
  
 i
@@ -9929,13 +9929,13 @@ i
 x
 );
 
-324 i‡(
+325 i‡(
 i
  =
 NumE¡rõs
 )  -1;
 
-325 i‡(
+326 i‡(
 x
  < (*
 this
@@ -9943,11 +9943,11 @@ this
 i
 ])  -1;  i;
 
-326 
+327 
 	}
 }
 
-327 
+328 
 öt32
  
 	$PushS‹t
@@ -9957,7 +9957,7 @@ Rec‹dTy≥
 x
 ) {
 
-333 
+334 
 öt32
  
 i
@@ -9967,7 +9967,7 @@ i
 x
 );
 
-334 
+335 
 öt32
  
 Rec‹dsToMove
@@ -9977,17 +9977,17 @@ NumE¡rõs
 i
 ;
 
-335 
+336 
 	`SëNum
 (
 NumE¡rõs
  + 1);
 
-337 i‡(
+338 i‡(
 Rec‹dsToMove
  > 0) {
 
-338 
+339 
 	`memmove
 (
 	`Buf
@@ -9997,7 +9997,7 @@ i
 Rec‹dTy≥
 ) + (RecordType),
 
-339 
+340 
 	`Buf
 (Ë+ 
 i
@@ -10005,13 +10005,13 @@ i
 Rec‹dTy≥
 ),
 
-340 
+341 
 Rec‹dsToMove
  * (
 Rec‹dTy≥
 ));
 
-343 (*
+344 (*
 this
 )[
 i
@@ -10019,15 +10019,15 @@ i
 x
 ;
 
-344  
+345  
 i
 ;
 
-345 
+346 
 	}
 }
 
-346 
+347 
 öt32
  
 	$PushUnique
@@ -10037,7 +10037,7 @@ Rec‹dTy≥
 x
 ) {
 
-356 
+357 
 öt32
  
 i
@@ -10047,7 +10047,7 @@ i
 x
 );
 
-357 i‡(
+358 i‡(
 i
  < (
 öt32
@@ -10059,11 +10059,11 @@ x
 this
 )[i])) {
 
-358  
+359  
 i
 ;
 
-360 
+361 
 öt32
  
 Rec‹dsToMove
@@ -10073,17 +10073,17 @@ NumE¡rõs
 i
 ;
 
-361 
+362 
 	`SëNum
 (
 NumE¡rõs
  + 1);
 
-363 i‡(
+364 i‡(
 Rec‹dsToMove
  > 0) {
 
-364 
+365 
 	`memmove
 (
 	`Buf
@@ -10093,7 +10093,7 @@ i
 Rec‹dTy≥
 ) + (RecordType),
 
-365 
+366 
 	`Buf
 (Ë+ 
 i
@@ -10101,13 +10101,13 @@ i
 Rec‹dTy≥
 ),
 
-366 
+367 
 Rec‹dsToMove
  * (
 Rec‹dTy≥
 ));
 
-369 (*
+370 (*
 this
 )[
 i
@@ -10115,15 +10115,15 @@ i
 x
 ;
 
-371  
+372  
 i
 ;
 
-372 
+373 
 	}
 }
 
-373 
+374 
 	$Remove
 (
 uöt32
@@ -10131,13 +10131,13 @@ uöt32
 ödex
 ) {
 
-375 i‡(
+376 i‡(
 ödex
  >
 NumE¡rõs
 ) ;
 
-376 
+377 
 uöt32
  
 Rec‹dsToMove
@@ -10147,11 +10147,11 @@ NumE¡rõs
 ödex
  - 1;
 
-378 i‡(
+379 i‡(
 Rec‹dsToMove
  > 0) {
 
-379 
+380 
 	`memmove
 (
 	`Buf
@@ -10161,7 +10161,7 @@ Rec‹dsToMove
 Rec‹dTy≥
 ),
 
-380 
+381 
 	`Buf
 (Ë+ 
 ödex
@@ -10169,19 +10169,19 @@ Rec‹dTy≥
 Rec‹dTy≥
 ) + (RecordType),
 
-381 
+382 
 Rec‹dsToMove
  * (
 Rec‹dTy≥
 ));
 
-384 
+385 
 	`SëNum
 (
 NumE¡rõs
  - 1);
 
-385 
+386 
 	}
 }
 
@@ -11325,99 +11325,99 @@ uöt32
 OldIndex
 ,
 
-659 c⁄° * 
+658 c⁄° * 
 Name
 ,
 
-660 c⁄° * 
+659 c⁄° * 
 DLLName
  = 0);
 
-661 
+660 
 AddRñoˇti⁄
 (
 
-662 
+661 
 öt32
  
 Se˘i⁄
 ,
 
-666 
+665 
 uöt32
  
 Off£t
 ,
 
-667 
+666 
 öt32
  
 Addíd
 ,
 
-670 
+669 
 uöt32
  
 Ty≥
 ,
 
-671 
+670 
 uöt32
  
 Size
 ,
 
-672 
+671 
 uöt32
  
 T¨gëIndex
 ,
 
-673 
+672 
 uöt32
  
 Re„ªn˚Index
  = 0);
 
-674 
+673 
 öt32
  
 AddSe˘i⁄Group
 (
 
-675 c⁄° * 
+674 c⁄° * 
 Name
 ,
 
-676 
+675 
 öt32
  
 MembîSegmít
 );
 
-677 
+676 
 Cou¡In°ru˘i⁄s
 ();
 
-678 c⁄° * 
+677 c⁄° * 
 	mCommítSï¨©‹
 ;
 
-679 c⁄° * 
+678 c⁄° * 
 	mHîeO≥øt‹
 ;
 
-680 
+679 
 CTextFûeBuf„r
  
 	mOutFûe
 ;
 
-681 
+680 
 	m¥Ÿe˘ed
 :
 
-682 
+681 
 CSLi°
 <
 CodeBlock
@@ -11425,13 +11425,13 @@ CodeBlock
 BlockLi°
 ;
 
-683 
+682 
 CSymbﬁTabÀ
  
 	mSymbﬁs
 ;
 
-684 
+683 
 	mCSLi°
 <
 	mSASe˘i⁄
@@ -11439,7 +11439,7 @@ CSymbﬁTabÀ
 	mSe˘i⁄s
 ;
 
-685 
+684 
 	mCSLi°
 <
 	mSARñoˇti⁄
@@ -11447,13 +11447,13 @@ CSymbﬁTabÀ
 	mRñoˇti⁄s
 ;
 
-686 
+685 
 CMem‹yBuf„r
  
 	mNameBuf„r
 ;
 
-687 
+686 
 	mCSLi°
 <
 	mSFun˘i⁄Rec‹d
@@ -11461,267 +11461,297 @@ CMem‹yBuf„r
 	mFun˘i⁄Li°
 ;
 
-688 
+687 
 öt64
  
 	mImageBa£
 ;
 
-689 
+688 
 uöt32
  
 	mExeTy≥
 ;
 
-690 
+689 
 uöt32
  
 	mRñoˇti⁄sInSour˚
 ;
 
-694 
+693 
 uöt8
  * 
 	mBuf„r
 ;
 
-695 
+694 
 SOpcodePr›
  
 	ms
 ;
 
-696 
+695 
 SATø˚r
  
 	mt
 ;
 
-697 
+696 
 uöt32
  
 	mPass
 ;
 
+697 
+uöt32
+ 
+	mSwôchCheck
+;
+
 698 
 uöt32
  
-	mSe˘i⁄End
+	mSwôchèbÀLígth
 ;
 
 699 
 uöt32
  
-	mW‹dSize
+	mSwôchReg
 ;
 
 700 
 uöt32
  
-	mSe˘i⁄
+	mJum±abÀAddrReg
 ;
 
 701 
 uöt32
  
-	mSe˘i⁄Addªss
+	mJumpReg
 ;
 
 702 
 uöt32
  
-	mSe˘i⁄Ty≥
+	mSe˘i⁄End
 ;
 
 703 
 uöt32
  
-	mCodeMode
+	mW‹dSize
 ;
 
 704 
 uöt32
  
-	mIBlock
+	mSe˘i⁄
 ;
 
 705 
 uöt32
  
-	mIBlockOpNum
+	mSe˘i⁄Addªss
 ;
 
 706 
 uöt32
  
-	mBlockEnd
+	mSe˘i⁄Ty≥
 ;
 
 707 
 uöt32
  
-	mIFun˘i⁄
+	mCodeMode
 ;
 
 708 
 uöt32
  
-	mFun˘i⁄End
+	mIBlock
 ;
 
 709 
 uöt32
  
-	mLabñBegö
+	mIBlockOpNum
 ;
 
 710 
 uöt32
  
-	mLabñEnd
+	mBlockEnd
 ;
 
 711 
 uöt32
  
-	mLabñI«c˚ssibÀ
+	mIFun˘i⁄
 ;
 
 712 
 uöt32
  
-	mIBegö
+	mFun˘i⁄End
 ;
 
 713 
 uöt32
  
-	mIEnd
+	mLabñBegö
 ;
 
 714 
 uöt32
  
-	mD©aTy≥
+	mLabñEnd
 ;
 
 715 
 uöt32
  
-	mD©aSize
+	mLabñI«c˚ssibÀ
 ;
 
 716 
 uöt32
  
-	mFœgPªvious
+	mIBegö
+;
+
+717 
+uöt32
+ 
+	mIEnd
+;
+
+718 
+uöt32
+ 
+	mD©aTy≥
+;
+
+719 
+uöt32
+ 
+	mD©aSize
 ;
 
 720 
+uöt32
+ 
+	mFœgPªvious
+;
+
+724 
 uöt8
  
 	mIn°ru˘i⁄SëMax
 ;
 
-721 
+725 
 uöt8
  
 	mIn°ru˘i⁄SëAMDMAX
 ;
 
-722 
+726 
 uöt16
  
 	mIn°ru˘i⁄SëOR
 ;
 
-723 
+727 
 uöt16
  
 	mOpcodei
 ;
 
-724 
+728 
 uöt16
  
 	mOpcodeO±i⁄s
 ;
 
-725 
+729 
 uöt16
  
 	mPªviousOpcodei
 ;
 
-726 
+730 
 uöt16
  
 	mPªviousOpcodeO±i⁄s
 ;
 
-727 
+731 
 uöt32
  
 	mCou¡Eº‹s
 ;
 
-728 
+732 
 uöt32
  
 	mSy¡ax
 ;
 
-729 
+733 
 uöt32
  
 	mMasmO±i⁄s
 ;
 
-731 
+735 
 uöt32
  
 	mNamesCh™ged
 ;
 
-732 
+736 
 öt32
  
 	mAssumes
 [6];
 
-733 
+737 
 Pass1
 ();
 
-734 
+738 
 Pass2
 ();
 
-735 
+739 
 NextFun˘i⁄2
 ();
 
-736 
+740 
 NextLabñ
 ();
 
-737 
+741 
 NextIn°ru˘i⁄1
 ();
 
-738 
+742 
 NextIn°ru˘i⁄2
 ();
 
-739 
+743 
 P¨£In°ru˘i⁄
 ();
 
-740 
+744 
 SˇnPªfixes
 ();
 
-741 
+745 
 St‹ePªfix
 (
 uöt32
@@ -11733,67 +11763,71 @@ uöt8
 Byã
 );
 
-742 
+746 
 FödM≠E¡ry
 ();
 
-743 
+747 
 FödO≥ønds
 ();
 
-744 
+748 
 FödO≥øndTy≥s
 ();
 
-745 
+749 
 FödBrﬂdˇ°
 ();
 
-746 
+750 
 SwizTabÀLookup
 ();
 
-747 
+751 
 FödLabñs
 ();
 
-748 
+752 
 CheckF‹Mi•œ˚dLabñ
 ();
 
-749 
+753 
 FödRñoˇti⁄s
 ();
 
-750 
+754 
 FödW¨nögs
 ();
 
-751 
+755 
 FödEº‹s
 ();
 
-752 
-FödIn°ru˘i⁄Së
-();
-
-753 
-CheckF‹N›s
-();
-
-754 
-Upd©eSymbﬁs
-();
-
-755 
-Upd©eTø˚r
-();
-
 756 
-M¨kCodeAsDubious
+FödSwôch
 ();
 
 757 
+FödIn°ru˘i⁄Së
+();
+
+758 
+CheckF‹N›s
+();
+
+759 
+Upd©eSymbﬁs
+();
+
+760 
+Upd©eTø˚r
+();
+
+761 
+M¨kCodeAsDubious
+();
+
+762 
 CheckRñoˇti⁄T¨gë
 (
 uöt32
@@ -11805,7 +11839,7 @@ T¨gëTy≥
 T¨gëSize
 );
 
-758 
+763 
 CheckJumpT¨gë
 (
 uöt32
@@ -11813,7 +11847,7 @@ uöt32
 symi
 );
 
-759 
+764 
 FﬁlowJumpTabÀ
 (
 uöt32
@@ -11823,7 +11857,7 @@ symi
 RñTy≥
 );
 
-760 
+765 
 uöt32
  
 MakeMissögRñoˇti⁄
@@ -11845,7 +11879,7 @@ Sour˚Size
 RefPoöt
  = 0);
 
-761 
+766 
 CheckImp‹tSymbﬁ
 (
 uöt32
@@ -11853,43 +11887,43 @@ uöt32
 symi
 );
 
-762 
+767 
 CheckF‹BlockBegö
 ();
 
-763 
+768 
 CheckF‹BlockEnd
 ();
 
-764 
+769 
 CheckF‹Fun˘i⁄Begö
 ();
 
-765 
+770 
 CheckF‹Fun˘i⁄End
 ();
 
-766 
+771 
 CheckLabñ
 ();
 
-767 
+772 
 InôülEº‹Check
 ();
 
-768 
+773 
 FöÆEº‹Check
 ();
 
-769 
+774 
 CheckNamesVÆid
 ();
 
-770 
+775 
 FixRñoˇti⁄T¨gëAddªs£s
 ();
 
-771 
+776 
 Tøn¶©eAbsAddªss
 (
 öt64
@@ -11905,59 +11939,59 @@ uöt32
 Off£t
 );
 
-772 
+777 
 WrôeFûeBegö
 ();
 
-773 
+778 
 WrôeFûeBegöMASM
 ();
 
-774 
+779 
 WrôeFûeBegöYASM
 ();
 
-775 
+780 
 WrôeFûeBegöGASM
 ();
 
-776 
+781 
 WrôeFûeEnd
 ();
 
-777 
+782 
 WrôeSegmítBegö
 ();
 
-778 
+783 
 WrôeSegmítBegöMASM
 ();
 
-779 
+784 
 WrôeSegmítBegöYASM
 ();
 
-780 
+785 
 WrôeSegmítBegöGASM
 ();
 
-781 
+786 
 WrôeSegmítEnd
 ();
 
-782 
+787 
 WrôePublicsAndExã∫ÆsMASM
 ();
 
-783 
+788 
 WrôePublicsAndExã∫ÆsYASMGASM
 ();
 
-784 
+789 
 WrôeFun˘i⁄Begö
 ();
 
-785 
+790 
 WrôeFun˘i⁄BegöMASM
 (
 uöt32
@@ -11967,7 +12001,7 @@ symi
 sc›e
 );
 
-786 
+791 
 WrôeFun˘i⁄BegöYASM
 (
 uöt32
@@ -11977,7 +12011,7 @@ symi
 sc›e
 );
 
-787 
+792 
 WrôeFun˘i⁄BegöGASM
 (
 uöt32
@@ -11987,11 +12021,11 @@ symi
 sc›e
 );
 
-788 
+793 
 WrôeFun˘i⁄End
 ();
 
-789 
+794 
 WrôeFun˘i⁄EndMASM
 (
 uöt32
@@ -11999,7 +12033,7 @@ uöt32
 symi
 );
 
-790 
+795 
 WrôeFun˘i⁄EndYASM
 (
 uöt32
@@ -12007,7 +12041,7 @@ uöt32
 symi
 );
 
-791 
+796 
 WrôeFun˘i⁄EndGASM
 (
 uöt32
@@ -12015,7 +12049,7 @@ uöt32
 symi
 );
 
-792 
+797 
 WrôeCodeLabñ
 (
 uöt32
@@ -12023,7 +12057,7 @@ uöt32
 symi
 );
 
-793 
+798 
 WrôeCodeLabñMASM
 (
 uöt32
@@ -12033,7 +12067,7 @@ symi
 sc›e
 );
 
-794 
+799 
 WrôeCodeLabñYASM
 (
 uöt32
@@ -12043,7 +12077,7 @@ symi
 sc›e
 );
 
-795 
+800 
 WrôeCodeLabñGASM
 (
 uöt32
@@ -12053,11 +12087,11 @@ symi
 sc›e
 );
 
-796 
+801 
 WrôeFûÀrs
 ();
 
-797 
+802 
 WrôeAlign
 (
 uöt32
@@ -12065,27 +12099,27 @@ uöt32
 a
 );
 
-798 
+803 
 WrôeEº‹sAndW¨nögs
 ();
 
-799 
+804 
 WrôeAssume
 ();
 
-800 
+805 
 WrôeIn°ru˘i⁄
 ();
 
-801 
+806 
 WrôeCodeCommít
 ();
 
-802 
+807 
 WrôeSåögIn°ru˘i⁄
 ();
 
-803 
+808 
 WrôeSh‹tRegO≥ønd
 (
 uöt32
@@ -12093,7 +12127,7 @@ uöt32
 Ty≥
 );
 
-804 
+809 
 WrôeRegO≥ønd
 (
 uöt32
@@ -12101,7 +12135,7 @@ uöt32
 Ty≥
 );
 
-805 
+810 
 WrôeRMO≥ønd
 (
 uöt32
@@ -12109,7 +12143,7 @@ uöt32
 Ty≥
 );
 
-806 
+811 
 WrôeDREXO≥ønd
 (
 uöt32
@@ -12117,7 +12151,7 @@ uöt32
 Ty≥
 );
 
-807 
+812 
 WrôeVEXO≥ønd
 (
 uöt32
@@ -12127,7 +12161,7 @@ Ty≥
 i
 );
 
-808 
+813 
 WrôeO≥øndAâribuãEVEX
 (
 i
@@ -12135,7 +12169,7 @@ i
 isMem
 );
 
-809 
+814 
 WrôeO≥øndAâribuãMVEX
 (
 i
@@ -12143,7 +12177,7 @@ i
 isMem
 );
 
-810 
+815 
 WrôeImmedüãO≥ønd
 (
 uöt32
@@ -12151,7 +12185,7 @@ uöt32
 Ty≥
 );
 
-811 
+816 
 WrôeOthîO≥ønd
 (
 uöt32
@@ -12159,7 +12193,7 @@ uöt32
 Ty≥
 );
 
-812 
+817 
 WrôeRegi°îName
 (
 uöt32
@@ -12169,7 +12203,7 @@ VÆue
 Ty≥
 );
 
-813 
+818 
 WrôeSe˘i⁄Name
 (
 öt32
@@ -12177,7 +12211,7 @@ WrôeSe˘i⁄Name
 SegIndex
 );
 
-814 
+819 
 WrôeSymbﬁName
 (
 uöt32
@@ -12185,7 +12219,7 @@ uöt32
 symi
 );
 
-815 
+820 
 WrôeRñoˇti⁄T¨gë
 (
 uöt32
@@ -12199,7 +12233,7 @@ C⁄ãxt
 Addíd
 );
 
-816 
+821 
 WrôeO≥øndTy≥
 (
 uöt32
@@ -12207,7 +12241,7 @@ uöt32
 ty≥
 );
 
-817 
+822 
 WrôeO≥øndTy≥MASM
 (
 uöt32
@@ -12215,7 +12249,7 @@ uöt32
 ty≥
 );
 
-818 
+823 
 WrôeO≥øndTy≥YASM
 (
 uöt32
@@ -12223,7 +12257,7 @@ uöt32
 ty≥
 );
 
-819 
+824 
 WrôeO≥øndTy≥GASM
 (
 uöt32
@@ -12231,11 +12265,11 @@ uöt32
 ty≥
 );
 
-820 
+825 
 WrôeD©aIãms
 ();
 
-821 
+826 
 WrôeD©aLabñMASM
 (c⁄° * 
 «me
@@ -12247,7 +12281,7 @@ sym
 löe
 );
 
-822 
+827 
 WrôeD©aLabñYASM
 (c⁄° * 
 «me
@@ -12259,7 +12293,7 @@ sym
 löe
 );
 
-823 
+828 
 WrôeD©aLabñGASM
 (c⁄° * 
 «me
@@ -12271,7 +12305,7 @@ sym
 löe
 );
 
-824 
+829 
 WrôeUnöôD©aIãmsMASM
 (
 uöt32
@@ -12281,7 +12315,7 @@ size
 cou¡
 );
 
-825 
+830 
 WrôeUnöôD©aIãmsYASM
 (
 uöt32
@@ -12291,7 +12325,7 @@ size
 cou¡
 );
 
-826 
+831 
 WrôeUnöôD©aIãmsGASM
 (
 uöt32
@@ -12301,7 +12335,7 @@ size
 cou¡
 );
 
-827 
+832 
 WrôeD©aDúe˘iveMASM
 (
 uöt32
@@ -12309,7 +12343,7 @@ uöt32
 size
 );
 
-828 
+833 
 WrôeD©aDúe˘iveYASM
 (
 uöt32
@@ -12317,7 +12351,7 @@ uöt32
 size
 );
 
-829 
+834 
 WrôeD©aDúe˘iveGASM
 (
 uöt32
@@ -12325,7 +12359,7 @@ uöt32
 size
 );
 
-830 
+835 
 WrôeD©aCommít
 (
 uöt32
@@ -12339,7 +12373,7 @@ Pos
 úñ
 );
 
-831 
+836 
 uöt32
  
 GëD©aIãmSize
@@ -12347,7 +12381,7 @@ GëD©aIãmSize
 Ty≥
 );
 
-832 
+837 
 uöt32
  
 GëD©aEÀmítSize
@@ -12355,13 +12389,227 @@ GëD©aEÀmítSize
 Ty≥
 );
 
-833 
+838 
 öt32
  
 GëSegmítRegi°îFromPªfix
 ();
 
-835 
+840 
+WrôeIn°ru˘i⁄
+–
+CTextFûeBuf„r
+ *
+out_fûe
+ );
+
+841 
+WrôeCodeCommít
+–
+CTextFûeBuf„r
+ *
+out_fûe
+ );
+
+842 
+WrôeSåögIn°ru˘i⁄
+–
+CTextFûeBuf„r
+ *
+out_fûe
+ );
+
+843 
+WrôeSh‹tRegO≥ønd
+–
+CTextFûeBuf„r
+ *
+out_fûe
+, 
+uöt32
+ 
+Ty≥
+);
+
+844 
+WrôeRegO≥ønd
+–
+CTextFûeBuf„r
+ *
+out_fûe
+, 
+uöt32
+ 
+Ty≥
+);
+
+845 
+WrôeRMO≥ønd
+–
+CTextFûeBuf„r
+ *
+out_fûe
+, 
+uöt32
+ 
+Ty≥
+);
+
+846 
+WrôeDREXO≥ønd
+–
+CTextFûeBuf„r
+ *
+out_fûe
+, 
+uöt32
+ 
+Ty≥
+);
+
+847 
+WrôeVEXO≥ønd
+–
+CTextFûeBuf„r
+ *
+out_fûe
+, 
+uöt32
+ 
+Ty≥
+, 
+i
+);
+
+848 
+WrôeO≥øndAâribuãEVEX
+–
+CTextFûeBuf„r
+ *
+out_fûe
+, 
+i
+, 
+isMem
+);
+
+849 
+WrôeO≥øndAâribuãMVEX
+–
+CTextFûeBuf„r
+ *
+out_fûe
+, 
+i
+, 
+isMem
+);
+
+850 
+WrôeImmedüãO≥ønd
+–
+CTextFûeBuf„r
+ *
+out_fûe
+, 
+uöt32
+ 
+Ty≥
+);
+
+851 
+WrôeOthîO≥ønd
+–
+CTextFûeBuf„r
+ *
+out_fûe
+, 
+uöt32
+ 
+Ty≥
+);
+
+852 
+WrôeRegi°îName
+–
+CTextFûeBuf„r
+ *
+out_fûe
+, 
+uöt32
+ 
+VÆue
+, uöt32 
+Ty≥
+);
+
+853 
+WrôeRñoˇti⁄T¨gë
+–
+CTextFûeBuf„r
+ *
+out_fûe
+, 
+uöt32
+ 
+úñ
+, uöt32 
+C⁄ãxt
+, 
+öt64
+ 
+Addíd
+);
+
+854 
+WrôeO≥øndTy≥
+–
+CTextFûeBuf„r
+ *
+out_fûe
+, 
+uöt32
+ 
+ty≥
+);
+
+855 
+WrôeO≥øndTy≥MASM
+–
+CTextFûeBuf„r
+ *
+out_fûe
+, 
+uöt32
+ 
+ty≥
+);
+
+856 
+WrôeO≥øndTy≥YASM
+–
+CTextFûeBuf„r
+ *
+out_fûe
+, 
+uöt32
+ 
+ty≥
+);
+
+857 
+WrôeO≥øndTy≥GASM
+–
+CTextFûeBuf„r
+ *
+out_fûe
+, 
+uöt32
+ 
+ty≥
+);
+
+860 
 	mãm∂©e
  <
 ˛ass
@@ -12375,7 +12623,7 @@ uöt32
 Off£t
 ) {
 
-836  *(
+861  *(
 TX
 *)(
 Buf„r
@@ -12383,53 +12631,53 @@ Buf„r
 Off£t
 );}
 
-837 
+862 
 	}
 };
 
-841 
+866 
 SOpcodeDef
  
 OpcodeM≠0
 [256];
 
-843 
+868 
 uöt32
  
 OpcodeSèπPageVEX
 [];
 
-844 
+869 
 SOpcodeDef
  c⁄° * 
 OpcodeSèπPageXOP
 [];
 
-846 c⁄° 
+871 c⁄° 
 uöt32
  
 NumOpcodeSèπPageVEX
 ;
 
-847 c⁄° 
+872 c⁄° 
 uöt32
  
 NumOpcodeSèπPageXOP
 ;
 
-849 c⁄° 
+874 c⁄° 
 SOpcodeDef
  * c⁄° 
 OpcodeTabÀs
 [];
 
-851 c⁄° 
+876 c⁄° 
 uöt32
  
 OpcodeTabÀLígth
 [];
 
-853 c⁄° 
+878 c⁄° 
 uöt32
  
 NumOpcodeTabÀs1
@@ -12437,75 +12685,75 @@ NumOpcodeTabÀs1
 NumOpcodeTabÀs2
 ;
 
-855 c⁄° * 
+880 c⁄° * 
 Regi°îNames8
 [8];
 
-856 c⁄° * 
+881 c⁄° * 
 Regi°îNames8x
 [16];
 
-857 c⁄° * 
+882 c⁄° * 
 Regi°îNames16
 [16];
 
-858 c⁄° * 
+883 c⁄° * 
 Regi°îNames32
 [16];
 
-859 c⁄° * 
+884 c⁄° * 
 Regi°îNames64
 [16];
 
-860 c⁄° * 
+885 c⁄° * 
 Regi°îNamesSeg
 [8];
 
-861 c⁄° * 
+886 c⁄° * 
 Regi°îNamesCR
 [16];
 
-863 
+888 
 SwizS≥c
  c⁄° * 
 SwizTabÀs
 [][2];
 
-864 
+889 
 SwizS≥c
  c⁄° * 
 SwizRoundTabÀs
 [][2];
 
-865 c⁄° * 
+890 c⁄° * 
 EVEXRoundögNames
 [5];
 
-869 
+894 
 	#ASM_SEGMENT_UNKNOWN
  0
 
-870 
+895 
 	#ASM_SEGMENT_ABSOLUTE
  -1
 
-871 
+896 
 	#ASM_SEGMENT_FLAT
  -2
 
-872 
+897 
 	#ASM_SEGMENT_NOTHING
  -3
 
-873 
+898 
 	#ASM_SEGMENT_ERROR
  -4
 
-874 
+899 
 	#ASM_SEGMENT_IMGREL
  -16
 
-877 
+902 
 
 	)
 
@@ -14867,6 +15115,50 @@ Se˘i⁄s
 Name
 );
 
+769 
+	`WrôeFûeBegö
+();
+
+772 
+Pass
+ = 0x10;
+
+773 
+	`Pass2
+();
+
+776 
+	`FöÆEº‹Check
+();
+
+779 
+	`WrôeFûeEnd
+();
+
+781 
+FILE
+ * 
+ff
+ = 
+°dout
+;
+
+785 
+uöt32
+ 
+n
+ = (uöt32)
+	`fwrôe
+(
+OutFûe
+.
+	`Buf
+(), 1, OutFûe.
+	`GëBufSize
+(), 
+ff
+);
+
 793 
 	}
 }
@@ -14993,45 +15285,37 @@ IBlockOpNum
 	`CheckF‹Fun˘i⁄Begö
 ();
 
-855 
+854 
 	`CheckF‹BlockBegö
 ();
 
-857 
+855 
 	`FödLabñs
 ();
 
-860 i‡(
+858 i‡(
 CodeMode
  < 4) {
 
-863 
-	`¥ötf
-("%x ",
-Buf„r
-[
-IBegö
-]);
-
-864 
+861 
 	`P¨£In°ru˘i⁄
 ();
 
-868 
+865 
 IEnd
  = 
 LabñEnd
 ;
 
-871 
+868 
 	`CheckF‹BlockEnd
 ();
 
-873 
+870 
 	`CheckF‹Fun˘i⁄End
 ();
 
-879 
+876 
 SFun˘i⁄Rec‹d
  
 fun
@@ -15043,7 +15327,7 @@ Se˘i⁄s
 TŸÆSize
 , 0, 0};
 
-880 
+877 
 Fun˘i⁄Li°
 .
 	`PushUnique
@@ -15051,17 +15335,17 @@ Fun˘i⁄Li°
 fun
 );
 
-884 
+881 
 	}
 }
 
-886 
+883 
 	gCDißs£mbÀr
 ::
 	$FödLabñs
 () {
 
-888 
+885 
 uöt32
  
 sym1
@@ -15071,7 +15355,7 @@ sym2
 sym3
  = 0;
 
-891 
+888 
 sym1
  = 
 Symbﬁs
@@ -15087,13 +15371,13 @@ sym2
 sym3
 );
 
-893 i‡(
+890 i‡(
 sym1
  && 
 sym2
 ) {
 
-895 
+892 
 LabñBegö
  = 
 Symbﬁs
@@ -15103,11 +15387,11 @@ sym2
 Off£t
 ;
 
-896 
+893 
 Cou¡Eº‹s
  = 0;
 
-899 i‡((
+896 i‡((
 Symbﬁs
 [
 sym2
@@ -15115,11 +15399,11 @@ sym2
 Ty≥
  & 0xF0) == 0x80) {
 
-901 
+898 
 CodeMode
  = 1;
 
-903 i‡((
+900 i‡((
 Symbﬁs
 [
 sym2
@@ -15127,7 +15411,7 @@ sym2
 Ty≥
  & 0xFF) == 0) {
 
-905 i‡((
+902 i‡((
 Symbﬁs
 [
 sym2
@@ -15137,25 +15421,25 @@ Sc›e
 Se˘i⁄Ty≥
  == 1) {
 
-907 
+904 
 CodeMode
  = 1;
 
-913 
+910 
 CodeMode
  = 4;
 
-916 
+913 
 t
 .
 	`Re£t
 ();
 
-918 i‡(
+915 i‡(
 sym3
 ) {
 
-920 
+917 
 LabñEnd
  = 
 Symbﬁs
@@ -15165,41 +15449,41 @@ sym3
 Off£t
 ;
 
-921 i‡(
+918 i‡(
 LabñEnd
  > 
 Se˘i⁄End
 ) LabelEnd = SectionEnd;
 
-925 
+922 
 LabñEnd
  = 
 Se˘i⁄End
 ;
 
-927 
+924 
 	}
 }
 
-929 
+926 
 	gCDißs£mbÀr
 ::
 	$CheckF‹Mi•œ˚dLabñ
 () {
 
-932 i‡(
+929 i‡(
 Fun˘i⁄End
  && Fun˘i⁄End < 
 Se˘i⁄End
 ) {
 
-933 
+930 
 Fun˘i⁄End
  = 
 IEnd
 ;
 
-934 
+931 
 Fun˘i⁄Li°
 [
 IFun˘i⁄
@@ -15207,23 +15491,23 @@ IFun˘i⁄
 Sc›e
  |= 0x10000;
 
-937 
+934 
 s
 .
 Eº‹s
  |= 0x10;
 
-939 
+936 
 	}
 }
 
-941 
+938 
 	gCDißs£mbÀr
 ::
 	$NextLabñ
 () {
 
-943 
+940 
 uöt32
  
 sym
@@ -15235,19 +15519,19 @@ sym2
 sym3
  = 0;
 
-946 
+943 
 IBegö
  = 
 IEnd
 ;
 
-949 
+946 
 t
 .
 	`Re£t
 ();
 
-952 i‡(
+949 i‡(
 IEnd
  >
 Fun˘i⁄End
@@ -15255,7 +15539,7 @@ Fun˘i⁄End
 Se˘i⁄End
 ) {
 
-958 
+955 
 sym1
  = 
 Symbﬁs
@@ -15271,11 +15555,11 @@ sym2
 sym3
 );
 
-960 i‡(
+957 i‡(
 sym1
 ) {
 
-962 
+959 
 sym
  = 
 sym1
@@ -15283,7 +15567,7 @@ sym1
 sym2
 ; sym++) {
 
-964 
+961 
 LabñBegö
  = 
 Symbﬁs
@@ -15293,15 +15577,15 @@ sym
 Off£t
 ;
 
-965 
+962 
 Cou¡Eº‹s
  = 0;
 
-967 i‡((
+964 i‡((
 Se˘i⁄Ty≥
  & 0xFF) == 1) {
 
-969 i‡((
+966 i‡((
 Symbﬁs
 [
 sym
@@ -15309,7 +15593,7 @@ sym
 Ty≥
  >> 24) & 0xF) {
 
-971 
+968 
 CodeMode
  = (
 Symbﬁs
@@ -15319,7 +15603,7 @@ sym
 Ty≥
  >> 24) & 0xF;
 
-973 i‡(
+970 i‡(
 Symbﬁs
 [
 sym
@@ -15327,11 +15611,11 @@ sym
 Ty≥
  & 0x80) {
 
-975 
+972 
 CodeMode
  = 1;
 
-977 i‡(
+974 i‡(
 Symbﬁs
 [
 sym
@@ -15339,19 +15623,19 @@ sym
 Ty≥
  == 0) {
 
-980 
+977 
 CodeMode
  = 1;
 
-984 
+981 
 CodeMode
  = 4;
 
-989 
+986 
 CodeMode
  = 4;
 
-992 i‡(!(
+989 i‡(!(
 Symbﬁs
 [
 sym
@@ -15359,7 +15643,7 @@ sym
 Ty≥
  & 0x80000000)) {
 
-993 
+990 
 D©aTy≥
  = 
 Symbﬁs
@@ -15369,7 +15653,7 @@ sym
 Ty≥
 ;
 
-994 
+991 
 D©aSize
  = 
 	`GëD©aIãmSize
@@ -15377,7 +15661,7 @@ D©aSize
 D©aTy≥
 );
 
-995 i‡(((
+992 i‡(((
 D©aTy≥
 +1Ë& 0xFEË=0x0C && 
 Symbﬁs
@@ -15387,7 +15671,7 @@ sym
 Size
 ) {
 
-997 
+994 
 D©aSize
  = 
 Symbﬁs
@@ -15397,11 +15681,11 @@ sym
 Size
 ;
 
-1002 i‡(
+999 i‡(
 sym3
 ) {
 
-1004 
+1001 
 LabñEnd
  = 
 Symbﬁs
@@ -15411,39 +15695,39 @@ sym3
 Off£t
 ;
 
-1008 
+1005 
 LabñEnd
  = 
 Fun˘i⁄End
 ;
 
-1010 
+1007 
 	}
 }
 
-1012 
+1009 
 	gCDißs£mbÀr
 ::
 	$NextFun˘i⁄2
 () {
 
-1015 
+1012 
 SFun˘i⁄Rec‹d
  
 Fun
 ;
 
-1017 i‡(
+1014 i‡(
 IFun˘i⁄
  == 0) {
 
-1019 
+1016 
 Fun
 .
 Se˘i⁄
  = Section;
 
-1020 
+1017 
 Fun
 .
 Sèπ
@@ -15451,7 +15735,7 @@ Sèπ
 IBegö
 ;
 
-1021 
+1018 
 IFun˘i⁄
  = 
 Fun˘i⁄Li°
@@ -15461,11 +15745,11 @@ Fun˘i⁄Li°
 Fun
 );
 
-1025 
+1022 
 IFun˘i⁄
 ++;
 
-1028 i‡(
+1025 i‡(
 IFun˘i⁄
  =0 || IFun˘i⁄ >
 Fun˘i⁄Li°
@@ -15473,17 +15757,17 @@ Fun˘i⁄Li°
 	`GëNumE¡rõs
 ()) {
 
-1030 
+1027 
 IFun˘i⁄
  = 0;
 
-1034 
+1031 
 Fun
 .
 Se˘i⁄
  = Section;
 
-1035 
+1032 
 Fun
 .
 Sèπ
@@ -15491,7 +15775,7 @@ Sèπ
 Se˘i⁄End
 ;
 
-1036 i‡(
+1033 i‡(
 Fun
  < 
 Fun˘i⁄Li°
@@ -15499,11 +15783,11 @@ Fun˘i⁄Li°
 IFun˘i⁄
 ]) {
 
-1038 
+1035 
 IFun˘i⁄
  = 0;
 
-1043 
+1040 
 Fun˘i⁄End
  = 
 Fun˘i⁄Li°
@@ -15513,7 +15797,7 @@ IFun˘i⁄
 End
 ;
 
-1046 i‡(
+1043 i‡(
 Fun˘i⁄End
  <
 Fun˘i⁄Li°
@@ -15523,7 +15807,7 @@ IFun˘i⁄
 Sèπ
 ) {
 
-1048 i‡(
+1045 i‡(
 IFun˘i⁄
 +1 < 
 Fun˘i⁄Li°
@@ -15531,7 +15815,7 @@ Fun˘i⁄Li°
 	`GëNumE¡rõs
 ()
 
-1049 && 
+1046 && 
 Fun˘i⁄Li°
 [
 IFun˘i⁄
@@ -15539,13 +15823,13 @@ IFun˘i⁄
 Fun
 
 
-1050 && 
+1047 && 
 Fun˘i⁄Li°
 [
 IFun˘i⁄
 ] < FunctionList[IFunction+1]) {
 
-1051 
+1048 
 Fun˘i⁄End
  = 
 Fun˘i⁄Li°
@@ -15555,45 +15839,45 @@ IFun˘i⁄
 Sèπ
 ;
 
-1055 
+1052 
 Fun˘i⁄End
  = 
 Se˘i⁄End
 ;
 
-1061 
+1058 
 	}
 }
 
-1063 
+1060 
 	gCDißs£mbÀr
 ::
 	$CheckF‹BlockBegö
 () {
 
-1065 
+1062 
 CodeBlock
  
 block
 ;
 
-1066 
+1063 
 IBegö
  = 
 IEnd
 ;
 
-1068 i‡(
+1065 i‡(
 IBlock
  == 0) {
 
-1070 
+1067 
 block
 .
 Se˘i⁄
  = Section;
 
-1071 
+1068 
 block
 .
 Sèπ
@@ -15601,7 +15885,7 @@ Sèπ
 IBegö
 ;
 
-1072 
+1069 
 block
 .
 End
@@ -15609,7 +15893,7 @@ End
 IBegö
 ;
 
-1073 
+1070 
 block
 .
 OpNum
@@ -15617,7 +15901,7 @@ OpNum
 IBlockOpNum
 ;
 
-1075 
+1072 
 IBlock
  = 
 BlockLi°
@@ -15627,39 +15911,33 @@ BlockLi°
 block
 );
 
-1078 
+1075 
 BlockEnd
  = 
 Se˘i⁄End
 ;
 
-1080 
-	`¥ötf
-("--------------block %d begö--------------\n", 
-IBlock
-);
-
-1082 
+1077 
 	}
 }
 
-1084 
+1079 
 	gCDißs£mbÀr
 ::
 	$CheckF‹BlockEnd
 () {
 
-1086 
+1081 
 IBlockOpNum
 ++;
 
-1088 i‡(
+1083 i‡(
 IEnd
  >
 Se˘i⁄End
 ) {
 
-1090 
+1085 
 BlockLi°
 [
 IBlock
@@ -15669,27 +15947,21 @@ End
 Se˘i⁄End
 ;
 
-1091 
-	`¥ötf
-("\n--------------block %dÉnd--------------\n", 
-IBlock
-);
-
-1093 
+1087 
 IBlock
  = 0;
 
-1099 
+1093 
 i
 ;
 
-1100  
+1094  
 i
  = 0; i < 
 S∂ôIn¢Num
 ; i++ )
 
-1102 i‡(
+1096 i‡(
 s
 .
 OpcodeDef
@@ -15697,7 +15969,7 @@ OpcodeDef
 Name
 ) {
 
-1103 i‡(!
+1097 i‡(!
 	`°rcmp
 (
 s
@@ -15711,7 +15983,7 @@ BlockS∂ôTabÀ
 i
 ])) {
 
-1104 i‡(
+1098 i‡(
 IEnd
  >
 BlockLi°
@@ -15721,7 +15993,7 @@ IBlock
 End
 ) {
 
-1105 
+1099 
 BlockLi°
 [
 IBlock
@@ -15731,7 +16003,7 @@ End
 IEnd
 ;
 
-1106 
+1100 
 BlockLi°
 [
 IBlock
@@ -15741,27 +16013,21 @@ OpNum
 IBlockOpNum
 ;
 
-1107 
-	`¥ötf
-("\n--------------block %dÉnd--------------\n", 
-IBlock
-);
-
-1109 
+1102 
 IBlock
  = 0;
 
-1118 
+1111 
 	}
 }
 
-1120 
+1113 
 	gCDißs£mbÀr
 ::
 	$CheckF‹Fun˘i⁄Begö
 () {
 
-1122 
+1115 
 uöt32
  
 sym1
@@ -15771,23 +16037,23 @@ sym2
 sym3
  = 0;
 
-1123 
+1116 
 SFun˘i⁄Rec‹d
  
 fun
 ;
 
-1124 
+1117 
 IBegö
  = 
 IEnd
 ;
 
-1126 i‡(
+1119 i‡(
 IFun˘i⁄
  == 0) {
 
-1130 
+1123 
 sym1
  = 
 Symbﬁs
@@ -15803,11 +16069,11 @@ sym2
 sym3
 );
 
-1132 i‡(
+1125 i‡(
 sym1
  == 0) {
 
-1134 
+1127 
 sym1
  = 
 Symbﬁs
@@ -15819,7 +16085,7 @@ Se˘i⁄
 IEnd
 , 0);
 
-1136 
+1129 
 LabñBegö
  = 
 LabñEnd
@@ -15827,11 +16093,11 @@ LabñEnd
 Cou¡Eº‹s
  = 0;
 
-1137 
+1130 
 	`FödLabñs
 ();
 
-1140 i‡(
+1133 i‡(
 sym1
  =0 || sym1 >
 Symbﬁs
@@ -15839,19 +16105,19 @@ Symbﬁs
 	`GëNumE¡rõs
 ()) {
 
-1141 
+1134 
 îr
 .
 	`submô
 (9000); ;
 
-1145 
+1138 
 fun
 .
 Se˘i⁄
  = Section;
 
-1146 
+1139 
 fun
 .
 Sèπ
@@ -15859,7 +16125,7 @@ Sèπ
 IBegö
 ;
 
-1147 
+1140 
 fun
 .
 End
@@ -15867,7 +16133,7 @@ End
 IBegö
 ;
 
-1148 
+1141 
 fun
 .
 Sc›e
@@ -15877,7 +16143,7 @@ Symbﬁs
 sym1
 ].Scope;
 
-1149 
+1142 
 fun
 .
 OldSymbﬁIndex
@@ -15889,7 +16155,7 @@ sym1
 OldIndex
 ;
 
-1152 
+1145 
 IFun˘i⁄
  = 
 Fun˘i⁄Li°
@@ -15899,7 +16165,7 @@ Fun˘i⁄Li°
 fun
 );
 
-1155 
+1148 
 Fun˘i⁄End
  = 
 Se˘i⁄End
@@ -15907,17 +16173,17 @@ Se˘i⁄End
 LabñEnd
  = 0;
 
-1157 
+1150 
 	}
 }
 
-1159 
+1152 
 	gCDißs£mbÀr
 ::
 	$CheckF‹Fun˘i⁄End
 () {
 
-1161 i‡(
+1154 i‡(
 IFun˘i⁄
  >
 Fun˘i⁄Li°
@@ -15925,7 +16191,7 @@ Fun˘i⁄Li°
 	`GëNumE¡rõs
 ()) {
 
-1163 
+1156 
 îr
 .
 	`submô
@@ -15933,13 +16199,13 @@ Fun˘i⁄Li°
 IFun˘i⁄
  = 0; ;
 
-1167 i‡(
+1160 i‡(
 IEnd
  >
 Se˘i⁄End
 ) {
 
-1169 
+1162 
 Fun˘i⁄Li°
 [
 IFun˘i⁄
@@ -15949,7 +16215,7 @@ End
 Se˘i⁄End
 ;
 
-1170 
+1163 
 Fun˘i⁄Li°
 [
 IFun˘i⁄
@@ -15957,11 +16223,11 @@ IFun˘i⁄
 Sc›e
  &= ~0x10000;
 
-1171 
+1164 
 IFun˘i⁄
  = 0;
 
-1174 i‡(
+1167 i‡(
 s
 .
 OpcodeDef
@@ -15971,17 +16237,17 @@ O±i⁄s
 Pass
  & 0x10)) {
 
-1176 
+1169 
 s
 .
 Eº‹s
  |= 0x10000;
 
-1177 
+1170 
 	`WrôeEº‹sAndW¨nögs
 ();
 
-1184 i‡(
+1177 i‡(
 s
 .
 OpcodeDef
@@ -15989,11 +16255,11 @@ OpcodeDef
 O±i⁄s
  & 0x10) {
 
-1186 
+1179 
 FœgPªvious
  |= 2;
 
-1189 
+1182 
 Symbﬁs
 .
 	`NewSymbﬁ
@@ -16003,7 +16269,7 @@ Se˘i⁄
 IEnd
 , 0);
 
-1191 
+1184 
 LabñBegö
  = 
 LabñEnd
@@ -16011,11 +16277,11 @@ LabñEnd
 Cou¡Eº‹s
  = 0;
 
-1192 
+1185 
 	`FödLabñs
 ();
 
-1194 i‡(
+1187 i‡(
 IEnd
  >
 Fun˘i⁄Li°
@@ -16025,7 +16291,7 @@ IFun˘i⁄
 End
 ) {
 
-1196 
+1189 
 Fun˘i⁄Li°
 [
 IFun˘i⁄
@@ -16035,7 +16301,7 @@ End
 IEnd
 ;
 
-1197 
+1190 
 Fun˘i⁄Li°
 [
 IFun˘i⁄
@@ -16043,11 +16309,11 @@ IFun˘i⁄
 Sc›e
  &= ~0x10000;
 
-1198 
+1191 
 IFun˘i⁄
  = 0;
 
-1204 i‡(
+1197 i‡(
 IFun˘i⁄
  && 
 Fun˘i⁄Li°
@@ -16059,7 +16325,7 @@ IEnd
 End
 ) {
 
-1205 i‡(
+1198 i‡(
 Symbﬁs
 .
 	`FödByAddªss
@@ -16069,15 +16335,15 @@ Se˘i⁄
 IEnd
 )) {
 
-1207 
+1200 
 IFun˘i⁄
  = 0;
 
-1214 
+1207 
 	}
 }
 
-1217 
+1210 
 	gCDißs£mbÀr
 ::
 	$CheckRñoˇti⁄T¨gë
@@ -16091,31 +16357,31 @@ T¨gëTy≥
 T¨gëSize
 ) {
 
-1222 
+1215 
 uöt32
  
 SymOldI
 ;
 
-1223 
+1216 
 uöt32
  
 SymNewI
 ;
 
-1224 
+1217 
 öt32
  
 T¨gëSe˘i⁄
 ;
 
-1225 
+1218 
 uöt32
  
 T¨gëOff£t
 ;
 
-1228 i‡(!
+1221 i‡(!
 IRñ
  || IRñ >
 Rñoˇti⁄s
@@ -16125,7 +16391,7 @@ Rñoˇti⁄s
 T¨gëOldIndex
 
 
-1229 || 
+1222 || 
 Rñoˇti⁄s
 [
 IRñ
@@ -16139,7 +16405,7 @@ Se˘i⁄s
 	`GëNumE¡rõs
 ()) {
 
-1234 
+1227 
 SymOldI
  = 
 Rñoˇti⁄s
@@ -16149,7 +16415,7 @@ IRñ
 T¨gëOldIndex
 ;
 
-1237 
+1230 
 SymNewI
  = 
 Symbﬁs
@@ -16159,7 +16425,7 @@ Symbﬁs
 SymOldI
 );
 
-1240 i‡(!
+1233 i‡(!
 Symbﬁs
 [
 SymNewI
@@ -16167,7 +16433,7 @@ SymNewI
 OldIndex
 ) ;
 
-1242 i‡(
+1235 i‡(
 Symbﬁs
 [
 SymNewI
@@ -16175,7 +16441,7 @@ SymNewI
 Ty≥
  & 0x80000000) {
 
-1247 
+1240 
 T¨gëSe˘i⁄
  = 
 Symbﬁs
@@ -16185,7 +16451,7 @@ SymNewI
 Se˘i⁄
 ;
 
-1248 
+1241 
 T¨gëOff£t
  = 
 Symbﬁs
@@ -16201,7 +16467,7 @@ IRñ
 Addíd
 ;
 
-1251 
+1244 
 uöt8
  * 
 RñSour˚
@@ -16219,13 +16485,13 @@ Sèπ
 Off£t
 ;
 
-1254 
+1247 
 öt32
  
 I∆öeA
  = 0;
 
-1255 
+1248 
 Rñoˇti⁄s
 [
 IRñ
@@ -16233,7 +16499,7 @@ IRñ
 Size
 ) {
 
-1257 
+1250 
 I∆öeA
  = *(
 öt8
@@ -16241,7 +16507,7 @@ I∆öeA
 RñSour˚
 ; ;
 
-1259 
+1252 
 I∆öeA
  = *(
 öt16
@@ -16249,7 +16515,7 @@ I∆öeA
 RñSour˚
 ; ;
 
-1261 
+1254 
 I∆öeA
  = *(
 öt32
@@ -16257,13 +16523,13 @@ I∆öeA
 RñSour˚
 ; ;
 
-1264 
+1257 
 T¨gëOff£t
  +
 I∆öeA
 ;
 
-1266 i‡(
+1259 i‡(
 Rñoˇti⁄s
 [
 IRñ
@@ -16271,7 +16537,7 @@ IRñ
 Ty≥
  & 2) {
 
-1268 i‡((
+1261 i‡((
 s
 .
 AddªssFõldSize
@@ -16281,7 +16547,7 @@ MFœgs
 ImmedüãFõldSize
 ) {
 
-1270 
+1263 
 T¨gëOff£t
  +
 IEnd
@@ -16291,7 +16557,7 @@ s
 AddªssFõld
 ;
 
-1271 
+1264 
 I∆öeA
  +
 IEnd
@@ -16301,7 +16567,7 @@ s
 AddªssFõld
 ;
 
-1278 
+1271 
 SymNewI
  = 
 Symbﬁs
@@ -16311,7 +16577,7 @@ Symbﬁs
 T¨gëSe˘i⁄
 , 0, 2);
 
-1283 
+1276 
 SymNewI
  = 
 Symbﬁs
@@ -16323,11 +16589,11 @@ T¨gëSe˘i⁄
 T¨gëOff£t
 , 2);
 
-1285 i‡(
+1278 i‡(
 SymNewI
 ) {
 
-1287 
+1280 
 SymOldI
  = 
 Symbﬁs
@@ -16337,7 +16603,7 @@ SymNewI
 OldIndex
 ;
 
-1290 
+1283 
 Rñoˇti⁄s
 [
 IRñ
@@ -16347,7 +16613,7 @@ T¨gëOldIndex
 SymOldI
 ;
 
-1293 
+1286 
 Rñoˇti⁄s
 [
 IRñ
@@ -16357,7 +16623,7 @@ Addíd
 I∆öeA
 ;
 
-1298 i‡(
+1291 i‡(
 Symbﬁs
 [
 SymNewI
@@ -16365,7 +16631,7 @@ SymNewI
 Sc›e
  == 0) Symbols[SymNewI].Scope = 2;
 
-1301 i‡((
+1294 i‡((
 T¨gëTy≥
  & 0xFFË> (
 Symbﬁs
@@ -16375,7 +16641,7 @@ SymNewI
 Ty≥
  & 0xFF)
 
-1302 || (((
+1295 || (((
 T¨gëTy≥
 +1Ë& 0xFEË=0x0C && (
 Symbﬁs
@@ -16385,7 +16651,7 @@ SymNewI
 Ty≥
  & 0xFF) > 0x0C)) {
 
-1305 
+1298 
 Symbﬁs
 [
 SymNewI
@@ -16395,7 +16661,7 @@ Ty≥
 T¨gëTy≥
 ;
 
-1308 i‡(
+1301 i‡(
 T¨gëSize
  > 
 Symbﬁs
@@ -16407,7 +16673,7 @@ Size
 T¨gëTy≥
 +1) & 0xFE) == 0x0C) {
 
-1309 
+1302 
 Symbﬁs
 [
 SymNewI
@@ -16417,11 +16683,11 @@ Size
 T¨gëSize
 ;
 
-1312 
+1305 
 	}
 }
 
-1315 
+1308 
 	gCDißs£mbÀr
 ::
 	$CheckJumpT¨gë
@@ -16431,7 +16697,7 @@ uöt32
 symi
 ) {
 
-1319 i‡(
+1312 i‡(
 Se˘i⁄
  =0 || Se˘i⁄ >
 Se˘i⁄s
@@ -16439,7 +16705,7 @@ Se˘i⁄s
 	`GëNumE¡rõs
 ()) ;
 
-1322 i‡(
+1315 i‡(
 IFun˘i⁄
  =0 || IFun˘i⁄ >
 Fun˘i⁄Li°
@@ -16447,7 +16713,7 @@ Fun˘i⁄Li°
 	`GëNumE¡rõs
 ()) ;
 
-1325 i‡(
+1318 i‡(
 Symbﬁs
 [
 symi
@@ -16457,7 +16723,7 @@ Se˘i⁄
 öt32
 )Section) ;
 
-1328 i‡(
+1321 i‡(
 Symbﬁs
 [
 symi
@@ -16477,7 +16743,7 @@ Se˘i⁄
 InôSize
 ) {
 
-1332 i‡((
+1325 i‡((
 Symbﬁs
 [
 symi
@@ -16485,7 +16751,7 @@ symi
 Ty≥
  & 0xFF) == 0x83 || (Symbols[symi].Type & 0xFF) == 0x85
 
-1333 || (
+1326 || (
 Symbﬁs
 [
 symi
@@ -16493,7 +16759,7 @@ symi
 Sc›e
  & 0x1C)) {
 
-1338 
+1331 
 Fun˘i⁄Li°
 [
 IFun˘i⁄
@@ -16507,7 +16773,7 @@ symi
 Off£t
 ;
 
-1339 
+1332 
 Fun˘i⁄Li°
 [
 IFun˘i⁄
@@ -16515,7 +16781,7 @@ IFun˘i⁄
 Sc›e
  |= 0x10000;
 
-1341 i‡(
+1334 i‡(
 Symbﬁs
 [
 symi
@@ -16529,13 +16795,13 @@ IFun˘i⁄
 Sèπ
 ) {
 
-1345 
+1338 
 SFun˘i⁄Rec‹d
  
 fun
 ;
 
-1346 
+1339 
 fun
 .
 Se˘i⁄
@@ -16545,7 +16811,7 @@ Symbﬁs
 symi
 ].Section;
 
-1347 
+1340 
 fun
 .
 Sèπ
@@ -16557,7 +16823,7 @@ symi
 Off£t
 ;
 
-1348 
+1341 
 uöt32
  
 IFun
@@ -16569,7 +16835,7 @@ Fun˘i⁄Li°
 fun
 );
 
-1349 i‡(
+1342 i‡(
 IFun
  > 0 && IFu¿< 
 Fun˘i⁄Li°
@@ -16577,17 +16843,17 @@ Fun˘i⁄Li°
 	`GëNumE¡rõs
 ()) {
 
-1377 
+1370 
 	}
 }
 
-1380 
+1373 
 	gCDißs£mbÀr
 ::
 	$Pass2
 () {
 
-1403 
+1396 
 Se˘i⁄
  = 1; Se˘i⁄ < 
 Se˘i⁄s
@@ -16595,7 +16861,7 @@ Se˘i⁄s
 	`GëNumE¡rõs
 (); Section++) {
 
-1406 
+1399 
 Se˘i⁄Ty≥
  = 
 Se˘i⁄s
@@ -16605,17 +16871,17 @@ Se˘i⁄
 Ty≥
 ;
 
-1407 i‡(
+1400 i‡(
 Se˘i⁄Ty≥
  & 0x800) ;
 
-1410 
+1403 
 CodeMode
  = ((
 Se˘i⁄Ty≥
  & 0xFF) == 1) ? 1 : 4;
 
-1413 
+1406 
 LabñBegö
  = 
 FœgPªvious
@@ -16623,7 +16889,7 @@ FœgPªvious
 Cou¡Eº‹s
  = 0;
 
-1414 
+1407 
 Buf„r
  = 
 Se˘i⁄s
@@ -16633,7 +16899,7 @@ Se˘i⁄
 Sèπ
 ;
 
-1415 
+1408 
 Se˘i⁄End
  = 
 Se˘i⁄s
@@ -16643,7 +16909,7 @@ Se˘i⁄
 TŸÆSize
 ;
 
-1416 
+1409 
 LabñI«c˚ssibÀ
  = 
 Se˘i⁄s
@@ -16653,7 +16919,7 @@ Se˘i⁄
 InôSize
 ;
 
-1417 
+1410 
 W‹dSize
  = 
 Se˘i⁄s
@@ -16661,7 +16927,7 @@ Se˘i⁄s
 Se˘i⁄
 ].WordSize;
 
-1418 
+1411 
 Se˘i⁄Addªss
  = 
 Se˘i⁄s
@@ -16669,11 +16935,11 @@ Se˘i⁄s
 Se˘i⁄
 ].SectionAddress;
 
-1421 
+1414 
 	`WrôeSegmítBegö
 ();
 
-1423 
+1416 
 IBegö
  = 
 IEnd
@@ -16687,41 +16953,41 @@ D©aTy≥
 D©aSize
  = 0;
 
-1426 
+1419 
 	`NextFun˘i⁄2
 ()) {
 
-1429 
+1422 
 	`NextLabñ
 ();
 
-1432 i‡(
+1425 i‡(
 CodeMode
  & 3Ë
 	`WrôeFun˘i⁄Begö
 ();
 
-1435 
+1428 
 	`NextLabñ
 ()) {
 
-1438 
+1431 
 	`NextIn°ru˘i⁄2
 ()) {
 
-1440 i‡(
+1433 i‡(
 CodeMode
  & 3) {
 
-1444 
+1437 
 	`CheckLabñ
 ();
 
-1447 
+1440 
 	`P¨£In°ru˘i⁄
 ();
 
-1450 i‡(((
+1443 i‡(((
 s
 .
 W¨nögs1
@@ -16729,87 +16995,87 @@ W¨nögs1
 	`WrôeFûÀrs
 ()) {
 
-1456 
+1449 
 	`WrôeEº‹sAndW¨nögs
 ();
 
-1459 
+1452 
 	`WrôeIn°ru˘i⁄
 ();
 
-1462 
+1455 
 	`WrôeCodeCommít
 ();
 
-1464 i‡(
+1457 i‡(
 CodeMode
  & 6) {
 
-1467 
+1460 
 	`WrôeD©aIãms
 ();
 
-1469 i‡(
+1462 i‡(
 IEnd
  <
 IBegö
 ) {
 
-1472 
+1465 
 IEnd
 ++;
 
-1478 i‡(
+1471 i‡(
 CodeMode
  & 3Ë
 	`WrôeFun˘i⁄End
 ();
 
-1481 
+1474 
 	`WrôeSegmítEnd
 ();
 
-1483 
+1476 
 	}
 }
 
-1574 
+1567 
 	gCDißs£mbÀr
 ::
 	$Upd©eTø˚r
 () {
 
-1576 
+1569 
 uöt32
  
 ªg
 ;
 
-1577 
+1570 
 uöt32
  
 §¸eg
 ;
 
-1579 i‡(
+1572 i‡(
 s
 .
 O≥ønds
 [0] & 0xFF) {
 
-1581 i‡((
+1574 i‡((
 s
 .
 O≥ønds
 [0] & 0xFF) < 5 && (s.Operands[0] & 0x1000)) {
 
-1583 
+1576 
 s
 .
 O≥ønds
 [0] & 0xF0000) {
 
-1586 
+1579 
 ªg
  = 
 Gë
@@ -16821,7 +17087,7 @@ s
 OpcodeSèπ2
 ) & 7;
 
-1588 i‡(
+1581 i‡(
 s
 .
 Pªfixes
@@ -16829,7 +17095,7 @@ Pªfixes
 ªg
  |= 8;
 
-1592 
+1585 
 ªg
  = 
 s
@@ -16837,7 +17103,7 @@ s
 RM
 ;
 
-1596 
+1589 
 ªg
  = 
 s
@@ -16845,31 +17111,31 @@ s
 Reg
 ;
 
-1600 
+1593 
 t
 .
 	`Re£t
 (); ;
 
-1603 i‡((
+1596 i‡((
 s
 .
 O≥ønds
 [0] & 0xFF) >= 0xA0 && (s.Operands[0] & 0xFF) <= 0xA9) {
 
-1605 
+1598 
 ªg
  = 0;
 
-1618 i‡(
+1611 i‡(
 OpcodeO±i⁄s
  & 4) {
 
-1624 
+1617 
 Opcodei
 ) {
 
-1630 
+1623 
 t
 .
 Regi°
@@ -16877,19 +17143,19 @@ Regi°
 ªg
 ] = 0;
 
-1631 i‡(
+1624 i‡(
 s
 .
 O≥øndSize
  < 32) {
 
-1635 i‡(
+1628 i‡(
 s
 .
 ImmedüãRñoˇti⁄
 ) {
 
-1636 i‡(
+1629 i‡(
 s
 .
 O≥øndSize
@@ -16903,7 +17169,7 @@ ImmedüãRñoˇti⁄
 Ty≥
  & 0x21)) {
 
-1641 
+1634 
 t
 .
 Regi°
@@ -16911,7 +17177,7 @@ Regi°
 ªg
 ] = 0x18;
 
-1642 
+1635 
 t
 .
 VÆue
@@ -16927,7 +17193,7 @@ ImmedüãRñoˇti⁄
 T¨gëOldIndex
 ;
 
-1647 
+1640 
 t
 .
 Regi°
@@ -16935,13 +17201,13 @@ Regi°
 ªg
 ] = 4;
 
-1649 
+1642 
 s
 .
 ImmedüãFõldSize
 ) {
 
-1651 
+1644 
 t
 .
 VÆue
@@ -16957,7 +17223,7 @@ s
 ImmedüãFõld
 );
 
-1654 
+1647 
 t
 .
 VÆue
@@ -16973,7 +17239,7 @@ s
 ImmedüãFõld
 );
 
-1658 
+1651 
 t
 .
 VÆue
@@ -16989,7 +17255,7 @@ s
 ImmedüãFõld
 );
 
-1662 
+1655 
 t
 .
 Regi°
@@ -16997,7 +17263,7 @@ Regi°
 ªg
 ] = 0;
 
-1679 i‡(
+1672 i‡(
 s
 .
 AddªssFõldSize
@@ -17007,7 +17273,7 @@ AddªssRñoˇti⁄
 O≥øndSize
  >= 32) {
 
-1681 i‡(!(
+1674 i‡(!(
 Rñoˇti⁄s
 [
 s
@@ -17019,7 +17285,7 @@ Ty≥
 W‹dSize
  < 64) {
 
-1683 
+1676 
 t
 .
 Regi°
@@ -17027,7 +17293,7 @@ Regi°
 ªg
 ] = 0; ;
 
-1685 
+1678 
 t
 .
 Regi°
@@ -17035,7 +17301,7 @@ Regi°
 ªg
 ] = 0x18;
 
-1686 
+1679 
 t
 .
 VÆue
@@ -17051,7 +17317,7 @@ AddªssRñoˇti⁄
 T¨gëOldIndex
 ;
 
-1688 c⁄° * 
+1681 c⁄° * 
 SymName
  = 
 Symbﬁs
@@ -17065,13 +17331,13 @@ VÆue
 ªg
 ]);
 
-1689 i‡(
+1682 i‡(
 SymName
  && 
 	`°rcmp
 (SymName, "__ImageBase") == 0) {
 
-1691 
+1684 
 t
 .
 Regi°
@@ -17079,7 +17345,7 @@ Regi°
 ªg
 ] = 1;
 
-1694 i‡(
+1687 i‡(
 s
 .
 Ba£Reg
@@ -17093,7 +17359,7 @@ Regi°
 ªg
 ]++;
 
-1697 i‡(!
+1690 i‡(!
 s
 .
 AddªssRñoˇti⁄
@@ -17105,7 +17371,7 @@ IndexReg
 SˇÀ
  == 0) {
 
-1700 i‡(
+1693 i‡(
 t
 .
 Regi°
@@ -17116,50 +17382,50 @@ Ba£Reg
 -1] =1 && (t.Regi°[s.
 IndexReg
 -1] & 0xFE) == 0x10) {
+
+1695 
+t
+.
+Regi°
+[
+ªg
+] = 0x12;
+
+1696 
+t
+.
+VÆue
+ [
+ªg
+] =Å.VÆue[
+s
+.
+IndexReg
+-1];
+
+1699 i‡(
+t
+.
+Regi°
+[
+s
+.
+IndexReg
+-1] =1 && (t.Regi°[s.
+Ba£Reg
+-1] & 0xFE) == 0x10) {
+
+1701 
+t
+.
+Regi°
+[
+ªg
+] = 0x12;
 
 1702 
 t
 .
-Regi°
-[
-ªg
-] = 0x12;
-
-1703 
-t
-.
-VÆue
- [
-ªg
-] =Å.VÆue[
-s
-.
-IndexReg
--1];
-
-1706 i‡(
-t
-.
-Regi°
-[
-s
-.
-IndexReg
--1] =1 && (t.Regi°[s.
-Ba£Reg
--1] & 0xFE) == 0x10) {
-
-1708 
-t
-.
-Regi°
-[
-ªg
-] = 0x12;
-
-1709 
-t
-.
 VÆue
  [
 ªg
@@ -17169,7 +17435,7 @@ s
 Ba£Reg
 -1];
 
-1712 i‡((((
+1705 i‡((((
 t
 .
 Regi°
@@ -17181,7 +17447,7 @@ IndexReg
 Ba£Reg
 -1] & 0xFE) == 0x10)
 
-1713 || ((
+1706 || ((
 t
 .
 Regi°
@@ -17193,7 +17459,7 @@ IndexReg
 Ba£Reg
 -1] & 0xFE) == 0x18))
 
-1714 && 
+1707 && 
 t
 .
 VÆue
@@ -17205,7 +17471,7 @@ IndexReg
 Ba£Reg
 -1]) {
 
-1717 
+1710 
 t
 .
 Regi°
@@ -17213,7 +17479,7 @@ Regi°
 ªg
 ] = 0x13;
 
-1718 
+1711 
 t
 .
 VÆue
@@ -17225,23 +17491,23 @@ s
 Ba£Reg
 -1];
 
-1726 i‡(
+1719 i‡(
 s
 .
 O≥øndSize
  < 32) ;
 
-1727 i‡(!(
+1720 i‡(!(
 s
 .
 MFœgs
  & 1)) {
 
-1729 i‡(
+1722 i‡(
 Opcodei
  == 0x8B || Opcodei == 0x3B02) {
 
-1731 
+1724 
 §¸eg
  = 
 s
@@ -17249,7 +17515,7 @@ s
 RM
 ;
 
-1735 
+1728 
 §¸eg
  = 
 s
@@ -17257,7 +17523,7 @@ s
 Reg
 ;
 
-1737 
+1730 
 t
 .
 Regi°
@@ -17267,7 +17533,7 @@ Regi°
 §¸eg
 ];
 
-1738 
+1731 
 t
 .
 VÆue
@@ -17277,7 +17543,7 @@ VÆue
 §¸eg
 ];
 
-1742 i‡(
+1735 i‡(
 s
 .
 AddªssFõldSize
@@ -17285,7 +17551,7 @@ AddªssFõldSize
 AddªssRñoˇti⁄
 ) {
 
-1744 i‡(!(
+1737 i‡(!(
 Rñoˇti⁄s
 [
 s
@@ -17297,7 +17563,7 @@ Ty≥
 W‹dSize
  < 64) {
 
-1746 
+1739 
 t
 .
 Regi°
@@ -17305,7 +17571,7 @@ Regi°
 ªg
 ] = 0; ;
 
-1748 
+1741 
 t
 .
 Regi°
@@ -17313,7 +17579,7 @@ Regi°
 ªg
 ] = 0x10;
 
-1749 
+1742 
 t
 .
 VÆue
@@ -17329,7 +17595,7 @@ AddªssRñoˇti⁄
 T¨gëOldIndex
 ;
 
-1752 i‡(
+1745 i‡(
 s
 .
 Ba£Reg
@@ -17343,7 +17609,7 @@ Regi°
 ªg
 ]++;
 
-1755 i‡(
+1748 i‡(
 s
 .
 Ba£Reg
@@ -17353,7 +17619,7 @@ t
 Regi°
 [s.BaseReg-1] & 0xFE) == 0x18) {
 
-1758 
+1751 
 t
 .
 Regi°
@@ -17361,7 +17627,7 @@ Regi°
 ªg
 ] = 0x10;
 
-1759 
+1752 
 t
 .
 VÆue
@@ -17373,7 +17639,7 @@ s
 Ba£Reg
 -1];
 
-1760 i‡(
+1753 i‡(
 s
 .
 IndexReg
@@ -17387,7 +17653,7 @@ Regi°
 Ba£Reg
 -1] & 1)) {
 
-1762 
+1755 
 t
 .
 Regi°
@@ -17395,7 +17661,7 @@ Regi°
 ªg
 ] |= 1;
 
-1766 i‡(
+1759 i‡(
 s
 .
 IndexReg
@@ -17409,7 +17675,7 @@ Ba£Reg
 SˇÀ
  == 0) {
 
-1768 
+1761 
 t
 .
 Regi°
@@ -17417,7 +17683,7 @@ Regi°
 ªg
 ] = 0x10;
 
-1769 
+1762 
 t
 .
 VÆue
@@ -17429,7 +17695,7 @@ s
 IndexReg
 -1];
 
-1770 i‡(
+1763 i‡(
 s
 .
 AddªssFõldSize
@@ -17441,7 +17707,7 @@ Regi°
 IndexReg
 -1] & 1)) {
 
-1772 
+1765 
 t
 .
 Regi°
@@ -17449,17 +17715,17 @@ Regi°
 ªg
 ] |= 1;
 
-1780 i‡(
+1773 i‡(
 s
 .
 O≥øndSize
  < 32) ;
 
-1781 i‡(
+1774 i‡(
 Opcodei
  == 0x03) {
 
-1783 
+1776 
 §¸eg
  = 
 s
@@ -17467,7 +17733,7 @@ s
 RM
 ;
 
-1787 
+1780 
 §¸eg
  = 
 s
@@ -17475,7 +17741,7 @@ s
 Reg
 ;
 
-1789 i‡(
+1782 i‡(
 t
 .
 Regi°
@@ -17485,7 +17751,7 @@ Regi°
 ªg
 ] & 0xFE) == 0x10) {
 
-1791 
+1784 
 t
 .
 Regi°
@@ -17493,7 +17759,7 @@ Regi°
 ªg
 ] = 0x12;
 
-1794 i‡(
+1787 i‡(
 t
 .
 Regi°
@@ -17503,7 +17769,7 @@ Regi°
 §¸eg
 ] & 0xFE) == 0x10) {
 
-1796 
+1789 
 t
 .
 Regi°
@@ -17511,7 +17777,7 @@ Regi°
 ªg
 ] = 0x12;
 
-1797 
+1790 
 t
 .
 VÆue
@@ -17521,7 +17787,7 @@ VÆue
 §¸eg
 ];
 
-1800 i‡((((
+1793 i‡((((
 t
 .
 Regi°
@@ -17531,7 +17797,7 @@ Regi°
 ªg
 ] & 0xFE) == 0x10)
 
-1801 || ((
+1794 || ((
 t
 .
 Regi°
@@ -17541,7 +17807,7 @@ Regi°
 ªg
 ] & 0xFE) == 0x18))
 
-1802 && 
+1795 && 
 t
 .
 VÆue
@@ -17551,7 +17817,7 @@ VÆue
 §¸eg
 ]) {
 
-1805 
+1798 
 t
 .
 Regi°
@@ -17559,19 +17825,19 @@ Regi°
 ªg
 ] = 0x13;
 
-1815 
+1808 
 t
 .
 Regi°
 [0] = 0;
 
-1819 
+1812 
 t
 .
 Regi°
 [2] = 0;
 
-1823 
+1816 
 t
 .
 Regi°
@@ -17579,55 +17845,55 @@ Regi°
 ªg
 ] = 0;
 
-1825 i‡(
+1818 i‡(
 OpcodeO±i⁄s
  & 8) {
 
-1827 
+1820 
 t
 .
 	`Re£t
 ();
 
-1829 
+1822 
 	}
 }
 
-1832 
+1825 
 	gCDißs£mbÀr
 ::
 	$Upd©eSymbﬁs
 () {
 
-1837 
+1830 
 uöt32
  
 OpI
 ;
 
-1838 
+1831 
 uöt32
  
 O≥øndTy≥
 ;
 
-1839 
+1832 
 uöt32
  
 SymOldI
 ;
 
-1840 
+1833 
 uöt32
  
 SymNewI
 ;
 
-1843 
+1836 
 OpI
  = 0; OpI < 4; OpI++) {
 
-1844 i‡(
+1837 i‡(
 s
 .
 O≥ønds
@@ -17635,11 +17901,11 @@ O≥ønds
 OpI
 ]) {
 
-1845 
+1838 
 SymNewI
  = 0;
 
-1846 
+1839 
 O≥øndTy≥
  = 
 s
@@ -17649,7 +17915,7 @@ O≥ønds
 OpI
 ];
 
-1849 i‡(
+1842 i‡(
 OpI
  =0 && ((
 s
@@ -17659,7 +17925,7 @@ OpcodeDef
 De°ö©i⁄
  + 1) & 0xFE) == 0x0C) {
 
-1850 
+1843 
 O≥øndTy≥
  = 
 s
@@ -17669,41 +17935,41 @@ OpcodeDef
 De°ö©i⁄
 ;
 
-1854 i‡((
+1847 i‡((
 O≥øndTy≥
  & 0xF0) == 0x80) {
 
-1857 i‡(!
+1850 i‡(!
 s
 .
 ImmedüãRñoˇti⁄
 ) {
 
-1861 
+1854 
 uöt32
  
 Rñoˇti⁄Ty≥
  = 2;
 
-1862 i‡((
+1855 i‡((
 O≥øndTy≥
  & 0xFEË=0x84Ë
 Rñoˇti⁄Ty≥
  = 8;
 
-1865 
+1858 
 uöt32
  
 T¨gëSc›e
  = 1;
 
-1866 i‡((
+1859 i‡((
 O≥øndTy≥
  & 0xFFË>0x83Ë
 T¨gëSc›e
  = 2;
 
-1869 
+1862 
 SymNewI
  = 
 	`MakeMissögRñoˇti⁄
@@ -17721,27 +17987,27 @@ O≥øndTy≥
 T¨gëSc›e
 );
 
-1872 
+1865 
 LabñBegö
  = 0;
 
-1873 
+1866 
 	`FödLabñs
 ();
 
-1875 i‡(
+1868 i‡(
 T¨gëSc›e
  =1 && 
 SymNewI
 ) {
 
-1877 
+1870 
 	`CheckJumpT¨gë
 (
 SymNewI
 );
 
-1883 
+1876 
 SymOldI
  = 
 Rñoˇti⁄s
@@ -17753,7 +18019,7 @@ ImmedüãRñoˇti⁄
 T¨gëOldIndex
 ;
 
-1886 
+1879 
 SymNewI
  = 
 Symbﬁs
@@ -17763,7 +18029,7 @@ Symbﬁs
 SymOldI
 );
 
-1887 i‡(
+1880 i‡(
 Symbﬁs
 [
 SymNewI
@@ -17771,7 +18037,7 @@ SymNewI
 OldIndex
 ) {
 
-1890 i‡(
+1883 i‡(
 Symbﬁs
 [
 SymNewI
@@ -17779,7 +18045,7 @@ SymNewI
 Sc›e
  == 0) Symbols[SymNewI].Scope = 2;
 
-1893 i‡((
+1886 i‡((
 O≥øndTy≥
  & 0xFFË> (
 Symbﬁs
@@ -17789,7 +18055,7 @@ SymNewI
 Ty≥
  & 0xFF)) {
 
-1896 
+1889 
 Symbﬁs
 [
 SymNewI
@@ -17799,7 +18065,7 @@ Ty≥
 O≥øndTy≥
 ;
 
-1899 i‡(
+1892 i‡(
 Symbﬁs
 [
 SymNewI
@@ -17813,7 +18079,7 @@ Se˘i⁄s
 	`GëNumE¡rõs
 ()
 
-1900 && (
+1893 && (
 Se˘i⁄s
 [
 Symbﬁs
@@ -17825,13 +18091,13 @@ Se˘i⁄
 Ty≥
  & 0xFF) > 1) {
 
-1901 
+1894 
 s
 .
 W¨nögs1
  |= 0x80000;
 
-1908 i‡((
+1901 i‡((
 s
 .
 O≥ønds
@@ -17839,19 +18105,19 @@ O≥ønds
 OpI
 ] & 0x2000) && (s.Operands[OpI] & 0xD0000) == 0x10000) {
 
-1911 i‡(
+1904 i‡(
 s
 .
 AddªssRñoˇti⁄
 ) {
 
-1915 i‡(
+1908 i‡(
 Opcodei
  =0x8DË
 O≥øndTy≥
  = 0;
 
-1918 
+1911 
 	`CheckRñoˇti⁄T¨gë
 (
 s
@@ -17863,13 +18129,13 @@ O≥øndTy≥
 	`GëD©aIãmSize
 (OperandType));
 
-1920 i‡(
+1913 i‡(
 s
 .
 AddªssFõldSize
  >= 4) {
 
-1922 
+1915 
 uöt32
  
 T¨gëTy≥
@@ -17877,21 +18143,21 @@ T¨gëTy≥
 O≥øndTy≥
 ;
 
-1923 i‡(
+1916 i‡(
 Opcodei
  == 0x8D) {
 
-1925 
+1918 
 T¨gëTy≥
  = 0;
 
-1928 i‡(
+1921 i‡(
 s
 .
 MFœgs
  & 0x100) {
 
-1931 
+1924 
 	`MakeMissögRñoˇti⁄
 (
 Se˘i⁄
@@ -17903,11 +18169,11 @@ AddªssFõld
 T¨gëTy≥
 , 2);
 
-1932 
+1925 
 	`FödRñoˇti⁄s
 ();
 
-1934 i‡(
+1927 i‡(
 s
 .
 Ba£Reg
@@ -17919,7 +18185,7 @@ Regi°
 AddªssFõldSize
  == 4) {
 
-1937 
+1930 
 	`MakeMissögRñoˇti⁄
 (
 Se˘i⁄
@@ -17931,11 +18197,11 @@ AddªssFõld
 T¨gëTy≥
 , 2);
 
-1938 
+1931 
 	`FödRñoˇti⁄s
 ();
 
-1940 i‡(
+1933 i‡(
 ImageBa£
  && !(
 Rñoˇti⁄sInSour˚
@@ -17945,7 +18211,7 @@ s
 AddªssFõldSize
  >= 4) {
 
-1942 
+1935 
 	`MakeMissögRñoˇti⁄
 (
 Se˘i⁄
@@ -17959,11 +18225,11 @@ T¨gëTy≥
 AddªssFõldSize
 );
 
-1943 
+1936 
 	`FödRñoˇti⁄s
 ();
 
-1947 i‡((
+1940 i‡((
 s
 .
 O≥ønds
@@ -17971,7 +18237,7 @@ O≥ønds
 OpI
 ] & 0xF0) >= 0x10 && (s.Operands[OpI] & 0xF0) < 0x40) {
 
-1950 i‡(!
+1943 i‡(!
 s
 .
 ImmedüãRñoˇti⁄
@@ -17979,17 +18245,17 @@ ImmedüãRñoˇti⁄
 ImmedüãFõldSize
  >= 4
 
-1951 && 
+1944 && 
 ImageBa£
  && !(
 Rñoˇti⁄sInSour˚
  & 0x20)
 
-1952 && (
+1945 && (
 Opcodei
  == 0x3000 || Opcodei == 0x68 || (Opcodei & 0xFFF8) == 0xB8)) {
 
-1955 
+1948 
 	`MakeMissögRñoˇti⁄
 (
 Se˘i⁄
@@ -18001,17 +18267,17 @@ ImmedüãFõld
 ImmedüãFõldSize
 );
 
-1956 
+1949 
 	`FödRñoˇti⁄s
 ();
 
-1958 i‡(
+1951 i‡(
 s
 .
 ImmedüãRñoˇti⁄
 ) {
 
-1961 
+1954 
 	`CheckRñoˇti⁄T¨gë
 (
 s
@@ -18019,17 +18285,17 @@ s
 ImmedüãRñoˇti⁄
 , 0, 0);
 
-1965 i‡(((
+1958 i‡(((
 O≥øndTy≥
  + 1) & 0xFE) == 0x0C) {
 
-1969 
+1962 
 uöt32
  
 Rñoˇti⁄Ty≥
  = 1;
 
-1972 i‡(
+1965 i‡(
 s
 .
 AddªssRñoˇti⁄
@@ -18039,7 +18305,7 @@ Rñoˇti⁄s
 T¨gëOldIndex
 ) {
 
-1974 
+1967 
 SymNewI
  = 
 Symbﬁs
@@ -18055,11 +18321,11 @@ AddªssRñoˇti⁄
 T¨gëOldIndex
 );
 
-1976 
+1969 
 SymNewI
  = 0;
 
-1978 i‡(
+1971 i‡(
 SymNewI
  =0 || 
 Symbﬁs
@@ -18067,7 +18333,7 @@ Symbﬁs
 OldIndex
  == 0) {
 
-1980 i‡(
+1973 i‡(
 s
 .
 O≥ønds
@@ -18075,7 +18341,7 @@ O≥ønds
 OpI
 ] & 0x2000) {
 
-1982 i‡(
+1975 i‡(
 s
 .
 Ba£Reg
@@ -18085,7 +18351,7 @@ t
 Regi°
 [s.BaseReg-1] & 0xFE) == 0x18) {
 
-1985 
+1978 
 SymNewI
  = 
 Symbﬁs
@@ -18101,7 +18367,7 @@ s
 Ba£Reg
 -1]);
 
-1987 i‡(((
+1980 i‡(((
 s
 .
 Ba£Reg
@@ -18113,7 +18379,7 @@ AddªssFõldSize
 ExeTy≥
 ) {
 
-1989 
+1982 
 SymNewI
  = 
 	`MakeMissögRñoˇti⁄
@@ -18127,7 +18393,7 @@ AddªssFõld
 AddªssFõldSize
 );
 
-1995 i‡((
+1988 i‡((
 t
 .
 Regi°
@@ -18137,7 +18403,7 @@ s
 RM
 ] & 0x1C) == 0x10) {
 
-1997 
+1990 
 SymNewI
  = 
 Symbﬁs
@@ -18153,7 +18419,7 @@ s
 RM
 ]);
 
-1999 i‡(
+1992 i‡(
 t
 .
 Regi°
@@ -18163,11 +18429,11 @@ s
 RM
 ] == 0x12) {
 
-2001 
+1994 
 Rñoˇti⁄Ty≥
  = 4;
 
-2003 i‡(
+1996 i‡(
 t
 .
 Regi°
@@ -18177,11 +18443,11 @@ s
 RM
 ] == 0x13) {
 
-2005 
+1998 
 Rñoˇti⁄Ty≥
  = 0x10;
 
-2011 i‡(
+2004 i‡(
 SymNewI
  && 
 Symbﬁs
@@ -18189,7 +18455,7 @@ Symbﬁs
 OldIndex
 ) {
 
-2014 i‡((
+2007 i‡((
 s
 .
 O≥ønds
@@ -18203,13 +18469,13 @@ IndexReg
 Opcodei
  == 0x2704) {
 
-2017 
+2010 
 	`CheckImp‹tSymbﬁ
 (
 SymNewI
 );
 
-2021 i‡((
+2014 i‡((
 s
 .
 O≥ønds
@@ -18223,11 +18489,11 @@ t
 Regi°
 [s.BaseReg-1] == 1) {
 
-2023 
+2016 
 Rñoˇti⁄Ty≥
  = 4;
 
-2027 i‡((
+2020 i‡((
 Symbﬁs
 [
 SymNewI
@@ -18237,7 +18503,7 @@ Ty≥
 O≥øndTy≥
  & 0xFF) ) {
 
-2029 
+2022 
 Symbﬁs
 [
 SymNewI
@@ -18247,13 +18513,13 @@ Ty≥
 O≥øndTy≥
 ;
 
-2033 i‡(
+2026 i‡(
 Rñoˇti⁄Ty≥
  =4 && 
 W‹dSize
  > 16) {
 
-2034 
+2027 
 Symbﬁs
 [
 SymNewI
@@ -18261,13 +18527,13 @@ SymNewI
 Size
  = 4;
 
-2036 i‡(
+2029 i‡(
 Rñoˇti⁄Ty≥
  =0x10 && 
 W‹dSize
  > 16) {
 
-2037 
+2030 
 Symbﬁs
 [
 SymNewI
@@ -18275,7 +18541,7 @@ SymNewI
 Size
  = 4;
 
-2040 
+2033 
 Symbﬁs
 [
 SymNewI
@@ -18285,7 +18551,7 @@ Size
 W‹dSize
  / 8;
 
-2044 
+2037 
 	`FﬁlowJumpTabÀ
 (
 SymNewI
@@ -18293,11 +18559,11 @@ SymNewI
 Rñoˇti⁄Ty≥
 );
 
-2049 
+2042 
 	}
 }
 
-2052 
+2045 
 	gCDißs£mbÀr
 ::
 	$FﬁlowJumpTabÀ
@@ -18309,7 +18575,7 @@ symi
 RñTy≥
 ) {
 
-2054 
+2047 
 uöt32
  
 sym1
@@ -18319,73 +18585,73 @@ sym2
 sym3
  = 0;
 
-2055 
+2048 
 uöt32
  
 NextLabñ
 ;
 
-2056 
+2049 
 uöt32
  
 Pos
 ;
 
-2057 
+2050 
 SARñoˇti⁄
  
 ªl
 ;
 
-2058 
+2051 
 öt32
  
 Rñi
 ;
 
-2059 
+2052 
 uöt32
  
 NewTy≥
  = 0;
 
-2060 
+2053 
 öt32
  
 Sour˚Se˘i⁄
 ;
 
-2061 
+2054 
 uöt32
  
 Sour˚Off£t
 ;
 
-2062 
+2055 
 uöt32
  
 Sour˚Size
 ;
 
-2063 
+2056 
 uöt32
  
 T¨gëTy≥
 ;
 
-2064 
+2057 
 uöt32
  
 RefPoöt
  = 0;
 
-2065 
+2058 
 öt32
  
 Addíd
  = 0;
 
-2068 i‡(
+2061 i‡(
 Symbﬁs
 [
 symi
@@ -18393,7 +18659,7 @@ symi
 OldIndex
  == 0) ;
 
-2071 
+2064 
 s
 .
 OpcodeDef
@@ -18401,21 +18667,21 @@ OpcodeDef
 De°ö©i⁄
  & 0xFF) {
 
-2073 
+2066 
 NewTy≥
  = 0x82; ;
 
-2075 
+2068 
 NewTy≥
  = 0x83; ;
 
-2081 i‡((
+2074 i‡((
 RñTy≥
  & 4Ë&& 
 W‹dSize
  >= 32) {
 
-2083 
+2076 
 Symbﬁs
 [
 symi
@@ -18423,13 +18689,13 @@ symi
 Size
  = 4;
 
-2085 i‡((
+2078 i‡((
 RñTy≥
  & 0x10Ë&& 
 W‹dSize
  >= 32) {
 
-2087 
+2080 
 Symbﬁs
 [
 symi
@@ -18437,7 +18703,7 @@ symi
 Size
  = 4;
 
-2088 
+2081 
 RefPoöt
  = 
 Symbﬁs
@@ -18447,7 +18713,7 @@ symi
 OldIndex
 ;
 
-2090 i‡((
+2083 i‡((
 RñTy≥
  & 0x21Ë|| 
 Symbﬁs
@@ -18457,7 +18723,7 @@ symi
 Size
  == 0) {
 
-2092 
+2085 
 Symbﬁs
 [
 symi
@@ -18467,7 +18733,7 @@ Size
 W‹dSize
  / 8;
 
-2096 i‡(
+2089 i‡(
 	`uöt32
 (
 s
@@ -18483,7 +18749,7 @@ symi
 Ty≥
  & 0xFF)) {
 
-2098 
+2091 
 Symbﬁs
 [
 symi
@@ -18497,7 +18763,7 @@ OpcodeDef
 De°ö©i⁄
  | 0x4000000;
 
-2101 
+2094 
 Symbﬁs
 [
 symi
@@ -18505,7 +18771,7 @@ symi
 Ty≥
  |= 0x4000000;
 
-2104 i‡(
+2097 i‡(
 Symbﬁs
 [
 symi
@@ -18513,7 +18779,7 @@ symi
 Sc›e
  == 0) Symbols[symi].Scope = 2;
 
-2108 
+2101 
 Sour˚Se˘i⁄
  = 
 Symbﬁs
@@ -18523,7 +18789,7 @@ symi
 Se˘i⁄
 ;
 
-2109 
+2102 
 Sour˚Off£t
  = 
 Symbﬁs
@@ -18533,7 +18799,7 @@ symi
 Off£t
 ;
 
-2110 
+2103 
 Sour˚Size
  = 
 Symbﬁs
@@ -18543,11 +18809,11 @@ symi
 Size
 ;
 
-2111 
+2104 
 T¨gëTy≥
  = 0x82;
 
-2114 i‡((
+2107 i‡((
 Symbﬁs
 [
 symi
@@ -18557,7 +18823,7 @@ Ty≥
 T¨gëTy≥
 ++;
 
-2117 
+2110 
 sym1
  = 
 Symbﬁs
@@ -18573,13 +18839,13 @@ sym2
 sym3
 );
 
-2118 i‡(
+2111 i‡(
 sym1
  && 
 sym3
 ) {
 
-2120 
+2113 
 NextLabñ
  = 
 Symbﬁs
@@ -18589,7 +18855,7 @@ sym3
 Off£t
 ;
 
-2124 
+2117 
 NextLabñ
  = 
 Se˘i⁄s
@@ -18599,7 +18865,7 @@ Sour˚Se˘i⁄
 InôSize
 ;
 
-2128 
+2121 
 Pos
  = 
 Sour˚Off£t
@@ -18609,7 +18875,17 @@ NextLabñ
 Sour˚Size
 ) {
 
-2131 
+2123 if–
+SwôchCheck
+ =5 && !
+SwôchèbÀLígth
+-- )
+
+2125 
+SwôchCheck
+ = 0;
+
+2130 
 ªl
 .
 Se˘i⁄
@@ -18617,7 +18893,7 @@ Se˘i⁄
 Sour˚Se˘i⁄
 ;
 
-2132 
+2131 
 ªl
 .
 Off£t
@@ -18625,7 +18901,7 @@ Off£t
 Pos
 ;
 
-2133 
+2132 
 Rñi
  = 
 Rñoˇti⁄s
@@ -18635,11 +18911,11 @@ Rñoˇti⁄s
 ªl
 );
 
-2135 i‡(
+2134 i‡(
 Rñi
  > 0) {
 
-2137 
+2136 
 	`CheckRñoˇti⁄T¨gë
 (
 Rñi
@@ -18647,7 +18923,7 @@ Rñi
 T¨gëTy≥
 , 0);
 
-2142 
+2141 
 uöt32
  
 symi
@@ -18667,11 +18943,11 @@ T¨gëTy≥
 RefPoöt
 );
 
-2143 i‡(!
+2142 i‡(!
 symi
 ) {
 
-2147 
+2146 
 öt32
  
 T¨gëSe˘i⁄
@@ -18683,7 +18959,7 @@ symi
 Se˘i⁄
 ;
 
-2148 i‡(!
+2147 i‡(!
 T¨gëSe˘i⁄
  || (
 Se˘i⁄s
@@ -18691,7 +18967,7 @@ Se˘i⁄s
 Ty≥
  & 0xFF) != 1) {
 
-2153 
+2152 
 Rñi
  = 
 Rñoˇti⁄s
@@ -18701,11 +18977,11 @@ Rñoˇti⁄s
 ªl
 );
 
-2154 i‡(
+2153 i‡(
 Rñi
  <= 0) ;
 
-2157 i‡(!(
+2156 i‡(!(
 Rñoˇti⁄s
 [
 Rñi
@@ -18715,7 +18991,7 @@ Ty≥
 T¨gëOldIndex
 ) {
 
-2162 
+2161 
 uöt32
  
 T¨gëSymI
@@ -18731,11 +19007,11 @@ Rñi
 T¨gëOldIndex
 );
 
-2163 i‡(!
+2162 i‡(!
 T¨gëSymI
 ) {
 
-2169 
+2168 
 Addíd
  = 
 Rñoˇti⁄s
@@ -18743,7 +19019,7 @@ Rñoˇti⁄s
 Rñi
 ].Addend;
 
-2171 i‡(!
+2170 i‡(!
 ExeTy≥
  && 
 Symbﬁs
@@ -18753,11 +19029,11 @@ T¨gëSymI
 Off£t
  == 0) {
 
-2173 
+2172 
 Sour˚Size
 ) {
 
-2175 
+2174 
 Addíd
  +*(
 öt16
@@ -18771,7 +19047,7 @@ Sèπ
 Pos
 );
 
-2178 
+2177 
 Addíd
  +*(
 öt32
@@ -18785,15 +19061,15 @@ Sèπ
 Pos
 );
 
-2181 
+2180 
 Addíd
  += 0;
 
-2183 i‡(
+2182 i‡(
 Addíd
 ) {
 
-2185 
+2184 
 uöt32
  
 NewSymOff£t
@@ -18801,7 +19077,7 @@ NewSymOff£t
 Addíd
 ;
 
-2186 i‡(
+2185 i‡(
 Rñoˇti⁄s
 [
 Rñi
@@ -18809,11 +19085,11 @@ Rñi
 Ty≥
  & 2) {
 
-2187 i‡(
+2186 i‡(
 RñTy≥
  == 0x10) {
 
-2188 
+2187 
 NewSymOff£t
  -(
 Rñoˇti⁄s
@@ -18825,7 +19101,7 @@ Off£t
 Sour˚Off£t
 );
 
-2191 
+2190 
 uöt32
  
 NewSym
@@ -18841,13 +19117,13 @@ Se˘i⁄
 NewSymOff£t
 , 2);
 
-2192 i‡(
+2191 i‡(
 NewSym
 Ë
 T¨gëSymI
  = NewSym;
 
-2197 i‡((
+2196 i‡((
 Symbﬁs
 [
 T¨gëSymI
@@ -18857,7 +19133,7 @@ Ty≥
 NewTy≥
 ) {
 
-2198 
+2197 
 Symbﬁs
 [
 T¨gëSymI
@@ -18867,13 +19143,13 @@ Ty≥
 NewTy≥
 ;
 
-2201 
+2200 
 	`CheckJumpT¨gë
 (
 T¨gëSymI
 );
 
-2204 i‡(
+2203 i‡(
 Symbﬁs
 [
 T¨gëSymI
@@ -18889,7 +19165,7 @@ Pos
 NextLabñ
 ) {
 
-2205 
+2204 
 NextLabñ
  = 
 Symbﬁs
@@ -18899,25 +19175,25 @@ T¨gëSymI
 Off£t
 ;
 
-2209 i‡(
+2208 i‡(
 Pos
  < 
 NextLabñ
 ) {
 
-2211 
+2210 
 SASymbﬁ
  
 SymA·î
 ;
 
-2212 
+2211 
 SymA·î
 .
 	`Re£t
 ();
 
-2213 
+2212 
 SymA·î
 .
 Se˘i⁄
@@ -18925,7 +19201,7 @@ Se˘i⁄
 Sour˚Se˘i⁄
 ;
 
-2214 
+2213 
 SymA·î
 .
 Off£t
@@ -18933,7 +19209,7 @@ Off£t
 Pos
 ;
 
-2215 
+2214 
 SymA·î
 .
 Ty≥
@@ -18943,7 +19219,7 @@ Se˘i⁄s
 Sour˚Se˘i⁄
 ].Type & 0xFF) == 1 ? 0x82 : 0;
 
-2216 
+2215 
 Symbﬁs
 .
 	`NewSymbﬁ
@@ -18951,11 +19227,11 @@ Symbﬁs
 SymA·î
 );
 
-2218 
+2217 
 	}
 }
 
-2221 
+2220 
 uöt32
  
 	gCDißs£mbÀr
@@ -18981,49 +19257,49 @@ Sour˚Size
 RefPoöt
 ) {
 
-2243 
+2242 
 SARñoˇti⁄
  
 Rñ
 ;
 
-2244 
+2243 
 SASymbﬁ
  
 Sym
 ;
 
-2245 
+2244 
 Sym
 .
 	`Re£t
 ();
 
-2246 
+2245 
 öt32
  
 úñ
 ;
 
-2247 
+2246 
 uöt32
  
 isym
  = 0;
 
-2248 
+2247 
 öt64
  
 I∆öeA
 ;
 
-2249 
+2248 
 öt64
  
 T¨gëAbsAddr
 ;
 
-2252 i‡(
+2251 i‡(
 Se˘i⁄
  <0 || (
 uöt32
@@ -19039,35 +19315,35 @@ InôSize
 Sèπ
 ) {
 
-2257 i‡(
+2256 i‡(
 RñTy≥
  & 1) {
 
-2259 i‡(
+2258 i‡(
 Rñoˇti⁄sInSour˚
  & 0x20)  0;
 
-2261 i‡(
+2260 i‡(
 RñTy≥
  & 4) {
 
-2263 i‡(!
+2262 i‡(!
 ExeTy≥
 )  0;
 
-2267 
+2266 
 Rñ
 .
 Se˘i⁄
  = Section;
 
-2268 
+2267 
 Rñ
 .
 Off£t
  = Offset;
 
-2269 
+2268 
 úñ
  = 
 Rñoˇti⁄s
@@ -19077,57 +19353,57 @@ Rñoˇti⁄s
 Rñ
 );
 
-2270 i‡(
+2269 i‡(
 úñ
  > 0)  0;
 
-2272 i‡(
+2271 i‡(
 Sour˚Size
  == 0) {
 
-2274 i‡((
+2273 i‡((
 T¨gëTy≥
  & 0xFF) == 0x81) {
 
-2276 
+2275 
 Sour˚Size
  = 1;
 
-2278 i‡(
+2277 i‡(
 RñTy≥
  & 1) {
 
-2280 
+2279 
 Sour˚Size
  = 
 W‹dSize
  / 8;
 
-2282 i‡(
+2281 i‡(
 RñTy≥
  & 0x12) {
 
-2284 
+2283 
 Sour˚Size
  = (
 W‹dSize
  == 16) ? 2 : 4;
 
-2286 i‡(
+2285 i‡(
 RñTy≥
  & 4 && 
 W‹dSize
  > 16) {
 
-2288 
+2287 
 Sour˚Size
  = 4;
 
-2297 i‡(
+2296 i‡(
 Sour˚Size
  == 8) {
 
-2298 
+2297 
 I∆öeA
  = *(
 öt64
@@ -19141,11 +19417,11 @@ Sèπ
 Off£t
 );
 
-2300 i‡(
+2299 i‡(
 Sour˚Size
  == 4) {
 
-2301 
+2300 
 I∆öeA
  = *(
 öt32
@@ -19159,11 +19435,11 @@ Sèπ
 Off£t
 );
 
-2303 i‡(
+2302 i‡(
 Sour˚Size
  == 2) {
 
-2304 
+2303 
 I∆öeA
  = *(
 öt16
@@ -19177,7 +19453,7 @@ Sèπ
 Off£t
 );
 
-2307 
+2306 
 I∆öeA
  = *(
 öt8
@@ -19191,21 +19467,21 @@ Sèπ
 Off£t
 );
 
-2311 i‡(
+2310 i‡(
 RñTy≥
  & 1) {
 
-2313 
+2312 
 T¨gëAbsAddr
  = 
 I∆öeA
 ;
 
-2315 i‡(
+2314 i‡(
 RñTy≥
  & 2) {
 
-2317 
+2316 
 T¨gëAbsAddr
  = 
 I∆öeA
@@ -19217,11 +19493,11 @@ Se˘i⁄Addªss
 IEnd
 ;
 
-2319 i‡(
+2318 i‡(
 RñTy≥
  & 0x10) {
 
-2321 
+2320 
 uöt32
  
 RefSym
@@ -19233,7 +19509,7 @@ Symbﬁs
 RefPoöt
 );
 
-2322 
+2321 
 T¨gëAbsAddr
  = 
 I∆öeA
@@ -19251,7 +19527,7 @@ Se˘i⁄
 Se˘i⁄Addªss
 ;
 
-2326 
+2325 
 T¨gëAbsAddr
  = 
 I∆öeA
@@ -19259,11 +19535,11 @@ I∆öeA
 ImageBa£
 ;
 
-2329 i‡(
+2328 i‡(
 ExeTy≥
 ) {
 
-2332 i‡(
+2331 i‡(
 	`Tøn¶©eAbsAddªss
 (
 T¨gëAbsAddr
@@ -19275,7 +19551,7 @@ Se˘i⁄
 Off£t
 )) {
 
-2335 
+2334 
 Sym
 .
 Sc›e
@@ -19283,7 +19559,7 @@ Sc›e
 T¨gëSc›e
 ;
 
-2336 
+2335 
 Sym
 .
 Ty≥
@@ -19291,7 +19567,7 @@ Ty≥
 T¨gëTy≥
 ;
 
-2337 
+2336 
 isym
  = 
 Symbﬁs
@@ -19301,25 +19577,25 @@ Symbﬁs
 Sym
 );
 
-2339 i‡(
+2338 i‡(
 T¨gëAbsAddr
  =
 ImageBa£
  && TargetAbsAddr) {
 
-2342 
+2341 
 Sym
 .
 Sc›e
  = 0x20;
 
-2343 
+2342 
 Sym
 .
 Ty≥
  = 0;
 
-2344 
+2343 
 isym
  = 
 Symbﬁs
@@ -19329,7 +19605,7 @@ Symbﬁs
 Sym
 );
 
-2345 i‡(
+2344 i‡(
 isym
  && 
 Symbﬁs
@@ -19337,7 +19613,7 @@ Symbﬁs
 Name
  == 0) {
 
-2346 
+2345 
 Symbﬁs
 .
 	`AssignName
@@ -19345,13 +19621,13 @@ Symbﬁs
 isym
 , "__ImageBase");
 
-2352 
+2351 
 Sym
 .
 Se˘i⁄
  = Section;
 
-2353 
+2352 
 Sym
 .
 Off£t
@@ -19363,7 +19639,7 @@ T¨gëAbsAddr
 Se˘i⁄Addªss
 ;
 
-2356 
+2355 
 Sym
 .
 Sc›e
@@ -19371,7 +19647,7 @@ Sc›e
 T¨gëSc›e
 ;
 
-2357 
+2356 
 Sym
 .
 Ty≥
@@ -19379,7 +19655,7 @@ Ty≥
 T¨gëTy≥
 ;
 
-2358 
+2357 
 isym
  = 
 Symbﬁs
@@ -19389,7 +19665,7 @@ Symbﬁs
 Sym
 );
 
-2361 i‡((
+2360 i‡((
 RñTy≥
  & 2Ë&& (
 T¨gëTy≥
@@ -19401,15 +19677,15 @@ Se˘i⁄
 CodeMode
  == 1) {
 
-2363  
+2362  
 isym
 ;
 
-2366 i‡(
+2365 i‡(
 isym
 ) {
 
-2368 
+2367 
 öt32
  
 Addíd
@@ -19417,17 +19693,17 @@ Addíd
 I∆öeA
 ;
 
-2369 i‡(
+2368 i‡(
 RñTy≥
  & 2) {
 
-2371 i‡(
+2370 i‡(
 s
 .
 MFœgs
  & 0x100) {
 
-2373 
+2372 
 Addíd
  -
 IEnd
@@ -19437,13 +19713,13 @@ s
 AddªssFõld
 ;
 
-2377 
+2376 
 Addíd
  -
 Sour˚Size
 ;
 
-2382 
+2381 
 	`AddRñoˇti⁄
  (
 Se˘i⁄
@@ -19465,29 +19741,29 @@ OldIndex
 RefPoöt
 );
 
-2385 i‡(
+2384 i‡(
 CodeMode
  & 3) {
 
-2386 
+2385 
 	`FödRñoˇti⁄s
 ();
 
-2389 
+2388 
 s
 .
 W¨nögs1
  &= ~0x8000;
 
-2392  
+2391  
 isym
 ;
 
-2393 
+2392 
 	}
 }
 
-2396 
+2395 
 	gCDißs£mbÀr
 ::
 	$CheckImp‹tSymbﬁ
@@ -19497,7 +19773,7 @@ uöt32
 symi
 ) {
 
-2399 i‡(
+2398 i‡(
 Symbﬁs
 [
 symi
@@ -19505,7 +19781,7 @@ symi
 DLLName
 ) {
 
-2402 
+2401 
 uöt32
  
 sym2
@@ -19519,7 +19795,7 @@ Se˘i⁄
 IBegö
 );
 
-2403 i‡(
+2402 i‡(
 sym2
  && 
 Symbﬁs
@@ -19527,7 +19803,7 @@ Symbﬁs
 Name
  == 0) {
 
-2406 c⁄° * 
+2405 c⁄° * 
 ImpName
  = 
 Symbﬁs
@@ -19537,7 +19813,7 @@ Symbﬁs
 symi
 );
 
-2407 i‡(
+2406 i‡(
 	`°∫cmp
 (
 ImpName
@@ -19551,7 +19827,7 @@ uöt32
 	`°æí
 (Symbols.ImportTablePrefix)) == 0) {
 
-2408 
+2407 
 Symbﬁs
 .
 	`AssignName
@@ -19567,17 +19843,17 @@ uöt32
 Imp‹tTabÀPªfix
 ));
 
-2412 
+2411 
 	}
 }
 
-2414 
+2413 
 	gCDißs£mbÀr
 ::
 	$M¨kCodeAsDubious
 () {
 
-2416 
+2415 
 uöt32
  
 sym1
@@ -19587,7 +19863,7 @@ sym2
 sym3
  = 0;
 
-2419 i‡(((
+2418 i‡(((
 s
 .
 Eº‹s
@@ -19597,31 +19873,31 @@ W¨nögs1
 Cou¡Eº‹s
  > 1))
 
-2420 || 
+2419 || 
 Cou¡Eº‹s
  > 5) {
 
-2425 
+2424 
 CodeMode
  = 4;
 
-2427 i‡(
+2426 i‡(
 CodeMode
  < 4) {
 
-2430 
+2429 
 CodeMode
  = 2;
 
-2433 i‡(
+2432 i‡(
 Pass
  & 0x0F) {
 
-2437 i‡(
+2436 i‡(
 LabñBegö
  == 0) {
 
-2439 
+2438 
 Symbﬁs
 .
 	`NewSymbﬁ
@@ -19631,15 +19907,15 @@ Se˘i⁄
 IBegö
 , 1);
 
-2440 
+2439 
 LabñBegö
  = 0;
 
-2441 
+2440 
 	`FödLabñs
 ();
 
-2445 
+2444 
 sym1
  = 
 Symbﬁs
@@ -19655,13 +19931,13 @@ sym2
 sym3
 );
 
-2447 i‡(
+2446 i‡(
 sym1
  && 
 sym2
 ) {
 
-2449 
+2448 
 Symbﬁs
 [
 sym2
@@ -19671,61 +19947,61 @@ Ty≥
 CodeMode
  << 24);
 
-2453 
+2452 
 Pass
  |= 0x100;
 
-2471 
+2470 
 	}
 }
 
-2474 
+2473 
 	gCDißs£mbÀr
 ::
 	$NextIn°ru˘i⁄1
 () {
 
-2476 
+2475 
 IBegö
  = 
 IEnd
 ;
 
-2479 
+2478 
 s
 .
 	`Re£t
 ();
 
-2482  (
+2481  (
 IBegö
  < 
 Se˘i⁄End
 );
 
-2483 
+2482 
 	}
 }
 
-2485 
+2484 
 	gCDißs£mbÀr
 ::
 	$NextIn°ru˘i⁄2
 () {
 
-2487 
+2486 
 IBegö
  = 
 IEnd
 ;
 
-2490 
+2489 
 s
 .
 	`Re£t
 ();
 
-2493  (
+2492  (
 IBegö
  < 
 Fun˘i⁄End
@@ -19735,21 +20011,21 @@ LabñEnd
 Se˘i⁄End
 );
 
-2494 
+2493 
 	}
 }
 
-2496 
+2495 
 	gCDißs£mbÀr
 ::
 	$P¨£In°ru˘i⁄
 () {
 
-2498 
+2497 
 FœgPªvious
  = 0;
 
-2500 
+2499 
 s
 .
 OpcodeSèπ1
@@ -19757,55 +20033,55 @@ OpcodeSèπ1
 IBegö
 ;
 
-2503 
+2502 
 	`SˇnPªfixes
 ();
 
-2506 
+2505 
 	`FödM≠E¡ry
 ();
 
-2509 
+2508 
 	`FödO≥ønds
 ();
 
-2512 
+2511 
 	`FödO≥øndTy≥s
 ();
 
-2514 i‡(
+2513 i‡(
 s
 .
 Pªfixes
 [3] == 0x62) {
 
-2515 i‡(
+2514 i‡(
 s
 .
 Pªfixes
 [6] & 0x20) {
 
-2516 
+2515 
 	`FödBrﬂdˇ°
 ();
 
-2519 
+2518 
 	`SwizTabÀLookup
 ();
 
-2524 
+2523 
 	`FödRñoˇti⁄s
 ();
 
-2527 
+2526 
 	`FödW¨nögs
 ();
 
-2530 
+2529 
 	`FödEº‹s
 ();
 
-2532 i‡(!
+2531 i‡(!
 s
 .
 Eº‹s
@@ -19813,41 +20089,45 @@ Eº‹s
 CodeMode
  == 1) {
 
-2534 
+2533 
 	`FödIn°ru˘i⁄Së
 ();
 
-2537 
+2535 
+	`FödSwôch
+();
+
+2538 
 	`Upd©eSymbﬁs
 ();
 
-2540 
+2541 
 	`Upd©eTø˚r
 ();
 
-2542 
+2543 
 	}
 }
 
-2545 
+2546 
 	gCDißs£mbÀr
 ::
 	$SˇnPªfixes
 () {
 
-2547 
+2548 
 uöt32
  
 i
 ;
 
-2548 
+2549 
 uöt8
  
 Byã
 ;
 
-2549 
+2550 
 i
  = 
 IBegö
@@ -19855,7 +20135,7 @@ IBegö
 Se˘i⁄End
 ; i++) {
 
-2552 
+2553 
 Byã
  = 
 Buf„r
@@ -19863,33 +20143,33 @@ Buf„r
 i
 ];
 
-2555 i‡(
+2556 i‡(
 W‹dSize
  =64 && (
 Byã
  & 0xF0) == 0x40) {
 
-2558 i‡(
+2559 i‡(
 Byã
  & 0x08) {
 
-2560 
+2561 
 	`St‹ePªfix
 (4, 0x48);
 
-2562 
+2563 
 	`St‹ePªfix
 (7, 
 Byã
 );
 
-2564 i‡(
+2565 i‡(
 i
 +1 < 
 Se˘i⁄End
  &&
 
-2565 ((((
+2566 ((((
 Byã
  & 0xFEË=0xC4 || Byã =0x62Ë&& (
 W‹dSize
@@ -19899,7 +20179,7 @@ Buf„r
 i
 +1] >= 0xC0)))
 
-2566 || (
+2567 || (
 Byã
  =0x8F && (
 Buf„r
@@ -19907,7 +20187,7 @@ Buf„r
 i
 +1] & 0x38)))) {
 
-2570 i‡(
+2571 i‡(
 s
 .
 Pªfixes
@@ -19915,7 +20195,7 @@ Pªfixes
 W¨nögs1
  |= 0x800;
 
-2573 
+2574 
 uöt8
  
 ¥efix3
@@ -19923,59 +20203,59 @@ uöt8
 Byã
 ;
 
-2574 
+2575 
 uöt8
  
 ¥efix4
 ;
 
-2575 
+2576 
 uöt8
  
 ¥efix5
 ;
 
-2576 
+2577 
 uöt8
  
 ¥efix6
 ;
 
-2577 
+2578 
 uöt8
  
 ¥efix7
 ;
 
-2578 
+2579 
 uöt8
  
 vvvv
 ;
 
-2579 i‡(
+2580 i‡(
 Byã
  == 0xC5) {
 
-2581 i‡(
+2582 i‡(
 i
 +2 >
 Se˘i⁄End
 ) {
 
-2582 
+2583 
 IEnd
  = 
 i
 +2;
 
-2583 
+2584 
 s
 .
 Eº‹s
  |= 0x10; ;
 
-2585 
+2586 
 Byã
  = 
 Buf„r
@@ -19983,39 +20263,39 @@ Buf„r
 i
 ];
 
-2586 
+2587 
 ¥efix5
  = 
 Byã
  & 3;
 
-2587 
+2588 
 ¥efix6
  = (
 Byã
  << 3) & 0x20;
 
-2588 
+2589 
 ¥efix6
  |= 1;
 
-2589 
+2590 
 vvvv
  = (~
 Byã
  >> 3) & 0x0F;
 
-2590 
+2591 
 ¥efix7
  = 0x10;
 
-2591 
+2592 
 ¥efix7
  |(~
 Byã
  >> 5) & 4;
 
-2595 i‡(
+2596 i‡(
 i
 +3+(
 Byã
@@ -20023,7 +20303,7 @@ Byã
 Se˘i⁄End
 ) {
 
-2596 
+2597 
 IEnd
  = 
 i
@@ -20031,19 +20311,19 @@ i
 Byã
 ==0x62);
 
-2597 
+2598 
 s
 .
 Eº‹s
  |= 0x10; ;
 
-2599 
+2600 
 ¥efix7
  = (
 Byã
  == 0x8F) ? 0x80 : 0x20;
 
-2600 
+2601 
 Byã
  = 
 Buf„r
@@ -20051,19 +20331,19 @@ Buf„r
 i
 ];
 
-2601 
+2602 
 ¥efix6
  = 
 Byã
  & 0x1F;
 
-2602 
+2603 
 ¥efix7
  |(~
 Byã
  >> 5) & 7;
 
-2603 
+2604 
 Byã
  = 
 Buf„r
@@ -20071,39 +20351,39 @@ Buf„r
 i
 ];
 
-2604 
+2605 
 ¥efix5
  = 
 Byã
  & 3;
 
-2605 
+2606 
 ¥efix6
  |(
 Byã
  << 3) & 0x20;
 
-2606 
+2607 
 vvvv
  = (~
 Byã
  >> 3) & 0x0F;
 
-2607 
+2608 
 ¥efix7
  |(
 Byã
  >> 4) & 8;
 
-2608 i‡(
+2609 i‡(
 ¥efix3
  == 0x62) {
 
-2610 
+2611 
 ¥efix6
  |= 0x40;
 
-2611 
+2612 
 Byã
  = 
 Buf„r
@@ -20111,7 +20391,7 @@ Buf„r
 i
 ];
 
-2612 
+2613 
 s
 .
 Kªg
@@ -20119,13 +20399,13 @@ Kªg
 Byã
  & 0x07;
 
-2613 
+2614 
 vvvv
  |(~
 Byã
  & 8) << 1;
 
-2614 
+2615 
 s
 .
 Esss
@@ -20133,61 +20413,61 @@ Esss
 Byã
  >> 4;
 
-2617 
+2618 
 	`St‹ePªfix
 (3, 
 ¥efix3
 );
 
-2619 
+2620 
 ¥efix4
  = (
 ¥efix5
  == 1) ? 0x66 : 0;
 
-2620 i‡(
+2621 i‡(
 ¥efix7
  & 8Ë
 ¥efix4
  = 0x48;
 
-2621 
+2622 
 	`St‹ePªfix
 (4, 
 ¥efix4
 );
 
-2623 c⁄° 
+2624 c⁄° 
 uöt8
  
 PªfixVÆues
 [4] = {0, 0x66, 0xF3, 0xF2};
 
-2624 
+2625 
 ¥efix5
  = 
 PªfixVÆues
 [prefix5];
 
-2625 
+2626 
 	`St‹ePªfix
 (5, 
 ¥efix5
 );
 
-2626 
+2627 
 	`St‹ePªfix
 (6, 
 ¥efix6
 );
 
-2627 
+2628 
 	`St‹ePªfix
 (7, 
 ¥efix7
 );
 
-2628 
+2629 
 s
 .
 Vªg
@@ -20195,7 +20475,7 @@ Vªg
 vvvv
 ;
 
-2630 
+2631 
 s
 .
 OpcodeSèπ1
@@ -20203,7 +20483,7 @@ OpcodeSèπ1
 i
  + 1;
 
-2633 i‡(
+2634 i‡(
 OpcodeM≠0
 [
 Byã
@@ -20211,71 +20491,71 @@ Byã
 In°ru˘i⁄F‹m©
  & 0x8000) {
 
-2636 
+2637 
 Byã
 ) {
 
-2639 
+2640 
 	`St‹ePªfix
 (0, 
 Byã
 );
 
-2640 i‡(
+2641 i‡(
 Byã
  =0x64Ë
 MasmO±i⁄s
  |= 2;
 
-2641 i‡(
+2642 i‡(
 Byã
  =0x65Ë
 MasmO±i⁄s
  |= 4;
 
-2646 
+2647 
 	`St‹ePªfix
 (1, 
 Byã
 ); ;
 
-2650 
+2651 
 	`St‹ePªfix
 (2, 
 Byã
 ); ;
 
-2654 
+2655 
 	`St‹ePªfix
 (3, 
 Byã
 );
 
-2655 
+2656 
 	`St‹ePªfix
 (5, 
 Byã
 ); ;
 
-2659 
+2660 
 	`St‹ePªfix
 (4, 
 Byã
 );
 
-2660 
+2661 
 	`St‹ePªfix
 (5, 
 Byã
 ); ;
 
-2663 
+2664 
 îr
 .
 	`submô
 (9000);
 
-2668 
+2669 
 s
 .
 OpcodeSèπ1
@@ -20283,23 +20563,23 @@ OpcodeSèπ1
 i
 ;
 
-2673 
+2674 
 IEnd
  = 
 i
 ;
 
-2674 
+2675 
 s
 .
 Eº‹s
  |= 0x10;
 
-2675 
+2676 
 	}
 }
 
-2678 
+2679 
 	gCDißs£mbÀr
 ::
 	$St‹ePªfix
@@ -20313,7 +20593,7 @@ uöt8
 Byã
 ) {
 
-2680 i‡(
+2681 i‡(
 C©eg‹y
  > 7Ë{
 îr
@@ -20321,7 +20601,7 @@ C©eg‹y
 	`submô
 (9000); ;}
 
-2683 i‡(
+2684 i‡(
 s
 .
 Pªfixes
@@ -20329,7 +20609,7 @@ Pªfixes
 C©eg‹y
 ]) {
 
-2685 i‡(
+2686 i‡(
 s
 .
 Pªfixes
@@ -20339,7 +20619,7 @@ C©eg‹y
 Byã
  || Category == 7) {
 
-2687 
+2688 
 s
 .
 C⁄Êi˘s
@@ -20347,13 +20627,13 @@ C⁄Êi˘s
 C©eg‹y
 ]++;
 
-2691 
+2692 
 s
 .
 W¨nögs1
  |= 0x100;
 
-2695 i‡(
+2696 i‡(
 s
 .
 Pªfixes
@@ -20361,7 +20641,7 @@ Pªfixes
 Eº‹s
  |= 0x20;
 
-2698 
+2699 
 s
 .
 Pªfixes
@@ -20371,17 +20651,17 @@ C©eg‹y
 Byã
 ;
 
-2699 
+2700 
 	}
 }
 
-2702 
+2703 
 	gCDißs£mbÀr
 ::
 	$FödM≠E¡ry
 () {
 
-2704 
+2705 
 uöt32
  
 i
@@ -20391,13 +20671,13 @@ s
 OpcodeSèπ1
 ;
 
-2705 
+2706 
 uöt16
  
 Lök
 ;
 
-2706 
+2707 
 uöt8
  
 Byã
@@ -20407,41 +20687,41 @@ Buf„r
 i
 ];
 
-2707 
+2708 
 uöt32
  
 M≠Numbî
  = 0;
 
-2708 
+2709 
 uöt32
  
 SèπPage
 ;
 
-2709 
+2710 
 uöt32
  
 M≠Numbî0
  = 0;
 
-2710 
+2711 
 SOpcodeDef
  c⁄° * 
 M≠E¡ry
 ;
 
-2713 
+2714 
 s
 .
 Pªfixes
 [3]) {
 
-2715 
+2716 
 SèπPage
  = 0;
 
-2716 
+2717 
 M≠E¡ry
  = 
 OpcodeTabÀs
@@ -20451,7 +20731,7 @@ SèπPage
 Byã
 ;
 
-2719 
+2720 
 SèπPage
  = 
 s
@@ -20459,13 +20739,13 @@ s
 Pªfixes
 [6] & 0x0F;
 
-2720 i‡(
+2721 i‡(
 SèπPage
  >
 NumOpcodeSèπPageVEX
 ) {
 
-2721 
+2722 
 s
 .
 Eº‹s
@@ -20473,7 +20753,7 @@ Eº‹s
 SèπPage
  = 0;
 
-2723 
+2724 
 M≠Numbî
  = 
 OpcodeSèπPageVEX
@@ -20481,13 +20761,13 @@ OpcodeSèπPageVEX
 SèπPage
 ];
 
-2724 i‡(
+2725 i‡(
 SèπPage
  =1Ë
 M≠Numbî0
  = 1;
 
-2725 i‡(
+2726 i‡(
 SèπPage
  =2 && 
 s
@@ -20495,7 +20775,7 @@ s
 Pªfixes
 [5] == 0xF3 && s.Prefixes[3] == 0x62) {
 
-2726 
+2727 
 SèπPage
  = 8; 
 M≠Numbî0
@@ -20503,7 +20783,7 @@ M≠Numbî0
 M≠Numbî
 ;
 
-2727 
+2728 
 M≠Numbî
  = 
 OpcodeSèπPageVEX
@@ -20511,7 +20791,7 @@ OpcodeSèπPageVEX
 SèπPage
 ];
 
-2730 
+2731 
 M≠E¡ry
  = 
 OpcodeTabÀs
@@ -20521,7 +20801,7 @@ M≠Numbî
 Byã
 ;
 
-2737 i‡((
+2738 i‡((
 M≠E¡ry
 ->
 Name
@@ -20535,13 +20815,13 @@ OpcodeTabÀLígth
 M≠Numbî
 ]) {
 
-2739 
+2740 
 M≠Numbî
  = 
 M≠Numbî0
 ;
 
-2740 
+2741 
 M≠E¡ry
  = 
 OpcodeTabÀs
@@ -20551,7 +20831,7 @@ M≠Numbî
 Byã
 ;
 
-2742 i‡(
+2743 i‡(
 M≠Numbî
  =0Ë
 s
@@ -20559,7 +20839,7 @@ s
 Eº‹s
  |= 0x10000;
 
-2745 
+2746 
 SèπPage
  = (
 s
@@ -20567,13 +20847,13 @@ s
 Pªfixes
 [6] & 0x1F) - 8;
 
-2746 i‡(
+2747 i‡(
 SèπPage
  >
 NumOpcodeSèπPageXOP
 ) {
 
-2747 
+2748 
 s
 .
 Eº‹s
@@ -20581,7 +20861,7 @@ Eº‹s
 SèπPage
  = 0;
 
-2749 
+2750 
 M≠E¡ry
  = 
 OpcodeSèπPageXOP
@@ -20591,7 +20871,7 @@ SèπPage
 Byã
 ;
 
-2753 *(
+2754 *(
 uöt32
 *)&
 PªviousOpcodei
@@ -20599,13 +20879,13 @@ PªviousOpcodei
 Opcodei
 ;
 
-2754 *(
+2755 *(
 uöt32
 *)&
 Opcodei
  = 0;
 
-2760 
+2761 
 Lök
  = 
 M≠E¡ry
@@ -20613,11 +20893,11 @@ M≠E¡ry
 TabÀLök
 ;
 
-2762 
+2763 
 Lök
 ) {
 
-2765 
+2766 
 s
 .
 OpcodeSèπ2
@@ -20625,7 +20905,7 @@ OpcodeSèπ2
 i
 ;
 
-2766 
+2767 
 s
 .
 OpcodeDef
@@ -20633,7 +20913,7 @@ OpcodeDef
 M≠E¡ry
 ;
 
-2769 
+2770 
 Opcodei
  = (
 M≠Numbî
@@ -20641,7 +20921,7 @@ M≠Numbî
 Byã
 ;
 
-2770 
+2771 
 OpcodeO±i⁄s
  = 
 M≠E¡ry
@@ -20649,13 +20929,13 @@ M≠E¡ry
 O±i⁄s
 ;
 
-2776 i‡(
+2777 i‡(
 i
  >
 Se˘i⁄End
 ) {
 
-2778 
+2779 
 IEnd
  = 
 i
@@ -20665,7 +20945,7 @@ s
 Eº‹s
  |= 0x10;
 
-2779 
+2780 
 s
 .
 OpcodeSèπ2
@@ -20673,7 +20953,7 @@ OpcodeSèπ2
 i
 ;
 
-2782 
+2783 
 Byã
  = 
 Buf„r
@@ -20681,7 +20961,7 @@ Buf„r
 i
 ];
 
-2786 
+2787 
 Byã
  = (
 Buf„r
@@ -20689,7 +20969,7 @@ Buf„r
 i
 +1] >> 3) & 7;
 
-2790 
+2791 
 Byã
  = (
 Buf„r
@@ -20697,7 +20977,7 @@ Buf„r
 i
 +1] & 0xC0) == 0xC0;
 
-2795 
+2796 
 Byã
  = (
 Buf„r
@@ -20705,7 +20985,7 @@ Buf„r
 i
 +1] >> 3) & 7;
 
-2796 i‡((
+2797 i‡((
 Buf„r
 [
 i
@@ -20713,7 +20993,7 @@ i
 Byã
  += 8;
 
-2800 
+2801 
 Byã
  = 
 Buf„r
@@ -20721,7 +21001,7 @@ Buf„r
 i
 +1] & 7;
 
-2804 
+2805 
 s
 .
 OpcodeSèπ2
@@ -20729,7 +21009,7 @@ OpcodeSèπ2
 i
 ;
 
-2805 
+2806 
 s
 .
 OpcodeDef
@@ -20737,11 +21017,11 @@ OpcodeDef
 M≠E¡ry
 ;
 
-2806 
+2807 
 	`FödO≥ønds
 ();
 
-2807 
+2808 
 Byã
  = 
 Buf„r
@@ -20749,37 +21029,37 @@ Buf„r
 IEnd
  - 1];
 
-2811 
+2812 
 W‹dSize
 ) {
 
-2813 
+2814 
 Byã
  = 0; ;
 
-2815 
+2816 
 Byã
  = 1; ;
 
-2817 
+2818 
 Byã
  = 2;
 
-2822 
+2823 
 W‹dSize
 ) {
 
-2824 i‡(
+2825 i‡(
 s
 .
 Pªfixes
 [4] == 0x48) {
 
-2825 
+2826 
 Byã
  = 2; ;
 
-2829 
+2830 
 Byã
  = (
 s
@@ -20787,7 +21067,7 @@ s
 Pªfixes
 [4] == 0x66) ? 0 : 1; ;
 
-2831 
+2832 
 Byã
  = (
 s
@@ -20795,21 +21075,21 @@ s
 Pªfixes
 [4] == 0x66) ? 1 : 0; ;
 
-2836 
+2837 
 s
 .
 Pªfixes
 [5]) {
 
-2838 
+2839 
 Byã
  = 0; ;
 
-2840 
+2841 
 Byã
  = 1;
 
-2841 i‡(
+2842 i‡(
 s
 .
 Pªfixes
@@ -20817,7 +21097,7 @@ Pªfixes
 Byã
  = 2;
 
-2842 i‡(
+2843 i‡(
 s
 .
 Pªfixes
@@ -20825,19 +21105,19 @@ Pªfixes
 Byã
  = 3;
 
-2845 
+2846 
 Byã
  = 2; ;
 
-2847 
+2848 
 Byã
  = 3; ;
 
-2852 
+2853 
 W‹dSize
 ) {
 
-2854 
+2855 
 Byã
  = (
 s
@@ -20845,7 +21125,7 @@ s
 Pªfixes
 [1] == 0x67) ? 1 : 2; ;
 
-2856 
+2857 
 Byã
  = (
 s
@@ -20853,7 +21133,7 @@ s
 Pªfixes
 [1] == 0x67) ? 0 : 1; ;
 
-2858 
+2859 
 Byã
  = (
 s
@@ -20861,23 +21141,23 @@ s
 Pªfixes
 [1] == 0x67) ? 1 : 0; ;
 
-2865 i‡((
+2866 i‡((
 s
 .
 Pªfixes
 [7] & 0xB0) == 0) {
 
-2866 
+2867 
 Byã
  = 0;
 
-2868 i‡((
+2869 i‡((
 s
 .
 Pªfixes
 [6] & 0x60) == 0x60) {
 
-2869 
+2870 
 Byã
  = ((
 s
@@ -20885,17 +21165,17 @@ s
 Esss
  >> 1) & 3) + 1;
 
-2871 i‡((
+2872 i‡((
 s
 .
 Pªfixes
 [6] & 0x60) == 0x40) {
 
-2872 
+2873 
 Byã
  = 3;
 
-2875 
+2876 
 Byã
  = 1 + (
 s
@@ -20903,7 +21183,7 @@ s
 Pªfixes
 [6] >> 5 & 1);
 
-2880 
+2881 
 Byã
  = (
 s
@@ -20911,7 +21191,7 @@ s
 Pªfixes
 [7] & 0x08) >> 3;
 
-2885 
+2886 
 Byã
  = (
 s
@@ -20919,19 +21199,19 @@ s
 Pªfixes
 [6] >> 5) & 1;
 
-2886 i‡(
+2887 i‡(
 s
 .
 Pªfixes
 [3] == 0x62) {
 
-2887 i‡(
+2888 i‡(
 s
 .
 Pªfixes
 [6] & 0x20) {
 
-2889 
+2890 
 Byã
  = (
 s
@@ -20939,11 +21219,11 @@ s
 Esss
  >> 1) & 3;
 
-2893 
+2894 
 Byã
  = 2;
 
-2899 
+2900 
 Byã
  = (
 s
@@ -20951,7 +21231,7 @@ s
 Pªfixes
 [3] == 0x62);
 
-2903 
+2904 
 Byã
  = (
 s
@@ -20961,13 +21241,13 @@ Pªfixes
 Esss
  & 8));
 
-2907 
+2908 
 Byã
  = 
 Sy¡ax
 ;
 
-2911 i‡((
+2912 i‡((
 s
 .
 Pªfixes
@@ -20975,13 +21255,13 @@ Pªfixes
 Byã
  = 1;
 
-2912 i‡(
+2913 i‡(
 s
 .
 Pªfixes
 [3] == 0x62) {
 
-2913 i‡(
+2914 i‡(
 s
 .
 Pªfixes
@@ -20989,15 +21269,15 @@ Pªfixes
 Byã
  = 2;
 
-2914 
+2915 
 Byã
  = 3;
 
-2916 
+2917 
 Byã
  = 0;
 
-2920 
+2921 
 îr
 .
 	`submô
@@ -21005,7 +21285,7 @@ Byã
 M≠Numbî
 );
 
-2921 
+2922 
 s
 .
 OpcodeSèπ2
@@ -21013,7 +21293,7 @@ OpcodeSèπ2
 i
 ;
 
-2926 
+2927 
 M≠Numbî
  = 
 M≠E¡ry
@@ -21021,7 +21301,7 @@ M≠E¡ry
 In°ru˘i⁄Së
 ;
 
-2927 i‡(
+2928 i‡(
 M≠Numbî
  >
 NumOpcodeTabÀs1
@@ -21029,7 +21309,7 @@ NumOpcodeTabÀs1
 OpcodeTabÀLígth
 [MapNumber] == 0) {
 
-2928 
+2929 
 îr
 .
 	`submô
@@ -21037,7 +21317,7 @@ OpcodeTabÀLígth
 M≠Numbî
 ); ;
 
-2932 i‡(
+2933 i‡(
 Byã
  >
 OpcodeTabÀLígth
@@ -21045,7 +21325,7 @@ OpcodeTabÀLígth
 M≠Numbî
 ]) {
 
-2934 
+2935 
 Byã
  = 
 OpcodeTabÀLígth
@@ -21053,7 +21333,7 @@ OpcodeTabÀLígth
 M≠Numbî
 ] - 1;
 
-2937 
+2938 
 M≠E¡ry
  = 
 OpcodeTabÀs
@@ -21063,11 +21343,11 @@ M≠Numbî
 Byã
 ;
 
-2938 i‡(
+2939 i‡(
 M≠E¡ry
  == 0) {
 
-2939 
+2940 
 îr
 .
 	`submô
@@ -21075,35 +21355,35 @@ M≠E¡ry
 M≠Numbî
 ); ;
 
-2943 
+2944 
 	}
 }
 
-2946 
+2947 
 	gCDißs£mbÀr
 ::
 	$FödO≥ønds
 () {
 
-2948 
+2949 
 s
 .
 MFœgs
  = 0;
 
-2954 
+2955 
 uöt8
  
 ModRegRM
 ;
 
-2955 
+2956 
 uöt8
  
 SIB
 ;
 
-2958 i‡(
+2959 i‡(
 W‹dSize
  =64Ë
 s
@@ -21113,7 +21393,7 @@ AddªssSize
 Pªfixes
 [1] == 0x67) ? 32 : 64;
 
-2959 
+2960 
 s
 .
 AddªssSize
@@ -21123,7 +21403,7 @@ W‹dSize
 Pªfixes
 [1] == 0x67) ? 16 : 32;
 
-2961 
+2962 
 s
 .
 AddªssFõldSize
@@ -21131,7 +21411,7 @@ AddªssFõldSize
 ImmedüãFõldSize
  = 0;
 
-2964 
+2965 
 s
 .
 AddªssFõld
@@ -21139,7 +21419,7 @@ AddªssFõld
 OpcodeSèπ2
  + 1;
 
-2967 i‡(
+2968 i‡(
 s
 .
 OpcodeDef
@@ -21147,13 +21427,13 @@ OpcodeDef
 In°ru˘i⁄F‹m©
  & 0x10) {
 
-2970 
+2971 
 s
 .
 MFœgs
  |= 2;
 
-2972 i‡(
+2973 i‡(
 s
 .
 OpcodeSèπ2
@@ -21161,11 +21441,11 @@ OpcodeSèπ2
 Fun˘i⁄End
 ) {
 
-2973 
+2974 
 	`CheckF‹Mi•œ˚dLabñ
 ();
 
-2977 
+2978 
 ModRegRM
  = 
 Buf„r
@@ -21175,7 +21455,7 @@ s
 AddªssFõld
 ++];
 
-2978 
+2979 
 s
 .
 Mod
@@ -21183,7 +21463,7 @@ Mod
 ModRegRM
  >> 6;
 
-2979 
+2980 
 s
 .
 Reg
@@ -21191,7 +21471,7 @@ Reg
 ModRegRM
  >> 3) & 7;
 
-2980 
+2981 
 s
 .
 RM
@@ -21199,7 +21479,7 @@ RM
 ModRegRM
  & 7;
 
-2983 i‡(
+2984 i‡(
 s
 .
 AddªssSize
@@ -21209,13 +21489,13 @@ Mod
 RM
  == 4) {
 
-2985 
+2986 
 s
 .
 MFœgs
  |= 4;
 
-2986 
+2987 
 SIB
  = 
 Buf„r
@@ -21225,7 +21505,7 @@ s
 AddªssFõld
 ++];
 
-2988 
+2989 
 s
 .
 SˇÀ
@@ -21233,7 +21513,7 @@ SˇÀ
 SIB
  >> 6;
 
-2989 
+2990 
 s
 .
 IndexReg
@@ -21241,7 +21521,7 @@ IndexReg
 SIB
  >> 3) & 7;
 
-2990 
+2991 
 s
 .
 Ba£Reg
@@ -21249,7 +21529,7 @@ Ba£Reg
 SIB
  & 7;
 
-2994 i‡((
+2995 i‡((
 s
 .
 OpcodeDef
@@ -21257,13 +21537,13 @@ OpcodeDef
 In°ru˘i⁄F‹m©
  & 0x1E) == 0x14) {
 
-2995 
+2996 
 s
 .
 MFœgs
  |= 8;
 
-2996 
+2997 
 s
 .
 Vªg
@@ -21273,7 +21553,7 @@ Buf„r
 AddªssFõld
 ++];
 
-2998 
+2999 
 s
 .
 Pªfixes
@@ -21281,7 +21561,7 @@ Pªfixes
 Vªg
  & 7) | 0x80;
 
-3001 i‡(
+3002 i‡(
 s
 .
 AddªssFõld
@@ -21289,11 +21569,11 @@ AddªssFõld
 Fun˘i⁄End
 ) {
 
-3002 
+3003 
 	`CheckF‹Mi•œ˚dLabñ
 ();
 
-3006 i‡(
+3007 i‡(
 s
 .
 Pªfixes
@@ -21301,7 +21581,7 @@ Pªfixes
 Reg
  |= 8;
 
-3007 i‡(
+3008 i‡(
 s
 .
 Pªfixes
@@ -21309,49 +21589,49 @@ Pªfixes
 RM
  |= 8;
 
-3010 i‡(
+3011 i‡(
 s
 .
 AddªssSize
  == 16) {
 
-3012 i‡(
+3013 i‡(
 s
 .
 Mod
  != 3) {
 
-3014 
+3015 
 s
 .
 MFœgs
  |= 1;
 
-3018 i‡(
+3019 i‡(
 s
 .
 Mod
  == 1) {
 
-3019 
+3020 
 s
 .
 AddªssFõldSize
  = 1;
 
-3021 i‡(
+3022 i‡(
 s
 .
 Mod
  == 2) {
 
-3022 
+3023 
 s
 .
 AddªssFõldSize
  = 2;
 
-3026 i‡(
+3027 i‡(
 s
 .
 Mod
@@ -21359,25 +21639,25 @@ Mod
 RM
  == 6) {
 
-3028 
+3029 
 s
 .
 AddªssFõldSize
  = 2;
 
-3034 c⁄° 
+3035 c⁄° 
 uöt8
  
 Ba£Regi°î
  [8] = {3+1, 3+1, 5+1, 5+1, 0, 0, 5+1, 3+1};
 
-3035 c⁄° 
+3036 c⁄° 
 uöt8
  
 IndexRegi°î
 [8] = {6+1, 7+1, 6+1, 7+1, 6+1, 7+1, 0, 0};
 
-3037 
+3038 
 s
 .
 Ba£Reg
@@ -21387,7 +21667,7 @@ Ba£Regi°î
 RM
 ];
 
-3038 
+3039 
 s
 .
 IndexReg
@@ -21397,49 +21677,49 @@ IndexRegi°î
 RM
 ];
 
-3039 
+3040 
 s
 .
 SˇÀ
  = 0;
 
-3046 i‡(
+3047 i‡(
 s
 .
 Mod
  != 3) {
 
-3048 
+3049 
 s
 .
 MFœgs
  |= 1;
 
-3052 i‡(
+3053 i‡(
 s
 .
 Mod
  == 1) {
 
-3053 
+3054 
 s
 .
 AddªssFõldSize
  = 1;
 
-3055 i‡(
+3056 i‡(
 s
 .
 Mod
  == 2) {
 
-3056 
+3057 
 s
 .
 AddªssFõldSize
  = 4;
 
-3060 i‡(
+3061 i‡(
 s
 .
 Mod
@@ -21447,19 +21727,19 @@ Mod
 RM
  & 7) == 5) {
 
-3062 
+3063 
 s
 .
 AddªssFõldSize
  = 4;
 
-3064 i‡((
+3065 i‡((
 s
 .
 RM
  & 7) == 4) {
 
-3068 i‡(
+3069 i‡(
 s
 .
 Pªfixes
@@ -21467,7 +21747,7 @@ Pªfixes
 IndexReg
  |= 8;
 
-3069 i‡(
+3070 i‡(
 s
 .
 Pªfixes
@@ -21475,19 +21755,19 @@ Pªfixes
 Ba£Reg
  |= 8;
 
-3070 
+3071 
 s
 .
 RM
  &= 7;
 
-3072 
+3073 
 s
 .
 Ba£Reg
 ++;
 
-3073 i‡(
+3074 i‡(
 s
 .
 IndexReg
@@ -21497,19 +21777,19 @@ OpcodeDef
 In°ru˘i⁄F‹m©
  & 0x1F) != 0x1E) {
 
-3075 
+3076 
 s
 .
 IndexReg
  = 0;
 
-3078 
+3079 
 s
 .
 IndexReg
 ++;
 
-3081 i‡(
+3082 i‡(
 s
 .
 Mod
@@ -21517,19 +21797,19 @@ Mod
 Ba£Reg
  == 5+1) {
 
-3083 
+3084 
 s
 .
 AddªssFõldSize
  = 4;
 
-3084 
+3085 
 s
 .
 Ba£Reg
  = 0;
 
-3089 
+3090 
 s
 .
 Ba£Reg
@@ -21537,13 +21817,13 @@ Ba£Reg
 RM
 ;
 
-3090 
+3091 
 s
 .
 Ba£Reg
 ++;
 
-3097 i‡(
+3098 i‡(
 W‹dSize
  =64 && (
 s
@@ -21555,19 +21835,19 @@ Ba£Reg
 AddªssFõldSize
  == 4) {
 
-3099 
+3100 
 s
 .
 MFœgs
  |= 0x100;
 
-3102 i‡(
+3103 i‡(
 s
 .
 Pªfixes
 [3] == 0x62) {
 
-3104 
+3105 
 s
 .
 Reg
@@ -21575,13 +21855,13 @@ Reg
 Pªfixes
 [6]) & 0x10;
 
-3105 i‡(
+3106 i‡(
 s
 .
 Mod
  == 3) {
 
-3107 
+3108 
 s
 .
 RM
@@ -21589,7 +21869,7 @@ RM
 Pªfixes
 [7] & 2) << 3;
 
-3109 i‡(
+3110 i‡(
 s
 .
 IndexReg
@@ -21599,7 +21879,7 @@ OpcodeDef
 In°ru˘i⁄F‹m©
  == 0x1E) {
 
-3111 
+3112 
 s
 .
 IndexReg
@@ -21607,13 +21887,13 @@ IndexReg
 Vªg
  & 0x10;
 
-3117 
+3118 
 uöt32
  
 OpSizePªfix
  = 0;
 
-3118 i‡(
+3119 i‡(
 s
 .
 Pªfixes
@@ -21625,7 +21905,7 @@ AŒowedPªfixes
 OpSizePªfix
  = 1;
 
-3119 i‡(
+3120 i‡(
 s
 .
 Pªfixes
@@ -21637,7 +21917,7 @@ AŒowedPªfixes
 OpSizePªfix
  = 2;
 
-3120 
+3121 
 s
 .
 O≥øndSize
@@ -21647,7 +21927,7 @@ W‹dSize
 OpSizePªfix
  & 1) ? 16 : 32;
 
-3121 i‡(
+3122 i‡(
 OpSizePªfix
  =2Ë
 s
@@ -21655,7 +21935,7 @@ s
 O≥øndSize
  = 64;
 
-3122 i‡((
+3123 i‡((
 s
 .
 OpcodeDef
@@ -21669,7 +21949,7 @@ OpSizePªfix
 O≥øndSize
  = 64;
 
-3126 
+3127 
 s
 .
 ImmedüãFõld
@@ -21679,7 +21959,7 @@ AddªssFõld
 AddªssFõldSize
 ;
 
-3129 
+3130 
 s
 .
 OpcodeDef
@@ -21687,25 +21967,25 @@ OpcodeDef
 In°ru˘i⁄F‹m©
  & 0x0FE0) {
 
-3131 
+3132 
 s
 .
 ImmedüãFõldSize
  = 2; ;
 
-3134 
+3135 
 s
 .
 ImmedüãFõldSize
  = 1; ;
 
-3137 
+3138 
 s
 .
 ImmedüãFõldSize
  = 3; ;
 
-3140 i‡((
+3141 i‡((
 s
 .
 OpcodeDef
@@ -21713,7 +21993,7 @@ OpcodeDef
 De°ö©i⁄
  & 0xFE) == 0x82) {
 
-3143 
+3144 
 s
 .
 ImmedüãFõldSize
@@ -21723,7 +22003,7 @@ W‹dSize
 Pªfixes
 [4] == 0x66) ? 2 : 4;
 
-3144 i‡(
+3145 i‡(
 W‹dSize
  =64Ë
 s
@@ -21731,7 +22011,7 @@ s
 ImmedüãFõldSize
  = 4;
 
-3148 
+3149 
 s
 .
 ImmedüãFõldSize
@@ -21739,7 +22019,7 @@ ImmedüãFõldSize
 O≥øndSize
  == 16) ? 2 : 4;
 
-3153 
+3154 
 s
 .
 ImmedüãFõldSize
@@ -21747,7 +22027,7 @@ ImmedüãFõldSize
 O≥øndSize
  / 8;
 
-3157 
+3158 
 s
 .
 ImmedüãFõldSize
@@ -21757,7 +22037,7 @@ W‹dSize
 Pªfixes
 [4] == 0x66) ? 4 : 6;
 
-3161 
+3162 
 s
 .
 AddªssFõldSize
@@ -21765,7 +22045,7 @@ AddªssFõldSize
 AddªssSize
  / 8;
 
-3162 
+3163 
 s
 .
 AddªssFõld
@@ -21773,7 +22053,7 @@ AddªssFõld
 ImmedüãFõld
 ;
 
-3163 
+3164 
 s
 .
 ImmedüãFõld
@@ -21783,19 +22063,19 @@ AddªssFõld
 AddªssFõldSize
 ;
 
-3164 
+3165 
 s
 .
 ImmedüãFõldSize
  = 0;
 
-3168 
+3169 
 s
 .
 ImmedüãFõldSize
  = 0;
 
-3172 
+3173 
 IEnd
  = 
 s
@@ -21805,57 +22085,57 @@ ImmedüãFõld
 ImmedüãFõldSize
 ;
 
-3173 i‡(
+3174 i‡(
 IEnd
  > 
 Fun˘i⁄End
 ) {
 
-3174 
+3175 
 	`CheckF‹Mi•œ˚dLabñ
 ();
 
-3175 i‡(
+3176 i‡(
 IEnd
  > 
 Se˘i⁄End
 ) {
 
-3177 
+3178 
 s
 .
 Eº‹s
  |= 0x10;
 
-3178 
+3179 
 IEnd
  = 
 Se˘i⁄End
 ;
 
-3181 
+3182 
 	}
 }
 
-3183 
+3184 
 	gCDißs£mbÀr
 ::
 	$FödBrﬂdˇ°
 () {
 
-3185 i‡(
+3186 i‡(
 s
 .
 Mod
  != 3) {
 
-3187 
+3188 
 uöt32
  
 m
 ;
 
-3188 
+3189 
 m
  = 0; m < 
 s
@@ -21863,7 +22143,7 @@ s
 MaxNumO≥ønds
 ; m++) {
 
-3189 i‡(
+3190 i‡(
 s
 .
 O≥ønds
@@ -21871,7 +22151,7 @@ O≥ønds
 m
 ] & 0x2000) ;
 
-3191 i‡(
+3192 i‡(
 m
  =
 s
@@ -21879,19 +22159,19 @@ s
 MaxNumO≥ønds
 ) ;
 
-3192 
+3193 
 uöt32
  
 r
 ;
 
-3193 
+3194 
 uöt32
  
 ve˘‹ty≥
  = 0;
 
-3194 
+3195 
 r
  = 0;Ñ < 
 s
@@ -21899,7 +22179,7 @@ s
 MaxNumO≥ønds
 ;Ñ++) {
 
-3195 i‡((
+3196 i‡((
 s
 .
 O≥ønds
@@ -21909,7 +22189,7 @@ r
 ve˘‹ty≥
 ) vectortype = s.Operands[r] & 0xF00;
 
-3197 
+3198 
 uöt32
  
 ve˘‹size
@@ -21919,7 +22199,7 @@ ve˘‹size
 ve˘‹ty≥
 );
 
-3198 i‡(
+3199 i‡(
 m
  < 
 s
@@ -21927,7 +22207,7 @@ s
 MaxNumO≥ønds
 ) {
 
-3199 i‡((
+3200 i‡((
 s
 .
 OpcodeDef
@@ -21937,7 +22217,7 @@ EVEX
 Esss
  & 1)) {
 
-3201 
+3202 
 s
 .
 Off£tMu…ùlõr
@@ -21949,7 +22229,7 @@ O≥ønds
 m
 ]);
 
-3203 
+3204 
 s
 .
 O≥ønds
@@ -21957,7 +22237,7 @@ O≥ønds
 m
 ] &= ~0xF00;
 
-3204 i‡(
+3205 i‡(
 s
 .
 Off£tMu…ùlõr
@@ -21965,13 +22245,13 @@ Off£tMu…ùlõr
 ve˘‹size
 ) {
 
-3205 
+3206 
 s
 .
 W¨nögs2
  |= 0x200;
 
-3208 i‡(
+3209 i‡(
 s
 .
 OpcodeDef
@@ -21979,7 +22259,7 @@ OpcodeDef
 EVEX
  & 0x1000) {
 
-3210 
+3211 
 s
 .
 Off£tMu…ùlõr
@@ -21991,7 +22271,7 @@ O≥ønds
 m
 ]);
 
-3212 i‡(
+3213 i‡(
 s
 .
 OpcodeDef
@@ -21999,7 +22279,7 @@ OpcodeDef
 EVEX
  & 0x2000) {
 
-3214 
+3215 
 s
 .
 Off£tMu…ùlõr
@@ -22011,7 +22291,7 @@ OpcodeDef
 EVEX
  & 0x600) >> 9);
 
-3218 
+3219 
 s
 .
 Off£tMu…ùlõr
@@ -22023,17 +22303,17 @@ O≥ønds
 m
 ]);
 
-3222 
+3223 
 	}
 }
 
-3225 
+3226 
 	gCDißs£mbÀr
 ::
 	$SwizTabÀLookup
 () {
 
-3227 
+3228 
 sw
  = (
 s
@@ -22043,11 +22323,11 @@ OpcodeDef
 MVEX
  & 0x1F);
 
-3228 
+3229 
 ›size
  = 0;
 
-3229 i‡(
+3230 i‡(
 s
 .
 OpcodeDef
@@ -22055,7 +22335,7 @@ OpcodeDef
 O±i⁄s
  & 1) {
 
-3231 i‡(
+3232 i‡(
 s
 .
 OpcodeDef
@@ -22063,7 +22343,7 @@ OpcodeDef
 AŒowedPªfixes
  & 0x1000) {
 
-3233 i‡(
+3234 i‡(
 s
 .
 Pªfixes
@@ -22071,7 +22351,7 @@ Pªfixes
 ›size
  = 1;
 
-3235 i‡(
+3236 i‡(
 s
 .
 OpcodeDef
@@ -22079,7 +22359,7 @@ OpcodeDef
 AŒowedPªfixes
  & 0x300) {
 
-3237 i‡(
+3238 i‡(
 s
 .
 Pªfixes
@@ -22087,7 +22367,7 @@ Pªfixes
 ›size
  = 1;
 
-3240 
+3241 
 IsMem
  = 
 s
@@ -22095,7 +22375,7 @@ s
 Mod
  != 3;
 
-3242 
+3243 
 s
 .
 SwizRec‹d
@@ -22111,7 +22391,7 @@ IsMem
 Esss
  & 7]);
 
-3244 i‡(
+3245 i‡(
 s
 .
 OpcodeDef
@@ -22119,7 +22399,7 @@ OpcodeDef
 MVEX
  & 0x40) {
 
-3246 
+3247 
 s
 .
 Off£tMu…ùlõr
@@ -22129,7 +22409,7 @@ SwizRec‹d
 ñemítsize
 ;
 
-3250 
+3251 
 s
 .
 Off£tMu…ùlõr
@@ -22139,13 +22419,13 @@ SwizRec‹d
 mem›size
 ;
 
-3251 i‡(
+3252 i‡(
 s
 .
 Off£tMu…ùlõr
  == 0) {
 
-3253 
+3254 
 uöt16
  
 sour˚
@@ -22157,7 +22437,7 @@ OpcodeDef
 Sour˚2
 ;
 
-3254 i‡(!(
+3255 i‡(!(
 sour˚
  & 0xF00)Ësour˚ = 
 s
@@ -22167,45 +22447,45 @@ OpcodeDef
 Sour˚1
 ;
 
-3255 (
+3256 (
 sour˚
  >> 8) & 0xF) {
 
-3258 
+3259 
 s
 .
 Off£tMu…ùlõr
  = 0x40; ;
 
-3260 
+3261 
 s
 .
 Off£tMu…ùlõr
  = 0x10; ;
 
-3262 
+3263 
 s
 .
 Off£tMu…ùlõr
  = 0x20; ;
 
-3264 
+3265 
 s
 .
 Off£tMu…ùlõr
  = 0x40; ;
 
-3268 
+3269 
 	}
 }
 
-3270 
+3271 
 	gCDißs£mbÀr
 ::
 	$FödO≥øndTy≥s
 () {
 
-3272 
+3273 
 uöt32
  
 i
@@ -22215,11 +22495,11 @@ j
 k
 ;
 
-3273 
+3274 
 nimm
  = 0;
 
-3274 
+3275 
 uöt32
  
 AŒowedPªf
@@ -22231,19 +22511,19 @@ OpcodeDef
 AŒowedPªfixes
 ;
 
-3275 
+3276 
 uöt32
  
 ›î
 ;
 
-3277 
+3278 
 s
 .
 MaxNumO≥ønds
  = 4;
 
-3280 
+3281 
 i
  = 0; i < 
 s
@@ -22251,7 +22531,7 @@ s
 MaxNumO≥ønds
 ; i++) {
 
-3281 
+3282 
 s
 .
 O≥ønds
@@ -22263,7 +22543,7 @@ OpcodeDef
 De°ö©i⁄
 )[i];
 
-3285 
+3286 
 s
 .
 OpcodeDef
@@ -22271,7 +22551,7 @@ OpcodeDef
 In°ru˘i⁄F‹m©
  & 0x1F) {
 
-3292 i‡((
+3293 i‡((
 s
 .
 O≥ønds
@@ -22279,7 +22559,7 @@ O≥ønds
 i
  = 0; i = 1;
 
-3294 
+3295 
 s
 .
 O≥ønds
@@ -22287,7 +22567,7 @@ O≥ønds
 i
 ] |= 0x20000;
 
-3299 i‡((
+3300 i‡((
 s
 .
 O≥ønds
@@ -22295,7 +22575,7 @@ O≥ønds
 i
  = 0; i = 1;
 
-3301 
+3302 
 s
 .
 O≥ønds
@@ -22303,13 +22583,13 @@ O≥ønds
 i
 ] |= 0x60000;
 
-3306 
+3307 
 j
  = 
 k
  = 0; j < 2; j++) {
 
-3307 i‡(
+3308 i‡(
 s
 .
 O≥ønds
@@ -22317,7 +22597,7 @@ O≥ønds
 j
 ]) {
 
-3308 
+3309 
 s
 .
 O≥ønds
@@ -22325,23 +22605,23 @@ O≥ønds
 j
 ] & 0xF0) {
 
-3311 
+3312 
 k
  |
 j
 +1;
 
-3315 i‡(
+3316 i‡(
 k
  < 1 || k > 2) {
 
-3317 
+3318 
 s
 .
 Eº‹s
  |= 0x80000;
 
-3321 
+3322 
 s
 .
 O≥ønds
@@ -22349,31 +22629,31 @@ O≥ønds
 k
 -1] |= 0x30000;
 
-3327 
+3328 
 s
 .
 O≥ønds
 [0] |= 0x40000;
 
-3329 
+3330 
 s
 .
 O≥ønds
 [1] |= 0x30000;
 
-3334 
+3335 
 s
 .
 O≥ønds
 [0] |= 0x30000;
 
-3336 
+3337 
 s
 .
 O≥ønds
 [1] |= 0x40000;
 
-3341 
+3342 
 O≥øndC⁄figuøti⁄
  = ((
 s
@@ -22387,13 +22667,13 @@ uöt8
 OpcodeSèπ2
 ) >> 1) & 2);
 
-3343 
+3344 
 s
 .
 O≥ønds
 [0] |= 0x50000;
 
-3344 i‡(
+3345 i‡(
 s
 .
 OpcodeDef
@@ -22401,165 +22681,165 @@ OpcodeDef
 In°ru˘i⁄F‹m©
  & 1) {
 
-3346 
+3347 
 O≥øndC⁄figuøti⁄
 ) {
-
-3348 
-s
-.
-O≥ønds
-[1] = s.Operands[0];
 
 3349 
 s
 .
 O≥ønds
-[2] |= 0x40000;
+[1] = s.Operands[0];
 
 3350 
 s
 .
 O≥ønds
-[3] |= 0x30000;
+[2] |= 0x40000;
 
-3353 
+3351 
 s
 .
 O≥ønds
-[1] = s.Operands[0];
+[3] |= 0x30000;
 
 3354 
 s
 .
 O≥ønds
-[2] |= 0x30000;
+[1] = s.Operands[0];
 
 3355 
 s
 .
 O≥ønds
-[3] |= 0x40000;
+[2] |= 0x30000;
 
-3358 
+3356 
 s
 .
 O≥ønds
-[1] |= 0x40000;
+[3] |= 0x40000;
 
 3359 
 s
 .
 O≥ønds
-[2] |= 0x30000;
+[1] |= 0x40000;
 
 3360 
 s
 .
 O≥ønds
-[3] = s.Operands[0];
+[2] |= 0x30000;
 
-3363 
+3361 
 s
 .
 O≥ønds
-[1] |= 0x30000;
+[3] = s.Operands[0];
 
 3364 
 s
 .
 O≥ønds
-[2] |= 0x40000;
+[1] |= 0x30000;
 
 3365 
 s
 .
 O≥ønds
-[3] = s.Operands[0];
+[2] |= 0x40000;
 
-3371 i‡((
-O≥øndC⁄figuøti⁄
- & 1) == 0) {
-
-3373 
+3366 
 s
 .
 O≥ønds
-[1] |= 0x40000;
+[3] = s.Operands[0];
+
+3372 i‡((
+O≥øndC⁄figuøti⁄
+ & 1) == 0) {
 
 3374 
 s
 .
 O≥ønds
-[2] |= 0x30000;
+[1] |= 0x40000;
 
-3378 
+3375 
 s
 .
 O≥ønds
-[1] |= 0x30000;
+[2] |= 0x30000;
 
 3379 
 s
 .
 O≥ønds
+[1] |= 0x30000;
+
+3380 
+s
+.
+O≥ønds
 [2] |= 0x40000;
 
-3387 
+3388 
 s
 .
 O≥ønds
 [0] |= 0x60000;
 
-3389 
+3390 
 s
 .
 O≥ønds
 [1] |= 0x30000;
 
-3390 i‡(!(
+3391 i‡(!(
 s
 .
 Pªfixes
 [7] & 0xB0)) {
 
-3392 
+3393 
 s
 .
 O≥ønds
 [0] = s.Operands[1]; s.Operands[1] = 0;
 
-3398 
+3399 
 s
 .
 O≥ønds
 [0] |= 0x40000;
 
-3399 
+3400 
 s
 .
 O≥ønds
 [1] |= 0x60000;
 
-3400 
+3401 
 s
 .
 O≥ønds
 [2] |= 0x30000;
 
-3401 i‡(!(
+3402 i‡(!(
 s
 .
 Pªfixes
 [7] & 0xB0)) {
 
-3403 
+3404 
 s
 .
 O≥ønds
 [1] = s.Operands[2]; s.Operands[2] = 0;
 
-3406 i‡((
+3407 i‡((
 AŒowedPªf
  & 0x7000Ë=0x7000 && !(
 s
@@ -22567,7 +22847,7 @@ s
 Pªfixes
 [7] & 8)) {
 
-3408 
+3409 
 k
  = 
 s
@@ -22575,91 +22855,91 @@ s
 O≥ønds
 [1]; s.Operands[1] = s.Operands[2]; s.Operands[2] = k;
 
-3414 
-s
-.
-O≥ønds
-[0] |= 0x30000;
-
 3415 
 s
 .
 O≥ønds
-[1] |= 0x60000;
+[0] |= 0x30000;
 
 3416 
 s
 .
 O≥ønds
+[1] |= 0x60000;
+
+3417 
+s
+.
+O≥ønds
 [2] |= 0x40000;
 
-3417 i‡(!(
+3418 i‡(!(
 s
 .
 Pªfixes
 [7] & 0xB0)) {
 
-3419 
+3420 
 s
 .
 O≥ønds
 [1] = s.Operands[2]; s.Operands[2] = 0;
 
-3425 
-s
-.
-O≥ønds
-[0] |= 0x40000;
-
 3426 
 s
 .
 O≥ønds
-[1] |= 0x30000;
+[0] |= 0x40000;
 
 3427 
 s
 .
 O≥ønds
+[1] |= 0x30000;
+
+3428 
+s
+.
+O≥ønds
 [2] |= 0x60000;
 
-3428 i‡(!(
+3429 i‡(!(
 s
 .
 Pªfixes
 [7] & 0xB0)) {
 
-3430 
+3431 
 s
 .
 O≥ønds
 [2] = 0;
 
-3436 
-s
-.
-O≥ønds
-[0] |= 0x40000;
-
 3437 
 s
 .
 O≥ønds
-[1] |= 0x60000;
+[0] |= 0x40000;
 
 3438 
 s
 .
 O≥ønds
-[2] |= 0x30000;
+[1] |= 0x60000;
 
 3439 
 s
 .
 O≥ønds
+[2] |= 0x30000;
+
+3440 
+s
+.
+O≥ønds
 [3] |= 0x70000;
 
-3440 i‡((
+3441 i‡((
 s
 .
 Pªfixes
@@ -22667,7 +22947,7 @@ Pªfixes
 AŒowedPªf
  & 0x7000) == 0x7000) {
 
-3442 
+3443 
 k
  = 
 s
@@ -22675,35 +22955,35 @@ s
 O≥ønds
 [2]; s.Operands[2] = s.Operands[3]; s.Operands[3] = k;
 
-3444 
+3445 
 nimm
 ++;
-
-3449 
-s
-.
-O≥ønds
-[0] |= 0x40000;
 
 3450 
 s
 .
 O≥ønds
-[1] |= 0x70000;
+[0] |= 0x40000;
 
 3451 
 s
 .
 O≥ønds
-[2] |= 0x30000;
+[1] |= 0x70000;
 
 3452 
 s
 .
 O≥ønds
+[2] |= 0x30000;
+
+3453 
+s
+.
+O≥ønds
 [3] |= 0x60000;
 
-3453 i‡((
+3454 i‡((
 s
 .
 Pªfixes
@@ -22711,7 +22991,7 @@ Pªfixes
 AŒowedPªf
  & 0x7000) == 0x7000) {
 
-3455 
+3456 
 k
  = 
 s
@@ -22719,51 +22999,51 @@ s
 O≥ønds
 [2]; s.Operands[2] = s.Operands[3]; s.Operands[3] = k;
 
-3457 
+3458 
 nimm
 ++;
 
-3461 i‡(
+3462 i‡(
 s
 .
 O≥ønds
 [0] & 0x2000) {
 
-3464 
+3465 
 s
 .
 O≥ønds
 [0] |= 0x30000;
 
-3465 
+3466 
 s
 .
 O≥ønds
 [1] |= 0x40000;
 
-3470 i‡(
+3471 i‡(
 s
 .
 O≥ønds
 [0]) s.Operands[0] |= 0x40000;
 
-3471 
+3472 
 s
 .
 O≥ønds
 [1] |= 0x30000;
 
-3472 i‡(
+3473 i‡(
 s
 .
 O≥ønds
 [2]) s.Operands[2] |= 0x60000;
 
-3478 
+3479 
 i
  = 0; i < 2; i++) {
 
-3479 i‡(
+3480 i‡(
 s
 .
 O≥ønds
@@ -22771,7 +23051,7 @@ O≥ønds
 i
 ] & 0x2000) {
 
-3481 
+3482 
 s
 .
 O≥ønds
@@ -22779,7 +23059,7 @@ O≥ønds
 i
 ] |= 0x10000;
 
-3482 i‡(
+3483 i‡(
 s
 .
 OpcodeDef
@@ -22787,7 +23067,7 @@ OpcodeDef
 In°ru˘i⁄F‹m©
  > 1) {
 
-3484 
+3485 
 s
 .
 AddªssFõldSize
@@ -22795,7 +23075,7 @@ AddªssFõldSize
 AddªssSize
  / 8;
 
-3485 
+3486 
 s
 .
 AddªssFõld
@@ -22803,13 +23083,13 @@ AddªssFõld
 OpcodeSèπ2
  + 1;
 
-3486 
+3487 
 s
 .
 MFœgs
  |= 1;
 
-3494 
+3495 
 i
  = 0; i < 
 s
@@ -22817,7 +23097,7 @@ s
 MaxNumO≥ønds
 ; i++) {
 
-3496 i‡(
+3497 i‡(
 s
 .
 O≥ønds
@@ -22825,7 +23105,7 @@ O≥ønds
 i
 ] == 0) ;
 
-3499 i‡((
+3500 i‡((
 s
 .
 O≥ønds
@@ -22833,11 +23113,11 @@ O≥ønds
 i
 ] & 0xFF) >= 0x10 && (s.Operands[i] & 0xFF) < 0x40) {
 
-3500 i‡(
+3501 i‡(
 nimm
 ++) {
 
-3501 
+3502 
 s
 .
 O≥ønds
@@ -22845,7 +23125,7 @@ O≥ønds
 i
 ] |= 0x200000;
 
-3504 
+3505 
 s
 .
 O≥ønds
@@ -22853,7 +23133,7 @@ O≥ønds
 i
 ] |= 0x100000;
 
-3509 
+3510 
 s
 .
 O≥ønds
@@ -22861,7 +23141,7 @@ O≥ønds
 i
 ] & 0x3000) {
 
-3511 i‡((
+3512 i‡((
 s
 .
 O≥ønds
@@ -22875,13 +23155,13 @@ OpcodeDef
 In°ru˘i⁄F‹m©
  & 0x10)) {
 
-3512 
+3513 
 s
 .
 Eº‹s
  |= 8;
 
-3513 
+3514 
 s
 .
 O≥ønds
@@ -22889,7 +23169,7 @@ O≥ønds
 i
 ] = (s.Operands[i] & ~0x1000) | 0x2000;
 
-3518 i‡((
+3519 i‡((
 s
 .
 O≥ønds
@@ -22899,13 +23179,13 @@ i
 Mod
  == 3) {
 
-3519 
+3520 
 s
 .
 Eº‹s
  |= 8;
 
-3520 
+3521 
 s
 .
 O≥ønds
@@ -22913,7 +23193,7 @@ O≥ønds
 i
 ] = (s.Operands[i] & ~0x2000) | 0x1000;
 
-3525 i‡((
+3526 i‡((
 s
 .
 O≥ønds
@@ -22921,7 +23201,7 @@ O≥ønds
 i
 ] & 0xF0000) == 0x10000) {
 
-3527 
+3528 
 s
 .
 O≥ønds
@@ -22929,7 +23209,7 @@ O≥ønds
 i
 ] |= 0x2000; ;
 
-3529 i‡((
+3530 i‡((
 s
 .
 O≥ønds
@@ -22937,13 +23217,13 @@ O≥ønds
 i
 ] & 0xF0000) == 0x30000) {
 
-3531 i‡(
+3532 i‡(
 s
 .
 Mod
  == 3) {
 
-3532 
+3533 
 s
 .
 O≥ønds
@@ -22951,7 +23231,7 @@ O≥ønds
 i
 ] |= 0x1000;
 
-3535 
+3536 
 s
 .
 O≥ønds
@@ -22959,7 +23239,7 @@ O≥ønds
 i
 ] |= 0x2000;
 
-3539 i‡((
+3540 i‡((
 s
 .
 O≥ønds
@@ -22967,7 +23247,7 @@ O≥ønds
 i
 ] & 0xF0) != 0x10) {
 
-3540 
+3541 
 s
 .
 O≥ønds
@@ -22975,7 +23255,7 @@ O≥ønds
 i
 ] |= 0x1000;
 
-3546 
+3547 
 s
 .
 O≥ønds
@@ -22983,7 +23263,7 @@ O≥ønds
 i
 ] & 0xFF) {
 
-3549 
+3550 
 s
 .
 O≥ønds
@@ -22991,7 +23271,7 @@ O≥ønds
 i
 ] &= ~0x0F;
 
-3550 
+3551 
 s
 .
 O≥ønds
@@ -23001,7 +23281,7 @@ i
 O≥øndSize
  == 16) ? 2 : 3;
 
-3555 
+3556 
 s
 .
 O≥ønds
@@ -23009,11 +23289,11 @@ O≥ønds
 i
 ] &= ~0x0F;
 
-3556 
+3557 
 AŒowedPªf
  & 0x7000) {
 
-3558 
+3559 
 s
 .
 O≥ønds
@@ -23023,19 +23303,19 @@ i
 O≥øndSize
  == 16) ? 2 : ((s.OperandSize == 64) ? 4 : 3);
 
-3561 i‡((
+3562 i‡((
 s
 .
 Pªfixes
 [7] & 8) == 0) {
 
-3562 
+3563 
 s
 .
 O≥øndSize
  = 8;
 
-3563 
+3564 
 s
 .
 O≥ønds
@@ -23043,13 +23323,13 @@ O≥ønds
 i
 ] |= 1;
 
-3566 
+3567 
 s
 .
 O≥øndSize
  = 16;
 
-3567 
+3568 
 s
 .
 O≥ønds
@@ -23057,7 +23337,7 @@ O≥ønds
 i
 ] |= 2;
 
-3571 
+3572 
 s
 .
 O≥ønds
@@ -23067,7 +23347,7 @@ i
 Pªfixes
 [5] != 0x66) + ((s.Prefixes[7] & 8) >> 2) + 1;
 
-3577 
+3578 
 s
 .
 O≥ønds
@@ -23075,11 +23355,11 @@ O≥ønds
 i
 ] &= ~0x0F;
 
-3578 i‡(
+3579 i‡(
 W‹dSize
  == 64) {
 
-3579 
+3580 
 s
 .
 O≥ønds
@@ -23087,7 +23367,7 @@ O≥ønds
 i
 ] |= 4;
 
-3582 
+3583 
 s
 .
 O≥ønds
@@ -23097,7 +23377,7 @@ i
 O≥øndSize
  == 16) ? 2 : 3;
 
-3587 
+3588 
 s
 .
 O≥ønds
@@ -23105,11 +23385,11 @@ O≥ønds
 i
 ] &= ~0x0F;
 
-3588 i‡(
+3589 i‡(
 W‹dSize
  == 64) {
 
-3589 
+3590 
 s
 .
 O≥ønds
@@ -23119,7 +23399,7 @@ i
 O≥øndSize
  == 16) ? 2 : 4;
 
-3592 
+3593 
 s
 .
 O≥ønds
@@ -23129,7 +23409,7 @@ i
 O≥øndSize
  == 16) ? 2 : 3;
 
-3597 
+3598 
 s
 .
 O≥ønds
@@ -23137,7 +23417,7 @@ O≥ønds
 i
 ] &= ~0x0F;
 
-3598 
+3599 
 s
 .
 O≥ønds
@@ -23147,7 +23427,7 @@ i
 O≥øndSize
  == 16) ? 3 : ((s.OperandSize == 64) ? 5 : 7);
 
-3602 
+3603 
 s
 .
 O≥ønds
@@ -23155,17 +23435,17 @@ O≥ønds
 i
 ] &= ~0x7F;
 
-3603 i‡((
+3604 i‡((
 AŒowedPªf
  & 0x1000) && !((AllowedPref & 0xF00) == 0xE00)) {
 
-3605 i‡(
+3606 i‡(
 s
 .
 Pªfixes
 [7] & 8) {
 
-3606 
+3607 
 s
 .
 O≥ønds
@@ -23173,7 +23453,7 @@ O≥ønds
 i
 ] |= 0x4C;
 
-3609 
+3610 
 s
 .
 O≥ønds
@@ -23181,13 +23461,13 @@ O≥ønds
 i
 ] |= 0x4B;
 
-3614 
+3615 
 s
 .
 Pªfixes
 [5]) {
 
-3616 
+3617 
 s
 .
 O≥ønds
@@ -23195,7 +23475,7 @@ O≥ønds
 i
 ] |= 0x4B; ;
 
-3618 
+3619 
 s
 .
 O≥ønds
@@ -23203,7 +23483,7 @@ O≥ønds
 i
 ] |= 0x4C; ;
 
-3620 
+3621 
 s
 .
 O≥ønds
@@ -23211,21 +23491,13 @@ O≥ønds
 i
 ] |= 0x4B;
 
-3621 
+3622 
 s
 .
 O≥ønds
 [
 i
 ] &= ~0xF00;
-
-3624 
-s
-.
-O≥ønds
-[
-i
-] |= 0x4C;
 
 3625 
 s
@@ -23233,9 +23505,17 @@ s
 O≥ønds
 [
 i
+] |= 0x4C;
+
+3626 
+s
+.
+O≥ønds
+[
+i
 ] &= ~0xF00;
 
-3633 
+3634 
 s
 .
 O≥ønds
@@ -23243,7 +23523,7 @@ O≥ønds
 i
 ] & 0xF00) {
 
-3638 
+3639 
 ›î
  = 
 s
@@ -23253,19 +23533,19 @@ O≥ønds
 i
 ] & ~0xF00;
 
-3639 i‡(
+3640 i‡(
 s
 .
 Pªfixes
 [3] == 0x62) {
 
-3640 i‡(
+3641 i‡(
 s
 .
 Pªfixes
 [6] & 0x20) {
 
-3647 i‡((
+3648 i‡((
 s
 .
 OpcodeDef
@@ -23277,11 +23557,11 @@ Mod
 Esss
  & 1)) {
 
-3649 
+3650 
 ›î
  |= 0x600;
 
-3651 i‡(
+3652 i‡(
 s
 .
 OpcodeDef
@@ -23289,11 +23569,11 @@ OpcodeDef
 EVEX
  & 8) {
 
-3653 
+3654 
 ›î
  |= 0x400;
 
-3657 
+3658 
 ›î
  |0x400 + ((
 s
@@ -23301,21 +23581,21 @@ s
 Esss
  & 6) << 7);
 
-3662 
+3663 
 ›î
  |= 0x600;
 
-3665 i‡(
+3666 i‡(
 s
 .
 Pªfixes
 [6] & 0x20) {
 
-3666 
+3667 
 ›î
  |= 0x500;
 
-3668 i‡(
+3669 i‡(
 s
 .
 Pªfixes
@@ -23325,15 +23605,15 @@ O≥ønds
 i
 ] & 0x200)) {
 
-3669 
+3670 
 ›î
  |= 0x400;
 
-3672 
+3673 
 ›î
  |= 0x300;
 
-3674 i‡((
+3675 i‡((
 s
 .
 O≥ønds
@@ -23341,11 +23621,11 @@ O≥ønds
 i
 ] & 0xF00) == 0xF00) {
 
-3676 
+3677 
 ›î
  -= 0x100;
 
-3677 i‡((
+3678 i‡((
 ›î
  & 0x1000Ë|| (
 s
@@ -23355,15 +23635,15 @@ OpcodeDef
 In°ru˘i⁄F‹m©
  == 0x1E)) {
 
-3679 i‡((
+3680 i‡((
 ›î
  & 0xF00) < 0x400) {
 
-3680 
+3681 
 ›î
  = (oper & ~0x300) | 0x400;
 
-3684 
+3685 
 s
 .
 O≥ønds
@@ -23373,7 +23653,7 @@ i
 ›î
 ;
 
-3690 i‡((
+3691 i‡((
 s
 .
 Pªfixes
@@ -23383,7 +23663,7 @@ O≥ønds
 i
 ] & 0xF0000) == 0x30000) {
 
-3691 
+3692 
 sw
  = (
 s
@@ -23393,11 +23673,11 @@ OpcodeDef
 MVEX
  & 0x1F);
 
-3692 i‡(
+3693 i‡(
 sw
 ) {
 
-3693 
+3694 
 ›ty≥
  = 
 s
@@ -23407,7 +23687,7 @@ SwizRec‹d
 mem›
  : 0;
 
-3694 i‡(
+3695 i‡(
 s
 .
 OpcodeDef
@@ -23415,7 +23695,7 @@ OpcodeDef
 In°ru˘i⁄F‹m©
  == 0x1E) {
 
-3696 
+3697 
 s
 .
 O≥ønds
@@ -23425,7 +23705,7 @@ i
 ›ty≥
  & 0xFF);
 
-3698 i‡(
+3699 i‡(
 s
 .
 OpcodeDef
@@ -23433,7 +23713,7 @@ OpcodeDef
 MVEX
  & 0x40) {
 
-3700 
+3701 
 s
 .
 O≥ønds
@@ -23443,7 +23723,7 @@ i
 ›ty≥
  & 0xFF);
 
-3704 i‡(
+3705 i‡(
 ›ty≥
 Ë
 s
@@ -23453,35 +23733,35 @@ O≥ønds
 i
 ] = optype | 0x30000;
 
-3709 
+3710 
 	}
 }
 
-3712 
+3713 
 	gCDißs£mbÀr
 ::
 	$FödW¨nögs
 () {
 
-3714 
+3715 
 uöt32
  
 i
 ;
 
-3715 
+3716 
 uöt32
  
 O≥øndSize
 ;
 
-3716 
+3717 
 uöt8
  
 RexBôs
  = 0;
 
-3718 i‡((
+3719 i‡((
 s
 .
 OpcodeDef
@@ -23493,7 +23773,7 @@ ImmedüãFõldSize
 ImmedüãRñoˇti⁄
  == 0) {
 
-3720 i‡((
+3721 i‡((
 s
 .
 ImmedüãFõldSize
@@ -23507,7 +23787,7 @@ ImmedüãFõld
 öt8
 >(s.ImmediateField))
 
-3721 || (
+3722 || (
 s
 .
 ImmedüãFõldSize
@@ -23521,13 +23801,13 @@ ImmedüãFõld
 öt8
 >(s.ImmediateField))) {
 
-3722 
+3723 
 s
 .
 W¨nögs1
  |= 1;
 
-3725 i‡(
+3726 i‡(
 W‹dSize
  =64 && 
 s
@@ -23537,7 +23817,7 @@ ImmedüãFõldSize
 ImmedüãRñoˇti⁄
  == 0) {
 
-3727 i‡(
+3728 i‡(
 Gë
 <
 uöt32
@@ -23547,13 +23827,13 @@ s
 ImmedüãFõld
 +4) == 0) {
 
-3728 
+3729 
 s
 .
 W¨nögs1
  |= 2;
 
-3730 i‡(
+3731 i‡(
 Gë
 <
 öt64
@@ -23565,13 +23845,13 @@ ImmedüãFõld
 öt32
 >(s.ImmediateField)) {
 
-3731 
+3732 
 s
 .
 W¨nögs1
  |= 1;
 
-3735 i‡(
+3736 i‡(
 s
 .
 AddªssFõldSize
@@ -23579,7 +23859,7 @@ AddªssFõldSize
 AddªssRñoˇti⁄
  == 0
 
-3736 && (
+3737 && (
 s
 .
 Ba£Reg
@@ -23589,19 +23869,19 @@ IndexReg
 SˇÀ
  < 2))
 
-3737 && 
+3738 && 
 s
 .
 Off£tMu…ùlõr
  <= 1) {
 
-3739 
+3740 
 s
 .
 AddªssFõldSize
 ) {
 
-3741 i‡(
+3742 i‡(
 Gë
 <
 uöt8
@@ -23611,7 +23891,7 @@ s
 AddªssFõld
 ) == 0
 
-3742 && (((
+3743 && (((
 s
 .
 Ba£Reg
@@ -23621,13 +23901,13 @@ AddªssSize
 IndexReg
 )))
 
-3743 
+3744 
 s
 .
 W¨nögs1
  |= 4;
 
-3746 i‡(
+3747 i‡(
 Gë
 <
 öt16
@@ -23639,7 +23919,7 @@ AddªssFõld
 W¨nögs1
  |= 4;
 
-3747 i‡(
+3748 i‡(
 Gë
 <
 öt16
@@ -23653,7 +23933,7 @@ AddªssFõld
 W¨nögs1
  |= 8;
 
-3750 i‡(
+3751 i‡(
 Gë
 <
 öt32
@@ -23665,7 +23945,7 @@ AddªssFõld
 W¨nögs1
  |= 4;
 
-3751 i‡(
+3752 i‡(
 Gë
 <
 öt32
@@ -23679,7 +23959,7 @@ AddªssFõld
 W¨nögs1
  |= 8;
 
-3754 i‡(
+3755 i‡(
 Gë
 <
 öt32
@@ -23691,13 +23971,13 @@ AddªssFõld
 öt64
 >(s.AddressField))
 
-3756 
+3757 
 s
 .
 W¨nögs1
  |= 8;
 
-3761 i‡((
+3762 i‡((
 s
 .
 MFœgs
@@ -23709,7 +23989,7 @@ IndexReg
 SˇÀ
 ==0))) {
 
-3762 i‡(
+3763 i‡(
 W‹dSize
  =64 && 
 s
@@ -23721,19 +24001,19 @@ IndexReg
 W¨nögs1
  |= 0x4000;
 
-3763 i‡((
+3764 i‡((
 s
 .
 O≥ønds
 [0] & 0xFF) != 0x98 && (s.Operands[1] & 0xFF) != 0x98) {
 
-3764 
+3765 
 s
 .
 W¨nögs1
  |= 0x10;
 
-3768 i‡((
+3769 i‡((
 s
 .
 OpcodeDef
@@ -23745,7 +24025,7 @@ In°ru˘i⁄F‹m©
 Mod
  == 3
 
-3769 && !(
+3770 && !(
 W‹dSize
  =64 && 
 Gë
@@ -23757,13 +24037,13 @@ s
 OpcodeSèπ1
 ) == 0xFF)) {
 
-3770 
+3771 
 s
 .
 W¨nögs1
  |= 0x20;
 
-3773 i‡(
+3774 i‡(
 s
 .
 ImmedüãFõldSize
@@ -23771,7 +24051,7 @@ ImmedüãFõldSize
 Pªfixes
 [4] == 0x66
 
-3774 && (
+3775 && (
 s
 .
 OpcodeDef
@@ -23781,13 +24061,13 @@ AŒowedPªfixes
 In°ru˘i⁄F‹m©
  & 0x20)) {
 
-3776 
+3777 
 s
 .
 W¨nögs1
  |= 0x40;
 
-3780 i‡(
+3781 i‡(
 Gë
 <
 uöt8
@@ -23801,13 +24081,13 @@ Pªfixes
 ImmedüãFõldSize
 ) {
 
-3781 
+3782 
 s
 .
 W¨nögs1
  |= 0x2000000;
 
-3786 i‡(
+3787 i‡(
 s
 .
 Pªfixes
@@ -23815,13 +24095,13 @@ Pªfixes
 MFœgs
  & 2)) {
 
-3787 
+3788 
 s
 .
 W¨nögs1
  |= 0x80;
 
-3790 i‡((
+3791 i‡((
 s
 .
 OpcodeDef
@@ -23831,13 +24111,13 @@ AŒowedPªfixes
 Pªfixes
 [7] == 0x48) {
 
-3791 
+3792 
 s
 .
 W¨nögs1
  |= 0x200;
 
-3794 i‡(!(
+3795 i‡(!(
 s
 .
 OpcodeDef
@@ -23847,7 +24127,7 @@ In°ru˘i⁄F‹m©
 Mod
  == 3) {
 
-3796 i‡((
+3797 i‡((
 s
 .
 Pªfixes
@@ -23857,7 +24137,7 @@ OpcodeDef
 AŒowedPªfixes
  & 0xC))
 
-3797 || (
+3798 || (
 s
 .
 Pªfixes
@@ -23867,13 +24147,13 @@ OpcodeDef
 AŒowedPªfixes
  & 3))) {
 
-3798 
+3799 
 s
 .
 W¨nögs1
  |= 0x400;
 
-3803 i‡(
+3804 i‡(
 s
 .
 Pªfixes
@@ -23883,7 +24163,7 @@ OpcodeDef
 AŒowedPªfixes
  & 0x0C)) {
 
-3805 i‡(
+3806 i‡(
 W‹dSize
  =64 && (
 s
@@ -23891,13 +24171,13 @@ s
 Pªfixes
 [0] & 0x02))
 
-3806 
+3807 
 s
 .
 W¨nögs1
  |= 0x400;
 
-3807 i‡(
+3808 i‡(
 s
 .
 Pªfixes
@@ -23905,13 +24185,13 @@ Pªfixes
 Ba£Reg
  != 4+1 && s.BaseReg != 5+1)
 
-3808 
+3809 
 s
 .
 W¨nögs1
  |= 0x400;
 
-3809 i‡(
+3810 i‡(
 s
 .
 Pªfixes
@@ -23919,35 +24199,35 @@ Pªfixes
 Ba£Reg
  == 4+1 || s.BaseReg == 5+1) )
 
-3810 
+3811 
 s
 .
 W¨nögs1
  |= 0x400;
 
-3811 i‡(
+3812 i‡(
 Opcodei
  == 0x8D)
 
-3812 
+3813 
 s
 .
 W¨nögs1
  |= 0x400;
 
-3813 i‡(
+3814 i‡(
 s
 .
 Mod
  == 3)
 
-3814 
+3815 
 s
 .
 W¨nögs1
  |= 0x400;
 
-3818 i‡(
+3819 i‡(
 s
 .
 Pªfixes
@@ -23957,13 +24237,13 @@ OpcodeDef
 AŒowedPªfixes
  & 0x380))
 
-3819 
+3820 
 s
 .
 W¨nögs1
  |= 0x400;
 
-3822 i‡(
+3823 i‡(
 s
 .
 Pªfixes
@@ -23973,13 +24253,13 @@ OpcodeDef
 AŒowedPªfixes
  & 0x868))
 
-3823 
+3824 
 s
 .
 W¨nögs1
  |= 0x400;
 
-3826 i‡(
+3827 i‡(
 s
 .
 Pªfixes
@@ -23989,19 +24269,19 @@ OpcodeDef
 AŒowedPªfixes
  & 0x460))
 
-3827 
+3828 
 s
 .
 W¨nögs1
  |= 0x400;
 
-3830 i‡(
+3831 i‡(
 s
 .
 Pªfixes
 [7]) {
 
-3833 
+3834 
 RexBôs
  = 
 s
@@ -24009,7 +24289,7 @@ s
 Pªfixes
 [7] & 0x0F;
 
-3835 i‡(
+3836 i‡(
 RexBôs
  =0 && (
 s
@@ -24019,13 +24299,13 @@ Pªfixes
 O≥ønds
 [0] & 0xFF) != 1 && (s.Operands[1] & 0xFF) != 1) {
 
-3837 
+3838 
 s
 .
 W¨nögs1
  |= 0x400;
 
-3841 i‡(
+3842 i‡(
 s
 .
 OpcodeDef
@@ -24035,11 +24315,11 @@ AŒowedPªfixes
 RexBôs
  &= ~8;
 
-3843 
+3844 
 i
  = 0; i < 4; i++) {
 
-3844 
+3845 
 s
 .
 O≥ønds
@@ -24047,7 +24327,7 @@ O≥ønds
 i
 ] & 0xF0000) {
 
-3846 i‡((
+3847 i‡((
 s
 .
 O≥ønds
@@ -24055,11 +24335,11 @@ O≥ønds
 i
 ] & 0xF00) != 0x300 && (s.Operands[i] & 0x58) != 0x40 && (s.Operands[i] & 0xFF) != 0x91)
 
-3848 
+3849 
 RexBôs
  &= ~4;
 
-3851 i‡((
+3852 i‡((
 s
 .
 O≥ønds
@@ -24067,15 +24347,15 @@ O≥ønds
 i
 ] & 0xF00) != 0x300 && (s.Operands[i] & 0x58) != 0x40 && (s.Operands[i] & 0xFF) != 0x91)
 
-3853 
+3854 
 RexBôs
  &= ~1;
 
-3856 
+3857 
 RexBôs
  &= ~1;
 
-3861 i‡(
+3862 i‡(
 s
 .
 IndexReg
@@ -24083,7 +24363,7 @@ IndexReg
 RexBôs
  &= ~2;
 
-3863 i‡(
+3864 i‡(
 s
 .
 Ba£Reg
@@ -24091,7 +24371,7 @@ Ba£Reg
 RexBôs
  &= ~1;
 
-3865 i‡(
+3866 i‡(
 s
 .
 Pªfixes
@@ -24101,7 +24381,7 @@ Mod
 RexBôs
  &= ~2;
 
-3868 i‡((
+3869 i‡((
 s
 .
 OpcodeDef
@@ -24113,23 +24393,23 @@ Pªfixes
 RexBôs
  &= ~8;
 
-3871 i‡(
+3872 i‡(
 RexBôs
 ) {
 
-3872 
+3873 
 s
 .
 W¨nögs1
  |= 0x400;
 
-3876 i‡(
+3877 i‡(
 this
 ->
 W‹dSize
  < 64) {
 
-3877 i‡(
+3878 i‡(
 s
 .
 Pªfixes
@@ -24137,19 +24417,19 @@ Pªfixes
 RexBôs
 ) {
 
-3878 
+3879 
 s
 .
 Eº‹s
  |= 0x200;
 
-3880 i‡(
+3881 i‡(
 s
 .
 Pªfixes
 [7] & 0xB0) {
 
-3882 i‡(
+3883 i‡(
 s
 .
 Vªg
@@ -24157,7 +24437,7 @@ Vªg
 Eº‹s
  |= 0x200;
 
-3884 i‡((
+3885 i‡((
 s
 .
 OpcodeDef
@@ -24171,25 +24451,25 @@ uöt8
 ImmedüãFõld
 ) & 8)) {
 
-3885 
+3886 
 s
 .
 Eº‹s
  |= 0x200;
 
-3891 i‡(
+3892 i‡(
 s
 .
 Pªfixes
 [7] & 0xB0) {
 
-3893 i‡((
+3894 i‡((
 s
 .
 Pªfixes
 [6] & 0x60) == 0x20) {
 
-3894 i‡(!(
+3895 i‡(!(
 s
 .
 OpcodeDef
@@ -24199,7 +24479,7 @@ AŒowedPªfixes
 W¨nögs1
  |= 0x40000000;
 
-3895 i‡((
+3896 i‡((
 s
 .
 OpcodeDef
@@ -24211,7 +24491,7 @@ Pªfixes
 W¨nögs1
  |= 0x40000000;
 
-3898 i‡((
+3899 i‡((
 s
 .
 OpcodeDef
@@ -24223,19 +24503,19 @@ Pªfixes
 W¨nögs1
  |= 0x1000;
 
-3900 i‡((
+3901 i‡((
 s
 .
 Pªfixes
 [6] & 0x10) && s.Prefixes[3] != 0x62) {
 
-3901 
+3902 
 s
 .
 W¨nögs1
  |= 0x40000000;
 
-3904 i‡(
+3905 i‡(
 s
 .
 Pªfixes
@@ -24245,19 +24525,19 @@ OpcodeDef
 In°ru˘i⁄F‹m©
  == 0x1E) {
 
-3906 i‡(
+3907 i‡(
 s
 .
 Vªg
  & 0xF) {
 
-3907 
+3908 
 s
 .
 W¨nögs1
  |= 0x40000000;
 
-3911 i‡((
+3912 i‡((
 s
 .
 Vªg
@@ -24267,31 +24547,31 @@ OpcodeDef
 AŒowedPªfixes
  & 0x80000)) {
 
-3912 
+3913 
 s
 .
 W¨nögs1
  |= 0x40000000;
 
-3917 i‡(
+3918 i‡(
 s
 .
 Pªfixes
 [3] == 0x62) {
 
-3918 i‡(
+3919 i‡(
 s
 .
 Pªfixes
 [6] & 0x20) {
 
-3920 i‡(
+3921 i‡(
 s
 .
 Mod
  == 3) {
 
-3922 i‡(!(
+3923 i‡(!(
 s
 .
 OpcodeDef
@@ -24301,13 +24581,13 @@ EVEX
 Esss
  & 1)) {
 
-3923 
+3924 
 s
 .
 W¨nögs2
  |= 0x40;
 
-3928 i‡(!(
+3929 i‡(!(
 s
 .
 OpcodeDef
@@ -24317,13 +24597,13 @@ EVEX
 Esss
  & 1)) {
 
-3929 
+3930 
 s
 .
 W¨nögs2
  |= 0x40;
 
-3932 i‡(!(
+3933 i‡(!(
 s
 .
 OpcodeDef
@@ -24333,13 +24613,13 @@ EVEX
 Kªg
 ) {
 
-3933 
+3934 
 s
 .
 W¨nögs2
  |= 0x40;
 
-3935 i‡(!(
+3936 i‡(!(
 s
 .
 OpcodeDef
@@ -24349,13 +24629,13 @@ EVEX
 Esss
  & 8)) {
 
-3936 
+3937 
 s
 .
 W¨nögs2
  |= 0x40;
 
-3938 i‡((
+3939 i‡((
 s
 .
 OpcodeDef
@@ -24365,19 +24645,19 @@ EVEX
 Kªg
  == 0) {
 
-3939 
+3940 
 s
 .
 W¨nögs2
  |= 0x100;
 
-3944 i‡(
+3945 i‡(
 s
 .
 Mod
  == 3) {
 
-3946 i‡((
+3947 i‡((
 s
 .
 Esss
@@ -24387,13 +24667,13 @@ OpcodeDef
 MVEX
  & 0x600) == 0) {
 
-3947 
+3948 
 s
 .
 W¨nögs2
  |= 0x80;
 
-3950 i‡(((
+3951 i‡(((
 s
 .
 OpcodeDef
@@ -24403,13 +24683,13 @@ MVEX
 Esss
  & 7) != 0) {
 
-3951 
+3952 
 s
 .
 W¨nögs2
  |= 0x80;
 
-3953 i‡(
+3954 i‡(
 s
 .
 Kªg
@@ -24419,13 +24699,13 @@ OpcodeDef
 MVEX
  & 0x3000) == 0) {
 
-3954 
+3955 
 s
 .
 W¨nögs2
  |= 0x80;
 
-3960 i‡(
+3961 i‡(
 s
 .
 OpcodeDef
@@ -24435,7 +24715,7 @@ AŒowedPªfixes
 C⁄Êi˘s
 [5] = 0;
 
-3961 i‡((
+3962 i‡((
 s
 .
 OpcodeDef
@@ -24445,7 +24725,7 @@ AŒowedPªfixes
 C⁄Êi˘s
 [4] = 0;
 
-3962 i‡(*(
+3963 i‡(*(
 öt64
 *)&
 s
@@ -24455,7 +24735,7 @@ C⁄Êi˘s
 W¨nögs1
  |= 0x800;
 
-3965 i‡((
+3966 i‡((
 s
 .
 OpcodeDef
@@ -24465,13 +24745,13 @@ AŒowedPªfixes
 Pªfixes
 [5] == 0)
 
-3966 
+3967 
 s
 .
 W¨nögs1
  |= 0x1000;
 
-3967 i‡((
+3968 i‡((
 s
 .
 OpcodeDef
@@ -24481,13 +24761,13 @@ AŒowedPªfixes
 Pªfixes
 [7] & 0xB0) == 0)
 
-3968 
+3969 
 s
 .
 W¨nögs1
  |= 0x1000;
 
-3971 i‡(!(
+3972 i‡(!(
 s
 .
 OpcodeDef
@@ -24497,25 +24777,25 @@ AŒowedPªfixes
 Pªfixes
 [7] & 0xB0))
 
-3972 
+3973 
 s
 .
 W¨nögs1
  |= 0x40000000;
 
-3975 i‡(
+3976 i‡(
 s
 .
 Pªfixes
 [3] == 0x62) {
 
-3977 i‡(
+3978 i‡(
 s
 .
 Pªfixes
 [6] & 0x20) {
 
-3978 i‡(!(
+3979 i‡(!(
 s
 .
 OpcodeDef
@@ -24525,7 +24805,7 @@ AŒowedPªfixes
 W¨nögs2
  |= 0x10;
 
-3981 i‡(!(
+3982 i‡(!(
 s
 .
 OpcodeDef
@@ -24535,7 +24815,7 @@ AŒowedPªfixes
 W¨nögs2
  |= 0x20;
 
-3986 i‡(
+3987 i‡(
 s
 .
 SˇÀ
@@ -24545,7 +24825,7 @@ IndexReg
 W¨nögs1
  |= 0x2000;
 
-3989 i‡(
+3990 i‡(
 W‹dSize
  =64 && 
 s
@@ -24557,7 +24837,7 @@ AddªssRñoˇti⁄
 MFœgs
  & 0x100)) {
 
-3991 i‡(
+3992 i‡(
 s
 .
 AddªssRñoˇti⁄
@@ -24569,25 +24849,25 @@ Rñoˇti⁄s
 Ty≥
  & 0x14)) {
 
-3993 i‡(
+3994 i‡(
 s
 .
 AddªssFõldSize
  == 8) {
 
-3994 
+3995 
 s
 .
 W¨nögs1
  |= 0x20000000;
 
-3997 
+3998 
 s
 .
 W¨nögs1
  |= 0x4000;
 
-4002 i‡(
+4003 i‡(
 s
 .
 AddªssFõldSize
@@ -24603,13 +24883,13 @@ W‹dSize
 Pªfixes
 [0] & 0x40)))
 
-4003 
+4004 
 s
 .
 W¨nögs1
  |= 0x8000;
 
-4006 i‡(
+4007 i‡(
 s
 .
 AddªssFõldSize
@@ -24619,13 +24899,13 @@ AddªssRñoˇti⁄
 MFœgs
  & 1)) {
 
-4008 i‡(
+4009 i‡(
 s
 .
 MFœgs
  & 0x100) {
 
-4010 i‡(!(
+4011 i‡(!(
 Rñoˇti⁄s
 [
 s
@@ -24635,13 +24915,13 @@ AddªssRñoˇti⁄
 Ty≥
  & 2)) {
 
-4011 
+4012 
 s
 .
 W¨nögs1
  |= 0x10000;
 
-4016 i‡(
+4017 i‡(
 Rñoˇti⁄s
 [
 s
@@ -24651,13 +24931,13 @@ AddªssRñoˇti⁄
 Ty≥
  & 0x302) {
 
-4017 
+4018 
 s
 .
 W¨nögs1
  |= 0x10000;
 
-4023 
+4024 
 i
  = 0; i < 
 s
@@ -24665,7 +24945,7 @@ s
 MaxNumO≥ønds
 ; i++) {
 
-4025 
+4026 
 uöt32
  
 O≥øndTy≥
@@ -24677,25 +24957,25 @@ O≥ønds
 i
 ];
 
-4026 i‡((
+4027 i‡((
 O≥øndTy≥
  & 0x2000Ë&& 
 Opcodei
  != 0x8D) {
 
-4028 
+4029 
 öt64
  
 T¨gëOff£t
  = 0;
 
-4029 
+4030 
 s
 .
 AddªssFõldSize
 ) {
 
-4031 
+4032 
 T¨gëOff£t
  = 
 Gë
@@ -24707,7 +24987,7 @@ s
 AddªssFõld
 ); ;
 
-4033 
+4034 
 T¨gëOff£t
  = 
 Gë
@@ -24719,7 +24999,7 @@ s
 AddªssFõld
 ); ;
 
-4035 
+4036 
 T¨gëOff£t
  = 
 Gë
@@ -24731,13 +25011,13 @@ s
 AddªssFõld
 );
 
-4036 i‡(
+4037 i‡(
 s
 .
 MFœgs
  & 0x100) {
 
-4038 
+4039 
 T¨gëOff£t
  +
 IEnd
@@ -24747,7 +25027,7 @@ s
 AddªssFõld
 ;
 
-4042 
+4043 
 T¨gëOff£t
  = 
 Gë
@@ -24759,7 +25039,7 @@ s
 AddªssFõld
 ); ;
 
-4045 
+4046 
 T¨gëOff£t
  +
 Rñoˇti⁄s
@@ -24771,7 +25051,7 @@ AddªssRñoˇti⁄
 Addíd
 ;
 
-4048 
+4049 
 uöt32
  
 SymbﬁOldIndex
@@ -24785,7 +25065,7 @@ AddªssRñoˇti⁄
 T¨gëOldIndex
 ;
 
-4049 
+4050 
 uöt32
  
 SymbﬁNewIndex
@@ -24797,11 +25077,11 @@ Symbﬁs
 SymbﬁOldIndex
 );
 
-4050 i‡(
+4051 i‡(
 SymbﬁNewIndex
 ) {
 
-4052 
+4053 
 T¨gëOff£t
  +
 Symbﬁs
@@ -24811,7 +25091,7 @@ SymbﬁNewIndex
 Off£t
 ;
 
-4054 
+4055 
 öt32
  
 T¨gëSe˘i⁄
@@ -24823,7 +25103,7 @@ SymbﬁNewIndex
 Se˘i⁄
 ;
 
-4055 i‡(
+4056 i‡(
 T¨gëSe˘i⁄
  && (
 uöt32
@@ -24833,7 +25113,7 @@ Se˘i⁄s
 	`GëNumE¡rõs
 ()) {
 
-4057 
+4058 
 T¨gëOff£t
  +
 Se˘i⁄s
@@ -24843,7 +25123,7 @@ T¨gëSe˘i⁄
 Se˘i⁄Addªss
 ;
 
-4059 i‡((
+4060 i‡((
 Rñoˇti⁄s
 [
 s
@@ -24855,7 +25135,7 @@ Ty≥
 RefOldIndex
 ) {
 
-4061 
+4062 
 uöt32
  
 RefIndex
@@ -24873,7 +25153,7 @@ AddªssRñoˇti⁄
 RefOldIndex
 );
 
-4062 
+4063 
 T¨gëOff£t
  +
 Symbﬁs
@@ -24883,7 +25163,7 @@ RefIndex
 Off£t
 ;
 
-4064 i‡(
+4065 i‡(
 Rñoˇti⁄s
 [
 s
@@ -24893,7 +25173,7 @@ AddªssRñoˇti⁄
 Ty≥
  & 0x3000) {
 
-4071 
+4072 
 O≥øndSize
  = 
 	`GëD©aIãmSize
@@ -24901,7 +25181,7 @@ O≥øndSize
 O≥øndTy≥
 );
 
-4072 i‡(
+4073 i‡(
 s
 .
 Off£tMu…ùlõr
@@ -24909,15 +25189,15 @@ Off£tMu…ùlõr
 O≥øndSize
  = s.OffsetMultiplier;
 
-4073 
+4074 
 O≥øndSize
  & (OperandSize-1)) {
 
-4075 
+4076 
 O≥øndSize
  = OperandSize & (OperandSize-1);
 
-4079 i‡((
+4080 i‡((
 T¨gëOff£t
  & (
 O≥øndSize
@@ -24927,29 +25207,29 @@ s
 W¨nögs1
  & 0x10000)) {
 
-4081 i‡(
+4082 i‡(
 s
 .
 Off£tMu…ùlõr
 ) {
 
-4083 
+4084 
 s
 .
 W¨nögs1
  |= 0x800000;
 
-4085 i‡(
+4086 i‡(
 O≥øndSize
  < 16) {
 
-4087 
+4088 
 s
 .
 W¨nögs1
  |= 0x400000;
 
-4093 i‡(
+4094 i‡(
 s
 .
 OpcodeDef
@@ -24959,19 +25239,19 @@ O±i⁄s
 Pªfixes
 [7] & 0xB0) && !(s.OpcodeDef->Options & 0x200))) {
 
-4094 
+4095 
 s
 .
 W¨nögs1
  |= 0x800000;
 
-4097 
+4098 
 s
 .
 W¨nögs1
  |= 0x400000;
 
-4106 i‡(
+4107 i‡(
 s
 .
 ImmedüãFõldSize
@@ -24983,7 +25263,7 @@ OpcodeDef
 De°ö©i⁄
  & 0xFE) == 0x82) {
 
-4108 i‡(!(
+4109 i‡(!(
 Rñoˇti⁄s
 [
 s
@@ -24993,13 +25273,13 @@ ImmedüãRñoˇti⁄
 Ty≥
  & 2)) {
 
-4109 
+4110 
 s
 .
 W¨nögs1
  |= 0x10000;
 
-4113 i‡((
+4114 i‡((
 s
 .
 OpcodeDef
@@ -25009,7 +25289,7 @@ AŒowedPªfixes
 Pªfixes
 [4]) {
 
-4115 i‡(
+4116 i‡(
 W‹dSize
  =32Ë
 s
@@ -25017,7 +25297,7 @@ s
 W¨nögs1
  |= 0x20000;
 
-4116 i‡(
+4117 i‡(
 W‹dSize
  =64Ë
 s
@@ -25025,7 +25305,7 @@ s
 W¨nögs1
  |= 0x400;
 
-4120 i‡((
+4121 i‡((
 s
 .
 OpcodeDef
@@ -25035,13 +25315,13 @@ AŒowedPªfixes
 Pªfixes
 [1])
 
-4121 
+4122 
 s
 .
 W¨nögs1
  |= 0x40000;
 
-4124 i‡((
+4125 i‡((
 s
 .
 OpcodeDef
@@ -25051,13 +25331,13 @@ In°ru˘i⁄F‹m©
 Name
 )
 
-4125 
+4126 
 s
 .
 W¨nögs1
  |= 0x100000;
 
-4128 i‡(
+4129 i‡(
 s
 .
 OpcodeDef
@@ -25065,13 +25345,13 @@ OpcodeDef
 In°ru˘i⁄F‹m©
  & 0x2000)
 
-4129 
+4130 
 s
 .
 W¨nögs1
  |= 0x200000;
 
-4132 i‡(
+4133 i‡(
 s
 .
 OpcodeDef
@@ -25079,13 +25359,13 @@ OpcodeDef
 In°ru˘i⁄Së
  & 0x10000)
 
-4133 
+4134 
 s
 .
 W¨nögs2
  |= 0x2;
 
-4135 i‡(
+4136 i‡(
 s
 .
 OpcodeDef
@@ -25093,13 +25373,13 @@ OpcodeDef
 In°ru˘i⁄Së
  & 0x20000)
 
-4136 
+4137 
 s
 .
 W¨nögs2
  |= 0x4;
 
-4139 i‡((
+4140 i‡((
 s
 .
 OpcodeDef
@@ -25107,7 +25387,7 @@ OpcodeDef
 AŒowedPªfixes
  & 0x102) == 0x102) {
 
-4140 i‡(
+4141 i‡(
 s
 .
 Pªfixes
@@ -25123,13 +25403,13 @@ O≥øndSize
 W‹dSize
 )) {
 
-4141 
+4142 
 s
 .
 W¨nögs1
  |= 0x4000000;
 
-4146 i‡(
+4147 i‡(
 IEnd
  =
 Fun˘i⁄End
@@ -25141,13 +25421,13 @@ OpcodeDef
 O±i⁄s
  & 0x50)) {
 
-4147 
+4148 
 s
 .
 W¨nögs1
  |= 0x8000000;
 
-4151 i‡(
+4152 i‡(
 s
 .
 OpcodeDef
@@ -25157,41 +25437,41 @@ O±i⁄s
 	`CheckF‹N›s
 ();
 
-4154 i‡(
+4155 i‡(
 IBegö
  =
 LabñI«c˚ssibÀ
 ) {
 
-4155 
+4156 
 s
 .
 W¨nögs1
  |= 0x10000000;
 
-4157 
+4158 
 	}
 }
 
-4160 
+4161 
 	gCDißs£mbÀr
 ::
 	$FödEº‹s
 () {
 
-4162 i‡(
+4163 i‡(
 IEnd
  - 
 IBegö
  > 15) {
 
-4164 
+4165 
 s
 .
 Eº‹s
  |= 1;
 
-4166 i‡(
+4167 i‡(
 s
 .
 Pªfixes
@@ -25203,13 +25483,13 @@ AŒowedPªfixes
 MFœgs
  & 1))) {
 
-4168 
+4169 
 s
 .
 Eº‹s
  |= 2;
 
-4170 i‡–
+4171 i‡–
 s
 .
 OpcodeDef
@@ -25217,7 +25497,7 @@ OpcodeDef
 In°ru˘i⁄F‹m©
  == 0
 
-4171 || ((
+4172 || ((
 s
 .
 OpcodeDef
@@ -25227,13 +25507,13 @@ In°ru˘i⁄F‹m©
 Name
  == 0)) {
 
-4173 
+4174 
 s
 .
 Eº‹s
  |= 4;
 
-4175 i‡((
+4176 i‡((
 s
 .
 OpcodeDef
@@ -25243,13 +25523,13 @@ In°ru˘i⁄Së
 W‹dSize
  == 64) {
 
-4177 
+4178 
 s
 .
 Eº‹s
  |= 0x40;
 
-4179 i‡(
+4180 i‡(
 IEnd
  > 
 LabñEnd
@@ -25257,7 +25537,7 @@ LabñEnd
 IBegö
  < LabelEnd) {
 
-4182 
+4183 
 uöt32
  
 sym1
@@ -25271,7 +25551,7 @@ Se˘i⁄
 LabñEnd
 , 0, 0);
 
-4183 i‡(
+4184 i‡(
 sym1
  && (
 Symbﬁs
@@ -25279,19 +25559,19 @@ Symbﬁs
 Sc›e
  & 0x1C)) {
 
-4185 
+4186 
 s
 .
 Eº‹s
  |= 0x80;
 
-4187 
+4188 
 IEnd
  = 
 LabñEnd
 ;
 
-4192 i‡(
+4193 i‡(
 sym1
 Ë
 Symbﬁs
@@ -25299,13 +25579,13 @@ Symbﬁs
 Ty≥
  = 0;
 
-4193 
+4194 
 s
 .
 W¨nögs2
  |= 1;
 
-4196 i‡((
+4197 i‡((
 s
 .
 MFœgs
@@ -25317,13 +25597,13 @@ Ba£Reg
 AddªssFõldSize
  == 4) {
 
-4198 
+4199 
 s
 .
 Eº‹s
  |= 0x100;
 
-4200 i‡((
+4201 i‡((
 s
 .
 OpcodeDef
@@ -25331,7 +25611,7 @@ OpcodeDef
 In°ru˘i⁄F‹m©
  & 0x1E) == 0x14) {
 
-4202 i‡((
+4203 i‡((
 s
 .
 Vªg
@@ -25339,25 +25619,25 @@ Vªg
 W‹dSize
  < 64) {
 
-4203 
+4204 
 s
 .
 Eº‹s
  |= 0x200;
 
-4205 i‡(
+4206 i‡(
 s
 .
 Pªfixes
 [7] & 0x40) {
 
-4206 
+4207 
 s
 .
 Eº‹s
  |= 0x400;
 
-4208 i‡((
+4209 i‡((
 s
 .
 Vªg
@@ -25365,13 +25645,13 @@ Vªg
 MFœgs
  & 4)) {
 
-4209 
+4210 
 s
 .
 Eº‹s
  |= 0x800;
 
-4212 i‡((
+4213 i‡((
 s
 .
 OpcodeDef
@@ -25379,7 +25659,7 @@ OpcodeDef
 In°ru˘i⁄F‹m©
  & 0x1F) == 0x1E) {
 
-4214 i‡(
+4215 i‡(
 s
 .
 IndexReg
@@ -25387,7 +25667,7 @@ IndexReg
 Eº‹s
  |= 8;
 
-4216 i‡(
+4217 i‡(
 LabñEnd
  >
 s
@@ -25395,7 +25675,7 @@ s
 OpcodeSèπ2
 +2 && (
 
-4217 
+4218 
 Gë
 <
 uöt16
@@ -25405,7 +25685,7 @@ s
 OpcodeSèπ2
 ) == 0
 
-4218 || 
+4219 || 
 Gë
 <
 uöt16
@@ -25415,37 +25695,37 @@ s
 OpcodeSèπ2
 ) == 0xFFFF
 
-4226 
+4227 
 s
 .
 Eº‹s
  = 0x4000;
 
-4228 i‡(
+4229 i‡(
 s
 .
 Eº‹s
 ) {
 
-4230 
+4231 
 Cou¡Eº‹s
 ++;
 
-4231 
+4232 
 	`M¨kCodeAsDubious
 ();
 
-4233 
+4234 
 	}
 }
 
-4236 
+4237 
 	gCDißs£mbÀr
 ::
 	$FödRñoˇti⁄s
 () {
 
-4238 
+4239 
 SARñoˇti⁄
  
 ªl1
@@ -25453,13 +25733,13 @@ SARñoˇti⁄
 ªl2
 ;
 
-4239 
+4240 
 ªl1
 .
 Se˘i⁄
  = Section;
 
-4240 
+4241 
 ªl1
 .
 Off£t
@@ -25467,13 +25747,13 @@ Off£t
 IBegö
 ;
 
-4241 
+4242 
 ªl2
 .
 Se˘i⁄
  = Section;
 
-4242 
+4243 
 ªl2
 .
 Off£t
@@ -25481,7 +25761,7 @@ Off£t
 IEnd
 ;
 
-4245 
+4246 
 uöt32
  
 úñ
@@ -25493,7 +25773,7 @@ Rñoˇti⁄s
 ªl1
 );
 
-4247 i‡(
+4248 i‡(
 úñ
  =0 || iª»>
 Rñoˇti⁄s
@@ -25501,7 +25781,7 @@ Rñoˇti⁄s
 	`GëNumE¡rõs
 ()) {
 
-4251 i‡(
+4252 i‡(
 Rñoˇti⁄s
 [
 úñ
@@ -25509,7 +25789,7 @@ Rñoˇti⁄s
 ªl2
 ) {
 
-4253 i‡(
+4254 i‡(
 Rñoˇti⁄s
 [
 úñ
@@ -25523,7 +25803,7 @@ AddªssFõld
 AddªssFõldSize
 ) {
 
-4255 
+4256 
 s
 .
 AddªssRñoˇti⁄
@@ -25531,7 +25811,7 @@ AddªssRñoˇti⁄
 úñ
 ;
 
-4256 i‡(
+4257 i‡(
 Rñoˇti⁄s
 [
 úñ
@@ -25543,13 +25823,13 @@ s
 AddªssFõldSize
 ) {
 
-4258 
+4259 
 s
 .
 Eº‹s
  |= 0x1000;
 
-4261 i‡(
+4262 i‡(
 Rñoˇti⁄s
 [
 úñ
@@ -25563,7 +25843,7 @@ ImmedüãFõld
 ImmedüãFõldSize
 ) {
 
-4263 
+4264 
 s
 .
 ImmedüãRñoˇti⁄
@@ -25571,7 +25851,7 @@ ImmedüãRñoˇti⁄
 úñ
 ;
 
-4264 i‡(
+4265 i‡(
 Rñoˇti⁄s
 [
 úñ
@@ -25583,25 +25863,25 @@ s
 ImmedüãFõldSize
 ) {
 
-4266 
+4267 
 s
 .
 Eº‹s
  |= 0x1000;
 
-4271 
+4272 
 s
 .
 Eº‹s
  |= 0x1000;
 
-4273 i‡(
+4274 i‡(
 s
 .
 AddªssRñoˇti⁄
 ) {
 
-4276 i‡(
+4277 i‡(
 úñ
  + 1 < 
 Rñoˇti⁄s
@@ -25611,7 +25891,7 @@ Rñoˇti⁄s
 ªl2
 ) {
 
-4278 i‡(
+4279 i‡(
 Rñoˇti⁄s
 [
 úñ
@@ -25625,7 +25905,7 @@ ImmedüãFõld
 ImmedüãFõldSize
 ) {
 
-4280 
+4281 
 s
 .
 ImmedüãRñoˇti⁄
@@ -25633,7 +25913,7 @@ ImmedüãRñoˇti⁄
 úñ
  + 1;
 
-4281 i‡(
+4282 i‡(
 Rñoˇti⁄s
 [
 úñ
@@ -25645,17 +25925,17 @@ s
 ImmedüãFõldSize
 ) {
 
-4283 
+4284 
 s
 .
 Eº‹s
  |= 0x1000;
 
-4287 
+4288 
 úñ
 ++;
 
-4293 i‡(
+4294 i‡(
 úñ
  + 1 < 
 Rñoˇti⁄s
@@ -25665,7 +25945,7 @@ Rñoˇti⁄s
 ªl2
 ) {
 
-4295 i‡((
+4296 i‡((
 s
 .
 O≥ønds
@@ -25681,23 +25961,23 @@ ImmedüãFõld
 ImmedüãFõldSize
  - 2) {
 
-4301 
+4302 
 s
 .
 Eº‹s
  |= 0x1000;
 
-4305 
+4306 
 	}
 }
 
-4308 
+4309 
 	gCDißs£mbÀr
 ::
 	$FödIn°ru˘i⁄Së
 () {
 
-4310 
+4311 
 uöt16
  
 In°Së
@@ -25709,7 +25989,7 @@ OpcodeDef
 In°ru˘i⁄Së
 ;
 
-4311 i‡(
+4312 i‡(
 In°Së
  =7 && 
 s
@@ -25717,11 +25997,11 @@ s
 Pªfixes
 [5] == 0x66) {
 
-4313 
+4314 
 In°Së
  = 0x12;
 
-4315 i‡((
+4316 i‡((
 s
 .
 Pªfixes
@@ -25729,65 +26009,65 @@ Pªfixes
 In°Së
  < 0x19) {
 
-4317 
+4318 
 In°Së
  = 0x19;
 
-4319 i‡(
+4320 i‡(
 s
 .
 Pªfixes
 [6] & 0x40) {
 
-4321 i‡(
+4322 i‡(
 s
 .
 Pªfixes
 [6] & 0x20) {
 
-4323 i‡(
+4324 i‡(
 In°Së
  < 0x20) InstSet = 0x20;
 
-4327 i‡(
+4328 i‡(
 In°Së
  < 0x80) InstSet = 0x80;
 
-4330 i‡((
+4331 i‡((
 In°Së
  & 0xFF00) == 0x1000) {
 
-4333 i‡((
+4334 i‡((
 In°Së
  & 0xFFË> 
 In°ru˘i⁄SëAMDMAX
 ) {
 
-4334 
+4335 
 In°ru˘i⁄SëAMDMAX
  = 
 In°Së
  & 0xFF;
 
-4339 i‡((
+4340 i‡((
 In°Së
  & 0xFFË> 
 In°ru˘i⁄SëMax
 ) {
 
-4340 
+4341 
 In°ru˘i⁄SëMax
  = 
 In°Së
  & 0xFF;
 
-4345 
+4346 
 In°ru˘i⁄SëOR
  |
 In°Së
 ;
 
-4347 i‡(
+4348 i‡(
 s
 .
 OpcodeDef
@@ -25795,21 +26075,691 @@ OpcodeDef
 O±i⁄s
  & 0x10) {
 
-4348 
+4349 
 FœgPªvious
  |= 2;
 
-4350 
+4351 
 	}
 }
 
-4353 
+4353 
+boﬁ
+ 
+	$IsImmedüã
+–*
+°r
+ )
+
+4355 
+i
+;
+
+4356 
+num_èbÀ
+[11] = "0123456789";
+
+4357  
+i
+ = 0; 
+°r
+[i] != '\0'; i++ )
+
+4359 if–
+i
+ =0 && 
+°r
+[i] == '-')
+
+4363 
+j
+;
+
+4364  
+j
+ = 0; j < 10; j++ )
+
+4366 if–
+°r
+[
+i
+] =
+num_èbÀ
+[
+j
+] )
+
+4369 if–
+j
+ == 10 )
+
+4370  
+Ál£
+;
+
+4374  
+åue
+;
+
+4375 
+	}
+}
+
+4377 
+	$M≠Regi°î
+–*
+ªg
+ )
+
+4379 
+ªg64_èbÀ
+[16][4] = {"rax", "rcx", "rdx", "rbx", "rsp", "rbp", "rsi", "rdi", "r8", "r9", "r10", "r11", "r12", "r13", "r14", "r15"};
+
+4380 
+ªg32_èbÀ
+[16][5] = {"eax", "ecx", "edx", "ebx", "esp", "ebp", "esi", "edi", "r8d", "r9d", "r10d", "r11d", "r12d", "r13d", "r14d", "r15d"};
+
+4381 
+ªg16_èbÀ
+[16][5] = {"ax", "cx", "dx", "bx", "sp", "bp", "si", "di", "r8w", "r9w", "r10w", "r11w", "r12w", "r13w", "r14w", "r15w"};
+
+4382 
+ªg8_èbÀ
+[16][5] = {"al", "cl", "dl", "bl", "spl", "bpl", "sil", "dil", "r8b", "r9b", "r10b", "r11b", "r12b", "r13b", "r14b", "r15b"};
+
+4384 
+i
+;
+
+4385  
+i
+ = 0; i < 16; i++ )
+
+4387 if–!
+	`°rcmp
+–
+ªg
+, 
+ªg64_èbÀ
+[
+i
+] ) )
+
+4388  
+i
+;
+
+4390  
+i
+ = 0; i < 16; i++ )
+
+4392 if–!
+	`°rcmp
+–
+ªg
+, 
+ªg32_èbÀ
+[
+i
+] ) )
+
+4393  
+i
+;
+
+4395  
+i
+ = 0; i < 16; i++ )
+
+4397 if–!
+	`°rcmp
+–
+ªg
+, 
+ªg16_èbÀ
+[
+i
+] ) )
+
+4398  
+i
+;
+
+4400  
+i
+ = 0; i < 16; i++ )
+
+4402 if–!
+	`°rcmp
+–
+ªg
+, 
+ªg8_èbÀ
+[
+i
+] ) )
+
+4403  
+i
+;
+
+4407 
+	}
+}
+
+4409 
+	$TokíizeIn°ru˘i⁄
+–
+CTextFûeBuf„r
+ *
+as£mbly_buf
+, *
+›code
+, *
+›1
+, *
+›2
+ )
+
+4411 
+i
+ = 0, 
+°©e
+ = 0;
+
+4412 *
+buf„r
+ = 
+as£mbly_buf
+->
+	`Buf
+();
+
+4413 
+d©a_size
+ = 
+as£mbly_buf
+->
+	`GëD©aSize
+();
+
+4414  
+i
+ = 0; i < 
+d©a_size
+; i++ )
+
+4416 if–
+buf„r
+[
+i
+] == ';' )
+
+4418 if–
+buf„r
+[
+i
+] == ' ' || buffer[i] == '\t' )
+
+4422 if–
+°©e
+ == 0 )
+
+4424 
+j
+ = 0;
+
+4425  
+buf„r
+[
+i
+] != ' ' && buffer[i] != '\t' && buffer[i] != '\0')
+
+4427 
+›code
+[
+j
+++] = 
+buf„r
+[
+i
+++];
+
+4428 if–
+j
+ == 9 )
+
+4431 
+›code
+[
+j
+] = 0;
+
+4432 
+°©e
+++;
+
+4434 if–
+°©e
+ == 1 )
+
+4436 
+j
+ = 0;
+
+4437  
+buf„r
+[
+i
+] != ',' && buffer[i] != '\t' && buffer[i] != '\0' )
+
+4439 
+›1
+[
+j
+++] = 
+buf„r
+[
+i
+++];
+
+4440 if–
+j
+ == 29 )
+
+4443 
+›1
+[
+j
+] = 0;
+
+4444 
+°©e
+++;
+
+4446 if–
+°©e
+ == 2 )
+
+4448 
+j
+ = 0;
+
+4449  
+buf„r
+[
+i
+] != '\t' && buffer[i] != '\0' )
+
+4451 
+›2
+[
+j
+++] = 
+buf„r
+[
+i
+++];
+
+4452 if–
+j
+ == 29 )
+
+4455 
+›2
+[
+j
+] = 0;
+
+4459 
+	}
+}
+
+4461 
+	gCDißs£mbÀr
+::
+	$FödSwôch
+()
+
+4463 
+CTextFûeBuf„r
+ 
+ãmp_fûe
+;
+
+4464 
+	`WrôeIn°ru˘i⁄
+–&
+ãmp_fûe
+ );
+
+4465 
+›code
+[10], 
+›1
+[30], 
+›2
+[30];
+
+4466 
+	`TokíizeIn°ru˘i⁄
+–&
+ãmp_fûe
+, 
+›code
+, 
+›1
+, 
+›2
+ );
+
+4468 if–
+SwôchCheck
+ =0 && !
+	`°rcmp
+–
+›code
+, "cmp" ) )
+
+4470 if–!
+	`IsImmedüã
+(
+›2
+) )
+
+4471 
+SwôchCheck
+ = 0;
+
+4474 
+SwôchReg
+ = 
+	`M≠Regi°î
+(
+›1
+);
+
+4475 
+SwôchèbÀLígth
+ = 
+	`©oi
+(
+›2
+)+1;
+
+4476 
+SwôchCheck
+ = 1;
+
+4479 if–
+SwôchCheck
+ =1 && !
+	`°rcmp
+–
+›code
+, "ja" ) )
+
+4480 
+SwôchCheck
+ = 2;
+
+4481 if–
+SwôchCheck
+ =2 && !
+	`°rcmp
+–
+›code
+, "movsxd" ) )
+
+4483 
+›2_1
+[5], 
+›2_2
+[5], 
+›2_3
+[5];
+
+4484 
+i
+, 
+j
+;
+
+4485  
+i
+ = 0; 
+›2
+[i] != '['; i++ );
+
+4486 
+i
+++;
+
+4487 
+j
+ = 0;
+
+4488  
+›2
+[
+i
+] !'+' && op2[i] !']' && 
+j
+ != 4)
+
+4489 
+›2_1
+[
+j
+++] = 
+›2
+[
+i
+++];
+
+4490 
+›2_1
+[
+j
+] = 0;
+
+4491 
+i
+++;
+
+4492 
+j
+ = 0;
+
+4493  
+›2
+[
+i
+] !'*' && op2[i] !']' && 
+j
+ != 4)
+
+4494 
+›2_2
+[
+j
+++] = 
+›2
+[
+i
+++];
+
+4495 
+›2_2
+[
+j
+] = 0;
+
+4496 
+i
+++;
+
+4497 
+j
+ = 0;
+
+4498  
+›2
+[
+i
+] !']' && 
+j
+ != 4 )
+
+4499 
+›2_3
+[
+j
+++] = 
+›2
+[
+i
+++];
+
+4500 
+›2_3
+[
+j
+] = 0;
+
+4502 if–
+t
+.
+Regi°
+[
+	`M≠Regi°î
+(
+›2_1
+)] =0x18 && M≠Regi°î(
+›2_2
+Ë=
+SwôchReg
+ && 
+	`©oi
+(
+›2_3
+) == 4 )
+
+4504 
+JumpReg
+ = 
+	`M≠Regi°î
+(
+›1
+);
+
+4505 
+Jum±abÀAddrReg
+ = 
+	`M≠Regi°î
+(
+›2_1
+);
+
+4506 
+SwôchCheck
+ = 3;
+
+4509 
+SwôchCheck
+ = 0;
+
+4511 if–
+SwôchCheck
+ =3 && !
+	`°rcmp
+–
+›code
+, "add" ) )
+
+4513 if–
+	`M≠Regi°î
+(
+›1
+Ë=
+JumpReg
+ && M≠Regi°î(
+›2
+Ë=
+Jum±abÀAddrReg
+ )
+
+4514 
+SwôchCheck
+ = 4;
+
+4516 
+SwôchCheck
+ = 0;
+
+4518 if–
+SwôchCheck
+ =4 && !
+	`°rcmp
+–
+›code
+, "jmp" ) )
+
+4520 if–
+	`M≠Regi°î
+(
+›1
+Ë=
+JumpReg
+ )
+
+4521 
+SwôchCheck
+ = 5;
+
+4523 
+SwôchCheck
+ = 0;
+
+4525 if–!
+	`°rcmp
+–
+›code
+, "call" ) || !strcmp( opcode, "ret" )
+
+4526 || !
+	`°rcmp
+–
+›code
+, "jz" ) || !strcmp( opcode, "jnz" )
+
+4527 || !
+	`°rcmp
+–
+›code
+, "jc" ) || !strcmp( opcode, "jmp" )
+
+4528 || !
+	`°rcmp
+–
+›code
+, "je" ) || !strcmp( opcode, "jns" ) )
+
+4529 
+SwôchCheck
+ = 0;
+
+4530 
+	}
+}
+
+4532 
 	gCDißs£mbÀr
 ::
 	$CheckLabñ
 () {
 
-4358 
+4537 
 uöt32
  
 Sym1
@@ -25817,7 +26767,7 @@ Sym1
 Sym2
 ;
 
-4361 
+4540 
 Sym1
  = 
 Symbﬁs
@@ -25831,11 +26781,11 @@ IBegö
 Sym2
 );
 
-4363 i‡(
+4542 i‡(
 Sym1
 ) {
 
-4366 
+4545 
 uöt32
  
 s
@@ -25845,7 +26795,7 @@ Sym1
 Sym2
 ; s++) {
 
-4369 i‡(!(
+4548 i‡(!(
 Symbﬁs
 [
 s
@@ -25855,13 +26805,13 @@ Sc›e
 Ty≥
  & 0x80000000)) {
 
-4372 
+4551 
 	`WrôeCodeLabñ
 (
 s
 );
 
-4376 
+4555 
 D©aTy≥
  = 
 Symbﬁs
@@ -25871,7 +26821,7 @@ Sym2
 Ty≥
 ;
 
-4377 
+4556 
 D©aSize
  = 
 	`GëD©aIãmSize
@@ -25879,21 +26829,21 @@ D©aSize
 D©aTy≥
 );
 
-4379 
+4558 
 	}
 }
 
-4382 
+4561 
 	gCDißs£mbÀr
 ::
 	$CheckF‹N›s
 () {
 
-4385 
+4564 
 Opcodei
 ) {
 
-4388 i‡(
+4567 i‡(
 IEnd
  - 
 IBegö
@@ -25903,11 +26853,11 @@ s
 W¨nögs1
  |= 0x1000000;
 
-4390 
+4569 
 FœgPªvious
  |= 1;
 
-4395 i‡(
+4574 i‡(
 s
 .
 Mod
@@ -25919,7 +26869,7 @@ Ba£Reg
 IndexReg
  == 0 &&
 
-4396 
+4575 
 s
 .
 AddªssSize
@@ -25929,13 +26879,13 @@ O≥øndSize
 W‹dSize
 ) {
 
-4399 
+4578 
 s
 .
 AddªssFõldSize
 ) {
 
-4403 i‡(
+4582 i‡(
 Gë
 <
 öt8
@@ -25945,7 +26895,7 @@ s
 AddªssFõld
 ) != 0) ;
 
-4406 i‡(
+4585 i‡(
 Gë
 <
 öt16
@@ -25955,7 +26905,7 @@ s
 AddªssFõld
 ) != 0) ;
 
-4409 i‡(
+4588 i‡(
 Gë
 <
 öt32
@@ -25965,13 +26915,13 @@ s
 AddªssFõld
 ) != 0) ;
 
-4415 
+4594 
 s
 .
 W¨nögs1
  |= 0x1000000;
 
-4422 i‡(
+4601 i‡(
 s
 .
 Mod
@@ -25985,49 +26935,49 @@ O≥øndSize
 W‹dSize
 ) {
 
-4424 
+4603 
 s
 .
 W¨nögs1
  |= 0x1000000;
 
-4428 
+4607 
 FœgPªvious
  |= 6;
 
-4432 i‡(
+4611 i‡(
 s
 .
 W¨nögs1
  & 0x1000000) {
 
-4435 
+4614 
 s
 .
 W¨nögs1
  &= ~ 0x873D;
 
-4437 
+4616 
 FœgPªvious
  |= 1;
 
-4439 
+4618 
 	}
 }
 
-4442 
+4621 
 	gCDißs£mbÀr
 ::
 	$InôülEº‹Check
 () {
 
-4444 
+4623 
 uöt32
  
 i
 ;
 
-4447 
+4626 
 i
  = 1; i < 
 Rñoˇti⁄s
@@ -26035,7 +26985,7 @@ Rñoˇti⁄s
 	`GëNumE¡rõs
 (); i++) {
 
-4448 i‡(
+4627 i‡(
 Rñoˇti⁄s
 [
 i
@@ -26047,7 +26997,7 @@ Symbﬁs
 	`GëLimô
 ()) {
 
-4450 
+4629 
 Rñoˇti⁄s
 [
 i
@@ -26055,7 +27005,7 @@ i
 T¨gëOldIndex
  = 0;
 
-4452 i‡(
+4631 i‡(
 Rñoˇti⁄s
 [
 i
@@ -26067,7 +27017,7 @@ Symbﬁs
 	`GëLimô
 ()) {
 
-4454 
+4633 
 Rñoˇti⁄s
 [
 i
@@ -26075,7 +27025,7 @@ i
 RefOldIndex
  = 0;
 
-4457 
+4636 
 Rñoˇti⁄sInSour˚
  |
 Rñoˇti⁄s
@@ -26085,39 +27035,39 @@ i
 Ty≥
 ;
 
-4461 i‡(
+4640 i‡(
 NumOpcodeTabÀs1
  !
 NumOpcodeTabÀs2
 ) {
 
-4462 
+4641 
 îr
 .
 	`submô
 (9007, 0xFFFF);
 
-4464 
+4643 
 	}
 }
 
-4467 
+4646 
 	gCDißs£mbÀr
 ::
 	$FöÆEº‹Check
 () {
 
-4469 
+4648 
 uöt32
  
 i
 ;
 
-4470 
+4649 
 S∑˚Wrôãn
  = 0;
 
-4473 
+4652 
 i
  = 1; i < 
 Symbﬁs
@@ -26125,7 +27075,7 @@ Symbﬁs
 	`GëNumE¡rõs
 (); i++) {
 
-4474 i‡(
+4653 i‡(
 Symbﬁs
 [
 i
@@ -26135,7 +27085,7 @@ Se˘i⁄
 Ty≥
  & 0x80000000)) {
 
-4478 i‡((
+4657 i‡((
 uöt32
 )
 Symbﬁs
@@ -26149,7 +27099,7 @@ Se˘i⁄s
 	`GëNumE¡rõs
 ()
 
-4479 || 
+4658 || 
 Symbﬁs
 [
 i
@@ -26163,7 +27113,7 @@ Se˘i⁄
 TŸÆSize
 ) {
 
-4482 i‡(!
+4661 i‡(!
 S∑˚Wrôãn
 ++Ë
 OutFûe
@@ -26171,7 +27121,7 @@ OutFûe
 	`NewLöe
 ();
 
-4484 
+4663 
 OutFûe
 .
 	`Put
@@ -26179,13 +27129,13 @@ OutFûe
 CommítSï¨©‹
 );
 
-4485 
+4664 
 OutFûe
 .
 	`Put
 ("Error: Symbol ");
 
-4487 
+4666 
 OutFûe
 .
 	`Put
@@ -26197,13 +27147,13 @@ Symbﬁs
 i
 ));
 
-4489 
+4668 
 OutFûe
 .
 	`Put
 (" hasáÇon-existingáddress. Section: ");
 
-4490 i‡(
+4669 i‡(
 Symbﬁs
 [
 i
@@ -26213,7 +27163,7 @@ Se˘i⁄
 ASM_SEGMENT_IMGREL
 ) {
 
-4491 
+4670 
 OutFûe
 .
 	`PutDecimÆ
@@ -26225,19 +27175,19 @@ i
 Se˘i⁄
 , 1);
 
-4494 
+4673 
 OutFûe
 .
 	`Put
 ("Unknown");
 
-4496 
+4675 
 OutFûe
 .
 	`Put
 (" Offset: ");
 
-4497 
+4676 
 OutFûe
 .
 	`PutHex
@@ -26249,13 +27199,13 @@ i
 Off£t
 , 1);
 
-4498 
+4677 
 OutFûe
 .
 	`NewLöe
 ();
 
-4502 
+4681 
 i
  = 1; i < 
 Rñoˇti⁄s
@@ -26263,7 +27213,7 @@ Rñoˇti⁄s
 	`GëNumE¡rõs
 (); i++) {
 
-4504 i‡(
+4683 i‡(
 Rñoˇti⁄s
 [
 i
@@ -26271,7 +27221,7 @@ i
 Se˘i⁄
  == 0
 
-4505 || (
+4684 || (
 uöt32
 )
 Rñoˇti⁄s
@@ -26285,7 +27235,7 @@ Se˘i⁄s
 	`GëNumE¡rõs
 ()
 
-4506 || (
+4685 || (
 Se˘i⁄s
 [
 Rñoˇti⁄s
@@ -26297,7 +27247,7 @@ Se˘i⁄
 Ty≥
  & 0xFF) == 3
 
-4507 || 
+4686 || 
 Rñoˇti⁄s
 [
 i
@@ -26311,7 +27261,7 @@ Se˘i⁄
 InôSize
 ) {
 
-4510 i‡(!
+4689 i‡(!
 S∑˚Wrôãn
 ++Ë
 OutFûe
@@ -26319,7 +27269,7 @@ OutFûe
 	`NewLöe
 ();
 
-4512 
+4691 
 OutFûe
 .
 	`Put
@@ -26327,13 +27277,13 @@ OutFûe
 CommítSï¨©‹
 );
 
-4513 
+4692 
 OutFûe
 .
 	`Put
 ("Error: RelocationÇumber ");
 
-4514 
+4693 
 OutFûe
 .
 	`PutDecimÆ
@@ -26341,13 +27291,13 @@ OutFûe
 i
 );
 
-4515 
+4694 
 OutFûe
 .
 	`Put
 (" hasáÇon-existing sourceáddress. Section: ");
 
-4516 i‡(
+4695 i‡(
 Rñoˇti⁄s
 [
 i
@@ -26357,7 +27307,7 @@ Se˘i⁄
 ASM_SEGMENT_IMGREL
 ) {
 
-4517 
+4696 
 OutFûe
 .
 	`PutDecimÆ
@@ -26369,19 +27319,19 @@ i
 Se˘i⁄
 , 1);
 
-4520 
+4699 
 OutFûe
 .
 	`Put
 ("Unknown");
 
-4522 
+4701 
 OutFûe
 .
 	`Put
 (" Offset: ");
 
-4523 
+4702 
 OutFûe
 .
 	`PutHex
@@ -26393,13 +27343,13 @@ i
 Off£t
 , 1);
 
-4524 
+4703 
 OutFûe
 .
 	`NewLöe
 ();
 
-4527 i‡(
+4706 i‡(
 Rñoˇti⁄s
 [
 i
@@ -26407,7 +27357,7 @@ i
 T¨gëOldIndex
  == 0
 
-4528 || 
+4707 || 
 Rñoˇti⁄s
 [
 i
@@ -26419,7 +27369,7 @@ Symbﬁs
 	`GëLimô
 ()
 
-4529 || 
+4708 || 
 Rñoˇti⁄s
 [
 i
@@ -26431,7 +27381,7 @@ Symbﬁs
 	`GëLimô
 ()) {
 
-4532 i‡(!
+4711 i‡(!
 S∑˚Wrôãn
 ++Ë
 OutFûe
@@ -26439,7 +27389,7 @@ OutFûe
 	`NewLöe
 ();
 
-4534 
+4713 
 OutFûe
 .
 	`Put
@@ -26447,13 +27397,13 @@ OutFûe
 CommítSï¨©‹
 );
 
-4535 
+4714 
 OutFûe
 .
 	`Put
 ("Error: RelocationÇumber ");
 
-4536 
+4715 
 OutFûe
 .
 	`PutDecimÆ
@@ -26461,13 +27411,13 @@ OutFûe
 i
 );
 
-4537 
+4716 
 OutFûe
 .
 	`Put
 ("át section ");
 
-4538 
+4717 
 OutFûe
 .
 	`PutDecimÆ
@@ -26479,13 +27429,13 @@ i
 Se˘i⁄
 );
 
-4539 
+4718 
 OutFûe
 .
 	`Put
 (" offset ");
 
-4540 
+4719 
 OutFûe
 .
 	`PutHex
@@ -26497,13 +27447,13 @@ i
 Off£t
 );
 
-4541 
+4720 
 OutFûe
 .
 	`Put
 (" hasáÇon-existingÅarget index. Target: ");
 
-4542 
+4721 
 OutFûe
 .
 	`PutDecimÆ
@@ -26515,7 +27465,7 @@ i
 T¨gëOldIndex
 , 1);
 
-4543 i‡(
+4722 i‡(
 Rñoˇti⁄s
 [
 i
@@ -26523,13 +27473,13 @@ i
 RefOldIndex
 ) {
 
-4544 
+4723 
 OutFûe
 .
 	`Put
 (", ReferenceÖoint index: ");
 
-4545 
+4724 
 OutFûe
 .
 	`PutDecimÆ
@@ -26541,23 +27491,23 @@ i
 RefOldIndex
 , 1);
 
-4547 
+4726 
 OutFûe
 .
 	`NewLöe
 ();
 
-4550 
+4729 
 	}
 }
 
-4553 
+4732 
 	gCDißs£mbÀr
 ::
 	$CheckNamesVÆid
 () {
 
-4555 
+4734 
 uöt32
  
 i
@@ -26565,61 +27515,61 @@ i
 j
 ;
 
-4556 
+4735 
 uöt32
  
 Lí
 ;
 
-4557 
+4736 
 uöt32
  
 Ch™ged
 ;
 
-4558 
+4737 
 c
 ;
 
-4559 c⁄° * 
+4738 c⁄° * 
 VÆidCh¨a˘îs
 ;
 
-4561 
+4740 
 Sy¡ax
 ) {
 
-4562 
+4741 
 SUBTYPE_MASM
 :
 
-4563 
+4742 
 VÆidCh¨a˘îs
  = "_$@?"; ;
 
-4564 
+4743 
 SUBTYPE_YASM
 :
 
-4565 
+4744 
 VÆidCh¨a˘îs
  = "_$@?.~#"; ;
 
-4566 
+4745 
 SUBTYPE_GASM
 :
 
-4567 
+4746 
 VÆidCh¨a˘îs
  = "_$."; ;
 
-4569 
+4748 
 îr
 .
 	`submô
 (9000);
 
-4573 
+4752 
 i
  = 1; i < 
 Se˘i⁄s
@@ -26627,7 +27577,7 @@ Se˘i⁄s
 	`GëNumE¡rõs
 (); i++) {
 
-4574 * 
+4753 * 
 SecName
  = 
 NameBuf„r
@@ -26641,7 +27591,7 @@ i
 Name
 ;
 
-4575 i‡(
+4754 i‡(
 Sy¡ax
  =
 SUBTYPE_MASM
@@ -26649,39 +27599,39 @@ SUBTYPE_MASM
 SecName
 [0] == '.') {
 
-4578 i‡(
+4757 i‡(
 	`°ricmp
 (
 SecName
 , ".text") == 0
 
-4579 || 
+4758 || 
 	`°ricmp
 (
 SecName
 , ".data") == 0
 
-4580 || 
+4759 || 
 	`°ricmp
 (
 SecName
 , ".code") == 0
 
-4581 || 
+4760 || 
 	`°ricmp
 (
 SecName
 , ".const") == 0) {
 
-4583 
+4762 
 SecName
 [0] = '_';
 
-4588 
+4767 
 MasmO±i⁄s
  |= 1;
 
-4593 
+4772 
 i
  = 1; i < 
 Symbﬁs
@@ -26689,7 +27639,7 @@ Symbﬁs
 	`GëNumE¡rõs
 (); i++) {
 
-4594 i‡(
+4773 i‡(
 Symbﬁs
 [
 i
@@ -26697,7 +27647,7 @@ i
 Name
 ) {
 
-4596 * 
+4775 * 
 SymName
  = (*)
 Symbﬁs
@@ -26707,7 +27657,7 @@ Symbﬁs
 i
 );
 
-4597 
+4776 
 Lí
  = 
 	`°æí
@@ -26717,13 +27667,13 @@ SymName
 Ch™ged
  = 0;
 
-4599 
+4778 
 j
  = 0; j < 
 Lí
 ; j++) {
 
-4600 
+4779 
 c
  = 
 SymName
@@ -26731,17 +27681,17 @@ SymName
 j
 ];
 
-4601 i‡(!(((
+4780 i‡(!(((
 c
  | 0x20) >= 'a' && (c | 0x20) <= 'z')
 
-4602 || (
+4781 || (
 c
  >'0' && c <'9' && 
 j
  != 0)
 
-4603 || 
+4782 || 
 	`°rchr
 (
 VÆidCh¨a˘îs
@@ -26749,19 +27699,19 @@ VÆidCh¨a˘îs
 c
 ))) {
 
-4605 i‡(
+4784 i‡(
 Sy¡ax
  =
 SUBTYPE_MASM
 ) {
 
-4606 i‡(
+4785 i‡(
 j
  =0 && 
 c
  == '.') {
 
-4608 i‡(
+4787 i‡(
 Symbﬁs
 [
 i
@@ -26769,57 +27719,57 @@ i
 Ty≥
  & 0x80000000) {
 
-4610 i‡(
+4789 i‡(
 	`°ricmp
 (
 SymName
 , ".text") == 0
 
-4611 || 
+4790 || 
 	`°ricmp
 (
 SymName
 , ".data") == 0
 
-4612 || 
+4791 || 
 	`°ricmp
 (
 SymName
 , ".code") == 0
 
-4613 || 
+4792 || 
 	`°ricmp
 (
 SymName
 , ".const") == 0) {
 
-4615 
+4794 
 SymName
 [0] = '_';
 
-4620 
+4799 
 MasmO±i⁄s
  |= 1;
 
-4624 #i‡
+4803 #i‡
 Rïœ˚IŒegÆCh¨s
 
 
-4625 
+4804 
 SymName
 [
 j
 ] = '?';
 
-4627 
+4806 
 Ch™ged
 ++;
 
-4632 #i‡
+4811 #i‡
 Rïœ˚IŒegÆCh¨s
 
 
-4633 
+4812 
 SymName
 [
 j
@@ -26829,45 +27779,45 @@ Sy¡ax
 SUBTYPE_YASM
 ) ? '?' : '$';
 
-4635 
+4814 
 Ch™ged
 ++;
 
-4640 i‡(
+4819 i‡(
 Ch™ged
 Ë
 NamesCh™ged
 ++;
 
-4643 
+4822 
 	}
 }
 
-4646 
+4825 
 	gCDißs£mbÀr
 ::
 	$FixRñoˇti⁄T¨gëAddªs£s
 () {
 
-4649 
+4828 
 uöt32
  
 r
 ;
 
-4650 
+4829 
 uöt32
  
 s
 ;
 
-4651 
+4830 
 öt32
  
 £˘
 ;
 
-4654 
+4833 
 r
  = 1;Ñ < 
 Rñoˇti⁄s
@@ -26875,7 +27825,7 @@ Rñoˇti⁄s
 	`GëNumE¡rõs
 ();Ñ++) {
 
-4656 i‡(
+4835 i‡(
 Rñoˇti⁄s
 [
 r
@@ -26885,19 +27835,19 @@ T¨gëOldIndex
 Ty≥
  & 0x60)) {
 
-4658 
+4837 
 SASymbﬁ
  
 sym
 ;
 
-4659 
+4838 
 sym
 .
 	`Re£t
 ();
 
-4662 
+4841 
 £˘
  = 
 Rñoˇti⁄s
@@ -26907,7 +27857,7 @@ r
 Se˘i⁄
 ;
 
-4663 i‡((
+4842 i‡((
 uöt32
 )
 £˘
@@ -26917,7 +27867,7 @@ Se˘i⁄s
 	`GëNumE¡rõs
 ()) ;
 
-4664 
+4843 
 uöt8
  * 
 pSe˘i⁄D©a
@@ -26929,17 +27879,17 @@ Se˘i⁄s
 Sèπ
 ;
 
-4665 i‡(!
+4844 i‡(!
 pSe˘i⁄D©a
 ) ;
 
-4666 
+4845 
 öt64
  
 T¨gëOff£t
  = 0;
 
-4667 i‡(
+4846 i‡(
 Rñoˇti⁄s
 [
 r
@@ -26947,7 +27897,7 @@ r
 Size
  == 4) {
 
-4668 
+4847 
 T¨gëOff£t
  = *(
 öt32
@@ -26961,7 +27911,7 @@ r
 Off£t
 );
 
-4670 i‡(
+4849 i‡(
 Rñoˇti⁄s
 [
 r
@@ -26969,7 +27919,7 @@ r
 Size
  == 8) {
 
-4671 
+4850 
 T¨gëOff£t
  = *(
 öt64
@@ -26983,13 +27933,13 @@ r
 Off£t
 );
 
-4677 i‡(
+4856 i‡(
 	`HighDW‹d
 (
 T¨gëOff£t
 )) {
 
-4682 i‡(!(
+4861 i‡(!(
 	`Tøn¶©eAbsAddªss
 (
 T¨gëOff£t
@@ -27001,13 +27951,13 @@ Se˘i⁄
 Off£t
 ))) {
 
-4687 
+4866 
 sym
 .
 Sc›e
  = 2;
 
-4690 
+4869 
 s
  = 
 Symbﬁs
@@ -27017,11 +27967,11 @@ Symbﬁs
 sym
 );
 
-4693 i‡(
+4872 i‡(
 s
 ) {
 
-4694 
+4873 
 Rñoˇti⁄s
 [
 r
@@ -27035,11 +27985,11 @@ s
 OldIndex
 ;
 
-4698 
+4877 
 	}
 }
 
-4701 
+4880 
 	gCDißs£mbÀr
 ::
 	$Tøn¶©eAbsAddªss
@@ -27057,25 +28007,25 @@ uöt32
 Off£t
 ) {
 
-4704 
+4883 
 öt32
  
 Se˘i⁄
 ;
 
-4707 
+4886 
 Addr
  -
 ImageBa£
 ;
 
-4709 i‡(
+4888 i‡(
 	`HighDW‹d
 (
 Addr
 ))  0;
 
-4712 
+4891 
 Se˘i⁄
  = 1; (
 uöt32
@@ -27085,7 +28035,7 @@ Se˘i⁄s
 	`GëNumE¡rõs
 (); Section++) {
 
-4713 
+4892 
 uöt32
  
 Se˘i⁄Addªss
@@ -27095,7 +28045,7 @@ Se˘i⁄s
 Se˘i⁄
 ].SectionAddress;
 
-4714 i‡((
+4893 i‡((
 uöt32
 )
 Addr
@@ -27109,13 +28059,13 @@ Se˘i⁄
 TŸÆSize
 ) {
 
-4717 
+4896 
 Se˘
  = 
 Se˘i⁄
 ;
 
-4718 
+4897 
 Off£t
  = (
 uöt32
@@ -27125,11 +28075,11 @@ Addr
 Se˘i⁄Addªss
 ;
 
-4725 
+4904 
 	}
 }
 
-4728 
+4907 
 uöt32
  
 	gCDißs£mbÀr
@@ -27141,89 +28091,89 @@ uöt32
 Ty≥
 ) {
 
-4730 
+4909 
 uöt32
  
 Size
  = 1;
 
-4732 
+4911 
 Ty≥
  & 0xFF) {
 
-4735 
+4914 
 Size
  = 1; ;
 
-4737 
+4916 
 Size
  = 2; ;
 
-4739 
+4918 
 Size
  = 4; ;
 
-4741 
+4920 
 Size
  = 8; ;
 
-4743 
+4922 
 Size
  = 10; ;
 
-4745 
+4924 
 Size
  = 6; ;
 
-4747 
+4926 
 Size
  = 16; ;
 
-4750 
+4929 
 Size
  = 
 W‹dSize
  / 8; ;
 
-4753 
+4932 
 Size
  = 
 W‹dSize
  / 8 + 2; ;
 
-4755 
+4934 
 Ty≥
  & 0xF00) {
 
-4758 
+4937 
 Size
  = 8; ;
 
-4760 
+4939 
 Size
  = 16; ;
 
-4762 
+4941 
 Size
  = 32; ;
 
-4764 
+4943 
 Size
  = 64; ;
 
-4766 
+4945 
 Size
  = 128; ;
 
-4768  
+4947  
 Size
 ;
 
-4769 
+4948 
 	}
 }
 
-4772 
+4951 
 uöt32
  
 	gCDißs£mbÀr
@@ -27235,27 +28185,27 @@ uöt32
 Ty≥
 ) {
 
-4774 i‡((
+4953 i‡((
 Ty≥
  & 0xF0) == 0x50) {
 
-4776  
+4955  
 	`GëD©aIãmSize
 (
 Ty≥
 );
 
-4780  
+4959  
 	`GëD©aIãmSize
 (
 Ty≥
  & 7);
 
-4782 
+4961 
 	}
 }
 
-4785 
+4964 
 öt32
  
 	gCDißs£mbÀr
@@ -27263,13 +28213,13 @@ Ty≥
 	$GëSegmítRegi°îFromPªfix
 () {
 
-4787 
+4966 
 s
 .
 Pªfixes
 [0]) {
 
-4802 
+4981 
 	}
 }
 
@@ -38887,29 +39837,29 @@ ASM_SEGMENT_NOTHING
 	}
 }
 
-3675 
+3674 
 	gCDißs£mbÀr
 ::
 	$WrôeIn°ru˘i⁄
 () {
 
-3677 
+3676 
 uöt32
  
 NumO≥ønds
  = 0;
 
-3678 
+3677 
 uöt32
  
 i
 ;
 
-3679 c⁄° * 
+3678 c⁄° * 
 OpName
 ;
 
-3681 i‡(
+3680 i‡(
 s
 .
 AddªssFõldSize
@@ -38919,15 +39869,15 @@ Sy¡ax
 SUBTYPE_MASM
 ) {
 
-3683 
+3682 
 	`WrôeAssume
 ();
 
-3686 i‡(
+3685 i‡(
 CodeMode
  & 6) {
 
-3688 
+3687 
 OutFûe
 .
 	`Put
@@ -38935,7 +39885,7 @@ OutFûe
 CommítSï¨©‹
 );
 
-3690 i‡((
+3689 i‡((
 s
 .
 OpcodeDef
@@ -38947,7 +39897,7 @@ OpcodeSèπ1
 IBegö
 ) {
 
-3693 
+3692 
 OutFûe
 .
 	`Tabuœã
@@ -38955,7 +39905,7 @@ OutFûe
 AsmTab1
 );
 
-3694 
+3693 
 OutFûe
 .
 	`Put
@@ -38965,7 +39915,7 @@ Sy¡ax
 SUBTYPE_GASM
  ? ".byte " : "DB ");
 
-3695 
+3694 
 OutFûe
 .
 	`Tabuœã
@@ -38973,7 +39923,7 @@ OutFûe
 AsmTab2
 );
 
-3696 
+3695 
 i
  = 
 IBegö
@@ -38983,7 +39933,7 @@ s
 OpcodeSèπ1
 ; i++) {
 
-3697 i‡(
+3696 i‡(
 i
  > 
 IBegö
@@ -38993,7 +39943,7 @@ OutFûe
 	`Put
 (", ");
 
-3698 
+3697 
 OutFûe
 .
 	`PutHex
@@ -39005,7 +39955,7 @@ uöt8
 i
 ), 1);
 
-3700 
+3699 
 OutFûe
 .
 	`Tabuœã
@@ -39013,7 +39963,7 @@ OutFûe
 AsmTab3
 );
 
-3701 
+3700 
 OutFûe
 .
 	`Put
@@ -39021,7 +39971,7 @@ OutFûe
 CommítSï¨©‹
 );
 
-3702 i‡((
+3701 i‡((
 s
 .
 OpcodeDef
@@ -39035,35 +39985,35 @@ uöt8
 IBegö
 ) == 0xF2) {
 
-3703 
+3702 
 OutFûe
 .
 	`Put
 ("BNDÖrefix codedÉxplicitly");
 
-3706 
+3705 
 OutFûe
 .
 	`Put
 ("Prefix codedÉxplicitly");
 
-3708 
+3707 
 OutFûe
 .
 	`NewLöe
 ();
 
-3711 i‡((
+3710 i‡((
 s
 .
 O≥ønds
 [0] & 0xF0) == 0xC0 || (s.Operands[1] & 0xF0) == 0xC0) {
 
-3713 
+3712 
 	`WrôeSåögIn°ru˘i⁄
 ();
 
-3717 
+3716 
 OutFûe
 .
 	`Tabuœã
@@ -39071,7 +40021,7 @@ OutFûe
 AsmTab1
 );
 
-3719 i‡((
+3718 i‡((
 s
 .
 OpcodeDef
@@ -39079,37 +40029,37 @@ OpcodeDef
 AŒowedPªfixes
  & 0xC40) == 0xC40) {
 
-3720 
+3719 
 s
 .
 Pªfixes
 [5]) {
 
-3722 
+3721 
 OutFûe
 .
 	`Put
 ("xacquire "); ;
 
-3724 
+3723 
 OutFûe
 .
 	`Put
 ("xrelease "); ;
 
-3727 i‡(
+3726 i‡(
 s
 .
 Pªfixes
 [2]) {
 
-3728 
+3727 
 OutFûe
 .
 	`Put
 ("lock ");
 
-3732 i‡(
+3731 i‡(
 s
 .
 OpcodeDef
@@ -39117,7 +40067,7 @@ OpcodeDef
 Name
 ) {
 
-3734 
+3733 
 OpName
  = 
 s
@@ -39127,7 +40077,7 @@ OpcodeDef
 Name
 ;
 
-3736 
+3735 
 s
 .
 OpCommít
@@ -39137,23 +40087,23 @@ OpCommít
 OpName
 , ';');
 
-3737 i‡(
+3736 i‡(
 s
 .
 OpCommít
 ) s.OpComment++;
 
-3740 
+3739 
 OpName
  = "UNDEFINED";
 
-3741 
+3740 
 s
 .
 OpCommít
  = 0;
 
-3745 i‡((
+3744 i‡((
 s
 .
 OpcodeDef
@@ -39163,23 +40113,23 @@ O±i⁄s
 Pªfixes
 [7] & 0x30)) {
 
-3747 
+3746 
 OutFûe
 .
 	`Put
 ('v');
 
-3751 i‡(
+3750 i‡(
 s
 .
 OpCommít
 ) {
 
-3753 *
+3752 *
 OpName
  != ';' && *OpName != 0) {
 
-3754 
+3753 
 OutFûe
 .
 	`Put
@@ -39187,7 +40137,7 @@ OutFûe
 OpName
 ++));
 
-3758 
+3757 
 OutFûe
 .
 	`Put
@@ -39195,7 +40145,7 @@ OutFûe
 OpName
 );
 
-3762 i‡(
+3761 i‡(
 s
 .
 OpcodeDef
@@ -39203,7 +40153,7 @@ OpcodeDef
 O±i⁄s
  & 1) {
 
-3764 i‡((
+3763 i‡((
 s
 .
 OpcodeDef
@@ -39211,7 +40161,7 @@ OpcodeDef
 AŒowedPªfixes
  & 0x7000) == 0x1000) {
 
-3766 
+3765 
 i
  = 
 s
@@ -39219,7 +40169,7 @@ s
 Pªfixes
 [7] & 8;
 
-3767 
+3766 
 OutFûe
 .
 	`Put
@@ -39227,7 +40177,7 @@ OutFûe
 i
  ? 'd' : 's');
 
-3769 i‡((
+3768 i‡((
 s
 .
 OpcodeDef
@@ -39235,7 +40185,7 @@ OpcodeDef
 AŒowedPªfixes
  & 0x7000) == 0x3000) {
 
-3771 
+3770 
 boﬁ
  
 f
@@ -39243,7 +40193,7 @@ f
 Ál£
 ;
 
-3773 
+3772 
 i
  = 0; i < 
 s
@@ -39251,7 +40201,7 @@ s
 MaxNumO≥ønds
 ; i++) {
 
-3774 i‡((
+3773 i‡((
 s
 .
 O≥ønds
@@ -39259,13 +40209,13 @@ O≥ønds
 i
 ] & 0xF0) == 0x40) {
 
-3775 
+3774 
 f
  = 
 åue
 ; ;
 
-3778 
+3777 
 i
  = 
 s
@@ -39273,11 +40223,11 @@ s
 Pªfixes
 [7] & 8;
 
-3779 i‡(
+3778 i‡(
 f
 ) {
 
-3780 
+3779 
 OutFûe
 .
 	`Put
@@ -39285,7 +40235,7 @@ OutFûe
 i
  ? 'd' : 's');
 
-3783 
+3782 
 OutFûe
 .
 	`Put
@@ -39293,7 +40243,7 @@ OutFûe
 i
  ? 'q' : 'd');
 
-3786 i‡((
+3785 i‡((
 s
 .
 OpcodeDef
@@ -39301,7 +40251,7 @@ OpcodeDef
 AŒowedPªfixes
  & 0x7000) == 0x4000) {
 
-3788 
+3787 
 i
  = 
 s
@@ -39309,7 +40259,7 @@ s
 Pªfixes
 [7] & 8;
 
-3789 
+3788 
 OutFûe
 .
 	`Put
@@ -39317,7 +40267,7 @@ OutFûe
 i
  ? 'w' : 'b');
 
-3791 i‡((
+3790 i‡((
 s
 .
 OpcodeDef
@@ -39325,7 +40275,7 @@ OpcodeDef
 AŒowedPªfixes
  & 0x7000) == 0x5000) {
 
-3793 
+3792 
 i
  = (
 s
@@ -39333,7 +40283,7 @@ s
 Pªfixes
 [7] & 8) >> 2;
 
-3794 
+3793 
 i
  |
 s
@@ -39341,7 +40291,7 @@ s
 Pªfixes
 [5] != 0x66;
 
-3795 
+3794 
 OutFûe
 .
 	`Put
@@ -39349,7 +40299,7 @@ OutFûe
 i
 ]);
 
-3797 i‡(
+3796 i‡(
 s
 .
 OpcodeDef
@@ -39357,43 +40307,43 @@ OpcodeDef
 AŒowedPªfixes
  & 0xE00) {
 
-3799 
+3798 
 s
 .
 Pªfixes
 [5]) {
 
-3801 
+3800 
 OutFûe
 .
 	`Put
 ("ps"); ;
 
-3803 
+3802 
 OutFûe
 .
 	`Put
 ("pd"); ;
 
-3805 
+3804 
 OutFûe
 .
 	`Put
 ("ss"); ;
 
-3807 
+3806 
 OutFûe
 .
 	`Put
 ("sd"); ;
 
-3809 
+3808 
 îr
 .
 	`submô
 (9000);
 
-3812 i‡(
+3811 i‡(
 s
 .
 OpcodeDef
@@ -39401,7 +40351,7 @@ OpcodeDef
 AŒowedPªfixes
  & 0x100){
 
-3815 
+3814 
 i
  = 
 s
@@ -39409,15 +40359,15 @@ s
 O≥øndSize
  / 8;
 
-3816 i‡(
+3815 i‡(
 i
  <= 8) {
 
-3817 c⁄° 
+3816 c⁄° 
 SizeSuffixes
 [] = " bw d f q";
 
-3818 
+3817 
 OutFûe
 .
 	`Put
@@ -39427,7 +40377,7 @@ SizeSuffixes
 i
 ]);
 
-3823 i‡(
+3822 i‡(
 s
 .
 OpcodeDef
@@ -39435,7 +40385,7 @@ OpcodeDef
 O±i⁄s
  & 0x1000) {
 
-3825 i‡((
+3824 i‡((
 s
 .
 OpcodeDef
@@ -39443,7 +40393,7 @@ OpcodeDef
 AŒowedPªfixes
  & 0x7000) == 0x3000) {
 
-3827 
+3826 
 i
  = ((
 s
@@ -39451,7 +40401,7 @@ s
 Pªfixes
 [7] & 8) + 8) * 4;
 
-3828 
+3827 
 OutFûe
 .
 	`PutDecimÆ
@@ -39459,7 +40409,7 @@ OutFûe
 i
 );
 
-3830 i‡((
+3829 i‡((
 s
 .
 OpcodeDef
@@ -39467,7 +40417,7 @@ OpcodeDef
 AŒowedPªfixes
  & 0x7000) == 0x4000) {
 
-3831 
+3830 
 i
  = (
 s
@@ -39475,7 +40425,7 @@ s
 Pªfixes
 [7] & 8) + 8;
 
-3832 
+3831 
 OutFûe
 .
 	`PutDecimÆ
@@ -39483,7 +40433,7 @@ OutFûe
 i
 );
 
-3836 i‡((
+3835 i‡((
 s
 .
 OpcodeDef
@@ -39493,7 +40443,7 @@ O±i⁄s
 ImmedüãFõldSize
  == 8) {
 
-3838 i‡(
+3837 i‡(
 Sy¡ax
  =
 SUBTYPE_GASM
@@ -39503,7 +40453,7 @@ OutFûe
 	`Put
 ("abs");
 
-3842 
+3841 
 OutFûe
 .
 	`Put
@@ -39513,7 +40463,7 @@ OutFûe
 AsmTab2
 );
 
-3845 
+3844 
 i
  = 0; i < 
 s
@@ -39521,7 +40471,7 @@ s
 MaxNumO≥ønds
 ; i++) {
 
-3846 i‡(
+3845 i‡(
 s
 .
 O≥ønds
@@ -39529,17 +40479,17 @@ O≥ønds
 i
 ] & 0xFFFF) {
 
-3849 i‡(
+3848 i‡(
 NumO≥ønds
 ++) {
 
-3851 
+3850 
 OutFûe
 .
 	`Put
 (", ");
 
-3855 
+3854 
 s
 .
 O≥ønds
@@ -39547,7 +40497,7 @@ O≥ønds
 i
 ] & 0xF0) {
 
-3857 
+3856 
 	`WrôeImmedüãO≥ønd
 (
 s
@@ -39557,7 +40507,7 @@ O≥ønds
 i
 ]);
 
-3862 
+3861 
 uöt32
  
 ›ty≥
@@ -39569,11 +40519,11 @@ O≥ønds
 i
 ] >> 16) & 0x0F;
 
-3863 
+3862 
 ›ty≥
 ) {
 
-3865 
+3864 
 	`WrôeOthîO≥ønd
 (
 s
@@ -39583,7 +40533,7 @@ O≥ønds
 i
 ]); ;
 
-3868 
+3867 
 	`WrôeRMO≥ønd
 (
 s
@@ -39593,7 +40543,7 @@ O≥ønds
 i
 ]); ;
 
-3871 
+3870 
 	`WrôeSh‹tRegO≥ønd
 (
 s
@@ -39603,7 +40553,7 @@ O≥ønds
 i
 ]); ;
 
-3874 
+3873 
 	`WrôeRMO≥ønd
 (
 s
@@ -39613,7 +40563,7 @@ O≥ønds
 i
 ]); ;
 
-3877 
+3876 
 	`WrôeRegO≥ønd
 (
 s
@@ -39623,7 +40573,7 @@ O≥ønds
 i
 ]); ;
 
-3880 
+3879 
 	`WrôeDREXO≥ønd
 (
 s
@@ -39633,7 +40583,7 @@ O≥ønds
 i
 ]); ;
 
-3883 
+3882 
 	`WrôeVEXO≥ønd
 (
 s
@@ -39643,7 +40593,7 @@ O≥ønds
 i
 ], 0); ;
 
-3886 
+3885 
 	`WrôeVEXO≥ønd
 (
 s
@@ -39653,7 +40603,7 @@ O≥ønds
 i
 ], 1); ;
 
-3889 
+3888 
 	`WrôeVEXO≥ønd
 (
 s
@@ -39663,7 +40613,7 @@ O≥ønds
 i
 ], 2); ;
 
-3891 
+3890 
 isMem
  = 
 ›ty≥
@@ -39673,19 +40623,19 @@ s
 Mod
  != 3;
 
-3892 i‡(
+3891 i‡(
 s
 .
 Pªfixes
 [3] == 0x62) {
 
-3893 i‡(
+3892 i‡(
 s
 .
 Pªfixes
 [6] & 0x20) {
 
-3894 
+3893 
 	`WrôeO≥øndAâribuãEVEX
 (
 i
@@ -39693,7 +40643,7 @@ i
 isMem
 );
 
-3897 
+3896 
 	`WrôeO≥øndAâribuãMVEX
 (
 i
@@ -39701,7 +40651,7 @@ i
 isMem
 );
 
-3900 i‡(
+3899 i‡(
 s
 .
 Pªfixes
@@ -39713,69 +40663,69 @@ MaxNumO≥ønds
 O≥ønds
 [i+1] & 0xFFF) < 0x40)) {
 
-3902 i‡(!(
+3901 i‡(!(
 s
 .
 O≥ønds
 [4] & 0x80000000)) {
 
-3903 
+3902 
 s
 .
 O≥ønds
 [4] |= 0x80000000;
 
-3904 i‡(
+3903 i‡(
 s
 .
 Pªfixes
 [6] & 0x20) {
 
-3905 
+3904 
 	`WrôeO≥øndAâribuãEVEX
 (98, 
 isMem
 );
 
-3908 
+3907 
 	`WrôeO≥øndAâribuãMVEX
 (98, 
 isMem
 );
 
-3914 i‡(
+3913 i‡(
 s
 .
 Pªfixes
 [3] == 0x62) {
 
-3915 i‡(
+3914 i‡(
 s
 .
 Pªfixes
 [6] & 0x20) {
 
-3916 
+3915 
 	`WrôeO≥øndAâribuãEVEX
 (99, 0);
 
-3919 
+3918 
 	`WrôeO≥øndAâribuãMVEX
 (99, 0);
 
-3922 i‡(
+3921 i‡(
 s
 .
 OpCommít
 ) {
 
-3924 
+3923 
 OutFûe
 .
 	`Put
 (' ');
 
-3925 
+3924 
 OutFûe
 .
 	`Put
@@ -39783,7 +40733,7 @@ OutFûe
 CommítSï¨©‹
 );
 
-3926 
+3925 
 OutFûe
 .
 	`Put
@@ -39793,35 +40743,35 @@ s
 OpCommít
 );
 
-3928 
+3927 
 	}
 }
 
-3931 
+3930 
 	gCDißs£mbÀr
 ::
 	$WrôeSåögIn°ru˘i⁄
 () {
 
-3933 
+3932 
 uöt32
  
 NumO≥ønds
  = 0;
 
-3934 
+3933 
 uöt32
  
 i
 ;
 
-3935 
+3934 
 uöt32
  
 Segmít
 ;
 
-3937 i‡(!(
+3936 i‡(!(
 s
 .
 OpcodeDef
@@ -39829,13 +40779,13 @@ OpcodeDef
 AŒowedPªfixes
  & 0x1100)) {
 
-3939 
+3938 
 s
 .
 O≥øndSize
  = 8;
 
-3942 
+3941 
 OutFûe
 .
 	`Tabuœã
@@ -39843,7 +40793,7 @@ OutFûe
 AsmTab1
 );
 
-3944 i‡(
+3943 i‡(
 Sy¡ax
  !
 SUBTYPE_MASM
@@ -39857,13 +40807,13 @@ OpcodeDef
 AŒowedPªfixes
  & 4)) {
 
-3946 
+3945 
 Segmít
  = 
 	`GëSegmítRegi°îFromPªfix
 ();
 
-3948 
+3947 
 OutFûe
 .
 	`Put
@@ -39873,13 +40823,13 @@ Regi°îNamesSeg
 Segmít
 ]);
 
-3949 
+3948 
 OutFûe
 .
 	`Put
 (" ");
 
-3953 i‡(
+3952 i‡(
 s
 .
 OpcodeDef
@@ -39887,19 +40837,19 @@ OpcodeDef
 AŒowedPªfixes
  & 0x20) {
 
-3954 i‡(
+3953 i‡(
 s
 .
 Pªfixes
 [3]) {
 
-3956 
+3955 
 OutFûe
 .
 	`Put
 ("rep ");
 
-3959 i‡(
+3958 i‡(
 s
 .
 OpcodeDef
@@ -39907,31 +40857,31 @@ OpcodeDef
 AŒowedPªfixes
  & 0x40) {
 
-3960 i‡(
+3959 i‡(
 s
 .
 Pªfixes
 [3] == 0xF2) {
 
-3962 
+3961 
 OutFûe
 .
 	`Put
 ("repne ");
 
-3964 i‡(
+3963 i‡(
 s
 .
 Pªfixes
 [3] == 0xF3) {
 
-3966 
+3965 
 OutFûe
 .
 	`Put
 ("repe ");
 
-3971 
+3970 
 OutFûe
 .
 	`Put
@@ -39943,13 +40893,13 @@ OpcodeDef
 Name
 );
 
-3973 i‡(
+3972 i‡(
 Sy¡ax
  =
 SUBTYPE_MASM
 
 
-3974 && (((
+3973 && (((
 s
 .
 OpcodeDef
@@ -39959,7 +40909,7 @@ AŒowedPªfixes
 Pªfixes
 [0])
 
-3975 || ((
+3974 || ((
 s
 .
 OpcodeDef
@@ -39969,49 +40919,49 @@ AŒowedPªfixes
 Pªfixes
 [1]))) {
 
-3977 
+3976 
 OutFûe
 .
 	`Put
 (" ");
 
-3980 c⁄° * * 
+3979 c⁄° * * 
 PoöãrRegi°îNames
 ;
 
-3981 
+3980 
 s
 .
 AddªssSize
 ) {
 
-3983 
+3982 
 PoöãrRegi°îNames
  = 
 Regi°îNames16
 ; ;
 
-3985 
+3984 
 PoöãrRegi°îNames
  = 
 Regi°îNames32
 ; ;
 
-3987 
+3986 
 PoöãrRegi°îNames
  = 
 Regi°îNames64
 ; ;
 
-3989 
+3988 
 PoöãrRegi°îNames
  = 0;
 
-3993 
+3992 
 i
  = 0; i < 2; i++) {
 
-3994 i‡(
+3993 i‡(
 s
 .
 O≥ønds
@@ -40019,67 +40969,67 @@ O≥ønds
 i
 ]) {
 
-3996 i‡(
+3995 i‡(
 NumO≥ønds
 ++) {
 
-3998 
+3997 
 OutFûe
 .
 	`Put
 (", ");
 
-4000 i‡(
+3999 i‡(
 NumO≥ønds
  == 1) {
 
-4002 
+4001 
 s
 .
 O≥øndSize
 ) {
 
-4004 
+4003 
 OutFûe
 .
 	`Put
 ("byte "); ;
 
-4006 
+4005 
 OutFûe
 .
 	`Put
 ("word "); ;
 
-4008 
+4007 
 OutFûe
 .
 	`Put
 ("dword "); ;
 
-4010 
+4009 
 OutFûe
 .
 	`Put
 ("qword "); ;
 
-4014 
+4013 
 Segmít
  = 1;
 
-4015 i‡(
+4014 i‡(
 s
 .
 Pªfixes
 [0]) {
 
-4016 
+4015 
 Segmít
  = 
 	`GëSegmítRegi°îFromPªfix
 ();
 
-4018 i‡((
+4017 i‡((
 s
 .
 O≥ønds
@@ -40087,11 +41037,11 @@ O≥ønds
 i
 ] & 0xCF) == 0xC2) {
 
-4019 
+4018 
 Segmít
  = 0;
 
-4022 
+4021 
 OutFûe
 .
 	`Put
@@ -40101,19 +41051,19 @@ Regi°îNamesSeg
 Segmít
 ]);
 
-4023 
+4022 
 OutFûe
 .
 	`Put
 (":");
 
-4025 
+4024 
 OutFûe
 .
 	`Put
 ("[");
 
-4028 
+4027 
 s
 .
 O≥ønds
@@ -40121,7 +41071,7 @@ O≥ønds
 i
 ] & 0xCF) {
 
-4030 
+4029 
 OutFûe
 .
 	`Put
@@ -40129,7 +41079,7 @@ OutFûe
 PoöãrRegi°îNames
 [3]);
 
-4033 
+4032 
 OutFûe
 .
 	`Put
@@ -40137,7 +41087,7 @@ OutFûe
 PoöãrRegi°îNames
 [6]);
 
-4036 
+4035 
 OutFûe
 .
 	`Put
@@ -40145,19 +41095,19 @@ OutFûe
 PoöãrRegi°îNames
 [7]);
 
-4040 
+4039 
 OutFûe
 .
 	`Put
 ("]");
 
-4047 i‡((
+4046 i‡((
 s
 .
 O≥ønds
 [1] & 0xCF) != 0xC0) {
 
-4050 
+4049 
 uöt32
  
 i
@@ -40167,15 +41117,15 @@ s
 O≥øndSize
  / 8;
 
-4051 i‡(
+4050 i‡(
 i
  <= 8) {
 
-4052 c⁄° 
+4051 c⁄° 
 SizeSuffixes
 [] = " bw d q";
 
-4053 
+4052 
 OutFûe
 .
 	`Put
@@ -40185,33 +41135,33 @@ SizeSuffixes
 i
 ]);
 
-4057 
+4056 
 	}
 }
 
-4060 
+4059 
 	gCDißs£mbÀr
 ::
 	$WrôeCodeCommít
 () {
 
-4062 
+4061 
 uöt32
  
 i
 ;
 
-4063 
+4062 
 uöt32
  
 FõldSize
 ;
 
-4064 c⁄° * 
+4063 c⁄° * 
 S∑˚r
 ;
 
-4066 
+4065 
 OutFûe
 .
 	`Tabuœã
@@ -40219,7 +41169,7 @@ OutFûe
 AsmTab3
 );
 
-4067 
+4066 
 OutFûe
 .
 	`Put
@@ -40227,7 +41177,7 @@ OutFûe
 CommítSï¨©‹
 );
 
-4070 i‡(
+4069 i‡(
 Se˘i⁄End
  + 
 Se˘i⁄Addªss
@@ -40237,7 +41187,7 @@ uöt32
 ImageBa£
  > 0xFFFF) {
 
-4072 
+4071 
 OutFûe
 .
 	`PutHex
@@ -40251,7 +41201,7 @@ uöt32
 ImageBa£
 );
 
-4076 
+4075 
 OutFûe
 .
 	`PutHex
@@ -40263,33 +41213,33 @@ IBegö
 Se˘i⁄Addªss
 ));
 
-4080 
+4079 
 OutFûe
 .
 	`Put
 (" _");
 
-4083 
+4082 
 i
  = 
 IBegö
 ;
 
-4086 
+4085 
 i
  < 
 IEnd
 ) {
 
-4087 
+4086 
 FõldSize
  = 1;
 
-4088 
+4087 
 S∑˚r
  = " ";
 
-4091 i‡(
+4090 i‡(
 i
  =
 s
@@ -40299,11 +41249,11 @@ OpcodeSèπ1
 IBegö
 ) {
 
-4092 
+4091 
 S∑˚r
  = ": ";
 
-4094 i‡(
+4093 i‡(
 i
  =
 s
@@ -40311,11 +41261,11 @@ s
 OpcodeSèπ2
  + 1) {
 
-4095 
+4094 
 S∑˚r
  = ". ";
 
-4097 i‡(
+4096 i‡(
 i
  =
 s
@@ -40325,11 +41275,11 @@ AddªssFõld
 AddªssFõldSize
 ) {
 
-4098 
+4097 
 S∑˚r
  = ", ";
 
-4099 
+4098 
 FõldSize
  = 
 s
@@ -40337,7 +41287,7 @@ s
 AddªssFõldSize
 ;
 
-4101 i‡(
+4100 i‡(
 i
  =
 s
@@ -40347,11 +41297,11 @@ ImmedüãFõld
 ImmedüãFõldSize
 ) {
 
-4102 
+4101 
 S∑˚r
  = ", ";
 
-4103 
+4102 
 FõldSize
  = 
 s
@@ -40359,7 +41309,7 @@ s
 ImmedüãFõldSize
 ;
 
-4106 
+4105 
 OutFûe
 .
 	`Put
@@ -40367,11 +41317,11 @@ OutFûe
 S∑˚r
 );
 
-4109 
+4108 
 FõldSize
 ) {
 
-4111 
+4110 
 OutFûe
 .
 	`PutHex
@@ -40383,7 +41333,19 @@ uöt8
 i
 ));
 
-4114 
+4113 
+OutFûe
+.
+	`PutHex
+(
+Gë
+<
+uöt16
+>(
+i
+));
+
+4116 
 OutFûe
 .
 	`PutHex
@@ -40398,22 +41360,10 @@ i
 4117 
 OutFûe
 .
-	`PutHex
-(
-Gë
-<
-uöt16
->(
-i
-));
-
-4118 
-OutFûe
-.
 	`Put
 (", ");
 
-4119 
+4118 
 OutFûe
 .
 	`PutHex
@@ -40425,13 +41375,13 @@ uöt8
 i
 +2));
 
-4122 i‡((
+4121 i‡((
 s
 .
 O≥ønds
 [0] & 0xFE) == 0x84) {
 
-4124 
+4123 
 OutFûe
 .
 	`PutHex
@@ -40443,13 +41393,13 @@ uöt16
 i
 ));
 
-4125 
+4124 
 OutFûe
 .
 	`Put
 (" ");
 
-4126 
+4125 
 OutFûe
 .
 	`PutHex
@@ -40461,7 +41411,19 @@ uöt16
 i
 +2));
 
-4130 
+4129 
+OutFûe
+.
+	`PutHex
+(
+Gë
+<
+uöt32
+>(
+i
+));
+
+4133 
 OutFûe
 .
 	`PutHex
@@ -40476,22 +41438,10 @@ i
 4134 
 OutFûe
 .
-	`PutHex
-(
-Gë
-<
-uöt32
->(
-i
-));
-
-4135 
-OutFûe
-.
 	`Put
 (" ");
 
-4136 
+4135 
 OutFûe
 .
 	`PutHex
@@ -40503,7 +41453,7 @@ uöt16
 i
 +4));
 
-4139 
+4138 
 OutFûe
 .
 	`PutHex
@@ -40515,19 +41465,19 @@ uöt64
 i
 ));
 
-4143 
+4142 
 SARñoˇti⁄
  
 ªl1
 ;
 
-4144 
+4143 
 ªl1
 .
 Se˘i⁄
  = Section;
 
-4145 
+4144 
 ªl1
 .
 Off£t
@@ -40535,7 +41485,7 @@ Off£t
 i
 ;
 
-4148 
+4147 
 öt32
  
 úñ
@@ -40547,11 +41497,11 @@ Rñoˇti⁄s
 ªl1
 );
 
-4150 i‡(
+4149 i‡(
 úñ
  > 0) {
 
-4154 
+4153 
 uöt32
  
 RñTy≥
@@ -40563,11 +41513,11 @@ Rñoˇti⁄s
 Ty≥
 ;
 
-4155 i‡(
+4154 i‡(
 RñTy≥
 ) {
 
-4156 
+4155 
 OutFûe
 .
 	`Put
@@ -40579,7 +41529,7 @@ Rñoˇti⁄Ty≥Names
 RñTy≥
 ));
 
-4158 i‡(
+4157 i‡(
 Rñoˇti⁄s
 [
 úñ
@@ -40589,191 +41539,191 @@ Size
 FõldSize
 ) {
 
-4160 
+4159 
 OutFûe
 .
 	`Put
 (" MisplacedÑelocation.");
 
-4165 
+4164 
 i
  +
 FõldSize
 ;
 
-4168 
+4167 
 OutFûe
 .
 	`NewLöe
 ();
 
-4169 
+4168 
 	}
 }
 
-4172 
+4171 
 	gCDißs£mbÀr
 ::
 	$Cou¡In°ru˘i⁄s
 () {
 
-4178 
+4177 
 uöt32
  
 m≠
 ;
 
-4179 
+4178 
 uöt32
  
 ödex
 ;
 
-4180 
+4179 
 uöt32
  
 n
 ;
 
-4181 
+4180 
 uöt32
  
 i£t
 ;
 
-4182 
+4181 
 uöt32
  
 ö°ru˘i⁄s
  = 0;
 
-4183 
+4182 
 uöt32
  
 mmxö°r
  = 0;
 
-4184 
+4183 
 uöt32
  
 s£ö°r
  = 0;
 
-4185 
+4184 
 uöt32
  
 s£2ö°r
  = 0;
 
-4186 
+4185 
 uöt32
  
 s£3ö°r
  = 0;
 
-4187 
+4186 
 uöt32
  
 ss£3ö°r
  = 0;
 
-4188 
+4187 
 uöt32
  
 s£41ö°r
  = 0;
 
-4189 
+4188 
 uöt32
  
 s£42ö°r
  = 0;
 
-4190 
+4189 
 uöt32
  
 AVXö°r
  = 0;
 
-4191 
+4190 
 uöt32
  
 FMAö°r
  = 0;
 
-4192 
+4191 
 uöt32
  
 AVX2ö°r
  = 0;
 
-4193 
+4192 
 uöt32
  
 BMIö°r
  = 0;
 
-4194 
+4193 
 uöt32
  
 AVX512ö°r
  = 0;
 
-4195 
+4194 
 uöt32
  
 MICö°r
  = 0;
 
-4196 
+4195 
 uöt32
  
 AMDö°r
  = 0;
 
-4197 
+4196 
 uöt32
  
 VIAö°r
  = 0;
 
-4198 
+4197 
 uöt32
  
 ¥ivûö°r
  = 0;
 
-4199 
+4198 
 uöt32
  
 undocö°r
  = 0;
 
-4200 
+4199 
 uöt32
  
 dr›≥dö°r
  = 0;
 
-4201 
+4200 
 uöt32
  
 VEXdoubÀ
  = 0;
 
-4202 
+4201 
 SOpcodeDef
  c⁄° * 
 ›code
 ;
 
-4205 
+4204 
 m≠
  = 0; m≠ < 
 NumOpcodeTabÀs1
 ; map++) {
 
-4207 
+4206 
 ödex
  = 0; index < 
 OpcodeTabÀLígth
@@ -40781,7 +41731,7 @@ OpcodeTabÀLígth
 m≠
 ]; index++) {
 
-4208 
+4207 
 ›code
  = 
 OpcodeTabÀs
@@ -40791,7 +41741,7 @@ m≠
 ödex
 ;
 
-4209 i‡(
+4208 i‡(
 ›code
 ->
 In°ru˘i⁄F‹m©
@@ -40799,7 +41749,7 @@ In°ru˘i⁄F‹m©
 Name
 
 
-4210 && !
+4209 && !
 ›code
 ->
 TabÀLök
@@ -40807,13 +41757,13 @@ TabÀLök
 In°ru˘i⁄F‹m©
  & 0x8000)) {
 
-4212 i‡((
+4211 i‡((
 ›code
 ->
 In°ru˘i⁄F‹m©
  & 0xFFF) == 3
 
-4213 && 
+4212 && 
 ödex
  > 0 && (
 ›code
@@ -40821,7 +41771,7 @@ In°ru˘i⁄F‹m©
 Name
 
 
-4214 && 
+4213 && 
 	`°rcmp
 (
 ›code
@@ -40829,33 +41779,33 @@ Name
 Name
 , (opcode-1)->Name) == 0) {
 
-4218 
+4217 
 n
  = 1;
 
-4220 i‡(
+4219 i‡(
 ›code
 ->
 O±i⁄s
  & 1) {
 
-4221 i‡(
+4220 i‡(
 ›code
 ->
 AŒowedPªfixes
  & 0x3000) {
 
-4222 
+4221 
 n
 ++;
 
-4224 i‡(
+4223 i‡(
 ›code
 ->
 AŒowedPªfixes
  & 0xE00) {
 
-4225 i‡(
+4224 i‡(
 ›code
 ->
 AŒowedPªfixes
@@ -40863,7 +41813,7 @@ AŒowedPªfixes
 n
 ++;
 
-4226 i‡(
+4225 i‡(
 ›code
 ->
 AŒowedPªfixes
@@ -40871,7 +41821,7 @@ AŒowedPªfixes
 n
 ++;
 
-4227 i‡(
+4226 i‡(
 ›code
 ->
 AŒowedPªfixes
@@ -40879,17 +41829,17 @@ AŒowedPªfixes
 n
 ++;
 
-4229 i‡(
+4228 i‡(
 ›code
 ->
 AŒowedPªfixes
  & 0x100) {
 
-4230 
+4229 
 n
 ++;
 
-4231 i‡(
+4230 i‡(
 ›code
 ->
 AŒowedPªfixes
@@ -40897,7 +41847,7 @@ AŒowedPªfixes
 n
 ++;
 
-4234 i‡(
+4233 i‡(
 ›code
 ->
 O±i⁄s
@@ -40907,13 +41857,13 @@ VEXdoubÀ
 n
 ;
 
-4235 
+4234 
 ö°ru˘i⁄s
  +
 n
 ;
 
-4237 
+4236 
 i£t
  = 
 ›code
@@ -40921,11 +41871,11 @@ i£t
 In°ru˘i⁄Së
 ;
 
-4238 i‡(
+4237 i‡(
 i£t
  & 0x20000) {
 
-4239 
+4238 
 dr›≥dö°r
  +
 n
@@ -40933,7 +41883,7 @@ n
 i£t
  = 0;
 
-4241 i‡(
+4240 i‡(
 i£t
  & 0x800Ë
 ¥ivûö°r
@@ -40941,7 +41891,7 @@ i£t
 n
 ;
 
-4242 i‡(
+4241 i‡(
 ›code
 ->
 In°ru˘i⁄F‹m©
@@ -40951,237 +41901,237 @@ undocö°r
 n
 ;
 
-4244 
+4243 
 i£t
  & 0x37FF) {
 
-4246 
+4245 
 mmxö°r
  +
 n
 ; ;
 
-4248 
+4247 
 s£ö°r
  +
 n
 ; ;
 
-4250 
+4249 
 s£2ö°r
  +
 n
 ; ;
 
-4252 
+4251 
 s£3ö°r
  +
 n
 ; ;
 
-4254 
+4253 
 ss£3ö°r
  +
 n
 ; ;
 
-4256 
+4255 
 s£41ö°r
  +
 n
 ; ;
 
-4258 
+4257 
 s£42ö°r
  +
 n
 ; ;
 
-4260 
+4259 
 AVXö°r
  +
 n
 ; ;
 
-4262 
+4261 
 FMAö°r
  +
 n
 ; ;
 
-4264 
+4263 
 AVX2ö°r
  +
 n
 ; ;
 
-4266 
+4265 
 BMIö°r
  +
 n
 ; ;
 
-4268 
+4267 
 AVX512ö°r
  +
 n
 ; ;
 
-4270 
+4269 
 MICö°r
  +
 n
 ; ;
 
-4272 
+4271 
 AMDö°r
  +
 n
 ; ;
 
-4274 
+4273 
 VIAö°r
  +
 n
 ; ;
 
-4281 
+4280 
 	`¥ötf
 ("\n\nNumber of instruction opcodes supported by disassembler:\n%5i Total, including:",
 
-4282 
+4281 
 ö°ru˘i⁄s
 );
 
-4283 
+4282 
 	`¥ötf
 ("\n%5òPrivûeged in°ru˘i⁄s", 
 ¥ivûö°r
 );
 
-4284 
+4283 
 	`¥ötf
 ("\n%5òMMX in°ru˘i⁄s", 
 mmxö°r
 );
 
-4285 
+4284 
 	`¥ötf
 ("\n%5òSSE in°ru˘i⁄s", 
 s£ö°r
 );
 
-4286 
+4285 
 	`¥ötf
 ("\n%5òSSE2 in°ru˘i⁄s", 
 s£2ö°r
 );
 
-4287 
+4286 
 	`¥ötf
 ("\n%5òSSE3 in°ru˘i⁄s", 
 s£3ö°r
 );
 
-4288 
+4287 
 	`¥ötf
 ("\n%5òSSSE3 in°ru˘i⁄s", 
 ss£3ö°r
 );
 
-4289 
+4288 
 	`¥ötf
 ("\n%5òSSE4.1 in°ru˘i⁄s", 
 s£41ö°r
 );
 
-4290 
+4289 
 	`¥ötf
 ("\n%5òSSE4.2 in°ru˘i⁄s", 
 s£42ö°r
 );
 
-4291 
+4290 
 	`¥ötf
 ("\n%5òAVX in°ru˘i⁄†ëc.", 
 AVXö°r
 );
 
-4292 
+4291 
 	`¥ötf
 ("\n%5òAVX2 in°ru˘i⁄s", 
 AVX2ö°r
 );
 
-4293 
+4292 
 	`¥ötf
 ("\n%5òFMA3 in°ru˘i⁄s", 
 FMAö°r
 );
 
-4294 
+4293 
 	`¥ötf
 ("\n%5òBMI/mic£Œ™eou†ö°r.", 
 BMIö°r
 );
 
-4295 
+4294 
 	`¥ötf
 ("\n%5òAVX-512 in°ru˘i⁄s", 
 AVX512ö°r
 );
 
-4296 
+4295 
 	`¥ötf
 ("\n%5òMIC/Xe⁄ Phòö°ru˘i⁄s", 
 MICö°r
 );
 
-4297 
+4296 
 	`¥ötf
 ("\n%5òAMD in°ru˘i⁄s", 
 AMDö°r
 );
 
-4298 
+4297 
 	`¥ötf
 ("\n%5òVIA in°ru˘i⁄s", 
 VIAö°r
 );
 
-4299 
+4298 
 	`¥ötf
 ("\n%5òö°ru˘i⁄†∂™√d buà√vî im∂emíãd i¿™y CPU", 
 dr›≥dö°r
 );
 
-4300 
+4299 
 	`¥ötf
 ("\n%5òundocumíãd o∏ûÀgÆ in°ru˘i⁄s", 
 undocö°r
 );
 
-4301 
+4300 
 	`¥ötf
 ("\n%5òö°ru˘i⁄†havêbŸh VEXándÇ⁄-VEX vîsi⁄s", 
 VEXdoubÀ
 );
 
-4302 
+4301 
 	`¥ötf
 ("\n");
 
-4307 
+4306 
 	`¥ötf
 ("\n\nInstructions with operand swap flag:\n");
 
-4309 
+4308 
 m≠
  = 0; m≠ < 
 NumOpcodeTabÀs1
 ; map++) {
 
-4311 
+4310 
 ödex
  = 0; index < 
 OpcodeTabÀLígth
@@ -41189,7 +42139,7 @@ OpcodeTabÀLígth
 m≠
 ]; index++) {
 
-4312 
+4311 
 ›code
  = 
 OpcodeTabÀs
@@ -41199,13 +42149,13 @@ m≠
 ödex
 ;
 
-4313 i‡((
+4312 i‡((
 ›code
 ->
 AŒowedPªfixes
  & 0x2000) == 0x2000) {
 
-4314 
+4313 
 	`¥ötf
 ("\n%04X %02X %s", 
 m≠
@@ -41217,15 +42167,5011 @@ m≠
 Name
 );
 
-4332 
+4331 
 	`¥ötf
 ("\n");
 
-4335 
+4334 
 	}
 }
 
 	@disasm3.cpp
+
+1 
+	~"°dafx.h
+"
+
+3 
+	gCDißs£mbÀr
+::
+	$WrôeO≥øndTy≥MASM
+–
+CTextFûeBuf„r
+ *
+out_fûe
+, 
+uöt32
+ 
+ty≥
+ ) {
+
+5 i‡(
+ty≥
+ & 0xF00) {
+
+6 
+ty≥
+ &= 0xF00;
+
+9 
+ty≥
+ &= 0xFF;
+
+12 
+ty≥
+) {
+
+14 
+out_fûe
+->
+	`Put
+("byte "); ;
+
+16 
+out_fûe
+->
+	`Put
+("word "); ;
+
+18 
+out_fûe
+->
+	`Put
+("dword "); ;
+
+20 
+out_fûe
+->
+	`Put
+("qword "); ;
+
+22 i‡((
+s
+.
+OpcodeDef
+->
+De°ö©i⁄
+ & 0xFF) == 0xD) {
+
+24 
+out_fûe
+->
+	`Put
+("fword ");
+
+25 
+s
+.
+OpCommít
+ = "64+16 bit. Need REX.WÖrefix";
+
+28 
+out_fûe
+->
+	`Put
+("tbyte ");}
+
+34 
+out_fûe
+->
+	`Put
+("fword ");
+
+35 i‡((
+s
+.
+OpcodeDef
+->
+De°ö©i⁄
+ & 0xFFË=0xD && 
+W‹dSize
+ == 64) {
+
+37 
+s
+.
+OpCommít
+ = "32+16 bit. Possibly forgot REX.WÖrefix";
+
+41 
+out_fûe
+->
+	`Put
+("word "); ;
+
+44 
+out_fûe
+->
+	`Put
+("dword "); ;
+
+47 
+out_fûe
+->
+	`Put
+("qword "); ;
+
+49 
+out_fûe
+->
+	`Put
+("tbyte "); ;
+
+51 
+out_fûe
+->
+	`Put
+("far "); ;
+
+53 
+out_fûe
+->
+	`Put
+("word "); ;
+
+55 
+out_fûe
+->
+	`Put
+("qword "); ;
+
+57 
+out_fûe
+->
+	`Put
+("xmmword "); ;
+
+59 
+out_fûe
+->
+	`Put
+("ymmword "); ;
+
+61 
+out_fûe
+->
+	`Put
+("zmmword "); ;
+
+63 
+out_fûe
+->
+	`Put
+("?mmword "); ;
+
+65 
+out_fûe
+->
+	`Put
+("ptr ");
+
+66 
+	}
+}
+
+68 
+	gCDißs£mbÀr
+::
+	$WrôeO≥øndTy≥YASM
+–
+CTextFûeBuf„r
+ *
+out_fûe
+, 
+uöt32
+ 
+ty≥
+ ) {
+
+70 i‡(
+ty≥
+ & 0xF00) {
+
+71 
+ty≥
+ &= 0xF00;
+
+74 
+ty≥
+ &= 0xFF;
+
+76 
+uöt32
+ 
+De°
+ = 
+s
+.
+OpcodeDef
+->
+De°ö©i⁄
+ & 0xFF;
+
+77 i‡(
+De°
+ >= 0xB && Dest < 0x10) {
+
+79 i‡(
+De°
+ < 0x0D) {
+
+80 
+out_fûe
+->
+	`Put
+("near ");
+
+84 i‡((
+W‹dSize
+ =16 && 
+ty≥
+ == 3) || (WordSize == 32 &&Åype == 7)) {
+
+85 
+out_fûe
+->
+	`Put
+("far ");
+
+89 
+ty≥
+) {
+
+90 3: 
+out_fûe
+->
+	`Put
+("far ");
+
+91 
+s
+.
+OpCommít
+ = "16+16 bit. Needs 66HÖrefix";
+
+93 7: 
+out_fûe
+->
+	`Put
+("far ");
+
+94 
+s
+.
+OpCommít
+ = "32+16 bit. Possibly forgot REX.WÖrefix";
+
+96 5: 
+out_fûe
+->
+	`Put
+("far ");
+
+97 
+s
+.
+OpCommít
+ = "64+16 bit. Needs REX.WÖrefix";
+
+104 
+ty≥
+) {
+
+106 
+out_fûe
+->
+	`Put
+("byte "); ;
+
+108 
+out_fûe
+->
+	`Put
+("word "); ;
+
+110 
+out_fûe
+->
+	`Put
+("dword "); ;
+
+112 
+out_fûe
+->
+	`Put
+("qword "); ;
+
+114 
+out_fûe
+->
+	`Put
+("tbyte "); ;
+
+116 
+out_fûe
+->
+	`Put
+("fword "); ;
+
+118 
+out_fûe
+->
+	`Put
+("word "); ;
+
+121 
+out_fûe
+->
+	`Put
+("dword "); ;
+
+124 
+out_fûe
+->
+	`Put
+("qword "); ;
+
+126 
+out_fûe
+->
+	`Put
+("tbyte "); ;
+
+128 
+out_fûe
+->
+	`Put
+("far "); ;
+
+130 
+out_fûe
+->
+	`Put
+("word "); ;
+
+132 
+out_fûe
+->
+	`Put
+("qword "); ;
+
+134 
+out_fûe
+->
+	`Put
+("oword "); ;
+
+136 
+out_fûe
+->
+	`Put
+("yword "); ;
+
+138 
+out_fûe
+->
+	`Put
+("zword "); ;
+
+140 
+out_fûe
+->
+	`Put
+("?word "); ;
+
+143 
+	}
+}
+
+145 
+	gCDißs£mbÀr
+::
+	$WrôeO≥øndTy≥GASM
+–
+CTextFûeBuf„r
+ *
+out_fûe
+, 
+uöt32
+ 
+ty≥
+ ) {
+
+147 i‡(
+ty≥
+ & 0xF00) {
+
+148 
+ty≥
+ &= 0xF00;
+
+151 
+ty≥
+ &= 0xFF;
+
+154 
+ty≥
+) {
+
+156 
+out_fûe
+->
+	`Put
+("byte "); ;
+
+158 
+out_fûe
+->
+	`Put
+("word "); ;
+
+160 
+out_fûe
+->
+	`Put
+("dword "); ;
+
+162 
+out_fûe
+->
+	`Put
+("qword "); ;
+
+164 i‡((
+s
+.
+OpcodeDef
+->
+De°ö©i⁄
+ & 0xFF) == 0xD) {
+
+166 
+out_fûe
+->
+	`Put
+("fword ");
+
+167 
+s
+.
+OpCommít
+ = "64+16 bit. Needs REX.WÖrefix";
+
+170 
+out_fûe
+->
+	`Put
+("tbyte ");}
+
+176 
+out_fûe
+->
+	`Put
+("fword ");
+
+177 i‡((
+s
+.
+OpcodeDef
+->
+De°ö©i⁄
+ & 0xFFË=0xD && 
+W‹dSize
+ == 64) {
+
+179 
+s
+.
+OpCommít
+ = "32+16 bit. Possibly forgot REX.WÖrefix";
+
+183 
+out_fûe
+->
+	`Put
+("word "); ;
+
+186 
+out_fûe
+->
+	`Put
+("dword "); ;
+
+189 
+out_fûe
+->
+	`Put
+("qword "); ;
+
+191 
+out_fûe
+->
+	`Put
+("tbyte "); ;
+
+193 
+out_fûe
+->
+	`Put
+("far "); ;
+
+195 
+out_fûe
+->
+	`Put
+("word "); ;
+
+197 
+out_fûe
+->
+	`Put
+("qword "); ;
+
+199 
+out_fûe
+->
+	`Put
+("xmmword "); ;
+
+201 
+out_fûe
+->
+	`Put
+("ymmword "); ;
+
+203 
+out_fûe
+->
+	`Put
+("zmmword "); ;
+
+205 
+out_fûe
+->
+	`Put
+("?mmword "); ;
+
+207 
+	}
+}
+
+209 
+	gCDißs£mbÀr
+::
+	$WrôeO≥øndTy≥
+–
+CTextFûeBuf„r
+ *
+out_fûe
+, 
+uöt32
+ 
+ty≥
+ ) {
+
+210 
+Sy¡ax
+) {
+
+211 
+SUBTYPE_MASM
+:
+
+212 
+	`WrôeO≥øndTy≥MASM
+–
+out_fûe
+, 
+ty≥
+ ); ;
+
+213 
+SUBTYPE_YASM
+:
+
+214 
+	`WrôeO≥øndTy≥YASM
+–
+out_fûe
+, 
+ty≥
+ ); ;
+
+215 
+SUBTYPE_GASM
+:
+
+216 
+	`WrôeO≥øndTy≥GASM
+–
+out_fûe
+, 
+ty≥
+ ); ;
+
+218 
+	}
+}
+
+220 
+	gCDißs£mbÀr
+::
+	$WrôeSåögIn°ru˘i⁄
+–
+CTextFûeBuf„r
+ *
+out_fûe
+ ) {
+
+222 
+uöt32
+ 
+NumO≥ønds
+ = 0;
+
+223 
+uöt32
+ 
+i
+;
+
+224 
+uöt32
+ 
+Segmít
+;
+
+226 i‡(!(
+s
+.
+OpcodeDef
+->
+AŒowedPªfixes
+ & 0x1100)) {
+
+228 
+s
+.
+O≥øndSize
+ = 8;
+
+231 
+out_fûe
+->
+	`Tabuœã
+(
+AsmTab1
+);
+
+233 i‡(
+Sy¡ax
+ !
+SUBTYPE_MASM
+ && 
+s
+.
+Pªfixes
+[0] && (s.
+OpcodeDef
+->
+AŒowedPªfixes
+ & 4)) {
+
+235 
+Segmít
+ = 
+	`GëSegmítRegi°îFromPªfix
+();
+
+237 
+out_fûe
+->
+	`Put
+(
+Regi°îNamesSeg
+[
+Segmít
+]);
+
+238 
+out_fûe
+->
+	`Put
+(" ");
+
+242 i‡(
+s
+.
+OpcodeDef
+->
+AŒowedPªfixes
+ & 0x20) {
+
+243 i‡(
+s
+.
+Pªfixes
+[3]) {
+
+245 
+out_fûe
+->
+	`Put
+("rep ");
+
+248 i‡(
+s
+.
+OpcodeDef
+->
+AŒowedPªfixes
+ & 0x40) {
+
+249 i‡(
+s
+.
+Pªfixes
+[3] == 0xF2) {
+
+251 
+out_fûe
+->
+	`Put
+("repne ");
+
+253 i‡(
+s
+.
+Pªfixes
+[3] == 0xF3) {
+
+255 
+out_fûe
+->
+	`Put
+("repe ");
+
+260 
+out_fûe
+->
+	`Put
+(
+s
+.
+OpcodeDef
+->
+Name
+);
+
+262 i‡(
+Sy¡ax
+ =
+SUBTYPE_MASM
+
+
+263 && (((
+s
+.
+OpcodeDef
+->
+AŒowedPªfixes
+ & 4Ë&& s.
+Pªfixes
+[0])
+
+264 || ((
+s
+.
+OpcodeDef
+->
+AŒowedPªfixes
+ & 1Ë&& s.
+Pªfixes
+[1]))) {
+
+266 
+out_fûe
+->
+	`Put
+(" ");
+
+269 c⁄° * * 
+PoöãrRegi°îNames
+;
+
+270 
+s
+.
+AddªssSize
+) {
+
+272 
+PoöãrRegi°îNames
+ = 
+Regi°îNames16
+; ;
+
+274 
+PoöãrRegi°îNames
+ = 
+Regi°îNames32
+; ;
+
+276 
+PoöãrRegi°îNames
+ = 
+Regi°îNames64
+; ;
+
+278 
+PoöãrRegi°îNames
+ = 0;
+
+282 
+i
+ = 0; i < 2; i++) {
+
+283 i‡(
+s
+.
+O≥ønds
+[
+i
+]) {
+
+285 i‡(
+NumO≥ønds
+++) {
+
+287 
+out_fûe
+->
+	`Put
+(", ");
+
+289 i‡(
+NumO≥ønds
+ == 1) {
+
+291 
+s
+.
+O≥øndSize
+) {
+
+293 
+out_fûe
+->
+	`Put
+("byte "); ;
+
+295 
+out_fûe
+->
+	`Put
+("word "); ;
+
+297 
+out_fûe
+->
+	`Put
+("dword "); ;
+
+299 
+out_fûe
+->
+	`Put
+("qword "); ;
+
+303 
+Segmít
+ = 1;
+
+304 i‡(
+s
+.
+Pªfixes
+[0]) {
+
+305 
+Segmít
+ = 
+	`GëSegmítRegi°îFromPªfix
+();
+
+307 i‡((
+s
+.
+O≥ønds
+[
+i
+] & 0xCF) == 0xC2) {
+
+308 
+Segmít
+ = 0;
+
+311 
+out_fûe
+->
+	`Put
+(
+Regi°îNamesSeg
+[
+Segmít
+]);
+
+312 
+out_fûe
+->
+	`Put
+(":");
+
+314 
+out_fûe
+->
+	`Put
+("[");
+
+317 
+s
+.
+O≥ønds
+[
+i
+] & 0xCF) {
+
+319 
+out_fûe
+->
+	`Put
+(
+PoöãrRegi°îNames
+[3]);
+
+322 
+out_fûe
+->
+	`Put
+(
+PoöãrRegi°îNames
+[6]);
+
+325 
+out_fûe
+->
+	`Put
+(
+PoöãrRegi°îNames
+[7]);
+
+329 
+out_fûe
+->
+	`Put
+("]");
+
+336 i‡((
+s
+.
+O≥ønds
+[1] & 0xCF) != 0xC0) {
+
+339 
+uöt32
+ 
+i
+ = 
+s
+.
+O≥øndSize
+ / 8;
+
+340 i‡(
+i
+ <= 8) {
+
+341 c⁄° 
+SizeSuffixes
+[] = " bw d q";
+
+342 
+out_fûe
+->
+	`Put
+(
+SizeSuffixes
+[
+i
+]);
+
+346 
+	}
+}
+
+348 
+	gCDißs£mbÀr
+::
+	$WrôeRñoˇti⁄T¨gë
+–
+CTextFûeBuf„r
+ *
+out_fûe
+, 
+uöt32
+ 
+úñ
+, uöt32 
+C⁄ãxt
+, 
+öt64
+ 
+Addíd
+ ) {
+
+364 
+uöt32
+ 
+RefFøme
+;
+
+365 
+öt32
+ 
+Addíd2
+ = 0;
+
+368 
+uöt32
+ 
+RñTy≥
+ = 
+Rñoˇti⁄s
+[
+úñ
+].
+Ty≥
+;
+
+370 i‡(
+RñTy≥
+ & 0x60) {
+
+373 
+RñTy≥
+ = 1;
+
+374 
+Addíd
+ = 0;
+
+378 
+uöt32
+ 
+RñSize
+ = 
+Rñoˇti⁄s
+[
+úñ
+].
+Size
+;
+
+381 
+Addíd
+ +
+Rñoˇti⁄s
+[
+úñ
+].Addend;
+
+384 
+uöt32
+ 
+T¨gë
+ = 
+Rñoˇti⁄s
+[
+úñ
+].
+T¨gëOldIndex
+;
+
+387 i‡(
+Sy¡ax
+ !
+SUBTYPE_YASM
+ && (
+
+388 ((
+RñTy≥
+ & 0xBË&& (
+C⁄ãxt
+ & 2))
+
+389 || ((
+RñTy≥
+ & 8Ë&& (
+C⁄ãxt
+ & 0x108)))) {
+
+391 
+out_fûe
+->
+	`Put
+("offset ");
+
+395 i‡(
+RñTy≥
+ & 0x200) {
+
+397 
+out_fûe
+->
+	`Put
+("seg ");
+
+401 i‡((
+RñTy≥
+ & 0x408Ë&& (
+C⁄ãxt
+ & 0x11B)) {
+
+403 
+RefFøme
+ = 
+Rñoˇti⁄s
+[
+úñ
+].
+RefOldIndex
+;
+
+404 i‡(!
+RefFøme
+) {
+
+406 
+RefFøme
+ = 
+Symbﬁs
+[Symbﬁs.
+	`Old2NewIndex
+(
+T¨gë
+)].
+Se˘i⁄
+;
+
+408 i‡(
+RefFøme
+ && RefFømê< 
+Se˘i⁄s
+.
+	`GëNumE¡rõs
+()) {
+
+410 c⁄° * 
+SecName
+ = 
+NameBuf„r
+.
+	`Buf
+()+
+Se˘i⁄s
+[
+RefFøme
+].
+Name
+;
+
+411 
+out_fûe
+->
+	`Put
+(
+SecName
+);
+
+412 
+out_fûe
+->
+	`Put
+(":");
+
+417 i‡(
+RñTy≥
+ & 4) {
+
+419 
+out_fûe
+->
+	`Put
+("imagerel(");
+
+424 i‡((
+RñTy≥
+ & 2Ë&& (
+C⁄ãxt
+ & 0x108)) {
+
+427 
+Addíd
+ +
+IEnd
+ - 
+Rñoˇti⁄s
+[
+úñ
+].
+Off£t
+;
+
+430 i‡((
+RñTy≥
+ & 2Ë&& !(
+C⁄ãxt
+ & 0x108)) {
+
+433 
+Addíd2
+ = 
+Rñoˇti⁄s
+[
+úñ
+].
+Off£t
+ - 
+IBegö
+;
+
+434 
+Addíd
+ -
+Addíd2
+;
+
+437 i‡(!(
+RñTy≥
+ & 2Ë&& (
+C⁄ãxt
+ & 0x108)) {
+
+440 
+Addíd
+ +
+IEnd
+ - 
+IBegö
+;
+
+443 i‡(
+RñTy≥
+ & 0x100) {
+
+445 
+RefFøme
+ = 
+Symbﬁs
+[Symbﬁs.
+	`Old2NewIndex
+(
+T¨gë
+)].
+Se˘i⁄
+;
+
+446 i‡(
+RefFøme
+ && RefFømê< 
+Se˘i⁄s
+.
+	`GëNumE¡rõs
+()) {
+
+447 c⁄° * 
+SecName
+ = 
+NameBuf„r
+.
+	`Buf
+()+
+Se˘i⁄s
+[
+RefFøme
+].
+Name
+;
+
+448 
+out_fûe
+->
+	`Put
+(
+SecName
+);
+
+451 
+out_fûe
+->
+	`Put
+("undefined segment");
+
+458 
+uöt32
+ 
+T¨gëSym
+ = 
+Symbﬁs
+.
+	`Old2NewIndex
+(
+T¨gë
+);
+
+461 i‡(((
+Symbﬁs
+[
+T¨gëSym
+].
+Ty≥
+ & 0x80000000Ë|| (
+öt32
+)
+Addíd
+)
+
+462 && !(
+CodeMode
+ =1 && 
+s
+.
+Ba£Reg
+)) {
+
+465 
+uöt32
+ 
+sym
+, 
+sym1
+, 
+sym2
+ = 0;
+
+466 
+sym1
+ = 
+Symbﬁs
+.
+	`FödByAddªss
+(Symbﬁs[
+T¨gëSym
+].
+Se˘i⁄
+, Symbﬁs[T¨gëSym].
+Off£t
+ + (
+öt32
+)
+Addíd
+, &
+sym2
+);
+
+467 
+sym
+ = 
+sym1
+; sym && sym <
+sym2
+; sym++) {
+
+468 i‡(
+Symbﬁs
+[
+sym
+].
+Sc›e
+ && !(Symbﬁs[sym].
+Ty≥
+ & 0x80000000)) {
+
+470 
+T¨gëSym
+ = 
+sym
+;
+
+471 
+Addíd
+ = 
+Addíd2
+;
+
+476 
+out_fûe
+->
+	`Put
+(
+Symbﬁs
+.
+	`GëName
+(
+T¨gëSym
+));
+
+478 i‡(
+Sy¡ax
+ =
+SUBTYPE_GASM
+ && (
+
+479 
+RñTy≥
+ == 0x41 || RelType == 0x81 || RelType == 0x2002)) {
+
+481 
+out_fûe
+->
+	`Put
+("@PLT");
+
+486 i‡(
+RñTy≥
+ & 4) {
+
+487 
+out_fûe
+->
+	`Put
+(")");
+
+491 i‡(
+RñTy≥
+ & 0x10) {
+
+492 
+out_fûe
+->
+	`Put
+("-");
+
+494 
+uöt32
+ 
+RefPoöt
+ = 
+Rñoˇti⁄s
+[
+úñ
+].
+RefOldIndex
+;
+
+495 i‡(
+RefPoöt
+) {
+
+497 
+out_fûe
+->
+	`Put
+(
+Symbﬁs
+.
+	`GëNameO
+(
+RefPoöt
+));
+
+500 
+out_fûe
+->
+	`Put
+("Reference_Point_Missing");
+
+505 i‡((
+RñTy≥
+ & 2Ë&& !(
+C⁄ãxt
+ & 0x108)) {
+
+507 
+out_fûe
+->
+	`Put
+("-"); out_fûe->Put(
+HîeO≥øt‹
+);
+
+511 i‡(!(
+RñTy≥
+ & 2Ë&& (
+C⁄ãxt
+ & 0x108)) {
+
+513 
+out_fûe
+->
+	`Put
+("+"); out_fûe->Put(
+HîeO≥øt‹
+);
+
+517 i‡(
+Addíd
+) {
+
+518 i‡(
+Addíd
+ < 0) {
+
+520 
+out_fûe
+->
+	`Put
+("-");
+
+521 
+Addíd
+ = -Addend;
+
+525 
+out_fûe
+->
+	`Put
+("+");
+
+529 
+RñSize
+) {
+
+531 
+out_fûe
+->
+	`PutHex
+((
+uöt8
+)
+Addíd
+, 1);
+
+534 
+out_fûe
+->
+	`PutHex
+((
+uöt16
+)
+Addíd
+, 2);
+
+537 
+out_fûe
+->
+	`PutHex
+((
+uöt32
+)
+Addíd
+, 2);
+
+540 
+out_fûe
+->
+	`PutHex
+((
+uöt16
+)(
+Addíd
+ >> 32), 1);
+
+541 
+out_fûe
+->
+	`Put
+(":");
+
+542 
+out_fûe
+->
+	`PutHex
+((
+uöt32
+)
+Addíd
+, 1);
+
+545 
+out_fûe
+->
+	`PutHex
+((
+uöt64
+)
+Addíd
+, 2);
+
+548 
+out_fûe
+->
+	`Put
+("??");
+
+552 
+	}
+}
+
+555 
+	gCDißs£mbÀr
+::
+	$WrôeImmedüãO≥ønd
+–
+CTextFûeBuf„r
+ *
+out_fûe
+, 
+uöt32
+ 
+Ty≥
+ ) {
+
+557 
+WrôeF‹m©
+;
+
+558 
+Comp⁄íts
+ = 0;
+
+559 
+uöt32
+ 
+OSize
+;
+
+560 
+uöt32
+ 
+FõldPoöãr
+;
+
+561 
+uöt32
+ 
+FõldSize
+;
+
+562 
+öt64
+ 
+VÆue
+ = 0;
+
+565 i‡((
+Ty≥
+ & 0xFE) == 0x84) {
+
+567 
+	`WrôeO≥øndTy≥
+–
+out_fûe
+, 
+Ty≥
+ );
+
+571 i‡((
+s
+.
+OpcodeDef
+->
+AŒowedPªfixes
+ & 2Ë&& s.
+Pªfixes
+[4] == 0x66
+
+572 && (
+Opcodei
+ == 0x68 || Opcodei == 0x6A)) {
+
+574 
+	`WrôeO≥øndTy≥
+–
+out_fûe
+, 
+s
+.
+O≥øndSize
+ == 16 ? 2 : 3 );
+
+577 
+FõldPoöãr
+ = 
+s
+.
+ImmedüãFõld
+;
+
+578 
+FõldSize
+ = 
+s
+.
+ImmedüãFõldSize
+;
+
+580 i‡(
+Sy¡ax
+ =
+SUBTYPE_YASM
+ && (
+Ty≥
+ & 0x0FË=4 && 
+FõldSize
+ == 8) {
+
+582 
+	`WrôeO≥øndTy≥
+–
+out_fûe
+, 4 );
+
+585 i‡(
+Ty≥
+ & 0x200000) {
+
+586 i‡(
+FõldSize
+ > 1) {
+
+588 
+FõldPoöãr
+ +
+FõldSize
+-1;
+
+589 
+FõldSize
+ = 1;
+
+593 
+FõldSize
+ = 0;
+
+598 
+FõldSize
+) {
+
+600 
+VÆue
+ = 
+Gë
+<
+uöt8
+>(
+FõldPoöãr
+) & 0x0F;
+
+604 
+VÆue
+ = 
+Gë
+<
+öt8
+>(
+FõldPoöãr
+);
+
+608 
+VÆue
+ = 
+Gë
+<
+öt16
+>(
+FõldPoöãr
+); ;
+
+611 
+VÆue
+ = 
+Gë
+<
+öt32
+>(
+FõldPoöãr
+);
+
+612 
+VÆue
+ +(
+uöt64
+)
+Gë
+<
+uöt16
+>(
+FõldPoöãr
+ + 4) << 32;
+
+616 
+VÆue
+ = 
+Gë
+<
+öt32
+>(
+FõldPoöãr
+); ;
+
+619 
+VÆue
+ = 
+Gë
+<
+öt64
+>(
+FõldPoöãr
+); ;
+
+622 i‡((
+Ty≥
+ & 0xFF) == 0x12) {
+
+624 
+FõldSize
+ = 2; 
+VÆue
+ = 
+Gë
+<
+öt16
+>(
+FõldPoöãr
+); ;
+
+629 
+îr
+.
+	`submô
+(3000); 
+VÆue
+ = -1;
+
+633 i‡(
+s
+.
+ImmedüãRñoˇti⁄
+) {
+
+635 
+uöt32
+ 
+C⁄ãxt
+ = 2;
+
+636 i‡((
+Ty≥
+ & 0xFCË=0x80Ë
+C⁄ãxt
+ = 8;
+
+637 i‡((
+Ty≥
+ & 0xFCË=0x84Ë
+C⁄ãxt
+ = 0x10;
+
+640 
+	`WrôeRñoˇti⁄T¨gë
+–
+out_fûe
+, 
+s
+.
+ImmedüãRñoˇti⁄
+, 
+C⁄ãxt
+, 
+VÆue
+ );
+
+643 
+VÆue
+ = 0;
+
+644 
+Comp⁄íts
+++;
+
+647 i‡(
+VÆue
+ =10 && (
+Opcodei
+ & 0xFE) == 0xD4) {
+
+653 i‡((
+Ty≥
+ & 0xF0) == 0x30 || (Type & 0xF0) == 0x80) {
+
+655 
+WrôeF‹m©
+ = 2;
+
+657 i‡(
+s
+.
+ImmedüãFõldSize
+ == 8) {
+
+659 i‡(
+VÆue
+ =(
+öt32
+)Value) {
+
+661 
+WrôeF‹m©
+ = 1;
+
+665 
+WrôeF‹m©
+ = 2;
+
+668 i‡((
+Ty≥
+ & 0xF0) == 0x20) {
+
+670 
+WrôeF‹m©
+ = 1;
+
+674 
+WrôeF‹m©
+ = 0;
+
+677 i‡((
+Ty≥
+ & 0xFCË=0x80 && !
+s
+.
+ImmedüãRñoˇti⁄
+) {
+
+679 
+VÆue
+ +
+IEnd
+;
+
+682 
+uöt32
+ 
+ISymbﬁ
+ = 
+Symbﬁs
+.
+	`FödByAddªss
+(
+Se˘i⁄
+, (uöt32)
+VÆue
+);
+
+683 i‡(
+ISymbﬁ
+ && (
+Symbﬁs
+[ISymbﬁ].
+Name
+ || 
+CodeMode
+ == 1)) {
+
+685 
+out_fûe
+->
+	`Put
+(
+Symbﬁs
+.
+	`GëName
+(
+ISymbﬁ
+));
+
+690 
+Ty≥
+ |= 0x4000;
+
+694 i‡((
+s
+.
+O≥ønds
+[0] & 0xFFF) <= 0xA || (s.Operands[0] & 0xF0) == 0xA0) {
+
+696 
+OSize
+ = 
+s
+.
+O≥øndSize
+;
+
+700 
+OSize
+ = 8;
+
+706 i‡(
+OSize
+ > 
+s
+.
+ImmedüãFõldSize
+ * 8) {
+
+707 i‡(
+WrôeF‹m©
+ =2 && 
+VÆue
+ >= 0) {
+
+710 
+OSize
+ = 
+s
+.
+ImmedüãFõldSize
+ * 8;
+
+712 i‡(
+WrôeF‹m©
+ == 0) {
+
+714 
+WrôeF‹m©
+ = 1;
+
+718 i‡(
+Comp⁄íts
+) {
+
+720 i‡(
+VÆue
+) {
+
+722 i‡(
+VÆue
+ > 0 || 
+WrôeF‹m©
+ != 1) {
+
+723 
+out_fûe
+->
+	`Put
+("+");
+
+726 
+out_fûe
+->
+	`Put
+("-");
+
+727 
+VÆue
+ = - Value;
+
+736 i‡(
+WrôeF‹m©
+ == 2) {
+
+738 
+OSize
+) {
+
+740 
+out_fûe
+->
+	`PutHex
+((
+uöt8
+)
+VÆue
+, 1); ;
+
+742 i‡((
+Ty≥
+ & 0xFC) == 0x84) {
+
+744 
+out_fûe
+->
+	`PutHex
+((
+uöt16
+)(
+VÆue
+ >> 16), 1);
+
+745 
+out_fûe
+->
+	`Put
+(':');
+
+747 
+out_fûe
+->
+	`PutHex
+((
+uöt16
+)
+VÆue
+, 2); ;
+
+750 i‡((
+Ty≥
+ & 0xFC) == 0x84) {
+
+752 
+out_fûe
+->
+	`PutHex
+((
+uöt16
+)(
+VÆue
+ >> 32), 1);
+
+753 
+out_fûe
+->
+	`Put
+(':');
+
+755 
+out_fûe
+->
+	`PutHex
+((
+uöt32
+)
+VÆue
+, 2); ;
+
+757 
+out_fûe
+->
+	`PutHex
+((
+uöt64
+)
+VÆue
+, 2); ;
+
+762 i‡(
+WrôeF‹m©
+ == 0) {
+
+763 
+OSize
+) {
+
+765 
+VÆue
+ &= 0x00FF; ;
+
+767 
+VÆue
+ &= 0xFFFF; ;
+
+770 
+out_fûe
+->
+	`PutDecimÆ
+((
+öt32
+)
+VÆue
+, 
+WrôeF‹m©
+);
+
+772 
+	}
+}
+
+774 
+	gCDißs£mbÀr
+::
+	$WrôeOthîO≥ønd
+–
+CTextFûeBuf„r
+ *
+out_fûe
+, 
+uöt32
+ 
+Ty≥
+ ) {
+
+776 c⁄° * * 
+OpRegi°îNames
+;
+
+777 
+uöt32
+ 
+RegI
+ = 0;
+
+779 
+Ty≥
+ & 0x8FF) {
+
+781 
+OpRegi°îNames
+ = 
+Regi°îNames8
+;
+
+784 
+OpRegi°îNames
+ = 
+Regi°îNames16
+;
+
+787 
+OpRegi°îNames
+ = 
+Regi°îNames32
+;
+
+790 
+OpRegi°îNames
+ = 
+Regi°îNames64
+;
+
+793 
+out_fûe
+->
+	`Put
+("xmm0");
+
+796 
+out_fûe
+->
+	`Put
+("st(0)");
+
+799 
+out_fûe
+->
+	`Put
+("1");
+
+802 
+OpRegi°îNames
+ = 
+Regi°îNames16
+;
+
+803 
+RegI
+ = 2;
+
+806 
+OpRegi°îNames
+ = 
+Regi°îNames8
+;
+
+807 
+RegI
+ = 1;
+
+810 
+out_fûe
+->
+	`Put
+("unknown operand");
+
+811 
+îr
+.
+	`submô
+(3000);
+
+815 
+out_fûe
+->
+	`Put
+(
+OpRegi°îNames
+[
+RegI
+]);
+
+816 
+	}
+}
+
+818 
+	gCDißs£mbÀr
+::
+	$WrôeRegO≥ønd
+–
+CTextFûeBuf„r
+ *
+out_fûe
+, 
+uöt32
+ 
+Ty≥
+ ) {
+
+820 
+uöt32
+ 
+Num
+ = 
+s
+.
+Reg
+;
+
+823 
+	`WrôeRegi°îName
+–
+out_fûe
+, 
+Num
+, 
+Ty≥
+ );
+
+824 
+	}
+}
+
+826 
+	gCDißs£mbÀr
+::
+	$WrôeRMO≥ønd
+–
+CTextFûeBuf„r
+ *
+out_fûe
+, 
+uöt32
+ 
+Ty≥
+ ) {
+
+831 i‡((
+Ty≥
+ & 0xFF) == 0) {
+
+836 
+uöt32
+ 
+Comp⁄íts
+ = 0;
+
+837 
+öt64
+ 
+Addíd
+ = 0;
+
+838 
+AddªssögMode
+ = 0;
+
+844 i‡(
+s
+.
+Mod
+ == 3) {
+
+846 
+	`WrôeRegi°îName
+–
+out_fûe
+, 
+s
+.
+RM
+, 
+Ty≥
+ );
+
+851 
+s
+.
+AddªssFõldSize
+) {
+
+853 
+Addíd
+ = 
+Gë
+<
+öt8
+>(
+s
+.
+AddªssFõld
+);
+
+856 
+Addíd
+ = 
+Gë
+<
+öt16
+>(
+s
+.
+AddªssFõld
+);
+
+859 
+Addíd
+ = 
+Gë
+<
+öt32
+>(
+s
+.
+AddªssFõld
+);
+
+860 i‡((
+s
+.
+MFœgs
+ & 0x100Ë&& !s.
+AddªssRñoˇti⁄
+) {
+
+862 
+Addíd
+ +
+ImageBa£
+ + 
+	`uöt64
+(
+Se˘i⁄Addªss
+ + 
+IEnd
+);
+
+866 
+Addíd
+ = 
+Gë
+<
+öt64
+>(
+s
+.
+AddªssFõld
+);
+
+870 i‡(
+s
+.
+AddªssSize
+ > 32) {
+
+871 i‡(
+s
+.
+MFœgs
+ & 0x100) {
+
+872 
+AddªssögMode
+ = 4;
+
+874 i‡(
+s
+.
+AddªssFõldSize
+ == 8) {
+
+875 
+AddªssögMode
+ = 8;
+
+877 i‡(
+s
+.
+AddªssRñoˇti⁄
+ || (s.
+Ba£Reg
+==0 && s.
+IndexReg
+==0)) {
+
+878 
+AddªssögMode
+ = 2;
+
+881 
+AddªssögMode
+ = 1;
+
+886 i‡(
+Opcodei
+ == 0x8D) {
+
+887 
+Ty≥
+ = 0;
+
+890 i‡((
+s
+.
+OpcodeDef
+->
+In°ru˘i⁄F‹m©
+ & 0x1F) == 0x1E) {
+
+891 
+	`WrôeO≥øndTy≥
+–
+out_fûe
+, 
+Ty≥
+ & 0xFF );
+
+893 i‡(!(
+s
+.
+OpcodeDef
+->
+O±i⁄s
+ & 0x800)) {
+
+894 
+	`WrôeO≥øndTy≥
+–
+out_fûe
+, 
+Ty≥
+ );
+
+897 i‡(
+Sy¡ax
+ !
+SUBTYPE_MASM
+) {
+
+899 
+out_fûe
+->
+	`Put
+("[");
+
+903 i‡(
+s
+.
+Pªfixes
+[0]) {
+
+904 
+out_fûe
+->
+	`Put
+(
+Regi°îNamesSeg
+[
+	`GëSegmítRegi°îFromPªfix
+()]);
+
+905 
+out_fûe
+->
+	`Put
+(":");
+
+907 i‡(!
+s
+.
+Ba£Reg
+ && !s.
+IndexReg
+ && (!s.
+AddªssRñoˇti⁄
+ || (s.
+W¨nögs1
+ & 0x10000)Ë&& 
+Sy¡ax
+ !
+SUBTYPE_YASM
+) {
+
+910 
+out_fûe
+->
+	`Put
+("DS:");
+
+913 i‡(
+Sy¡ax
+ =
+SUBTYPE_MASM
+) {
+
+915 
+out_fûe
+->
+	`Put
+("[");
+
+918 i‡(
+Sy¡ax
+ =
+SUBTYPE_YASM
+ && (
+AddªssögMode
+ & 0x0E)) {
+
+920 
+AddªssögMode
+) {
+
+921 2: 
+out_fûe
+->
+	`Put
+("abs "); ;
+
+922 4: 
+out_fûe
+->
+	`Put
+("rel "); ;
+
+923 8: 
+out_fûe
+->
+	`Put
+("abs qword "); ;
+
+928 i‡(
+s
+.
+AddªssRñoˇti⁄
+) {
+
+930 
+	`WrôeRñoˇti⁄T¨gë
+–
+out_fûe
+, 
+s
+.
+AddªssRñoˇti⁄
+, 4 | (s.
+MFœgs
+ & 0x100), 
+Addíd
+ );
+
+932 
+Addíd
+ = 0;
+
+934 
+Comp⁄íts
+++;
+
+939 
+uöt32
+ 
+Regi°îTy≥
+ = 0;
+
+940 
+s
+.
+AddªssSize
+) {
+
+942 
+Regi°îTy≥
+ = 2; ;
+
+944 
+Regi°îTy≥
+ = 3; ;
+
+946 
+Regi°îTy≥
+ = 4; ;
+
+950 i‡(
+s
+.
+Ba£Reg
+) {
+
+951 i‡(
+Comp⁄íts
+++Ë
+out_fûe
+->
+	`Put
+("+");
+
+952 
+	`WrôeRegi°îName
+–
+out_fûe
+, 
+s
+.
+Ba£Reg
+ - 1, 
+Regi°îTy≥
+ );
+
+956 i‡(
+s
+.
+IndexReg
+) {
+
+957 i‡(
+Comp⁄íts
+++Ë
+out_fûe
+->
+	`Put
+("+");
+
+958 i‡((
+s
+.
+OpcodeDef
+->
+In°ru˘i⁄F‹m©
+ & 0x1F) != 0x1E) {
+
+960 
+	`WrôeRegi°îName
+–
+out_fûe
+, 
+s
+.
+IndexReg
+ - 1, 
+Regi°îTy≥
+ );
+
+964 
+	`WrôeRegi°îName
+–
+out_fûe
+, 
+s
+.
+IndexReg
+ - 1, 
+Ty≥
+ & 0xF00 );
+
+967 i‡(
+s
+.
+SˇÀ
+) {
+
+968 
+out_fûe
+->
+	`Put
+("*");
+
+969 
+out_fûe
+->
+	`PutDecimÆ
+(1 << 
+s
+.
+SˇÀ
+);
+
+974 i‡(
+Comp⁄íts
+ && 
+Addíd
+) {
+
+976 i‡(
+Addíd
+ >0 || 
+s
+.
+AddªssFõldSize
+ == 8) {
+
+978 
+out_fûe
+->
+	`Put
+("+");
+
+982 
+out_fûe
+->
+	`Put
+("-");
+
+983 
+Addíd
+ = -Addend;
+
+987 i‡(
+Addíd
+ || 
+Comp⁄íts
+ == 0) {
+
+989 
+uöt32
+ 
+AddídSize
+ = 
+s
+.
+AddªssFõldSize
+;
+
+990 i‡((
+uöt64
+)
+Addíd
+ < 0x100 && 
+AddídSize
+ > 1) AddendSize = 1;
+
+991 i‡((
+uöt64
+)
+Addíd
+ < 0x10000 && 
+AddídSize
+ > 2) AddendSize = 2;
+
+994 
+out_fûe
+->
+	`PutHex
+((
+uöt64
+)
+Addíd
+, 2);
+
+997 i‡(
+s
+.
+Off£tMu…ùlõr
+ && s.
+AddªssFõldSize
+ =1 && 
+Addíd
+) {
+
+998 
+out_fûe
+->
+	`Put
+("*");
+
+999 
+out_fûe
+->
+	`PutHex
+(
+s
+.
+Off£tMu…ùlõr
+, 2);
+
+1003 i‡(
+Sy¡ax
+ =
+SUBTYPE_GASM
+ && (
+AddªssögMode
+ == 4)) {
+
+1005 
+out_fûe
+->
+	`Put
+("+rip");
+
+1009 
+out_fûe
+->
+	`Put
+("]");
+
+1010 
+	}
+}
+
+1012 
+	gCDißs£mbÀr
+::
+	$WrôeRegi°îName
+–
+CTextFûeBuf„r
+ *
+out_fûe
+, 
+uöt32
+ 
+VÆue
+, uöt32 
+Ty≥
+ ) {
+
+1014 i‡(
+Ty≥
+ & 0xF00) {
+
+1016 
+Ty≥
+ &= 0xF00;
+
+1020 
+Ty≥
+ &= 0xFF;
+
+1024 
+Ty≥
+) {
+
+1026 
+Ty≥
+ = 1; 
+VÆue
+ = 0;
+
+1030 
+Ty≥
+ = 2; 
+VÆue
+ = 0;
+
+1034 
+Ty≥
+ = 3; 
+VÆue
+ = 0;
+
+1038 
+Ty≥
+ = 4; 
+VÆue
+ = 0;
+
+1042 
+Ty≥
+ = 0x400; 
+VÆue
+ = 0;
+
+1046 
+Ty≥
+ = 0x40; 
+VÆue
+ = 0;
+
+1050 
+Ty≥
+ = 2; 
+VÆue
+ = 2;
+
+1054 
+Ty≥
+ = 1; 
+VÆue
+ = 1;
+
+1059 
+uöt32
+ 
+RegNumLimô
+ = 7;
+
+1060 i‡(
+W‹dSize
+ >= 64) {
+
+1061 
+RegNumLimô
+ = 15;
+
+1062 i‡((
+s
+.
+Pªfixes
+[6] & 0x40Ë&& (
+Ty≥
+ & 0xF40)) {
+
+1064 
+RegNumLimô
+ = 31;
+
+1068 
+Ty≥
+) {
+
+1070 
+RegNumLimô
+ = 5;
+
+1075 
+RegNumLimô
+ = 7;
+
+1078 
+RegNumLimô
+ = 3;
+
+1081 i‡(
+VÆue
+ > 
+RegNumLimô
+) {
+
+1083 
+out_fûe
+->
+	`Put
+("unknownÑegister ");
+
+1084 
+Ty≥
+) {
+
+1086 
+out_fûe
+->
+	`Put
+("(8 bit) "); ;
+
+1088 
+out_fûe
+->
+	`Put
+("(16 bit) "); ;
+
+1090 
+out_fûe
+->
+	`Put
+("(32 bit) "); ;
+
+1092 
+out_fûe
+->
+	`Put
+("(64 bit) "); ;
+
+1094 
+out_fûe
+->
+	`Put
+("st"); ;
+
+1096 
+out_fûe
+->
+	`Put
+("seg"); ;
+
+1098 
+out_fûe
+->
+	`Put
+("cr"); ;
+
+1100 
+out_fûe
+->
+	`Put
+("k"); ;
+
+1102 
+out_fûe
+->
+	`Put
+("mm"); ;
+
+1104 
+out_fûe
+->
+	`Put
+("xmm"); ;
+
+1106 
+out_fûe
+->
+	`Put
+("ymm"); ;
+
+1108 
+out_fûe
+->
+	`Put
+("zmm"); ;
+
+1110 
+out_fûe
+->
+	`Put
+("?mm"); ;
+
+1112 
+out_fûe
+->
+	`PutDecimÆ
+(
+VÆue
+);
+
+1116 
+Ty≥
+) {
+
+1118 
+out_fûe
+->
+	`Put
+(
+s
+.
+Pªfixes
+[7] ? 
+Regi°îNames8x
+[
+VÆue
+] : 
+Regi°îNames8
+[Value & 7]);
+
+1122 
+out_fûe
+->
+	`Put
+(
+Regi°îNames16
+[
+VÆue
+]);
+
+1126 
+out_fûe
+->
+	`Put
+(
+Regi°îNames32
+[
+VÆue
+]);
+
+1130 
+out_fûe
+->
+	`Put
+(
+Regi°îNames64
+[
+VÆue
+]);
+
+1134 
+out_fûe
+->
+	`Put
+("mm");
+
+1135 
+out_fûe
+->
+	`PutDecimÆ
+(
+VÆue
+);
+
+1140 
+out_fûe
+->
+	`Put
+("xmm");
+
+1141 
+out_fûe
+->
+	`PutDecimÆ
+(
+VÆue
+);
+
+1145 
+out_fûe
+->
+	`Put
+("ymm");
+
+1146 
+out_fûe
+->
+	`PutDecimÆ
+(
+VÆue
+);
+
+1150 
+out_fûe
+->
+	`Put
+("zmm");
+
+1151 
+out_fûe
+->
+	`PutDecimÆ
+(
+VÆue
+);
+
+1155 
+out_fûe
+->
+	`Put
+("?mm");
+
+1156 
+out_fûe
+->
+	`PutDecimÆ
+(
+VÆue
+);
+
+1160 i‡(
+Sy¡ax
+ =
+SUBTYPE_YASM
+) {
+
+1162 
+out_fûe
+->
+	`Put
+("st");
+
+1163 
+out_fûe
+->
+	`PutDecimÆ
+(
+VÆue
+);
+
+1167 
+out_fûe
+->
+	`Put
+("st(");
+
+1168 
+out_fûe
+->
+	`PutDecimÆ
+(
+VÆue
+);
+
+1169 
+out_fûe
+->
+	`Put
+(")");
+
+1174 
+out_fûe
+->
+	`Put
+(
+Regi°îNamesSeg
+[
+VÆue
+ & 7]);
+
+1178 
+out_fûe
+->
+	`Put
+(
+Regi°îNamesCR
+[
+VÆue
+]);
+
+1182 
+out_fûe
+->
+	`Put
+("dr");
+
+1183 
+out_fûe
+->
+	`PutDecimÆ
+(
+VÆue
+);
+
+1187 
+out_fûe
+->
+	`Put
+("tr");
+
+1188 
+out_fûe
+->
+	`PutDecimÆ
+(
+VÆue
+);
+
+1192 
+out_fûe
+->
+	`Put
+("k");
+
+1193 
+out_fûe
+->
+	`PutDecimÆ
+(
+VÆue
+);
+
+1197 
+out_fûe
+->
+	`Put
+("bnd");
+
+1198 
+out_fûe
+->
+	`PutDecimÆ
+(
+VÆue
+);
+
+1202 
+out_fûe
+->
+	`Put
+("1");
+
+1206 
+out_fûe
+->
+	`Put
+("UNKNOWN REGISTER TYPE ");
+
+1207 
+out_fûe
+->
+	`PutDecimÆ
+(
+VÆue
+);
+
+1211 
+	}
+}
+
+1213 
+	gCDißs£mbÀr
+::
+	$WrôeSh‹tRegO≥ønd
+–
+CTextFûeBuf„r
+ *
+out_fûe
+, 
+uöt32
+ 
+Ty≥
+ ) {
+
+1215 
+uöt32
+ 
+∫um
+ = 
+Gë
+<
+uöt8
+>(
+s
+.
+OpcodeSèπ2
+) & 7;
+
+1217 i‡(
+s
+.
+Pªfixes
+[7] & 1Ë
+∫um
+ |= 8;
+
+1219 
+	`WrôeRegi°îName
+–
+out_fûe
+, 
+∫um
+, 
+Ty≥
+ );
+
+1220 
+	}
+}
+
+1222 
+	gCDißs£mbÀr
+::
+	$WrôeDREXO≥ønd
+–
+CTextFûeBuf„r
+ *
+out_fûe
+, 
+uöt32
+ 
+Ty≥
+ ) {
+
+1224 
+uöt32
+ 
+Num
+ = 
+s
+.
+Vªg
+ >> 4;
+
+1226 
+	`WrôeRegi°îName
+–
+out_fûe
+, 
+Num
+, 
+Ty≥
+ );
+
+1227 
+	}
+}
+
+1229 
+	gCDißs£mbÀr
+::
+	$WrôeVEXO≥ønd
+–
+CTextFûeBuf„r
+ *
+out_fûe
+, 
+uöt32
+ 
+Ty≥
+, 
+i
+ ) {
+
+1231 
+uöt32
+ 
+Num
+;
+
+1232 
+i
+) {
+
+1234 
+Num
+ = 
+s
+.
+Vªg
+ & 0x1F; ;
+
+1236 
+Num
+ = 
+Gë
+<
+uöt8
+>(
+s
+.
+ImmedüãFõld
+) >> 4; ;
+
+1238 
+Num
+ = 
+Gë
+<
+uöt8
+>(
+s
+.
+ImmedüãFõld
+) & 0x0F; ;
+
+1240 
+Num
+ = 0;
+
+1243 
+	`WrôeRegi°îName
+–
+out_fûe
+, 
+Num
+, 
+Ty≥
+ );
+
+1244 
+	}
+}
+
+1246 
+	gCDißs£mbÀr
+::
+	$WrôeO≥øndAâribuãEVEX
+–
+CTextFûeBuf„r
+ *
+out_fûe
+, 
+i
+, 
+isMem
+ ) {
+
+1251 
+uöt32
+ 
+swiz
+ = 
+s
+.
+OpcodeDef
+->
+EVEX
+;
+
+1253 i‡((
+swiz
+ & 0x30Ë&& (
+i
+ =0 || (
+s
+.
+OpcodeDef
+->
+De°ö©i⁄
+ == 0 && i == 1))) {
+
+1255 i‡(
+s
+.
+Kªg
+ || (
+swiz
+ & 0xC0)) {
+
+1256 
+out_fûe
+->
+	`Put
+(" {k");
+
+1257 
+out_fûe
+->
+	`PutDecimÆ
+(
+s
+.
+Kªg
+);
+
+1258 
+out_fûe
+->
+	`Put
+("}");
+
+1259 i‡((
+swiz
+ & 0x20Ë&& (
+s
+.
+Esss
+ & 8)) {
+
+1261 
+out_fûe
+->
+	`Put
+("{z}");
+
+1265 i‡(
+swiz
+ & 0x07) {
+
+1267 i‡(
+isMem
+ && 
+i
+ < 8) {
+
+1269 i‡((
+swiz
+ & 0x01Ë&& (
+s
+.
+Esss
+ & 1)) {
+
+1272 
+uöt32
+ 
+›
+ = 
+s
+.
+O≥ønds
+[
+i
+];
+
+1273 
+uöt32
+ 
+ñemítsize
+ = 
+	`GëD©aEÀmítSize
+(
+›
+);
+
+1274 
+uöt32
+ 
+›v
+ = 
+s
+.
+O≥ønds
+[0];
+
+1275 i‡(!(
+›v
+ & 0xF00)Ë›v = 
+s
+.
+O≥ønds
+[1];
+
+1276 
+uöt32
+ 
+ve˘‹size
+ = 
+	`GëD©aIãmSize
+(
+›v
+);
+
+1277 i‡(
+ve˘‹size
+ > 
+ñemítsize
+) {
+
+1278 i‡(
+ñemítsize
+) {
+
+1279 
+out_fûe
+->
+	`Put
+(" {1to");
+
+1280 
+out_fûe
+->
+	`PutDecimÆ
+(
+ve˘‹size
+/
+ñemítsize
+);
+
+1281 
+out_fûe
+->
+	`Put
+("}");
+
+1284 
+out_fûe
+->
+	`Put
+("{unknown broadcast}");
+
+1289 i‡(
+i
+ =98 && 
+s
+.
+Mod
+ == 3) {
+
+1294 i‡((
+swiz
+ & 0x4Ë&& (
+s
+.
+Esss
+ & 1)) {
+
+1296 
+uöt32
+ 
+roundög
+ = (
+s
+.
+Esss
+ >> 1) & 3;
+
+1297 
+out_fûe
+->
+	`Put
+(", {");
+
+1298 
+out_fûe
+->
+	`Put
+(
+EVEXRoundögNames
+[
+roundög
+]);
+
+1299 
+out_fûe
+->
+	`Put
+("}");
+
+1301 i‡((
+swiz
+ & 0x2Ë&& (
+s
+.
+Esss
+ & 1)) {
+
+1303 
+out_fûe
+->
+	`Put
+(", {");
+
+1304 
+out_fûe
+->
+	`Put
+(
+EVEXRoundögNames
+[4]);
+
+1305 
+out_fûe
+->
+	`Put
+("}");
+
+1309 
+	}
+}
+
+1311 
+	gCDißs£mbÀr
+::
+	$WrôeO≥øndAâribuãMVEX
+–
+CTextFûeBuf„r
+ *
+out_fûe
+, 
+i
+, 
+isMem
+ ) {
+
+1315 
+uöt32
+ 
+swiz
+ = 
+s
+.
+OpcodeDef
+->
+MVEX
+;
+
+1316 c⁄° 
+R_ße_sy¡ax
+ = 0;
+
+1318 c⁄° * 
+ãxt
+ = 0;
+
+1320 i‡((
+swiz
+ & 0x1000Ë&& (
+i
+ =0 || (
+s
+.
+OpcodeDef
+->
+De°ö©i⁄
+ == 0 && i == 1))) {
+
+1322 i‡(
+s
+.
+Kªg
+ || (
+swiz
+ & 0x2000)) {
+
+1323 
+out_fûe
+->
+	`Put
+(" {k");
+
+1324 
+out_fûe
+->
+	`PutDecimÆ
+(
+s
+.
+Kªg
+);
+
+1325 
+out_fûe
+->
+	`Put
+("}");
+
+1328 i‡(
+swiz
+ & 0x1F) {
+
+1330 i‡(
+isMem
+ && 
+i
+ < 90) {
+
+1332 
+ãxt
+ = 
+s
+.
+SwizRec‹d
+->
+«me
+;
+
+1333 i‡(
+ãxt
+ && *text) {
+
+1334 
+out_fûe
+->
+	`Put
+(" {"); out_fûe->Put(
+ãxt
+); out_file->Put("}");
+
+1338 i‡(
+i
+ == 98) {
+
+1340 i‡(
+s
+.
+Mod
+ =3 && !((
+swiz
+ & 0x700Ë&& (s.
+Esss
+ & 8))) {
+
+1342 
+ãxt
+ = 
+s
+.
+SwizRec‹d
+->
+«me
+;
+
+1343 i‡(
+ãxt
+ && *text) {
+
+1344 
+out_fûe
+->
+	`Put
+(" {"); out_fûe->Put(
+ãxt
+); out_file->Put("}");
+
+1348 i‡(
+i
+ == 99) {
+
+1349 i‡(
+s
+.
+Mod
+ =3 && (
+swiz
+ & 0x300Ë&& (s.
+Esss
+ & 8)) {
+
+1351 
+swiz
+ & 0x300) {
+
+1353 
+ãxt
+ = 
+SwizRoundTabÀs
+[0][0][
+s
+.
+Esss
+ & 3].
+«me
+;
+
+1356 i‡((
+s
+.
+Esss
+ & 4Ë&& !(
+swiz
+ & 0x800)Ë
+ãxt
+ = "sae";
+
+1359 
+ãxt
+ = 
+SwizRoundTabÀs
+[0][
+R_ße_sy¡ax
+][
+s
+.
+Esss
+ & 7].
+«me
+;
+
+1363 i‡(
+ãxt
+ && *text) {
+
+1364 
+out_fûe
+->
+	`Put
+(", {"); out_fûe->Put(
+ãxt
+); out_file->Put("}");
+
+1368 i‡(
+isMem
+ && (
+s
+.
+Esss
+ & 8Ë&& !(
+swiz
+ & 0x800)) {
+
+1370 
+out_fûe
+->
+	`Put
+(" {eh}");
+
+1372 
+	}
+}
+
+1374 
+	gCDißs£mbÀr
+::
+	$WrôeIn°ru˘i⁄
+–
+CTextFûeBuf„r
+ *
+out_fûe
+ ) {
+
+1376 
+uöt32
+ 
+NumO≥ønds
+ = 0;
+
+1377 
+uöt32
+ 
+i
+;
+
+1378 c⁄° * 
+OpName
+;
+
+1380 i‡(
+CodeMode
+ & 6) {
+
+1382 
+out_fûe
+->
+	`Put
+(
+CommítSï¨©‹
+);
+
+1384 i‡((
+s
+.
+OpcodeDef
+->
+O±i⁄s
+ & 0x20Ë&& s.
+OpcodeSèπ1
+ > 
+IBegö
+) {
+
+1387 
+out_fûe
+->
+	`Tabuœã
+(
+AsmTab1
+);
+
+1388 
+out_fûe
+->
+	`Put
+(
+Sy¡ax
+ =
+SUBTYPE_GASM
+ ? ".byte " : "DB ");
+
+1389 
+out_fûe
+->
+	`Tabuœã
+(
+AsmTab2
+);
+
+1390 
+i
+ = 
+IBegö
+; i < 
+s
+.
+OpcodeSèπ1
+; i++) {
+
+1391 i‡(
+i
+ > 
+IBegö
+Ë
+out_fûe
+->
+	`Put
+(", ");
+
+1392 
+out_fûe
+->
+	`PutHex
+(
+Gë
+<
+uöt8
+>(
+i
+), 1);
+
+1394 
+out_fûe
+->
+	`Tabuœã
+(
+AsmTab3
+);
+
+1395 
+out_fûe
+->
+	`Put
+(
+CommítSï¨©‹
+);
+
+1396 i‡((
+s
+.
+OpcodeDef
+->
+AŒowedPªfixes
+ & 8Ë&& 
+Gë
+<
+uöt8
+>(
+IBegö
+) == 0xF2) {
+
+1397 
+out_fûe
+->
+	`Put
+("BNDÖrefix codedÉxplicitly");
+
+1400 
+out_fûe
+->
+	`Put
+("Prefix codedÉxplicitly");
+
+1402 
+out_fûe
+->
+	`NewLöe
+();
+
+1405 i‡((
+s
+.
+O≥ønds
+[0] & 0xF0) == 0xC0 || (s.Operands[1] & 0xF0) == 0xC0) {
+
+1407 
+	`WrôeSåögIn°ru˘i⁄
+–
+out_fûe
+ );
+
+1411 
+out_fûe
+->
+	`Tabuœã
+(
+AsmTab1
+);
+
+1413 i‡((
+s
+.
+OpcodeDef
+->
+AŒowedPªfixes
+ & 0xC40) == 0xC40) {
+
+1414 
+s
+.
+Pªfixes
+[5]) {
+
+1416 
+out_fûe
+->
+	`Put
+("xacquire "); ;
+
+1418 
+out_fûe
+->
+	`Put
+("xrelease "); ;
+
+1421 i‡(
+s
+.
+Pªfixes
+[2]) {
+
+1422 
+out_fûe
+->
+	`Put
+("lock ");
+
+1426 i‡(
+s
+.
+OpcodeDef
+->
+Name
+) {
+
+1428 
+OpName
+ = 
+s
+.
+OpcodeDef
+->
+Name
+;
+
+1430 
+s
+.
+OpCommít
+ = 
+	`°rchr
+(
+OpName
+, ';');
+
+1431 i‡(
+s
+.
+OpCommít
+) s.OpComment++;
+
+1434 
+OpName
+ = "UNDEFINED";
+
+1435 
+s
+.
+OpCommít
+ = 0;
+
+1439 i‡((
+s
+.
+OpcodeDef
+->
+O±i⁄s
+ & 2Ë&& (s.
+Pªfixes
+[7] & 0x30)) {
+
+1441 
+out_fûe
+->
+	`Put
+('v');
+
+1445 i‡(
+s
+.
+OpCommít
+) {
+
+1447 *
+OpName
+ != ';' && *OpName != 0) {
+
+1448 
+out_fûe
+->
+	`Put
+(*(
+OpName
+++));
+
+1452 
+out_fûe
+->
+	`Put
+(
+OpName
+);
+
+1456 i‡(
+s
+.
+OpcodeDef
+->
+O±i⁄s
+ & 1) {
+
+1458 i‡((
+s
+.
+OpcodeDef
+->
+AŒowedPªfixes
+ & 0x7000) == 0x1000) {
+
+1460 
+i
+ = 
+s
+.
+Pªfixes
+[7] & 8;
+
+1461 
+out_fûe
+->
+	`Put
+(
+i
+ ? 'd' : 's');
+
+1463 i‡((
+s
+.
+OpcodeDef
+->
+AŒowedPªfixes
+ & 0x7000) == 0x3000) {
+
+1465 
+boﬁ
+ 
+f
+ = 
+Ál£
+;
+
+1467 
+i
+ = 0; i < 
+s
+.
+MaxNumO≥ønds
+; i++) {
+
+1468 i‡((
+s
+.
+O≥ønds
+[
+i
+] & 0xF0) == 0x40) {
+
+1469 
+f
+ = 
+åue
+; ;
+
+1472 
+i
+ = 
+s
+.
+Pªfixes
+[7] & 8;
+
+1473 i‡(
+f
+) {
+
+1474 
+out_fûe
+->
+	`Put
+(
+i
+ ? 'd' : 's');
+
+1477 
+out_fûe
+->
+	`Put
+(
+i
+ ? 'q' : 'd');
+
+1480 i‡((
+s
+.
+OpcodeDef
+->
+AŒowedPªfixes
+ & 0x7000) == 0x4000) {
+
+1482 
+i
+ = 
+s
+.
+Pªfixes
+[7] & 8;
+
+1483 
+out_fûe
+->
+	`Put
+(
+i
+ ? 'w' : 'b');
+
+1485 i‡((
+s
+.
+OpcodeDef
+->
+AŒowedPªfixes
+ & 0x7000) == 0x5000) {
+
+1487 
+i
+ = (
+s
+.
+Pªfixes
+[7] & 8) >> 2;
+
+1488 
+i
+ |
+s
+.
+Pªfixes
+[5] != 0x66;
+
+1489 
+out_fûe
+->
+	`Put
+("bwdq"[
+i
+]);
+
+1491 i‡(
+s
+.
+OpcodeDef
+->
+AŒowedPªfixes
+ & 0xE00) {
+
+1493 
+s
+.
+Pªfixes
+[5]) {
+
+1495 
+out_fûe
+->
+	`Put
+("ps"); ;
+
+1497 
+out_fûe
+->
+	`Put
+("pd"); ;
+
+1499 
+out_fûe
+->
+	`Put
+("ss"); ;
+
+1501 
+out_fûe
+->
+	`Put
+("sd"); ;
+
+1503 
+îr
+.
+	`submô
+(9000);
+
+1506 i‡(
+s
+.
+OpcodeDef
+->
+AŒowedPªfixes
+ & 0x100){
+
+1509 
+i
+ = 
+s
+.
+O≥øndSize
+ / 8;
+
+1510 i‡(
+i
+ <= 8) {
+
+1511 c⁄° 
+SizeSuffixes
+[] = " bw d f q";
+
+1512 
+out_fûe
+->
+	`Put
+(
+SizeSuffixes
+[
+i
+]);
+
+1517 i‡(
+s
+.
+OpcodeDef
+->
+O±i⁄s
+ & 0x1000) {
+
+1519 i‡((
+s
+.
+OpcodeDef
+->
+AŒowedPªfixes
+ & 0x7000) == 0x3000) {
+
+1521 
+i
+ = ((
+s
+.
+Pªfixes
+[7] & 8) + 8) * 4;
+
+1522 
+out_fûe
+->
+	`PutDecimÆ
+(
+i
+);
+
+1524 i‡((
+s
+.
+OpcodeDef
+->
+AŒowedPªfixes
+ & 0x7000) == 0x4000) {
+
+1525 
+i
+ = (
+s
+.
+Pªfixes
+[7] & 8) + 8;
+
+1526 
+out_fûe
+->
+	`PutDecimÆ
+(
+i
+);
+
+1530 i‡((
+s
+.
+OpcodeDef
+->
+O±i⁄s
+ & 0x400Ë&& s.
+ImmedüãFõldSize
+ == 8) {
+
+1532 i‡(
+Sy¡ax
+ =
+SUBTYPE_GASM
+Ë
+out_fûe
+->
+	`Put
+("abs");
+
+1536 
+out_fûe
+->
+	`Put
+(" "); out_fûe->
+	`Tabuœã
+(
+AsmTab2
+);
+
+1539 
+i
+ = 0; i < 
+s
+.
+MaxNumO≥ønds
+; i++) {
+
+1540 i‡(
+s
+.
+O≥ønds
+[
+i
+] & 0xFFFF) {
+
+1543 i‡(
+NumO≥ønds
+++) {
+
+1545 
+out_fûe
+->
+	`Put
+(", ");
+
+1549 
+s
+.
+O≥ønds
+[
+i
+] & 0xF0) {
+
+1551 
+	`WrôeImmedüãO≥ønd
+–
+out_fûe
+, 
+s
+.
+O≥ønds
+[
+i
+] );
+
+1556 
+uöt32
+ 
+›ty≥
+ = (
+s
+.
+O≥ønds
+[
+i
+] >> 16) & 0x0F;
+
+1557 
+›ty≥
+) {
+
+1559 
+	`WrôeOthîO≥ønd
+–
+out_fûe
+, 
+s
+.
+O≥ønds
+[
+i
+] ); ;
+
+1562 
+	`WrôeRMO≥ønd
+–
+out_fûe
+, 
+s
+.
+O≥ønds
+[
+i
+] ); ;
+
+1565 
+	`WrôeSh‹tRegO≥ønd
+–
+out_fûe
+, 
+s
+.
+O≥ønds
+[
+i
+] ); ;
+
+1568 
+	`WrôeRMO≥ønd
+–
+out_fûe
+, 
+s
+.
+O≥ønds
+[
+i
+] ); ;
+
+1571 
+	`WrôeRegO≥ønd
+–
+out_fûe
+, 
+s
+.
+O≥ønds
+[
+i
+] ); ;
+
+1574 
+	`WrôeDREXO≥ønd
+–
+out_fûe
+, 
+s
+.
+O≥ønds
+[
+i
+] ); ;
+
+1577 
+	`WrôeVEXO≥ønd
+–
+out_fûe
+, 
+s
+.
+O≥ønds
+[
+i
+], 0 ); ;
+
+1580 
+	`WrôeVEXO≥ønd
+–
+out_fûe
+, 
+s
+.
+O≥ønds
+[
+i
+], 1 ); ;
+
+1583 
+	`WrôeVEXO≥ønd
+–
+out_fûe
+, 
+s
+.
+O≥ønds
+[
+i
+], 2 ); ;
+
+1585 
+isMem
+ = 
+›ty≥
+ =3 && 
+s
+.
+Mod
+ != 3;
+
+1586 i‡(
+s
+.
+Pªfixes
+[3] == 0x62) {
+
+1587 i‡(
+s
+.
+Pªfixes
+[6] & 0x20) {
+
+1588 
+	`WrôeO≥øndAâribuãEVEX
+–
+out_fûe
+, 
+i
+, 
+isMem
+ );
+
+1591 
+	`WrôeO≥øndAâribuãMVEX
+–
+out_fûe
+, 
+i
+, 
+isMem
+ );
+
+1594 i‡(
+s
+.
+Pªfixes
+[3] =0x62 && (
+i
+ =s.
+MaxNumO≥ønds
+ - 1 || (s.
+O≥ønds
+[i+1] & 0xFFF) < 0x40)) {
+
+1596 i‡(!(
+s
+.
+O≥ønds
+[4] & 0x80000000)) {
+
+1597 
+s
+.
+O≥ønds
+[4] |= 0x80000000;
+
+1598 i‡(
+s
+.
+Pªfixes
+[6] & 0x20) {
+
+1599 
+	`WrôeO≥øndAâribuãEVEX
+–
+out_fûe
+, 98, 
+isMem
+ );
+
+1602 
+	`WrôeO≥øndAâribuãMVEX
+–
+out_fûe
+, 98, 
+isMem
+ );
+
+1608 i‡(
+s
+.
+Pªfixes
+[3] == 0x62) {
+
+1609 i‡(
+s
+.
+Pªfixes
+[6] & 0x20) {
+
+1610 
+	`WrôeO≥øndAâribuãEVEX
+–
+out_fûe
+, 99, 0 );
+
+1613 
+	`WrôeO≥øndAâribuãMVEX
+–
+out_fûe
+, 99, 0 );
+
+1616 
+	}
+}
 
 	@disasm_wrapper.cpp
 

@@ -1,5 +1,5 @@
 ; Disassembly of file: 
-; Tue Aug  2 02:30:27 2016
+; Wed Aug  3 13:47:44 2016
 ; Mode: 64 bits
 ; Syntax: MASM/ML64
 ; Instruction set: Pentium Pro, x64, privileged instructions
@@ -10,6 +10,7 @@ _text   SEGMENT BYTE 'CODE'                             ; section number 1
 
 Unnamed_1_0 LABEL NEAR
         mov     qword ptr [?_577], rdx                  ; 0240 _ 48: 89. 15, 0000AA59(rel)
+
         mov     rax, qword ptr [rdx+60H]                ; 0247 _ 48: 8B. 42, 60
         mov     qword ptr [?_578], rax                  ; 024B _ 48: 89. 05, 0000AA56(rel)
         mov     rax, qword ptr [rdx+58H]                ; 0252 _ 48: 8B. 42, 58
@@ -527,7 +528,6 @@ Unnamed_1_5E4:
         pop     r15                                     ; 0831 _ 41: 5F
         pop     rbp                                     ; 0833 _ 5D
         ret                                             ; 0834 _ C3
-
 ; Filling space: 3H
 ; Filler type: Multi-byte NOP
 ;       db 0FH, 1FH, 00H
@@ -2988,11 +2988,7 @@ Unnamed_1_288C:
         dd ?_178-?_181                                  ; 2AF0 _ FFFFFF25 (refpoint)
         dd ?_178-?_181                                  ; 2AF4 _ FFFFFF25 (refpoint)
 
-; Filling space: 1H
-; Filler type: NOP
-;       db 90H
-
-; Note: No jump seems to point here
+        nop                                             ; 2AF8 _ 90
         push    rbp                                     ; 2AF9 _ 55
         mov     rbp, rsp                                ; 2AFA _ 48: 89. E5
         push    r14                                     ; 2AFD _ 41: 56
@@ -12157,7 +12153,7 @@ _data   ENDS
 ; Error: Symbol Unnamed_1_B2007E69 has a non-existing address. Section: 1 Offset: 0B2007E69H
 
 END; Disassembly of file: 
-; Tue Aug  2 02:30:27 2016
+; Wed Aug  3 13:47:44 2016
 ; Mode: 64 bits
 ; Syntax: MASM/ML64
 ; Instruction set: BMI etc., x64, privileged instructions

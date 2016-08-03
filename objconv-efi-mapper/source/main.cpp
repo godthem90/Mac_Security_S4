@@ -171,9 +171,17 @@ int main(int argc, char * argv[]) {
 	input_buffer2 >> parser2;
 	parser1.Parse(&disasm_engine1);
 	parser2.Parse(&disasm_engine2);
-	//disassembler1.GetCodeBlockInfo();
-	//disassembler2.GetCodeBlockInfo();
 
+	char *buf = new char[1000];
+	disasm_engine1.SetFunctionDescriptor( 0x2af8 );
+	while( disasm_engine1.GetBlockInFunction( buf ) != -1 )
+		printf("%s\n", buf);
+
+	disasm_engine2.SetFunctionDescriptor( 0x4010 );
+	while( disasm_engine2.GetBlockInFunction( buf ) != -1 )
+		printf("%s\n", buf);
+
+	delete[] buf;
 	//BlockMapper block_mapper( &disassembler1, &disassembler2 );
 	//block_mapper.Dump();
 

@@ -43,11 +43,11 @@ To find a symbol by its address, use FindByAddress().
 
 ******************************************************************************/
 
-#define SplitInsnNum 21
+#define SplitInsnNum 22
 const char *BlockSplitTable[] ={
 	"jmp", "ret", "jo", "jno", "jc", "jnc", "jz", "jnz", "jbe", "ja",
-	"js", "jns", "jpe", "jpe", "jl", "jge", "jle", "jg", "jcxz", "jecxz",
-	"jrcxz"
+	"je", "js", "jns", "jpe", "jpe", "jl", "jge", "jle", "jg", "jcxz",
+	"jecxz", "jrcxz"
 };
 
 CSymbolTable::CSymbolTable() {
@@ -739,6 +739,8 @@ void CDisassembler::Go() {
     // Fix invalid characters in symbol and section names
     CheckNamesValid();
 
+	SplitBlockBySymbol();
+
 #if 0 //
     // Show function list. For debugging only
     printf("\n\nFunctionList:");
@@ -778,7 +780,7 @@ void CDisassembler::Go() {
     // Finish writing output file
     WriteFileEnd();
 
-	FILE * ff = stdout; 
+	/*FILE * ff = stdout; 
 	// Check if error
 	//if (!ff) {err.submit(2104, FileName);  return;}
 	// Write file
@@ -789,7 +791,7 @@ void CDisassembler::Go() {
 	//n = fclose(ff);
 	// Check if error
 	//if (n) {err.submit(2104, FileName);  return;}
-	
+	*/
 }
 
 void CDisassembler::Pass1() {
@@ -866,7 +868,6 @@ void CDisassembler::Pass1() {
                 }
                 // check if function ends here
                 CheckForBlockEnd();
-
 				CheckForFunctionEnd();
             }
         }
@@ -1057,6 +1058,37 @@ int CDisassembler::NextFunction2() {
     return 1;
 }
 
+void CDisassembler::SplitBlockBySymbol()
+{
+	int symi = 1;
+	for( symi = 1; symi < Symbols.GetNumEntries(); symi++ )
+	{
+		int32 section = Symbols[symi].Section;
+		uint32 section_offset = Symbols[symi].Offset;
+		
+		int blocki = 1;
+		for( blocki = 1; blocki < BlockList.GetNumEntries(); blocki++ )
+		{
+			if( BlockList[blocki].Start <= section_offset && section_offset < BlockList[blocki].End )
+				break;
+		}
+		if( blocki == BlockList.GetNumEntries() )
+			return;
+
+		if( BlockList[blocki].Start != section_offset )
+		{
+			uint32 current_block_end = BlockList[blocki].End;
+			BlockList[blocki].End = section_offset;
+
+			CodeBlock block;
+			block.Section = section;
+			block.Start = section_offset;
+			block.End = current_block_end;
+			BlockList.PushUnique( block );
+		}
+	}
+}
+
 void CDisassembler::CheckForBlockBegin() {
     // Check if function begins at current position
     CodeBlock block;                          // New function record
@@ -1174,7 +1206,7 @@ void CDisassembler::CheckForFunctionEnd() {
 
     // Function ends after ret or unconditional jump and preceding code had no 
     // jumps beyond this position:
-    if (s.OpcodeDef && s.OpcodeDef->Options & 0x10) {
+    if (s.OpcodeDef && s.OpcodeDef->Options & 0x10 && !SwitchtableCheck) {
         // A return or unconditional jump instruction was found.
         FlagPrevious |= 2;
 
@@ -1202,6 +1234,17 @@ void CDisassembler::CheckForFunctionEnd() {
         }
     }
 
+	if( SwitchtableCheck )
+	{
+		if( SwitchtableEnd <= IEnd )
+		{
+			FunctionList[IFunction].End = IEnd;
+            FunctionList[IFunction].Scope &= ~0x10000;
+            IFunction = 0;
+			SwitchtableCheck = 0;
+            return;
+		}
+	}
     // Function does not end here
     return;
 }
@@ -2122,6 +2165,8 @@ void CDisassembler::FollowJumpTable(uint32 symi, uint32 RelType) {
 
 		if( SwitchCheck == 5 && !SwitchtableLength-- )
 		{
+			SwitchtableEnd = Pos;
+			SwitchtableCheck = 1;
 			SwitchCheck = 0;
 			break;
 		}
