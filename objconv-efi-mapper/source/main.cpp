@@ -1,9 +1,15 @@
 #include "stdafx.h"
+#include "data.hpp"
 
 char *input_file_name = 0;
 char *input_file_name1 = 0;
 char *input_file_name2 = 0;
 char *output_file_name = 0;
+
+vector<myGraph> graph;
+vector<string> res;
+map<string, myGraph> mapper;
+map<string, int> visit;
 
 bool CorrectIntegerTypes() {
    if (
@@ -138,6 +144,77 @@ void BlockMapper::Dump()
 	}
 }*/
 
+vector<string> split(string splitStr){
+	int size = splitStr.size();
+	int check = 0, pos = 0;
+	vector<string> ret;
+	for(int i = 0; i < size; i++){
+	if((check == 0 || check == 1) && splitStr[i] == ' '){
+			ret.push_back(splitStr.substr(pos, i-pos));
+			pos = i+1;
+			++check;
+		}
+		else if(check >= 2 && splitStr[i] == ','){
+			ret.push_back(splitStr.substr(pos, i-pos));
+			pos = i+2;
+			++check;	
+		}
+		else if(i == size-1){
+			ret.push_back(splitStr.substr(pos, i-pos+1));
+		}
+	}
+	ret[0] = ret[0].substr(4, 4);
+	ret[0] += 'H';
+	return ret;
+}
+void depthFirstSearch(myGraph g){
+	visit[g.getBlockStart()] = 1;
+	vector<myGraph> temp = g.getFlowGraph();
+	res.push_back(g.getBlockStart());
+	
+	if(temp.size() == 0){
+		for(vector<string>::iterator it = res.begin(); it != res.end(); it++){
+			cout << *it << " ";
+		}
+		cout << endl;
+		return;
+	}
+	else {
+		int size = temp.size();
+		for(int i = 0; i < size; i++){
+			if(!visit[temp[i].getBlockStart()]){
+				depthFirstSearch(mapper[temp[i].getBlockStart()]);
+				res.pop_back();
+				visit[temp[i].getBlockStart()] = 0;
+			}
+		}
+	}
+}
+vector<string> splitBuf(char *buf){
+	int size = strlen(buf);
+	vector<string> ret;
+	string temp;
+	for(int i = 0; i < size; i++){
+		if(buf[i] != '\n' && buf[i] !='\r') temp.push_back(buf[i]);
+		else if(buf[i] == '\n'){
+			ret.push_back(temp);
+			temp.clear();
+		}
+		else if(i == size-1){
+			ret.push_back(temp);
+		}
+	}
+	return ret;
+}
+void initMapper(vector<myGraph> temp){
+	vector<myGraph>::iterator it;
+	for(it = temp.begin(); it != temp.end(); it++){
+		mapper[it->getBlockStart()] = *it;
+//		mapper[it->getBlockStart()].printGraph();
+//		cout << endl;	
+//		cout << "addr : " << it->getBlockStart() << endl;
+	}
+}
 int main(int argc, char * argv[]) {
 	if(!CorrectIntegerTypes())
 	{
@@ -174,13 +251,57 @@ int main(int argc, char * argv[]) {
 
 	char *buf = new char[1000];
 	disasm_engine1.SetFunctionDescriptor( 0x2af8 );
-	while( disasm_engine1.GetBlockInFunction( buf ) != -1 )
-		printf("%s\n", buf);
+	while( disasm_engine1.GetBlockInFunction( buf ) != -1 ){
+		myGraph *block = new myGraph;
+		vector<string> ret = splitBuf(buf);
+		bool first = true;
+		for(vector<string>::iterator it = ret.begin(); it != ret.end(); it++){
+			vector<string> inputData = split(*it);
+			if(first){
+				block->setBlockStart(inputData[0]);
+				first = false;
+			}
+			block->pushData(inputData);
+		}
+//		block->printGraph();
+//		cout << endl;
+		graph.push_back(*block);
+		delete block;
+	//	printf("%s\n", buf);
+	}
+	initMapper(graph);
 
+//	for(map<string, myGraph>::iterator it = mapper.begin(); it!=mapper.end(); it++){
+//		cout << "map value" << (it->first) << endl;
+//	}
+	for(vector<myGraph>::iterator it = graph.begin(); it != graph.end()-1; it++){
+		it->init(*(it+1), mapper);
+//		it->printFlowGraph();
+//		cout << "------------------" << endl;
+	}
+	initMapper(graph);
+	depthFirstSearch(graph[0]);
+/*
 	disasm_engine2.SetFunctionDescriptor( 0x4010 );
-	while( disasm_engine2.GetBlockInFunction( buf ) != -1 )
-		printf("%s\n", buf);
-
+	while( disasm_engine2.GetBlockInFunction( buf ) != -1 ){
+		myGraph *block = new myGraph;
+		vector<string> ret = splitBuf(buf);
+		bool first = true;
+		for(vector<string>::iterator it = ret.begin(); it != ret.end(); it++){
+			vector<string> inputData = split(*it);
+			if(first){
+				block->setBlockStart(inputData[0]);
+				first = false;
+			}
+			block->pushData(inputData);
+		}
+		block->printGraph();
+		cout << endl;
+		graph.push_back(*block);
+		delete block;
+//		printf("%s\n", buf);
+	}
+*/
 	delete[] buf;
 	//BlockMapper block_mapper( &disassembler1, &disassembler2 );
 	//block_mapper.Dump();
