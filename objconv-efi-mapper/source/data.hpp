@@ -8,6 +8,7 @@
 #include<string>
 #include<cstring>
 #include<map>
+#include<set>
 
 using namespace std;
 
@@ -18,7 +19,7 @@ typedef struct graphInData{
 }graphInData;
 
 typedef struct registerSet{
-	string reg[16];
+	string sRegister[16];
 	//rax, rbx, rcx, rdx, rsi, rdi, rbp, rsp, r8, r9, r10, r11, r12, r13, r14, r15
 }registerSet;
 
@@ -29,6 +30,7 @@ class myGraph{
 		vector<myGraph> flow;		// Graph Flow -> Using all search
 	public:
 		registerSet reg;
+		set<string> result[16];
 		void pushData(vector<string> data); // Insert Block Data ex) opcode, operand, address
 		void printGraph();
 		void setBlockStart(string address);
@@ -37,6 +39,8 @@ class myGraph{
 		vector<myGraph> getFlowGraph();
 		void printFlowGraph();
 		void init(myGraph g, map<string, myGraph> temp); // Insert next Block and Jmp Block
+		void printRegisterSet();
+		void printResult();
 };
 
 #endif

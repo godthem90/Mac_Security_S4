@@ -59,6 +59,8 @@ void myGraph::init(myGraph g, map<string, myGraph> temp){
 		}
 	}	
 }
+void myGraph::printRegisterSet(){
+}
 void myGraph::printFlowGraph(){
 	int size = flow.size();
 	for(int i = 0; i < size; i++){
@@ -72,4 +74,12 @@ vector<myGraph> myGraph::getFlowGraph(){
 
 vector<graphInData> myGraph::getInData(){
 	return inData;
+}
+void myGraph::printResult(){
+	for(int i = 0; i<16; i++){
+		for(set<string>::iterator it=result[i].begin(); it!=result[i].end(); it++){
+		cout << *it << "\t";
+	}
+		cout << endl;
+	}
 }

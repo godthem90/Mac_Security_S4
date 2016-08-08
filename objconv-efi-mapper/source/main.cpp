@@ -7,7 +7,8 @@ char *input_file_name2 = 0;
 char *output_file_name = 0;
 
 vector<myGraph> graph;
-vector<string> res;
+vector< pair<string, registerSet> > res;
+
 map<string, myGraph> mapper;
 map<string, int> visit;
 
@@ -167,23 +168,167 @@ vector<string> split(string splitStr){
 	ret[0] += 'H';
 	return ret;
 }
-void depthFirstSearch(myGraph g){
+int operandCheck(string regi){
+	if(regi.find("a")!=string::npos) return 1;
+	else if(regi.find("bx")!=string::npos || regi.find("bl")!=string::npos) return 2;
+	else if(regi.find("c")!=string::npos) return 3;
+	else if(regi.find("dx")!=string::npos || regi.find("dl")!=string::npos) return 4;
+	else if(regi.find("si")!=string::npos) return 5;
+	else if(regi.find("di")!=string::npos) return 6;
+	else if(regi.find("sp")!=string::npos) return 7;
+	else if(regi.find("bp")!=string::npos) return 8;
+	else if(regi.find("r8")!=string::npos) return 9;
+	else if(regi.find("r9")!=string::npos) return 10;
+	else if(regi.find("r10")!=string::npos) return 11;
+	else if(regi.find("r11")!=string::npos) return 12;
+	else if(regi.find("r12")!=string::npos) return 13;
+	else if(regi.find("r13")!=string::npos) return 14;
+	else if(regi.find("r14")!=string::npos) return 15;
+	else if(regi.find("r15")!=string::npos) return 16;
+	else return -1;
+}
+void depthFirstSearch(myGraph g, registerSet reg){
 	visit[g.getBlockStart()] = 1;
+	vector<graphInData> inData = g.getInData();
+	int zeroRegister, oneRegister;
+	g.reg = reg;
+	for(vector<graphInData>::iterator it = inData.begin(); it != inData.end(); it++){
+		if(it->opcode.find("mov")!=string::npos || it->opcode.find("lea")!=string::npos){
+			zeroRegister = operandCheck(it->operand[0]);
+			oneRegister = operandCheck(it->operand[1]);
+			if(zeroRegister == -1) break;
+			else if(oneRegister == -1){
+				reg.sRegister[zeroRegister-1] = it->operand[1];
+			}
+			else{
+				if(!reg.sRegister[oneRegister-1].empty()){
+					reg.sRegister[zeroRegister-1] = reg.sRegister[oneRegister-1];
+				}
+				else reg.sRegister[zeroRegister-1] = "Unknown";
+			}
+			g.reg = reg;
+		}
+		else if(it->opcode.find("add")!=string::npos){
+			zeroRegister = operandCheck(it->operand[0]);
+			oneRegister = operandCheck(it->operand[1]);
+			if(zeroRegister == -1) break;
+			else if(oneRegister == -1){
+				if(!reg.sRegister[zeroRegister-1].empty()){
+					reg.sRegister[zeroRegister-1] = reg.sRegister[zeroRegister-1];
+				}
+				else g.reg.sRegister[zeroRegister-1] = "Unknown";
+				reg.sRegister[zeroRegister-1] += "+";
+				reg.sRegister[zeroRegister-1] += it->operand[1];
+			}
+			else{
+				if(!reg.sRegister[zeroRegister-1].empty()){
+					reg.sRegister[zeroRegister-1] = reg.sRegister[zeroRegister-1];
+				}
+				else reg.sRegister[zeroRegister-1] = "Unknown";
+				reg.sRegister[zeroRegister-1] += "+";
+				reg.sRegister[zeroRegister-1] += reg.sRegister[oneRegister-1];
+			}
+			g.reg = reg;
+		}
+		else if(it->opcode.find("sub")!=string::npos){
+			zeroRegister = operandCheck(it->operand[0]);
+			oneRegister = operandCheck(it->operand[1]);
+			if(zeroRegister == -1) break;
+			else if(oneRegister == -1){
+				if(!reg.sRegister[zeroRegister-1].empty()){
+					reg.sRegister[zeroRegister-1] = reg.sRegister[zeroRegister-1];
+				}
+				else reg.sRegister[zeroRegister-1] = "Unknown";
+				reg.sRegister[zeroRegister-1] += "-";
+				reg.sRegister[zeroRegister-1] += it->operand[1];
+			}
+			else{
+				if(!reg.sRegister[zeroRegister-1].empty()){
+					reg.sRegister[zeroRegister-1] = reg.sRegister[zeroRegister-1];
+				}
+				else reg.sRegister[zeroRegister-1] = "Unknown";
+				reg.sRegister[zeroRegister-1] += "-";
+				reg.sRegister[zeroRegister-1] += reg.sRegister[oneRegister-1];
+			}
+			g.reg = reg;
+		}
+		else if(it->opcode.find("inc")!=string::npos){
+			zeroRegister = operandCheck(it->operand[0]);
+			if(zeroRegister == -1) break;
+			else{
+				reg.sRegister[zeroRegister-1] = reg.sRegister[zeroRegister-1] + "+1";
+			}
+		}
+		else if(it->opcode.find("dec")!=string::npos){
+			zeroRegister = operandCheck(it->operand[0]);
+			if(zeroRegister == -1) break;
+			else{
+				reg.sRegister[zeroRegister-1] = reg.sRegister[zeroRegister-1] + "-1";
+			}
+		}
+		else if(it->opcode.find("xor")!=string::npos){
+			zeroRegister = operandCheck(it->operand[0]);
+			oneRegister = operandCheck(it->operand[1]);
+			if(zeroRegister == -1) break;
+			else if(zeroRegister == oneRegister) g.reg.sRegister[zeroRegister-1] = "0";
+			else{
+				if(!reg.sRegister[zeroRegister-1].empty()){
+					reg.sRegister[zeroRegister-1] = reg.sRegister[zeroRegister-1];
+					reg.sRegister[zeroRegister-1] += "XOR";
+				}
+				if(!reg.sRegister[oneRegister-1].empty()){
+					reg.sRegister[zeroRegister-1] += reg.sRegister[oneRegister-1];
+				}
+				reg.sRegister[zeroRegister-1] += it->operand[1];
+			}
+			g.reg = reg;
+		}
+		else if(it->opcode.find("or")!=string::npos){
+
+		}
+		else if(it->opcode.find("and")!=string::npos){
+
+		}
+		else if(it->opcode.find("call")!=string::npos){
+
+		}	
+	}
 	vector<myGraph> temp = g.getFlowGraph();
-	res.push_back(g.getBlockStart());
-	
+	res.push_back(make_pair(g.getBlockStart(), reg));
+	for(int i = 0; i < 16; i++){
+			mapper[g.getBlockStart()].result[i].insert(reg.sRegister[i]);
+	}
 	if(temp.size() == 0){
-		for(vector<string>::iterator it = res.begin(); it != res.end(); it++){
-			cout << *it << " ";
+
+		for(vector<pair<string, registerSet> >::iterator it = res.begin(); it != res.end(); it++){
+			cout << it->first << " ";
+			cout << "rax " << it->second.sRegister[0] << " ";
+			cout << "rbx " << it->second.sRegister[1] << " ";
+			cout << "rcx " << it->second.sRegister[2] << " ";
+			cout << "rdx " << it->second.sRegister[3] << " ";
+			cout << "rsi " << it->second.sRegister[4] << " ";
+			cout << "rdi " << it->second.sRegister[5] << " ";
+			cout << "rsp " << it->second.sRegister[6] << " ";
+			cout << "rbp " << it->second.sRegister[7] << " ";
+			cout << "r8 " << it->second.sRegister[8] << " ";
+			cout << "r9 " << it->second.sRegister[9] << " ";
+			cout << "r10 " << it->second.sRegister[10] << " ";
+			cout << "r11 " << it->second.sRegister[11] << " ";
+			cout << "r12 " << it->second.sRegister[12] << " ";
+			cout << "r13 " << it->second.sRegister[13] << " ";
+			cout << "r14 " << it->second.sRegister[14] << " ";
+			cout << "r15 " << it->second.sRegister[15] << " ";
+			cout << endl;
 		}
 		cout << endl;
+
 		return;
 	}
 	else {
 		int size = temp.size();
 		for(int i = 0; i < size; i++){
 			if(!visit[temp[i].getBlockStart()]){
-				depthFirstSearch(mapper[temp[i].getBlockStart()]);
+				depthFirstSearch(mapper[temp[i].getBlockStart()], g.reg);
 				res.pop_back();
 				visit[temp[i].getBlockStart()] = 0;
 			}
@@ -207,8 +352,7 @@ vector<string> splitBuf(char *buf){
 	return ret;
 }
 void initMapper(vector<myGraph> temp){
-	vector<myGraph>::iterator it;
-	for(it = temp.begin(); it != temp.end(); it++){
+	for(vector<myGraph>::iterator it = temp.begin(); it != temp.end(); it++){
 		mapper[it->getBlockStart()] = *it;
 //		mapper[it->getBlockStart()].printGraph();
 //		cout << endl;	
@@ -280,7 +424,16 @@ int main(int argc, char * argv[]) {
 //		cout << "------------------" << endl;
 	}
 	initMapper(graph);
-	depthFirstSearch(graph[0]);
+	cout << "Insert Initial Register" << endl;
+	cout << "rax, rbx, rcx, rdx, rsi, rdi, rbp, rsp, r8, r9, r10, r11, r12, r13, r14, r15" << endl;
+	for(int i = 0; i < 16; i++){
+		cin >> graph[0].reg.sRegister[i];
+	}	
+	depthFirstSearch(graph[0], graph[0].reg);
+	for(map<string, myGraph>::iterator it = mapper.begin(); it != mapper.end(); it++){
+		it->second.printResult();
+		cout << endl;
+	}
 /*
 	disasm_engine2.SetFunctionDescriptor( 0x4010 );
 	while( disasm_engine2.GetBlockInFunction( buf ) != -1 ){
