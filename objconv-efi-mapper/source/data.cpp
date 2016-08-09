@@ -78,7 +78,7 @@ vector<graphInData> myGraph::getInData(){
 void myGraph::printResult(){
 	for(int i = 0; i<16; i++){
 		for(set<string>::iterator it=result[i].begin(); it!=result[i].end(); it++){
-		cout << *it << "\t";
+		cout << *it << "\t\t\t\t";
 	}
 		cout << endl;
 	}

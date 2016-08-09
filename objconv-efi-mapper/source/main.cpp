@@ -279,18 +279,47 @@ void depthFirstSearch(myGraph g, registerSet reg){
 				if(!reg.sRegister[oneRegister-1].empty()){
 					reg.sRegister[zeroRegister-1] += reg.sRegister[oneRegister-1];
 				}
-				reg.sRegister[zeroRegister-1] += it->operand[1];
+				else reg.sRegister[zeroRegister-1] += it->operand[1];
 			}
 			g.reg = reg;
 		}
 		else if(it->opcode.find("or")!=string::npos){
-
+			if(zeroRegister == -1) break;
+			else if(oneRegister != -1){
+				if(!reg.sRegister[zeroRegister-1].empty()){
+					reg.sRegister[zeroRegister-1] += "OR";
+				}
+				if(!reg.sRegister[oneRegister-1].empty()){
+					reg.sRegister[zeroRegister-1] += reg.sRegister[oneRegister-1];
+				}
+				else reg.sRegister[zeroRegister-1] += it->operand[1];
+			}
+			g.reg = reg;
 		}
 		else if(it->opcode.find("and")!=string::npos){
-
+			if(zeroRegister == -1) break;
+			else if(oneRegister != -1){
+				if(!reg.sRegister[zeroRegister-1].empty()){
+					reg.sRegister[zeroRegister-1] += "AND";
+				}
+				if(!reg.sRegister[oneRegister-1].empty()){
+					reg.sRegister[zeroRegister-1] += reg.sRegister[oneRegister-1];
+				}
+				else reg.sRegister[zeroRegister-1] += it->operand[1];
+			}
+			g.reg = reg;
 		}
 		else if(it->opcode.find("call")!=string::npos){
-
+			reg.sRegister[0] = "callUnknown";
+			reg.sRegister[2] = "callUnknown";
+			reg.sRegister[3] = "callUnknown";
+			reg.sRegister[6]= "callUnknown";
+			reg.sRegister[7] = "callUnknown";
+			reg.sRegister[8] = "callUnknown";
+			reg.sRegister[9] = "callUnknown";
+			reg.sRegister[10] = "callUnknown";
+			reg.sRegister[11] = "callUnknown";
+			g.reg = reg;
 		}	
 	}
 	vector<myGraph> temp = g.getFlowGraph();
