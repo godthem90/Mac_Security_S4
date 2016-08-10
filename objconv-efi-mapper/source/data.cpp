@@ -41,7 +41,7 @@ void myGraph::init(myGraph g, map<string, myGraph> temp){
 //		cout << it->first << "a" << endl;
 //		cout << it->second.getBlockStart() << "a" << endl;
 //	}
-	flow.push_back(g);
+	bool check = false;
 	string condJmp[] = { "jmp", "ja", "jae", "jb", "jbe", "jc", "jcxz", "jecxz", "jrcxz", "je", "jg", "jge", "jl", "jle", "jna", "jnae", "jnb", "jnbe", "jnc", "jne", "jng", "jnge", "jnl", "jnle", "jno", "jnp", "jns", "jnz", "jo", "jp", "jpe", "jpo", "js", "jz", };
 	int size = inData.size();
 	int compareSize = sizeof(condJmp)/sizeof(string);
@@ -53,11 +53,13 @@ void myGraph::init(myGraph g, map<string, myGraph> temp){
 //					cout << "opcode" << inData[i].opcode << "operand" << inData[i].operand[0] << endl;
 //				*/
 //				cout << temp[inData[i].operand[0]].getBlockStart() << endl;
+				if(inData[i].opcode == "jmp") check = true;
 				flow.push_back(temp[inData[i].operand[0]]);
 //				cout << "flow size : " << flow.size() << endl;
 			}
 		}
-	}	
+	}
+	if(!check) flow.push_back(g);	
 }
 void myGraph::printRegisterSet(){
 }
