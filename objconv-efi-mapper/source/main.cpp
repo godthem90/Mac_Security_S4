@@ -188,7 +188,7 @@ int operandCheck(string regi){
 	else return -1;
 }
 void depthFirstSearch(myGraph g, registerSet reg){
-	visit[g.getBlockStart()]++;
+	visit[g.getBlockStart()] = 1;
 	vector<graphInData> inData = g.getInData();
 	int zeroRegister, oneRegister;
 	g.reg = reg;
@@ -331,7 +331,6 @@ void depthFirstSearch(myGraph g, registerSet reg){
 
 		for(vector<pair<string, registerSet> >::iterator it = res.begin(); it != res.end(); it++){
 			cout << it->first << " ";
-			/*
 			cout << "rax " << it->second.sRegister[0] << " ";
 			cout << "rbx " << it->second.sRegister[1] << " ";
 			cout << "rcx " << it->second.sRegister[2] << " ";
@@ -349,7 +348,6 @@ void depthFirstSearch(myGraph g, registerSet reg){
 			cout << "r14 " << it->second.sRegister[14] << " ";
 			cout << "r15 " << it->second.sRegister[15] << " ";
 			cout << endl;
-			*/
 		}
 		cout << endl;
 
@@ -358,10 +356,10 @@ void depthFirstSearch(myGraph g, registerSet reg){
 	else {
 		int size = temp.size();
 		for(int i = 0; i < size; i++){
-			if(visit[temp[i].getBlockStart()] == 0 || visit[temp[i].getBlockStart()] == 1){
+			if(!visit[temp[i].getBlockStart()]){
 				depthFirstSearch(mapper[temp[i].getBlockStart()], g.reg);
 				res.pop_back();
-				visit[temp[i].getBlockStart()]-=1;
+				visit[temp[i].getBlockStart()] = 0;
 			}
 		}
 	}
@@ -442,7 +440,7 @@ int main(int argc, char * argv[]) {
 //		cout << endl;
 		graph.push_back(*block);
 		delete block;
-//		printf("%s\n", buf);
+	//	printf("%s\n", buf);
 	}
 	initMapper(graph);
 
@@ -461,12 +459,10 @@ int main(int argc, char * argv[]) {
 		cin >> graph[0].reg.sRegister[i];
 	}	
 	depthFirstSearch(graph[0], graph[0].reg);
-/*
 	for(map<string, myGraph>::iterator it = mapper.begin(); it != mapper.end(); it++){
 		it->second.printResult();
 		cout << endl;
 	}
-*/
 /*
 	disasm_engine2.SetFunctionDescriptor( 0x4010 );
 	while( disasm_engine2.GetBlockInFunction( buf ) != -1 ){
