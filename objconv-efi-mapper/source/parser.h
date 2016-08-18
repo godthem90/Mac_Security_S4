@@ -1,3 +1,10 @@
+#ifndef PARSER_H
+#define PARSER_H
+
+#include "disasm.h"
+#include "coff.h"
+#include "macho.h"
+
 #define FILETYPE_COFF              1         // Windows COFF/PE file
 #define FILETYPE_OMF               2         // Windows OMF file
 #define FILETYPE_ELF               3         // Linux or BSD ELF file
@@ -28,6 +35,7 @@
 #define SUBTYPE_YASM                 1       // Disassembly NASM/YASM
 #define SUBTYPE_GASM                 2       // Disassembly GAS(Intel)
 
+
 class Parser : public CFileBuffer
 {
 public:
@@ -49,3 +57,5 @@ private:
 	void DumpCOF();
 	void DumpMACHO();
 };
+
+#endif

@@ -11,7 +11,13 @@
 *
 * Copyright 2006-2009 GNU General Public License http://www.gnu.org/licenses
 *****************************************************************************/
-#include "stdafx.h"
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include "parser.h"
+#include "coff.h"
 
 // Relocation type names
 
@@ -161,20 +167,6 @@ SIntTxt COFFImageDirNames[] = {
    {15,  "Reserved_table"}
 };
 
-const char * timestring(uint32 t) {
-	// Convert 32 bit time stamp to string
-	// Fix the problem that time_t may be 32 bit or 64 bit
-	union {
-		time_t t;
-		uint32 t32;
-	} utime;
-	utime.t = 0;
-	utime.t32 = t;
-	const char * string = ctime(&utime.t);
-	if (string == 0) string = "?";
-	return string;
-}    
-
 // Class COFFParser members:
 // Constructor
 COFFParser::COFFParser() {
@@ -185,11 +177,11 @@ COFFParser::COFFParser() {
 int COFFParser::ParseFile(CDisassembler *Disasm){
    // Load and parse file buffer
    // Get offset to file header
-   uint32 FileHeaderOffset = 0;
-   if ((Get<uint16>(0) & 0xFFF9) == 0x5A49) {
+   uint32_t FileHeaderOffset = 0;
+   if ((Get<uint16_t>(0) & 0xFFF9) == 0x5A49) {
       // File has DOS stub
-      uint32 Signature = Get<uint32>(0x3C);
-      if (Signature + 8 < DataSize && Get<uint16>(Signature) == 0x4550) {
+      uint32_t Signature = Get<uint32_t>(0x3C);
+      if (Signature + 8 < DataSize && Get<uint16_t>(Signature) == 0x4550) {
          // Executable PE file
          FileHeaderOffset = Signature + 4;
       }
@@ -229,7 +221,7 @@ int COFFParser::ParseFile(CDisassembler *Disasm){
    SectionHeaders.SetZero();
 
    // Find section headers
-   uint32 SectionOffset = FileHeaderOffset + sizeof(SCOFF_FileHeader) + FileHeader->SizeOfOptionalHeader;
+   uint32_t SectionOffset = FileHeaderOffset + sizeof(SCOFF_FileHeader) + FileHeader->SizeOfOptionalHeader;
    for (int i = 0; i < NSections; i++) {
       SectionHeaders[i] = Get<SCOFF_SectionHeader>(SectionOffset);
       SectionOffset += sizeof(SCOFF_SectionHeader);
@@ -268,7 +260,7 @@ int COFFParser::ParseFile(CDisassembler *Disasm){
 
 // Debug dump
 void COFFParser::Dump(int options) {
-   uint32 i, j;
+   uint32_t i, j;
 
    if (options & DUMP_FILEHDR) {
       // File header
@@ -287,7 +279,7 @@ void COFFParser::Dump(int options) {
       // May be removed:
       printf("\nSymbol table offset: 0x%X", FileHeader->PSymbolTable);
       printf("\nString table offset: 0x%X", FileHeader->PSymbolTable + FileHeader->NumberOfSymbols * SIZE_SCOFF_SymTableEntry);
-      printf("\nSection headers offset: 0x%X", (uint32)sizeof(SCOFF_FileHeader) + FileHeader->SizeOfOptionalHeader);
+      printf("\nSection headers offset: 0x%X", (uint32_t)sizeof(SCOFF_FileHeader) + FileHeader->SizeOfOptionalHeader);
 
       // Optional header
       if (OptionalHeader) {
@@ -318,16 +310,16 @@ void COFFParser::Dump(int options) {
             printf("\nSize of uninitialized data: 0x%X", OptionalHeader->h64.SizeOfInitializedData);
             printf("\nAddress of entry point: 0x%X", OptionalHeader->h64.AddressOfEntryPoint);
             printf("\nBase of code: 0x%X", OptionalHeader->h64.BaseOfCode);
-            printf("\nImage base: 0x%08X%08X", HighDWord(OptionalHeader->h64.ImageBase), uint32(OptionalHeader->h64.ImageBase));
+            printf("\nImage base: 0x%08X%08X", HighDWord(OptionalHeader->h64.ImageBase), uint32_t(OptionalHeader->h64.ImageBase));
             printf("\nSection alignment: 0x%X", OptionalHeader->h64.SectionAlignment);
             printf("\nFile alignment: 0x%X", OptionalHeader->h64.FileAlignment);
             printf("\nSize of image: 0x%X", OptionalHeader->h64.SizeOfImage);
             printf("\nSize of headers: 0x%X", OptionalHeader->h64.SizeOfHeaders);
             printf("\nDll characteristics: 0x%X", OptionalHeader->h64.DllCharacteristics);
-            printf("\nSize of stack reserve: 0x%08X%08X", HighDWord(OptionalHeader->h64.SizeOfStackReserve), uint32(OptionalHeader->h64.SizeOfStackReserve));
-            printf("\nSize of stack commit: 0x%08X%08X", HighDWord(OptionalHeader->h64.SizeOfStackCommit), uint32(OptionalHeader->h64.SizeOfStackCommit));
-            printf("\nSize of heap reserve: 0x%08X%08X", HighDWord(OptionalHeader->h64.SizeOfHeapReserve), uint32(OptionalHeader->h64.SizeOfHeapReserve));
-            printf("\nSize of heap commit: 0x%08X%08X", HighDWord(OptionalHeader->h64.SizeOfHeapCommit), uint32(OptionalHeader->h64.SizeOfHeapCommit));
+            printf("\nSize of stack reserve: 0x%08X%08X", HighDWord(OptionalHeader->h64.SizeOfStackReserve), uint32_t(OptionalHeader->h64.SizeOfStackReserve));
+            printf("\nSize of stack commit: 0x%08X%08X", HighDWord(OptionalHeader->h64.SizeOfStackCommit), uint32_t(OptionalHeader->h64.SizeOfStackCommit));
+            printf("\nSize of heap reserve: 0x%08X%08X", HighDWord(OptionalHeader->h64.SizeOfHeapReserve), uint32_t(OptionalHeader->h64.SizeOfHeapReserve));
+            printf("\nSize of heap commit: 0x%08X%08X", HighDWord(OptionalHeader->h64.SizeOfHeapCommit), uint32_t(OptionalHeader->h64.SizeOfHeapCommit));
          }
          // Data directories
          SCOFF_ImageDirAddress dir;
@@ -345,7 +337,7 @@ void COFFParser::Dump(int options) {
    if ((options & DUMP_STRINGTB) && FileHeader->PSymbolTable && StringTableSize > 4) {
       // String table
       char * p = StringTable + 4;
-      uint32 nread = 4, len;
+      uint32_t nread = 4, len;
       printf("\n\nString table:");
       while (nread < StringTableSize) {
          len = (int)strlen(p);
@@ -367,11 +359,11 @@ void COFFParser::Dump(int options) {
 
    // Section headers
    if (options & (DUMP_SECTHDR | DUMP_SYMTAB | DUMP_RELTAB)) {
-      for (j = 0; j < (uint32)NSections; j++) {
+      for (j = 0; j < (uint32_t)NSections; j++) {
          SCOFF_SectionHeader * SectionHeader = &SectionHeaders[j];
          printf("\n\n%2i Section %s", j+1, GetSectionName(SectionHeader->Name));
 
-         //printf("\nFile offset of header: 0x%X", (int)((int8*)SectionHeader-buffer));
+         //printf("\nFile offset of header: 0x%X", (int)((char*)SectionHeader-buffer));
          printf("\nVirtual size: 0x%X", SectionHeader->VirtualSize);
          if (SectionHeader->VirtualAddress) {
             printf("\nVirtual address: 0x%X", SectionHeader->VirtualAddress);}
@@ -390,7 +382,7 @@ void COFFParser::Dump(int options) {
             // Pointer to relocation entry
             union {
                SCOFF_Relocation * p;  // pointer to record
-               int8 * b;              // used for address calculation and incrementing
+               char * b;              // used for address calculation and incrementing
             } Reloc;
             Reloc.b = Buf() + SectionHeader->PRelocations;
 
@@ -404,7 +396,7 @@ void COFFParser::Dump(int options) {
                {
                   // Check if address is within file
                   if (SectionHeader->PRawData + Reloc.p->VirtualAddress < GetDataSize()) {
-                     int32 addend = *(int32*)(Buf() + SectionHeader->PRawData + Reloc.p->VirtualAddress);
+                     int32_t addend = *(int32_t*)(Buf() + SectionHeader->PRawData + Reloc.p->VirtualAddress);
                      if (addend) printf(", Implicit addend: %i", addend);
                   }
                   else {
@@ -424,7 +416,7 @@ void COFFParser::Dump(int options) {
             // Pointer to line number entry
             union {
                SCOFF_LineNumbers * p;  // pointer to record
-               int8 * b;              // used for address calculation and incrementing
+               char * b;              // used for address calculation and incrementing
             } Linnum;
             Linnum.b = Buf() + SectionHeader->PLineNumbers;
             for (i = 0; i < SectionHeader->NLineNumbers; i++) {
@@ -442,10 +434,10 @@ void COFFParser::Dump(int options) {
 }
 
 
-char const * COFFParser::GetSymbolName(int8* Symbol) {
+char const * COFFParser::GetSymbolName(char* Symbol) {
    // Get symbol name from 8 byte entry
    static char text[16];
-   if (*(uint32*)Symbol != 0) {
+   if (*(uint32_t*)Symbol != 0) {
       // Symbol name not more than 8 bytes
       memcpy(text, Symbol, 8);   // Copy to local buffer
       text[8] = 0;                    // Append terminating zero
@@ -453,7 +445,7 @@ char const * COFFParser::GetSymbolName(int8* Symbol) {
    }
    else {
       // Longer than 8 bytes. Get offset into string table
-      uint32 offset = *(uint32*)(Symbol + 4);
+      uint32_t offset = *(uint32_t*)(Symbol + 4);
       char * s = StringTable + offset;
       if (*s) return s;               // Return string table entry
    }
@@ -461,7 +453,7 @@ char const * COFFParser::GetSymbolName(int8* Symbol) {
 }
 
 
-char const * COFFParser::GetSectionName(int8* Symbol) {
+char const * COFFParser::GetSectionName(char* Symbol) {
    // Get section name from 8 byte entry
    static char text[16];
    memcpy(text, Symbol, 8);        // Copy to local buffer
@@ -469,7 +461,7 @@ char const * COFFParser::GetSectionName(int8* Symbol) {
    if (text[0] == '/') {
       // Long name is in string table. 
       // Convert decimal ASCII number to string table index
-      uint32 sindex = atoi(text + 1);
+      uint32_t sindex = atoi(text + 1);
       // Get name from string table
       if (sindex < StringTableSize) {
          char * s = StringTable + sindex;
@@ -482,16 +474,16 @@ char const * COFFParser::GetSectionName(int8* Symbol) {
    return "NULL";                           // In case of error
 }
 
-char const * COFFParser::GetStorageClassName(uint8 sc) {
+char const * COFFParser::GetStorageClassName(uint8_t sc) {
    // Get storage class name
    return Lookup(COFFStorageClassNames, sc);
 }
 
-void COFFParser::PrintSegmentCharacteristics(uint32 flags) {
+void COFFParser::PrintSegmentCharacteristics(uint32_t flags) {
    // Print segment characteristics
    int n = 0;
    // Loop through all bits of integer
-   for (uint32 i = 1; i != 0; i <<= 1) {
+   for (uint32_t i = 1; i != 0; i <<= 1) {
       if (i & flags & ~PE_SCN_ALIGN_MASK) {
          if (n++) printf(", ");
          printf("%s", Lookup(COFFSectionFlagNames, i));
@@ -510,14 +502,14 @@ const char * COFFParser::GetFileName(SCOFF_SymTableEntry * syme) {
       return ""; // No file name found
    }
    // Set limit to file name length = 576
-   const uint32 MAXCOFFFILENAMELENGTH = 32 * SIZE_SCOFF_SymTableEntry;
+   const uint32_t MAXCOFFFILENAMELENGTH = 32 * SIZE_SCOFF_SymTableEntry;
    // Buffer to store file name. Must be static
    static char text[MAXCOFFFILENAMELENGTH+1];
    // length of name in record
-   uint32 len = syme->s.NumAuxSymbols * SIZE_SCOFF_SymTableEntry;
+   uint32_t len = syme->s.NumAuxSymbols * SIZE_SCOFF_SymTableEntry;
    if (len > MAXCOFFFILENAMELENGTH) len = MAXCOFFFILENAMELENGTH;
    // copy name from auxiliary records
-   memcpy(text, (int8*)syme + SIZE_SCOFF_SymTableEntry, len);
+   memcpy(text, (char*)syme + SIZE_SCOFF_SymTableEntry, len);
    // Terminate string
    text[len] = 0;
    // Return name
@@ -529,7 +521,7 @@ const char * COFFParser::GetShortFileName(SCOFF_SymTableEntry * syme) {
    // Full file name
    const char * fullname = GetFileName(syme);
    // Length
-   uint32 len = (uint32)strlen(fullname);
+   uint32_t len = (uint32_t)strlen(fullname);
    if (len < 1) return fullname;
    // Scan backwards for '/', '\', ':'
    for (int scan = len-2; scan >= 0; scan--) {
@@ -551,7 +543,7 @@ void COFFParser::PrintSymbolTable(int symnum) {
    int jsym = 0;  // auxiliary entry number
    union {        // Pointer to symbol table
       SCOFF_SymTableEntry * p;  // Normal pointer
-      int8 * b;                 // Used for address calculation
+      char * b;                 // Used for address calculation
    } Symtab;
 
    Symtab.p = SymbolTable;      // Set pointer to begin of SymbolTable
@@ -668,10 +660,10 @@ void COFFParser::PrintSymbolTable(int symnum) {
    }
 }
 
-int COFFParser::GetImageDir(uint32 n, SCOFF_ImageDirAddress * dir) {
+int COFFParser::GetImageDir(uint32_t n, SCOFF_ImageDirAddress * dir) {
    // Find address of image directory for executable files
-   int32  Section;
-   uint32 FileOffset;
+   int32_t  Section;
+   uint32_t FileOffset;
 
    if (pImageDirs == 0 || n >= NumImageDirs || dir == 0) {
       // Failure
@@ -723,11 +715,11 @@ void COFFParser::PrintImportExport() {
    // Table directory address
    SCOFF_ImageDirAddress dir;
 
-   uint32 i;                                     // Index into OrdinalTable and NamePointerTable
-   uint32 Ordinal;                               // Index into ExportAddressTable
-   uint32 Address;                               // Virtual address of exported symbol
-   uint32 NameOffset;                            // Section offset of symbol name
-   uint32 SectionOffset;                         // Section offset of table
+   uint32_t i;                                     // Index into OrdinalTable and NamePointerTable
+   uint32_t Ordinal;                               // Index into ExportAddressTable
+   uint32_t Address;                               // Virtual address of exported symbol
+   uint32_t NameOffset;                            // Section offset of symbol name
+   uint32_t SectionOffset;                         // Section offset of table
    const char * Name;                            // Name of symbol
 
    // Check if 64 bit
@@ -745,7 +737,7 @@ void COFFParser::PrintImportExport() {
          // Points outside section
          err.submit(2035);  return;
       }
-      uint32 * pExportAddressTable = &Get<uint32>(dir.FileOffset + SectionOffset);
+      uint32_t * pExportAddressTable = &Get<uint32_t>(dir.FileOffset + SectionOffset);
 
       // Find ExportNameTable
       SectionOffset = pExportDirectory->NamePointerTableRVA - dir.VirtualAddress;
@@ -753,7 +745,7 @@ void COFFParser::PrintImportExport() {
          // Points outside section
          err.submit(2035);  return;
       }
-      uint32 * pExportNameTable = &Get<uint32>(dir.FileOffset + SectionOffset);
+      uint32_t * pExportNameTable = &Get<uint32_t>(dir.FileOffset + SectionOffset);
 
       // Find ExportOrdinalTable
       SectionOffset = pExportDirectory->OrdinalTableRVA - dir.VirtualAddress;
@@ -761,12 +753,12 @@ void COFFParser::PrintImportExport() {
          // Points outside section
          err.submit(2035);  return;
       }
-      uint16 * pExportOrdinalTable = &Get<uint16>(dir.FileOffset + SectionOffset);
+      uint16_t * pExportOrdinalTable = &Get<uint16_t>(dir.FileOffset + SectionOffset);
 
       // Get further properties
-      uint32 NumExports = pExportDirectory->AddressTableEntries;
-      uint32 NumExportNames = pExportDirectory->NamePointerEntries;
-      uint32 OrdinalBase = pExportDirectory->OrdinalBase;
+      uint32_t NumExports = pExportDirectory->AddressTableEntries;
+      uint32_t NumExportNames = pExportDirectory->NamePointerEntries;
+      uint32_t OrdinalBase = pExportDirectory->OrdinalBase;
 
       // Print exported names
       printf("\n\nExported symbols:");
@@ -804,7 +796,7 @@ void COFFParser::PrintImportExport() {
       // Pointer to current import directory entry
       SCOFF_ImportDirectory * ImportEntry = &Get<SCOFF_ImportDirectory>(dir.FileOffset);
       // Pointer to current import lookup table entry
-      int32 * LookupEntry = 0;
+      int32_t * LookupEntry = 0;
       // Pointer to current hint/name table entry
       SCOFF_ImportHintName * HintNameEntry;
 
@@ -827,13 +819,13 @@ void COFFParser::PrintImportExport() {
          if (SectionOffset == 0) continue;
          SectionOffset -= dir.VirtualAddress;
          if (SectionOffset >= dir.MaxOffset) break;  // Out of range
-         LookupEntry = &Get<int32>(dir.FileOffset + SectionOffset);
+         LookupEntry = &Get<int32_t>(dir.FileOffset + SectionOffset);
 
          // Loop through lookup table
          while (LookupEntry[0]) {
             if (LookupEntry[Is64bit] < 0) {
                // Imported by ordinal
-               printf("\n  Ordinal %i", uint16(LookupEntry[0]));
+               printf("\n  Ordinal %i", uint16_t(LookupEntry[0]));
             }
             else {
                // Find entry in hint/name table
@@ -861,7 +853,7 @@ void COFFParser::PrintImportExport() {
 
 // Functions for manipulating COFF files
 
-uint32 COFF_PutNameInSymbolTable(SCOFF_SymTableEntry & sym, const char * name, CMemoryBuffer & StringTable) {
+uint32_t COFF_PutNameInSymbolTable(SCOFF_SymTableEntry & sym, const char * name, CMemoryBuffer & StringTable) {
    // Function to put a name into SCOFF_SymTableEntry. 
    // Put name in string table if longer than 8 characters.
    // Returns index into StringTable if StringTable used
@@ -896,43 +888,26 @@ void COFF_PutNameInSectionHeader(SCOFF_SectionHeader & sec, const char * name, C
       sprintf(sec.Name, "/%i", StringTable.PushString(name));
    }
 }
-/*
-void COFFParser::Disassemble() {
-   // Do the conversion
-   if (ImageBase) Disasm.Init(2, ImageBase);     // Executable file or DLL. Set image base
-   Disasm.SetOutType(OutSubType);
-   MakeSectionList();                            // Make Sections list and Relocations list in Disasm
-   MakeSymbolList();                             // Make Symbols list in Disasm
-   if (ImageBase) {
-      // Executable file
-      MakeDynamicRelocations();                  // Make dynamic base relocations for executable files
-      MakeImportList();                          // Make imported symbols for executable files
-      MakeExportList();                          // Make exported symbols for executable files
-      MakeListLabels();                          // Put labels on all image directory tables
-   }
-   Disasm.Go();                                  // Disassemble
-   *this << Disasm.OutFile;                      // Take over output file from Disasm
-}
-*/
+
 void COFFParser::MakeSectionList(CDisassembler *Disasm) {
    // Make Sections list and Relocations list in Disasm
-   uint32 isec;                                  // Section index
-   uint32 irel;                                  // Relocation index
+   uint32_t isec;                                  // Section index
+   uint32_t irel;                                  // Relocation index
 
    // Loop through sections
-   for (isec = 0; isec < (uint32)NSections; isec++) {
+   for (isec = 0; isec < (uint32_t)NSections; isec++) {
 
       // Get section header
       SCOFF_SectionHeader * SectionHeader = &SectionHeaders[isec];
 
       // Section properties
       const char * Name  = GetSectionName(SectionHeader->Name);
-      uint8 * Buffer = (uint8*)Buf() + SectionHeader->PRawData;
-      uint32 InitSize = SectionHeader->SizeOfRawData;
-      uint32 TotalSize = SectionHeader->VirtualSize;
+      uint8_t * Buffer = (uint8_t*)Buf() + SectionHeader->PRawData;
+      uint32_t InitSize = SectionHeader->SizeOfRawData;
+      uint32_t TotalSize = SectionHeader->VirtualSize;
 
-      uint32 SectionAddress = SectionHeader->VirtualAddress;
-      uint32 Type  = (SectionHeader->Flags & PE_SCN_CNT_CODE) ? 1 : 2;
+      uint32_t SectionAddress = SectionHeader->VirtualAddress;
+      uint32_t Type  = (SectionHeader->Flags & PE_SCN_CNT_CODE) ? 1 : 2;
       if (SectionHeader->Flags & PE_SCN_CNT_UNINIT_DATA) {
          // BSS segment. No data in file
          Buffer = 0;
@@ -955,7 +930,7 @@ void COFFParser::MakeSectionList(CDisassembler *Disasm) {
          Type = 0x11;
       }
 
-      uint32 Align = (SectionHeader->Flags & PE_SCN_ALIGN_MASK) / PE_SCN_ALIGN_1;
+      uint32_t Align = (SectionHeader->Flags & PE_SCN_ALIGN_MASK) / PE_SCN_ALIGN_1;
       if (Align) Align--;
 
       // Save section record
@@ -965,20 +940,20 @@ void COFFParser::MakeSectionList(CDisassembler *Disasm) {
       // Pointer to relocation entry
       union {
          SCOFF_Relocation * p;  // pointer to record
-         int8 * b;              // used for address calculation and incrementing
+         char * b;              // used for address calculation and incrementing
       } Reloc;
       Reloc.b = Buf() + SectionHeader->PRelocations;
 
       for (irel = 0; irel < SectionHeader->NRelocations; irel++, Reloc.b += SIZE_SCOFF_Relocation) {
 
          // Relocation properties
-         int32 Section = isec + 1;
-         uint32 Offset = Reloc.p->VirtualAddress;
-         int32 Addend  = 0;
-         uint32 TargetIndex = Reloc.p->SymbolTableIndex;
+         int32_t Section = isec + 1;
+         uint32_t Offset = Reloc.p->VirtualAddress;
+         int32_t Addend  = 0;
+         uint32_t TargetIndex = Reloc.p->SymbolTableIndex;
 
          // Translate relocation type
-         uint32 Type = 0, Size = 0;
+         uint32_t Type = 0, Size = 0;
          if (WordSize == 32) {
             // 32 bit relocation types
             // 0 = unknown, 1 = direct, 2 = self-relative, 3 = image-relative, 4 = segment relative
@@ -1054,19 +1029,19 @@ void COFFParser::MakeSectionList(CDisassembler *Disasm) {
 
 void COFFParser::MakeSymbolList(CDisassembler *Disasm) {
    // Make Symbols list in Disasm
-   uint32 isym;                                  // Symbol index
-   uint32 naux = 0;                              // Number of auxiliary entries in old symbol table
+   uint32_t isym;                                  // Symbol index
+   uint32_t naux = 0;                              // Number of auxiliary entries in old symbol table
 
    union {                                       // Pointer to old symbol table entries
       SCOFF_SymTableEntry * p;                   // Normal pointer
-      int8 * b;                                  // Used for address calculation
+      char * b;                                  // Used for address calculation
    } Sym, SymAux;
 
    // Set pointer to old SymbolTable
    Sym.p = SymbolTable;
 
    // Loop through old symbol table
-   for (isym = 0; isym < (uint32)NumberOfSymbols; isym += 1+naux, Sym.b += (1+naux) * SIZE_SCOFF_SymTableEntry) {
+   for (isym = 0; isym < (uint32_t)NumberOfSymbols; isym += 1+naux, Sym.b += (1+naux) * SIZE_SCOFF_SymTableEntry) {
 
       // Number of auxiliary entries
       naux = Sym.p->s.NumAuxSymbols;
@@ -1079,11 +1054,11 @@ void COFFParser::MakeSymbolList(CDisassembler *Disasm) {
       }
 
       // Symbol properties
-      uint32 Index   = isym;
-      int32  Section = Sym.p->s.SectionNumber;
-      uint32 Offset  = Sym.p->s.Value;
-      uint32 Size    = 0;
-      uint32 Type    = (Sym.p->s.Type == COFF_TYPE_FUNCTION) ? 0x83 : 0;
+      uint32_t Index   = isym;
+      int32_t  Section = Sym.p->s.SectionNumber;
+      uint32_t Offset  = Sym.p->s.Value;
+      uint32_t Size    = 0;
+      uint32_t Type    = (Sym.p->s.Type == COFF_TYPE_FUNCTION) ? 0x83 : 0;
 
       // Identify segment entries in symbol table
       if (Sym.p->s.Value == 0 && Sym.p->s.StorageClass == COFF_CLASS_STATIC 
@@ -1098,7 +1073,7 @@ void COFFParser::MakeSymbolList(CDisassembler *Disasm) {
       const char * Name = GetSymbolName(Sym.p->s.Name);
 
       // Get scope. Note that these values are different from the constants defined in maindef.h
-      uint32 Scope = 0;
+      uint32_t Scope = 0;
       if (Sym.p->s.StorageClass == COFF_CLASS_STATIC || Sym.p->s.StorageClass == COFF_CLASS_LABEL) {
          Scope = 2;             // Local
       }
@@ -1147,15 +1122,15 @@ void COFFParser::MakeDynamicRelocations(CDisassembler *Disasm) {
    // Beginning of .reloc section is first base relocation block
    pBaseRelocation = &Get<SCOFF_BaseRelocationBlock>(reldir.FileOffset);
 
-   uint32 ROffset = 0;                        // Offset into .reloc section
-   uint32 BlockEnd;                           // Offset of end of current block
-   uint32 PageOffset;                         // Image-relative address of begin of page
+   uint32_t ROffset = 0;                        // Offset into .reloc section
+   uint32_t BlockEnd;                           // Offset of end of current block
+   uint32_t PageOffset;                         // Image-relative address of begin of page
 
    // Make pointer to header or entry in .reloc section
    union {
       SCOFF_BaseRelocationBlock * header;
       SCOFF_BaseRelocation * entry;
-      int8 * b;
+      char * b;
    } Pointer;
 
    // Loop throung .reloc section
@@ -1194,7 +1169,7 @@ void COFFParser::MakeDynamicRelocations(CDisassembler *Disasm) {
          if (Pointer.entry->Type == COFF_REL_BASED_HIGHADJ) ROffset += sizeof(SCOFF_BaseRelocation);
       }
       // Finished block. Align by 4
-      ROffset = (ROffset + 3) & uint32(-4);
+      ROffset = (ROffset + 3) & uint32_t(-4);
    }
 }
 
@@ -1213,21 +1188,21 @@ void COFFParser::MakeImportList(CDisassembler *Disasm) {
 
    // Check if 64 bit
    int Is64bit = OptionalHeader->h64.Magic == COFF_Magic_PE64; // 1 if 64 bit
-   uint32 EntrySize = Is64bit ? 8 : 4;           // Size of address table entries
+   uint32_t EntrySize = Is64bit ? 8 : 4;           // Size of address table entries
 
-   uint32 NameOffset;                            // Offset to name
+   uint32_t NameOffset;                            // Offset to name
    const char * SymbolName;                      // Name of symbol
    const char * DLLName;                         // Name of DLL containing symbol
    char NameBuffer[64];                          // Buffer for creating name of ordinal symbols
-   uint32 SectionOffset;                         // Section-relative address of current entry
-   uint32 HintNameOffset;                        // Section-relative address of hint/name table
-   uint32 FirstHintNameOffset = 0;               // First HintNameOffset = start of hint/name table
-   uint32 AddressTableOffset;                    // Offset of import address table relative to import lookup table
+   uint32_t SectionOffset;                         // Section-relative address of current entry
+   uint32_t HintNameOffset;                        // Section-relative address of hint/name table
+   uint32_t FirstHintNameOffset = 0;               // First HintNameOffset = start of hint/name table
+   uint32_t AddressTableOffset;                    // Offset of import address table relative to import lookup table
 
    // Pointer to current import directory entry
    SCOFF_ImportDirectory * ImportEntry = pImportDirectory;
    // Pointer to current import lookup table entry
-   int32 * LookupEntry = 0;
+   int32_t * LookupEntry = 0;
    // Pointer to current hint/name table entry
    SCOFF_ImportHintName * HintNameEntry;
 
@@ -1255,7 +1230,7 @@ void COFFParser::MakeImportList(CDisassembler *Disasm) {
       // Loop through lookup table
       while (1) {
          // Pointer to lookup table entry
-         LookupEntry = &Get<int32>(impdir.FileOffset + SectionOffset);
+         LookupEntry = &Get<int32_t>(impdir.FileOffset + SectionOffset);
 
          // End when entry is empty
          if (!LookupEntry[0]) break;
@@ -1267,7 +1242,7 @@ void COFFParser::MakeImportList(CDisassembler *Disasm) {
             char * dot = strchr(NameBuffer,'.');
             if (dot) *dot = 0;
             // Add ordinal number to name
-            sprintf(NameBuffer+strlen(NameBuffer), "_Ordinal_%i", uint16(LookupEntry[0]));
+            sprintf(NameBuffer+strlen(NameBuffer), "_Ordinal_%i", uint16_t(LookupEntry[0]));
             SymbolName = NameBuffer;
          }
          else {
@@ -1319,39 +1294,39 @@ void COFFParser::MakeExportList(CDisassembler *Disasm) {
    SCOFF_ExportDirectory * pExportDirectory = &Get<SCOFF_ExportDirectory>(expdir.FileOffset);
 
    // Find ExportAddressTable
-   uint32 ExportAddressTableOffset = pExportDirectory->ExportAddressTableRVA - expdir.VirtualAddress;
+   uint32_t ExportAddressTableOffset = pExportDirectory->ExportAddressTableRVA - expdir.VirtualAddress;
    if (ExportAddressTableOffset == 0 || ExportAddressTableOffset >= expdir.MaxOffset) {
       // Points outside section
       err.submit(2035);  return;
    }
-   uint32 * pExportAddressTable = &Get<uint32>(expdir.FileOffset + ExportAddressTableOffset);
+   uint32_t * pExportAddressTable = &Get<uint32_t>(expdir.FileOffset + ExportAddressTableOffset);
 
    // Find ExportNameTable
-   uint32 ExportNameTableOffset = pExportDirectory->NamePointerTableRVA - expdir.VirtualAddress;
+   uint32_t ExportNameTableOffset = pExportDirectory->NamePointerTableRVA - expdir.VirtualAddress;
    if (ExportNameTableOffset == 0 || ExportNameTableOffset >= expdir.MaxOffset) {
       // Points outside section
       err.submit(2035);  return;
    }
-   uint32 * pExportNameTable = &Get<uint32>(expdir.FileOffset + ExportNameTableOffset);
+   uint32_t * pExportNameTable = &Get<uint32_t>(expdir.FileOffset + ExportNameTableOffset);
 
    // Find ExportOrdinalTable
-   uint32 ExportOrdinalTableOffset = pExportDirectory->OrdinalTableRVA - expdir.VirtualAddress;
+   uint32_t ExportOrdinalTableOffset = pExportDirectory->OrdinalTableRVA - expdir.VirtualAddress;
    if (ExportOrdinalTableOffset == 0 || ExportOrdinalTableOffset >= expdir.MaxOffset) {
       // Points outside section
       err.submit(2035);  return;
    }
-   uint16 * pExportOrdinalTable = &Get<uint16>(expdir.FileOffset + ExportOrdinalTableOffset);
+   uint16_t * pExportOrdinalTable = &Get<uint16_t>(expdir.FileOffset + ExportOrdinalTableOffset);
 
    // Get further properties
-   uint32 NumExports = pExportDirectory->AddressTableEntries;
-   uint32 NumExportNames = pExportDirectory->NamePointerEntries;
-   uint32 OrdinalBase = pExportDirectory->OrdinalBase;
+   uint32_t NumExports = pExportDirectory->AddressTableEntries;
+   uint32_t NumExportNames = pExportDirectory->NamePointerEntries;
+   uint32_t OrdinalBase = pExportDirectory->OrdinalBase;
 
-   uint32 i;                                     // Index into pExportOrdinalTable and pExportNameTable
-   uint32 Ordinal;                               // Index into pExportAddressTable
-   uint32 Address;                               // Image-relative address of symbol
-   uint32 NameOffset;                            // Section-relative address of name
-   uint32 FirstName = 0;                         // Image-relative address of first name table entry
+   uint32_t i;                                     // Index into pExportOrdinalTable and pExportNameTable
+   uint32_t Ordinal;                               // Index into pExportAddressTable
+   uint32_t Address;                               // Image-relative address of symbol
+   uint32_t NameOffset;                            // Section-relative address of name
+   uint32_t FirstName = 0;                         // Image-relative address of first name table entry
    const char * Name = 0;                        // Name of symbol
    char NameBuffer[64];                          // Buffer for making name
 
@@ -1398,7 +1373,7 @@ void COFFParser::MakeExportList(CDisassembler *Disasm) {
 void COFFParser::MakeListLabels(CDisassembler *Disasm) {
    // Attach names to all image directories
    SCOFF_ImageDirAddress dir;
-   uint32 i;
+   uint32_t i;
 
    for (i = 0; i < NumImageDirs; i++) {
       if (GetImageDir(i, &dir)) {

@@ -13,10 +13,20 @@
 #ifndef DISASM_H
 #define DISASM_H
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <inttypes.h>
+#include "lib.h"
+#include "error.h"
+#include "containers.h"
+#include "data.h"
+
 // Define tabulator positions for output
 #define AsmTab1  8                     // Column for opcode
 #define AsmTab2  16                    // Column for first operand
-#define AsmTab3  56                    // Column for comment
+#define AsmTab3  24
+#define AsmTab4  56                    // Column for comment
 
 #define ReplaceIllegalChars 0          // 1 if you want to replace illegal characters in symbol names
 
@@ -24,17 +34,17 @@
 // Structure for defining x86 opcode maps
 struct SOpcodeDef {
    const char * Name;                  // opcode name
-   uint32 InstructionSet;              // mmx, sse, 3dnow, x64, etc.
-   uint32 AllowedPrefixes;             // prefixes allowed for this opcode
-   uint16 InstructionFormat;           // opcode type, number of operands
-   uint16 Destination;                 // type and size of destination operand
-   uint16 Source1;                     // type and size of 1. source operand
-   uint16 Source2;                     // type and size of 2. source operand
-   uint16 Source3;                     // type and size of 3. source operand
-   uint16 EVEX;                        // options for interpreting EVEX prefix, may be used for 4. source operand otherwise (unused)
-   uint16 MVEX;                        // options for interpreting MVEX prefix: swizzle, convert, mask options
-   uint16 TableLink;                   // this entry is a link to another map
-   uint16 Options;                     // miscellaneous options
+   uint32_t InstructionSet;              // mmx, sse, 3dnow, x64, etc.
+   uint32_t AllowedPrefixes;             // prefixes allowed for this opcode
+   uint16_t InstructionFormat;           // opcode type, number of operands
+   uint16_t Destination;                 // type and size of destination operand
+   uint16_t Source1;                     // type and size of 1. source operand
+   uint16_t Source2;                     // type and size of 2. source operand
+   uint16_t Source3;                     // type and size of 3. source operand
+   uint16_t EVEX;                        // options for interpreting EVEX prefix, may be used for 4. source operand otherwise (unused)
+   uint16_t MVEX;                        // options for interpreting MVEX prefix: swizzle, convert, mask options
+   uint16_t TableLink;                   // this entry is a link to another map
+   uint16_t Options;                     // miscellaneous options
 };
 
 /****************     Constants for opcode definition     **********************
@@ -403,9 +413,9 @@ Options:
 
 // Structure for opcode swizzle table entries indicating meaning of EVEX.sss bits
 struct SwizSpec {
-    uint32 memop;       // memory operand type
-    uint32 memopsize;   // memory operand size = byte offset multiplier = required alignment
-    uint32 elementsize; // memory operand size for broadcast, gather and scatter instructions
+    uint32_t memop;       // memory operand type
+    uint32_t memopsize;   // memory operand size = byte offset multiplier = required alignment
+    uint32_t elementsize; // memory operand size for broadcast, gather and scatter instructions
     const char * name;  // name of permutation, conversion or rounding
 };
 
@@ -415,35 +425,35 @@ struct SwizSpec {
 // Structure for properties of a single opcode during disassembly
 struct SOpcodeProp {
    SOpcodeDef const * OpcodeDef;                 // Points to entry in opcode map
-   uint8  Prefixes[8];                           // Stores the last prefix encountered in each category
-   uint8  Conflicts[8];                          // Counts prefix conflicts as different prefixes in the same category
-   uint32 Warnings1;                             // Warnings about conditions that could be intentional and suboptimal code
-   uint32 Warnings2;                             // Warnings about possible misinterpretation
-   uint32 Errors;                                // Errors that will prevent execution or are unlikely to be intentional
-   uint32 AddressSize;                           // Address size: 16, 32 or 64
-   uint32 OperandSize;                           // Operand size: 16, 32 or 64
-   uint32 MaxNumOperands;                        // Number of opcode table operands to check
-   uint32 Mod;                                   // mod bits of mod/reg/rm byte
-   uint32 Reg;                                   // reg bits of mod/reg/rm byte
-   uint32 RM;                                    // r/m bits of mod/reg/rm byte
-   uint32 MFlags;                                // Memory operand type: 1=has memory operand, 2=has mod/reg/rm byte, 4=has SIB byte, 8=has VEX or DREX byte, 0x100=is rip-relative
-   uint32 BaseReg;                               // Base  register + 1. (0 if none)
-   uint32 IndexReg;                              // Index register + 1. (0 if none)
-   uint32 Scale;                                 // Scale factor = 2^Scale
-   uint32 Vreg;                                  // ~VEX.vvvv or AMD DREX byte
-   uint32 Kreg;                                  // EVEX.aaa = MVEX.kkk mask register
-   uint32 Esss;                                  // EVEX.zLLb = MVEX.Esss option bits
+   uint8_t  Prefixes[8];                           // Stores the last prefix encountered in each category
+   uint8_t  Conflicts[8];                          // Counts prefix conflicts as different prefixes in the same category
+   uint32_t Warnings1;                             // Warnings about conditions that could be intentional and suboptimal code
+   uint32_t Warnings2;                             // Warnings about possible misinterpretation
+   uint32_t Errors;                                // Errors that will prevent execution or are unlikely to be intentional
+   uint32_t AddressSize;                           // Address size: 16, 32 or 64
+   uint32_t OperandSize;                           // Operand size: 16, 32 or 64
+   uint32_t MaxNumOperands;                        // Number of opcode table operands to check
+   uint32_t Mod;                                   // mod bits of mod/reg/rm byte
+   uint32_t Reg;                                   // reg bits of mod/reg/rm byte
+   uint32_t RM;                                    // r/m bits of mod/reg/rm byte
+   uint32_t MFlags;                                // Memory operand type: 1=has memory operand, 2=has mod/reg/rm byte, 4=has SIB byte, 8=has VEX or DREX byte, 0x100=is rip-relative
+   uint32_t BaseReg;                               // Base  register + 1. (0 if none)
+   uint32_t IndexReg;                              // Index register + 1. (0 if none)
+   uint32_t Scale;                                 // Scale factor = 2^Scale
+   uint32_t Vreg;                                  // ~VEX.vvvv or AMD DREX byte
+   uint32_t Kreg;                                  // EVEX.aaa = MVEX.kkk mask register
+   uint32_t Esss;                                  // EVEX.zLLb = MVEX.Esss option bits
    SwizSpec const * SwizRecord;                  // Selected entry in MVEX table for MVEX code
-   uint32 OffsetMultiplier;                      // Multiplier for 1-byte offset calculated from EVEX or obtained from MVEX.sss and table lookup
-   uint32 Operands[5];                           // Operand types for destination, source, immediate
-   uint32 OpcodeStart1;                          // Index to first opcode byte, after prefixes
-   uint32 OpcodeStart2;                          // Index to last opcode byte, after 0F, 0F 38, etc., before mod/reg/rm byte and operands
-   uint32 AddressField;                          // Beginning of address/displacement field
-   uint32 AddressFieldSize;                      // Size of address/displacement field
-   uint32 AddressRelocation;                     // Relocation pointing to address field
-   uint32 ImmediateField;                        // Beginning of immediate operand or jump address field
-   uint32 ImmediateFieldSize;                    // Size of immediate operand or jump address field
-   uint32 ImmediateRelocation;                   // Relocation pointing to immediate operand or jump address field
+   uint32_t OffsetMultiplier;                      // Multiplier for 1-byte offset calculated from EVEX or obtained from MVEX.sss and table lookup
+   uint32_t Operands[5];                           // Operand types for destination, source, immediate
+   uint32_t OpcodeStart1;                          // Index to first opcode byte, after prefixes
+   uint32_t OpcodeStart2;                          // Index to last opcode byte, after 0F, 0F 38, etc., before mod/reg/rm byte and operands
+   uint32_t AddressField;                          // Beginning of address/displacement field
+   uint32_t AddressFieldSize;                      // Size of address/displacement field
+   uint32_t AddressRelocation;                     // Relocation pointing to address field
+   uint32_t ImmediateField;                        // Beginning of immediate operand or jump address field
+   uint32_t ImmediateFieldSize;                    // Size of immediate operand or jump address field
+   uint32_t ImmediateRelocation;                   // Relocation pointing to immediate operand or jump address field
    const char * OpComment;                       // Additional comment for opcode
    void   Reset() {                              // Set everything to zero
       memset(this, 0, sizeof(*this));}
@@ -474,9 +484,9 @@ struct SOpcodeProp {
 
 struct CodeBlock
 {
-   int32  Section;                               // Section containing function
-   uint32 Start;                                 // Offset of function start
-   uint32 End;                                   // Offset of function end
+   int32_t  Section;                               // Section containing function
+   uint32_t Start;                                 // Offset of function start
+   uint32_t End;                                   // Offset of function end
    int	  OpNum;
 
    int operator < (const CodeBlock & y) const{// Operator for sorting function table by source address
@@ -486,10 +496,10 @@ struct CodeBlock
 // Structure for tracing register values etc.
 // See CDisassembler::UpdateTracer() in disasm.cpp for an explanation
 struct SATracer {
-   uint8  Regist[16];                            // Defines the type of information contained in each g.p. register
-   uint32 Value[16];                             // Meaning depends on the value of Regist[i]
+   uint8_t  Regist[16];                            // Defines the type of information contained in each g.p. register
+   uint32_t Value[16];                             // Meaning depends on the value of Regist[i]
    void Reset() {                                // Set to zero
-      *(uint64*)Regist = 0; *(uint64*)(Regist+8) = 0; 
+      *(uint64_t*)Regist = 0; *(uint64_t*)(Regist+8) = 0; 
    }
 };
 
@@ -505,26 +515,26 @@ struct SATracer {
 
 // Structure for defining section 
 struct SASection {
-   uint8 * Start;                                // Point to start of binary data
-   uint32  SectionAddress;                       // Address of section (image relative)
-   uint32  InitSize;                             // Size of initialized data in section
-   uint32  TotalSize;                            // Size of initialized and uninitialized data in section
-   uint32  Type;                                 // 0 = unknown, 1 = code, 
+   uint8_t * Start;                                // Point to start of binary data
+   uint32_t  SectionAddress;                       // Address of section (image relative)
+   uint32_t  InitSize;                             // Size of initialized data in section
+   uint32_t  TotalSize;                            // Size of initialized and uninitialized data in section
+   uint32_t  Type;                                 // 0 = unknown, 1 = code, 
                                                  // 2 = data, 3 = uninitialized data only, 4 = constant data, 
                                                  // 0x10 = debug info, 0x11 = exception info. 
                                                  // 0x800 = segment group
                                                  // 0x1000 = communal section
-   uint32  Align;                                // Alignment = 1 << Align
-   uint32  WordSize;                             // Word size, 16, 32, 64
-   uint32  Name;                                 // Name, as index into CDisassembler::NameBuffer
-   int32   Group;                                // Group that the segment is member of. 0 = none, -2 = flat, > 0 = defined group
+   uint32_t  Align;                                // Alignment = 1 << Align
+   uint32_t  WordSize;                             // Word size, 16, 32, 64
+   uint32_t  Name;                                 // Name, as index into CDisassembler::NameBuffer
+   int32_t   Group;                                // Group that the segment is member of. 0 = none, -2 = flat, > 0 = defined group
 };
 
 // Structure for defining relocation or cross-reference
 struct SARelocation {
-   int32   Section;                              // Section of relocation source
-   uint32  Offset;                               // Offset of relocation source into section
-   uint32  Type;                                 // Relocation types:
+   int32_t   Section;                              // Section of relocation source
+   uint32_t  Offset;                               // Offset of relocation source into section
+   uint32_t  Type;                                 // Relocation types:
    // 0 = unknown, 1 = direct, 2 = self-relative, 4 = image-relative, 
    // 8 = segment relative, 0x10 = relative to arbitrary ref. point, 
    // 0x21 = direct, has already been relocated to image base (executable files only)
@@ -534,38 +544,38 @@ struct SARelocation {
    // 0x400 = segment:offset far
    // 0x1001 = reference to GOT entry relative to GOT. 0x1002 = self-relative reference to GOT or GOT-entry
    // 0x2002 = self-relative to PLT
-   uint32  Size;                                 // 1 = byte, 2 = word, 4 = dword, 6 = fword, 8 = qword
-   int32   Addend;                               // Addend to add to target address, 
+   uint32_t  Size;                                 // 1 = byte, 2 = word, 4 = dword, 6 = fword, 8 = qword
+   int32_t   Addend;                               // Addend to add to target address, 
                                                  // including distance from source to instruction pointer in self-relative addresses,
                                                  // not including inline addend.
-   uint32  TargetOldIndex;                       // Old symbol table index of target
-   uint32  RefOldIndex;                          // Old symbol table index of reference point if Type = 8, 0x10, 0x200
+   uint32_t  TargetOldIndex;                       // Old symbol table index of target
+   uint32_t  RefOldIndex;                          // Old symbol table index of reference point if Type = 8, 0x10, 0x200
    int operator < (const SARelocation & y) const{// Operator for sorting relocation table by source address
       return Section < y.Section || (Section == y.Section && Offset < y.Offset);}
 };
 
 // Structure for indicating where a function begins and ends
 struct SFunctionRecord {
-   int32  Section;                               // Section containing function
-   uint32 Start;                                 // Offset of function start
-   uint32 End;                                   // Offset of function end
-   uint32 Scope;                                 // Scope of function. 0 = inaccessible, 1 = function local, 2 = file local, 4 = public, 8 = weak public, 0x10 = communal, 0x20 = external
+   int32_t  Section;                               // Section containing function
+   uint32_t Start;                                 // Offset of function start
+   uint32_t End;                                   // Offset of function end
+   uint32_t Scope;                                 // Scope of function. 0 = inaccessible, 1 = function local, 2 = file local, 4 = public, 8 = weak public, 0x10 = communal, 0x20 = external
                                                  // 0x10000 means End not known, extend it when you pass End
-   uint32 OldSymbolIndex;                        // Old symbol table index
+   uint32_t OldSymbolIndex;                        // Old symbol table index
    int operator < (const SFunctionRecord & y) const{// Operator for sorting function table by source address
       return Section < y.Section || (Section == y.Section && Start < y.Start);}
 };
 
 // Structure for defining symbol
 struct SASymbol {
-   int32   Section;                              // Section number. 0 = external, -1 = absolute symbol, -16 = section to be found from image-relative offset
-   uint32  Offset;                               // Offset into section. (Value for absolute symbol)
-   uint32  Size;                                 // Number of bytes used by symbol or function. 0 = unknown
-   uint32  Type;                                 // Use values listed above for SOpcodeDef operands. 0 = unknown type
-   uint32  Name;                                 // Name, as index into CDisassembler::SymbolNameBuffer. 0 = no name yet
-   uint32  DLLName;                              // Name of DLL if symbol imported by dynamic linking
-   uint32  Scope;                                // 0 = inaccessible, 1 = function local, 2 = file local, 4 = public, 8 = weak public, 0x10 = communal, 0x20 = external, 0x100 = has been written
-   uint32  OldIndex;                             // Index in original symbol table. Used for tracking relocation entries
+   int32_t   Section;                              // Section number. 0 = external, -1 = absolute symbol, -16 = section to be found from image-relative offset
+   uint32_t  Offset;                               // Offset into section. (Value for absolute symbol)
+   uint32_t  Size;                                 // Number of bytes used by symbol or function. 0 = unknown
+   uint32_t  Type;                                 // Use values listed above for SOpcodeDef operands. 0 = unknown type
+   uint32_t  Name;                                 // Name, as index into CDisassembler::SymbolNameBuffer. 0 = no name yet
+   uint32_t  DLLName;                              // Name of DLL if symbol imported by dynamic linking
+   uint32_t  Scope;                                // 0 = inaccessible, 1 = function local, 2 = file local, 4 = public, 8 = weak public, 0x10 = communal, 0x20 = external, 0x100 = has been written
+   uint32_t  OldIndex;                             // Index in original symbol table. Used for tracking relocation entries
    void    Reset() {                             // Set everything to zero
       memset(this, 0, sizeof(*this));}
    int operator < (const SASymbol & y) const {   // Operator for sorting symbol table
@@ -580,32 +590,32 @@ struct SASymbol {
 class CSymbolTable {
 public:
    CSymbolTable();                               // Constructor
-   uint32 AddSymbol(int32 Section, uint32 Offset,// Add a symbol from original file
-      uint32 Size, uint32 Type, uint32 Scope, 
-      uint32 OldIndex, const char * Name, const char * DLLName = 0);
-   uint32 NewSymbol(int32 Section, uint32 Offset, uint32 Scope); // Add symbol to list
-   uint32 NewSymbol(SASymbol & sym);             // Add symbol to list
+   uint32_t AddSymbol(int32_t Section, uint32_t Offset,// Add a symbol from original file
+      uint32_t Size, uint32_t Type, uint32_t Scope, 
+      uint32_t OldIndex, const char * Name, const char * DLLName = 0);
+   uint32_t NewSymbol(int32_t Section, uint32_t Offset, uint32_t Scope); // Add symbol to list
+   uint32_t NewSymbol(SASymbol & sym);             // Add symbol to list
    void AssignNames();                           // Assign names to symbols that do not have a name
-   uint32 FindByAddress(int32 Section, uint32 Offset, uint32 * Last, uint32 * NextAfter = 0); // Find symbols by address
-   uint32 FindByAddress(int32 Section, uint32 Offset); // Find symbols by address
-   uint32 Old2NewIndex(uint32 OldIndex);         // Translate old symbol index to new index
-   SASymbol & operator [](uint32 NewIndex) {     // Access symbol by new index
+   uint32_t FindByAddress(int32_t Section, uint32_t Offset, uint32_t * Last, uint32_t * NextAfter = 0); // Find symbols by address
+   uint32_t FindByAddress(int32_t Section, uint32_t Offset); // Find symbols by address
+   uint32_t Old2NewIndex(uint32_t OldIndex);         // Translate old symbol index to new index
+   SASymbol & operator [](uint32_t NewIndex) {     // Access symbol by new index
       return List[NewIndex];}
-   const char * HasName(uint32 symo);            // Ask if symbol has a name, input = old index, output = name or 0
-   const char * GetName(uint32 symi);            // Get symbol name by new index. (Assign a name if none)
-   const char * GetNameO(uint32 symo);           // Get symbol name by old index. (Assign a name if none)
-   const char * GetDLLName(uint32 symi);         // Get import DLL name
-   void   AssignName(uint32 symi, const char *name); // Give symbol a specific name
-   uint32 GetLimit() {return OldNum;}            // Get highest old symbol number + 1
-   uint32 GetNumEntries() {return List.GetNumEntries();}// Get highest new symbol number + 1
+   const char * HasName(uint32_t symo);            // Ask if symbol has a name, input = old index, output = name or 0
+   const char * GetName(uint32_t symi);            // Get symbol name by new index. (Assign a name if none)
+   const char * GetNameO(uint32_t symo);           // Get symbol name by old index. (Assign a name if none)
+   const char * GetDLLName(uint32_t symi);         // Get import DLL name
+   void   AssignName(uint32_t symi, const char *name); // Give symbol a specific name
+   uint32_t GetLimit() {return OldNum;}            // Get highest old symbol number + 1
+   uint32_t GetNumEntries() {return List.GetNumEntries();}// Get highest new symbol number + 1
 protected:
    CSList<SASymbol> List;                        // List of symbols, sorted by address
    CMemoryBuffer    SymbolNameBuffer;            // String buffer for names of symbols
-   CSList<uint32>   TranslateOldIndex;           // Table to translate old symbol index to new symbol index
+   CSList<uint32_t>   TranslateOldIndex;           // Table to translate old symbol index to new symbol index
    void UpdateIndex();                           // Update TranslateOldIndex
-   uint32 OldNum;                                // = 1 + max OldIndex
-   uint32 NewNum;                                // Number of entries in List
-   uint32 UnnamedNum;                            // Number of unnamed symbols
+   uint32_t OldNum;                                // = 1 + max OldIndex
+   uint32_t NewNum;                                // Number of entries in List
+   uint32_t UnnamedNum;                            // Number of unnamed symbols
 public:
    const char * UnnamedSymbolsPrefix;            // Prefix for names of unnamed symbols
    const char * UnnamedSymFormat;                // Format string for giving names to unnamed symbols
@@ -631,56 +641,52 @@ class CDisassembler {
 public:
 	CDisassembler();                              // Constructor. Initializes tables etc.
 
-	int		GetFunctionIndex( uint32 addr );
-	int		GetBlockIndex( uint32 addr );
-	uint32	GetNextBlockAddress( uint32 addr );
-	int		GetBlockInFunction( char *buf );
-	int		SetFunctionDescriptor( uint32 addr );
-	int		GetBlockAssembly( uint32 addr, char *buf );
-		
-	int		GetCodeBlockNum();
-	int		GetOpcodeNumInBlock(int block_idx);
-	short	GetOpcodeInBlock(int block_idx, int op_idx);
+	int		GetFunctionIndex( uint32_t addr );
+	int		GetBlockIndex( uint32_t addr );
+	uint32_t	GetNextBlockAddress( uint32_t addr );
+	int		GetBlockInFunction( vector<Instruction> *insns, uint64_t *start_addr, uint64_t *end_addr );
+	int		SetFunctionDescriptor( uint32_t addr );
+	int		GetBlockAssembly( uint32_t blocki, vector<Instruction> *insns, uint64_t *start_addr, uint64_t *end_addr );
 		
 	void	Go();                                    // Do the disassembly
-	void	Init(uint32 ExeType, int64 ImageBase);   // Define file type and imagebase if executable file
+	void	Init(uint32_t ExeType, int64_t ImageBase);   // Define file type and imagebase if executable file
 	void	SetOutType(int OutType);		// ExeType: 0 = object, 1 = position independent shared object, 2 = executable file
 	// Set ExeType = 2 if addresses have been relocated to a nonzero image base and there is no base relocation table.
 	void AddSection(                              // Define section to be disassembled
-			uint8 * Buffer,                            // Buffer containing raw data
-			uint32  InitSize,                          // Size of initialized data in section
-			uint32  TotalSize,                         // Size of initialized and uninitialized data in section
-			uint32  SectionAddress,                    // Start address of section (image relative)
-			uint32  Type,                              // 0 = unknown, 1 = code, 2 = data, 3 = uninitialized data, 4 = constant data
-			uint32  Align,                             // Alignment = 1 << Align
-			uint32  WordSize,                          // Segment word size: 16, 32 or 64
+			uint8_t * Buffer,                            // Buffer containing raw data
+			uint32_t  InitSize,                          // Size of initialized data in section
+			uint32_t  TotalSize,                         // Size of initialized and uninitialized data in section
+			uint32_t  SectionAddress,                    // Start address of section (image relative)
+			uint32_t  Type,                              // 0 = unknown, 1 = code, 2 = data, 3 = uninitialized data, 4 = constant data
+			uint32_t  Align,                             // Alignment = 1 << Align
+			uint32_t  WordSize,                          // Segment word size: 16, 32 or 64
 			const char * Name,                         // Name of section
-			uint32  NameLength = 0);                   // Length of name if not zero terminated
-	uint32 AddSymbol(                             // Define symbol for disassembler
-			int32   Section,                           // Section number (1-based). 0 = external, -1 = absolute, -16 = Offset contains image-relative address
-			uint32  Offset,                            // Offset into section. (Value for absolute symbol)
-			uint32  Size,                              // Number of bytes used by symbol or function. 0 = unknown
-			uint32  Type,                              // Symbol type. Use values listed above for SOpcodeDef operands. 0 = unknown type
-			uint32  Scope,                             // 1 = function local, 2 = file local, 4 = public, 8 = weak public, 0x10 = communal, 0x20 = external
-			uint32  OldIndex,                          // Unique identifier used in relocation entries. Value must be > 0 and limited because an array is created with this as index. 
+			uint32_t  NameLength = 0);                   // Length of name if not zero terminated
+	uint32_t AddSymbol(                             // Define symbol for disassembler
+			int32_t   Section,                           // Section number (1-based). 0 = external, -1 = absolute, -16 = Offset contains image-relative address
+			uint32_t  Offset,                            // Offset into section. (Value for absolute symbol)
+			uint32_t  Size,                              // Number of bytes used by symbol or function. 0 = unknown
+			uint32_t  Type,                              // Symbol type. Use values listed above for SOpcodeDef operands. 0 = unknown type
+			uint32_t  Scope,                             // 1 = function local, 2 = file local, 4 = public, 8 = weak public, 0x10 = communal, 0x20 = external
+			uint32_t  OldIndex,                          // Unique identifier used in relocation entries. Value must be > 0 and limited because an array is created with this as index. 
 			const char * Name,                         // Name of symbol. Zero-terminated ASCII string. A name will be assigned if 0.
 			const char * DLLName = 0);                 // Name of DLL if imported dynamically                    
 	void AddRelocation(                           // Define relocation or cross-reference for disassembler
-			int32   Section,                           // Section of relocation source:
+			int32_t   Section,                           // Section of relocation source:
 			// Sections (and groups) are numbered in the order they are defined, starting at 1
 			// 0 = none or external, -1 = absolute symbol
 			// -16 = Offset contains image-relative address
-			uint32  Offset,                            // Offset of relocation source into section
-			int32   Addend,                            // Addend to add to target address, 
+			uint32_t  Offset,                            // Offset of relocation source into section
+			int32_t   Addend,                            // Addend to add to target address, 
 			// including distance from source to instruction pointer in self-relative addresses,
 			// not including inline addend.
-			uint32  Type,                              // see above at SARelocation for definition of relocation types
-			uint32  Size,                              // 1 = byte, 2 = word, 4 = dword, 8 = qword
-			uint32  TargetIndex,                       // Symbol index of target
-			uint32  ReferenceIndex = 0);               // Symbol index of reference point if Type 0x10, Segment index if Type = 8 or 0x200
-	int32 AddSectionGroup(                        // Define section group (from OMF file)
+			uint32_t  Type,                              // see above at SARelocation for definition of relocation types
+			uint32_t  Size,                              // 1 = byte, 2 = word, 4 = dword, 8 = qword
+			uint32_t  TargetIndex,                       // Symbol index of target
+			uint32_t  ReferenceIndex = 0);               // Symbol index of reference point if Type 0x10, Segment index if Type = 8 or 0x200
+	int32_t AddSectionGroup(                        // Define section group (from OMF file)
 			const char * Name,                         // Name of group
-			int32 MemberSegment);                      // Group member. Repeat for multiple members. 0 if none.
+			int32_t MemberSegment);                      // Group member. Repeat for multiple members. 0 if none.
 	static void CountInstructions();              // Count total number of instructions defined in opcodes.cpp
 	const char * CommentSeparator;                // "; " or "# " Start of comment string
 	const char * HereOperator;                    // "$" or "." indicating current position
@@ -693,69 +699,69 @@ protected:
    CSList<SARelocation> Relocations;             // List of cross references. First is 0
    CMemoryBuffer NameBuffer;                     // String buffer for names of sections. First is 0.
    CSList<SFunctionRecord> FunctionList;         // List of functions 
-   int64   ImageBase;                            // Image base for executable files
-   uint32  ExeType;                              // File type: 0 = object, 1 = position independent shared object, 2 = executable
-   uint32  RelocationsInSource;                  // Number of relocations in source file
+   int64_t   ImageBase;                            // Image base for executable files
+   uint32_t  ExeType;                              // File type: 0 = object, 1 = position independent shared object, 2 = executable
+   uint32_t  RelocationsInSource;                  // Number of relocations in source file
 
    // Code parser: The following members are used for parsing 
    // an opcode and identifying its components
-   uint8 * Buffer;                               // Point to start of binary data
+   uint8_t * Buffer;                               // Point to start of binary data
    SOpcodeProp s;                                // Properties of current opcode
    SATracer t;                                   // Trace of register contents
-   uint32  Pass;                                 // 1 = pass 1, 2-3 = pass 1 repeated, 0x10 = pass 2, 0x100 = repetition requested
-   uint32  BlockDescriptor;
-   uint32  FunctionDescriptor;
-   uint32  SwitchCheck;
-   uint32  SwitchtableCheck;
-   uint32  SwitchtableEnd;
-   uint32  SwitchtableLength;
-   uint32  SwitchReg;
-   uint32  JumptableAddrReg;
-   uint32  JumpReg;
-   uint32  SectionEnd;                           // End of current section
-   uint32  WordSize;                             // Segment word size: 16, 32, 64
-   uint32  Section;                              // Current section/segment
-   uint32  SectionAddress;                       // Address of beginning of this section
-   uint32  SectionType;                          // 0 = unknown, 1 = code, 2 = data, 3 = uninitialized data, 4 = constant data
-   uint32  CodeMode;                             // 1 if current position contains code, 2 if dubiuos, 4 if data
-   uint32  IBlock;
-   uint32  IBlockOpNum;
-   uint32  BlockEnd;
-   uint32  IFunction;                            // Index into FunctionList
-   uint32  FunctionEnd;                          // End address of current function (pass 2)
-   uint32  LabelBegin;                           // Address of nearest preceding label
-   uint32  LabelEnd;                             // Address of next label
-   uint32  LabelInaccessible;                    // Address of inaccessible code
-   uint32  IBegin;                               // Begin of current instruction
-   uint32  IEnd;                                 // End of current instruction
-   uint32  DataType;                             // Type of current data
-   uint32  DataSize;                             // Size of current data
-   uint32  FlagPrevious;                         // 1: previous instruction was a NOP. 
+   uint32_t  Pass;                                 // 1 = pass 1, 2-3 = pass 1 repeated, 0x10 = pass 2, 0x100 = repetition requested
+   uint32_t  BlockDescriptor;
+   uint32_t  FunctionDescriptor;
+   uint32_t  SwitchCheck;
+   uint32_t  SwitchtableCheck;
+   uint32_t  SwitchtableEnd;
+   uint32_t  SwitchtableLength;
+   uint32_t  SwitchReg;
+   uint32_t  JumptableAddrReg;
+   uint32_t  JumpReg;
+   uint32_t  SectionEnd;                           // End of current section
+   uint32_t  WordSize;                             // Segment word size: 16, 32, 64
+   uint32_t  Section;                              // Current section/segment
+   uint32_t  SectionAddress;                       // Address of beginning of this section
+   uint32_t  SectionType;                          // 0 = unknown, 1 = code, 2 = data, 3 = uninitialized data, 4 = constant data
+   uint32_t  CodeMode;                             // 1 if current position contains code, 2 if dubiuos, 4 if data
+   uint32_t  IBlock;
+   uint32_t  IBlockOpNum;
+   uint32_t  BlockEnd;
+   uint32_t  IFunction;                            // Index into FunctionList
+   uint32_t  FunctionEnd;                          // End address of current function (pass 2)
+   uint32_t  LabelBegin;                           // Address of nearest preceding label
+   uint32_t  LabelEnd;                             // Address of next label
+   uint32_t  LabelInaccessible;                    // Address of inaccessible code
+   uint32_t  IBegin;                               // Begin of current instruction
+   uint32_t  IEnd;                                 // End of current instruction
+   uint32_t  DataType;                             // Type of current data
+   uint32_t  DataSize;                             // Size of current data
+   uint32_t  FlagPrevious;                         // 1: previous instruction was a NOP. 
                                                  // 2: previous instruction was unconditional jump. 6: instruction was ud2
                                                  // 0x100: previous data aligned by 16
                                                  // 0x200: previous data aligned by 32
-   uint8   InstructionSetMax;                    // Highest instruction set encountered
-   uint8   InstructionSetAMDMAX;                 // Highest AMD-specific instruction set encountered
-   uint16  InstructionSetOR;                     // Bitwise OR of all instruction sets encountered
-   uint16  Opcodei;                              // Map number and index in opcodes.cpp
-   uint16  OpcodeOptions;                        // Option flags for opcode
-   uint16  PreviousOpcodei;                      // Opcode for previous instruction
-   uint16  PreviousOpcodeOptions;                // Option flags for previous instruction
-   uint32  CountErrors;                          // Number of errors since last label
-   uint32  Syntax;                               // Assembly syntax dialect: 1: MASM/TASM, 2: NASM/YASM, 4: GAS
-   uint32  MasmOptions;                          // Options needed for MASM: 1: dotname, 2: fs used, 4: gs used
+   uint8_t   InstructionSetMax;                    // Highest instruction set encountered
+   uint8_t   InstructionSetAMDMAX;                 // Highest AMD-specific instruction set encountered
+   uint16_t  InstructionSetOR;                     // Bitwise OR of all instruction sets encountered
+   uint16_t  Opcodei;                              // Map number and index in opcodes.cpp
+   uint16_t  OpcodeOptions;                        // Option flags for opcode
+   uint16_t  PreviousOpcodei;                      // Opcode for previous instruction
+   uint16_t  PreviousOpcodeOptions;                // Option flags for previous instruction
+   uint32_t  CountErrors;                          // Number of errors since last label
+   uint32_t  Syntax;                               // Assembly syntax dialect: 1: MASM/TASM, 2: NASM/YASM, 4: GAS
+   uint32_t  MasmOptions;                          // Options needed for MASM: 1: dotname, 2: fs used, 4: gs used
                                                  // 0x100: 16 bit segments, 0x200: 32 bit segments, 0x400: 64 bit segments
-   uint32  NamesChanged;                         // Symbol names containing invalid characters changed
-   int32   Assumes[6];                           // Assumed value of segment register es, cs, ss, ds, fs, gs. See CDisassembler::WriteSectionName for values
+   uint32_t  NamesChanged;                         // Symbol names containing invalid characters changed
+   int32_t   Assumes[6];                           // Assumed value of segment register es, cs, ss, ds, fs, gs. See CDisassembler::WriteSectionName for values
    void    Pass1();                              // Pass 1: Find symbols types and unnamed symbols
-   void    Pass2();                              // Pass 2: Write output file
+   void    Pass2( CTextFileBuffer *out_file );                              // Pass 2: Write output file
    int     NextFunction2();                      // Loop through function blocks in pass 2. Return 0 if finished
    int     NextLabel();                          // Loop through labels. (Pass 2)
    int     NextInstruction1();                   // Go to next instruction. Return 0 if none. (Pass 1)
    int     NextInstruction2();                   // Go to next instruction. Return 0 if none. (Pass 2)
    void    ParseInstruction();                   // Parse one opcode
    void    ScanPrefixes();                       // Scan prefixes
-   void    StorePrefix(uint32 Category, uint8 Byte);// Store prefix according to category
+   void    StorePrefix(uint32_t Category, uint8_t Byte);// Store prefix according to category
    void    FindMapEntry();                       // Find entry in opcode maps
    void    FindOperands();                       // Interpret mod/reg/rm and SIB bytes and find operand fields
    void    FindOperandTypes();                   // Determine the types of each operand
@@ -772,105 +778,72 @@ protected:
    void    UpdateSymbols();                      // Find unnamed symbols, determine symbol types, update symbol list, call CheckJumpTarget if jump/call
    void    UpdateTracer();                       // Trace register values
    void    MarkCodeAsDubious();                  // Remember that this may be data in a code segment
-   void    CheckRelocationTarget(uint32 IRel, uint32 TargetType, uint32 TargetSize);// Update relocation record and its target
-   void    CheckJumpTarget(uint32 symi);         // Extend range of current function to jump target, if needed
-   void    FollowJumpTable(uint32 symi, uint32 RelType);// Check jump/call table and its targets
-   uint32  MakeMissingRelocation(int32 Section, uint32 Offset, uint32 RelType, uint32 TargetType, uint32 TargetScope, uint32 SourceSize = 0, uint32 RefPoint = 0); // Make a relocation and its target symbol from inline address
-   void    CheckImportSymbol(uint32 symi);       // Check for indirect jump to import table entry
+   void    CheckRelocationTarget(uint32_t IRel, uint32_t TargetType, uint32_t TargetSize);// Update relocation record and its target
+   void    CheckJumpTarget(uint32_t symi);         // Extend range of current function to jump target, if needed
+   void    FollowJumpTable(uint32_t symi, uint32_t RelType);// Check jump/call table and its targets
+   uint32_t  MakeMissingRelocation(int32_t Section, uint32_t Offset, uint32_t RelType, uint32_t TargetType, uint32_t TargetScope, uint32_t SourceSize = 0, uint32_t RefPoint = 0); // Make a relocation and its target symbol from inline address
+   void    CheckImportSymbol(uint32_t symi);       // Check for indirect jump to import table entry
    void    CheckForBlockBegin();
    void    CheckForBlockEnd();
    void    SplitBlockBySymbol();
    void    CheckForFunctionBegin();              // Check if function begins at current position
-   void    CheckForFunctionEnd();                // Check if function ends at current position
-   void    CheckLabel();                         // Check if a label is needed before instruction
+   void    CheckForFunctionEnd( CTextFileBuffer *out_file );                // Check if function ends at current position
+   void    CheckLabel( CTextFileBuffer *out_file );                         // Check if a label is needed before instruction
    void    InitialErrorCheck();                  // Check for illegal relocations table entries
-   void    FinalErrorCheck();                    // Check for illegal entries in symbol table and relocations table
+   void    FinalErrorCheck( CTextFileBuffer *out_file );                    // Check for illegal entries in symbol table and relocations table
    void    CheckNamesValid();                    // Fix invalid characters in symbol and section names
    void    FixRelocationTargetAddresses();       // Find missing relocation target addresses
-   int     TranslateAbsAddress(int64 Addr, int32 &Sect, uint32 &Offset); // Translate absolute virtual address to section and offset
-   void    WriteFileBegin();                     // Write begin of file
-   void    WriteFileBeginMASM();                 // Write MASM-specific file init
-   void    WriteFileBeginYASM();                 // Write YASM-specific file init
-   void    WriteFileBeginGASM();                 // Write  GAS-specific file init
-   void    WriteFileEnd();                       // Write end of file
-   void    WriteSegmentBegin();                  // Write begin of segment
-   void    WriteSegmentBeginMASM();              // Write begin of segment, MASM syntax
-   void    WriteSegmentBeginYASM();              // Write begin of segment, YASM syntax
-   void    WriteSegmentBeginGASM();              // Write begin of segment, GAS  syntax
-   void    WriteSegmentEnd();                    // Write end of segment
-   void    WritePublicsAndExternalsMASM();       // Write public and external symbol definitions, MASM syntax
-   void    WritePublicsAndExternalsYASMGASM();   // Write public and external symbol definitions, YASM and GAS syntax
-   void    WriteFunctionBegin();                 // Write begin of function
-   void    WriteFunctionBeginMASM(uint32 symi, uint32 scope);// Write begin of function, MASM syntax
-   void    WriteFunctionBeginYASM(uint32 symi, uint32 scope);// Write begin of function, YASM syntax
-   void    WriteFunctionBeginGASM(uint32 symi, uint32 scope);// Write begin of function, GAS  syntax
-   void    WriteFunctionEnd();                   // Write end of function
-   void    WriteFunctionEndMASM(uint32 symi);    // Write end of function, MASM syntax
-   void    WriteFunctionEndYASM(uint32 symi);    // Write end of function, YASM syntax
-   void    WriteFunctionEndGASM(uint32 symi);    // Write end of function, GAS  syntax
-   void    WriteCodeLabel(uint32 symi);          // Write private or public code label
-   void    WriteCodeLabelMASM(uint32 symi, uint32 scope);// Write private or public code label, MASM syntax
-   void    WriteCodeLabelYASM(uint32 symi, uint32 scope);// Write private or public code label, MASM syntax
-   void    WriteCodeLabelGASM(uint32 symi, uint32 scope);// Write private or public code label, MASM syntax
-   int     WriteFillers();                       // Check if code is a series of NOPs or other fillers. If so then write it as such
-   void    WriteAlign(uint32 a);                 // Write alignment directive
-   void    WriteErrorsAndWarnings();             // Write errors and warnings, if any
-   void    WriteAssume();                        // Write assume directive for segment register
-   void    WriteInstruction();                   // Write instruction and operands
-   void    WriteCodeComment();                   // Write hex listing of instruction as comment after instruction
-   void    WriteStringInstruction();             // Write string instruction or xlat instruction
-   void    WriteShortRegOperand(uint32 Type);    // Write register operand from lower 3 bits of opcode byte to OutFile
-   void    WriteRegOperand(uint32 Type);         // Write register operand from reg bits to OutFile
-   void    WriteRMOperand(uint32 Type);          // Write memory or register operand from mod/rm bits of mod/reg/rm byte and possibly SIB byte to OutFile
-   void    WriteDREXOperand(uint32 Type);        // Write register operand from dest bits of DREX byte
-   void    WriteVEXOperand(uint32 Type, int i);  // Write register operand from VEX.vvvv bits or immediate bits
-   void    WriteOperandAttributeEVEX(int i, int isMem);// Write operand attributes and instruction attributes from EVEX z, LL, b and aaa bits
-   void    WriteOperandAttributeMVEX(int i, int isMem);// Write operand attributes and instruction attributes from MVEX sss, e and kkk bits
-   void    WriteImmediateOperand(uint32 Type);   // Write immediate operand or direct jump/call address
-   void    WriteOtherOperand(uint32 Type);       // Write other type of operand
-   void    WriteRegisterName(uint32 Value, uint32 Type); // Write name of register to OutFile
-   void    WriteSectionName(int32 SegIndex);     // Write section name from section index
-   void    WriteSymbolName(uint32 symi);         // Write symbol name
-   void    WriteRelocationTarget(uint32 irel, uint32 Context, int64 Addend);// Write cross reference
-   void    WriteOperandType(uint32 type);        // Write type override before operand, e.g. "dword ptr"
-   void    WriteOperandTypeMASM(uint32 type);    // Write type override before operand, e.g. "dword ptr", MASM syntax
-   void    WriteOperandTypeYASM(uint32 type);    // Write type override before operand, e.g. "dword", YASM syntax
-   void    WriteOperandTypeGASM(uint32 type);    // Write type override before operand, e.g. "dword ptr", GAS syntax
-   void    WriteDataItems();                     // Write data items
-   void    WriteDataLabelMASM(const char * name, uint32 sym, int line); // Write label before data item, MASM syntax
-   void    WriteDataLabelYASM(const char * name, uint32 sym, int line); // Write label before data item, YASM syntax
-   void    WriteDataLabelGASM(const char * name, uint32 sym, int line); // Write label before data item, GAS  syntax
-   void    WriteUninitDataItemsMASM(uint32 size, uint32 count);// Write uninitialized (BSS) data, MASM syntax
-   void    WriteUninitDataItemsYASM(uint32 size, uint32 count);// Write uninitialized (BSS) data, YASM syntax
-   void    WriteUninitDataItemsGASM(uint32 size, uint32 count);// Write uninitialized (BSS) data, GAS  syntax
-   void    WriteDataDirectiveMASM(uint32 size);  // Write DB, etc., MASM syntax
-   void    WriteDataDirectiveYASM(uint32 size);  // Write DB, etc., MASM syntax
-   void    WriteDataDirectiveGASM(uint32 size);  // Write DB, etc., MASM syntax
-   void    WriteDataComment(uint32 ElementSize, uint32 LinePos, uint32 Pos, uint32 irel);// Write comment after data item
-   uint32  GetDataItemSize(uint32 Type);         // Get size of data item with specified type
-   uint32  GetDataElementSize(uint32 Type);      // Get size of vector element in data item with specified type
-   int32   GetSegmentRegisterFromPrefix();       // Translate segment prefix to segment register
+   int     TranslateAbsAddress(int64_t Addr, int32_t &Sect, uint32_t &Offset); // Translate absolute virtual address to section and offset
 
+
+   void    WriteFileBegin( CTextFileBuffer *out_file );                     // Write begin of file
+   void    WritePublicsAndExternals( CTextFileBuffer *out_file );       // Write public and external symbol definitions, MASM syntax
+   void    WriteFileEnd( CTextFileBuffer *out_file );                       // Write end of file
+
+   void    WriteSectionName( CTextFileBuffer *out_file, int32_t SegIndex );     // Write section name from section index
+   void    WriteSegmentBegin( CTextFileBuffer *out_file );                  // Write begin of segment
+   void    WriteSegmentEnd( CTextFileBuffer *out_file );                    // Write end of segment
+
+   void    WriteAlign( CTextFileBuffer *out_file, uint32_t a );                 // Write alignment directive
+   void    WriteSymbolName( CTextFileBuffer *out_file, uint32_t symi );         // Write symbol name
+   void    WriteFunctionBegin( CTextFileBuffer *out_file );                 // Write begin of function
+   void    WriteFunctionEnd( CTextFileBuffer *out_file );                   // Write end of function
+
+   void    WriteCodeLabel( CTextFileBuffer *out_file, uint32_t symi );          // Write private or public code label
+
+   int     WriteFillers( CTextFileBuffer *out_file );                       // Check if code is a series of NOPs or other fillers. If so then write it as such
+
+   void    WriteErrorsAndWarnings( CTextFileBuffer *out_file );             // Write errors and warnings, if any
+
+   void    WriteAssume( CTextFileBuffer *out_file );                        // Write assume directive for segment register
    void    WriteInstruction( CTextFileBuffer *out_file );                   // Write instruction and operands
-   void    WriteCodeComment( CTextFileBuffer *out_file );                   // Write hex listing of instruction as comment after instruction
    void    WriteStringInstruction( CTextFileBuffer *out_file );             // Write string instruction or xlat instruction
-   void    WriteShortRegOperand( CTextFileBuffer *out_file, uint32 Type);    // Write register operand from lower 3 bits of opcode byte to OutFile
-   void    WriteRegOperand( CTextFileBuffer *out_file, uint32 Type);         // Write register operand from reg bits to OutFile
-   void    WriteRMOperand( CTextFileBuffer *out_file, uint32 Type);          // Write memory or register operand from mod/rm bits of mod/reg/rm byte and possibly SIB byte to OutFile
-   void    WriteDREXOperand( CTextFileBuffer *out_file, uint32 Type);        // Write register operand from dest bits of DREX byte
-   void    WriteVEXOperand( CTextFileBuffer *out_file, uint32 Type, int i);  // Write register operand from VEX.vvvv bits or immediate bits
+   void    WriteShortRegOperand( CTextFileBuffer *out_file, uint32_t Type);    // Write register operand from lower 3 bits of opcode byte to OutFile
+   void    WriteRegOperand( CTextFileBuffer *out_file, uint32_t Type);         // Write register operand from reg bits to OutFile
+   void    WriteRMOperand( CTextFileBuffer *out_file, uint32_t Type);          // Write memory or register operand from mod/rm bits of mod/reg/rm byte and possibly SIB byte to OutFile
+   void    WriteDREXOperand( CTextFileBuffer *out_file, uint32_t Type);        // Write register operand from dest bits of DREX byte
+   void    WriteVEXOperand( CTextFileBuffer *out_file, uint32_t Type, int i);  // Write register operand from VEX.vvvv bits or immediate bits
    void    WriteOperandAttributeEVEX( CTextFileBuffer *out_file, int i, int isMem);// Write operand attributes and instruction attributes from EVEX z, LL, b and aaa bits
    void    WriteOperandAttributeMVEX( CTextFileBuffer *out_file, int i, int isMem);// Write operand attributes and instruction attributes from MVEX sss, e and kkk bits
-   void    WriteImmediateOperand( CTextFileBuffer *out_file, uint32 Type);   // Write immediate operand or direct jump/call address
-   void    WriteOtherOperand( CTextFileBuffer *out_file, uint32 Type);       // Write other type of operand
-   void    WriteRegisterName( CTextFileBuffer *out_file, uint32 Value, uint32 Type); // Write name of register to OutFile
-   void    WriteRelocationTarget( CTextFileBuffer *out_file, uint32 irel, uint32 Context, int64 Addend);// Write cross reference
-   void    WriteOperandType( CTextFileBuffer *out_file, uint32 type);        // Write type override before operand, e.g. "dword ptr"
-   void    WriteOperandTypeMASM( CTextFileBuffer *out_file, uint32 type);    // Write type override before operand, e.g. "dword ptr", MASM syntax
-   void    WriteOperandTypeYASM( CTextFileBuffer *out_file, uint32 type);    // Write type override before operand, e.g. "dword", YASM syntax
-   void    WriteOperandTypeGASM( CTextFileBuffer *out_file, uint32 type);    // Write type override before operand, e.g. "dword ptr", GAS syntax
+   void    WriteImmediateOperand( CTextFileBuffer *out_file, uint32_t Type);   // Write immediate operand or direct jump/call address
+   void    WriteOtherOperand( CTextFileBuffer *out_file, uint32_t Type);       // Write other type of operand
+   void    WriteRegisterName( CTextFileBuffer *out_file, uint32_t Value, uint32_t Type); // Write name of register to OutFile
+   void    WriteRelocationTarget( CTextFileBuffer *out_file, uint32_t irel, uint32_t Context, int64_t Addend);// Write cross reference
+   void    WriteOperandType( CTextFileBuffer *out_file, uint32_t type);        // Write type override before operand, e.g. "dword ptr"
 
-   template <class TX> TX & Get(uint32 Offset) { // Get object of arbitrary type from buffer
+   void    WriteCodeComment( CTextFileBuffer *out_file );                   // Write hex listing of instruction as comment after instruction
+
+   void    WriteDataItems( CTextFileBuffer *out_file );                     // Write data items
+   void    WriteDataLabel( CTextFileBuffer *out_file, const char * name, uint32_t sym, int line ); // Write label before data item, MASM syntax
+   void    WriteUninitDataItems( CTextFileBuffer *out_file, uint32_t size, uint32_t count );// Write uninitialized (BSS) data, MASM syntax
+   void    WriteDataDirective( CTextFileBuffer *out_file, uint32_t size);  // Write DB, etc., MASM syntax
+   void    WriteDataComment( CTextFileBuffer *out_file, uint32_t ElementSize, uint32_t LinePos, uint32_t Pos, uint32_t irel );// Write comment after data item
+
+   uint32_t  GetDataItemSize(uint32_t Type);         // Get size of data item with specified type
+   uint32_t  GetDataElementSize(uint32_t Type);      // Get size of vector element in data item with specified type
+   int32_t   GetSegmentRegisterFromPrefix();       // Translate segment prefix to segment register
+
+   template <class TX> TX & Get(uint32_t Offset) { // Get object of arbitrary type from buffer
       return *(TX*)(Buffer + Offset);}
 };
 
@@ -878,17 +851,17 @@ protected:
 // Declare tables in opcodes.cpp:
 extern SOpcodeDef OpcodeMap0[256];               // First opcode map
 
-extern uint32 OpcodeStartPageVEX[];              // Entries to opcode maps, indexed by VEX.mmmm bits
+extern uint32_t OpcodeStartPageVEX[];              // Entries to opcode maps, indexed by VEX.mmmm bits
 extern SOpcodeDef const * OpcodeStartPageXOP[];  // Entries to opcode maps, indexed by XOP.mmmm bits
 
-extern const uint32 NumOpcodeStartPageVEX;       // Number of entries in OpcodeStartPage
-extern const uint32 NumOpcodeStartPageXOP;       // Number of entries in OpcodeStartPageXOP
+extern const uint32_t NumOpcodeStartPageVEX;       // Number of entries in OpcodeStartPage
+extern const uint32_t NumOpcodeStartPageXOP;       // Number of entries in OpcodeStartPageXOP
 
 extern const SOpcodeDef * const OpcodeTables[];  // Pointers to all opcode tables
 
-extern const uint32 OpcodeTableLength[];         // Size of each table pointed to by OpcodeTables[]
+extern const uint32_t OpcodeTableLength[];         // Size of each table pointed to by OpcodeTables[]
 
-extern const uint32 NumOpcodeTables1, NumOpcodeTables2;// Number of entries in OpcodeTables[] and OpcodeTableLength[]
+extern const uint32_t NumOpcodeTables1, NumOpcodeTables2;// Number of entries in OpcodeTables[] and OpcodeTableLength[]
 
 extern const char * RegisterNames8[8];           // Names of 8 bit registers
 extern const char * RegisterNames8x[16];         // Names of 8 bit registers with REX prefix

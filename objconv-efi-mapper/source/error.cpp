@@ -13,8 +13,9 @@
 // Define this if you get problems:
 // #define OBJCONV_ERROR_CPP 1
 
-
-#include "stdafx.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include "error.h"
 
 #define MAX_ERROR_TEXT_LENGTH 1024 // Maximum length of error text including extra info
 

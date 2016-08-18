@@ -18,17 +18,17 @@
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
-
-#define stricmp  strcasecmp    // Alternative function names
-#define strnicmp strncasecmp
+#include <inttypes.h>
 
 // Project header files. The order of these files is not arbitrary.
-#include "maindef.h"      // Constants, integer types, etc.
+#include "lib.h"      // Constants, integer types, etc.
 #include "error.h"        // Error handler
 #include "containers.h"   // Classes for data buffers and dynamic memory allocation
+
 #include "coff.h"         // COFF files structure
 #include "macho.h"        // Mach-O files structure
 #include "disasm.h"       // Structures and classes for disassembler
-#include "disasm_wrapper.h"
+#include "parser.h"
+#include "data.h"
 
 #endif // defined OBJCONV_STDAFX_H

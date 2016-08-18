@@ -14,7 +14,11 @@
 *
 * Copyright 2006-2008 GNU General Public License http://www.gnu.org/licenses
 *****************************************************************************/
-#include "stdafx.h"
+
+#include <stdio.h>
+#include <string.h>
+#include "lib.h"
+#include "containers.h"
 
 // Names of file formats
 SIntTxt FileFormatNames[] = {
@@ -48,7 +52,7 @@ CMemoryBuffer::~CMemoryBuffer() {
     SetSize(0);                         // De-allocate buffer
 }
 
-void CMemoryBuffer::SetSize(uint32 size) {
+void CMemoryBuffer::SetSize(uint32_t size) {
     // Allocate, reallocate or deallocate buffer of specified size.
     // DataSize is initially zero. It is increased by Push or PushString.
     // Setting size > DataSize will allocate more buffer and fill it with zeroes but not increase DataSize.
@@ -70,10 +74,10 @@ void CMemoryBuffer::SetSize(uint32 size) {
         // Request to reduce size but not delete it
         return;                          // Ignore
     }
-//  size = (size + 15) & uint32(-16);   // Round up size to value divisible by 16
-    size = (size + BufferSize + 15) & uint32(-16);   // Double size and round up to value divisible by 16
-    int8 * buffer2 = 0;                 // New buffer
-    buffer2 = new int8[size];           // Allocate new buffer
+//  size = (size + 15) & uint32_t(-16);   // Round up size to value divisible by 16
+    size = (size + BufferSize + 15) & uint32_t(-16);   // Double size and round up to value divisible by 16
+    char * buffer2 = 0;                 // New buffer
+    buffer2 = new char[size];           // Allocate new buffer
     if (buffer2 == 0) {err.submit(9006); return;} // Error can't allocate
     memset (buffer2, 0, size);          // Initialize to all zeroes
     if (buffer) {
@@ -85,17 +89,17 @@ void CMemoryBuffer::SetSize(uint32 size) {
     BufferSize = size;                  // Save size
 }
 
-uint32 CMemoryBuffer::Push(void const * obj, uint32 size) {
+uint32_t CMemoryBuffer::Push(void const * obj, uint32_t size) {
     // Add object to buffer, return offset
     // Parameters: 
     // obj = pointer to object, 0 if fill with zeroes
     // size = size of object to push
 
     // Old offset will be offset to new object
-    uint32 OldOffset = DataSize;
+    uint32_t OldOffset = DataSize;
 
     // New data size will be old data size plus size of new object
-    uint32 NewOffset = DataSize + size;
+    uint32_t NewOffset = DataSize + size;
 
     if (NewOffset > BufferSize) {
         // Buffer too small, allocate more space.
@@ -106,10 +110,10 @@ uint32 CMemoryBuffer::Push(void const * obj, uint32 size) {
 
         // Allocate more space without using SetSize:
         // Double the size + 1 kB, and round up size to value divisible by 16
-        uint32 NewSize = (NewOffset * 2 + 1024 + 15) & uint32(-16);
-        int8 * buffer2 = 0;                        // New buffer
+        uint32_t NewSize = (NewOffset * 2 + 1024 + 15) & uint32_t(-16);
+        char * buffer2 = 0;                        // New buffer
         // Allocate new buffer
-        buffer2 = new int8[NewSize];
+        buffer2 = new char[NewSize];
         if (buffer2 == 0) {
             // Error can't allocate
             err.submit(9006);  return 0;
@@ -146,19 +150,19 @@ uint32 CMemoryBuffer::Push(void const * obj, uint32 size) {
     return OldOffset;
 }
 
-uint32 CMemoryBuffer::PushString(char const * s) {
+uint32_t CMemoryBuffer::PushString(char const * s) {
     // Add ASCIIZ string to buffer, return offset
-    return Push (s, uint32(strlen(s))+1);
+    return Push (s, uint32_t(strlen(s))+1);
 }
 
-uint32 CMemoryBuffer::GetLastIndex() {
+uint32_t CMemoryBuffer::GetLastIndex() {
     // Index of last object pushed (zero-based)
     return NumEntries - 1;
 }
 
-void CMemoryBuffer::Align(uint32 a) {
+void CMemoryBuffer::Align(uint32_t a) {
     // Align next entry to address divisible by a
-    uint32 NewOffset = (DataSize + a - 1) / a * a;
+    uint32_t NewOffset = (DataSize + a - 1) / a * a;
     if (NewOffset > BufferSize) {
         // Allocate more space
         SetSize (NewOffset + 2048);
@@ -183,7 +187,7 @@ CFileBuffer::CFileBuffer(char const * filename) : CMemoryBuffer() {
 
 void CFileBuffer::Read(int IgnoreError) {                   
     // Read file into buffer
-    uint32 status;                             // Error status
+    uint32_t status;                             // Error status
 
     FILE * fh = fopen(FileName, "rb");
     if (!fh) {
@@ -198,12 +202,12 @@ void CFileBuffer::Read(int IgnoreError) {
         // File too big or zero size
         err.submit(2105, FileName); fclose(fh); return;
     }
-    DataSize = (uint32)fsize;
+    DataSize = (uint32_t)fsize;
     rewind(fh);
     // Allocate buffer
     SetSize(DataSize + 2048);                 // Allocate buffer, 2k extra
     // Read entire file
-    status = (uint32)fread(Buf(), 1, DataSize, fh);
+    status = (uint32_t)fread(Buf(), 1, DataSize, fh);
     if (status != DataSize) err.submit(2103, FileName);
     status = fclose(fh);
     if (status != 0) err.submit(2103, FileName);
@@ -219,7 +223,7 @@ void CFileBuffer::Write() {
     // Check if error
     if (!ff) {err.submit(2104, FileName);  return;}
     // Write file
-    uint32 n = (uint32)fwrite(Buf(), 1, DataSize, ff);
+    uint32_t n = (uint32_t)fwrite(Buf(), 1, DataSize, ff);
     // Check if error
     if (n != DataSize) err.submit(2104, FileName);
     // Close file
@@ -269,13 +273,11 @@ void operator >> (CFileBuffer & a, CFileBuffer & b)
 // Constructor
 CTextFileBuffer::CTextFileBuffer() {
     column = 0;
-    // Use UNIX linefeeds only if GASM output
-    LineType = (OutSubType == SUBTYPE_GASM) ? 1 : 0;
 }
 
 void CTextFileBuffer::Put(const char * text) {
     // Write text string to buffer
-    uint32 len = (uint32)strlen(text);            // Length of text
+    uint32_t len = (uint32_t)strlen(text);            // Length of text
     Push(text, len);                              // Add to buffer without terminating zero
     column += len;                                // Update column
 }
@@ -288,42 +290,31 @@ void CTextFileBuffer::Put(const char character) {
 
 void CTextFileBuffer::NewLine() {
     // Add linefeed
-    if (LineType == 0) {
-        Push("\r\n", 2);                           // DOS/Windows style linefeed
-    }
-    else {
-        Push("\n", 1);                             // UNIX style linefeed
-    }
+    Push("\n", 1);                             // UNIX style linefeed
     column = 0;                                   // Reset column
 }
 
-void CTextFileBuffer::Tabulate(uint32 i) {
+void CTextFileBuffer::Tabulate(uint32_t i) {
     // Insert spaces until column i
-    uint32 j;
+    uint32_t j;
     if (i > column) {                             // Only insert spaces if we are not already past i
         for (j = column; j < i; j++) Push(" ", 1); // Insert i - column spaces
         column = i;                                // Update column
     }
 }
 
-void CTextFileBuffer::PutDecimal(int32 x, int IsSigned) {
+void CTextFileBuffer::PutDecimal(int32_t x, int IsSigned) {
     // Write decimal number to buffer, unsigned or signed
     char text[16];
     sprintf(text, IsSigned ? "%i" : "%u", x);
     Put(text);
 }
 
-void CTextFileBuffer::PutHex(uint8 x, int MasmForm) {
+void CTextFileBuffer::PutHex(uint8_t x, int MasmForm) {
     // Write hexadecimal 8 bit number to buffer
     // If MasmForm >= 1 then the function will write the number in a
     // way that can be read by the assembler, e.g. 0FFH or 0xFF
     char text[16];
-    if (MasmForm && OutSubType == SUBTYPE_GASM) {
-        // Needs 0x prefix
-        sprintf(text, "0x%02X", x);
-        Put(text);
-        return;
-    }
     if (MasmForm && x >= 0xA0) {
         Put("0");                                  // Make sure it doesn't begin with a letter
     }
@@ -332,18 +323,12 @@ void CTextFileBuffer::PutHex(uint8 x, int MasmForm) {
     if (MasmForm) Put("H");
 }
 
-void CTextFileBuffer::PutHex(uint16 x, int MasmForm) {
+void CTextFileBuffer::PutHex(uint16_t x, int MasmForm) {
     // Write hexadecimal 16 bit number to buffer
     // If MasmForm >= 1 then the function will write the number in a
     // way that can be read by the assembler, e.g. 0FFH or 0xFF
     // If MasmForm == 2 then leading zeroes are stripped
     char text[16];
-    if (MasmForm && OutSubType == SUBTYPE_GASM) {
-        // Needs 0x prefix
-        sprintf(text, MasmForm==1 ? "0x%04X" : "0x%X", x);
-        Put(text);
-        return;
-    }
     sprintf(text, (MasmForm < 2) ? "%04X" : "%X", x);
     // Check if leading zero needed
     if (MasmForm && text[0] > '9') {
@@ -353,19 +338,12 @@ void CTextFileBuffer::PutHex(uint16 x, int MasmForm) {
     if (MasmForm) Put("H");
 }
 
-void CTextFileBuffer::PutHex(uint32 x, int MasmForm) {
+void CTextFileBuffer::PutHex(uint32_t x, int MasmForm) {
     // Write hexadecimal 32 bit number to buffer
     // If MasmForm >= 1 then the function will write the number in a
     // way that can be read by the assembler, e.g. 0FFH or 0xFF
     // If MasmForm == 2 then leading zeroes are stripped
     char text[16];
-    if (MasmForm && OutSubType == SUBTYPE_GASM) {
-        // Needs 0x prefix
-        sprintf(text, MasmForm==1 ? "0x%08X" : "0x%X", x);
-        Put(text);
-        return;
-    }
-
     sprintf(text, (MasmForm < 2) ? "%08X" : "%X", x);
     // Check if leading zero needed
     if (MasmForm && text[0] > '9') {
@@ -375,40 +353,33 @@ void CTextFileBuffer::PutHex(uint32 x, int MasmForm) {
     if (MasmForm) Put("H");
 }
 
-void CTextFileBuffer::PutHex(uint64 x, int MasmForm) {
-    // Write unsigned hexadecimal 64 bit number to buffer
-    // If MasmForm >= 1 then the function will write the number in a
-    // way that can be read by the assembler, e.g. 0FFH or 0xFF
-    // If MasmForm == 2 then leading zeroes are stripped
-    char text[32];
-    if (MasmForm < 2) {  // Print all digits
-        sprintf(text, "%08X%08X", HighDWord(x), uint32(x));
-    }
-    else { // Skip leading zeroes
-        if (HighDWord(x)) {
-            sprintf(text, "%X%08X", HighDWord(x), uint32(x));
-        }
-        else {
-            sprintf(text, "%X", uint32(x));
-        }
-    }
-    if (MasmForm) {
-        if (OutSubType == SUBTYPE_GASM) {
-            // Needs 0x prefix
-            Put("0x");
-            Put(text);
-        }
-        else {
-            // use 0FFH form
-            if (text[0] > '9')  Put("0");           // Leading zero needed
-            Put(text);
-            Put("H");
-        }
-    }
-    else {
-        // write hexadecimal number only
-        Put(text);
-    }
+void CTextFileBuffer::PutHex(uint64_t x, int MasmForm) {
+	// Write unsigned hexadecimal 64 bit number to buffer
+	// If MasmForm >= 1 then the function will write the number in a
+	// way that can be read by the assembler, e.g. 0FFH or 0xFF
+	// If MasmForm == 2 then leading zeroes are stripped
+	char text[32];
+	if (MasmForm < 2) {  // Print all digits
+		sprintf(text, "%08X%08X", HighDWord(x), uint32_t(x));
+	}
+	else { // Skip leading zeroes
+		if (HighDWord(x)) {
+			sprintf(text, "%X%08X", HighDWord(x), uint32_t(x));
+		}
+		else {
+			sprintf(text, "%X", uint32_t(x));
+		}
+	}
+	if (MasmForm) {
+		// use 0FFH form
+		if (text[0] > '9')  Put("0");           // Leading zero needed
+		Put(text);
+		Put("H");
+	}
+	else {
+		// write hexadecimal number only
+		Put(text);
+	}
 }
 
 void CTextFileBuffer::PutFloat(float x) {
@@ -423,6 +394,110 @@ void CTextFileBuffer::PutFloat(double x) {
     char text[64];
     sprintf(text, "%.16G", x);
     Put(text);
+}
+
+String::String()
+{
+	memset( this, 0, sizeof(*this) );
+}
+
+String::String( const String& another )
+{
+	memset( this, 0, sizeof(*this) );
+	size = another.size;
+	if( size )
+	{
+		str = new char[size];
+		strncpy( str, another.str, size );
+	}
+	else
+		str = NULL;
+}
+
+void String::operator = ( const String& another )
+{
+	memset( this, 0, sizeof(*this) );
+	size = another.size;
+	if( size )
+	{
+		char* temp = new char[size];
+		strncpy( temp, another.str, size );
+		if( str )
+			delete[] str;
+		str = temp;
+	}
+	else
+		str = NULL;
+}
+
+String::~String()
+{
+	Free();
+}
+
+void String::SetString( char *new_str )
+{
+	size = strlen(new_str) + 1;
+	if( str )
+		delete[] str;
+	str = new char[size];
+	strncpy( str, new_str, size );
+}
+
+void String::SetString( char *new_str, int len )
+{
+	size = len + 1;
+	if( str )
+		delete[] str;
+	str = new char[size];
+	strncpy( str, new_str, len );
+	str[size - 1] = 0;
+}
+
+void String::Append( char *append )
+{
+	if( str )
+	{
+		size += strlen(append);
+		char *temp = new char[size];
+		strncpy( temp, str, strlen(str) );
+		strncpy( temp + strlen(str), append, strlen(append) + 1 );
+
+		delete[] str;
+		str = temp;
+	}
+	else
+		SetString( append );
+}
+
+void String::Append( char *append, int len )
+{
+	if( str )
+	{
+		size += len;
+		char *temp = new char[size];
+		strncpy( temp, str, strlen(str) );
+		strncpy( temp + strlen(str), append, len );
+		temp[size - 1] = 0;
+
+		delete[] str;
+		str = temp;
+	}
+	else
+		SetString( append, len );
+}
+
+char *String::GetString()
+{
+	return str;
+}
+
+void String::Free()
+{
+	size = 0;
+	if( str )
+		delete[] str;
+	str = NULL;
 }
 
 

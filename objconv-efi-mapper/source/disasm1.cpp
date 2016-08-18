@@ -13,8 +13,8 @@
 *
 * Copyright 2007-2014 GNU General Public License http://www.gnu.org/licenses
 *****************************************************************************/
-#include "stdafx.h"
 
+#include "disasm.h"
 
 /**************************  class CSymbolTable   *****************************
 
@@ -46,7 +46,7 @@ To find a symbol by its address, use FindByAddress().
 #define SplitInsnNum 22
 const char *BlockSplitTable[] ={
 	"jmp", "ret", "jo", "jno", "jc", "jnc", "jz", "jnz", "jbe", "ja",
-	"je", "js", "jns", "jpe", "jpe", "jl", "jge", "jle", "jg", "jcxz",
+	"je", "js", "jns", "jpe", "jpo", "jl", "jge", "jle", "jg", "jcxz",
 	"jecxz", "jrcxz"
 };
 
@@ -57,7 +57,7 @@ CSymbolTable::CSymbolTable() {
     UnnamedNum = 0;                               // Number of unnamed symbols
     UnnamedSymFormat = 0;                         // Format string for giving names to unnamed symbols
     //UnnamedSymbolsPrefix = cmd.SubType == SUBTYPE_GASM ? "$_" : "?_";// Prefix to add to unnamed symbols
-    UnnamedSymbolsPrefix = SUBTYPE_YASM == SUBTYPE_GASM ? "$_" : "?_";// Prefix to add to unnamed symbols
+    UnnamedSymbolsPrefix = "?_";// Prefix to add to unnamed symbols
     ImportTablePrefix = "imp_";                   // Prefix for pointers in import table
 
     // Make dummy symbol number 0
@@ -455,26 +455,27 @@ Members that relate to file output are in disasm2.cpp
 ******************************************************************************/
 
 CDisassembler::CDisassembler() {
-    // Constructor
-    Sections.PushZero();                          // Make first section entry zero
-    Relocations.PushZero();                       // Make first relocation entry zero
-    NameBuffer.Push(0, 1);                        // Make first string entry zero   
-    FunctionList.PushZero();                      // Make first function entry zero
+	// Constructor
+	Sections.PushZero();                          // Make first section entry zero
+	Relocations.PushZero();                       // Make first relocation entry zero
+	NameBuffer.Push(0, 1);                        // Make first string entry zero   
+	FunctionList.PushZero();                      // Make first function entry zero
 	BlockList.PushZero();
-    // Initialize variables
-    Buffer = 0;
-    InstructionSetMax = InstructionSetAMDMAX = 0;
-    InstructionSetOR = FlagPrevious = NamesChanged = 0;
-    WordSize = MasmOptions = RelocationsInSource = ExeType = 0;
-    ImageBase = 0;
-    if (Syntax == SUBTYPE_GASM) {
-        CommentSeparator = "# ";                   // Symbol for indicating comment
-        HereOperator = ".";                        // Symbol for current address
-    }
-    else {
-        CommentSeparator = "; ";                   // Symbol for indicating comment
-        HereOperator = "$";                        // Symbol for current address
-    }
+	// Initialize variables
+	Buffer = 0;
+	InstructionSetMax = InstructionSetAMDMAX = 0;
+	InstructionSetOR = FlagPrevious = NamesChanged = 0;
+	WordSize = MasmOptions = RelocationsInSource = ExeType = 0;
+	ImageBase = 0;
+	CommentSeparator = "; ";                   // Symbol for indicating comment
+	HereOperator = "$";                        // Symbol for current address
+	SwitchCheck = 0;
+	SwitchtableCheck = 0;
+	SwitchtableEnd = 0;
+  	SwitchtableLength = 0;
+  	SwitchReg = 0;
+  	JumptableAddrReg = 0;
+   	JumpReg = 0;
 }
 
 void CDisassembler::Init(uint32 ExeType, int64 ImageBase) {
@@ -676,40 +677,6 @@ uint32 ReferenceIndex) {                      // Symbol index of reference point
     }
 }
 
-int CDisassembler::GetCodeBlockNum()
-{
-	return BlockList.GetNumEntries();
-}
-
-int CDisassembler::GetOpcodeNumInBlock(int block_idx)
-{
-	return BlockList[block_idx].OpNum;
-}
-
-short CDisassembler::GetOpcodeInBlock(int block_idx, int op_idx)
-{
-
-	Buffer     = Sections[Section].Start;
-	SectionEnd = FunctionEnd = LabelInaccessible = Sections[Section].TotalSize;
-	WordSize   = Sections[Section].WordSize;
-	SectionAddress = Sections[Section].SectionAddress;
-
-	IBegin = BlockList[block_idx].Start;
-	IEnd = IBegin;
-
-	int i;
-	for( i = 0; i < op_idx; i++ )
-	{
-		s.Reset();
-		IBegin = IEnd;
-		ParseInstruction();
-		if(IEnd > BlockList[block_idx].End)
-			return -1;
-	}
-
-	return Buffer[IBegin];
-}
-
 void CDisassembler::Go() {
     // Do the disassembly
 
@@ -733,65 +700,30 @@ void CDisassembler::Go() {
         Pass1();
     }*/
 
-    // Put names on unnamed symbols
     Symbols.AssignNames();
 
-    // Fix invalid characters in symbol and section names
     CheckNamesValid();
 
 	SplitBlockBySymbol();
 
-#if 0 //
-    // Show function list. For debugging only
-    printf("\n\nFunctionList:");
-    for (uint32 i = 0; i < FunctionList.GetNumEntries(); i++) {
-        printf("\nsect %i, start %X, end %X, scope %i, name %s",
-            FunctionList[i].Section, FunctionList[i].Start, FunctionList[i].End, 
-            FunctionList[i].Scope, Symbols.GetNameO(FunctionList[i].OldSymbolIndex));
-    }
-#endif
-#if 0 
-    // For debugging: list all relocations
-    printf("\n\nRelocations:");
-    for (uint32 i = 0; i < Relocations.GetNumEntries(); i++) {
-        printf("\nsect %i, os %X, type %X, size %i, add %X, target %X",
-            Relocations[i].Section, Relocations[i].Offset, Relocations[i].Type, 
-            Relocations[i].Size, Relocations[i].Addend, Relocations[i].TargetOldIndex);
-    }
-#endif
-#if 0
-    // For debugging: list all sections
-    printf("\n\nSections:");
-    for (uint32 s = 1; s < Sections.GetNumEntries(); s++) {
-        printf("\n%2i, %s", s, NameBuffer.Buf() + Sections[s].Name);
-    }
-#endif
-
     // Begin writing output file
-    WriteFileBegin();
+    WriteFileBegin( &OutFile );
 
     // Pass 2: Write all sections to output file
     Pass = 0x10;
-    Pass2();
+    Pass2( &OutFile );
 
     // Check for illegal entries in symbol table and relocations table
-    FinalErrorCheck();
+    FinalErrorCheck( &OutFile );
 
     // Finish writing output file
-    WriteFileEnd();
+    WriteFileEnd( &OutFile );
 
-	/*FILE * ff = stdout; 
-	// Check if error
-	//if (!ff) {err.submit(2104, FileName);  return;}
-	// Write file
-	uint32 n = (uint32)fwrite(OutFile.Buf(), 1, OutFile.GetBufSize(), ff);
-	// Check if error
+	//FILE * ff = stdout; 
+	//uint32 n = (uint32)fwrite(OutFile.Buf(), 1, OutFile.GetBufSize(), ff);
 	//if (n != DataSize) err.submit(2104, FileName);
-	// Close file
 	//n = fclose(ff);
-	// Check if error
 	//if (n) {err.submit(2104, FileName);  return;}
-	*/
 }
 
 void CDisassembler::Pass1() {
@@ -868,7 +800,7 @@ void CDisassembler::Pass1() {
                 }
                 // check if function ends here
                 CheckForBlockEnd();
-				CheckForFunctionEnd();
+				CheckForFunctionEnd( &OutFile );
             }
         }
         else {
@@ -879,6 +811,111 @@ void CDisassembler::Pass1() {
         }
     }
 
+}
+
+void CDisassembler::Pass2( CTextFileBuffer *out_file ) {
+
+    /*             Pass 2: does the following jobs:
+    --------------------------------
+
+    * Scans through all sections, code and data.
+
+    * Code is analyzed, instruction by instruction. Checks code syntax.
+
+    * Outputs warnings for suboptimal instruction codes and error messages
+    for erroneous code and erroneous relocations.
+
+    * Outputs disassembly of all instructions, operands and relocations, 
+    followed by the binary code listing as comment.
+
+    * Outputs disassembly of all data, followed by alternative representations
+    as comment.
+
+    * Outputs dubious code as both code and data in order to allow a re-assembly
+    to produce identical code.
+    */
+
+    // Loop through sections, pass 2
+    for (Section = 1; Section < Sections.GetNumEntries(); Section++) {
+
+        // Get section type
+        SectionType = Sections[Section].Type;
+        if (SectionType & 0x800) continue;         // This is a group
+
+        // Is this code or data?
+        CodeMode = ((SectionType & 0xFF) == 1) ? 1 : 4;
+
+        // Initialize
+        LabelBegin = FlagPrevious = CountErrors = 0;
+        Buffer = Sections[Section].Start;
+        SectionEnd = Sections[Section].TotalSize;
+        LabelInaccessible = Sections[Section].InitSize;
+        WordSize = Sections[Section].WordSize;
+        SectionAddress = Sections[Section].SectionAddress;
+
+        // Write segment directive
+        WriteSegmentBegin( out_file );
+
+        IBegin = IEnd = LabelEnd = IFunction = DataType = DataSize = 0;
+
+        // Loop through function blocks in this section
+        while (NextFunction2()) {
+
+            // Check CodeMode from label
+            NextLabel();
+
+            // Write begin function
+            if (CodeMode & 3) WriteFunctionBegin( out_file );
+
+            // Loop through labels
+            while (NextLabel()) {
+
+                // Loop through code
+                while (NextInstruction2()) {
+
+                    if (CodeMode & 3) {
+                        // Interpret this as code
+
+                        // Write label if any
+                        CheckLabel( out_file );
+
+                        // Parse instruction
+                        ParseInstruction();
+
+                        // Check for filling space
+                        if (((s.Warnings1 & 0x10000000) || s.Warnings1 == 0x1000000) && WriteFillers( out_file )) {
+                            // Code is inaccessible fillers. Has been written by CheckForFillers()
+                            continue;
+                        }
+
+                        // Write any error and warning messages to OutFile
+                        WriteErrorsAndWarnings( out_file );
+
+                        // Write instruction to OutFile
+                        WriteInstruction( out_file );
+
+                        // Write hex code as comment after instruction
+                        WriteCodeComment( out_file );
+                    }
+                    if (CodeMode & 6) {
+
+                        // Interpret this as data
+                        WriteDataItems( out_file );
+                    }
+                    if (IEnd <= IBegin) {
+
+                        // Prevent infinite loop
+                        IEnd++;
+                        break;
+                    }
+                }
+            }
+            // Write end of function, if any
+            if (CodeMode & 3) WriteFunctionEnd( out_file );         // End function
+        }
+        // Write end of segment
+        WriteSegmentEnd( out_file );
+    }
 }
 
 void CDisassembler::FindLabels() {
@@ -1181,7 +1218,7 @@ void CDisassembler::CheckForFunctionBegin() {
     }
 }
 
-void CDisassembler::CheckForFunctionEnd() {
+void CDisassembler::CheckForFunctionEnd( CTextFileBuffer *out_file ) {
     // Check if function ends at current position
     if (IFunction >= FunctionList.GetNumEntries()) {
         // Should not occur
@@ -1199,7 +1236,7 @@ void CDisassembler::CheckForFunctionEnd() {
         if (s.OpcodeDef && !(s.OpcodeDef->Options & 0x10) && (Pass & 0x10)) {
             // No return or unconditional jump. Write error message
             s.Errors |= 0x10000;
-            WriteErrorsAndWarnings();
+            WriteErrorsAndWarnings( out_file );
         }
         return;
     }
@@ -1409,112 +1446,6 @@ void CDisassembler::CheckJumpTarget(uint32 symi) {
         IFunction = IFun;
         }
         */
-    }
-}
-
-
-void CDisassembler::Pass2() {
-
-    /*             Pass 2: does the following jobs:
-    --------------------------------
-
-    * Scans through all sections, code and data.
-
-    * Code is analyzed, instruction by instruction. Checks code syntax.
-
-    * Outputs warnings for suboptimal instruction codes and error messages
-    for erroneous code and erroneous relocations.
-
-    * Outputs disassembly of all instructions, operands and relocations, 
-    followed by the binary code listing as comment.
-
-    * Outputs disassembly of all data, followed by alternative representations
-    as comment.
-
-    * Outputs dubious code as both code and data in order to allow a re-assembly
-    to produce identical code.
-    */
-
-    // Loop through sections, pass 2
-    for (Section = 1; Section < Sections.GetNumEntries(); Section++) {
-
-        // Get section type
-        SectionType = Sections[Section].Type;
-        if (SectionType & 0x800) continue;         // This is a group
-
-        // Is this code or data?
-        CodeMode = ((SectionType & 0xFF) == 1) ? 1 : 4;
-
-        // Initialize
-        LabelBegin = FlagPrevious = CountErrors = 0;
-        Buffer = Sections[Section].Start;
-        SectionEnd = Sections[Section].TotalSize;
-        LabelInaccessible = Sections[Section].InitSize;
-        WordSize = Sections[Section].WordSize;
-        SectionAddress = Sections[Section].SectionAddress;
-
-        // Write segment directive
-        WriteSegmentBegin();
-
-        IBegin = IEnd = LabelEnd = IFunction = DataType = DataSize = 0;
-
-        // Loop through function blocks in this section
-        while (NextFunction2()) {
-
-            // Check CodeMode from label
-            NextLabel();
-
-            // Write begin function
-            if (CodeMode & 3) WriteFunctionBegin();
-
-            // Loop through labels
-            while (NextLabel()) {
-
-                // Loop through code
-                while (NextInstruction2()) {
-
-                    if (CodeMode & 3) {
-                        // Interpret this as code
-
-                        // Write label if any
-                        CheckLabel();
-
-                        // Parse instruction
-                        ParseInstruction();
-
-                        // Check for filling space
-                        if (((s.Warnings1 & 0x10000000) || s.Warnings1 == 0x1000000) && WriteFillers()) {
-                            // Code is inaccessible fillers. Has been written by CheckForFillers()
-                            continue;
-                        }
-
-                        // Write any error and warning messages to OutFile
-                        WriteErrorsAndWarnings();
-
-                        // Write instruction to OutFile
-                        WriteInstruction();
-
-                        // Write hex code as comment after instruction
-                        WriteCodeComment();
-                    }
-                    if (CodeMode & 6) {
-
-                        // Interpret this as data
-                        WriteDataItems();
-                    }
-                    if (IEnd <= IBegin) {
-
-                        // Prevent infinite loop
-                        IEnd++;
-                        break;
-                    }
-                }
-            }
-            // Write end of function, if any
-            if (CodeMode & 3) WriteFunctionEnd();         // End function
-        }
-        // Write end of segment
-        WriteSegmentEnd();
     }
 }
 
@@ -2083,7 +2014,6 @@ void CDisassembler::UpdateSymbols() {
         }
     }
 }
-
 
 void CDisassembler::FollowJumpTable(uint32 symi, uint32 RelType) {
     // Check jump/call table and its targets
@@ -4517,12 +4447,31 @@ void CDisassembler::FindSwitch()
 		else
 		{
 			SwitchReg = MapRegister(op1);
+			if( SwitchReg == -1 )
+			{
+				SwitchCheck = 0;
+				return;
+			}
 			SwitchtableLength = atoi(op2)+1;
 			SwitchCheck = 1;
 		}
 	}
-	else if( SwitchCheck == 1 && !strcmp( opcode, "ja" ) )
-		SwitchCheck = 2;
+	else if( SwitchCheck == 1 && (!strcmp( opcode, "ja" ) || !strcmp(opcode, "cmp")) )
+	{
+		if( !strcmp( opcode, "ja" ) )
+			SwitchCheck = 2;
+		else if( !strcmp( opcode, "cmp" ) )
+		{
+			SwitchReg = MapRegister(op1);
+			if( SwitchReg == -1 )
+			{
+				SwitchCheck = 0;
+				return;
+			}
+			SwitchtableLength = atoi(op2)+1;
+			SwitchCheck = 1;
+		}
+	}
 	else if( SwitchCheck == 2 && !strcmp( opcode, "movsxd" ) )
 	{
 		char op2_1[5], op2_2[5], op2_3[5];
@@ -4574,7 +4523,8 @@ void CDisassembler::FindSwitch()
 		SwitchCheck = 0;
 }
 
-void CDisassembler::CheckLabel() {
+void CDisassembler::CheckLabel( CTextFileBuffer *out_file )
+{
     // Check if there is a label at instruction, and write it
     // Write begin and end of function
 
@@ -4593,7 +4543,7 @@ void CDisassembler::CheckLabel() {
             if (!(Symbols[s].Scope & 0x100) && !(Symbols[s].Type & 0x80000000)) {
 
                 // Write label as a private or public code label
-                WriteCodeLabel(s);
+                WriteCodeLabel( out_file, s );
             }
         }
         // Get symbol type and size
@@ -4688,7 +4638,8 @@ void CDisassembler::InitialErrorCheck() {
 }
 
 
-void CDisassembler::FinalErrorCheck() {
+void CDisassembler::FinalErrorCheck( CTextFileBuffer *out_file )
+{
     // Check for illegal entries in symbol table and relocations table
     uint32 i;                                     // Loop counter
     int SpaceWritten = 0;                         // Blank line written
@@ -4703,23 +4654,23 @@ void CDisassembler::FinalErrorCheck() {
             || Symbols[i].Offset > Sections[Symbols[i].Section].TotalSize) {
                 // Symbol has illegal address
                 // Blank line
-                if (!SpaceWritten++) OutFile.NewLine();
+                if (!SpaceWritten++) out_file->NewLine();
                 // Write comment
-                OutFile.Put(CommentSeparator);
-                OutFile.Put("Error: Symbol ");
+                out_file->Put(CommentSeparator);
+                out_file->Put("Error: Symbol ");
                 // Write symbol name
-                OutFile.Put(Symbols.GetName(i));
+                out_file->Put(Symbols.GetName(i));
                 // Write the illegal address
-                OutFile.Put(" has a non-existing address. Section: ");
+                out_file->Put(" has a non-existing address. Section: ");
                 if (Symbols[i].Section != ASM_SEGMENT_IMGREL) {
-                    OutFile.PutDecimal(Symbols[i].Section, 1);
+                    out_file->PutDecimal(Symbols[i].Section, 1);
                 }
                 else {
-                    OutFile.Put("Unknown");
+                    out_file->Put("Unknown");
                 }
-                OutFile.Put(" Offset: ");
-                OutFile.PutHex(Symbols[i].Offset, 1);
-                OutFile.NewLine();
+                out_file->Put(" Offset: ");
+                out_file->PutHex(Symbols[i].Offset, 1);
+                out_file->NewLine();
         }
     }
     // Loop through relocations table
@@ -4731,21 +4682,21 @@ void CDisassembler::FinalErrorCheck() {
             || Relocations[i].Offset >= Sections[Relocations[i].Section].InitSize) {
                 // Relocation has illegal source address
                 // Blank line
-                if (!SpaceWritten++) OutFile.NewLine();
+                if (!SpaceWritten++) out_file->NewLine();
                 // Write comment
-                OutFile.Put(CommentSeparator);
-                OutFile.Put("Error: Relocation number ");
-                OutFile.PutDecimal(i);
-                OutFile.Put(" has a non-existing source address. Section: ");
+                out_file->Put(CommentSeparator);
+                out_file->Put("Error: Relocation number ");
+                out_file->PutDecimal(i);
+                out_file->Put(" has a non-existing source address. Section: ");
                 if (Relocations[i].Section != ASM_SEGMENT_IMGREL) {
-                    OutFile.PutDecimal(Relocations[i].Section, 1);
+                    out_file->PutDecimal(Relocations[i].Section, 1);
                 }
                 else {
-                    OutFile.Put("Unknown");
+                    out_file->Put("Unknown");
                 }
-                OutFile.Put(" Offset: ");
-                OutFile.PutHex(Relocations[i].Offset, 1);
-                OutFile.NewLine();
+                out_file->Put(" Offset: ");
+                out_file->PutHex(Relocations[i].Offset, 1);
+                out_file->NewLine();
         }
         // Check target
         if (Relocations[i].TargetOldIndex == 0 
@@ -4753,22 +4704,22 @@ void CDisassembler::FinalErrorCheck() {
             || Relocations[i].RefOldIndex >= Symbols.GetLimit()) {
                 // Relocation has illegal target
                 // Blank line
-                if (!SpaceWritten++) OutFile.NewLine();
+                if (!SpaceWritten++) out_file->NewLine();
                 // Write comment
-                OutFile.Put(CommentSeparator);
-                OutFile.Put("Error: Relocation number ");
-                OutFile.PutDecimal(i);
-                OutFile.Put(" at section ");
-                OutFile.PutDecimal(Relocations[i].Section);
-                OutFile.Put(" offset ");
-                OutFile.PutHex(Relocations[i].Offset);
-                OutFile.Put(" has a non-existing target index. Target: ");
-                OutFile.PutDecimal(Relocations[i].TargetOldIndex, 1);
+                out_file->Put(CommentSeparator);
+                out_file->Put("Error: Relocation number ");
+                out_file->PutDecimal(i);
+                out_file->Put(" at section ");
+                out_file->PutDecimal(Relocations[i].Section);
+                out_file->Put(" offset ");
+                out_file->PutHex(Relocations[i].Offset);
+                out_file->Put(" has a non-existing target index. Target: ");
+                out_file->PutDecimal(Relocations[i].TargetOldIndex, 1);
                 if (Relocations[i].RefOldIndex) {
-                    OutFile.Put(", Reference point index: ");
-                    OutFile.PutDecimal(Relocations[i].RefOldIndex, 1);
+                    out_file->Put(", Reference point index: ");
+                    out_file->PutDecimal(Relocations[i].RefOldIndex, 1);
                 }
-                OutFile.NewLine();
+                out_file->NewLine();
         }
     }
 }
@@ -4782,21 +4733,12 @@ void CDisassembler::CheckNamesValid() {
     char c;                                       // Character in symbol
     const char * ValidCharacters;                 // List of valid characters in symbol names
     // Make list of characters valid in symbol names other than alphanumeric characters
-    switch (Syntax) {
-    case SUBTYPE_MASM:
-        ValidCharacters = "_$@?";  break;
-    case SUBTYPE_YASM:
-        ValidCharacters = "_$@?.~#";  break;
-    case SUBTYPE_GASM:
-        ValidCharacters = "_$.";  break;
-    default:
-        err.submit(9000);
-    }
+    ValidCharacters = "_$@?";
 
     // Loop through sections
     for (i = 1; i < Sections.GetNumEntries(); i++) {
         char * SecName = NameBuffer.Buf() + Sections[i].Name;
-        if (Syntax == SUBTYPE_MASM && SecName[0] == '.') {
+        if (SecName[0] == '.') {
             // Name begins with dot
             // Check for reserved names
             if (stricmp(SecName, ".text") == 0
@@ -4819,48 +4761,39 @@ void CDisassembler::CheckNamesValid() {
             // Warning: violating const specifier in GetName():
             char * SymName = (char *)Symbols.GetName(i);  
             Len = strlen(SymName);  Changed = 0;
-            // Loop through characters in symbol
-            for (j = 0; j < Len; j++) {
-                c = SymName[j];
-                if (!(((c | 0x20) >= 'a' && (c | 0x20) <= 'z')
-                || (c >= '0' && c <= '9' && j != 0)
-                || strchr(ValidCharacters, c))) {
-                    // Illegal character found
-                    if (Syntax == SUBTYPE_MASM) {
-                        if (j == 0 && c == '.') {
-                            // Symbol beginning with dot in MASM
-                            if (Symbols[i].Type & 0x80000000) {
-                                // This is a segment. Check for reserved names
-                                if (stricmp(SymName, ".text") == 0
-                                    ||  stricmp(SymName, ".data") == 0
-                                    ||  stricmp(SymName, ".code") == 0
-                                    ||  stricmp(SymName, ".const") == 0) {
-                                        // Change . to _ in beginning of name to avoid reserved directive name
-                                        SymName[0] = '_';  // Warning: violating const specifier in GetName()
-                                        break; // break out of j loop
-                                }
-                            }         
-                            // Set option dotname
-                            MasmOptions |= 1;
-                        }
-                        else {
-                            // Other illegal character in MASM
+			// Loop through characters in symbol
+			for (j = 0; j < Len; j++) {
+				c = SymName[j];
+				if (!(((c | 0x20) >= 'a' && (c | 0x20) <= 'z')
+							|| (c >= '0' && c <= '9' && j != 0)
+							|| strchr(ValidCharacters, c))) {
+					// Illegal character found
+					if (j == 0 && c == '.') {
+						// Symbol beginning with dot in MASM
+						if (Symbols[i].Type & 0x80000000) {
+							// This is a segment. Check for reserved names
+							if (stricmp(SymName, ".text") == 0
+									||  stricmp(SymName, ".data") == 0
+									||  stricmp(SymName, ".code") == 0
+									||  stricmp(SymName, ".const") == 0) {
+								// Change . to _ in beginning of name to avoid reserved directive name
+								SymName[0] = '_';  // Warning: violating const specifier in GetName()
+								break; // break out of j loop
+							}
+						}         
+						// Set option dotname
+						MasmOptions |= 1;
+					}
+					else {
+						// Other illegal character in MASM
 #if ReplaceIllegalChars
-                            SymName[j] = '?'; 
+						SymName[j] = '?'; 
 #endif
-                            Changed++;
-                        }
-                    }
-                    else {
-                        // Illegal character in GAS or YASM syntax
-#if ReplaceIllegalChars
-                        SymName[j] = (Syntax == SUBTYPE_YASM) ? '?' : '$';
-#endif
-                        Changed++;
-                    }
-                }
-            }
-            // Count names changed
+						Changed++;
+					}
+				}
+			}
+			// Count names changed
             if (Changed) NamesChanged++;
         }
     }

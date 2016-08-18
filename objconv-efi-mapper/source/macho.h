@@ -16,28 +16,33 @@
 #ifndef MACHO_H
 #define MACHO_H
 
+#include <inttypes.h>
+#include "lib.h"
+#include "error.h"
+#include "containers.h"
+#include "disasm.h"
 
 /********************** FILE HEADER **********************/
 
 struct MAC_header_32 {
-	uint32	magic;		// mach magic number identifier
-	uint32	cputype;	   // cpu specifier
-	uint32	cpusubtype;	// machine specifier
-	uint32	filetype;	// type of file
-	uint32	ncmds;		// number of load commands
-	uint32	sizeofcmds;	// the size of all the load commands
-	uint32   flags;		// flags
+	uint32_t	magic;		// mach magic number identifier
+	uint32_t	cputype;	   // cpu specifier
+	uint32_t	cpusubtype;	// machine specifier
+	uint32_t	filetype;	// type of file
+	uint32_t	ncmds;		// number of load commands
+	uint32_t	sizeofcmds;	// the size of all the load commands
+	uint32_t   flags;		// flags
 };
 
 struct MAC_header_64 {
-	uint32	magic;		// mach magic number identifier
-	uint32	cputype;	   // cpu specifier
-	uint32	cpusubtype;	// machine specifier
-	uint32	filetype;	// type of file
-	uint32	ncmds;		// number of load commands
-	uint32	sizeofcmds;	// the size of all the load commands
-	uint32   flags;		// flags
-   uint32   reserved;   // reserved for future use
+	uint32_t	magic;		// mach magic number identifier
+	uint32_t	cputype;	   // cpu specifier
+	uint32_t	cpusubtype;	// machine specifier
+	uint32_t	filetype;	// type of file
+	uint32_t	ncmds;		// number of load commands
+	uint32_t	sizeofcmds;	// the size of all the load commands
+	uint32_t   flags;		// flags
+   uint32_t   reserved;   // reserved for future use
 };
 
 
@@ -99,8 +104,8 @@ struct MAC_header_64 {
 
 // Load commands
 struct MAC_load_command {
-	uint32 cmd;		         // type of load command
-	uint32 cmdsize;	      // total size of command in bytes
+	uint32_t cmd;		         // type of load command
+	uint32_t cmdsize;	      // total size of command in bytes
 };
 
 // Constants for the cmd field of all load commands, the type
@@ -146,17 +151,17 @@ struct MAC_load_command {
  * reflected in cmdsize.
  */
 struct MAC_segment_command_32 {	/* for 32-bit architectures */
-	uint32	cmd;		      /* LC_SEGMENT */
-	uint32	cmdsize;	      /* includes sizeof section structs */
+	uint32_t	cmd;		      /* LC_SEGMENT */
+	uint32_t	cmdsize;	      /* includes sizeof section structs */
 	char		segname[16];	/* segment name */
-	uint32	vmaddr;		   /* memory address of this segment */
-	uint32	vmsize;		   /* memory size of this segment */
-	uint32	fileoff;	      /* file offset of this segment */
-	uint32	filesize;	   /* amount to map from the file */
-	uint32	maxprot;    	/* maximum VM protection */
-	uint32	initprot;	   /* initial VM protection */
-	uint32	nsects;		   /* number of sections in segment */
-	uint32	flags;		   /* flags */
+	uint32_t	vmaddr;		   /* memory address of this segment */
+	uint32_t	vmsize;		   /* memory size of this segment */
+	uint32_t	fileoff;	      /* file offset of this segment */
+	uint32_t	filesize;	   /* amount to map from the file */
+	uint32_t	maxprot;    	/* maximum VM protection */
+	uint32_t	initprot;	   /* initial VM protection */
+	uint32_t	nsects;		   /* number of sections in segment */
+	uint32_t	flags;		   /* flags */
 };
 
 /*
@@ -166,17 +171,17 @@ struct MAC_segment_command_32 {	/* for 32-bit architectures */
  * command and their size is reflected in cmdsize.
  */
 struct MAC_segment_command_64 {	/* for 64-bit architectures */
-	uint32	cmd;		    /* LC_SEGMENT_64 */
-	uint32	cmdsize;	    /* includes sizeof section_64 structs */
+	uint32_t	cmd;		    /* LC_SEGMENT_64 */
+	uint32_t	cmdsize;	    /* includes sizeof section_64 structs */
 	char		segname[16]; /* segment name */
-	uint64	vmaddr;		 /* memory address of this segment */
-	uint64	vmsize;		 /* memory size of this segment */
-	uint64	fileoff;	    /* file offset of this segment */
-	uint64	filesize;	 /* amount to map from the file */
-	uint32	maxprot;	    /* maximum VM protection */
-	uint32	initprot;	 /* initial VM protection */
-	uint32	nsects;		 /* number of sections in segment */
-	uint32	flags;		 /* flags */
+	uint64_t	vmaddr;		 /* memory address of this segment */
+	uint64_t	vmsize;		 /* memory size of this segment */
+	uint64_t	fileoff;	    /* file offset of this segment */
+	uint64_t	filesize;	 /* amount to map from the file */
+	uint32_t	maxprot;	    /* maximum VM protection */
+	uint32_t	initprot;	 /* initial VM protection */
+	uint32_t	nsects;		 /* number of sections in segment */
+	uint32_t	flags;		 /* flags */
 };
 
 
@@ -218,30 +223,30 @@ struct MAC_segment_command_64 {	/* for 64-bit architectures */
 struct MAC_section_32 {	      /* for 32-bit architectures */
 	char		sectname[16];	/* name of this section */
 	char		segname[16];	/* segment this section goes in */
-	uint32	addr;		      /* memory address of this section */
-	uint32	size;		      /* size in bytes of this section */
-	uint32	offset;	   	/* file offset of this section */
-	uint32	align;		   /* section alignment (power of 2) */
-	uint32	reloff;		   /* file offset of relocation entries */
-	uint32	nreloc;		   /* number of relocation entries */
-	uint32	flags;		   /* flags (section type and attributes)*/
-	uint32	reserved1;	   /* reserved */
-	uint32	reserved2;	   /* reserved */
+	uint32_t	addr;		      /* memory address of this section */
+	uint32_t	size;		      /* size in bytes of this section */
+	uint32_t	offset;	   	/* file offset of this section */
+	uint32_t	align;		   /* section alignment (power of 2) */
+	uint32_t	reloff;		   /* file offset of relocation entries */
+	uint32_t	nreloc;		   /* number of relocation entries */
+	uint32_t	flags;		   /* flags (section type and attributes)*/
+	uint32_t	reserved1;	   /* reserved */
+	uint32_t	reserved2;	   /* reserved */
 };
 
 struct MAC_section_64 {    /* for 64-bit architectures */
 	char		sectname[16];	/* name of this section */
 	char		segname[16];	/* segment this section goes in */
-	uint64	addr;		      /* memory address of this section */
-	uint64	size;		      /* size in bytes of this section */
-	uint32	offset;		   /* file offset of this section */
-	uint32	align;		   /* section alignment (power of 2) */
-	uint32	reloff;		   /* file offset of relocation entries */
-	uint32	nreloc;		   /* number of relocation entries */
-	uint32	flags;		   /* flags (section type and attributes)*/
-	uint32	reserved1;	   /* reserved (for offset or index) */
-	uint32	reserved2;	   /* reserved (for count or sizeof) */
-	uint32	reserved3;	   // reserved (Note: specified in loader.h, but not in MachORuntime.pdf)
+	uint64_t	addr;		      /* memory address of this section */
+	uint64_t	size;		      /* size in bytes of this section */
+	uint32_t	offset;		   /* file offset of this section */
+	uint32_t	align;		   /* section alignment (power of 2) */
+	uint32_t	reloff;		   /* file offset of relocation entries */
+	uint32_t	nreloc;		   /* number of relocation entries */
+	uint32_t	flags;		   /* flags (section type and attributes)*/
+	uint32_t	reserved1;	   /* reserved (for offset or index) */
+	uint32_t	reserved2;	   /* reserved (for count or sizeof) */
+	uint32_t	reserved3;	   // reserved (Note: specified in loader.h, but not in MachORuntime.pdf)
 };
 
 
@@ -340,12 +345,12 @@ struct MAC_section_64 {    /* for 64-bit architectures */
  * <nlist.h> and <stab.h>. */
 
 struct MAC_symtab_command {
-	uint32	cmd;		   /* LC_SYMTAB */
-	uint32	cmdsize;	   /* sizeof(MAC_symtab_command) */
-	uint32	symoff;		/* symbol table offset */
-	uint32	nsyms;		/* number of symbol table entries */
-	uint32	stroff;		/* string table offset */
-	uint32	strsize;	   /* string table size in bytes */
+	uint32_t	cmd;		   /* LC_SYMTAB */
+	uint32_t	cmdsize;	   /* sizeof(MAC_symtab_command) */
+	uint32_t	symoff;		/* symbol table offset */
+	uint32_t	nsyms;		/* number of symbol table entries */
+	uint32_t	stroff;		/* string table offset */
+	uint32_t	strsize;	   /* string table size in bytes */
 };
 
 /* This is the second set of the symbolic information which is used to support
@@ -386,8 +391,8 @@ struct MAC_symtab_command {
  * off the section structures.  */
 
 struct MAC_dysymtab_command {
-    uint32 cmd;		/* LC_DYSYMTAB */
-    uint32 cmdsize;	/* sizeof(struct dysymtab_command) */
+    uint32_t cmd;		/* LC_DYSYMTAB */
+    uint32_t cmdsize;	/* sizeof(struct dysymtab_command) */
 
     /* The symbols indicated by symoff and nsyms of the LC_SYMTAB load command
      * are grouped into the following three groups:
@@ -403,14 +408,14 @@ struct MAC_dysymtab_command {
      * binding (indirectly through the module table and the reference symbol
      * table when this is a dynamicly linked shared library file).    */
 
-    uint32 ilocalsym;	// index to local symbols
-    uint32 nlocalsym;	// number of local symbols 
+    uint32_t ilocalsym;	// index to local symbols
+    uint32_t nlocalsym;	// number of local symbols 
 
-    uint32 iextdefsym;	// index to externally defined symbols
-    uint32 nextdefsym;	// number of externally defined symbols 
+    uint32_t iextdefsym;	// index to externally defined symbols
+    uint32_t nextdefsym;	// number of externally defined symbols 
 
-    uint32 iundefsym;	// index to undefined symbols
-    uint32 nundefsym;	// number of undefined symbols
+    uint32_t iundefsym;	// index to undefined symbols
+    uint32_t nundefsym;	// number of undefined symbols
 
     /* For the dynamic binding process to find which module a symbol
      * is defined in the table of contents is used (analogous to the ranlib
@@ -419,8 +424,8 @@ struct MAC_dysymtab_command {
      * library file.  For executable and object modules the defined external
      * symbols are sorted by name and is use as the table of contents.     */
 
-    uint32 tocoff;	/* file offset to table of contents */
-    uint32 ntoc;		/* number of entries in table of contents */
+    uint32_t tocoff;	/* file offset to table of contents */
+    uint32_t ntoc;		/* number of entries in table of contents */
 
     /* To support dynamic binding of "modules" (whole object files) the symbol
      * table must reflect the modules that the file was created from.  This is
@@ -430,8 +435,8 @@ struct MAC_dysymtab_command {
      * shared library file.  For executable and object modules the file only
      * contains one module so everything in the file belongs to the module.     */
 
-    uint32 modtaboff;	/* file offset to module table */
-    uint32 nmodtab;	   /* number of module table entries */
+    uint32_t modtaboff;	/* file offset to module table */
+    uint32_t nmodtab;	   /* number of module table entries */
 
     /* To support dynamic module binding the module structure for each module
      * indicates the external references (defined and undefined) each module
@@ -441,8 +446,8 @@ struct MAC_dysymtab_command {
      * executable and object modules the defined external symbols and the
      * undefined external symbols indicates the external references.     */
 
-    uint32 extrefsymoff;  /* offset to referenced symbol table */
-    uint32 nextrefsyms;	  /* number of referenced symbol table entries */
+    uint32_t extrefsymoff;  /* offset to referenced symbol table */
+    uint32_t nextrefsyms;	  /* number of referenced symbol table entries */
 
     /* The sections that contain "symbol pointers" and "routine stubs" have
      * indexes and (implied counts based on the size of the section and fixed
@@ -453,8 +458,8 @@ struct MAC_dysymtab_command {
      * the symbol table to the symbol that the pointer or stub is referring to.
      * The indirect symbol table is ordered to match the entries in the section. */
 
-    uint32 indirectsymoff; // file offset to the indirect symbol table
-    uint32 nindirectsyms;  // number of indirect symbol table entries
+    uint32_t indirectsymoff; // file offset to the indirect symbol table
+    uint32_t nindirectsyms;  // number of indirect symbol table entries
 
     /* To support relocating an individual module in a library file quickly the
      * external relocation entries for each module in the library need to be
@@ -480,15 +485,15 @@ struct MAC_dysymtab_command {
      * remaining external relocation entries for them (for merged sections
      * remaining relocation entries must be local).     */
 
-    uint32 extreloff;	/* offset to external relocation entries */
-    uint32 nextrel;	   /* number of external relocation entries */
+    uint32_t extreloff;	/* offset to external relocation entries */
+    uint32_t nextrel;	   /* number of external relocation entries */
 
     /* All the local relocation entries are grouped together (they are not
      * grouped by their module since they are only used if the object is moved
      * from it staticly link edited address).     */
 
-    uint32 locreloff;	/* offset to local relocation entries */
-    uint32 nlocrel;	/* number of local relocation entries */
+    uint32_t locreloff;	/* offset to local relocation entries */
+    uint32_t nlocrel;	/* number of local relocation entries */
 
 };	
 
@@ -513,8 +518,8 @@ struct MAC_dysymtab_command {
                                  // is is really a scattered_relocation_info stucture
 
 struct MAC_relocation_info {
-   uint32  r_address;      // offset in the section to what is being relocated (source)
-   uint32  r_symbolnum:24, // symbol table index (0-based) if r_extern == 1 or section number (1-based) if r_extern == 0
+   uint32_t  r_address;      // offset in the section to what is being relocated (source)
+   uint32_t  r_symbolnum:24, // symbol table index (0-based) if r_extern == 1 or section number (1-based) if r_extern == 0
            r_pcrel:1,      // pc relative. The target address (inline) is already pc relative
            r_length:2,     // 0=byte, 1=word, 2=dword
            r_extern:1,     // r_extern = 1 for symbols in symbol table
@@ -523,12 +528,12 @@ struct MAC_relocation_info {
                            // or absolute) if r_extern = 0, or an addend if r_extern = 1.
 
 struct MAC_scattered_relocation_info {
-   uint32  r_address:24,   // offset in the section to what is being relocated (source)
+   uint32_t  r_address:24,   // offset in the section to what is being relocated (source)
            r_type:4,       // if not 0, machine specific relocation type
            r_length:2,     // 0=byte, 1=word, 2=dword, 3=qword
            r_pcrel:1,      // pc relative. The target address is already pc relative
            r_scattered:1;  // 1=scattered, 0=non-scattered (see above)
-   int32   r_value;        // target address (without any offset added. The offset is stored inline in the source)
+   int32_t   r_value;        // target address (without any offset added. The offset is stored inline in the source)
 };
 
 // 32-bit relocation types:
@@ -617,19 +622,19 @@ struct MAC_scattered_relocation_info {
  * sections not just the three sections (text, data and bss) in a BSD file. */
 
 struct MAC_nlist_32 {
-   uint32  n_strx;   // index into the string table 
-   uint8   n_type;   // type flag, see below 
-   uint8   n_sect;   // section number or NO_SECT 
-   int16   n_desc;   // see <mach-o/stab.h> 
-   uint32  n_value;  // value of this symbol (or stab offset) 
+   uint32_t  n_strx;   // index into the string table 
+   uint8_t   n_type;   // type flag, see below 
+   uint8_t   n_sect;   // section number or NO_SECT 
+   int16_t   n_desc;   // see <mach-o/stab.h> 
+   uint32_t  n_value;  // value of this symbol (or stab offset) 
 };
 
 struct MAC_nlist_64 {
-   uint32  n_strx;   // index into the string table 
-   uint8   n_type;   // type flag, see below 
-   uint8   n_sect;   // section number or NO_SECT 
-   int16   n_desc;   // see <mach-o/stab.h> 
-   uint64  n_value;  // value of this symbol (or stab offset) 
+   uint32_t  n_strx;   // index into the string table 
+   uint8_t   n_type;   // type flag, see below 
+   uint8_t   n_sect;   // section number or NO_SECT 
+   int16_t   n_desc;   // see <mach-o/stab.h> 
+   uint64_t  n_value;  // value of this symbol (or stab offset) 
 };
 
 /* Symbols with a index into the string table of zero are
@@ -740,7 +745,7 @@ struct MAC_nlist_64 {
 // Data structure used when sorting symbol table for Mach-O file in MacSymbolTableBuilder
 template <class TMAC_nlist>
 struct MacSymbolRecord : public TMAC_nlist {
-   uint32 Name;                        // Index into MacSymbolTableBuilder::StringBuffer
+   uint32_t Name;                        // Index into MacSymbolTableBuilder::StringBuffer
    int OldIndex;                       // Old symbol index
 };
 
@@ -756,29 +761,29 @@ public:
    int TranslateIndex(int OldIndex);             // Translate old index to new index, after sorting
    void StoreList(CMemoryBuffer * SymbolTable, CMemoryBuffer * StringTable); // Store sorted list in buffers
    int Search(const char * name);                // Search for name. -1 if not found
-   MacSymbolRecord<TMAC_nlist> & operator[] (uint32 i);      // Access member
+   MacSymbolRecord<TMAC_nlist> & operator[] (uint32_t i);      // Access member
 };
 
 // structures for MacIntosh universal binaries
 struct MAC_UNIV_FAT_HEADER {           // File header for universal binary
-   uint32 magic;                       // Magic number 0xCAFEBABE, big endian
-   uint32 num_arch;                    // Number of members, big endian
+   uint32_t magic;                       // Magic number 0xCAFEBABE, big endian
+   uint32_t num_arch;                    // Number of members, big endian
 };
 
 struct MAC_UNIV_FAT_ARCH {             // Member pointer
-   uint32 cputype;                     // cpu type
-   uint32 cpusubtype;                  // cpu subtype
-   uint32 offset;                      // file offset of member
-   uint32 size;                        // size of member
-   uint32 align;                       // alignment in file = 2^align
+   uint32_t cputype;                     // cpu type
+   uint32_t cpusubtype;                  // cpu subtype
+   uint32_t offset;                      // file offset of member
+   uint32_t size;                        // size of member
+   uint32_t align;                       // alignment in file = 2^align
 };
 
 // Structure used for list of sections that have relocations during disassembly
 struct MAC_SECT_WITH_RELOC {
-   int32  Section;                     // Section index
-   uint32 SectOffset;                  // File offset of section binary data
-   uint32 NumReloc;                    // Number of relocations records for this section
-   uint32 ReltabOffset;                // File offset of relocation table for this section
+   int32_t  Section;                     // Section index
+   uint32_t SectOffset;                  // File offset of section binary data
+   uint32_t NumReloc;                    // Number of relocations records for this section
+   uint32_t ReltabOffset;                // File offset of relocation table for this section
 };
 
 // Class for interpreting and dumping Mach-O files. Has templates for 32 and 64 bit version
@@ -793,23 +798,23 @@ class MACHOParser : public CFileBuffer {
 		CSList<MAC_SECT_WITH_RELOC> RelocationQueue;  // List of relocation tables
 		CSList<TMAC_section*> ImportSections;          // List of sections needing extra symbols: import tables, literals, etc.
 		TMAC_header FileHeader;                       // Copy of file header
-		uint64 ImageBase;                             // Image base for executable file
-		uint32 SegmentOffset;                         // File offset of segment
-		uint32 SegmentSize;                           // Size of segment
-		uint32 SectionHeaderOffset;                   // File offset of section headers
-		uint32 NumSections;                           // Number of sections
-		uint32 SymTabOffset;                          // File offset of symbol table
-		uint32 SymTabNumber;                          // Number of entries in symbol table
-		uint32 StringTabOffset;                       // File offset of string table
-		uint32 StringTabSize;                         // Size of string table
-		uint32 ilocalsym;	                            // index to local symbols
-		uint32 nlocalsym;	                            // number of local symbols 
-		uint32 iextdefsym;	                         // index to public symbols
-		uint32 nextdefsym;	                         // number of public symbols 
-		uint32 iundefsym;	                            // index to external symbols
-		uint32 nundefsym;	                            // number of external symbols
-		uint32 IndirectSymTabOffset;                  // file offset to the indirect symbol table
-		uint32 IndirectSymTabNumber;                  // number of indirect symbol table entries
+		uint64_t ImageBase;                             // Image base for executable file
+		uint32_t SegmentOffset;                         // File offset of segment
+		uint32_t SegmentSize;                           // Size of segment
+		uint32_t SectionHeaderOffset;                   // File offset of section headers
+		uint32_t NumSections;                           // Number of sections
+		uint32_t SymTabOffset;                          // File offset of symbol table
+		uint32_t SymTabNumber;                          // Number of entries in symbol table
+		uint32_t StringTabOffset;                       // File offset of string table
+		uint32_t StringTabSize;                         // Size of string table
+		uint32_t ilocalsym;	                            // index to local symbols
+		uint32_t nlocalsym;	                            // number of local symbols 
+		uint32_t iextdefsym;	                         // index to public symbols
+		uint32_t nextdefsym;	                         // number of public symbols 
+		uint32_t iundefsym;	                            // index to external symbols
+		uint32_t nundefsym;	                            // number of external symbols
+		uint32_t IndirectSymTabOffset;                  // file offset to the indirect symbol table
+		uint32_t IndirectSymTabNumber;                  // number of indirect symbol table entries
 		void MakeSectionList(CDisassembler *Disasm);                       // Make Sections list in Disasm
 		void MakeSymbolList(CDisassembler *Disasm);                        // Make Symbols list in Disasm
 		void MakeRelocations(CDisassembler *Disasm);                       // Make relocation list in Disasm
@@ -823,7 +828,7 @@ class MACHOParser : public CFileBuffer {
 
 // Macros listing all word-size dependent structures, used as template parameter list
 #define MACSTRUCTURES    TMAC_header,   TMAC_segment_command,   TMAC_section,   TMAC_nlist, MInt
-#define MAC32STRUCTURES  MAC_header_32, MAC_segment_command_32, MAC_section_32, MAC_nlist_32, int32
-#define MAC64STRUCTURES  MAC_header_64, MAC_segment_command_64, MAC_section_64, MAC_nlist_64, int64
+#define MAC32STRUCTURES  MAC_header_32, MAC_segment_command_32, MAC_section_32, MAC_nlist_32, int32_t
+#define MAC64STRUCTURES  MAC_header_64, MAC_segment_command_64, MAC_section_64, MAC_nlist_64, int64_t
 
 #endif // #ifndef MACHO_H
