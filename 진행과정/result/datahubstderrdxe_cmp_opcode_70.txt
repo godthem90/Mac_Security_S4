@@ -1,0 +1,66 @@
+--------------------------------------------------------------------------
+
+Block 0x2e6 and Block 0xb59 matched with 100%
+
+/Users/jjh/Desktop/MacFirmware-DataHubStdErrDxe.efi :
+0x2e6	mov		rdx, qword ptr DS:[570H]
+0x2ed	mov		rax, qword ptr DS:[568H]
+0x2f4	mov		qword ptr [rsp+20H], 0
+0x2fd	mov		rcx, rax
+0x300	mov		r8d, 8
+0x306	mov		r9d, 3
+0x30c	call		qword ptr [rax+10H]
+0x30f	mov		rsi, rax
+0x312	test		rsi, rsi
+0x315	jns		328H
+
+/Users/jjh/Desktop/Reference-DataHubStdErrDxe.dll :
+0xb59	mov		rdx, qword ptr DS:[1390H]
+0xb60	mov		rax, qword ptr DS:[1388H]
+0xb67	mov		qword ptr [rsp+20H], 0
+0xb70	mov		rcx, rax
+0xb73	mov		r8d, 8
+0xb79	mov		r9d, 3
+0xb7f	call		qword ptr [rax+10H]
+0xb82	mov		rsi, rax
+0xb85	test		rsi, rsi
+0xb88	jns		0B9BH
+
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+
+Block 0x317 and Block 0xb8a matched with 100%
+
+/Users/jjh/Desktop/MacFirmware-DataHubStdErrDxe.efi :
+0x317	mov		rcx, qword ptr DS:[570H]
+0x31e	mov		rax, qword ptr DS:[558H]
+0x325	call		qword ptr [rax+70H]
+
+/Users/jjh/Desktop/Reference-DataHubStdErrDxe.dll :
+0xb8a	mov		rcx, qword ptr DS:[1390H]
+0xb91	mov		rax, qword ptr DS:[1380H]
+0xb98	call		qword ptr [rax+70H]
+
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+
+Block 0x328 and Block 0xb9b matched with 100%
+
+/Users/jjh/Desktop/MacFirmware-DataHubStdErrDxe.efi :
+0x328	mov		rax, rsi
+0x32b	add		rsp, 40
+0x32f	pop		rsi
+0x330	pop		rbp
+0x331	ret		
+
+/Users/jjh/Desktop/Reference-DataHubStdErrDxe.dll :
+0xb9b	mov		rax, rsi
+0xb9e	add		rsp, 40
+0xba2	pop		rsi
+0xba3	pop		rbp
+0xba4	ret		
+
+--------------------------------------------------------------------------
+

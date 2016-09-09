@@ -1,0 +1,76 @@
+--------------------------------------------------------------------------
+
+Block 0x1261 and Block 0x34d0 matched with 100%
+
+/Users/jjh/Desktop/MacFirmware-LegacyBiosDxe.efi :
+0x1261	mov		qword ptr [rbp-30H], rdi
+0x1265	mov		rax, qword ptr DS:[6D98H]
+0x126c	mov		ecx, 2
+0x1271	mov		edx, 3
+0x1276	mov		r8d, 1
+0x127c	mov		r9, rbx
+0x127f	call		qword ptr [rax+28H]
+0x1282	test		rax, rax
+0x1285	js		12A0H
+
+/Users/jjh/Desktop/Reference-LegacyBiosDxe.dll :
+0x34d0	mov		qword ptr [rbp-80H], rbx
+0x34d4	mov		rax, qword ptr DS:[0E230H]
+0x34db	mov		ecx, 2
+0x34e0	mov		edx, 3
+0x34e5	mov		r8d, 1
+0x34eb	mov		r9, r15
+0x34ee	call		qword ptr [rax+28H]
+0x34f1	test		rax, rax
+0x34f4	js		3506H
+
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+
+Block 0x1261 and Block 0x3781 matched with 70%
+
+/Users/jjh/Desktop/MacFirmware-LegacyBiosDxe.efi :
+0x1261	mov		qword ptr [rbp-30H], rdi
+0x1265	mov		rax, qword ptr DS:[6D98H]
+0x126c	mov		ecx, 2
+0x1271	mov		edx, 3
+0x1276	mov		r8d, 1
+0x127c	mov		r9, rbx
+0x127f	call		qword ptr [rax+28H]
+0x1282	test		rax, rax
+0x1285	js		12A0H
+
+/Users/jjh/Desktop/Reference-LegacyBiosDxe.dll :
+0x3781	mov		eax, 4294967295
+0x3786	mov		qword ptr [rbp-60H], rax
+0x378a	mov		rax, qword ptr DS:[0E230H]
+0x3791	lea		r9, ptr [rbp-60H]
+0x3795	mov		ecx, 1
+0x379a	mov		edx, 3
+0x379f	mov		r8, rsi
+0x37a2	call		qword ptr [rax+28H]
+0x37a5	test		rax, rax
+0x37a8	js		37BCH
+
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+
+Block 0x1312 and Block 0x37bc matched with 80%
+
+/Users/jjh/Desktop/MacFirmware-LegacyBiosDxe.efi :
+0x1312	lea		rcx, ptr DS:[6E04H]
+0x1319	call		9E4H
+0x131e	test		rax, rax
+0x1321	js		13F0H
+
+/Users/jjh/Desktop/Reference-LegacyBiosDxe.dll :
+0x37bc	lea		rcx, ptr DS:[0E2C8H]
+0x37c3	call		2370H
+0x37c8	mov		rdi, rax
+0x37cb	test		rdi, rdi
+0x37ce	js		3A75H
+
+--------------------------------------------------------------------------
+

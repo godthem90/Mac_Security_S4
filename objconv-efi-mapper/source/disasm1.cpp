@@ -43,11 +43,11 @@ To find a symbol by its address, use FindByAddress().
 
 ******************************************************************************/
 
-#define SplitInsnNum 22
+#define SplitInsnNum 23
 const char *BlockSplitTable[] ={
 	"jmp", "ret", "jo", "jno", "jc", "jnc", "jz", "jnz", "jbe", "ja",
-	"je", "js", "jns", "jpe", "jpo", "jl", "jge", "jle", "jg", "jcxz",
-	"jecxz", "jrcxz"
+	"je", "js", "jns", "jne", "jpe", "jpo", "jl", "jge", "jle", "jg",
+	"jcxz", "jecxz", "jrcxz"
 };
 
 CSymbolTable::CSymbolTable() {
@@ -4280,7 +4280,6 @@ void CDisassembler::FindRelocations() {
     }
 }
 
-
 void CDisassembler::FindInstructionSet() {
     // Update instruction set
     uint16 InstSet = s.OpcodeDef->InstructionSet;
@@ -4323,62 +4322,6 @@ void CDisassembler::FindInstructionSet() {
     if (s.OpcodeDef->Options & 0x10) {
         FlagPrevious |= 2;
     }
-}
-
-bool IsImmediate( char *str )
-{
-	int i;
-	char num_table[11] = "0123456789";
-	for( i = 0; str[i] != '\0'; i++ )
-	{
-		if( i == 0 && str[i] == '-')
-			continue;
-		else
-		{
-			int j;
-			for( j = 0; j < 10; j++ )
-			{
-				if( str[i] == num_table[j] )
-					break;
-			}
-			if( j == 10 )
-				return false;
-		}
-	}
-
-	return true;
-}
-
-int MapRegister( char *reg )
-{
-	char reg64_table[16][4] = {"rax", "rcx", "rdx", "rbx", "rsp", "rbp", "rsi", "rdi", "r8", "r9", "r10", "r11", "r12", "r13", "r14", "r15"};
-	char reg32_table[16][5] = {"eax", "ecx", "edx", "ebx", "esp", "ebp", "esi", "edi", "r8d", "r9d", "r10d", "r11d", "r12d", "r13d", "r14d", "r15d"};
-	char reg16_table[16][5] = {"ax", "cx", "dx", "bx", "sp", "bp", "si", "di", "r8w", "r9w", "r10w", "r11w", "r12w", "r13w", "r14w", "r15w"};
-	char reg8_table[16][5] = {"al", "cl", "dl", "bl", "spl", "bpl", "sil", "dil", "r8b", "r9b", "r10b", "r11b", "r12b", "r13b", "r14b", "r15b"};
-
-	int i;
-	for( i = 0; i < 16; i++ )
-	{
-		if( !strcmp( reg, reg64_table[i] ) )
-			return i;
-	}
-	for( i = 0; i < 16; i++ )
-	{
-		if( !strcmp( reg, reg32_table[i] ) )
-			return i;
-	}
-	for( i = 0; i < 16; i++ )
-	{
-		if( !strcmp( reg, reg16_table[i] ) )
-			return i;
-	}
-	for( i = 0; i < 16; i++ )
-	{
-		if( !strcmp( reg, reg8_table[i] ) )
-			return i;
-	}
-
-	return -1;
 }
 
 void TokenizeInstruction( CTextFileBuffer *assembly_buf, char *opcode, char *op1, char *op2 )
@@ -4431,6 +4374,18 @@ void TokenizeInstruction( CTextFileBuffer *assembly_buf, char *opcode, char *op1
 			}
 		}
 	}
+}
+
+bool IsImmediate( char *operand )
+{
+	for( int i = 0; i < strlen(operand); i++ )
+	{
+		if( i == 0 && operand[i] == '-')
+			continue;
+		if( operand[i] < '0' || operand[i] > '9' )
+			return false;
+	}
+	return true;
 }
 
 void CDisassembler::FindSwitch()

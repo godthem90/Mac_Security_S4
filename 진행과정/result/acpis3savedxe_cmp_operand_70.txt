@@ -1,0 +1,20 @@
+--------------------------------------------------------------------------
+
+Block 0x6d2 and Block 0x1114 matched with 80%
+
+/Users/jjh/Desktop/MacFirmware-AcpiS3SaveDxe.efi :
+0x6d2	mov		rax, rsi
+0x6d5	add		rsp, 72
+0x6d9	pop		rsi
+0x6da	pop		rbp
+0x6db	ret		
+
+/Users/jjh/Desktop/Reference-AcpiS3SaveDxe.dll :
+0x1114	mov		rax, rsi
+0x1117	add		rsp, 40
+0x111b	pop		rsi
+0x111c	pop		rbp
+0x111d	ret		
+
+--------------------------------------------------------------------------
+

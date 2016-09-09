@@ -399,8 +399,10 @@ class String
 
 		void SetString( char *str );
 		void SetString( char *str, int len );
+		void Append( char ch );
 		void Append( char *str );
 		void Append( char *str, int len );
+		void Erase( int idx );
 		char *GetString();
 		void Free();
 

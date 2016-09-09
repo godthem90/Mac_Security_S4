@@ -1,49 +1,5 @@
+#include "lib.h"
 #include "data.h"
-
-bool IsCondJump( char *mnemonic )
-{
-	const char *CondJumpTable[] ={
-		"jo", "jno", "jc", "jnc", "jz", "jnz", "jbe", "ja", "je", "js",
-		"jns", "jpe", "jpo", "jl", "jge", "jle", "jg", "jcxz", "jecxz", "jrcxz"
-	};
-
-	for( int i = 0; i < 20; i++ )
-	{
-		if( !strcmp( mnemonic, CondJumpTable[i]) )
-			return true;
-	}
-
-	return false;
-}
-
-uint64_t htoi( char *hex_str )
-{
-	char hex_table[33] = "0123456789abcdef0123456789ABCDEF";
-
-	uint64_t shift_num = 0, res = 0;
-	int i;
-	for( i = 0; hex_str[i] != 0; i++ )
-	{
-		if( (hex_str[i] == 'H' || hex_str[i] == 'h') && hex_str[i+1] == 0 )
-			break;
-
-		int j;
-		res = res << 4;
-		for( j = 0; hex_table[j] != 0; j++ )
-		{
-			if( hex_str[i] == hex_table[j] )
-			{
-				shift_num = j % 16;
-				break;
-			}
-		}
-		if( j == 33 )
-			return 0;
-		res += shift_num;
-	}
-
-	return res;
-}
 
 Instruction::Instruction() { memset(this, 0, sizeof(*this)); }
 Instruction::~Instruction() { mnemonic.Free(); operand1.Free(); operand2.Free(); memset(this, 0, sizeof(*this)); }
@@ -60,7 +16,7 @@ char * Instruction::GetMnemonic() { return mnemonic.GetString(); }
 char * Instruction::GetOperand1() { return operand1.GetString(); }
 char * Instruction::GetOperand2() { return operand2.GetString(); }
 
-void Instruction::SplitInstruction( char *buf )
+void Instruction::SetInstruction( char *buf )
 {
 	int i = 0;
 	int token_start;
@@ -86,7 +42,7 @@ void Instruction::SplitInstruction( char *buf )
 
 void Instruction::Print()
 {
-	printf("0x%x\t%s", addr, mnemonic.GetString() );
+	printf("0x%llx\t%s", addr, mnemonic.GetString() );
 	if( operand1.GetString() )
 		printf("\t\t%s", operand1.GetString() );
 	if( operand2.GetString() )
@@ -94,37 +50,14 @@ void Instruction::Print()
 	printf("\n");
 }
 
-/*Expr::Expr()
-{
-	state = UNKNOWN;
-	operation = 0;
-	memset( value, BIT_X, sizeof(value) );
-}
-
-void Expr::SetState( int s )
-{
-	state = s;
-}
-
-void Expr::SetOperation( int o )
-{
-	operation = o;
-}
-
-void Expr::SetValue( int64_t val )
-{
-	for( int i = 0; i < 64; i++ )
-	{
-		value[i] = (val % 2) ? 1 : 0;
-		val /= 2;
-	}
-}
-
-int64_t Expr::GetValue( )*/
-
 BlockNode::BlockNode()
 {
 	memset( this, 0, sizeof(*this) );
+}
+
+BlockNode::~BlockNode()
+{
+	Free();
 }
 
 void BlockNode::Init( vector<Instruction> insns, uint64_t start_addr, uint64_t end_addr )
@@ -133,11 +66,6 @@ void BlockNode::Init( vector<Instruction> insns, uint64_t start_addr, uint64_t e
 	StartAddress = start_addr;
 	EndAddress = end_addr;
 	SetNextBlockInfo();
-}
-
-uint64_t BlockNode::GetBlockAddr()
-{
-	return StartAddress;
 }
 
 uint32_t BlockNode::GetNextBlockNum()
@@ -150,24 +78,9 @@ uint64_t BlockNode::GetNextBlockAddr( int idx )
 	return NextBlockAddress[idx];
 }
 
-uint32_t BlockNode::GetOpNum()
+uint32_t BlockNode::GetInsnNum()
 {
 	return BlockAssembly.size();
-}
-
-uint32_t BlockNode::GetOpcode( uint32_t op_idx )
-{
-	return BlockAssembly[op_idx].GetOpcode();
-}
-
-char * BlockNode::GetOperand1( uint32_t op_idx )
-{
-	return BlockAssembly[op_idx].GetOperand1();
-}
-
-char * BlockNode::GetOperand2( uint32_t op_idx )
-{
-	return BlockAssembly[op_idx].GetOperand2();
 }
 
 void BlockNode::SplitBlock( char *buf )
@@ -238,92 +151,129 @@ void BlockNode::PrintBlockAssembly()
 		BlockAssembly[i].Print();
 }
 
-FlowGraph::FlowGraph()
+void BlockNode::Free()
+{
+	NextBlockAddress.clear();
+	BlockAssembly.clear();
+
+	memset(this, 0, sizeof(*this));
+}
+
+Instruction & BlockNode::operator[](uint32_t i) 
+{
+	if(i >= BlockAssembly.size())
+		i = 0;
+
+	return BlockAssembly[i];
+}
+
+FunctionNode::FunctionNode()
 {
 	memset( this, 0, sizeof(*this) );
 }
 
-void FlowGraph::Insert( BlockNode *new_block )
+FunctionNode::~FunctionNode()
 {
-	Blocks.push_back( new_block );
+	Free();
 }
 
-uint32_t FlowGraph::GetBlockNum()
+void FunctionNode::Insert( BlockNode block )
+{
+	Blocks.push_back( block );
+}
+
+uint32_t FunctionNode::GetBlockNum()
 {
 	return Blocks.size();
 }
 
-uint64_t FlowGraph::GetBlockAddr( uint32_t block_idx )
-{
-	return Blocks[block_idx]->GetBlockAddr();
-}
-
-uint32_t FlowGraph::GetOpNumInBlock( uint32_t block_idx )
-{
-	return Blocks[block_idx]->GetOpNum();
-}
-
-uint32_t FlowGraph::GetOpcodeInBlock( uint32_t block_idx, uint32_t op_idx )
-{
-	return Blocks[block_idx]->GetOpcode( op_idx );
-}
-
-char * FlowGraph::GetOperand1InBlock( uint32_t block_idx, uint32_t op_idx )
-{
-	return Blocks[block_idx]->GetOperand1( op_idx );
-}
-
-char * FlowGraph::GetOperand2InBlock( uint32_t block_idx, uint32_t op_idx )
-{
-	return Blocks[block_idx]->GetOperand2( op_idx );
-}
-
-int FlowGraph::GetBlockIndex( uint64_t block_addr )
+int FunctionNode::GetBlockIndex( uint64_t block_addr )
 {
 	for( int i = 0; i < Blocks.size(); i++ )
 	{
-		if( block_addr == Blocks[i]->GetBlockAddr() )
+		if( block_addr == Blocks[i].StartAddress )
 			return i;
 	}
 
 	return -1;
 }
 
-void FlowGraph::RecursiveSearch( int block_idx )
+void FunctionNode::RecursiveSearch( int block_idx )
 {
 	for( int i = 0; i < Path.size(); i++ )
 	{	
 		if( block_idx == Path[i] )
 		{
 			for( int j = 0; j < Path.size(); j++ )
-				printf("block %d (0x%x) -> ", Path[j], Blocks[Path[j]]->GetBlockAddr());
+				printf("block %d (0x%llx) -> ", Path[j], Blocks[Path[j]].StartAddress);
 			printf("cycle found!\n");
 			return;
 		}
 	}
 	Path.push_back( block_idx );
 
-	uint32_t NextBlockNum = Blocks[block_idx]->GetNextBlockNum();
+	uint32_t NextBlockNum = Blocks[block_idx].GetNextBlockNum();
 	if( NextBlockNum == 0 )
 	{
 		for( int i = 0; i < Path.size(); i++ )
-			printf("block %d (0x%x) -> ", Path[i], Blocks[Path[i]]->GetBlockAddr());
+			printf("block %d (0x%llx) -> ", Path[i], Blocks[Path[i]].StartAddress);
 		printf("end \n");
 	}
 	else
 	{
 		for( int i = 0 ; i < NextBlockNum; i++ )
-			RecursiveSearch( GetBlockIndex( Blocks[block_idx]->GetNextBlockAddr(i) ) );
+			RecursiveSearch( GetBlockIndex( Blocks[block_idx].GetNextBlockAddr(i) ) );
 	}
 	Path.pop_back();
 }
 
-void FlowGraph::PrintAllPath()
+void FunctionNode::PrintAllPath()
 {
 	RecursiveSearch( 0 );
 }
 
-void FlowGraph::PrintBlockAssembly( uint32_t block_idx )
+void FunctionNode::Free()
 {
-	Blocks[block_idx]->PrintBlockAssembly();
+	for( int i = 0; i < Blocks.size(); i++ )
+		Blocks[i].Free();
+	Blocks.clear();
+	Path.clear();
 }
+
+BlockNode & FunctionNode::operator [](uint32_t i)
+{
+	if(i >= Blocks.size())
+		i = 0;
+
+	return Blocks[i];
+}
+
+Program::Program()
+{
+	memset(this, 0, sizeof(*this));
+}
+
+void Program::Insert(FunctionNode func)
+{
+	Functions.push_back( func );
+}
+
+int Program::GetFuncIndex(uint64_t func_addr)
+{
+	for( int i = 0; i < Functions.size(); i++ )
+	{
+		if( func_addr == Functions[i].StartAddress )
+			return i;
+	}
+
+	return -1;
+}
+
+FunctionNode & Program::operator [](uint32_t i)
+{
+	if(i >= Functions.size())
+		i = 0;
+
+	return Functions[i];
+}
+

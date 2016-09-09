@@ -1,0 +1,121 @@
+--------------------------------------------------------------------------
+
+Block 0x82d and Block 0x1ba0 matched with 96%
+
+/Users/jjh/Desktop/MacFirmware-DataHubDxe.efi :
+0x82d	push		rbp
+0x82e	mov		rbp, rsp
+0x831	sub		rsp, 48
+0x835	call		240H
+0x83a	mov		dword ptr DS:[0C48H], 1651853380
+0x844	lea		rax, ptr DS:[376H]
+0x84b	mov		qword ptr DS:[0C58H], rax
+0x852	lea		rax, ptr DS:[566H]
+0x859	mov		qword ptr DS:[0C60H], rax
+0x860	lea		rax, ptr DS:[6C6H]
+0x867	mov		qword ptr DS:[0C68H], rax
+0x86e	lea		rax, ptr DS:[7C1H]
+0x875	mov		qword ptr DS:[0C70H], rax
+0x87c	lea		rcx, ptr DS:[0C98H]
+0x883	call		343H
+0x888	lea		rcx, ptr DS:[0CA8H]
+0x88f	call		343H
+0x894	lea		rcx, ptr DS:[0C78H]
+0x89b	mov		edx, 16
+0x8a0	call		260H
+0x8a5	lea		rcx, ptr [rbp-4H]
+0x8a9	mov		rax, qword ptr DS:[0C40H]
+0x8b0	call		qword ptr [rax+60H]
+0x8b3	test		rax, rax
+0x8b6	jns		8BCH
+
+/Users/jjh/Desktop/Reference-DataHubDxe.dll :
+0x1ba0	push		rbp
+0x1ba1	mov		rbp, rsp
+0x1ba4	sub		rsp, 48
+0x1ba8	mov		dword ptr DS:[3060H], 1651853380
+0x1bb2	lea		rax, ptr DS:[1360H]
+0x1bb9	mov		qword ptr DS:[3070H], rax
+0x1bc0	lea		rax, ptr DS:[1730H]
+0x1bc7	mov		qword ptr DS:[3078H], rax
+0x1bce	lea		rax, ptr DS:[1920H]
+0x1bd5	mov		qword ptr DS:[3080H], rax
+0x1bdc	lea		rax, ptr DS:[1AA0H]
+0x1be3	mov		qword ptr DS:[3088H], rax
+0x1bea	lea		rcx, ptr DS:[30B0H]
+0x1bf1	call		520H
+0x1bf6	lea		rcx, ptr DS:[30C0H]
+0x1bfd	call		520H
+0x1c02	lea		rcx, ptr DS:[3090H]
+0x1c09	mov		edx, 16
+0x1c0e	call		1020H
+0x1c13	lea		rcx, ptr [rbp-4H]
+0x1c17	mov		rax, qword ptr DS:[3048H]
+0x1c1e	call		qword ptr [rax+60H]
+0x1c21	test		rax, rax
+0x1c24	jns		1C2AH
+
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+
+Block 0x8b8 and Block 0x1c26 matched with 100%
+
+/Users/jjh/Desktop/MacFirmware-DataHubDxe.efi :
+0x8b8	xor		eax, eax
+0x8ba	jmp		8C9H
+
+/Users/jjh/Desktop/Reference-DataHubDxe.dll :
+0x1c26	xor		eax, eax
+0x1c28	jmp		1C37H
+
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+
+Block 0x8bc and Block 0x1c2a matched with 100%
+
+/Users/jjh/Desktop/MacFirmware-DataHubDxe.efi :
+0x8bc	mov		ecx, dword ptr [rbp-4H]
+0x8bf	mov		edx, 32
+0x8c4	call		36DH
+
+/Users/jjh/Desktop/Reference-DataHubDxe.dll :
+0x1c2a	mov		ecx, dword ptr [rbp-4H]
+0x1c2d	mov		edx, 32
+0x1c32	call		300H
+
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+
+Block 0x8c9 and Block 0x1c37 matched with 100%
+
+/Users/jjh/Desktop/MacFirmware-DataHubDxe.efi :
+0x8c9	mov		qword ptr DS:[0C90H], rax
+0x8d0	mov		qword ptr DS:[0C50H], 0
+0x8db	mov		rax, qword ptr DS:[0C38H]
+0x8e2	lea		rcx, ptr DS:[0C50H]
+0x8e9	lea		rdx, ptr DS:[0C20H]
+0x8f0	lea		r9, ptr DS:[0C58H]
+0x8f7	xor		r8d, r8d
+0x8fa	call		qword ptr [rax+80H]
+0x900	add		rsp, 48
+0x904	pop		rbp
+0x905	ret		
+
+/Users/jjh/Desktop/Reference-DataHubDxe.dll :
+0x1c37	mov		qword ptr DS:[30A8H], rax
+0x1c3e	mov		qword ptr DS:[3068H], 0
+0x1c49	mov		rax, qword ptr DS:[3040H]
+0x1c50	lea		rcx, ptr DS:[3068H]
+0x1c57	lea		rdx, ptr DS:[3010H]
+0x1c5e	lea		r9, ptr DS:[3070H]
+0x1c65	xor		r8d, r8d
+0x1c68	call		qword ptr [rax+80H]
+0x1c6e	add		rsp, 48
+0x1c72	pop		rbp
+0x1c73	ret		
+
+--------------------------------------------------------------------------
+

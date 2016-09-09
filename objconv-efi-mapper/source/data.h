@@ -6,14 +6,13 @@
 
 using namespace std;
 
-uint64_t htoi( char *hex_str );
-
 class Instruction
 {
 	public :
 		Instruction();
 		~Instruction();
 
+		void SetInstruction( char *buf );
 		void SetAddr( uint64_t addr );
 		void SetOpcode( uint32_t opcode );
 		void SetMnemonic( char *str, int len );
@@ -26,8 +25,6 @@ class Instruction
 		char * GetOperand1();
 		char * GetOperand2();
 
-		void SplitInstruction( char *buf );
-
 		void Print();
 
 	private :
@@ -38,77 +35,68 @@ class Instruction
 		String operand2;
 };
 
-/*#define UNKNOWN		0
-#define PARAM		1
-#define LOCAL		2
-#define GLOBAL		3
-#define CODE		4
-#define IMMEDIATE	5
-
-#define BIT_X		'X'
-#define BIT_0		'0'
-#define BIT_1		'1'*/
-
-class Register
-{
-	public :
-		int state;
-		int operation;
-		char value[64];
-
-		void SetValue( int64_t val );
-		int64_t GetValue();
-};
-
-typedef struct registerSet{
-	Register Reg[16];
-	//rax, rbx, rcx, rdx, rsi, rdi, rbp, rsp, r8, r9, r10, r11, r12, r13, r14, r15
-}RegisterSet;
-
 class BlockNode
 {
 	public :
-		BlockNode();
-		void Init( vector<Instruction> insns, uint64_t start_addr, uint64_t end_addr );
-		uint64_t GetBlockAddr();
-		uint32_t GetNextBlockNum();
-		uint64_t GetNextBlockAddr( int idx );
-		uint32_t GetOpNum();
-		uint32_t GetOpcode( uint32_t op_idx );
-		char *GetOperand1( uint32_t op_idx );
-		char *GetOperand2( uint32_t op_idx );
-		void PrintBlockAssembly();
-
-	private :
 		uint64_t StartAddress;
 		uint64_t EndAddress;
+
+		BlockNode();
+		~BlockNode();
+		void Init( vector<Instruction> insns, uint64_t start_addr, uint64_t end_addr );
+		uint32_t GetNextBlockNum();
+		uint64_t GetNextBlockAddr( int idx );
+		uint32_t GetInsnNum();
+		void PrintBlockAssembly();
+		void Free();
+
+		Instruction & operator[](uint32_t i);
+
+	private :
 		vector<uint64_t> NextBlockAddress;
-		vector<Instruction> BlockAssembly;	// Block Code Flow -> Register Check
-		RegisterSet reg_set;
+		vector<Instruction> BlockAssembly;
+		//RegisterSet reg_set;
 
 		void SplitBlock( char *buf );
 		void SetNextBlockInfo();
 };
 
-class FlowGraph
+class FunctionNode
 {
 	public :
-		FlowGraph();
-		void Insert( BlockNode *block );
+		uint64_t StartAddress;
+		uint64_t EndAddress;
+
+		FunctionNode();
+		~FunctionNode();
+		void Insert( BlockNode block );
 		uint32_t GetBlockNum();
-		uint64_t GetBlockAddr( uint32_t block_idx );
-		uint32_t GetOpNumInBlock( uint32_t block_idx );
-		uint32_t GetOpcodeInBlock( uint32_t block_idx, uint32_t op_idx );
-		char * GetOperand1InBlock( uint32_t block_idx, uint32_t op_idx );
-		char * GetOperand2InBlock( uint32_t block_idx, uint32_t op_idx );
 		void PrintAllPath();
-		void PrintBlockAssembly( uint32_t block_idx );
+		void Free();
+
+		BlockNode & operator [](uint32_t i);
 
 	private :
+		vector<BlockNode> Blocks;
+		vector<int> Path;
+
 		void RecursiveSearch( int block_idx );
 		int GetBlockIndex( uint64_t block_addr );
-		vector<BlockNode *> Blocks;
-		vector<int> Path;
+};
+
+class Program
+{
+	public :
+		uint64_t entry_addr;
+
+		Program();
+		void Insert(FunctionNode func);
+		int GetFuncIndex(uint64_t addr);
+
+		FunctionNode & operator [](uint32_t i);
+
+	private :
+		vector<FunctionNode> Functions;
 };
 
 #endif

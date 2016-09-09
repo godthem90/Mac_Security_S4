@@ -1,0 +1,66 @@
+--------------------------------------------------------------------------
+
+Block 0x14b0 and Block 0x3550 matched with 76%
+
+/Users/jjh/Desktop/MacFirmware-KeyboardDxe.efi :
+0x14b0	push		rbp
+0x14b1	mov		rbp, rsp
+0x14b4	push		rsi
+0x14b5	push		rdi
+0x14b6	push		rbx
+0x14b7	sub		rsp, 40
+0x14bb	mov		rsi, rdx
+0x14be	mov		rdi, rcx
+0x14c1	mov		rcx, rdi
+0x14c4	mov		rdx, rsi
+0x14c7	call		3D2H
+0x14cc	lea		rdx, ptr [rbp-1AH]
+0x14d0	mov		rcx, rdi
+0x14d3	call		1392H
+0x14d8	mov		rbx, rax
+0x14db	test		rbx, rbx
+0x14de	js		154BH
+
+/Users/jjh/Desktop/Reference-KeyboardDxe.dll :
+0x3550	push		rbp
+0x3551	mov		rbp, rsp
+0x3554	push		rsi
+0x3555	sub		rsp, 56
+0x3559	mov		rax, rcx
+0x355c	lea		rcx, ptr DS:[4F28H]
+0x3563	mov		qword ptr [rsp+28H], rcx
+0x3568	lea		rcx, ptr DS:[4F10H]
+0x356f	mov		qword ptr [rsp+20H], rcx
+0x3574	lea		r8, ptr DS:[4F60H]
+0x357b	mov		rcx, rax
+0x357e	mov		r9, rax
+0x3581	call		11A0H
+0x3586	mov		rsi, rax
+0x3589	call		0C70H
+0x358e	test		al, al
+0x3590	jz		35DAH
+
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+
+Block 0x154b and Block 0x35da matched with 71%
+
+/Users/jjh/Desktop/MacFirmware-KeyboardDxe.efi :
+0x154b	mov		rax, rbx
+0x154e	add		rsp, 40
+0x1552	pop		rbx
+0x1553	pop		rdi
+0x1554	pop		rsi
+0x1555	pop		rbp
+0x1556	ret		
+
+/Users/jjh/Desktop/Reference-KeyboardDxe.dll :
+0x35da	mov		rax, rsi
+0x35dd	add		rsp, 56
+0x35e1	pop		rsi
+0x35e2	pop		rbp
+0x35e3	ret		
+
+--------------------------------------------------------------------------
+

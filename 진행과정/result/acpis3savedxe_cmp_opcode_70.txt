@@ -1,0 +1,49 @@
+--------------------------------------------------------------------------
+
+Block 0x67e and Block 0x109e matched with 70%
+
+/Users/jjh/Desktop/MacFirmware-AcpiS3SaveDxe.efi :
+0x67e	mov		rdx, qword ptr [rbp-10H]
+0x682	lea		rcx, ptr [rdx+8H]
+0x686	lea		r9, ptr [rdx+10H]
+0x68a	lea		rdx, ptr DS:[0CB0H]
+0x691	xor		r8d, r8d
+0x694	call		qword ptr [rax+80H]
+0x69a	mov		rsi, rax
+0x69d	test		rsi, rsi
+0x6a0	jns		6D2H
+
+/Users/jjh/Desktop/Reference-AcpiS3SaveDxe.dll :
+0x109e	mov		rax, qword ptr DS:[2650H]
+0x10a5	lea		rcx, ptr [rbp-10H]
+0x10a9	lea		rdx, ptr DS:[2600H]
+0x10b0	lea		r9, ptr DS:[25D0H]
+0x10b7	xor		r8d, r8d
+0x10ba	call		qword ptr [rax+80H]
+0x10c0	mov		rsi, rax
+0x10c3	call		760H
+0x10c8	test		al, al
+0x10ca	jz		1114H
+
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+
+Block 0x6d2 and Block 0x1114 matched with 100%
+
+/Users/jjh/Desktop/MacFirmware-AcpiS3SaveDxe.efi :
+0x6d2	mov		rax, rsi
+0x6d5	add		rsp, 72
+0x6d9	pop		rsi
+0x6da	pop		rbp
+0x6db	ret		
+
+/Users/jjh/Desktop/Reference-AcpiS3SaveDxe.dll :
+0x1114	mov		rax, rsi
+0x1117	add		rsp, 40
+0x111b	pop		rsi
+0x111c	pop		rbp
+0x111d	ret		
+
+--------------------------------------------------------------------------
+

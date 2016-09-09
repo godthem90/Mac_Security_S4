@@ -86,5 +86,9 @@ static inline char const * LookupText(SIntTxt const * p, int n, uint32_t x) {
 const char * timestring(uint32_t t);
 bool CorrectIntegerTypes();
 bool CorrectEndianness();
+int MapRegister( char *reg );
+bool IsCondJump( char *mnemonic );
+uint64_t htoi( char *hex_str );
+int pow( int a, int b );
 
 #endif // #ifndef LIB_H

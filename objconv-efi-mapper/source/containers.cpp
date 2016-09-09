@@ -454,6 +454,14 @@ void String::SetString( char *new_str, int len )
 	str[size - 1] = 0;
 }
 
+void String::Append( char append )
+{
+	char append_str[2];
+	append_str[0] = append;
+	append_str[1] = 0;
+	Append(append_str);
+}
+
 void String::Append( char *append )
 {
 	if( str )
@@ -485,6 +493,19 @@ void String::Append( char *append, int len )
 	}
 	else
 		SetString( append, len );
+}
+
+void String::Erase( int idx )
+{
+	if(idx >= size - 1)
+		return;
+
+	char *temp = new char[--size];
+	strncpy( temp, str, idx );
+	strncpy( temp + idx, str + idx + 1, size - idx );
+
+	delete[] str;
+	str = temp;
 }
 
 char *String::GetString()

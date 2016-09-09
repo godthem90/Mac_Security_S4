@@ -65,7 +65,7 @@ int CDisassembler::GetBlockAssembly( uint32_t blocki, vector<Instruction> *insns
 		}
 		insn.SetOpcode( opcode );
 		insn.SetAddr( SectionAddress + IBegin );
-		insn.SplitInstruction( temp_file.Buf() );
+		insn.SetInstruction( temp_file.Buf() );
 		insns->push_back( insn );
 
 		IBegin = IEnd;
@@ -119,3 +119,32 @@ int CDisassembler::SetFunctionDescriptor( uint32_t func_addr )
 	return 0;
 }
 
+void CDisassembler::ParseProgram(Program *prog)
+{
+	int functioni;
+	for( functioni = 1; functioni < FunctionList.GetNumEntries(); functioni++ )
+	{
+		int section = FunctionList[functioni].Section;
+		uint64_t func_start_offset = FunctionList[functioni].Start;
+		uint64_t func_end_offset = FunctionList[functioni].End;
+		uint64_t section_addr = Sections[section].SectionAddress;
+
+		FunctionNode func;
+		func.StartAddress = section_addr + func_start_offset;
+		func.EndAddress = section_addr + func_end_offset;
+
+		vector<Instruction> insns;
+		uint64_t start_addr, end_addr;
+		SetFunctionDescriptor(func.StartAddress);
+		while( GetBlockInFunction( &insns, &start_addr, &end_addr ) != -1 )
+		{
+			BlockNode node;
+			node.Init( insns, start_addr, end_addr );
+			func.Insert( node );
+			insns.clear();
+		}
+		//flow_graph1.PrintAllPath();
+
+		prog->Insert(func);
+	}
+}

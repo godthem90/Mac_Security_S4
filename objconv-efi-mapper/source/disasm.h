@@ -647,6 +647,7 @@ public:
 	int		GetBlockInFunction( vector<Instruction> *insns, uint64_t *start_addr, uint64_t *end_addr );
 	int		SetFunctionDescriptor( uint32_t addr );
 	int		GetBlockAssembly( uint32_t blocki, vector<Instruction> *insns, uint64_t *start_addr, uint64_t *end_addr );
+	void	ParseProgram(Program *prog);
 		
 	void	Go();                                    // Do the disassembly
 	void	Init(uint32_t ExeType, int64_t ImageBase);   // Define file type and imagebase if executable file
