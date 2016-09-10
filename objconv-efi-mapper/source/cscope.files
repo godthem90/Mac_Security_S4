@@ -19,3 +19,6 @@
 ./parser.cpp
 ./parser.h
 ./stdafx.h
+./test.cpp
+./virtual_machine.cpp
+./virtual_machine.h

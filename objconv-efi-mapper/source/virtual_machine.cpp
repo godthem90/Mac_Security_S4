@@ -252,6 +252,106 @@ bool VirtualMachine::IsImmediate( char *operand )
 	return (IsDecimal(operand) || IsHex(operand));
 }
 
+bool VirtualMachine::CheckDependencyTable(char *mnemonic)
+{
+	for( int i = 0; i < sizeof(operand2_source_insn)/sizeof(char)/MNEMONIC_MAX_SIZE; i++ )
+	{
+		if(!strcmp(mnemonic, operand2_source_insn[i]))
+			return true;
+	}
+	for( int i = 0; i < sizeof(operand1_source_insn)/sizeof(char)/MNEMONIC_MAX_SIZE; i++ )
+	{
+		if(!strcmp(mnemonic, operand1_source_insn[i]))
+			return true;
+	}
+	for( int i = 0; i < sizeof(operand1_dest_insn)/sizeof(char)/MNEMONIC_MAX_SIZE; i++ )
+	{
+		if(!strcmp(mnemonic, operand1_dest_insn[i]))
+			return true;
+	}
+	for( int i = 0; i < sizeof(always_dependent_insn)/sizeof(char)/MNEMONIC_MAX_SIZE; i++ )
+	{
+		if(!strcmp(mnemonic, always_dependent_insn[i]))
+			return true;
+	}
+	return false;
+}
+
+bool VirtualMachine::IsAlwaysDependent(Instruction &insn)
+{
+	char *mnemonic = insn.GetMnemonic();
+	for( int i = 0; i < sizeof(always_dependent_insn)/sizeof(char)/MNEMONIC_MAX_SIZE; i++ )
+	{
+		if(!strcmp(mnemonic, always_dependent_insn[i]))
+			return true;
+	}
+
+	return false;
+}
+
+vector<OperandAttribute> VirtualMachine::GetSourceAttribute(Instruction &insn)
+{
+	vector<OperandAttribute> source_attrs;
+	char *mnemonic = insn.GetMnemonic();
+	/*if( !CheckDependencyTable(insn.GetMnemonic()) )
+	{
+		printf("[error] should update dependency table : ");
+		insn.Print();
+	}*/
+
+	for( int i = 0; i < sizeof(operand2_source_insn)/sizeof(char)/MNEMONIC_MAX_SIZE; i++ )
+	{
+		if(!strcmp(mnemonic, operand2_source_insn[i]))
+		{
+			vector<OperandAttribute> attrs = GetDependencyAttribute(insn.GetOperand2());
+			source_attrs.insert(source_attrs.end(), attrs.begin(), attrs.end());
+		}
+	}
+	for( int i = 0; i < sizeof(operand1_source_insn)/sizeof(char)/MNEMONIC_MAX_SIZE; i++ )
+	{
+		if(!strcmp(mnemonic, operand1_source_insn[i]))
+		{
+			vector<OperandAttribute> attrs = GetDependencyAttribute(insn.GetOperand1());
+			source_attrs.insert(source_attrs.end(), attrs.begin(), attrs.end());
+		}
+	}
+
+	return source_attrs;
+}
+
+vector<OperandAttribute> VirtualMachine::GetDestAttribute(Instruction &insn)
+{
+	vector<OperandAttribute> dest_attrs;
+	char *mnemonic = insn.GetMnemonic();
+	for( int i = 0; i < sizeof(operand1_dest_insn)/sizeof(char)/MNEMONIC_MAX_SIZE; i++ )
+	{
+		if(!strcmp(mnemonic, operand1_dest_insn[i]))
+		{
+			vector<OperandAttribute> attrs = GetDependencyAttribute(insn.GetOperand1());
+			dest_attrs.insert(dest_attrs.end(), attrs.begin(), attrs.end());
+		}
+	}
+
+	return dest_attrs;
+}
+
+vector<OperandAttribute> VirtualMachine::GetDependencyAttribute( char *operand )
+{
+	vector<OperandAttribute> attrs;
+	for( int i = 0; i < 64; i++ )
+	{
+		if( strstr( operand, reg_table[i] ) )
+		{
+			OperandAttribute attr;
+			attr.op_class = REG;
+			attr.reg_num = i % 16;
+			attrs.push_back(attr);
+		}
+	}
+
+	return attrs;
+}
+
 void VirtualMachine::AssignAttribute( OperandAttribute dest_attr, OperandAttribute source_attr )
 {
 	switch(dest_attr.op_class)

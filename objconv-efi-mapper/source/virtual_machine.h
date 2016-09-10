@@ -34,12 +34,19 @@
 #define IMMEDIATE	2
 #define ETC			3
 
+#define MNEMONIC_MAX_SIZE	7
+
 using namespace std;
 
 const char reg_table[64][5] = {"rax", "rcx", "rdx", "rbx", "rsp", "rbp", "rsi", "rdi", "r8", "r9", "r10", "r11", "r12", "r13", "r14", "r15", 
 							"eax", "ecx", "edx", "ebx", "esp", "ebp", "esi", "edi", "r8d", "r9d", "r10d", "r11d", "r12d", "r13d", "r14d", "r15d", 
 							"ax", "cx", "dx", "bx", "sp", "bp", "si", "di", "r8w", "r9w", "r10w", "r11w", "r12w", "r13w", "r14w", "r15w", 
 							"al", "cl", "dl", "bl", "spl", "bpl", "sil", "dil", "r8b", "r9b", "r10b", "r11b", "r12b", "r13b", "r14b", "r15b"};
+
+const char operand2_source_insn[][MNEMONIC_MAX_SIZE] = {"mov", "movsx", "movzx", "movsxd", "cmovc", "lea", "add", "sub", "cmp", "and", "xor", "or", "test"};
+const char operand1_source_insn[][MNEMONIC_MAX_SIZE] = {"inc", "dec", "add", "sub", "shl", "sar", "cmp", "and", "xor", "or", "push", "test", "not", "neg"};
+const char operand1_dest_insn[][MNEMONIC_MAX_SIZE] = {"mov", "movsx", "movzx", "movsxd", "cmovc", "lea", "add", "sub", "shl", "sar", "and", "xor", "or", "not", "neg", "sete", "setne", "pop"};
+const char always_dependent_insn[][MNEMONIC_MAX_SIZE] = {"nop", "call", "jmp", "ret", "jo", "jno", "jc", "jnc", "jz", "jnz", "jbe", "ja", "je", "js", "jns", "jne", "jpe", "jpo", "jl", "jge", "jle", "jg", "jcxz", "jecxz", "jrcxz"};
 
 typedef struct VMAttribute
 {
@@ -104,6 +111,9 @@ class VirtualMachine
 		VirtualMachine();
 		//~VirtualMachine();
 		void Step( Instruction insn );
+		bool IsAlwaysDependent(Instruction &insn);
+		vector<OperandAttribute> GetSourceAttribute(Instruction &insn);
+		vector<OperandAttribute> GetDestAttribute(Instruction &insn);
 		void PrintReg();
 
 	private :
@@ -119,6 +129,9 @@ class VirtualMachine
 		bool IsDecimal( char *operand );
 		bool IsHex( char *operand );
 		bool IsImmediate( char *operand );
+
+		bool CheckDependencyTable(char *mnemonic);
+		vector<OperandAttribute> GetDependencyAttribute( char *operand );
 
 		void AssignAttribute( OperandAttribute dest_attr, OperandAttribute source_attr );
 		OperandAttribute GetAttribute( char *operand );

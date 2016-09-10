@@ -54,8 +54,12 @@ public:
 private:
 	Program &prog1;
 	Program &prog2;
+	VirtualMachine vm;
 	vector<MappedFunction> MappedFunctionList;
 
+	bool IsAttributeEqual(OperandAttribute attr1, OperandAttribute attr2);
+	bool IsInsnDependent(Instruction &insn1, Instruction &insn2);
+	void GetDependencyTable(BlockNode &block, int *dep_table);
 	int DiffBlock(BlockNode &block1, BlockNode &block2, vector<CheckFunction> &check_func_list);
 	bool CmpOperand( char *operand1, char *operand2 );
 };
@@ -121,6 +125,73 @@ private:
 	return false;
 }*/
 
+bool BlockMapper::IsAttributeEqual(OperandAttribute attr1, OperandAttribute attr2)
+{
+	if(attr1.op_class != attr2.op_class)
+		return false;
+	else
+	{
+		if(attr1.op_class == REG)
+			return (attr1.reg_num == attr2.reg_num);
+		else
+			return false;
+	}
+}
+
+bool BlockMapper::IsInsnDependent(Instruction &insn1, Instruction &insn2)
+{
+	if(vm.IsAlwaysDependent(insn1) || vm.IsAlwaysDependent(insn2))
+		return true;
+
+	vector<OperandAttribute> current_source_attr = vm.GetSourceAttribute(insn1);
+	vector<OperandAttribute> current_dest_attr = vm.GetDestAttribute(insn1);
+	vector<OperandAttribute> source_attr = vm.GetSourceAttribute(insn2);
+	vector<OperandAttribute> dest_attr = vm.GetDestAttribute(insn2);
+
+	// TODO dest equal to dest casue dependency break??
+	for( int i = 0; i < current_dest_attr.size(); i++ )
+	{
+		for( int j = 0; j < dest_attr.size(); j++ )
+		{
+			if(IsAttributeEqual(current_dest_attr[i], dest_attr[j]))
+				return true;
+		}
+	}
+	for( int i = 0; i < current_source_attr.size(); i++ )
+	{
+		for( int j = 0; j < dest_attr.size(); j++ )
+		{
+			if(IsAttributeEqual(current_source_attr[i], dest_attr[j]))
+				return true;
+		}
+	}
+	for( int i = 0; i < source_attr.size(); i++ )
+	{
+		for( int j = 0; j < current_dest_attr.size(); j++ )
+		{
+			if(IsAttributeEqual(source_attr[i], current_dest_attr[j]))
+				return true;
+		}
+	}
+
+	return false;
+}
+
+void BlockMapper::GetDependencyTable(BlockNode &block, int *dep_table)
+{
+	uint32_t op_num = block.GetInsnNum();
+	for(int i = 0; i < op_num; i++)
+		dep_table[i] = 0;
+	for(int i = 0; i < op_num; i++)
+	{
+		for(int j = i - 1; j >= 0; j--)
+		{
+			if(IsInsnDependent(block[i], block[j]))
+				dep_table[i] = j;
+		}
+	}
+}
+
 int BlockMapper::DiffBlock(BlockNode &block1, BlockNode &block2, vector<CheckFunction> &check_func_list)
 {
 	uint32_t opcode1, opcode2;
@@ -128,29 +199,33 @@ int BlockMapper::DiffBlock(BlockNode &block1, BlockNode &block2, vector<CheckFun
 	uint32_t op_num1 = block1.GetInsnNum();
 	uint32_t op_num2 = block2.GetInsnNum();
 
-	bool *matched = new bool[op_num2];
-	for( int i = 0; i < op_num2; i++ )
-		matched[i] = false;
+	int *matched1 = new int[op_num1];
+	int *matched2 = new int[op_num2];
+	memset(matched1, -1, sizeof(int) * op_num1);
+	memset(matched2, -1, sizeof(int) * op_num2);
 
-	int all_insn = 0, match_insn = 0;
-	all_insn = (op_num1 > op_num2 ? op_num1 : op_num2);
+	int *dependency_table1 = new int[op_num1];
+	int *dependency_table2 = new int[op_num2];
+	GetDependencyTable(block1, dependency_table1);
+	GetDependencyTable(block2, dependency_table2);
 
+	int all_insn = op_num1 + op_num2;
+	int match_insn1 = 0, match_insn2 = 0;
 	for( int op_idx1 = 0; op_idx1 < op_num1; op_idx1++ )
 	{
-		for( int op_idx2 = 0; op_idx2 < op_num2; op_idx2++ )
+		int op_idx2 = matched1[dependency_table1[op_idx1]] + 1;
+		for( ; op_idx2 < op_num2; op_idx2++ )
 		{
 			opcode1 = block1[op_idx1].GetOpcode();
 			opcode2 = block2[op_idx2].GetOpcode();
 
-			operand1_1 = block1[op_idx1].GetOperand1();
-			operand1_2 = block1[op_idx1].GetOperand2();
-			operand2_1 = block2[op_idx2].GetOperand1();
-			operand2_2 = block2[op_idx2].GetOperand2();
-
-			if( opcode1 == opcode2 /*&& CmpOperand(operand1_1, operand2_1) && CmpOperand(operand1_2, operand2_2)*/ && !matched[op_idx2] )
+			if( opcode1 == opcode2 && matched2[op_idx2] == -1 /*&& CmpOperand(operand1_1, operand2_1) && CmpOperand(operand1_2, operand2_2)*/ )
 			{
-				matched[op_idx2] = true;
-				match_insn++;
+				matched1[op_idx1] = op_idx2;
+				matched2[op_idx2] = op_idx1;
+				match_insn1++;
+				match_insn2++;
+
 				if( opcode1 == 232 && opcode2 == 232 )
 				{
 					CheckFunction check_func;
@@ -162,14 +237,13 @@ int BlockMapper::DiffBlock(BlockNode &block1, BlockNode &block2, vector<CheckFun
 			}
 		}
 	}
-	delete[] matched;
+	delete[] matched1;
+	delete[] matched2;
+	delete[] dependency_table1;
+	delete[] dependency_table2;
 
-	return match_insn * 100 / all_insn;
+	return (match_insn1 + match_insn2) * 100 / all_insn;
 }
-
-/*void BlockMapper::MapFunction(uint64_t func_addr1, uint64_t func_addr2)
-{
-}*/
 
 void BlockMapper::MapBlock(uint64_t func_addr1, uint64_t func_addr2)
 {
@@ -267,7 +341,7 @@ int main(int argc, char * argv[]) {
 		return -1;
 	}
 
-	if(argc != 6)
+	if(argc != 5)
 	{
 		fprintf(stderr, "[error] Wrong Usage\n");
 		usage();
@@ -278,7 +352,6 @@ int main(int argc, char * argv[]) {
 	uint32_t entry_addr1 = htoi(argv[2]);
 	input_file_name2 = argv[3];
 	uint32_t entry_addr2 = htoi(argv[4]);
-	threshold_percentage = atoi(argv[5]);
 
 	CFileBuffer input_buffer1(input_file_name1);
 	input_buffer1.Read();
@@ -296,7 +369,6 @@ int main(int argc, char * argv[]) {
 	disasm_engine1.ParseProgram(&prog1);
 	disasm_engine2.ParseProgram(&prog2);
 
-	//VirtualMachine vm1;
 	BlockMapper block_mapper( prog1, prog2 );
 	block_mapper.MapBlock( entry_addr1, entry_addr2 );
 	block_mapper.Dump();
