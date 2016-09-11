@@ -56,11 +56,11 @@ private:
 	vector<MappedFunction> MappedFunctionList;
 
 	vector<MappedBlock> SelectCandidates(vector<MappedBlock> &candidates_table);
-	void InsertMappedBlock(MappedFunction &mapped_func, vector<MappedBlock> &candidates);
+	MappedBlock *InsertMappedBlock(MappedFunction &mapped_func, vector<MappedBlock> &candidates);
 	bool IsAttributeEqual(OperandAttribute attr1, OperandAttribute attr2);
 	bool IsInsnDependent(Instruction &insn1, Instruction &insn2);
 	void GetDependencyTable(BlockNode &block, int *dep_table);
-	int DiffBlock(BlockNode &block1, BlockNode &block2, vector<CheckFunction> &check_func_list);
+	int DiffBlock(BlockNode &block1, BlockNode &block2, vector<CheckFunction> *func_checklist);
 	int IsOperandEqual( char *operand1, char *operand2 );
 	int IsInstructionEqual(Instruction &insn1, Instruction &insn2);
 };
@@ -136,7 +136,7 @@ vector<MappedBlock> BlockMapper::SelectCandidates(vector<MappedBlock> &candidate
 	return candidates;
 }
 
-void BlockMapper::InsertMappedBlock(MappedFunction &mapped_func, vector<MappedBlock> &candidates)
+MappedBlock *BlockMapper::InsertMappedBlock(MappedFunction &mapped_func, vector<MappedBlock> &candidates)
 {
 	for(int i = 0; i < candidates.size(); i++)
 	{
@@ -169,12 +169,20 @@ void BlockMapper::InsertMappedBlock(MappedFunction &mapped_func, vector<MappedBl
 		}
 		if(continue_check)
 			continue;
+
 		if(candidates[i].percentage >= 100)
+		{
 			mapped_func.SameBlockList.push_back(candidates[i]);
+			return &candidates[i];
+		}
 		else if(candidates[i].percentage >= 70)
+		{
 			mapped_func.SimilarBlockList.push_back(candidates[i]);
-		return;
+			return &candidates[i];
+		}
 	}
+
+	return NULL;
 }
 
 bool BlockMapper::IsAttributeEqual(OperandAttribute attr1, OperandAttribute attr2)
@@ -244,7 +252,7 @@ void BlockMapper::GetDependencyTable(BlockNode &block, int *dep_table)
 	}
 }
 
-int BlockMapper::DiffBlock(BlockNode &block1, BlockNode &block2, vector<CheckFunction> &check_func_list)
+int BlockMapper::DiffBlock(BlockNode &block1, BlockNode &block2, vector<CheckFunction> *func_checklist)
 {
 	uint32_t op_num1 = block1.GetInsnNum();
 	uint32_t op_num2 = block2.GetInsnNum();
@@ -275,12 +283,12 @@ int BlockMapper::DiffBlock(BlockNode &block1, BlockNode &block2, vector<CheckFun
 
 				uint32_t opcode1 = block1[op_idx1].GetOpcode();
 				uint32_t opcode2 = block2[op_idx2].GetOpcode();
-				if( opcode1 == 232 && opcode2 == 232 )
+				if( func_checklist && opcode1 == 232 && opcode2 == 232 )
 				{
 					CheckFunction check_func;
 					check_func.addr1 = htoi(block1[op_idx1].GetOperand1());
 					check_func.addr2 = htoi(block2[op_idx2].GetOperand1());
-					check_func_list.push_back(check_func);
+					func_checklist->push_back(check_func);
 				}
 				break;
 			}
@@ -309,39 +317,36 @@ void BlockMapper::MapBlock(uint64_t func_addr1, uint64_t func_addr2)
 	mapped_function.idx1 = func_idx1;
 	mapped_function.idx2 = func_idx2;
 
-	vector<CheckFunction> check_func_list;
+	vector<CheckFunction> func_checklist;
 	for( int i = 0; i < block_num1; i++ )
 	{
 		vector<MappedBlock> candidates_table;
 		for( int j = 0; j < block_num2; j++ )
 		{
-			int prev_checklist_idx = check_func_list.size();
-			int percentage = DiffBlock(func1[i], func2[j], check_func_list);
-			if( percentage < 70 && prev_checklist_idx != check_func_list.size() )
-			{
-				check_func_list.erase(check_func_list.begin() + prev_checklist_idx,
-								check_func_list.begin() + check_func_list.size());
-			}
 			MappedBlock candidate_block;
 			candidate_block.idx1 = i;
 			candidate_block.idx2 = j;
-			candidate_block.percentage = percentage;
+			candidate_block.percentage = DiffBlock(func1[i], func2[j], NULL);
 			candidates_table.push_back(candidate_block);
 		}
 		vector<MappedBlock> candidates = SelectCandidates(candidates_table);
-		InsertMappedBlock(mapped_function, candidates);
+		MappedBlock *inserted_block = InsertMappedBlock(mapped_function, candidates);
+		if(inserted_block)
+			DiffBlock(func1[inserted_block->idx1], func2[inserted_block->idx2], &func_checklist);
 	}
 
 	MappedFunctionList.push_back(mapped_function);
-
-	for( int i = 0; i < check_func_list.size(); i++ )
-		MapBlock(check_func_list[i].addr1, check_func_list[i].addr2);
+	for( int i = 0; i < func_checklist.size(); i++ )
+		MapBlock(func_checklist[i].addr1, func_checklist[i].addr2);
 }
 
 void BlockMapper::Dump()
 {
 	for( int i = 0; i < MappedFunctionList.size(); i++ )
 	{
+		printf("*******************************************************************\n");
+		printf("*******************************************************************\n");
+		printf("*******************************************************************\n");
 		struct MappedFunction &mapped_func = MappedFunctionList[i];
 		FunctionNode &func1 = prog1[mapped_func.idx1];
 		FunctionNode &func2 = prog2[mapped_func.idx2];
@@ -357,20 +362,40 @@ void BlockMapper::Dump()
 			BlockNode &block1 = func1[mapped_block.idx1];
 			BlockNode &block2 = func2[mapped_block.idx2];
 
-			printf("--------------------------------------------------------------------------\n\n");
+			printf("---------------------------------------------------------------\n");
 			int percentage = mapped_block.percentage;
 			uint64_t block_addr1 = block1.StartAddress;
 			uint64_t block_addr2 = block2.StartAddress;
 			printf("Block 0x%llx and Block 0x%llx matched with %d%%\n\n", block_addr1, block_addr2, percentage);
-
 			printf("%s :\n", input_file_name1);
 			block1.PrintBlockAssembly();
 			printf("\n");
 			printf("%s :\n", input_file_name2);
 			block2.PrintBlockAssembly();
 			printf("\n");
-			printf("--------------------------------------------------------------------------\n\n");
+			printf("---------------------------------------------------------------\n");
 		}
+		printf("###################################################################\n");
+		for( int j = 0; j < mapped_func.SimilarBlockList.size(); j++ )
+		{
+			struct MappedBlock &mapped_block = mapped_func.SimilarBlockList[j];
+			BlockNode &block1 = func1[mapped_block.idx1];
+			BlockNode &block2 = func2[mapped_block.idx2];
+
+			printf("---------------------------------------------------------------\n");
+			int percentage = mapped_block.percentage;
+			uint64_t block_addr1 = block1.StartAddress;
+			uint64_t block_addr2 = block2.StartAddress;
+			printf("Block 0x%llx and Block 0x%llx matched with %d%%\n\n", block_addr1, block_addr2, percentage);
+			printf("%s :\n", input_file_name1);
+			block1.PrintBlockAssembly();
+			printf("\n");
+			printf("%s :\n", input_file_name2);
+			block2.PrintBlockAssembly();
+			printf("\n");
+			printf("---------------------------------------------------------------\n");
+		}
+		printf("\n");
 	}
 }
 

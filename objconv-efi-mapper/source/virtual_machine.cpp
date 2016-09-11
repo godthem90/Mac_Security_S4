@@ -304,8 +304,9 @@ vector<OperandAttribute> VirtualMachine::GetSourceAttribute(Instruction &insn)
 	char *mnemonic = insn.GetMnemonic();
 	if( !CheckDependencyTable(insn.GetMnemonic()) )
 	{
-		printf("[error] should update dependency table : ");
-		insn.Print();
+		fprintf(stderr, "[error] should update dependency table : ");
+		fprintf(stderr, "%llx\t%s\n", insn.GetAddr(), insn.GetMnemonic());
+		//insn.Print();
 	}
 
 	for( int i = 0; i < sizeof(operand2_source_insn)/sizeof(char)/MNEMONIC_MAX_SIZE; i++ )
@@ -378,10 +379,10 @@ void VirtualMachine::AssignAttribute( OperandAttribute dest_attr, OperandAttribu
 			vmemory.SetMem(dest_attr.mem_addr, vm_attr, dest_attr.word_size);
 			break;
 		case IMMEDIATE:
-			printf("[error] can't assign to immediate value\n");
+			fprintf(stderr, "[error] can't assign to immediate value\n");
 			break;
 		default:
-			printf("[error] can't determine dest operand class\n");
+			fprintf(stderr, "[error] can't determine dest operand class\n");
 			break;
 	}
 }

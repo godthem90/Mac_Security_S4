@@ -1,0 +1,6519 @@
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x2af8 func total block : 36
+Reference-UpdateDriverDxe.dll:0x4010 func total block : 39
+total matched block : 13
+---------------------------------------------------------------
+Block 0x2b6d and Block 0x40ae matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x2b6d	mov		rax, qword ptr DS:[0ACA8H]
+0x2b74	mov		dword ptr [rsp+28H], 2
+0x2b7c	mov		qword ptr [rsp+20H], 0
+0x2b85	lea		rdx, ptr DS:[0A44CH]
+0x2b8c	lea		r8, ptr [rbp-28H]
+0x2b90	mov		rcx, rdi
+0x2b93	mov		r9, rdi
+0x2b96	call		qword ptr [rax+118H]
+0x2b9c	mov		rsi, rax
+0x2b9f	test		rsi, rsi
+0x2ba2	js		2F14H
+
+Reference-UpdateDriverDxe.dll :
+0x40ae	mov		rax, qword ptr DS:[9148H]
+0x40b5	mov		dword ptr [rsp+28H], 2
+0x40bd	mov		qword ptr [rsp+20H], 0
+0x40c6	lea		rdx, ptr DS:[8ED8H]
+0x40cd	lea		r8, ptr [rbp-28H]
+0x40d1	mov		rcx, rsi
+0x40d4	mov		r9, rsi
+0x40d7	call		qword ptr [rax+118H]
+0x40dd	mov		rsi, rax
+0x40e0	test		rsi, rsi
+0x40e3	js		4407H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x2ba8 and Block 0x40e9 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x2ba8	mov		rax, qword ptr [rbp-28H]
+0x2bac	mov		rcx, qword ptr [rax+18H]
+0x2bb0	mov		rax, qword ptr DS:[0ACA8H]
+0x2bb7	lea		rdx, ptr DS:[0A41CH]
+0x2bbe	lea		r8, ptr [rbp-30H]
+0x2bc2	call		qword ptr [rax+98H]
+0x2bc8	mov		rsi, 0EH
+0x2bd2	test		rax, rax
+0x2bd5	js		2F14H
+
+Reference-UpdateDriverDxe.dll :
+0x40e9	mov		rax, qword ptr [rbp-28H]
+0x40ed	mov		rcx, qword ptr [rax+18H]
+0x40f1	mov		rax, qword ptr DS:[9148H]
+0x40f8	lea		rdx, ptr DS:[8EB8H]
+0x40ff	lea		r8, ptr [rbp-30H]
+0x4103	call		qword ptr [rax+98H]
+0x4109	mov		rsi, 0EH
+0x4113	test		rax, rax
+0x4116	js		4407H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x2c25 and Block 0x4158 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x2c25	mov		rsi, 0EH
+0x2c2f	test		rdi, rdi
+0x2c32	je		2F14H
+
+Reference-UpdateDriverDxe.dll :
+0x4158	mov		rsi, 0EH
+0x4162	test		rdi, rdi
+0x4165	je		4407H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x2cc1 and Block 0x421c matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x2cc1	mov		qword ptr [rbp-40H], 0
+0x2cc9	mov		qword ptr [rbp-48H], 0
+0x2cd1	mov		rax, qword ptr [rbp-30H]
+0x2cd5	mov		qword ptr [rsp+30H], r14
+0x2cda	lea		rdi, ptr [rbp-74H]
+0x2cde	mov		qword ptr [rsp+28H], rdi
+0x2ce3	lea		rbx, ptr [rbp-49H]
+0x2ce7	mov		qword ptr [rsp+20H], rbx
+0x2cec	lea		rdx, ptr [rbp-60H]
+0x2cf0	lea		r8, ptr [rbp-40H]
+0x2cf4	lea		r9, ptr [rbp-48H]
+0x2cf8	mov		rcx, rax
+0x2cfb	call		qword ptr [rax+10H]
+0x2cfe	mov		rsi, rax
+0x2d01	test		rsi, rsi
+0x2d04	js		2F14H
+
+Reference-UpdateDriverDxe.dll :
+0x421c	mov		qword ptr [rbp-40H], 0
+0x4224	mov		qword ptr [rbp-48H], 0
+0x422c	mov		rax, qword ptr [rbp-30H]
+0x4230	mov		qword ptr [rsp+30H], r14
+0x4235	lea		rdi, ptr [rbp-50H]
+0x4239	mov		qword ptr [rsp+28H], rdi
+0x423e	lea		rbx, ptr [rbp-49H]
+0x4242	mov		qword ptr [rsp+20H], rbx
+0x4247	lea		rdx, ptr DS:[8E68H]
+0x424e	lea		r8, ptr [rbp-40H]
+0x4252	lea		r9, ptr [rbp-48H]
+0x4256	mov		rcx, rax
+0x4259	call		qword ptr [rax+10H]
+0x425c	mov		rsi, rax
+0x425f	test		rsi, rsi
+0x4262	js		4407H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x2d0a and Block 0x4268 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x2d0a	mov		rsi, 0EH
+0x2d14	cmp		byte ptr [rbp-49H], 1
+0x2d18	jne		2F14H
+
+Reference-UpdateDriverDxe.dll :
+0x4268	mov		rsi, 0EH
+0x4272	cmp		byte ptr [rbp-49H], 1
+0x4276	jne		4407H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x2d73 and Block 0x42ba matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x2d73	test		rsi, rsi
+0x2d76	js		2F14H
+
+Reference-UpdateDriverDxe.dll :
+0x42ba	test		rsi, rsi
+0x42bd	js		4407H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x2d98 and Block 0x42eb matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x2d98	mov		qword ptr [rbp-40H], 0
+0x2da0	mov		qword ptr [rbp-48H], 0
+0x2da8	mov		rax, qword ptr [rbp-30H]
+0x2dac	mov		qword ptr [rsp+30H], r14
+0x2db1	mov		qword ptr [rsp+28H], rdi
+0x2db6	mov		qword ptr [rsp+20H], rbx
+0x2dbb	lea		rdx, ptr [rbp-70H]
+0x2dbf	lea		r8, ptr [rbp-40H]
+0x2dc3	lea		r9, ptr [rbp-48H]
+0x2dc7	mov		rcx, rax
+0x2dca	call		qword ptr [rax+10H]
+0x2dcd	mov		rsi, rax
+0x2dd0	test		rsi, rsi
+0x2dd3	js		2F14H
+
+Reference-UpdateDriverDxe.dll :
+0x42eb	mov		qword ptr [rbp-40H], 0
+0x42f3	mov		qword ptr [rbp-48H], 0
+0x42fb	mov		rax, qword ptr [rbp-30H]
+0x42ff	mov		qword ptr [rsp+30H], r14
+0x4304	mov		qword ptr [rsp+28H], rdi
+0x4309	mov		qword ptr [rsp+20H], rbx
+0x430e	lea		rdx, ptr DS:[8E78H]
+0x4315	lea		r8, ptr [rbp-40H]
+0x4319	lea		r9, ptr [rbp-48H]
+0x431d	mov		rcx, rax
+0x4320	call		qword ptr [rax+10H]
+0x4323	mov		rsi, rax
+0x4326	test		rsi, rsi
+0x4329	js		4407H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x2dd9 and Block 0x432f matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x2dd9	mov		rsi, 0EH
+0x2de3	cmp		byte ptr [rbp-49H], 1
+0x2de7	jne		2F14H
+
+Reference-UpdateDriverDxe.dll :
+0x432f	mov		rsi, 0EH
+0x4339	cmp		byte ptr [rbp-49H], 1
+0x433d	jne		4407H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x2ded and Block 0x4343 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x2ded	mov		qword ptr [rbp-38H], 0
+0x2df5	mov		rdx, qword ptr [rbp-48H]
+0x2df9	mov		rcx, qword ptr [rbp-40H]
+0x2dfd	lea		r8, ptr [rbp-38H]
+0x2e01	call		5A0DH
+0x2e06	mov		rsi, rax
+0x2e09	test		rsi, rsi
+0x2e0c	jns		2E21H
+
+Reference-UpdateDriverDxe.dll :
+0x4343	mov		qword ptr [rbp-38H], 0
+0x434b	mov		rdx, qword ptr [rbp-48H]
+0x434f	mov		rcx, qword ptr [rbp-40H]
+0x4353	lea		r8, ptr [rbp-38H]
+0x4357	call		3F43H
+0x435c	mov		rsi, rax
+0x435f	test		rsi, rsi
+0x4362	jns		4372H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x2eb7 and Block 0x43c3 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x2eb7	inc		rbx
+0x2eba	cmp		rbx, qword ptr [rbp-88H]
+0x2ec1	jc		2E9BH
+
+Reference-UpdateDriverDxe.dll :
+0x43c3	inc		rbx
+0x43c6	cmp		rbx, qword ptr [rbp-68H]
+0x43ca	jc		43ABH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x2ec3 and Block 0x43cc matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x2ec3	test		rsi, rsi
+0x2ec6	jns		2EE5H
+
+Reference-UpdateDriverDxe.dll :
+0x43cc	test		rsi, rsi
+0x43cf	jns		43E9H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x2ec8 and Block 0x41db matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x2ec8	mov		rcx, qword ptr [rbp-80H]
+0x2ecc	test		rcx, rcx
+0x2ecf	jz		2F14H
+
+Reference-UpdateDriverDxe.dll :
+0x41db	mov		rcx, qword ptr [rbp-40H]
+0x41df	test		rcx, rcx
+0x41e2	jz		41F1H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x2f14 and Block 0x4407 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x2f14	mov		rax, rsi
+0x2f17	add		rsp, 176
+0x2f1e	pop		rbx
+0x2f1f	pop		rdi
+0x2f20	pop		rsi
+0x2f21	pop		r14
+0x2f23	pop		rbp
+0x2f24	ret		
+
+Reference-UpdateDriverDxe.dll :
+0x4407	mov		rax, rsi
+0x440a	add		rsp, 128
+0x4411	pop		rbx
+0x4412	pop		rdi
+0x4413	pop		rsi
+0x4414	pop		r14
+0x4416	pop		rbp
+0x4417	ret		
+
+---------------------------------------------------------------
+###################################################################
+---------------------------------------------------------------
+Block 0x2bdb and Block 0x411c matched with 80%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x2bdb	mov		rax, qword ptr [rbp-28H]
+0x2bdf	mov		rcx, qword ptr [rax+20H]
+0x2be3	call		2F25H
+0x2be8	mov		rdi, rax
+0x2beb	mov		rsi, 0EH
+0x2bf5	jmp		2C17H
+
+Reference-UpdateDriverDxe.dll :
+0x411c	mov		rax, qword ptr [rbp-28H]
+0x4120	mov		rdi, qword ptr [rax+20H]
+0x4124	mov		rsi, 0EH
+0x412e	jmp		413BH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x2c38 and Block 0x416b matched with 76%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x2c38	mov		qword ptr [rbp-40H], 0
+0x2c40	mov		qword ptr [rbp-48H], 0
+0x2c48	mov		rax, qword ptr [rbp-30H]
+0x2c4c	lea		rcx, ptr [rbp-48H]
+0x2c50	lea		r14, ptr [rbp-78H]
+0x2c54	mov		qword ptr [rsp+30H], r14
+0x2c59	mov		qword ptr [rsp+28H], rcx
+0x2c5e	lea		rcx, ptr [rbp-40H]
+0x2c62	mov		qword ptr [rsp+20H], rcx
+0x2c67	add		rdi, 4
+0x2c6b	mov		rcx, rax
+0x2c6e	mov		rdx, rdi
+0x2c71	mov		r8d, 16
+0x2c77	xor		r9d, r9d
+0x2c7a	call		qword ptr [rax+18H]
+0x2c7d	mov		rsi, rax
+0x2c80	test		rsi, rsi
+0x2c83	js		2F14H
+
+Reference-UpdateDriverDxe.dll :
+0x416b	mov		rcx, rdi
+0x416e	call		2AF2H
+0x4173	mov		rcx, rax
+0x4176	mov		rdx, rdi
+0x4179	call		1744H
+0x417e	mov		rdi, rax
+0x4181	mov		qword ptr [rbp-40H], 0
+0x4189	mov		qword ptr [rbp-48H], 0
+0x4191	mov		rax, qword ptr [rbp-30H]
+0x4195	lea		rbx, ptr [rdi+4H]
+0x4199	lea		rcx, ptr [rbp-40H]
+0x419d	lea		rdx, ptr [rbp-48H]
+0x41a1	lea		r14, ptr [rbp-54H]
+0x41a5	mov		qword ptr [rsp+30H], r14
+0x41aa	mov		qword ptr [rsp+28H], rdx
+0x41af	mov		qword ptr [rsp+20H], rcx
+0x41b4	mov		rcx, rax
+0x41b7	mov		rdx, rbx
+0x41ba	mov		r8d, 16
+0x41c0	xor		r9d, r9d
+0x41c3	call		qword ptr [rax+18H]
+0x41c6	mov		rsi, rax
+0x41c9	test		rsi, rsi
+0x41cc	jns		41DBH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x2d1e and Block 0x427c matched with 91%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x2d1e	mov		qword ptr [rbp-80H], 0
+0x2d26	mov		qword ptr [rbp-88H], 0
+0x2d31	mov		rdx, qword ptr [rbp-48H]
+0x2d35	mov		rcx, qword ptr [rbp-40H]
+0x2d39	lea		rax, ptr [rbp-80H]
+0x2d3d	mov		qword ptr [rsp+20H], rax
+0x2d42	lea		r8, ptr [rbp-90H]
+0x2d49	lea		r9, ptr [rbp-88H]
+0x2d50	call		55A4H
+0x2d55	mov		rsi, rax
+0x2d58	mov		rcx, qword ptr [rbp-40H]
+0x2d5c	test		rcx, rcx
+0x2d5f	jz		2D73H
+
+Reference-UpdateDriverDxe.dll :
+0x427c	mov		qword ptr [rbp-60H], 0
+0x4284	mov		qword ptr [rbp-68H], 0
+0x428c	mov		rdx, qword ptr [rbp-48H]
+0x4290	mov		rcx, qword ptr [rbp-40H]
+0x4294	lea		r8, ptr [rbp-68H]
+0x4298	lea		r9, ptr [rbp-60H]
+0x429c	call		4CD2H
+0x42a1	mov		rsi, rax
+0x42a4	mov		rcx, qword ptr [rbp-40H]
+0x42a8	test		rcx, rcx
+0x42ab	jz		42BAH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x2e9b and Block 0x43ab matched with 80%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x2e9b	mov		rdx, qword ptr [rbp-80H]
+0x2e9f	add		rdx, rdi
+0x2ea2	lea		rdi, ptr [rdi+68H]
+0x2ea6	mov		rcx, qword ptr [rbp-38H]
+0x2eaa	call		281EH
+0x2eaf	mov		rsi, rax
+0x2eb2	test		rsi, rsi
+0x2eb5	js		2EC8H
+
+Reference-UpdateDriverDxe.dll :
+0x43ab	mov		rcx, qword ptr [rbp-38H]
+0x43af	mov		rdx, rdi
+0x43b2	lea		rdi, ptr [rdi+38H]
+0x43b6	call		3D07H
+0x43bb	mov		rsi, rax
+0x43be	test		rsi, rsi
+0x43c1	js		43D1H
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x55a4 func total block : 29
+Reference-UpdateDriverDxe.dll:0x4cd2 func total block : 29
+total matched block : 4
+---------------------------------------------------------------
+Block 0x55f5 and Block 0x4d2a matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x55f5	mov		rdx, qword ptr [rbp-450H]
+0x55fc	mov		rcx, qword ptr [rbp-448H]
+0x5603	call		4FCEH
+0x5608	jmp		59D7H
+
+Reference-UpdateDriverDxe.dll :
+0x4d2a	mov		rdx, qword ptr [rbp-250H]
+0x4d31	mov		rcx, qword ptr [rbp-248H]
+0x4d38	call		4828H
+0x4d3d	jmp		503CH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x5806 and Block 0x4e44 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5806	mov		rax, qword ptr [rbp-478H]
+0x580d	cmp		rsi, qword ptr [rax]
+0x5810	jnc		59C1H
+
+Reference-UpdateDriverDxe.dll :
+0x4e44	mov		rax, qword ptr [rbp-268H]
+0x4e4b	cmp		rsi, qword ptr [rax]
+0x4e4e	jnc		5026H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x59c1 and Block 0x5026 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x59c1	mov		rdx, qword ptr [rbp-450H]
+0x59c8	mov		rcx, qword ptr [rbp-448H]
+0x59cf	call		4FCEH
+0x59d4	xor		r15d, r15d
+
+Reference-UpdateDriverDxe.dll :
+0x5026	mov		rdx, qword ptr [rbp-250H]
+0x502d	mov		rcx, qword ptr [rbp-248H]
+0x5034	call		4828H
+0x5039	xor		r14d, r14d
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x59d7 and Block 0x503c matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x59d7	mov		rax, r15
+0x59da	add		rsp, 1128
+0x59e1	pop		rbx
+0x59e2	pop		rdi
+0x59e3	pop		rsi
+0x59e4	pop		r12
+0x59e6	pop		r13
+0x59e8	pop		r14
+0x59ea	pop		r15
+0x59ec	pop		rbp
+0x59ed	ret		
+
+Reference-UpdateDriverDxe.dll :
+0x503c	mov		rax, r14
+0x503f	add		rsp, 600
+0x5046	pop		rbx
+0x5047	pop		rdi
+0x5048	pop		rsi
+0x5049	pop		r12
+0x504b	pop		r13
+0x504d	pop		r14
+0x504f	pop		r15
+0x5051	pop		rbp
+0x5052	ret		
+
+---------------------------------------------------------------
+###################################################################
+---------------------------------------------------------------
+Block 0x55a4 and Block 0x4cd2 matched with 97%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x55a4	push		rbp
+0x55a5	mov		rbp, rsp
+0x55a8	push		r15
+0x55aa	push		r14
+0x55ac	push		r13
+0x55ae	push		r12
+0x55b0	push		rsi
+0x55b1	push		rdi
+0x55b2	push		rbx
+0x55b3	sub		rsp, 1128
+0x55ba	mov		qword ptr [rbp-478H], r9
+0x55c1	mov		rsi, r8
+0x55c4	mov		qword ptr [rbp-448H], 0
+0x55cf	mov		qword ptr [rbp-450H], 0
+0x55da	lea		r8, ptr [rbp-448H]
+0x55e1	lea		r9, ptr [rbp-450H]
+0x55e8	call		543AH
+0x55ed	mov		r15, rax
+0x55f0	test		r15, r15
+0x55f3	jns		560DH
+
+Reference-UpdateDriverDxe.dll :
+0x4cd2	push		rbp
+0x4cd3	mov		rbp, rsp
+0x4cd6	push		r15
+0x4cd8	push		r14
+0x4cda	push		r13
+0x4cdc	push		r12
+0x4cde	push		rsi
+0x4cdf	push		rdi
+0x4ce0	push		rbx
+0x4ce1	sub		rsp, 600
+0x4ce8	mov		rsi, r9
+0x4ceb	mov		qword ptr [rbp-270H], rsi
+0x4cf2	mov		qword ptr [rbp-268H], r8
+0x4cf9	mov		qword ptr [rbp-248H], 0
+0x4d04	mov		qword ptr [rbp-250H], 0
+0x4d0f	lea		r8, ptr [rbp-248H]
+0x4d16	lea		r9, ptr [rbp-250H]
+0x4d1d	call		4B79H
+0x4d22	mov		r14, rax
+0x4d25	test		r14, r14
+0x4d28	jns		4D42H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x560d and Block 0x4d42 matched with 82%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x560d	mov		qword ptr [rsi], 0
+0x5614	mov		rcx, qword ptr [rbp-448H]
+0x561b	lea		rdx, ptr DS:[886CH]
+0x5622	lea		r8, ptr DS:[8871H]
+0x5629	lea		r9, ptr [rbp-40H]
+0x562d	call		5074H
+0x5632	test		rax, rax
+0x5635	js		5643H
+
+Reference-UpdateDriverDxe.dll :
+0x4d42	mov		qword ptr [rbp-40H], 0
+0x4d4a	mov		rcx, qword ptr [rbp-248H]
+0x4d51	lea		rdx, ptr DS:[7839H]
+0x4d58	lea		r8, ptr DS:[783EH]
+0x4d5f	lea		r9, ptr [rbp-40H]
+0x4d63	call		48ACH
+0x4d68	mov		rcx, qword ptr [rbp-40H]
+0x4d6c	test		rcx, rcx
+0x4d6f	jnz		4D93H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x5671 and Block 0x4dd2 matched with 80%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5671	mov		rcx, qword ptr [rbp-40H]
+0x5675	call		5174H
+0x567a	test		rax, rax
+0x567d	jnz		56A1H
+
+Reference-UpdateDriverDxe.dll :
+0x4dd2	mov		rcx, qword ptr [rbp-40H]
+0x4dd6	lea		rdx, ptr DS:[7886H]
+0x4ddd	call		0A8EH
+0x4de2	test		rax, rax
+0x4de5	mov		r14, rsi
+0x4de8	jnz		4DF2H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x56a1 and Block 0x4d9d matched with 93%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x56a1	mov		r12, qword ptr [rbp+30H]
+0x56a5	mov		rcx, qword ptr [rbp-478H]
+0x56ac	mov		qword ptr [rcx], rax
+0x56af	imul		rcx, rax, 104
+0x56b3	call		30BH
+0x56b8	mov		qword ptr [r12], rax
+0x56bc	test		rax, rax
+0x56bf	je		59EEH
+
+Reference-UpdateDriverDxe.dll :
+0x4d9d	mov		rcx, qword ptr [rbp-268H]
+0x4da4	mov		qword ptr [rcx], rax
+0x4da7	imul		rcx, rax, 56
+0x4dab	call		165FH
+0x4db0	mov		qword ptr [rsi], rax
+0x4db3	test		rax, rax
+0x4db6	je		5053H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x56c5 and Block 0x4dbc matched with 72%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x56c5	xor		esi, esi
+0x56c7	lea		r14, ptr [rbp-40H]
+0x56cb	lea		rdi, ptr [rbp-460H]
+0x56d2	lea		r13, ptr [rbp-440H]
+0x56d9	mov		qword ptr [rbp-468H], 0
+0x56e4	jmp		5806H
+
+Reference-UpdateDriverDxe.dll :
+0x4dbc	xor		esi, esi
+0x4dbe	lea		rbx, ptr [rbp-240H]
+0x4dc5	lea		r14, ptr [rbp-40H]
+0x4dc9	lea		r13, ptr [rbp-260H]
+0x4dd0	jmp		4E44H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x574a and Block 0x4e7e matched with 73%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x574a	mov		rcx, r13
+0x574d	lea		rdx, ptr DS:[88B8H]
+0x5754	call		4BEH
+0x5759	mov		rcx, r13
+0x575c	mov		rdx, rsi
+0x575f	call		5270H
+0x5764	mov		rax, qword ptr [r12]
+0x5768	mov		qword ptr [rax+rbx+48H], 0
+0x5771	mov		qword ptr [rax+rbx+50H], 0
+0x577a	mov		rcx, qword ptr [rbp-448H]
+0x5781	mov		rdx, rdi
+0x5784	mov		r8, r13
+0x5787	mov		r9, r14
+0x578a	call		5074H
+0x578f	test		rax, rax
+0x5792	jns		56E9H
+
+Reference-UpdateDriverDxe.dll :
+0x4e7e	mov		rcx, rdi
+0x4e81	mov		rdx, rsi
+0x4e84	mov		r12, rsi
+0x4e87	call		498EH
+0x4e8c	mov		byte ptr [rdi+rax], 0
+0x4e90	mov		qword ptr [rbp-40H], 0
+0x4e98	mov		rcx, qword ptr [rbp-248H]
+0x4e9f	lea		rdx, ptr DS:[7839H]
+0x4ea6	mov		r8, rbx
+0x4ea9	mov		r9, r14
+0x4eac	call		48ACH
+0x4eb1	mov		r15, qword ptr [rbp-40H]
+0x4eb5	test		r15, r15
+0x4eb8	je		4D71H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x5866 and Block 0x4ebe matched with 76%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5866	mov		rbx, rdi
+0x5869	mov		rcx, qword ptr [rbp-448H]
+0x5870	mov		rdi, qword ptr [rbp-40H]
+0x5874	mov		rdx, rdi
+0x5877	lea		r8, ptr DS:[888FH]
+0x587e	mov		r9, r14
+0x5881	call		5074H
+0x5886	mov		r15, rax
+0x5889	test		r15, r15
+0x588c	js		55F5H
+
+Reference-UpdateDriverDxe.dll :
+0x4ebe	mov		qword ptr [rbp-40H], 0
+0x4ec6	mov		rcx, qword ptr [rbp-248H]
+0x4ecd	mov		rdx, r15
+0x4ed0	lea		r8, ptr DS:[7851H]
+0x4ed7	mov		r9, r14
+0x4eda	mov		rsi, r14
+0x4edd	call		48ACH
+0x4ee2	mov		r14, rax
+0x4ee5	mov		rcx, qword ptr [rbp-40H]
+0x4ee9	test		rcx, rcx
+0x4eec	je		4D71H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x5892 and Block 0x4ef2 matched with 85%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5892	mov		rcx, qword ptr [rbp-40H]
+0x5896	call		5174H
+0x589b	cmp		rax, 6
+0x589f	jnc		55F5H
+
+Reference-UpdateDriverDxe.dll :
+0x4ef2	call		491BH
+0x4ef7	cmp		rax, 3
+0x4efb	jnc		4D2AH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x5923 and Block 0x4f80 matched with 90%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5923	mov		rcx, qword ptr [rbp-40H]
+0x5927	mov		rdx, rbx
+0x592a	call		529EH
+0x592f	mov		r15, rax
+0x5932	test		r15, r15
+0x5935	js		55F5H
+
+Reference-UpdateDriverDxe.dll :
+0x4f80	mov		rdx, r13
+0x4f83	call		4A1BH
+0x4f88	mov		r14, rax
+0x4f8b	test		r14, r14
+0x4f8e	js		4D2AH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x593b and Block 0x4f94 matched with 74%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x593b	mov		rax, qword ptr [rsi]
+0x593e	lea		rcx, ptr [rax+r14+18H]
+0x5943	mov		rax, qword ptr DS:[0ACA8H]
+0x594a	mov		rdx, rbx
+0x594d	mov		r8d, 16
+0x5953	call		qword ptr [rax+160H]
+0x5959	mov		rax, qword ptr [rsi]
+0x595c	mov		rbx, rsi
+0x595f	mov		byte ptr [rax+r14+30H], 0
+0x5965	mov		rsi, r14
+0x5968	mov		rcx, qword ptr [rbp-448H]
+0x596f	mov		rdx, rdi
+0x5972	lea		r8, ptr DS:[88B1H]
+0x5979	lea		r14, ptr [rbp-40H]
+0x597d	mov		r9, r14
+0x5980	call		5074H
+0x5985	mov		r15, rax
+0x5988	test		r15, r15
+0x598b	js		55F5H
+
+Reference-UpdateDriverDxe.dll :
+0x4f94	mov		rax, qword ptr [rbx]
+0x4f97	lea		rcx, ptr [rax+rdi+18H]
+0x4f9c	mov		rdx, r13
+0x4f9f	mov		r8d, 16
+0x4fa5	call		444H
+0x4faa	mov		qword ptr [rbp-40H], 0
+0x4fb2	mov		rax, qword ptr [rbx]
+0x4fb5	mov		byte ptr [rax+rdi+30H], 0
+0x4fba	mov		rcx, qword ptr [rbp-248H]
+0x4fc1	mov		rdx, r15
+0x4fc4	lea		r8, ptr DS:[7873H]
+0x4fcb	mov		r9, rsi
+0x4fce	call		48ACH
+0x4fd3	mov		r14, rax
+0x4fd6	test		r14, r14
+0x4fd9	jns		4FEEH
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x543a func total block : 18
+Reference-UpdateDriverDxe.dll:0x4b79 func total block : 18
+total matched block : 13
+---------------------------------------------------------------
+Block 0x548f and Block 0x4bcd matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x548f	add		r13, r15
+0x5492	xor		ebx, ebx
+
+Reference-UpdateDriverDxe.dll :
+0x4bcd	add		r13, rbx
+0x4bd0	xor		edi, edi
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x5494 and Block 0x4bd2 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5494	cmp		r15, r13
+0x5497	jnc		5575H
+
+Reference-UpdateDriverDxe.dll :
+0x4bd2	cmp		rbx, r13
+0x4bd5	jnc		4CA8H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x549d and Block 0x4bdb matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x549d	mov		qword ptr [rbp-40H], r14
+0x54a1	mov		rdx, r13
+0x54a4	sub		rdx, r15
+0x54a7	mov		rcx, r15
+0x54aa	mov		r8, rsi
+0x54ad	lea		r9, ptr [rbp-40H]
+0x54b1	call		4B61H
+0x54b6	mov		rbx, rax
+0x54b9	test		rbx, rbx
+0x54bc	js		54C4H
+
+Reference-UpdateDriverDxe.dll :
+0x4bdb	mov		qword ptr [rbp-40H], r12
+0x4bdf	mov		rdx, r13
+0x4be2	sub		rdx, rbx
+0x4be5	mov		rcx, rbx
+0x4be8	mov		r8, rsi
+0x4beb	lea		r9, ptr [rbp-40H]
+0x4bef	call		4418H
+0x4bf4	mov		rdi, rax
+0x4bf7	test		rdi, rdi
+0x4bfa	js		4C02H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x54be and Block 0x4bfc matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x54be	mov		rdi, qword ptr [rbp-40H]
+0x54c2	jmp		551DH
+
+Reference-UpdateDriverDxe.dll :
+0x4bfc	mov		r14, qword ptr [rbp-40H]
+0x4c00	jmp		4C56H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x54c4 and Block 0x4c02 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x54c4	mov		rax, 5H
+0x54ce	cmp		rbx, rax
+0x54d1	jne		5575H
+
+Reference-UpdateDriverDxe.dll :
+0x4c02	mov		rax, 5H
+0x4c0c	cmp		rdi, rax
+0x4c0f	jne		4CA8H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x54fc and Block 0x4c35 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x54fc	mov		rcx, r15
+0x54ff	mov		rdx, rbx
+0x5502	mov		r8, rsi
+0x5505	lea		r9, ptr [rbp-40H]
+0x5509	call		4B61H
+0x550e	mov		rbx, rax
+0x5511	test		rbx, rbx
+0x5514	js		5575H
+
+Reference-UpdateDriverDxe.dll :
+0x4c35	mov		rcx, rbx
+0x4c38	mov		rdx, rdi
+0x4c3b	mov		r8, rsi
+0x4c3e	lea		r9, ptr [rbp-40H]
+0x4c42	call		4418H
+0x4c47	mov		rdi, rax
+0x4c4a	test		rdi, rdi
+0x4c4d	js		4CA8H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x5516 and Block 0x4c4f matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5516	mov		rdi, qword ptr [rbp-40H]
+0x551a	mov		r14, rdi
+
+Reference-UpdateDriverDxe.dll :
+0x4c4f	mov		r14, qword ptr [rbp-40H]
+0x4c53	mov		r12, r14
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x553c and Block 0x4c72 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x553c	mov		al, byte ptr [rsi]
+0x553e	mov		rcx, rsi
+0x5541	cmp		al, 91
+0x5543	jz		5554H
+
+Reference-UpdateDriverDxe.dll :
+0x4c72	mov		al, byte ptr [rsi]
+0x4c74	mov		rcx, rsi
+0x4c77	cmp		al, 91
+0x4c79	jz		4C8AH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x5545 and Block 0x4c7b matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5545	cmp		al, 35
+0x5547	jnz		555EH
+
+Reference-UpdateDriverDxe.dll :
+0x4c7b	cmp		al, 35
+0x4c7d	jnz		4C94H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x5549 and Block 0x4c7f matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5549	mov		r8, qword ptr [rbp-48H]
+0x554d	call		4CB9H
+0x5552	jmp		5566H
+
+Reference-UpdateDriverDxe.dll :
+0x4c7f	mov		r8, qword ptr [rbp-48H]
+0x4c83	call		4540H
+0x4c88	jmp		4C9CH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x5554 and Block 0x4c8a matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5554	mov		r8, r12
+0x5557	call		4D3AH
+0x555c	jmp		5566H
+
+Reference-UpdateDriverDxe.dll :
+0x4c8a	mov		r8, r15
+0x4c8d	call		45C3H
+0x4c92	jmp		4C9CH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x555e and Block 0x4c94 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x555e	mov		r8, r12
+0x5561	call		4E11H
+
+Reference-UpdateDriverDxe.dll :
+0x4c94	mov		r8, r15
+0x4c97	call		4695H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x5582 and Block 0x4cb0 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5582	mov		rax, rbx
+0x5585	add		rsp, 56
+0x5589	pop		rbx
+0x558a	pop		rdi
+0x558b	pop		rsi
+0x558c	pop		r12
+0x558e	pop		r13
+0x5590	pop		r14
+0x5592	pop		r15
+0x5594	pop		rbp
+0x5595	ret		
+
+Reference-UpdateDriverDxe.dll :
+0x4cb0	mov		rax, rdi
+0x4cb3	add		rsp, 56
+0x4cb7	pop		rbx
+0x4cb8	pop		rdi
+0x4cb9	pop		rsi
+0x4cba	pop		r12
+0x4cbc	pop		r13
+0x4cbe	pop		r14
+0x4cc0	pop		r15
+0x4cc2	pop		rbp
+0x4cc3	ret		
+
+---------------------------------------------------------------
+###################################################################
+---------------------------------------------------------------
+Block 0x543a and Block 0x4b79 matched with 91%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x543a	push		rbp
+0x543b	mov		rbp, rsp
+0x543e	push		r15
+0x5440	push		r14
+0x5442	push		r13
+0x5444	push		r12
+0x5446	push		rsi
+0x5447	push		rdi
+0x5448	push		rbx
+0x5449	sub		rsp, 56
+0x544d	mov		r12, r8
+0x5450	mov		r13, rdx
+0x5453	mov		r15, rcx
+0x5456	mov		qword ptr [r12], 0
+0x545e	mov		qword ptr [r9], 0
+0x5465	mov		qword ptr [rbp-48H], r9
+0x5469	mov		r14d, 512
+0x546f	mov		ecx, 512
+0x5474	call		30BH
+0x5479	mov		rsi, rax
+0x547c	mov		rbx, 9H
+0x5486	test		rsi, rsi
+0x5489	je		5582H
+
+Reference-UpdateDriverDxe.dll :
+0x4b79	push		rbp
+0x4b7a	mov		rbp, rsp
+0x4b7d	push		r15
+0x4b7f	push		r14
+0x4b81	push		r13
+0x4b83	push		r12
+0x4b85	push		rsi
+0x4b86	push		rdi
+0x4b87	push		rbx
+0x4b88	sub		rsp, 56
+0x4b8c	mov		qword ptr [rbp-48H], r9
+0x4b90	mov		r15, r8
+0x4b93	mov		r13, rdx
+0x4b96	mov		rbx, rcx
+0x4b99	mov		qword ptr [r15], 0
+0x4ba0	mov		qword ptr [r9], 0
+0x4ba7	mov		r12d, 512
+0x4bad	mov		ecx, 512
+0x4bb2	call		165FH
+0x4bb7	mov		rsi, rax
+0x4bba	mov		rdi, 9H
+0x4bc4	test		rsi, rsi
+0x4bc7	je		4CB0H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x54d7 and Block 0x4c15 matched with 70%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x54d7	mov		rax, qword ptr DS:[0ACA8H]
+0x54de	mov		rcx, rsi
+0x54e1	call		qword ptr [rax+48H]
+0x54e4	mov		rbx, qword ptr [rbp-40H]
+0x54e8	mov		rcx, rbx
+0x54eb	call		30BH
+0x54f0	mov		rsi, rax
+0x54f3	test		rsi, rsi
+0x54f6	je		5596H
+
+Reference-UpdateDriverDxe.dll :
+0x4c15	mov		rcx, rsi
+0x4c18	call		1757H
+0x4c1d	mov		rdi, qword ptr [rbp-40H]
+0x4c21	mov		rcx, rdi
+0x4c24	call		165FH
+0x4c29	mov		rsi, rax
+0x4c2c	test		rsi, rsi
+0x4c2f	je		4CC4H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x551d and Block 0x4c56 matched with 93%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x551d	mov		rcx, rsi
+0x5520	lea		rdx, ptr [rbp-40H]
+0x5524	call		4C0EH
+0x5529	add		rdi, r15
+0x552c	mov		rdx, qword ptr [rbp-40H]
+0x5530	test		rdx, rdx
+0x5533	mov		r15, rdi
+0x5536	je		5494H
+
+Reference-UpdateDriverDxe.dll :
+0x4c56	mov		rcx, rsi
+0x4c59	lea		rdx, ptr [rbp-40H]
+0x4c5d	call		44A4H
+0x4c62	add		rbx, r14
+0x4c65	mov		rdx, qword ptr [rbp-40H]
+0x4c69	test		rdx, rdx
+0x4c6c	je		4BD2H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x5566 and Block 0x4c9c matched with 85%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5566	mov		rbx, rax
+0x5569	test		rbx, rbx
+0x556c	mov		r15, rdi
+0x556f	jns		5494H
+
+Reference-UpdateDriverDxe.dll :
+0x4c9c	mov		rdi, rax
+0x4c9f	test		rdi, rdi
+0x4ca2	jns		4BD2H
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x30b func total block : 1
+Reference-UpdateDriverDxe.dll:0x165f func total block : 1
+total matched block : 0
+###################################################################
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x4b61 func total block : 15
+Reference-UpdateDriverDxe.dll:0x4418 func total block : 12
+total matched block : 7
+---------------------------------------------------------------
+Block 0x4b61 and Block 0x4418 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4b61	push		rbp
+0x4b62	mov		rbp, rsp
+0x4b65	push		r14
+0x4b67	push		rsi
+0x4b68	push		rdi
+0x4b69	push		rbx
+0x4b6a	sub		rsp, 32
+0x4b6e	mov		rdi, r9
+0x4b71	mov		r14, r8
+0x4b74	mov		rsi, rdx
+0x4b77	mov		rbx, rcx
+0x4b7a	lea		rcx, ptr [rbx+rsi]
+0x4b7e	mov		rax, rbx
+0x4b81	jmp		4B86H
+
+Reference-UpdateDriverDxe.dll :
+0x4418	push		rbp
+0x4419	mov		rbp, rsp
+0x441c	push		r14
+0x441e	push		rsi
+0x441f	push		rdi
+0x4420	push		rbx
+0x4421	sub		rsp, 32
+0x4425	mov		rdi, r9
+0x4428	mov		r14, r8
+0x442b	mov		rsi, rdx
+0x442e	mov		rbx, rcx
+0x4431	lea		rcx, ptr [rbx+rsi]
+0x4435	mov		rax, rbx
+0x4438	jmp		443DH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4b83 and Block 0x443a matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4b83	inc		rax
+
+Reference-UpdateDriverDxe.dll :
+0x443a	inc		rax
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4b86 and Block 0x443d matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4b86	cmp		rax, rcx
+0x4b89	jnc		4B97H
+
+Reference-UpdateDriverDxe.dll :
+0x443d	cmp		rax, rcx
+0x4440	jnc		4447H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4ba1 and Block 0x4442 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4ba1	cmp		byte ptr [rax], 13
+0x4ba4	jnz		4BB3H
+
+Reference-UpdateDriverDxe.dll :
+0x4442	cmp		byte ptr [rax], 13
+0x4445	jnz		443AH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4bbe and Block 0x4464 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4bbe	mov		rdx, qword ptr [rdi]
+0x4bc1	cmp		rsi, rdx
+0x4bc4	jbe		4BD5H
+
+Reference-UpdateDriverDxe.dll :
+0x4464	mov		rdx, qword ptr [rdi]
+0x4467	cmp		rsi, rdx
+0x446a	jbe		447BH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4bc6 and Block 0x446c matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4bc6	mov		qword ptr [rdi], rsi
+0x4bc9	mov		rax, 5H
+0x4bd3	jmp		4C03H
+
+Reference-UpdateDriverDxe.dll :
+0x446c	mov		qword ptr [rdi], rsi
+0x446f	mov		rax, 5H
+0x4479	jmp		4499H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c03 and Block 0x4499 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c03	add		rsp, 32
+0x4c07	pop		rbx
+0x4c08	pop		rdi
+0x4c09	pop		rsi
+0x4c0a	pop		r14
+0x4c0c	pop		rbp
+0x4c0d	ret		
+
+Reference-UpdateDriverDxe.dll :
+0x4499	add		rsp, 32
+0x449d	pop		rbx
+0x449e	pop		rdi
+0x449f	pop		rsi
+0x44a0	pop		r14
+0x44a2	pop		rbp
+0x44a3	ret		
+
+---------------------------------------------------------------
+###################################################################
+---------------------------------------------------------------
+Block 0x4bd5 and Block 0x447b matched with 70%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4bd5	mov		rax, qword ptr DS:[0ACA8H]
+0x4bdc	mov		rcx, r14
+0x4bdf	xor		r8d, r8d
+0x4be2	call		qword ptr [rax+168H]
+0x4be8	mov		qword ptr [rdi], rsi
+0x4beb	mov		rax, qword ptr DS:[0ACA8H]
+0x4bf2	mov		rcx, r14
+0x4bf5	mov		rdx, rbx
+0x4bf8	mov		r8, rsi
+0x4bfb	call		qword ptr [rax+160H]
+0x4c01	xor		eax, eax
+
+Reference-UpdateDriverDxe.dll :
+0x447b	mov		rcx, r14
+0x447e	xor		r8d, r8d
+0x4481	call		3D8H
+0x4486	mov		qword ptr [rdi], rsi
+0x4489	mov		rcx, r14
+0x448c	mov		rdx, rbx
+0x448f	mov		r8, rsi
+0x4492	call		444H
+0x4497	xor		eax, eax
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x30b func total block : 1
+Reference-UpdateDriverDxe.dll:0x165f func total block : 1
+total matched block : 0
+###################################################################
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x4b61 func total block : 15
+Reference-UpdateDriverDxe.dll:0x4418 func total block : 12
+total matched block : 7
+---------------------------------------------------------------
+Block 0x4b61 and Block 0x4418 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4b61	push		rbp
+0x4b62	mov		rbp, rsp
+0x4b65	push		r14
+0x4b67	push		rsi
+0x4b68	push		rdi
+0x4b69	push		rbx
+0x4b6a	sub		rsp, 32
+0x4b6e	mov		rdi, r9
+0x4b71	mov		r14, r8
+0x4b74	mov		rsi, rdx
+0x4b77	mov		rbx, rcx
+0x4b7a	lea		rcx, ptr [rbx+rsi]
+0x4b7e	mov		rax, rbx
+0x4b81	jmp		4B86H
+
+Reference-UpdateDriverDxe.dll :
+0x4418	push		rbp
+0x4419	mov		rbp, rsp
+0x441c	push		r14
+0x441e	push		rsi
+0x441f	push		rdi
+0x4420	push		rbx
+0x4421	sub		rsp, 32
+0x4425	mov		rdi, r9
+0x4428	mov		r14, r8
+0x442b	mov		rsi, rdx
+0x442e	mov		rbx, rcx
+0x4431	lea		rcx, ptr [rbx+rsi]
+0x4435	mov		rax, rbx
+0x4438	jmp		443DH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4b83 and Block 0x443a matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4b83	inc		rax
+
+Reference-UpdateDriverDxe.dll :
+0x443a	inc		rax
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4b86 and Block 0x443d matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4b86	cmp		rax, rcx
+0x4b89	jnc		4B97H
+
+Reference-UpdateDriverDxe.dll :
+0x443d	cmp		rax, rcx
+0x4440	jnc		4447H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4ba1 and Block 0x4442 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4ba1	cmp		byte ptr [rax], 13
+0x4ba4	jnz		4BB3H
+
+Reference-UpdateDriverDxe.dll :
+0x4442	cmp		byte ptr [rax], 13
+0x4445	jnz		443AH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4bbe and Block 0x4464 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4bbe	mov		rdx, qword ptr [rdi]
+0x4bc1	cmp		rsi, rdx
+0x4bc4	jbe		4BD5H
+
+Reference-UpdateDriverDxe.dll :
+0x4464	mov		rdx, qword ptr [rdi]
+0x4467	cmp		rsi, rdx
+0x446a	jbe		447BH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4bc6 and Block 0x446c matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4bc6	mov		qword ptr [rdi], rsi
+0x4bc9	mov		rax, 5H
+0x4bd3	jmp		4C03H
+
+Reference-UpdateDriverDxe.dll :
+0x446c	mov		qword ptr [rdi], rsi
+0x446f	mov		rax, 5H
+0x4479	jmp		4499H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c03 and Block 0x4499 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c03	add		rsp, 32
+0x4c07	pop		rbx
+0x4c08	pop		rdi
+0x4c09	pop		rsi
+0x4c0a	pop		r14
+0x4c0c	pop		rbp
+0x4c0d	ret		
+
+Reference-UpdateDriverDxe.dll :
+0x4499	add		rsp, 32
+0x449d	pop		rbx
+0x449e	pop		rdi
+0x449f	pop		rsi
+0x44a0	pop		r14
+0x44a2	pop		rbp
+0x44a3	ret		
+
+---------------------------------------------------------------
+###################################################################
+---------------------------------------------------------------
+Block 0x4bd5 and Block 0x447b matched with 70%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4bd5	mov		rax, qword ptr DS:[0ACA8H]
+0x4bdc	mov		rcx, r14
+0x4bdf	xor		r8d, r8d
+0x4be2	call		qword ptr [rax+168H]
+0x4be8	mov		qword ptr [rdi], rsi
+0x4beb	mov		rax, qword ptr DS:[0ACA8H]
+0x4bf2	mov		rcx, r14
+0x4bf5	mov		rdx, rbx
+0x4bf8	mov		r8, rsi
+0x4bfb	call		qword ptr [rax+160H]
+0x4c01	xor		eax, eax
+
+Reference-UpdateDriverDxe.dll :
+0x447b	mov		rcx, r14
+0x447e	xor		r8d, r8d
+0x4481	call		3D8H
+0x4486	mov		qword ptr [rdi], rsi
+0x4489	mov		rcx, r14
+0x448c	mov		rdx, rbx
+0x448f	mov		r8, rsi
+0x4492	call		444H
+0x4497	xor		eax, eax
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x4c0e func total block : 18
+Reference-UpdateDriverDxe.dll:0x44a4 func total block : 18
+total matched block : 14
+---------------------------------------------------------------
+Block 0x4c1e and Block 0x44b1 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c1e	lea		r10, ptr [rcx+rax-1H]
+0x4c23	mov		rax, 2600H
+0x4c2d	jmp		4C42H
+
+Reference-UpdateDriverDxe.dll :
+0x44b1	lea		r8, ptr [rcx+rax-1H]
+0x44b6	mov		rax, 2600H
+0x44c0	jmp		44D5H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c2f and Block 0x44c2 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c2f	movzx		edx, byte ptr [r10]
+0x4c33	cmp		rdx, 32
+0x4c37	ja		4C50H
+
+Reference-UpdateDriverDxe.dll :
+0x44c2	movzx		esi, byte ptr [r8]
+0x44c6	cmp		rsi, 32
+0x44ca	ja		44E3H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c39 and Block 0x44cc matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c39	bt		rax, rdx
+0x4c3d	jnc		4C50H
+
+Reference-UpdateDriverDxe.dll :
+0x44cc	bt		rax, rsi
+0x44d0	jnc		44E3H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c3f and Block 0x44d2 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c3f	dec		r10
+
+Reference-UpdateDriverDxe.dll :
+0x44d2	dec		r8
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c42 and Block 0x44d5 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c42	cmp		r10, rcx
+0x4c45	jnc		4C2FH
+
+Reference-UpdateDriverDxe.dll :
+0x44d5	cmp		r8, rcx
+0x44d8	jnc		44C2H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c47 and Block 0x44da matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c47	mov		qword ptr [r8], 0
+0x4c4e	jmp		4CB7H
+
+Reference-UpdateDriverDxe.dll :
+0x44da	mov		qword ptr [rdx], 0
+0x44e1	jmp		453EH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c50 and Block 0x44e3 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c50	mov		r9d, 1
+0x4c56	sub		r9, rcx
+0x4c59	add		r9, r10
+0x4c5c	xor		eax, eax
+0x4c5e	mov		r11, 2600H
+0x4c68	jmp		4C6DH
+
+Reference-UpdateDriverDxe.dll :
+0x44e3	mov		r9d, 1
+0x44e9	sub		r9, rcx
+0x44ec	add		r9, r8
+0x44ef	xor		r10d, r10d
+0x44f2	mov		r11, 2600H
+0x44fc	jmp		4501H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c6a and Block 0x44fe matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c6a	inc		rax
+
+Reference-UpdateDriverDxe.dll :
+0x44fe	inc		r10
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c6d and Block 0x4501 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c6d	lea		rdx, ptr [rcx+rax]
+0x4c71	cmp		rdx, r10
+0x4c74	ja		4C85H
+
+Reference-UpdateDriverDxe.dll :
+0x4501	lea		rax, ptr [rcx+r10]
+0x4505	cmp		rax, r8
+0x4508	ja		4519H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c76 and Block 0x450a matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c76	movzx		esi, byte ptr [rdx]
+0x4c79	cmp		rsi, 32
+0x4c7d	ja		4C85H
+
+Reference-UpdateDriverDxe.dll :
+0x450a	movzx		esi, byte ptr [rax]
+0x450d	cmp		rsi, 32
+0x4511	ja		4519H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c7f and Block 0x4513 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c7f	bt		r11, rsi
+0x4c83	jc		4C6AH
+
+Reference-UpdateDriverDxe.dll :
+0x4513	bt		r11, rsi
+0x4517	jc		44FEH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c85 and Block 0x4519 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c85	test		rax, rax
+0x4c88	jnz		4C8FH
+
+Reference-UpdateDriverDxe.dll :
+0x4519	test		r10, r10
+0x451c	jnz		4523H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c8a and Block 0x451e matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c8a	mov		qword ptr [r8], r9
+0x4c8d	jmp		4CB7H
+
+Reference-UpdateDriverDxe.dll :
+0x451e	mov		qword ptr [rdx], r9
+0x4521	jmp		453EH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4cb7 and Block 0x453e matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4cb7	pop		rsi
+0x4cb8	ret		
+
+Reference-UpdateDriverDxe.dll :
+0x453e	pop		rsi
+0x453f	ret		
+
+---------------------------------------------------------------
+###################################################################
+---------------------------------------------------------------
+Block 0x4c0e and Block 0x44a4 matched with 88%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c0e	push		rsi
+0x4c0f	mov		r8, rdx
+0x4c12	mov		rax, qword ptr [r8]
+0x4c15	test		rax, rax
+0x4c18	je		4CB7H
+
+Reference-UpdateDriverDxe.dll :
+0x44a4	push		rsi
+0x44a5	mov		rax, qword ptr [rdx]
+0x44a8	test		rax, rax
+0x44ab	je		453EH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4ca0 and Block 0x452f matched with 72%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4ca0	mov		r8b, byte ptr [rdx+rax]
+0x4ca4	mov		byte ptr [rcx], r8b
+0x4ca7	lea		r8, ptr [rdx+rax+1H]
+0x4cac	inc		rax
+0x4caf	inc		rcx
+0x4cb2	cmp		r8, r10
+0x4cb5	jbe		4CA0H
+
+Reference-UpdateDriverDxe.dll :
+0x452f	mov		dl, byte ptr [rax]
+0x4531	mov		byte ptr [rcx], dl
+0x4533	inc		rcx
+0x4536	inc		rax
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x4cb9 func total block : 4
+Reference-UpdateDriverDxe.dll:0x4540 func total block : 5
+total matched block : 2
+---------------------------------------------------------------
+Block 0x4cb9 and Block 0x4540 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4cb9	push		rbp
+0x4cba	mov		rbp, rsp
+0x4cbd	push		r14
+0x4cbf	push		rsi
+0x4cc0	push		rdi
+0x4cc1	push		rbx
+0x4cc2	sub		rsp, 32
+0x4cc6	mov		rdi, r8
+0x4cc9	mov		rsi, rdx
+0x4ccc	mov		r14, rcx
+0x4ccf	mov		ecx, 16
+0x4cd4	call		30BH
+0x4cd9	mov		rbx, rax
+0x4cdc	mov		rax, 9H
+0x4ce6	test		rbx, rbx
+0x4ce9	jz		4D2FH
+
+Reference-UpdateDriverDxe.dll :
+0x4540	push		rbp
+0x4541	mov		rbp, rsp
+0x4544	push		r14
+0x4546	push		rsi
+0x4547	push		rdi
+0x4548	push		rbx
+0x4549	sub		rsp, 32
+0x454d	mov		rbx, r8
+0x4550	mov		rsi, rdx
+0x4553	mov		r14, rcx
+0x4556	mov		ecx, 16
+0x455b	call		165FH
+0x4560	mov		rdi, rax
+0x4563	mov		rax, 9H
+0x456d	test		rdi, rdi
+0x4570	jz		45B8H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4d2f and Block 0x45b8 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4d2f	add		rsp, 32
+0x4d33	pop		rbx
+0x4d34	pop		rdi
+0x4d35	pop		rsi
+0x4d36	pop		r14
+0x4d38	pop		rbp
+0x4d39	ret		
+
+Reference-UpdateDriverDxe.dll :
+0x45b8	add		rsp, 32
+0x45bc	pop		rbx
+0x45bd	pop		rdi
+0x45be	pop		rsi
+0x45bf	pop		r14
+0x45c1	pop		rbp
+0x45c2	ret		
+
+---------------------------------------------------------------
+###################################################################
+---------------------------------------------------------------
+Block 0x4ceb and Block 0x4572 matched with 77%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4ceb	mov		rax, qword ptr [rdi]
+0x4cee	mov		qword ptr [rbx+8H], rax
+0x4cf2	mov		qword ptr [rdi], rbx
+0x4cf5	lea		rcx, ptr [rsi+1H]
+0x4cf9	call		30BH
+0x4cfe	mov		rcx, rax
+0x4d01	mov		qword ptr [rbx], rcx
+0x4d04	mov		rax, 9H
+0x4d0e	test		rcx, rcx
+0x4d11	jz		4D2FH
+
+Reference-UpdateDriverDxe.dll :
+0x4572	mov		rax, qword ptr [rbx]
+0x4575	mov		qword ptr [rdi+8H], rax
+0x4579	mov		qword ptr [rbx], rdi
+0x457c	lea		rcx, ptr [rsi+1H]
+0x4580	call		165FH
+0x4585	mov		qword ptr [rdi], rax
+0x4588	test		rax, rax
+0x458b	jnz		45A1H
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x30b func total block : 1
+Reference-UpdateDriverDxe.dll:0x165f func total block : 1
+total matched block : 0
+###################################################################
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x30b func total block : 1
+Reference-UpdateDriverDxe.dll:0x165f func total block : 1
+total matched block : 0
+###################################################################
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x4d3a func total block : 9
+Reference-UpdateDriverDxe.dll:0x45c3 func total block : 9
+total matched block : 3
+---------------------------------------------------------------
+Block 0x4d8b and Block 0x4617 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4d8b	mov		ecx, 40
+0x4d90	call		30BH
+0x4d95	mov		rdi, rax
+0x4d98	mov		rax, 9H
+0x4da2	test		rdi, rdi
+0x4da5	jz		4E06H
+
+Reference-UpdateDriverDxe.dll :
+0x4617	mov		ecx, 40
+0x461c	call		165FH
+0x4621	mov		rdi, rax
+0x4624	mov		rax, 9H
+0x462e	test		rdi, rdi
+0x4631	jz		468AH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4da7 and Block 0x4633 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4da7	mov		qword ptr [rdi], 0
+0x4dae	mov		qword ptr [rdi+8H], rbx
+0x4db2	mov		qword ptr [rdi+10H], 0
+0x4dba	mov		qword ptr [rdi+18H], 0
+0x4dc2	mov		rax, qword ptr [r14]
+0x4dc5	mov		qword ptr [rdi+20H], rax
+0x4dc9	mov		qword ptr [r14], rdi
+0x4dcc	lea		rcx, ptr [rbx+1H]
+0x4dd0	call		30BH
+0x4dd5	mov		rcx, rax
+0x4dd8	mov		rax, 9H
+0x4de2	mov		qword ptr [rdi], rcx
+0x4de5	test		rcx, rcx
+0x4de8	jz		4E06H
+
+Reference-UpdateDriverDxe.dll :
+0x4633	mov		qword ptr [rdi], 0
+0x463a	mov		qword ptr [rdi+8H], rbx
+0x463e	mov		qword ptr [rdi+10H], 0
+0x4646	mov		qword ptr [rdi+18H], 0
+0x464e	mov		rax, qword ptr [r14]
+0x4651	mov		qword ptr [rdi+20H], rax
+0x4655	mov		qword ptr [r14], rdi
+0x4658	lea		rcx, ptr [rbx+1H]
+0x465c	call		165FH
+0x4661	mov		rcx, rax
+0x4664	mov		rax, 9H
+0x466e	mov		qword ptr [rdi], rcx
+0x4671	test		rcx, rcx
+0x4674	jz		468AH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4e06 and Block 0x468a matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4e06	add		rsp, 48
+0x4e0a	pop		rbx
+0x4e0b	pop		rdi
+0x4e0c	pop		rsi
+0x4e0d	pop		r14
+0x4e0f	pop		rbp
+0x4e10	ret		
+
+Reference-UpdateDriverDxe.dll :
+0x468a	add		rsp, 48
+0x468e	pop		rbx
+0x468f	pop		rdi
+0x4690	pop		rsi
+0x4691	pop		r14
+0x4693	pop		rbp
+0x4694	ret		
+
+---------------------------------------------------------------
+###################################################################
+---------------------------------------------------------------
+Block 0x4d3a and Block 0x45c3 matched with 88%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4d3a	push		rbp
+0x4d3b	mov		rbp, rsp
+0x4d3e	push		r14
+0x4d40	push		rsi
+0x4d41	push		rdi
+0x4d42	push		rbx
+0x4d43	sub		rsp, 48
+0x4d47	mov		r14, r8
+0x4d4a	mov		rsi, rcx
+0x4d4d	lea		rcx, ptr [rdx+rsi-1H]
+0x4d52	xor		eax, eax
+0x4d54	cmp		rcx, rsi
+0x4d57	jbe		4E06H
+
+Reference-UpdateDriverDxe.dll :
+0x45c3	push		rbp
+0x45c4	mov		rbp, rsp
+0x45c7	push		r14
+0x45c9	push		rsi
+0x45ca	push		rdi
+0x45cb	push		rbx
+0x45cc	sub		rsp, 48
+0x45d0	mov		r14, r8
+0x45d3	mov		rsi, rcx
+0x45d6	lea		rcx, ptr [rdx+rsi-1H]
+0x45db	xor		eax, eax
+0x45dd	jmp		45E2H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4d69 and Block 0x45f0 matched with 81%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4d69	add		rdx, -2
+0x4d6d	mov		qword ptr [rbp-28H], rdx
+0x4d71	inc		rsi
+0x4d74	lea		rdx, ptr [rbp-28H]
+0x4d78	mov		rcx, rsi
+0x4d7b	call		4C0EH
+0x4d80	xor		eax, eax
+0x4d82	mov		rbx, qword ptr [rbp-28H]
+0x4d86	test		rbx, rbx
+0x4d89	jz		4E06H
+
+Reference-UpdateDriverDxe.dll :
+0x45f0	mov		rax, rsi
+0x45f3	not		rax
+0x45f6	add		rcx, rax
+0x45f9	mov		qword ptr [rbp-28H], rcx
+0x45fd	inc		rsi
+0x4600	lea		rdx, ptr [rbp-28H]
+0x4604	mov		rcx, rsi
+0x4607	call		44A4H
+0x460c	xor		eax, eax
+0x460e	mov		rbx, qword ptr [rbp-28H]
+0x4612	test		rbx, rbx
+0x4615	jz		468AH
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x4c0e func total block : 18
+Reference-UpdateDriverDxe.dll:0x44a4 func total block : 18
+total matched block : 14
+---------------------------------------------------------------
+Block 0x4c1e and Block 0x44b1 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c1e	lea		r10, ptr [rcx+rax-1H]
+0x4c23	mov		rax, 2600H
+0x4c2d	jmp		4C42H
+
+Reference-UpdateDriverDxe.dll :
+0x44b1	lea		r8, ptr [rcx+rax-1H]
+0x44b6	mov		rax, 2600H
+0x44c0	jmp		44D5H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c2f and Block 0x44c2 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c2f	movzx		edx, byte ptr [r10]
+0x4c33	cmp		rdx, 32
+0x4c37	ja		4C50H
+
+Reference-UpdateDriverDxe.dll :
+0x44c2	movzx		esi, byte ptr [r8]
+0x44c6	cmp		rsi, 32
+0x44ca	ja		44E3H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c39 and Block 0x44cc matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c39	bt		rax, rdx
+0x4c3d	jnc		4C50H
+
+Reference-UpdateDriverDxe.dll :
+0x44cc	bt		rax, rsi
+0x44d0	jnc		44E3H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c3f and Block 0x44d2 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c3f	dec		r10
+
+Reference-UpdateDriverDxe.dll :
+0x44d2	dec		r8
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c42 and Block 0x44d5 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c42	cmp		r10, rcx
+0x4c45	jnc		4C2FH
+
+Reference-UpdateDriverDxe.dll :
+0x44d5	cmp		r8, rcx
+0x44d8	jnc		44C2H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c47 and Block 0x44da matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c47	mov		qword ptr [r8], 0
+0x4c4e	jmp		4CB7H
+
+Reference-UpdateDriverDxe.dll :
+0x44da	mov		qword ptr [rdx], 0
+0x44e1	jmp		453EH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c50 and Block 0x44e3 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c50	mov		r9d, 1
+0x4c56	sub		r9, rcx
+0x4c59	add		r9, r10
+0x4c5c	xor		eax, eax
+0x4c5e	mov		r11, 2600H
+0x4c68	jmp		4C6DH
+
+Reference-UpdateDriverDxe.dll :
+0x44e3	mov		r9d, 1
+0x44e9	sub		r9, rcx
+0x44ec	add		r9, r8
+0x44ef	xor		r10d, r10d
+0x44f2	mov		r11, 2600H
+0x44fc	jmp		4501H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c6a and Block 0x44fe matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c6a	inc		rax
+
+Reference-UpdateDriverDxe.dll :
+0x44fe	inc		r10
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c6d and Block 0x4501 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c6d	lea		rdx, ptr [rcx+rax]
+0x4c71	cmp		rdx, r10
+0x4c74	ja		4C85H
+
+Reference-UpdateDriverDxe.dll :
+0x4501	lea		rax, ptr [rcx+r10]
+0x4505	cmp		rax, r8
+0x4508	ja		4519H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c76 and Block 0x450a matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c76	movzx		esi, byte ptr [rdx]
+0x4c79	cmp		rsi, 32
+0x4c7d	ja		4C85H
+
+Reference-UpdateDriverDxe.dll :
+0x450a	movzx		esi, byte ptr [rax]
+0x450d	cmp		rsi, 32
+0x4511	ja		4519H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c7f and Block 0x4513 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c7f	bt		r11, rsi
+0x4c83	jc		4C6AH
+
+Reference-UpdateDriverDxe.dll :
+0x4513	bt		r11, rsi
+0x4517	jc		44FEH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c85 and Block 0x4519 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c85	test		rax, rax
+0x4c88	jnz		4C8FH
+
+Reference-UpdateDriverDxe.dll :
+0x4519	test		r10, r10
+0x451c	jnz		4523H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c8a and Block 0x451e matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c8a	mov		qword ptr [r8], r9
+0x4c8d	jmp		4CB7H
+
+Reference-UpdateDriverDxe.dll :
+0x451e	mov		qword ptr [rdx], r9
+0x4521	jmp		453EH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4cb7 and Block 0x453e matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4cb7	pop		rsi
+0x4cb8	ret		
+
+Reference-UpdateDriverDxe.dll :
+0x453e	pop		rsi
+0x453f	ret		
+
+---------------------------------------------------------------
+###################################################################
+---------------------------------------------------------------
+Block 0x4c0e and Block 0x44a4 matched with 88%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c0e	push		rsi
+0x4c0f	mov		r8, rdx
+0x4c12	mov		rax, qword ptr [r8]
+0x4c15	test		rax, rax
+0x4c18	je		4CB7H
+
+Reference-UpdateDriverDxe.dll :
+0x44a4	push		rsi
+0x44a5	mov		rax, qword ptr [rdx]
+0x44a8	test		rax, rax
+0x44ab	je		453EH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4ca0 and Block 0x452f matched with 72%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4ca0	mov		r8b, byte ptr [rdx+rax]
+0x4ca4	mov		byte ptr [rcx], r8b
+0x4ca7	lea		r8, ptr [rdx+rax+1H]
+0x4cac	inc		rax
+0x4caf	inc		rcx
+0x4cb2	cmp		r8, r10
+0x4cb5	jbe		4CA0H
+
+Reference-UpdateDriverDxe.dll :
+0x452f	mov		dl, byte ptr [rax]
+0x4531	mov		byte ptr [rcx], dl
+0x4533	inc		rcx
+0x4536	inc		rax
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x30b func total block : 1
+Reference-UpdateDriverDxe.dll:0x165f func total block : 1
+total matched block : 0
+###################################################################
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x30b func total block : 1
+Reference-UpdateDriverDxe.dll:0x165f func total block : 1
+total matched block : 0
+###################################################################
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x4e11 func total block : 17
+Reference-UpdateDriverDxe.dll:0x4695 func total block : 17
+total matched block : 12
+---------------------------------------------------------------
+Block 0x4e11 and Block 0x4695 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4e11	push		rbp
+0x4e12	mov		rbp, rsp
+0x4e15	push		r15
+0x4e17	push		r14
+0x4e19	push		r13
+0x4e1b	push		r12
+0x4e1d	push		rsi
+0x4e1e	push		rdi
+0x4e1f	push		rbx
+0x4e20	sub		rsp, 40
+0x4e24	mov		r15, r8
+0x4e27	mov		r14, rcx
+0x4e2a	lea		rbx, ptr [rdx+r14-1H]
+0x4e2f	xor		eax, eax
+0x4e31	mov		rsi, rax
+0x4e34	jmp		4E39H
+
+Reference-UpdateDriverDxe.dll :
+0x4695	push		rbp
+0x4696	mov		rbp, rsp
+0x4699	push		r15
+0x469b	push		r14
+0x469d	push		r13
+0x469f	push		r12
+0x46a1	push		rsi
+0x46a2	push		rdi
+0x46a3	push		rbx
+0x46a4	sub		rsp, 40
+0x46a8	mov		r15, r8
+0x46ab	mov		r14, rcx
+0x46ae	lea		rbx, ptr [rdx+r14-1H]
+0x46b3	mov		rsi, r14
+0x46b6	xor		eax, eax
+0x46b8	jmp		46BDH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4e36 and Block 0x46ba matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4e36	inc		rsi
+
+Reference-UpdateDriverDxe.dll :
+0x46ba	inc		rsi
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4e46 and Block 0x46c6 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4e46	cmp		byte ptr [rcx], 61
+0x4e49	jnz		4E36H
+
+Reference-UpdateDriverDxe.dll :
+0x46c6	cmp		byte ptr [rsi], 61
+0x46c9	jnz		46BAH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4e6a and Block 0x46f0 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4e6a	mov		r13, qword ptr [r15]
+0x4e6d	xor		eax, eax
+0x4e6f	test		r13, r13
+0x4e72	je		4FBDH
+
+Reference-UpdateDriverDxe.dll :
+0x46f0	mov		r13, qword ptr [r15]
+0x46f3	xor		eax, eax
+0x46f5	test		r13, r13
+0x46f8	je		4817H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4e78 and Block 0x46fe matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4e78	mov		ecx, 40
+0x4e7d	call		30BH
+0x4e82	mov		r12, rax
+0x4e85	mov		rax, 9H
+0x4e8f	test		r12, r12
+0x4e92	je		4FBDH
+
+Reference-UpdateDriverDxe.dll :
+0x46fe	mov		ecx, 40
+0x4703	call		165FH
+0x4708	mov		rdi, rax
+0x470b	mov		rax, 9H
+0x4715	test		rdi, rdi
+0x4718	je		4817H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4e98 and Block 0x471e matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4e98	mov		qword ptr [r12], 0
+0x4ea0	mov		qword ptr [r12+10H], 0
+0x4ea9	mov		qword ptr [r12+18H], 0
+0x4eb2	mov		rax, qword ptr [r13+8H]
+0x4eb6	mov		qword ptr [r12+8H], rax
+0x4ebb	mov		rax, qword ptr [r15]
+0x4ebe	mov		qword ptr [r12+20H], rax
+0x4ec3	mov		qword ptr [r15], r12
+0x4ec6	mov		rcx, qword ptr [r13+8H]
+0x4eca	inc		rcx
+0x4ecd	call		30BH
+0x4ed2	mov		rcx, rax
+0x4ed5	mov		rax, 9H
+0x4edf	mov		qword ptr [r12], rcx
+0x4ee3	test		rcx, rcx
+0x4ee6	je		4FBDH
+
+Reference-UpdateDriverDxe.dll :
+0x471e	mov		qword ptr [rdi], 0
+0x4725	mov		qword ptr [rdi+10H], 0
+0x472d	mov		qword ptr [rdi+18H], 0
+0x4735	mov		rax, qword ptr [r13+8H]
+0x4739	mov		qword ptr [rdi+8H], rax
+0x473d	mov		rax, qword ptr [r15]
+0x4740	mov		qword ptr [rdi+20H], rax
+0x4744	mov		qword ptr [r15], rdi
+0x4747	mov		rcx, qword ptr [r13+8H]
+0x474b	inc		rcx
+0x474e	call		165FH
+0x4753	mov		rcx, rax
+0x4756	mov		rax, 9H
+0x4760	mov		qword ptr [rdi], rcx
+0x4763	test		rcx, rcx
+0x4766	je		4817H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4f54 and Block 0x47b8 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4f54	inc		rdi
+
+Reference-UpdateDriverDxe.dll :
+0x47b8	inc		rax
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4f57 and Block 0x47bb matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4f57	cmp		rdi, rbx
+0x4f5a	ja		4F61H
+
+Reference-UpdateDriverDxe.dll :
+0x47bb	cmp		rax, rbx
+0x47be	ja		47C5H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4f5c and Block 0x47c0 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4f5c	cmp		byte ptr [rdi], 35
+0x4f5f	jnz		4F54H
+
+Reference-UpdateDriverDxe.dll :
+0x47c0	cmp		byte ptr [rax], 35
+0x47c3	jnz		47B8H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4f61 and Block 0x47c5 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4f61	sub		rdi, rsi
+0x4f64	mov		qword ptr [rbp-40H], rdi
+0x4f68	lea		rdx, ptr [rbp-40H]
+0x4f6c	mov		rcx, rsi
+0x4f6f	call		4C0EH
+0x4f74	xor		eax, eax
+0x4f76	mov		rbx, qword ptr [rbp-40H]
+0x4f7a	test		rbx, rbx
+0x4f7d	jz		4FBDH
+
+Reference-UpdateDriverDxe.dll :
+0x47c5	sub		rax, rsi
+0x47c8	mov		qword ptr [rbp-40H], rax
+0x47cc	lea		rdx, ptr [rbp-40H]
+0x47d0	mov		rcx, rsi
+0x47d3	call		44A4H
+0x47d8	xor		eax, eax
+0x47da	mov		rbx, qword ptr [rbp-40H]
+0x47de	test		rbx, rbx
+0x47e1	jz		4817H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4f7f and Block 0x47e3 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4f7f	lea		rcx, ptr [rbx+1H]
+0x4f83	call		30BH
+0x4f88	mov		rcx, rax
+0x4f8b	mov		qword ptr [r12+18H], rcx
+0x4f90	mov		rax, 9H
+0x4f9a	test		rcx, rcx
+0x4f9d	jz		4FBDH
+
+Reference-UpdateDriverDxe.dll :
+0x47e3	lea		rcx, ptr [rbx+1H]
+0x47e7	call		165FH
+0x47ec	mov		rcx, rax
+0x47ef	mov		qword ptr [rdi+18H], rcx
+0x47f3	mov		rax, 9H
+0x47fd	test		rcx, rcx
+0x4800	jz		4817H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4fbd and Block 0x4817 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4fbd	add		rsp, 40
+0x4fc1	pop		rbx
+0x4fc2	pop		rdi
+0x4fc3	pop		rsi
+0x4fc4	pop		r12
+0x4fc6	pop		r13
+0x4fc8	pop		r14
+0x4fca	pop		r15
+0x4fcc	pop		rbp
+0x4fcd	ret		
+
+Reference-UpdateDriverDxe.dll :
+0x4817	add		rsp, 40
+0x481b	pop		rbx
+0x481c	pop		rdi
+0x481d	pop		rsi
+0x481e	pop		r12
+0x4820	pop		r13
+0x4822	pop		r14
+0x4824	pop		r15
+0x4826	pop		rbp
+0x4827	ret		
+
+---------------------------------------------------------------
+###################################################################
+---------------------------------------------------------------
+Block 0x4e39 and Block 0x46bd matched with 80%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4e39	lea		rcx, ptr [r14+rsi]
+0x4e3d	cmp		rcx, rbx
+0x4e40	ja		4FBDH
+
+Reference-UpdateDriverDxe.dll :
+0x46bd	cmp		rsi, rbx
+0x46c0	ja		4817H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4e4b and Block 0x46cb matched with 88%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4e4b	mov		qword ptr [rbp-40H], rsi
+0x4e4f	lea		rdx, ptr [rbp-40H]
+0x4e53	mov		rcx, r14
+0x4e56	call		4C0EH
+0x4e5b	xor		eax, eax
+0x4e5d	mov		rdi, qword ptr [rbp-40H]
+0x4e61	test		rdi, rdi
+0x4e64	je		4FBDH
+
+Reference-UpdateDriverDxe.dll :
+0x46cb	mov		rax, rsi
+0x46ce	sub		rax, r14
+0x46d1	mov		qword ptr [rbp-40H], rax
+0x46d5	lea		rdx, ptr [rbp-40H]
+0x46d9	mov		rcx, r14
+0x46dc	call		44A4H
+0x46e1	xor		eax, eax
+0x46e3	mov		r12, qword ptr [rbp-40H]
+0x46e7	test		r12, r12
+0x46ea	je		4817H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4eec and Block 0x476c matched with 78%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4eec	mov		rdx, qword ptr [r13]
+0x4ef0	mov		r8, qword ptr [r13+8H]
+0x4ef4	mov		rax, qword ptr DS:[0ACA8H]
+0x4efb	inc		r8
+0x4efe	call		qword ptr [rax+160H]
+0x4f04	lea		rcx, ptr [rdi+1H]
+0x4f08	call		30BH
+0x4f0d	mov		rcx, rax
+0x4f10	mov		qword ptr [r12+10H], rcx
+0x4f15	mov		rax, 9H
+0x4f1f	test		rcx, rcx
+0x4f22	je		4FBDH
+
+Reference-UpdateDriverDxe.dll :
+0x476c	mov		rdx, qword ptr [r13]
+0x4770	mov		r8, qword ptr [r13+8H]
+0x4774	inc		r8
+0x4777	call		444H
+0x477c	lea		rcx, ptr [r12+1H]
+0x4781	call		165FH
+0x4786	mov		rcx, rax
+0x4789	mov		qword ptr [rdi+10H], rcx
+0x478d	mov		rax, 9H
+0x4797	test		rcx, rcx
+0x479a	jz		4817H
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x4c0e func total block : 18
+Reference-UpdateDriverDxe.dll:0x44a4 func total block : 18
+total matched block : 14
+---------------------------------------------------------------
+Block 0x4c1e and Block 0x44b1 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c1e	lea		r10, ptr [rcx+rax-1H]
+0x4c23	mov		rax, 2600H
+0x4c2d	jmp		4C42H
+
+Reference-UpdateDriverDxe.dll :
+0x44b1	lea		r8, ptr [rcx+rax-1H]
+0x44b6	mov		rax, 2600H
+0x44c0	jmp		44D5H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c2f and Block 0x44c2 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c2f	movzx		edx, byte ptr [r10]
+0x4c33	cmp		rdx, 32
+0x4c37	ja		4C50H
+
+Reference-UpdateDriverDxe.dll :
+0x44c2	movzx		esi, byte ptr [r8]
+0x44c6	cmp		rsi, 32
+0x44ca	ja		44E3H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c39 and Block 0x44cc matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c39	bt		rax, rdx
+0x4c3d	jnc		4C50H
+
+Reference-UpdateDriverDxe.dll :
+0x44cc	bt		rax, rsi
+0x44d0	jnc		44E3H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c3f and Block 0x44d2 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c3f	dec		r10
+
+Reference-UpdateDriverDxe.dll :
+0x44d2	dec		r8
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c42 and Block 0x44d5 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c42	cmp		r10, rcx
+0x4c45	jnc		4C2FH
+
+Reference-UpdateDriverDxe.dll :
+0x44d5	cmp		r8, rcx
+0x44d8	jnc		44C2H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c47 and Block 0x44da matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c47	mov		qword ptr [r8], 0
+0x4c4e	jmp		4CB7H
+
+Reference-UpdateDriverDxe.dll :
+0x44da	mov		qword ptr [rdx], 0
+0x44e1	jmp		453EH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c50 and Block 0x44e3 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c50	mov		r9d, 1
+0x4c56	sub		r9, rcx
+0x4c59	add		r9, r10
+0x4c5c	xor		eax, eax
+0x4c5e	mov		r11, 2600H
+0x4c68	jmp		4C6DH
+
+Reference-UpdateDriverDxe.dll :
+0x44e3	mov		r9d, 1
+0x44e9	sub		r9, rcx
+0x44ec	add		r9, r8
+0x44ef	xor		r10d, r10d
+0x44f2	mov		r11, 2600H
+0x44fc	jmp		4501H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c6a and Block 0x44fe matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c6a	inc		rax
+
+Reference-UpdateDriverDxe.dll :
+0x44fe	inc		r10
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c6d and Block 0x4501 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c6d	lea		rdx, ptr [rcx+rax]
+0x4c71	cmp		rdx, r10
+0x4c74	ja		4C85H
+
+Reference-UpdateDriverDxe.dll :
+0x4501	lea		rax, ptr [rcx+r10]
+0x4505	cmp		rax, r8
+0x4508	ja		4519H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c76 and Block 0x450a matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c76	movzx		esi, byte ptr [rdx]
+0x4c79	cmp		rsi, 32
+0x4c7d	ja		4C85H
+
+Reference-UpdateDriverDxe.dll :
+0x450a	movzx		esi, byte ptr [rax]
+0x450d	cmp		rsi, 32
+0x4511	ja		4519H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c7f and Block 0x4513 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c7f	bt		r11, rsi
+0x4c83	jc		4C6AH
+
+Reference-UpdateDriverDxe.dll :
+0x4513	bt		r11, rsi
+0x4517	jc		44FEH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c85 and Block 0x4519 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c85	test		rax, rax
+0x4c88	jnz		4C8FH
+
+Reference-UpdateDriverDxe.dll :
+0x4519	test		r10, r10
+0x451c	jnz		4523H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c8a and Block 0x451e matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c8a	mov		qword ptr [r8], r9
+0x4c8d	jmp		4CB7H
+
+Reference-UpdateDriverDxe.dll :
+0x451e	mov		qword ptr [rdx], r9
+0x4521	jmp		453EH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4cb7 and Block 0x453e matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4cb7	pop		rsi
+0x4cb8	ret		
+
+Reference-UpdateDriverDxe.dll :
+0x453e	pop		rsi
+0x453f	ret		
+
+---------------------------------------------------------------
+###################################################################
+---------------------------------------------------------------
+Block 0x4c0e and Block 0x44a4 matched with 88%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c0e	push		rsi
+0x4c0f	mov		r8, rdx
+0x4c12	mov		rax, qword ptr [r8]
+0x4c15	test		rax, rax
+0x4c18	je		4CB7H
+
+Reference-UpdateDriverDxe.dll :
+0x44a4	push		rsi
+0x44a5	mov		rax, qword ptr [rdx]
+0x44a8	test		rax, rax
+0x44ab	je		453EH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4ca0 and Block 0x452f matched with 72%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4ca0	mov		r8b, byte ptr [rdx+rax]
+0x4ca4	mov		byte ptr [rcx], r8b
+0x4ca7	lea		r8, ptr [rdx+rax+1H]
+0x4cac	inc		rax
+0x4caf	inc		rcx
+0x4cb2	cmp		r8, r10
+0x4cb5	jbe		4CA0H
+
+Reference-UpdateDriverDxe.dll :
+0x452f	mov		dl, byte ptr [rax]
+0x4531	mov		byte ptr [rcx], dl
+0x4533	inc		rcx
+0x4536	inc		rax
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x30b func total block : 1
+Reference-UpdateDriverDxe.dll:0x165f func total block : 1
+total matched block : 0
+###################################################################
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x30b func total block : 1
+Reference-UpdateDriverDxe.dll:0x165f func total block : 1
+total matched block : 0
+###################################################################
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x30b func total block : 1
+Reference-UpdateDriverDxe.dll:0x444 func total block : 9
+total matched block : 0
+###################################################################
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x4c0e func total block : 18
+Reference-UpdateDriverDxe.dll:0x44a4 func total block : 18
+total matched block : 14
+---------------------------------------------------------------
+Block 0x4c1e and Block 0x44b1 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c1e	lea		r10, ptr [rcx+rax-1H]
+0x4c23	mov		rax, 2600H
+0x4c2d	jmp		4C42H
+
+Reference-UpdateDriverDxe.dll :
+0x44b1	lea		r8, ptr [rcx+rax-1H]
+0x44b6	mov		rax, 2600H
+0x44c0	jmp		44D5H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c2f and Block 0x44c2 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c2f	movzx		edx, byte ptr [r10]
+0x4c33	cmp		rdx, 32
+0x4c37	ja		4C50H
+
+Reference-UpdateDriverDxe.dll :
+0x44c2	movzx		esi, byte ptr [r8]
+0x44c6	cmp		rsi, 32
+0x44ca	ja		44E3H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c39 and Block 0x44cc matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c39	bt		rax, rdx
+0x4c3d	jnc		4C50H
+
+Reference-UpdateDriverDxe.dll :
+0x44cc	bt		rax, rsi
+0x44d0	jnc		44E3H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c3f and Block 0x44d2 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c3f	dec		r10
+
+Reference-UpdateDriverDxe.dll :
+0x44d2	dec		r8
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c42 and Block 0x44d5 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c42	cmp		r10, rcx
+0x4c45	jnc		4C2FH
+
+Reference-UpdateDriverDxe.dll :
+0x44d5	cmp		r8, rcx
+0x44d8	jnc		44C2H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c47 and Block 0x44da matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c47	mov		qword ptr [r8], 0
+0x4c4e	jmp		4CB7H
+
+Reference-UpdateDriverDxe.dll :
+0x44da	mov		qword ptr [rdx], 0
+0x44e1	jmp		453EH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c50 and Block 0x44e3 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c50	mov		r9d, 1
+0x4c56	sub		r9, rcx
+0x4c59	add		r9, r10
+0x4c5c	xor		eax, eax
+0x4c5e	mov		r11, 2600H
+0x4c68	jmp		4C6DH
+
+Reference-UpdateDriverDxe.dll :
+0x44e3	mov		r9d, 1
+0x44e9	sub		r9, rcx
+0x44ec	add		r9, r8
+0x44ef	xor		r10d, r10d
+0x44f2	mov		r11, 2600H
+0x44fc	jmp		4501H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c6a and Block 0x44fe matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c6a	inc		rax
+
+Reference-UpdateDriverDxe.dll :
+0x44fe	inc		r10
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c6d and Block 0x4501 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c6d	lea		rdx, ptr [rcx+rax]
+0x4c71	cmp		rdx, r10
+0x4c74	ja		4C85H
+
+Reference-UpdateDriverDxe.dll :
+0x4501	lea		rax, ptr [rcx+r10]
+0x4505	cmp		rax, r8
+0x4508	ja		4519H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c76 and Block 0x450a matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c76	movzx		esi, byte ptr [rdx]
+0x4c79	cmp		rsi, 32
+0x4c7d	ja		4C85H
+
+Reference-UpdateDriverDxe.dll :
+0x450a	movzx		esi, byte ptr [rax]
+0x450d	cmp		rsi, 32
+0x4511	ja		4519H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c7f and Block 0x4513 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c7f	bt		r11, rsi
+0x4c83	jc		4C6AH
+
+Reference-UpdateDriverDxe.dll :
+0x4513	bt		r11, rsi
+0x4517	jc		44FEH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c85 and Block 0x4519 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c85	test		rax, rax
+0x4c88	jnz		4C8FH
+
+Reference-UpdateDriverDxe.dll :
+0x4519	test		r10, r10
+0x451c	jnz		4523H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4c8a and Block 0x451e matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c8a	mov		qword ptr [r8], r9
+0x4c8d	jmp		4CB7H
+
+Reference-UpdateDriverDxe.dll :
+0x451e	mov		qword ptr [rdx], r9
+0x4521	jmp		453EH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4cb7 and Block 0x453e matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4cb7	pop		rsi
+0x4cb8	ret		
+
+Reference-UpdateDriverDxe.dll :
+0x453e	pop		rsi
+0x453f	ret		
+
+---------------------------------------------------------------
+###################################################################
+---------------------------------------------------------------
+Block 0x4c0e and Block 0x44a4 matched with 88%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4c0e	push		rsi
+0x4c0f	mov		r8, rdx
+0x4c12	mov		rax, qword ptr [r8]
+0x4c15	test		rax, rax
+0x4c18	je		4CB7H
+
+Reference-UpdateDriverDxe.dll :
+0x44a4	push		rsi
+0x44a5	mov		rax, qword ptr [rdx]
+0x44a8	test		rax, rax
+0x44ab	je		453EH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4ca0 and Block 0x452f matched with 72%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4ca0	mov		r8b, byte ptr [rdx+rax]
+0x4ca4	mov		byte ptr [rcx], r8b
+0x4ca7	lea		r8, ptr [rdx+rax+1H]
+0x4cac	inc		rax
+0x4caf	inc		rcx
+0x4cb2	cmp		r8, r10
+0x4cb5	jbe		4CA0H
+
+Reference-UpdateDriverDxe.dll :
+0x452f	mov		dl, byte ptr [rax]
+0x4531	mov		byte ptr [rcx], dl
+0x4533	inc		rcx
+0x4536	inc		rax
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x30b func total block : 1
+Reference-UpdateDriverDxe.dll:0x165f func total block : 1
+total matched block : 0
+###################################################################
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x4fce func total block : 6
+Reference-UpdateDriverDxe.dll:0x4828 func total block : 6
+total matched block : 4
+---------------------------------------------------------------
+Block 0x4fce and Block 0x4828 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4fce	push		rbp
+0x4fcf	mov		rbp, rsp
+0x4fd2	push		rsi
+0x4fd3	push		rdi
+0x4fd4	push		rbx
+0x4fd5	sub		rsp, 40
+0x4fd9	mov		rsi, rdx
+0x4fdc	mov		rdi, rcx
+0x4fdf	test		rdi, rdi
+0x4fe2	jnz		501DH
+
+Reference-UpdateDriverDxe.dll :
+0x4828	push		rbp
+0x4829	mov		rbp, rsp
+0x482c	push		rsi
+0x482d	push		rdi
+0x482e	push		rbx
+0x482f	sub		rsp, 40
+0x4833	mov		rsi, rdx
+0x4836	mov		rdi, rcx
+0x4839	test		rdi, rdi
+0x483c	jnz		486DH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4fe4 and Block 0x483e matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4fe4	test		rsi, rsi
+0x4fe7	jz		5014H
+
+Reference-UpdateDriverDxe.dll :
+0x483e	test		rsi, rsi
+0x4841	jz		4864H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4fe9 and Block 0x4843 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4fe9	mov		rcx, qword ptr [rsi]
+0x4fec	mov		rdi, qword ptr [rsi+8H]
+0x4ff0	test		rcx, rcx
+0x4ff3	jz		4FFFH
+
+Reference-UpdateDriverDxe.dll :
+0x4843	mov		rcx, qword ptr [rsi]
+0x4846	mov		rdi, qword ptr [rsi+8H]
+0x484a	test		rcx, rcx
+0x484d	jz		4854H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x5014 and Block 0x4864 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5014	add		rsp, 40
+0x5018	pop		rbx
+0x5019	pop		rdi
+0x501a	pop		rsi
+0x501b	pop		rbp
+0x501c	ret		
+
+Reference-UpdateDriverDxe.dll :
+0x4864	add		rsp, 40
+0x4868	pop		rbx
+0x4869	pop		rdi
+0x486a	pop		rsi
+0x486b	pop		rbp
+0x486c	ret		
+
+---------------------------------------------------------------
+###################################################################
+---------------------------------------------------------------
+Block 0x4fff and Block 0x4854 matched with 72%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4fff	mov		rax, qword ptr DS:[0ACA8H]
+0x5006	mov		rcx, rsi
+0x5009	call		qword ptr [rax+48H]
+0x500c	test		rdi, rdi
+0x500f	mov		rsi, rdi
+0x5012	jnz		4FE9H
+
+Reference-UpdateDriverDxe.dll :
+0x4854	mov		rcx, rsi
+0x4857	call		1757H
+0x485c	test		rdi, rdi
+0x485f	mov		rsi, rdi
+0x4862	jnz		4843H
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x5074 func total block : 17
+Reference-UpdateDriverDxe.dll:0x48ac func total block : 8
+total matched block : 3
+---------------------------------------------------------------
+Block 0x50ab and Block 0x48ce matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x50ab	mov		rcx, qword ptr [rcx+20H]
+
+Reference-UpdateDriverDxe.dll :
+0x48ce	mov		rbx, qword ptr [rbx+20H]
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x50af and Block 0x48d2 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x50af	mov		rax, 0EH
+0x50b9	test		rcx, rcx
+0x50bc	jz		50EDH
+
+Reference-UpdateDriverDxe.dll :
+0x48d2	mov		rax, 0EH
+0x48dc	test		rbx, rbx
+0x48df	jz		4910H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x50e4 and Block 0x4907 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x50e4	mov		rax, qword ptr [rcx+18H]
+0x50e8	mov		qword ptr [r9], rax
+0x50eb	xor		eax, eax
+
+Reference-UpdateDriverDxe.dll :
+0x4907	mov		rax, qword ptr [rbx+18H]
+0x490b	mov		qword ptr [r14], rax
+0x490e	xor		eax, eax
+
+---------------------------------------------------------------
+###################################################################
+---------------------------------------------------------------
+Block 0x509f and Block 0x48e1 matched with 88%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x509f	mov		rax, qword ptr [rcx+10H]
+0x50a3	test		rax, rax
+0x50a6	mov		rdx, r8
+0x50a9	jnz		50CCH
+
+Reference-UpdateDriverDxe.dll :
+0x48e1	mov		rcx, qword ptr [rbx]
+0x48e4	mov		rdx, rsi
+0x48e7	call		9FCH
+0x48ec	test		rax, rax
+0x48ef	jnz		48CEH
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x5174 func total block : 10
+Reference-UpdateDriverDxe.dll:0xa8e func total block : 22
+total matched block : 1
+---------------------------------------------------------------
+Block 0x517b and Block 0xb27 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x517b	inc		rcx
+
+Reference-UpdateDriverDxe.dll :
+0xb27	inc		rsi
+
+---------------------------------------------------------------
+###################################################################
+---------------------------------------------------------------
+Block 0x517e and Block 0xb1f matched with 80%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x517e	mov		r9b, byte ptr [rcx-1H]
+0x5182	test		r9b, r9b
+0x5185	jz		51D1H
+
+Reference-UpdateDriverDxe.dll :
+0xb1f	test		dl, dl
+0xb21	jz		0B5EH
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x30b func total block : 1
+Reference-UpdateDriverDxe.dll:0x165f func total block : 1
+total matched block : 0
+###################################################################
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x50ef func total block : 19
+Reference-UpdateDriverDxe.dll:0x4828 func total block : 6
+total matched block : 0
+###################################################################
+---------------------------------------------------------------
+Block 0x5136 and Block 0x483e matched with 80%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5136	movzx		ecx, byte ptr [r8]
+0x513a	test		rcx, rcx
+0x513d	jz		5173H
+
+Reference-UpdateDriverDxe.dll :
+0x483e	test		rsi, rsi
+0x4841	jz		4864H
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x4be func total block : 4
+Reference-UpdateDriverDxe.dll:0x498e func total block : 10
+total matched block : 0
+###################################################################
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x5270 func total block : 3
+Reference-UpdateDriverDxe.dll:0x48ac func total block : 8
+total matched block : 0
+###################################################################
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x5074 func total block : 17
+Reference-UpdateDriverDxe.dll:0x48ac func total block : 8
+total matched block : 3
+---------------------------------------------------------------
+Block 0x50ab and Block 0x48ce matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x50ab	mov		rcx, qword ptr [rcx+20H]
+
+Reference-UpdateDriverDxe.dll :
+0x48ce	mov		rbx, qword ptr [rbx+20H]
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x50af and Block 0x48d2 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x50af	mov		rax, 0EH
+0x50b9	test		rcx, rcx
+0x50bc	jz		50EDH
+
+Reference-UpdateDriverDxe.dll :
+0x48d2	mov		rax, 0EH
+0x48dc	test		rbx, rbx
+0x48df	jz		4910H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x50e4 and Block 0x4907 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x50e4	mov		rax, qword ptr [rcx+18H]
+0x50e8	mov		qword ptr [r9], rax
+0x50eb	xor		eax, eax
+
+Reference-UpdateDriverDxe.dll :
+0x4907	mov		rax, qword ptr [rbx+18H]
+0x490b	mov		qword ptr [r14], rax
+0x490e	xor		eax, eax
+
+---------------------------------------------------------------
+###################################################################
+---------------------------------------------------------------
+Block 0x509f and Block 0x48e1 matched with 88%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x509f	mov		rax, qword ptr [rcx+10H]
+0x50a3	test		rax, rax
+0x50a6	mov		rdx, r8
+0x50a9	jnz		50CCH
+
+Reference-UpdateDriverDxe.dll :
+0x48e1	mov		rcx, qword ptr [rbx]
+0x48e4	mov		rdx, rsi
+0x48e7	call		9FCH
+0x48ec	test		rax, rax
+0x48ef	jnz		48CEH
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x5174 func total block : 10
+Reference-UpdateDriverDxe.dll:0x491b func total block : 11
+total matched block : 6
+---------------------------------------------------------------
+Block 0x5174 and Block 0x491b matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5174	inc		rcx
+0x5177	xor		eax, eax
+0x5179	jmp		517EH
+
+Reference-UpdateDriverDxe.dll :
+0x491b	inc		rcx
+0x491e	xor		eax, eax
+0x4920	jmp		4925H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x517b and Block 0x4922 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x517b	inc		rcx
+
+Reference-UpdateDriverDxe.dll :
+0x4922	inc		rcx
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x517e and Block 0x4925 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x517e	mov		r9b, byte ptr [rcx-1H]
+0x5182	test		r9b, r9b
+0x5185	jz		51D1H
+
+Reference-UpdateDriverDxe.dll :
+0x4925	mov		r10b, byte ptr [rcx-1H]
+0x4929	test		r10b, r10b
+0x492c	jz		4950H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x5187 and Block 0x492e matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5187	cmp		r9b, 32
+0x518b	jz		517BH
+
+Reference-UpdateDriverDxe.dll :
+0x492e	cmp		r10b, 32
+0x4932	jz		4922H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x518d and Block 0x4934 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x518d	cmp		r9b, 48
+0x5191	jz		51A4H
+
+Reference-UpdateDriverDxe.dll :
+0x4934	cmp		r10b, 48
+0x4938	jz		4951H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x51d1 and Block 0x4950 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x51d1	ret		
+
+Reference-UpdateDriverDxe.dll :
+0x4950	ret		
+
+---------------------------------------------------------------
+###################################################################
+---------------------------------------------------------------
+Block 0x5193 and Block 0x493a matched with 90%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5193	mov		r8b, r9b
+0x5196	add		r8b, -48
+0x519a	xor		eax, eax
+0x519c	cmp		r8b, 10
+0x51a0	jc		51B3H
+
+Reference-UpdateDriverDxe.dll :
+0x493a	mov		r9b, r10b
+0x493d	add		r9b, -48
+0x4941	xor		eax, eax
+0x4943	mov		r8, -48
+0x494a	cmp		r9b, 10
+0x494e	jc		4963H
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x529e func total block : 29
+Reference-UpdateDriverDxe.dll:0x4a1b func total block : 27
+total matched block : 13
+---------------------------------------------------------------
+Block 0x52fe and Block 0x4a5d matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x52fe	inc		rbx
+
+Reference-UpdateDriverDxe.dll :
+0x4a5d	inc		rdi
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x5301 and Block 0x4a60 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5301	mov		al, byte ptr [r12+rbx-1H]
+0x5306	test		al, al
+0x5308	je		5403H
+
+Reference-UpdateDriverDxe.dll :
+0x4a60	mov		al, byte ptr [rdi-1H]
+0x4a63	test		al, al
+0x4a65	je		4B4EH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x530e and Block 0x4a6b matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x530e	cmp		al, 45
+0x5310	jnz		52FEH
+
+Reference-UpdateDriverDxe.dll :
+0x4a6b	cmp		al, 45
+0x4a6d	jnz		4A5DH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x5337 and Block 0x4a91 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5337	cmp		al, 45
+0x5339	jnz		5327H
+
+Reference-UpdateDriverDxe.dll :
+0x4a91	cmp		al, 45
+0x4a93	jnz		4A83H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x5355 and Block 0x4a83 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5355	inc		rbx
+
+Reference-UpdateDriverDxe.dll :
+0x4a83	inc		rbx
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x5358 and Block 0x4a86 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5358	mov		al, byte ptr [r12+rbx+2H]
+0x535d	test		al, al
+0x535f	je		5403H
+
+Reference-UpdateDriverDxe.dll :
+0x4a86	mov		al, byte ptr [rbx-1H]
+0x4a89	test		al, al
+0x4a8b	je		4B4EH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x5365 and Block 0x4ab9 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5365	cmp		al, 45
+0x5367	jnz		5355H
+
+Reference-UpdateDriverDxe.dll :
+0x4ab9	cmp		al, 45
+0x4abb	jnz		4AABH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x5389 and Block 0x4ad5 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5389	test		cl, cl
+0x538b	jz		5403H
+
+Reference-UpdateDriverDxe.dll :
+0x4ad5	test		cl, cl
+0x4ad7	jz		4B4EH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x538d and Block 0x4b42 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x538d	mov		al, byte ptr [rbx+rdi*2+4H]
+0x5391	test		al, al
+0x5393	jz		5403H
+
+Reference-UpdateDriverDxe.dll :
+0x4b42	mov		al, byte ptr [rdi-1H]
+0x4b45	test		al, al
+0x4b47	jz		4B4EH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x53b3 and Block 0x4aff matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x53b3	mov		cl, byte ptr [rbx+rdi*2+3H]
+0x53b7	cmp		rdi, 1
+0x53bb	jbe		5389H
+
+Reference-UpdateDriverDxe.dll :
+0x4aff	mov		cl, byte ptr [rdi-2H]
+0x4b02	cmp		rbx, 1
+0x4b06	jbe		4AD5H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x53bd and Block 0x4b08 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x53bd	mov		rax, 0EH
+0x53c7	cmp		cl, 45
+0x53ca	jnz		542BH
+
+Reference-UpdateDriverDxe.dll :
+0x4b08	mov		rax, 0EH
+0x4b12	cmp		cl, 45
+0x4b15	jnz		4B6CH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x53cc and Block 0x4a57 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x53cc	lea		rbx, ptr [rbp-33H]
+0x53d0	jmp		53F0H
+
+Reference-UpdateDriverDxe.dll :
+0x4a57	lea		rdi, ptr [r14+1H]
+0x4a5b	jmp		4A60H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x53f0 and Block 0x4b3c matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x53f0	cmp		rdi, 7
+0x53f4	ja		541CH
+
+Reference-UpdateDriverDxe.dll :
+0x4b3c	cmp		rbx, 7
+0x4b40	ja		4B62H
+
+---------------------------------------------------------------
+###################################################################
+---------------------------------------------------------------
+Block 0x5312 and Block 0x4a6f matched with 90%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5312	mov		byte ptr [r12+rbx-1H], 0
+0x5318	mov		rcx, r12
+0x531b	call		50EFH
+0x5320	mov		dword ptr [r15], eax
+0x5323	lea		rcx, ptr [r12+rbx]
+
+Reference-UpdateDriverDxe.dll :
+0x4a6f	mov		byte ptr [rdi-1H], 0
+0x4a73	mov		rcx, r14
+0x4a76	call		0C4EH
+0x4a7b	mov		dword ptr [rsi], eax
+0x4a7d	lea		rbx, ptr [rdi+1H]
+0x4a81	jmp		4A86H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x533b and Block 0x4a95 matched with 83%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x533b	mov		byte ptr [r12+rbx-1H], 0
+0x5341	call		50EFH
+0x5346	mov		word ptr [r15+4H], ax
+0x534b	lea		rcx, ptr [r12+rbx]
+0x534f	add		rbx, -2
+0x5353	jmp		5358H
+
+Reference-UpdateDriverDxe.dll :
+0x4a95	mov		byte ptr [rbx-1H], 0
+0x4a99	mov		rcx, rdi
+0x4a9c	call		0C4EH
+0x4aa1	mov		word ptr [rsi+4H], ax
+0x4aa5	lea		rdi, ptr [rbx+3H]
+0x4aa9	jmp		4AAEH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x5369 and Block 0x4abd matched with 80%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5369	mov		byte ptr [r12+rbx+2H], 0
+0x536f	call		50EFH
+0x5374	mov		word ptr [r15+6H], ax
+0x5379	lea		rsi, ptr [r12+rbx+5H]
+0x537e	add		rbx, r12
+0x5381	xor		edi, edi
+0x5383	lea		r14, ptr [rbp-33H]
+0x5387	jmp		53B3H
+
+Reference-UpdateDriverDxe.dll :
+0x4abd	mov		byte ptr [rdi-3H], 0
+0x4ac1	mov		rcx, rbx
+0x4ac4	call		0C4EH
+0x4ac9	mov		word ptr [rsi+6H], ax
+0x4acd	xor		ebx, ebx
+0x4acf	lea		r15, ptr [rbp-2BH]
+0x4ad3	jmp		4AFFH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x53d2 and Block 0x4adf matched with 94%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x53d2	mov		byte ptr [rbp-33H], al
+0x53d5	mov		byte ptr [rbp-32H], cl
+0x53d8	mov		byte ptr [rbp-31H], 0
+0x53dc	mov		rcx, rbx
+0x53df	call		50EFH
+0x53e4	mov		byte ptr [r15+rdi+8H], al
+0x53e9	add		rsi, 2
+0x53ed	inc		rdi
+
+Reference-UpdateDriverDxe.dll :
+0x4adf	mov		byte ptr [rbp-2BH], cl
+0x4ae2	mov		al, byte ptr [rdi-1H]
+0x4ae5	mov		byte ptr [rbp-2AH], al
+0x4ae8	mov		byte ptr [rbp-29H], 0
+0x4aec	mov		rcx, r15
+0x4aef	call		0C4EH
+0x4af4	add		rdi, 2
+0x4af8	mov		byte ptr [rsi+rbx+8H], al
+0x4afc	inc		rbx
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x542b and Block 0x4b6c matched with 94%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x542b	add		rsp, 48
+0x542f	pop		rbx
+0x5430	pop		rdi
+0x5431	pop		rsi
+0x5432	pop		r12
+0x5434	pop		r14
+0x5436	pop		r15
+0x5438	pop		rbp
+0x5439	ret		
+
+Reference-UpdateDriverDxe.dll :
+0x4b6c	add		rsp, 40
+0x4b70	pop		rbx
+0x4b71	pop		rdi
+0x4b72	pop		rsi
+0x4b73	pop		r14
+0x4b75	pop		r15
+0x4b77	pop		rbp
+0x4b78	ret		
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x50ef func total block : 19
+Reference-UpdateDriverDxe.dll:0xc4e func total block : 36
+total matched block : 3
+---------------------------------------------------------------
+Block 0x50f7 and Block 0xcf9 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x50f7	mov		dl, byte ptr [r8+1H]
+0x50fb	inc		r8
+
+Reference-UpdateDriverDxe.dll :
+0xcf9	mov		cl, byte ptr [rsi+1H]
+0xcfc	inc		rsi
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x50fe and Block 0xc93 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x50fe	cmp		dl, 32
+0x5101	jz		50F7H
+
+Reference-UpdateDriverDxe.dll :
+0xc93	cmp		cl, 32
+0xc96	jz		0C9DH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x5120 and Block 0xc9d matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5120	dec		rax
+
+Reference-UpdateDriverDxe.dll :
+0xc9d	inc		rsi
+
+---------------------------------------------------------------
+###################################################################
+---------------------------------------------------------------
+Block 0x513f and Block 0xda8 matched with 75%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x513f	mov		dl, cl
+0x5141	add		dl, -48
+0x5144	cmp		dl, 9
+0x5147	ja		5154H
+
+Reference-UpdateDriverDxe.dll :
+0xda8	mov		cl, al
+0xdaa	add		cl, -97
+0xdad	cmp		cl, 26
+0xdb0	jnc		0DB4H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x515e and Block 0xda2 matched with 80%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x515e	shl		rax, 4
+0x5162	lea		rax, ptr [rax+rcx-57H]
+0x5167	jmp		5133H
+
+Reference-UpdateDriverDxe.dll :
+0xda2	lea		rax, ptr [rax-30H]
+0xda6	jmp		0DBBH
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x50ef func total block : 19
+Reference-UpdateDriverDxe.dll:0xc4e func total block : 36
+total matched block : 3
+---------------------------------------------------------------
+Block 0x50f7 and Block 0xcf9 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x50f7	mov		dl, byte ptr [r8+1H]
+0x50fb	inc		r8
+
+Reference-UpdateDriverDxe.dll :
+0xcf9	mov		cl, byte ptr [rsi+1H]
+0xcfc	inc		rsi
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x50fe and Block 0xc93 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x50fe	cmp		dl, 32
+0x5101	jz		50F7H
+
+Reference-UpdateDriverDxe.dll :
+0xc93	cmp		cl, 32
+0xc96	jz		0C9DH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x5120 and Block 0xc9d matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5120	dec		rax
+
+Reference-UpdateDriverDxe.dll :
+0xc9d	inc		rsi
+
+---------------------------------------------------------------
+###################################################################
+---------------------------------------------------------------
+Block 0x513f and Block 0xda8 matched with 75%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x513f	mov		dl, cl
+0x5141	add		dl, -48
+0x5144	cmp		dl, 9
+0x5147	ja		5154H
+
+Reference-UpdateDriverDxe.dll :
+0xda8	mov		cl, al
+0xdaa	add		cl, -97
+0xdad	cmp		cl, 26
+0xdb0	jnc		0DB4H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x515e and Block 0xda2 matched with 80%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x515e	shl		rax, 4
+0x5162	lea		rax, ptr [rax+rcx-57H]
+0x5167	jmp		5133H
+
+Reference-UpdateDriverDxe.dll :
+0xda2	lea		rax, ptr [rax-30H]
+0xda6	jmp		0DBBH
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x50ef func total block : 19
+Reference-UpdateDriverDxe.dll:0xc4e func total block : 36
+total matched block : 3
+---------------------------------------------------------------
+Block 0x50f7 and Block 0xcf9 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x50f7	mov		dl, byte ptr [r8+1H]
+0x50fb	inc		r8
+
+Reference-UpdateDriverDxe.dll :
+0xcf9	mov		cl, byte ptr [rsi+1H]
+0xcfc	inc		rsi
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x50fe and Block 0xc93 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x50fe	cmp		dl, 32
+0x5101	jz		50F7H
+
+Reference-UpdateDriverDxe.dll :
+0xc93	cmp		cl, 32
+0xc96	jz		0C9DH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x5120 and Block 0xc9d matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5120	dec		rax
+
+Reference-UpdateDriverDxe.dll :
+0xc9d	inc		rsi
+
+---------------------------------------------------------------
+###################################################################
+---------------------------------------------------------------
+Block 0x513f and Block 0xda8 matched with 75%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x513f	mov		dl, cl
+0x5141	add		dl, -48
+0x5144	cmp		dl, 9
+0x5147	ja		5154H
+
+Reference-UpdateDriverDxe.dll :
+0xda8	mov		cl, al
+0xdaa	add		cl, -97
+0xdad	cmp		cl, 26
+0xdb0	jnc		0DB4H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x515e and Block 0xda2 matched with 80%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x515e	shl		rax, 4
+0x5162	lea		rax, ptr [rax+rcx-57H]
+0x5167	jmp		5133H
+
+Reference-UpdateDriverDxe.dll :
+0xda2	lea		rax, ptr [rax-30H]
+0xda6	jmp		0DBBH
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x50ef func total block : 19
+Reference-UpdateDriverDxe.dll:0xc4e func total block : 36
+total matched block : 3
+---------------------------------------------------------------
+Block 0x50f7 and Block 0xcf9 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x50f7	mov		dl, byte ptr [r8+1H]
+0x50fb	inc		r8
+
+Reference-UpdateDriverDxe.dll :
+0xcf9	mov		cl, byte ptr [rsi+1H]
+0xcfc	inc		rsi
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x50fe and Block 0xc93 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x50fe	cmp		dl, 32
+0x5101	jz		50F7H
+
+Reference-UpdateDriverDxe.dll :
+0xc93	cmp		cl, 32
+0xc96	jz		0C9DH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x5120 and Block 0xc9d matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5120	dec		rax
+
+Reference-UpdateDriverDxe.dll :
+0xc9d	inc		rsi
+
+---------------------------------------------------------------
+###################################################################
+---------------------------------------------------------------
+Block 0x513f and Block 0xda8 matched with 75%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x513f	mov		dl, cl
+0x5141	add		dl, -48
+0x5144	cmp		dl, 9
+0x5147	ja		5154H
+
+Reference-UpdateDriverDxe.dll :
+0xda8	mov		cl, al
+0xdaa	add		cl, -97
+0xdad	cmp		cl, 26
+0xdb0	jnc		0DB4H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x515e and Block 0xda2 matched with 80%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x515e	shl		rax, 4
+0x5162	lea		rax, ptr [rax+rcx-57H]
+0x5167	jmp		5133H
+
+Reference-UpdateDriverDxe.dll :
+0xda2	lea		rax, ptr [rax-30H]
+0xda6	jmp		0DBBH
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x50ef func total block : 19
+Reference-UpdateDriverDxe.dll:0xc4e func total block : 36
+total matched block : 3
+---------------------------------------------------------------
+Block 0x50f7 and Block 0xcf9 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x50f7	mov		dl, byte ptr [r8+1H]
+0x50fb	inc		r8
+
+Reference-UpdateDriverDxe.dll :
+0xcf9	mov		cl, byte ptr [rsi+1H]
+0xcfc	inc		rsi
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x50fe and Block 0xc93 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x50fe	cmp		dl, 32
+0x5101	jz		50F7H
+
+Reference-UpdateDriverDxe.dll :
+0xc93	cmp		cl, 32
+0xc96	jz		0C9DH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x5120 and Block 0xc9d matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5120	dec		rax
+
+Reference-UpdateDriverDxe.dll :
+0xc9d	inc		rsi
+
+---------------------------------------------------------------
+###################################################################
+---------------------------------------------------------------
+Block 0x513f and Block 0xda8 matched with 75%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x513f	mov		dl, cl
+0x5141	add		dl, -48
+0x5144	cmp		dl, 9
+0x5147	ja		5154H
+
+Reference-UpdateDriverDxe.dll :
+0xda8	mov		cl, al
+0xdaa	add		cl, -97
+0xdad	cmp		cl, 26
+0xdb0	jnc		0DB4H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x515e and Block 0xda2 matched with 80%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x515e	shl		rax, 4
+0x5162	lea		rax, ptr [rax+rcx-57H]
+0x5167	jmp		5133H
+
+Reference-UpdateDriverDxe.dll :
+0xda2	lea		rax, ptr [rax-30H]
+0xda6	jmp		0DBBH
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x5074 func total block : 17
+Reference-UpdateDriverDxe.dll:0x444 func total block : 9
+total matched block : 0
+###################################################################
+---------------------------------------------------------------
+Block 0x5090 and Block 0x45d matched with 80%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5090	test		r11b, r11b
+0x5093	jz		509AH
+
+Reference-UpdateDriverDxe.dll :
+0x45d	call		24CH
+0x462	test		al, al
+0x464	jz		48DH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x50d5 and Block 0x48d matched with 80%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x50d5	test		r11b, r11b
+0x50d8	jz		50DFH
+
+Reference-UpdateDriverDxe.dll :
+0x48d	call		24CH
+0x492	test		al, al
+0x494	jz		4BDH
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x4fce func total block : 6
+Reference-UpdateDriverDxe.dll:0x4828 func total block : 6
+total matched block : 4
+---------------------------------------------------------------
+Block 0x4fce and Block 0x4828 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4fce	push		rbp
+0x4fcf	mov		rbp, rsp
+0x4fd2	push		rsi
+0x4fd3	push		rdi
+0x4fd4	push		rbx
+0x4fd5	sub		rsp, 40
+0x4fd9	mov		rsi, rdx
+0x4fdc	mov		rdi, rcx
+0x4fdf	test		rdi, rdi
+0x4fe2	jnz		501DH
+
+Reference-UpdateDriverDxe.dll :
+0x4828	push		rbp
+0x4829	mov		rbp, rsp
+0x482c	push		rsi
+0x482d	push		rdi
+0x482e	push		rbx
+0x482f	sub		rsp, 40
+0x4833	mov		rsi, rdx
+0x4836	mov		rdi, rcx
+0x4839	test		rdi, rdi
+0x483c	jnz		486DH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4fe4 and Block 0x483e matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4fe4	test		rsi, rsi
+0x4fe7	jz		5014H
+
+Reference-UpdateDriverDxe.dll :
+0x483e	test		rsi, rsi
+0x4841	jz		4864H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x4fe9 and Block 0x4843 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4fe9	mov		rcx, qword ptr [rsi]
+0x4fec	mov		rdi, qword ptr [rsi+8H]
+0x4ff0	test		rcx, rcx
+0x4ff3	jz		4FFFH
+
+Reference-UpdateDriverDxe.dll :
+0x4843	mov		rcx, qword ptr [rsi]
+0x4846	mov		rdi, qword ptr [rsi+8H]
+0x484a	test		rcx, rcx
+0x484d	jz		4854H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x5014 and Block 0x4864 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5014	add		rsp, 40
+0x5018	pop		rbx
+0x5019	pop		rdi
+0x501a	pop		rsi
+0x501b	pop		rbp
+0x501c	ret		
+
+Reference-UpdateDriverDxe.dll :
+0x4864	add		rsp, 40
+0x4868	pop		rbx
+0x4869	pop		rdi
+0x486a	pop		rsi
+0x486b	pop		rbp
+0x486c	ret		
+
+---------------------------------------------------------------
+###################################################################
+---------------------------------------------------------------
+Block 0x4fff and Block 0x4854 matched with 72%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x4fff	mov		rax, qword ptr DS:[0ACA8H]
+0x5006	mov		rcx, rsi
+0x5009	call		qword ptr [rax+48H]
+0x500c	test		rdi, rdi
+0x500f	mov		rsi, rdi
+0x5012	jnz		4FE9H
+
+Reference-UpdateDriverDxe.dll :
+0x4854	mov		rcx, rsi
+0x4857	call		1757H
+0x485c	test		rdi, rdi
+0x485f	mov		rsi, rdi
+0x4862	jnz		4843H
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x5a0d func total block : 3
+Reference-UpdateDriverDxe.dll:0x3f43 func total block : 6
+total matched block : 0
+###################################################################
+---------------------------------------------------------------
+Block 0x5a29 and Block 0x3fd3 matched with 88%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5a29	mov		rax, qword ptr DS:[0ACB8H]
+0x5a30	lea		r8, ptr [rbp-10H]
+0x5a34	call		qword ptr [rax+98H]
+0x5a3a	mov		rcx, qword ptr [rbp-10H]
+0x5a3e	mov		rax, qword ptr DS:[0ACA8H]
+0x5a45	lea		rdx, ptr DS:[0A41CH]
+0x5a4c	mov		r8, rsi
+0x5a4f	call		qword ptr [rax+98H]
+
+Reference-UpdateDriverDxe.dll :
+0x3fd3	mov		rax, qword ptr DS:[9180H]
+0x3fda	lea		r8, ptr [rbp-28H]
+0x3fde	mov		rcx, rbx
+0x3fe1	mov		rdx, rdi
+0x3fe4	call		qword ptr [rax+98H]
+0x3fea	mov		rcx, qword ptr [rbp-28H]
+0x3fee	mov		rax, qword ptr DS:[9148H]
+0x3ff5	lea		rdx, ptr DS:[8EB8H]
+0x3ffc	mov		r8, r14
+0x3fff	call		qword ptr [rax+98H]
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x5a55 and Block 0x4005 matched with 72%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x5a55	add		rsp, 40
+0x5a59	pop		rsi
+0x5a5a	pop		rbp
+0x5a5b	ret		
+
+Reference-UpdateDriverDxe.dll :
+0x4005	add		rsp, 48
+0x4009	pop		rbx
+0x400a	pop		rdi
+0x400b	pop		rsi
+0x400c	pop		r14
+0x400e	pop		rbp
+0x400f	ret		
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x281e func total block : 33
+Reference-UpdateDriverDxe.dll:0x3d07 func total block : 29
+total matched block : 3
+---------------------------------------------------------------
+Block 0x291b and Block 0x3def matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x291b	mov		rcx, qword ptr [rbp-40H]
+0x291f	test		rcx, rcx
+0x2922	jz		292EH
+
+Reference-UpdateDriverDxe.dll :
+0x3def	mov		rcx, qword ptr [rbp-40H]
+0x3df3	test		rcx, rcx
+0x3df6	jz		3DFDH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x29a0 and Block 0x3f19 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x29a0	mov		rcx, qword ptr [rbp-40H]
+0x29a4	test		rcx, rcx
+0x29a7	jz		29B3H
+
+Reference-UpdateDriverDxe.dll :
+0x3f19	mov		rcx, qword ptr [rbp-40H]
+0x3f1d	test		rcx, rcx
+0x3f20	jz		3F2FH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x2acc and Block 0x3f2f matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x2acc	mov		rax, rsi
+0x2acf	add		rsp, 88
+0x2ad3	pop		rbx
+0x2ad4	pop		rdi
+0x2ad5	pop		rsi
+0x2ad6	pop		r12
+0x2ad8	pop		r13
+0x2ada	pop		r14
+0x2adc	pop		r15
+0x2ade	pop		rbp
+0x2adf	ret		
+
+Reference-UpdateDriverDxe.dll :
+0x3f2f	mov		rax, rsi
+0x3f32	add		rsp, 88
+0x3f36	pop		rbx
+0x3f37	pop		rdi
+0x3f38	pop		rsi
+0x3f39	pop		r12
+0x3f3b	pop		r13
+0x3f3d	pop		r14
+0x3f3f	pop		r15
+0x3f41	pop		rbp
+0x3f42	ret		
+
+---------------------------------------------------------------
+###################################################################
+---------------------------------------------------------------
+Block 0x285f and Block 0x3f09 matched with 75%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x285f	mov		rcx, r12
+0x2862	call		2704H
+0x2867	mov		rsi, rax
+0x286a	jmp		2ACCH
+
+Reference-UpdateDriverDxe.dll :
+0x3f09	mov		rcx, rdi
+0x3f0c	call		2F36H
+0x3f11	mov		rcx, rdi
+0x3f14	call		1757H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x296b and Block 0x3ec2 matched with 93%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x296b	movzx		r9d, byte ptr [rbp-49H]
+0x2970	mov		r8, qword ptr [rbp-48H]
+0x2974	mov		rdx, qword ptr [rbp-40H]
+0x2978	mov		eax, dword ptr [rbp-50H]
+0x297b	mov		dword ptr [rsp+20H], eax
+0x297f	mov		rcx, r12
+0x2982	call		1F84H
+0x2987	jmp		2A9AH
+
+Reference-UpdateDriverDxe.dll :
+0x3ec2	movzx		r9d, byte ptr [rbp-49H]
+0x3ec7	mov		r8, qword ptr [rbp-48H]
+0x3ecb	mov		rdx, qword ptr [rbp-40H]
+0x3ecf	mov		eax, dword ptr [rbp-50H]
+0x3ed2	mov		dword ptr [rsp+20H], eax
+0x3ed6	mov		rcx, rdi
+0x3ed9	call		38A6H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x29b3 and Block 0x3dfd matched with 92%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x29b3	mov		qword ptr [rbp-40H], 0
+0x29bb	mov		qword ptr [rbp-48H], 0
+0x29c3	mov		qword ptr [rsp+30H], r13
+0x29c8	mov		qword ptr [rsp+28H], r15
+0x29cd	mov		qword ptr [rsp+20H], r14
+0x29d2	mov		rcx, rbx
+0x29d5	mov		rdx, rdi
+0x29d8	mov		r8d, 23
+0x29de	xor		r9d, r9d
+0x29e1	call		qword ptr [rbx+18H]
+0x29e4	mov		rsi, rax
+0x29e7	test		rsi, rsi
+0x29ea	js		2AB1H
+
+Reference-UpdateDriverDxe.dll :
+0x3dfd	mov		qword ptr [rbp-40H], 0
+0x3e05	mov		qword ptr [rbp-48H], 0
+0x3e0d	mov		qword ptr [rsp+30H], r13
+0x3e12	mov		qword ptr [rsp+28H], r12
+0x3e17	mov		qword ptr [rsp+20H], r15
+0x3e1c	mov		rcx, rbx
+0x3e1f	mov		rdx, r14
+0x3e22	mov		r8d, 23
+0x3e28	xor		r9d, r9d
+0x3e2b	call		qword ptr [rbx+18H]
+0x3e2e	mov		rsi, rax
+0x3e31	test		rsi, rsi
+0x3e34	jns		3EC2H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x2a8a and Block 0x3eb0 matched with 88%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x2a8a	mov		r8, qword ptr [rbp-48H]
+0x2a8e	mov		rdx, qword ptr [rbp-40H]
+0x2a92	mov		rcx, r12
+0x2a95	call		63C7H
+
+Reference-UpdateDriverDxe.dll :
+0x3eb0	mov		r8, qword ptr [rbp-48H]
+0x3eb4	mov		rdx, qword ptr [rbp-40H]
+0x3eb8	mov		rcx, rdi
+0x3ebb	call		3A8FH
+0x3ec0	jmp		3EDEH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x2a9a and Block 0x3ede matched with 85%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x2a9a	mov		rsi, rax
+0x2a9d	test		rsi, rsi
+0x2aa0	jns		2AB1H
+
+Reference-UpdateDriverDxe.dll :
+0x3ede	mov		rsi, rax
+0x3ee1	mov		rcx, qword ptr DS:[9188H]
+0x3ee8	test		rsi, rsi
+0x3eeb	jns		3EF4H
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x2704 func total block : 10
+Reference-UpdateDriverDxe.dll:0x2f36 func total block : 1
+total matched block : 0
+###################################################################
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x1f84 func total block : 40
+Reference-UpdateDriverDxe.dll:0x38a6 func total block : 24
+total matched block : 12
+---------------------------------------------------------------
+Block 0x206b and Block 0x3902 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x206b	mov		rax, qword ptr [rbp-50H]
+0x206f	test		rax, rax
+0x2072	jz		20E3H
+
+Reference-UpdateDriverDxe.dll :
+0x3902	mov		rax, qword ptr [rbp-48H]
+0x3906	test		rax, rax
+0x3909	jz		3910H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x20cc and Block 0x3957 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x20cc	mov		rax, qword ptr [rbp-60H]
+0x20d0	cmp		rax, qword ptr [rdi+10H]
+0x20d4	je		21C7H
+
+Reference-UpdateDriverDxe.dll :
+0x3957	mov		rax, qword ptr [rbp-58H]
+0x395b	cmp		rax, qword ptr [rdi+10H]
+0x395f	je		39F0H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x20e3 and Block 0x39bd matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x20e3	mov		rbx, 0EH
+0x20ed	mov		rcx, qword ptr [rbp-58H]
+0x20f1	test		rcx, rcx
+0x20f4	je		2261H
+
+Reference-UpdateDriverDxe.dll :
+0x39bd	mov		rbx, 0EH
+0x39c7	mov		rcx, qword ptr [rbp-50H]
+0x39cb	test		rcx, rcx
+0x39ce	je		3A7BH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x212e and Block 0x3a65 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x212e	mov		rax, qword ptr [rbp-50H]
+0x2132	test		rax, rax
+0x2135	jz		20E3H
+
+Reference-UpdateDriverDxe.dll :
+0x3a65	mov		rcx, qword ptr [rbp-50H]
+0x3a69	test		rcx, rcx
+0x3a6c	jz		3A7BH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x214e and Block 0x3965 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x214e	inc		r14
+0x2151	mov		rax, qword ptr [rbp-50H]
+
+Reference-UpdateDriverDxe.dll :
+0x3965	inc		r12
+0x3968	mov		rax, qword ptr [rbp-48H]
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x2155 and Block 0x396c matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x2155	cmp		r14, rax
+0x2158	jnc		218FH
+
+Reference-UpdateDriverDxe.dll :
+0x396c	cmp		r12, rax
+0x396f	jnc		39BDH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x215a and Block 0x3971 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x215a	mov		rax, qword ptr [rbp-58H]
+0x215e	mov		rcx, qword ptr [rax+r14*8]
+0x2162	mov		rax, qword ptr DS:[0ACA8H]
+0x2169	mov		rdx, r13
+0x216c	mov		r8, rsi
+0x216f	call		qword ptr [rax+98H]
+0x2175	test		rax, rax
+0x2178	js		218FH
+
+Reference-UpdateDriverDxe.dll :
+0x3971	mov		rax, qword ptr [rbp-50H]
+0x3975	mov		rcx, qword ptr [rax+r12*8]
+0x3979	mov		rax, qword ptr DS:[9148H]
+0x3980	mov		rdx, r13
+0x3983	mov		r8, rsi
+0x3986	call		qword ptr [rax+98H]
+0x398c	test		rax, rax
+0x398f	js		39BDH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x217a and Block 0x39a8 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x217a	mov		rax, qword ptr [rbp-48H]
+0x217e	mov		rcx, rax
+0x2181	mov		rdx, r15
+0x2184	call		qword ptr [rax+10H]
+0x2187	mov		rbx, rax
+0x218a	test		rbx, rbx
+0x218d	jns		2144H
+
+Reference-UpdateDriverDxe.dll :
+0x39a8	mov		rax, qword ptr [rbp-40H]
+0x39ac	mov		rcx, rax
+0x39af	mov		rdx, r15
+0x39b2	call		qword ptr [rax+10H]
+0x39b5	mov		rbx, rax
+0x39b8	test		rbx, rbx
+0x39bb	jns		3957H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x21e4 and Block 0x39f0 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x21e4	mov		eax, dword ptr [rdi+8H]
+0x21e7	cmp		eax, 1
+0x21ea	jz		221BH
+
+Reference-UpdateDriverDxe.dll :
+0x39f0	mov		eax, dword ptr [rdi+8H]
+0x39f3	cmp		eax, 1
+0x39f6	jz		3A30H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x21ec and Block 0x390b matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x21ec	test		eax, eax
+0x21ee	jnz		2246H
+
+Reference-UpdateDriverDxe.dll :
+0x390b	test		rcx, rcx
+0x390e	jnz		3937H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x2243 and Block 0x3a62 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x2243	mov		rbx, rax
+
+Reference-UpdateDriverDxe.dll :
+0x3a62	mov		rbx, rax
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x2261 and Block 0x3a7b matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x2261	mov		rax, rbx
+0x2264	add		rsp, 120
+0x2268	pop		rbx
+0x2269	pop		rdi
+0x226a	pop		rsi
+0x226b	pop		r12
+0x226d	pop		r13
+0x226f	pop		r14
+0x2271	pop		r15
+0x2273	pop		rbp
+0x2274	ret		
+
+Reference-UpdateDriverDxe.dll :
+0x3a7b	mov		rax, rbx
+0x3a7e	add		rsp, 120
+0x3a82	pop		rbx
+0x3a83	pop		rdi
+0x3a84	pop		rsi
+0x3a85	pop		r12
+0x3a87	pop		r13
+0x3a89	pop		r14
+0x3a8b	pop		r15
+0x3a8d	pop		rbp
+0x3a8e	ret		
+
+---------------------------------------------------------------
+###################################################################
+---------------------------------------------------------------
+Block 0x1f84 and Block 0x38a6 matched with 76%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x1f84	push		rbp
+0x1f85	mov		rbp, rsp
+0x1f88	push		r15
+0x1f8a	push		r14
+0x1f8c	push		r13
+0x1f8e	push		r12
+0x1f90	push		rsi
+0x1f91	push		rdi
+0x1f92	push		rbx
+0x1f93	sub		rsp, 120
+0x1f97	mov		dword ptr [rbp-64H], r9d
+0x1f9b	mov		qword ptr [rbp-70H], r8
+0x1f9f	mov		qword ptr [rbp-78H], rdx
+0x1fa3	mov		rdi, rcx
+0x1fa6	mov		qword ptr [rbp-40H], 0
+0x1fae	lea		rcx, ptr DS:[0A3BCH]
+0x1fb5	lea		rdx, ptr [rbp-40H]
+0x1fb9	call		290H
+0x1fbe	mov		rbx, rax
+0x1fc1	test		rbx, rbx
+0x1fc4	js		2261H
+
+Reference-UpdateDriverDxe.dll :
+0x38a6	push		rbp
+0x38a7	mov		rbp, rsp
+0x38aa	push		r15
+0x38ac	push		r14
+0x38ae	push		r13
+0x38b0	push		r12
+0x38b2	push		rsi
+0x38b3	push		rdi
+0x38b4	push		rbx
+0x38b5	sub		rsp, 120
+0x38b9	mov		dword ptr [rbp-74H], r9d
+0x38bd	mov		qword ptr [rbp-70H], r8
+0x38c1	mov		qword ptr [rbp-68H], rdx
+0x38c5	mov		rdi, rcx
+0x38c8	mov		qword ptr [rbp-50H], 0
+0x38d0	mov		rax, qword ptr DS:[9148H]
+0x38d7	lea		rcx, ptr [rbp-50H]
+0x38db	mov		qword ptr [rsp+20H], rcx
+0x38e0	lea		rdx, ptr DS:[8EC8H]
+0x38e7	lea		r9, ptr [rbp-48H]
+0x38eb	mov		ecx, 2
+0x38f0	xor		r8d, r8d
+0x38f3	call		qword ptr [rax+138H]
+0x38f9	mov		rcx, qword ptr [rbp-50H]
+0x38fd	test		rax, rax
+0x3900	js		3910H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x2074 and Block 0x3937 matched with 72%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x2074	xor		r14d, r14d
+0x2077	lea		rsi, ptr DS:[0A42CH]
+0x207e	lea		r15, ptr [rbp-48H]
+0x2082	lea		r12, ptr [rbp-60H]
+
+Reference-UpdateDriverDxe.dll :
+0x3937	mov		qword ptr [rbp-40H], 0
+0x393f	xor		r12d, r12d
+0x3942	lea		r13, ptr DS:[8EC8H]
+0x3949	lea		rsi, ptr [rbp-40H]
+0x394d	lea		r14, ptr [rbp-5CH]
+0x3951	lea		r15, ptr [rbp-58H]
+0x3955	jmp		396CH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x2200 and Block 0x3a0d matched with 87%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x2200	mov		rax, qword ptr [rbp-58H]
+0x2204	mov		rcx, qword ptr [rax+r14*8]
+0x2208	mov		rdx, qword ptr [rbp-48H]
+0x220c	mov		qword ptr [rsp+20H], rsi
+0x2211	mov		r8, rdi
+0x2214	call		3679H
+0x2219	jmp		2243H
+
+Reference-UpdateDriverDxe.dll :
+0x3a0d	mov		rax, qword ptr [rbp-50H]
+0x3a11	mov		rcx, qword ptr [rax+r12*8]
+0x3a15	mov		rdx, qword ptr [rbp-40H]
+0x3a19	mov		rax, qword ptr [rbp-70H]
+0x3a1d	mov		qword ptr [rsp+20H], rax
+0x3a22	mov		r8, rdi
+0x3a25	mov		r9, qword ptr [rbp-68H]
+0x3a29	call		5669H
+0x3a2e	jmp		3A62H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x221b and Block 0x3a30 matched with 86%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x221b	mov		rax, qword ptr [rbp-58H]
+0x221f	mov		rcx, qword ptr [rax+r14*8]
+0x2223	mov		rdx, qword ptr [rbp-48H]
+0x2227	mov		eax, dword ptr [rbp+30H]
+0x222a	mov		dword ptr [rsp+30H], eax
+0x222e	movzx		eax, r8b
+0x2232	mov		dword ptr [rsp+28H], eax
+0x2236	mov		qword ptr [rsp+20H], rsi
+0x223b	mov		r8, rdi
+0x223e	call		3799H
+
+Reference-UpdateDriverDxe.dll :
+0x3a30	mov		rax, qword ptr [rbp-50H]
+0x3a34	mov		rcx, qword ptr [rax+r12*8]
+0x3a38	mov		rdx, qword ptr [rbp-40H]
+0x3a3c	mov		eax, dword ptr [rbp+30H]
+0x3a3f	mov		dword ptr [rsp+30H], eax
+0x3a43	mov		eax, dword ptr [rbp-74H]
+0x3a46	movzx		eax, al
+0x3a49	mov		dword ptr [rsp+28H], eax
+0x3a4d	mov		rax, qword ptr [rbp-70H]
+0x3a51	mov		qword ptr [rsp+20H], rax
+0x3a56	mov		r8, rdi
+0x3a59	mov		r9, qword ptr [rbp-68H]
+0x3a5d	call		57D5H
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x3679 func total block : 9
+Reference-UpdateDriverDxe.dll:0x5669 func total block : 14
+total matched block : 5
+---------------------------------------------------------------
+Block 0x3679 and Block 0x5669 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x3679	push		rbp
+0x367a	mov		rbp, rsp
+0x367d	push		r15
+0x367f	push		r14
+0x3681	push		r12
+0x3683	push		rsi
+0x3684	push		rdi
+0x3685	push		rbx
+0x3686	sub		rsp, 48
+0x368a	mov		r12, r9
+0x368d	mov		rdi, r8
+0x3690	mov		r15, rdx
+0x3693	mov		r14, rcx
+0x3696	mov		rsi, 2H
+0x36a0	cmp		dword ptr [rdi+8H], 0
+0x36a4	jne		3759H
+
+Reference-UpdateDriverDxe.dll :
+0x5669	push		rbp
+0x566a	mov		rbp, rsp
+0x566d	push		r15
+0x566f	push		r14
+0x5671	push		r12
+0x5673	push		rsi
+0x5674	push		rdi
+0x5675	push		rbx
+0x5676	sub		rsp, 48
+0x567a	mov		r15, r9
+0x567d	mov		rdi, r8
+0x5680	mov		r12, rdx
+0x5683	mov		r14, rcx
+0x5686	mov		rsi, 2H
+0x5690	cmp		dword ptr [rdi+8H], 0
+0x5694	jne		5795H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x36aa and Block 0x569a matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x36aa	mov		rax, qword ptr [rdi+10H]
+0x36ae	movzx		ecx, word ptr [rax+30H]
+0x36b2	call		30BH
+0x36b7	mov		rbx, rax
+0x36ba	mov		rsi, 9H
+0x36c4	test		rbx, rbx
+0x36c7	je		3759H
+
+Reference-UpdateDriverDxe.dll :
+0x569a	mov		rax, qword ptr [rdi+10H]
+0x569e	movzx		ecx, word ptr [rax+30H]
+0x56a2	call		165FH
+0x56a7	mov		rbx, rax
+0x56aa	mov		rsi, 9H
+0x56b4	test		rbx, rbx
+0x56b7	je		5795H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x3722 and Block 0x5763 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x3722	mov		qword ptr [rsp+20H], r12
+0x3727	mov		rcx, r14
+0x372a	mov		r9, rdi
+0x372d	call		3343H
+0x3732	jmp		3744H
+
+Reference-UpdateDriverDxe.dll :
+0x5763	mov		qword ptr [rsp+20H], r15
+0x5768	mov		rcx, r14
+0x576b	mov		r9, rdi
+0x576e	call		536AH
+0x5773	jmp		5785H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x3734 and Block 0x5775 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x3734	mov		qword ptr [rsp+20H], r12
+0x3739	mov		rdx, r15
+0x373c	mov		r9, rdi
+0x373f	call		35B1H
+
+Reference-UpdateDriverDxe.dll :
+0x5775	mov		qword ptr [rsp+20H], r15
+0x577a	mov		rdx, r12
+0x577d	mov		r9, rdi
+0x5780	call		55CFH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x3759 and Block 0x5795 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x3759	mov		rax, rsi
+0x375c	add		rsp, 48
+0x3760	pop		rbx
+0x3761	pop		rdi
+0x3762	pop		rsi
+0x3763	pop		r12
+0x3765	pop		r14
+0x3767	pop		r15
+0x3769	pop		rbp
+0x376a	ret		
+
+Reference-UpdateDriverDxe.dll :
+0x5795	mov		rax, rsi
+0x5798	add		rsp, 48
+0x579c	pop		rbx
+0x579d	pop		rdi
+0x579e	pop		rsi
+0x579f	pop		r12
+0x57a1	pop		r14
+0x57a3	pop		r15
+0x57a5	pop		rbp
+0x57a6	ret		
+
+---------------------------------------------------------------
+###################################################################
+---------------------------------------------------------------
+Block 0x3744 and Block 0x5785 matched with 72%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x3744	mov		rsi, rax
+0x3747	mov		rax, qword ptr DS:[0ACA8H]
+0x374e	mov		rcx, rbx
+0x3751	call		qword ptr [rax+48H]
+0x3754	test		rsi, rsi
+0x3757	jns		376BH
+
+Reference-UpdateDriverDxe.dll :
+0x5785	mov		rsi, rax
+0x5788	mov		rcx, rbx
+0x578b	call		1757H
+0x5790	test		rsi, rsi
+0x5793	jns		57A7H
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x30b func total block : 1
+Reference-UpdateDriverDxe.dll:0x165f func total block : 1
+total matched block : 0
+###################################################################
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x3343 func total block : 32
+Reference-UpdateDriverDxe.dll:0x536a func total block : 29
+total matched block : 15
+---------------------------------------------------------------
+Block 0x33cb and Block 0x53f1 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x33cb	cmp		rbx, rdx
+0x33ce	cmovc		rbx, rdx
+0x33d2	add		rsi, rcx
+0x33d5	add		rax, 8
+
+Reference-UpdateDriverDxe.dll :
+0x53f1	cmp		rbx, rdx
+0x53f4	cmovc		rbx, rdx
+0x53f8	add		rdi, rcx
+0x53fb	add		rax, 8
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x33d9 and Block 0x53ff matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x33d9	mov		ecx, dword ptr [rax-4H]
+0x33dc	test		rcx, rcx
+0x33df	jz		33E8H
+
+Reference-UpdateDriverDxe.dll :
+0x53ff	mov		ecx, dword ptr [rax]
+0x5401	test		rcx, rcx
+0x5404	jz		540EH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x33e1 and Block 0x5406 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x33e1	mov		edx, dword ptr [rax]
+0x33e3	test		rdx, rdx
+0x33e6	jnz		33CBH
+
+Reference-UpdateDriverDxe.dll :
+0x5406	mov		edx, dword ptr [rax+4H]
+0x5409	test		rdx, rdx
+0x540c	jnz		53F1H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x3496 and Block 0x54c0 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x3496	test		rax, rax
+0x3499	js		359AH
+
+Reference-UpdateDriverDxe.dll :
+0x54c0	test		rbx, rbx
+0x54c3	js		55BBH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x349f and Block 0x54c9 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x349f	test		r13b, r13b
+0x34a2	jnz		34CAH
+
+Reference-UpdateDriverDxe.dll :
+0x54c9	test		r12b, r12b
+0x54cc	jnz		54F4H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x34a4 and Block 0x54ce matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x34a4	mov		rax, qword ptr [rbp-40H]
+0x34a8	lea		rdx, ptr DS:[0ACD8H]
+0x34af	mov		rcx, rax
+0x34b2	mov		r8d, 16
+0x34b8	mov		r9, rsi
+0x34bb	call		qword ptr [rax+8H]
+0x34be	test		rax, rax
+0x34c1	mov		rcx, rax
+0x34c4	js		359AH
+
+Reference-UpdateDriverDxe.dll :
+0x54ce	mov		rax, qword ptr [rbp-40H]
+0x54d2	lea		rdx, ptr DS:[8E50H]
+0x54d9	mov		rcx, rax
+0x54dc	mov		r8d, 16
+0x54e2	mov		r9, rdi
+0x54e5	call		qword ptr [rax+8H]
+0x54e8	mov		rbx, rax
+0x54eb	test		rbx, rbx
+0x54ee	js		55BBH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x34e8 and Block 0x5515 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x34e8	mov		ebx, dword ptr [r14]
+0x34eb	test		rbx, rbx
+0x34ee	je		3597H
+
+Reference-UpdateDriverDxe.dll :
+0x5515	mov		edi, dword ptr [rcx+4H]
+0x5518	test		rdi, rdi
+0x551b	je		55B8H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x34f4 and Block 0x5521 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x34f4	xor		r12d, r12d
+0x34f7	jmp		3534H
+
+Reference-UpdateDriverDxe.dll :
+0x5521	xor		r13d, r13d
+0x5524	jmp		5597H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x34f9 and Block 0x5558 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x34f9	cmp		rdx, rsi
+0x34fc	jc		3525H
+
+Reference-UpdateDriverDxe.dll :
+0x5558	cmp		rdx, rcx
+0x555b	jc		5587H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x3525 and Block 0x5587 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x3525	test		rax, rax
+0x3528	js		3597H
+
+Reference-UpdateDriverDxe.dll :
+0x5587	test		rbx, rbx
+0x558a	js		55B8H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x3544 and Block 0x552e matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x3544	mov		rsi, qword ptr [rbp-68H]
+0x3548	cmp		rdx, rsi
+0x354b	jnz		34F9H
+
+Reference-UpdateDriverDxe.dll :
+0x552e	mov		rcx, qword ptr [rbp-68H]
+0x5532	cmp		rdx, rcx
+0x5535	jnz		5558H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x357f and Block 0x55a2 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x357f	test		rax, rax
+0x3582	js		3597H
+
+Reference-UpdateDriverDxe.dll :
+0x55a2	test		rbx, rbx
+0x55a5	js		55B8H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x3584 and Block 0x55a7 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x3584	add		r14, 8
+0x3588	mov		r15, rdx
+
+Reference-UpdateDriverDxe.dll :
+0x55a7	add		rcx, 8
+0x55ab	mov		r15, rdx
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x358b and Block 0x55ae matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x358b	mov		ecx, dword ptr [r14-4H]
+0x358f	test		ecx, ecx
+0x3591	jne		34E8H
+
+Reference-UpdateDriverDxe.dll :
+0x55ae	mov		eax, dword ptr [rcx]
+0x55b0	test		eax, eax
+0x55b2	jne		5515H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x3597 and Block 0x55b8 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x3597	mov		rcx, rax
+
+Reference-UpdateDriverDxe.dll :
+0x55b8	mov		rax, rbx
+
+---------------------------------------------------------------
+###################################################################
+---------------------------------------------------------------
+Block 0x3343 and Block 0x536a matched with 93%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x3343	push		rbp
+0x3344	mov		rbp, rsp
+0x3347	push		r15
+0x3349	push		r14
+0x334b	push		r13
+0x334d	push		r12
+0x334f	push		rsi
+0x3350	push		rdi
+0x3351	push		rbx
+0x3352	sub		rsp, 152
+0x3359	mov		r12, r9
+0x335c	mov		r14, r8
+0x335f	mov		qword ptr [rbp-80H], rcx
+0x3363	mov		rcx, 2H
+0x336d	cmp		dword ptr [r12+8H], 0
+0x3373	jne		359AH
+
+Reference-UpdateDriverDxe.dll :
+0x536a	push		rbp
+0x536b	mov		rbp, rsp
+0x536e	push		r15
+0x5370	push		r14
+0x5372	push		r13
+0x5374	push		r12
+0x5376	push		rsi
+0x5377	push		rdi
+0x5378	push		rbx
+0x5379	sub		rsp, 152
+0x5380	mov		r15, r9
+0x5383	mov		rsi, r8
+0x5386	mov		qword ptr [rbp-80H], rcx
+0x538a	mov		rax, 2H
+0x5394	cmp		dword ptr [r15+8H], 0
+0x5399	jne		55BBH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x338f and Block 0x53b4 matched with 84%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x338f	mov		rax, qword ptr DS:[0ACA8H]
+0x3396	lea		rcx, ptr DS:[0A3ECH]
+0x339d	xor		ebx, ebx
+0x339f	lea		r8, ptr [rbp-40H]
+0x33a3	xor		edx, edx
+0x33a5	call		qword ptr [rax+140H]
+0x33ab	mov		rcx, 0EH
+0x33b5	test		rax, rax
+0x33b8	js		359AH
+
+Reference-UpdateDriverDxe.dll :
+0x53b4	mov		rax, qword ptr DS:[9148H]
+0x53bb	lea		rcx, ptr DS:[8EA8H]
+0x53c2	xor		ebx, ebx
+0x53c4	lea		r8, ptr [rbp-40H]
+0x53c8	xor		edx, edx
+0x53ca	call		qword ptr [rax+140H]
+0x53d0	mov		rcx, rax
+0x53d3	mov		rax, 0EH
+0x53dd	test		rcx, rcx
+0x53e0	js		55BBH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x33be and Block 0x53e6 matched with 75%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x33be	mov		rdi, qword ptr [rbp+30H]
+0x33c2	lea		rax, ptr [r14+4H]
+0x33c6	mov		rsi, rbx
+0x33c9	jmp		33D9H
+
+Reference-UpdateDriverDxe.dll :
+0x53e6	mov		r14, qword ptr [rbp+30H]
+0x53ea	mov		rax, rsi
+0x53ed	xor		edi, edi
+0x53ef	jmp		53FFH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x33e8 and Block 0x540e matched with 80%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x33e8	mov		rax, qword ptr [rbp-40H]
+0x33ec	lea		rdx, ptr [rbp-48H]
+0x33f0	mov		rcx, rax
+0x33f3	call		qword ptr [rax]
+0x33f5	mov		rcx, 9H
+0x33ff	cmp		qword ptr [rbp-48H], rbx
+0x3403	jc		359AH
+
+Reference-UpdateDriverDxe.dll :
+0x540e	mov		r13, rsi
+0x5411	mov		rax, qword ptr [rbp-40H]
+0x5415	lea		rdx, ptr [rbp-48H]
+0x5419	mov		rcx, rax
+0x541c	call		qword ptr [rax]
+0x541e	mov		rax, 9H
+0x5428	cmp		qword ptr [rbp-48H], rbx
+0x542c	jc		55BBH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x3409 and Block 0x5432 matched with 94%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x3409	mov		qword ptr [rbp-68H], 0
+0x3411	mov		qword ptr [rbp-70H], 0
+0x3419	mov		qword ptr [rbp-78H], 0
+0x3421	mov		byte ptr [rbp-49H], 0
+0x3425	mov		rdx, qword ptr [rbp-40H]
+0x3429	lea		rcx, ptr [rbp-60H]
+0x342d	lea		r8, ptr [rbp-68H]
+0x3431	lea		r9, ptr [rbp-70H]
+0x3435	lea		rbx, ptr [rbp-78H]
+0x3439	lea		rax, ptr [rbp-49H]
+0x343d	mov		qword ptr [rsp+40H], rax
+0x3442	mov		qword ptr [rsp+38H], rbx
+0x3447	mov		qword ptr [rsp+30H], r9
+0x344c	mov		qword ptr [rsp+28H], r8
+0x3451	mov		qword ptr [rsp+20H], rcx
+0x3456	mov		rcx, qword ptr [rbp-80H]
+0x345a	mov		r8, r12
+0x345d	mov		r9d, 16
+0x3463	call		3172H
+0x3468	mov		rcx, 15H
+0x3472	mov		rdx, 0EH
+0x347c	cmp		rax, rdx
+0x347f	sete		r8b
+0x3483	mov		r13b, byte ptr [rbp-49H]
+0x3487	test		r13b, r13b
+0x348a	setne		dl
+0x348d	test		r8b, dl
+0x3490	jne		359AH
+
+Reference-UpdateDriverDxe.dll :
+0x5432	mov		qword ptr [rbp-68H], 0
+0x543a	mov		qword ptr [rbp-70H], 0
+0x5442	mov		qword ptr [rbp-78H], 0
+0x544a	mov		byte ptr [rbp-49H], 0
+0x544e	mov		rdx, qword ptr [rbp-40H]
+0x5452	lea		rsi, ptr [rbp-60H]
+0x5456	lea		r8, ptr [rbp-68H]
+0x545a	lea		rcx, ptr [rbp-70H]
+0x545e	lea		rbx, ptr [rbp-78H]
+0x5462	lea		rax, ptr [rbp-49H]
+0x5466	mov		qword ptr [rsp+40H], rax
+0x546b	mov		qword ptr [rsp+38H], rbx
+0x5470	mov		qword ptr [rsp+30H], rcx
+0x5475	mov		qword ptr [rsp+28H], r8
+0x547a	mov		qword ptr [rsp+20H], rsi
+0x547f	mov		rcx, qword ptr [rbp-80H]
+0x5483	mov		r8, r15
+0x5486	mov		r9d, 16
+0x548c	call		51A4H
+0x5491	mov		rbx, rax
+0x5494	mov		rax, 15H
+0x549e	mov		rcx, 0EH
+0x54a8	cmp		rbx, rcx
+0x54ab	sete		cl
+0x54ae	mov		r12b, byte ptr [rbp-49H]
+0x54b2	test		r12b, r12b
+0x54b5	setne		dl
+0x54b8	test		cl, dl
+0x54ba	jne		55BBH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x34fe and Block 0x555d matched with 95%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x34fe	mov		rax, qword ptr [rbp-40H]
+0x3502	mov		qword ptr [rsp+30H], rdi
+0x3507	mov		rcx, qword ptr [rbp-80H]
+0x350b	mov		qword ptr [rsp+28H], rcx
+0x3510	lea		rcx, ptr [rbp-60H]
+0x3514	mov		qword ptr [rsp+20H], rcx
+0x3519	mov		rcx, rax
+0x351c	xor		r8d, r8d
+0x351f	mov		r9, rbx
+0x3522	call		qword ptr [rax+10H]
+
+Reference-UpdateDriverDxe.dll :
+0x555d	mov		rax, qword ptr [rbp-40H]
+0x5561	mov		qword ptr [rsp+30H], r14
+0x5566	mov		rcx, qword ptr [rbp-80H]
+0x556a	mov		qword ptr [rsp+28H], rcx
+0x556f	lea		rcx, ptr [rbp-60H]
+0x5573	mov		qword ptr [rsp+20H], rcx
+0x5578	mov		rcx, rax
+0x557b	xor		r8d, r8d
+0x557e	mov		r9, rdi
+0x5581	call		qword ptr [rax+10H]
+0x5584	mov		rbx, rax
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x352a and Block 0x558c matched with 85%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x352a	add		rdi, rbx
+0x352d	mov		ecx, dword ptr [r14-4H]
+0x3531	inc		r12
+
+Reference-UpdateDriverDxe.dll :
+0x558c	add		r14, rdi
+0x558f	mov		rcx, rsi
+0x5592	mov		eax, dword ptr [rcx]
+0x5594	inc		r13
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x3534 and Block 0x5597 matched with 75%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x3534	lea		rdx, ptr [r15+r12]
+0x3538	mov		ecx, ecx
+0x353a	cmp		r12, rcx
+0x353d	jnc		357FH
+
+Reference-UpdateDriverDxe.dll :
+0x5597	lea		rdx, ptr [r15+r13]
+0x559b	mov		eax, eax
+0x559d	cmp		r13, rax
+0x55a0	jc		5526H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x353f and Block 0x5526 matched with 80%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x353f	test		r13b, r13b
+0x3542	jz		34FEH
+
+Reference-UpdateDriverDxe.dll :
+0x5526	mov		rsi, rcx
+0x5529	test		r12b, r12b
+0x552c	jz		555DH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x359a and Block 0x55bb matched with 95%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x359a	mov		rax, rcx
+0x359d	add		rsp, 152
+0x35a4	pop		rbx
+0x35a5	pop		rdi
+0x35a6	pop		rsi
+0x35a7	pop		r12
+0x35a9	pop		r13
+0x35ab	pop		r14
+0x35ad	pop		r15
+0x35af	pop		rbp
+0x35b0	ret		
+
+Reference-UpdateDriverDxe.dll :
+0x55bb	add		rsp, 152
+0x55c2	pop		rbx
+0x55c3	pop		rdi
+0x55c4	pop		rsi
+0x55c5	pop		r12
+0x55c7	pop		r13
+0x55c9	pop		r14
+0x55cb	pop		r15
+0x55cd	pop		rbp
+0x55ce	ret		
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x3172 func total block : 14
+Reference-UpdateDriverDxe.dll:0x51a4 func total block : 14
+total matched block : 11
+---------------------------------------------------------------
+Block 0x3172 and Block 0x51a4 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x3172	push		rbp
+0x3173	mov		rbp, rsp
+0x3176	push		r15
+0x3178	push		r14
+0x317a	push		r13
+0x317c	push		r12
+0x317e	push		rsi
+0x317f	push		rdi
+0x3180	push		rbx
+0x3181	sub		rsp, 104
+0x3185	mov		r12, r9
+0x3188	mov		rbx, r8
+0x318b	mov		rsi, rdx
+0x318e	mov		qword ptr [rbp-60H], rcx
+0x3192	mov		rax, qword ptr [rbp+50H]
+0x3196	mov		byte ptr [rax], 0
+0x3199	mov		qword ptr [rbp-50H], r12
+0x319d	lea		rcx, ptr [rbp-50H]
+0x31a1	mov		rdx, qword ptr [rbp+30H]
+0x31a5	lea		rax, ptr [rbp-51H]
+0x31a9	mov		qword ptr [rsp+38H], rax
+0x31ae	mov		qword ptr [rsp+30H], rdx
+0x31b3	mov		qword ptr [rsp+28H], rcx
+0x31b8	mov		rax, qword ptr [rbp+48H]
+0x31bc	mov		qword ptr [rsp+20H], rax
+0x31c1	lea		rdx, ptr [rbp-48H]
+0x31c5	mov		rax, qword ptr [rbp+38H]
+0x31c9	mov		rdi, qword ptr [rbp+40H]
+0x31cd	mov		rcx, rsi
+0x31d0	mov		r8, rax
+0x31d3	mov		r13, rax
+0x31d6	mov		r9, rdi
+0x31d9	mov		r14, rdi
+0x31dc	call		qword ptr [rsi+28H]
+0x31df	mov		rdi, rax
+0x31e2	test		rdi, rdi
+0x31e5	jns		32B4H
+
+Reference-UpdateDriverDxe.dll :
+0x51a4	push		rbp
+0x51a5	mov		rbp, rsp
+0x51a8	push		r15
+0x51aa	push		r14
+0x51ac	push		r13
+0x51ae	push		r12
+0x51b0	push		rsi
+0x51b1	push		rdi
+0x51b2	push		rbx
+0x51b3	sub		rsp, 104
+0x51b7	mov		r12, r9
+0x51ba	mov		rbx, r8
+0x51bd	mov		rsi, rdx
+0x51c0	mov		qword ptr [rbp-60H], rcx
+0x51c4	mov		rax, qword ptr [rbp+50H]
+0x51c8	mov		byte ptr [rax], 0
+0x51cb	mov		qword ptr [rbp-50H], r12
+0x51cf	lea		rdx, ptr [rbp-50H]
+0x51d3	mov		rcx, qword ptr [rbp+30H]
+0x51d7	lea		rax, ptr [rbp-51H]
+0x51db	mov		qword ptr [rsp+38H], rax
+0x51e0	mov		qword ptr [rsp+30H], rcx
+0x51e5	mov		qword ptr [rsp+28H], rdx
+0x51ea	mov		rax, qword ptr [rbp+48H]
+0x51ee	mov		qword ptr [rsp+20H], rax
+0x51f3	lea		rdx, ptr [rbp-48H]
+0x51f7	mov		rdi, qword ptr [rbp+38H]
+0x51fb	mov		rax, qword ptr [rbp+40H]
+0x51ff	mov		rcx, rsi
+0x5202	mov		r8, rdi
+0x5205	mov		r14, rdi
+0x5208	mov		r9, rax
+0x520b	mov		r13, rax
+0x520e	call		qword ptr [rsi+28H]
+0x5211	mov		rdi, rax
+0x5214	test		rdi, rdi
+0x5217	jns		52DBH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x31eb and Block 0x521d matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x31eb	mov		rax, 0EH
+0x31f5	cmp		rdi, rax
+0x31f8	jnz		3207H
+
+Reference-UpdateDriverDxe.dll :
+0x521d	mov		rax, 0EH
+0x5227	cmp		rdi, rax
+0x522a	jnz		5239H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x31fa and Block 0x522c matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x31fa	mov		cl, byte ptr [rbp-51H]
+0x31fd	xor		eax, eax
+0x31ff	test		cl, cl
+0x3201	jne		3332H
+
+Reference-UpdateDriverDxe.dll :
+0x522c	mov		cl, byte ptr [rbp-51H]
+0x522f	xor		eax, eax
+0x5231	test		cl, cl
+0x5233	jne		5359H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x3207 and Block 0x5239 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x3207	mov		rax, 15H
+0x3211	mov		rcx, 5H
+0x321b	cmp		rdi, rcx
+0x321e	jne		3332H
+
+Reference-UpdateDriverDxe.dll :
+0x5239	mov		rax, 15H
+0x5243	mov		rcx, 5H
+0x524d	cmp		rdi, rcx
+0x5250	jne		5359H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x3224 and Block 0x5256 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x3224	mov		rcx, qword ptr [rbp-50H]
+0x3228	call		30BH
+0x322d	mov		r15, rax
+0x3230	mov		rax, 9H
+0x323a	test		r15, r15
+0x323d	je		3332H
+
+Reference-UpdateDriverDxe.dll :
+0x5256	mov		rcx, qword ptr [rbp-50H]
+0x525a	call		165FH
+0x525f	mov		r15, rax
+0x5262	mov		rax, 9H
+0x526c	test		r15, r15
+0x526f	je		5359H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x32b4 and Block 0x52db matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x32b4	mov		rax, qword ptr [rbp+50H]
+0x32b8	mov		byte ptr [rax], 1
+0x32bb	lea		rcx, ptr [rbp-48H]
+0x32bf	lea		rdx, ptr DS:[0ACD8H]
+0x32c6	mov		r8d, 16
+0x32cc	call		462H
+0x32d1	mov		rcx, rax
+0x32d4	mov		rax, 0EH
+0x32de	test		rcx, rcx
+0x32e1	jnz		3332H
+
+Reference-UpdateDriverDxe.dll :
+0x52db	mov		rax, qword ptr [rbp+50H]
+0x52df	mov		byte ptr [rax], 1
+0x52e2	lea		rcx, ptr [rbp-48H]
+0x52e6	lea		rdx, ptr DS:[8E50H]
+0x52ed	mov		r8d, 16
+0x52f3	call		2E5H
+0x52f8	mov		rcx, rax
+0x52fb	mov		rax, 0EH
+0x5305	test		rcx, rcx
+0x5308	jnz		5359H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x32e3 and Block 0x530a matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x32e3	add		rbx, 24
+0x32e7	mov		rcx, qword ptr [rbp+30H]
+0x32eb	mov		rdx, rbx
+0x32ee	mov		r8d, 16
+0x32f4	call		462H
+0x32f9	mov		rcx, rax
+0x32fc	mov		rax, 0EH
+0x3306	test		rcx, rcx
+0x3309	jnz		3332H
+
+Reference-UpdateDriverDxe.dll :
+0x530a	add		rbx, 24
+0x530e	mov		rcx, qword ptr [rbp+30H]
+0x5312	mov		rdx, rbx
+0x5315	mov		r8d, 16
+0x531b	call		2E5H
+0x5320	mov		rcx, rax
+0x5323	mov		rax, 0EH
+0x532d	test		rcx, rcx
+0x5330	jnz		5359H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x330b and Block 0x5332 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x330b	cmp		byte ptr [rbp-51H], 0
+0x330f	mov		rax, rdi
+0x3312	jnz		3332H
+
+Reference-UpdateDriverDxe.dll :
+0x5332	cmp		byte ptr [rbp-51H], 0
+0x5336	mov		rax, rdi
+0x5339	jnz		5359H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x3314 and Block 0x533b matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x3314	mov		rcx, rsi
+0x3317	mov		rdx, qword ptr [rbp-60H]
+0x331b	call		qword ptr [rsi+18H]
+0x331e	test		rax, rax
+0x3321	jns		3332H
+
+Reference-UpdateDriverDxe.dll :
+0x533b	mov		rcx, rsi
+0x533e	mov		rdx, qword ptr [rbp-60H]
+0x5342	call		qword ptr [rsi+18H]
+0x5345	test		rax, rax
+0x5348	jns		5359H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x3323 and Block 0x534a matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x3323	mov		rcx, rsi
+0x3326	call		qword ptr [rsi+20H]
+0x3329	mov		rax, qword ptr [rbp+50H]
+0x332d	mov		byte ptr [rax], 0
+0x3330	xor		eax, eax
+
+Reference-UpdateDriverDxe.dll :
+0x534a	mov		rcx, rsi
+0x534d	call		qword ptr [rsi+20H]
+0x5350	mov		rax, qword ptr [rbp+50H]
+0x5354	mov		byte ptr [rax], 0
+0x5357	xor		eax, eax
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x3332 and Block 0x5359 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x3332	add		rsp, 104
+0x3336	pop		rbx
+0x3337	pop		rdi
+0x3338	pop		rsi
+0x3339	pop		r12
+0x333b	pop		r13
+0x333d	pop		r14
+0x333f	pop		r15
+0x3341	pop		rbp
+0x3342	ret		
+
+Reference-UpdateDriverDxe.dll :
+0x5359	add		rsp, 104
+0x535d	pop		rbx
+0x535e	pop		rdi
+0x535f	pop		rsi
+0x5360	pop		r12
+0x5362	pop		r13
+0x5364	pop		r14
+0x5366	pop		r15
+0x5368	pop		rbp
+0x5369	ret		
+
+---------------------------------------------------------------
+###################################################################
+---------------------------------------------------------------
+Block 0x3243 and Block 0x5275 matched with 96%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x3243	lea		rax, ptr [rbp-51H]
+0x3247	mov		qword ptr [rsp+38H], rax
+0x324c	mov		qword ptr [rsp+30H], r15
+0x3251	lea		rax, ptr [rbp-50H]
+0x3255	mov		qword ptr [rsp+28H], rax
+0x325a	mov		rax, qword ptr [rbp+48H]
+0x325e	mov		qword ptr [rsp+20H], rax
+0x3263	lea		rdx, ptr [rbp-48H]
+0x3267	mov		rcx, rsi
+0x326a	mov		r8, r13
+0x326d	mov		r9, r14
+0x3270	call		qword ptr [rsi+28H]
+0x3273	mov		rdi, rax
+0x3276	mov		rax, qword ptr DS:[0ACA8H]
+0x327d	test		rdi, rdi
+0x3280	jns		3297H
+
+Reference-UpdateDriverDxe.dll :
+0x5275	lea		rax, ptr [rbp-51H]
+0x5279	mov		qword ptr [rsp+38H], rax
+0x527e	mov		qword ptr [rsp+30H], r15
+0x5283	lea		rax, ptr [rbp-50H]
+0x5287	mov		qword ptr [rsp+28H], rax
+0x528c	mov		rax, qword ptr [rbp+48H]
+0x5290	mov		qword ptr [rsp+20H], rax
+0x5295	lea		rdx, ptr [rbp-48H]
+0x5299	mov		rcx, rsi
+0x529c	mov		r8, r14
+0x529f	mov		r9, r13
+0x52a2	call		qword ptr [rsi+28H]
+0x52a5	mov		rdi, rax
+0x52a8	test		rdi, rdi
+0x52ab	jns		52C4H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x3282 and Block 0x52ad matched with 75%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x3282	mov		rcx, r15
+0x3285	call		qword ptr [rax+48H]
+0x3288	mov		rax, 15H
+0x3292	jmp		3332H
+
+Reference-UpdateDriverDxe.dll :
+0x52ad	mov		rcx, r15
+0x52b0	call		1757H
+0x52b5	mov		rax, 15H
+0x52bf	jmp		5359H
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x30b func total block : 1
+Reference-UpdateDriverDxe.dll:0x165f func total block : 1
+total matched block : 0
+###################################################################
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x462 func total block : 14
+Reference-UpdateDriverDxe.dll:0x2e5 func total block : 15
+total matched block : 0
+###################################################################
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x462 func total block : 14
+Reference-UpdateDriverDxe.dll:0x2e5 func total block : 15
+total matched block : 0
+###################################################################
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x35b1 func total block : 13
+Reference-UpdateDriverDxe.dll:0x55cf func total block : 12
+total matched block : 7
+---------------------------------------------------------------
+Block 0x3603 and Block 0x5613 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x3603	add		r12, 8
+0x3607	mov		r13, r8
+
+Reference-UpdateDriverDxe.dll :
+0x5613	add		r15, 8
+0x5617	mov		r12, rdx
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x360a and Block 0x561a matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x360a	mov		eax, dword ptr [r12-4H]
+0x360f	test		eax, eax
+0x3611	jz		3659H
+
+Reference-UpdateDriverDxe.dll :
+0x561a	mov		ecx, dword ptr [r15]
+0x561d	test		ecx, ecx
+0x561f	jz		565AH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x3613 and Block 0x5621 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x3613	mov		edi, dword ptr [r12]
+0x3617	test		rdi, rdi
+0x361a	jz		3659H
+
+Reference-UpdateDriverDxe.dll :
+0x5621	mov		edi, dword ptr [r15+4H]
+0x5625	test		rdi, rdi
+0x5628	jz		565AH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x361c and Block 0x562a matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x361c	xor		r14d, r14d
+0x361f	jmp		3648H
+
+Reference-UpdateDriverDxe.dll :
+0x562a	xor		esi, esi
+0x562c	jmp		564AH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x363d and Block 0x5641 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x363d	add		rbx, rdi
+0x3640	mov		eax, dword ptr [r12-4H]
+0x3645	inc		r14
+
+Reference-UpdateDriverDxe.dll :
+0x5641	add		rbx, rdi
+0x5644	mov		ecx, dword ptr [r15]
+0x5647	inc		rsi
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x3648 and Block 0x564a matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x3648	lea		r8, ptr [r13+r14]
+0x364d	mov		eax, eax
+0x364f	cmp		r14, rax
+0x3652	jc		3621H
+
+Reference-UpdateDriverDxe.dll :
+0x564a	lea		rdx, ptr [r12+rsi]
+0x564e	mov		ecx, ecx
+0x5650	cmp		rsi, rcx
+0x5653	jc		562EH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x3654 and Block 0x5655 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x3654	test		rsi, rsi
+0x3657	jns		3603H
+
+Reference-UpdateDriverDxe.dll :
+0x5655	test		rax, rax
+0x5658	jns		5613H
+
+---------------------------------------------------------------
+###################################################################
+---------------------------------------------------------------
+Block 0x35b1 and Block 0x55cf matched with 80%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x35b1	push		rbp
+0x35b2	mov		rbp, rsp
+0x35b5	push		r15
+0x35b7	push		r14
+0x35b9	push		r13
+0x35bb	push		r12
+0x35bd	push		rsi
+0x35be	push		rdi
+0x35bf	push		rbx
+0x35c0	sub		rsp, 56
+0x35c4	mov		r15, r9
+0x35c7	mov		r12, r8
+0x35ca	mov		qword ptr [rbp-40H], rdx
+0x35ce	mov		rsi, 2H
+0x35d8	cmp		dword ptr [r15+8H], 0
+0x35dd	jne		3665H
+
+Reference-UpdateDriverDxe.dll :
+0x55cf	push		rbp
+0x55d0	mov		rbp, rsp
+0x55d3	push		r15
+0x55d5	push		r14
+0x55d7	push		r12
+0x55d9	push		rsi
+0x55da	push		rdi
+0x55db	push		rbx
+0x55dc	sub		rsp, 32
+0x55e0	mov		r15, r8
+0x55e3	mov		r14, rdx
+0x55e6	mov		rax, 2H
+0x55f0	cmp		dword ptr [r9+8H], 0
+0x55f5	jnz		565AH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x35f4 and Block 0x5608 matched with 88%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x35f4	mov		rbx, qword ptr [rbp+30H]
+0x35f8	add		r12, 4
+0x35fc	xor		esi, esi
+0x35fe	mov		r13, rsi
+0x3601	jmp		360AH
+
+Reference-UpdateDriverDxe.dll :
+0x5608	mov		rbx, qword ptr [rbp+30H]
+0x560c	xor		eax, eax
+0x560e	mov		r12, rax
+0x5611	jmp		561AH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x3621 and Block 0x562e matched with 71%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x3621	mov		qword ptr [rsp+20H], rbx
+0x3626	mov		rcx, qword ptr [rbp-40H]
+0x362a	mov		rdx, r15
+0x362d	mov		r9, rdi
+0x3630	call		45C1H
+0x3635	mov		rsi, rax
+0x3638	test		rsi, rsi
+0x363b	js		3659H
+
+Reference-UpdateDriverDxe.dll :
+0x562e	mov		rcx, r14
+0x5631	mov		r8, rdi
+0x5634	mov		r9, rbx
+0x5637	call		5072H
+0x563c	test		rax, rax
+0x563f	js		565AH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x3665 and Block 0x565a matched with 90%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x3665	mov		rax, rsi
+0x3668	add		rsp, 56
+0x366c	pop		rbx
+0x366d	pop		rdi
+0x366e	pop		rsi
+0x366f	pop		r12
+0x3671	pop		r13
+0x3673	pop		r14
+0x3675	pop		r15
+0x3677	pop		rbp
+0x3678	ret		
+
+Reference-UpdateDriverDxe.dll :
+0x565a	add		rsp, 32
+0x565e	pop		rbx
+0x565f	pop		rdi
+0x5660	pop		rsi
+0x5661	pop		r12
+0x5663	pop		r14
+0x5665	pop		r15
+0x5667	pop		rbp
+0x5668	ret		
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x45c1 func total block : 8
+Reference-UpdateDriverDxe.dll:0x5072 func total block : 3
+total matched block : 0
+###################################################################
+---------------------------------------------------------------
+Block 0x45c1 and Block 0x5072 matched with 72%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x45c1	push		rbp
+0x45c2	mov		rbp, rsp
+0x45c5	push		r15
+0x45c7	push		r14
+0x45c9	push		r13
+0x45cb	push		r12
+0x45cd	push		rsi
+0x45ce	push		rdi
+0x45cf	push		rbx
+0x45d0	sub		rsp, 56
+0x45d4	mov		rsi, r9
+0x45d7	mov		r14, r8
+0x45da	mov		r15, rdx
+0x45dd	mov		rbx, rcx
+0x45e0	lea		rdx, ptr [rbp-48H]
+0x45e4	mov		rcx, rbx
+0x45e7	call		qword ptr [rbx+10H]
+0x45ea	mov		rdi, rax
+0x45ed	test		rdi, rdi
+0x45f0	jne		46A4H
+
+Reference-UpdateDriverDxe.dll :
+0x5072	push		rbp
+0x5073	mov		rbp, rsp
+0x5076	push		r14
+0x5078	push		rsi
+0x5079	push		rdi
+0x507a	push		rbx
+0x507b	sub		rsp, 48
+0x507f	mov		r14, r9
+0x5082	mov		rsi, r8
+0x5085	mov		rbx, rdx
+0x5088	mov		rdi, rcx
+0x508b	mov		r8d, 1
+0x5091	mov		r9, -1
+0x5098	call		qword ptr [rdi+30H]
+0x509b	test		rax, rax
+0x509e	js		50CFH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x46a4 and Block 0x50cf matched with 77%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x46a4	mov		rax, rdi
+0x46a7	add		rsp, 56
+0x46ab	pop		rbx
+0x46ac	pop		rdi
+0x46ad	pop		rsi
+0x46ae	pop		r12
+0x46b0	pop		r13
+0x46b2	pop		r14
+0x46b4	pop		r15
+0x46b6	pop		rbp
+0x46b7	ret		
+
+Reference-UpdateDriverDxe.dll :
+0x50cf	add		rsp, 48
+0x50d3	pop		rbx
+0x50d4	pop		rdi
+0x50d5	pop		rsi
+0x50d6	pop		r14
+0x50d8	pop		rbp
+0x50d9	ret		
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x3799 func total block : 6
+Reference-UpdateDriverDxe.dll:0x57d5 func total block : 11
+total matched block : 2
+---------------------------------------------------------------
+Block 0x37d7 and Block 0x587b matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x37d7	mov		cl, byte ptr [rbp+38H]
+0x37da	cmp		cl, 8
+0x37dd	ja		37F7H
+
+Reference-UpdateDriverDxe.dll :
+0x587b	mov		cl, byte ptr [rbp+38H]
+0x587e	cmp		cl, 8
+0x5881	ja		589BH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x37f7 and Block 0x589b matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x37f7	mov		edx, dword ptr [rbp+40H]
+0x37fa	mov		rax, qword ptr [rbp+30H]
+0x37fe	lea		rdi, ptr [rsi+18H]
+0x3802	mov		qword ptr [rbp-40H], rdi
+0x3806	mov		byte ptr [rbp-38H], cl
+0x3809	mov		dword ptr [rbp-34H], edx
+0x380c	mov		qword ptr [rbp-30H], rbx
+0x3810	mov		dword ptr [rbp-28H], eax
+0x3813	lea		r9, ptr [rbp-40H]
+0x3817	movzx		r8d, byte ptr [rsi+30H]
+0x381c	mov		rax, qword ptr [rbp-20H]
+0x3820	mov		rcx, rax
+0x3823	mov		edx, 1
+0x3828	call		qword ptr [rax+20H]
+
+Reference-UpdateDriverDxe.dll :
+0x589b	mov		edx, dword ptr [rbp+40H]
+0x589e	mov		rax, qword ptr [rbp+30H]
+0x58a2	lea		rbx, ptr [rsi+18H]
+0x58a6	mov		qword ptr [rbp-48H], rbx
+0x58aa	mov		byte ptr [rbp-40H], cl
+0x58ad	mov		dword ptr [rbp-3CH], edx
+0x58b0	mov		qword ptr [rbp-38H], r14
+0x58b4	mov		dword ptr [rbp-30H], eax
+0x58b7	lea		r9, ptr [rbp-48H]
+0x58bb	movzx		r8d, byte ptr [rsi+30H]
+0x58c0	mov		rax, qword ptr [rbp-28H]
+0x58c4	mov		rcx, rax
+0x58c7	mov		edx, 1
+0x58cc	call		qword ptr [rax+20H]
+
+---------------------------------------------------------------
+###################################################################
+---------------------------------------------------------------
+Block 0x3799 and Block 0x57d5 matched with 83%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x3799	push		rbp
+0x379a	mov		rbp, rsp
+0x379d	push		rsi
+0x379e	push		rdi
+0x379f	push		rbx
+0x37a0	sub		rsp, 72
+0x37a4	mov		rbx, r9
+0x37a7	mov		rsi, r8
+0x37aa	mov		rax, 2H
+0x37b4	cmp		dword ptr [rsi+8H], 1
+0x37b8	jnz		382BH
+
+Reference-UpdateDriverDxe.dll :
+0x57d5	push		rbp
+0x57d6	mov		rbp, rsp
+0x57d9	push		r14
+0x57db	push		rsi
+0x57dc	push		rdi
+0x57dd	push		rbx
+0x57de	sub		rsp, 80
+0x57e2	mov		r14, r9
+0x57e5	mov		rsi, r8
+0x57e8	mov		rbx, rcx
+0x57eb	mov		rax, 2H
+0x57f5	cmp		dword ptr [rsi+8H], 1
+0x57f9	jne		58CFH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x37ba and Block 0x585b matched with 92%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x37ba	mov		rax, qword ptr DS:[0ACA8H]
+0x37c1	lea		rdx, ptr DS:[0A41CH]
+0x37c8	lea		r8, ptr [rbp-20H]
+0x37cc	call		qword ptr [rax+98H]
+0x37d2	test		rax, rax
+0x37d5	js		382BH
+
+Reference-UpdateDriverDxe.dll :
+0x585b	mov		rax, qword ptr DS:[9148H]
+0x5862	lea		rdx, ptr DS:[8EB8H]
+0x5869	lea		r8, ptr [rbp-28H]
+0x586d	mov		rcx, rbx
+0x5870	call		qword ptr [rax+98H]
+0x5876	test		rax, rax
+0x5879	js		58CFH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x37df and Block 0x5883 matched with 80%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x37df	movzx		edx, cl
+0x37e2	mov		rax, 3H
+0x37ec	mov		edi, 336
+0x37f1	bt		rdi, rdx
+0x37f5	jc		382BH
+
+Reference-UpdateDriverDxe.dll :
+0x5883	movzx		edx, cl
+0x5886	mov		rax, 3H
+0x5890	mov		ebx, 336
+0x5895	bt		rbx, rdx
+0x5899	jc		58CFH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x382b and Block 0x58cf matched with 92%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x382b	add		rsp, 72
+0x382f	pop		rbx
+0x3830	pop		rdi
+0x3831	pop		rsi
+0x3832	pop		rbp
+0x3833	ret		
+
+Reference-UpdateDriverDxe.dll :
+0x58cf	add		rsp, 80
+0x58d3	pop		rbx
+0x58d4	pop		rdi
+0x58d5	pop		rsi
+0x58d6	pop		r14
+0x58d8	pop		rbp
+0x58d9	ret		
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x2275 func total block : 59
+Reference-UpdateDriverDxe.dll:0x3a8f func total block : 29
+total matched block : 6
+---------------------------------------------------------------
+Block 0x235c and Block 0x3b35 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x235c	test		ecx, ecx
+0x235e	je		24D8H
+
+Reference-UpdateDriverDxe.dll :
+0x3b35	test		rcx, rcx
+0x3b38	je		3C91H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x2387 and Block 0x3b28 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x2387	mov		rax, qword ptr [rbp-50H]
+0x238b	test		rax, rax
+0x238e	je		26D4H
+
+Reference-UpdateDriverDxe.dll :
+0x3b28	mov		rax, qword ptr [rbp-48H]
+0x3b2c	test		rax, rax
+0x3b2f	je		3C91H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x239f and Block 0x3bda matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x239f	mov		rax, qword ptr [rbp-58H]
+0x23a3	mov		rcx, qword ptr [rax+rsi*8]
+0x23a7	mov		rax, qword ptr DS:[0ACA8H]
+0x23ae	mov		rdx, rdi
+0x23b1	mov		r8, r12
+0x23b4	call		qword ptr [rax+98H]
+0x23ba	test		rax, rax
+0x23bd	js		269CH
+
+Reference-UpdateDriverDxe.dll :
+0x3bda	mov		rax, qword ptr [rbp-50H]
+0x3bde	mov		rcx, qword ptr [rax+rsi*8]
+0x3be2	mov		rax, qword ptr DS:[9148H]
+0x3be9	mov		rdx, r13
+0x3bec	mov		r8, rdi
+0x3bef	call		qword ptr [rax+98H]
+0x3bf5	test		rax, rax
+0x3bf8	js		3CB1H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x23c3 and Block 0x3c15 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x23c3	mov		rax, qword ptr [rbp-48H]
+0x23c7	mov		rcx, rax
+0x23ca	mov		rdx, r14
+0x23cd	call		qword ptr [rax+10H]
+0x23d0	test		rax, rax
+0x23d3	js		269CH
+
+Reference-UpdateDriverDxe.dll :
+0x3c15	mov		rax, qword ptr [rbp-40H]
+0x3c19	mov		rcx, rax
+0x3c1c	mov		rdx, rbx
+0x3c1f	call		qword ptr [rax+10H]
+0x3c22	test		rax, rax
+0x3c25	js		3CB1H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x23e6 and Block 0x3c34 matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x23e6	add		rcx, qword ptr [rcx+20H]
+0x23ea	cmp		rax, rcx
+0x23ed	jc		23F8H
+
+Reference-UpdateDriverDxe.dll :
+0x3c34	add		rax, qword ptr [rax+20H]
+0x3c38	cmp		r14, rax
+0x3c3b	jc		3C42H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x2412 and Block 0x3c0f matched with 100%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x2412	test		byte ptr [r13-18H], 8H
+0x2417	jz		2443H
+
+Reference-UpdateDriverDxe.dll :
+0x3c0f	test		byte ptr [rbp-64H], 20H
+0x3c13	jz		3C3DH
+
+---------------------------------------------------------------
+###################################################################
+---------------------------------------------------------------
+Block 0x2317 and Block 0x3c2b matched with 85%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x2317	lea		rsi, ptr [r13+30H]
+0x231b	mov		rdi, qword ptr [r13-10H]
+0x231f	cmp		rbx, rdi
+0x2322	jc		230CH
+
+Reference-UpdateDriverDxe.dll :
+0x3c2b	mov		rax, qword ptr [rbp-58H]
+0x3c2f	cmp		r14, rax
+0x3c32	jc		3C3DH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x2364 and Block 0x3aec matched with 72%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x2364	lea		rcx, ptr [rbp-58H]
+0x2368	mov		qword ptr [rsp+20H], rcx
+0x236d	mov		ecx, 2
+0x2372	mov		rdx, rdi
+0x2375	xor		r8d, r8d
+0x2378	lea		r9, ptr [rbp-50H]
+0x237c	call		rax
+0x237e	test		rax, rax
+0x2381	js		26D4H
+
+Reference-UpdateDriverDxe.dll :
+0x3aec	mov		rsi, rdi
+0x3aef	mov		rax, qword ptr DS:[9148H]
+0x3af6	lea		rcx, ptr [rbp-50H]
+0x3afa	mov		qword ptr [rsp+20H], rcx
+0x3aff	lea		rdx, ptr DS:[8EC8H]
+0x3b06	lea		r9, ptr [rbp-48H]
+0x3b0a	mov		ecx, 2
+0x3b0f	xor		r8d, r8d
+0x3b12	call		qword ptr [rax+138H]
+0x3b18	mov		r15, rax
+0x3b1b	mov		rcx, qword ptr [rbp-50H]
+0x3b1f	test		r15, r15
+0x3b22	js		3C91H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x23ef and Block 0x3c3d matched with 80%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x23ef	inc		rsi
+0x23f2	mov		rax, qword ptr [rbp-50H]
+0x23f6	jmp		2396H
+
+Reference-UpdateDriverDxe.dll :
+0x3c3d	inc		rsi
+0x3c40	jmp		3BD0H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x23f8 and Block 0x3c42 matched with 71%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x23f8	mov		rax, qword ptr [rbp-58H]
+0x23fc	mov		r15, qword ptr [rax+rsi*8]
+0x2400	mov		qword ptr [rbp-68H], 0
+0x2408	mov		rax, qword ptr [rbp-80H]
+0x240c	cmp		byte ptr [rax+30H], 0
+0x2410	jnz		2419H
+
+Reference-UpdateDriverDxe.dll :
+0x3c42	mov		rbx, r12
+0x3c45	mov		rax, qword ptr [rbp-50H]
+0x3c49	mov		r12, qword ptr [rax+rsi*8]
+0x3c4d	mov		qword ptr [rbp-60H], 0
+0x3c55	mov		rax, qword ptr [rbp-40H]
+0x3c59	mov		rdi, qword ptr [rbp-78H]
+0x3c5d	cmp		byte ptr [rdi+30H], 0
+0x3c61	je		3B4FH
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x2465 and Block 0x3cdd matched with 85%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x2465	mov		rdi, rax
+0x2468	mov		rcx, qword ptr [rbp-58H]
+0x246c	test		rcx, rcx
+0x246f	jz		2483H
+
+Reference-UpdateDriverDxe.dll :
+0x3cdd	mov		rcx, qword ptr [rbp-50H]
+0x3ce1	test		rcx, rcx
+0x3ce4	jz		3CF3H
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x24c1 and Block 0x3cf3 matched with 90%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x24c1	mov		rax, rdi
+0x24c4	add		rsp, 136
+0x24cb	pop		rbx
+0x24cc	pop		rdi
+0x24cd	pop		rsi
+0x24ce	pop		r12
+0x24d0	pop		r13
+0x24d2	pop		r14
+0x24d4	pop		r15
+0x24d6	pop		rbp
+0x24d7	ret		
+
+Reference-UpdateDriverDxe.dll :
+0x3cf3	mov		rax, r15
+0x3cf6	add		rsp, 120
+0x3cfa	pop		rbx
+0x3cfb	pop		rdi
+0x3cfc	pop		rsi
+0x3cfd	pop		r12
+0x3cff	pop		r13
+0x3d01	pop		r14
+0x3d03	pop		r15
+0x3d05	pop		rbp
+0x3d06	ret		
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+Block 0x268a and Block 0x3bfe matched with 83%
+
+MacFirmware-UpdateDriverDxe.efi :
+0x268a	mov		rax, qword ptr [rbp-48H]
+0x268e	mov		rcx, rax
+0x2691	mov		rdx, r14
+0x2694	call		qword ptr [rax+10H]
+0x2697	test		rax, rax
+0x269a	jns		2644H
+
+Reference-UpdateDriverDxe.dll :
+0x3bfe	mov		rax, qword ptr [rbp-40H]
+0x3c02	mov		rcx, rax
+0x3c05	mov		rdx, r12
+0x3c08	call		qword ptr [rax]
+0x3c0a	test		rax, rax
+0x3c0d	js		3C3DH
+
+---------------------------------------------------------------
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+MacFirmware-UpdateDriverDxe.efi:0x63c7 func total block : 6
+Reference-UpdateDriverDxe.dll:0x3a8f func total block : 29
+total matched block : 0
+###################################################################
+*******************************************************************
+*******************************************************************
+*******************************************************************
