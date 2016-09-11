@@ -30,9 +30,11 @@
 #define R15		15
 
 #define REG			0
-#define MEM			1
-#define IMMEDIATE	2
-#define ETC			3
+#define MEM_DATA	1
+#define MEM_LOCAL	2
+#define MEM_PARAM	3
+#define IMMEDIATE	4
+#define UNKNOWN		5
 
 #define MNEMONIC_MAX_SIZE	7
 
@@ -74,7 +76,7 @@ class VMemoryTable
 		bool *state;
 
 		VMemoryTable();
-		//VMemoryTable( const &VMemoryTable &copy );	// todo
+		//VMemoryTable( const &VMemoryTable &copy );	// TODO
 		//~VMemoryTAble();
 		void VMemoryMerge( VMemoryTable &merge_table );
 };
@@ -83,6 +85,7 @@ class VMemory
 {
 	public :
 		VMemory();
+		//~VMEMROY()	// TODO
 		void SetMem( uint64_t addr, VMAttribute attr, int8_t word_size );
 		template <typename T> void SetMem( uint64_t addr, VMAttribute attr );
 		VMAttribute GetMem( uint64_t addr, int8_t word_size );
@@ -114,6 +117,7 @@ class VirtualMachine
 		bool IsAlwaysDependent(Instruction &insn);
 		vector<OperandAttribute> GetSourceAttribute(Instruction &insn);
 		vector<OperandAttribute> GetDestAttribute(Instruction &insn);
+		OperandAttribute GetAttribute( char *operand );
 		void PrintReg();
 
 	private :
@@ -125,6 +129,7 @@ class VirtualMachine
 		bool IsReg( char *operand );
 		bool IsData( char *operand );
 		bool IsLocal( char *operand );
+		bool IsParam( char *operand );
 		bool IsMem( char *operand );
 		bool IsDecimal( char *operand );
 		bool IsHex( char *operand );
@@ -134,7 +139,6 @@ class VirtualMachine
 		vector<OperandAttribute> GetDependencyAttribute( char *operand );
 
 		void AssignAttribute( OperandAttribute dest_attr, OperandAttribute source_attr );
-		OperandAttribute GetAttribute( char *operand );
 		OperandAttribute GetRegAttribute( char *operand );
 		int8_t GetRegNum( char *operand );
 		int8_t GetRegWordsize( char *operand );

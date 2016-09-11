@@ -207,9 +207,18 @@ bool VirtualMachine::IsData( char *operand )
 
 bool VirtualMachine::IsLocal( char *operand )
 {
-	if( (strstr(operand, "rsp") || strstr(operand, "rbp")) && strstr(operand, "ptr") )
+	if(strstr(operand, "rbp") && strstr(operand, "ptr"))
 		return true;
-	return false;
+	else
+		return false;
+}
+
+bool VirtualMachine::IsParam( char *operand )
+{
+	if(strstr(operand, "rsp") && strstr(operand, "ptr"))
+		return true;
+	else
+		return false;
 }
 
 bool VirtualMachine::IsMem( char *operand )
@@ -293,11 +302,11 @@ vector<OperandAttribute> VirtualMachine::GetSourceAttribute(Instruction &insn)
 {
 	vector<OperandAttribute> source_attrs;
 	char *mnemonic = insn.GetMnemonic();
-	/*if( !CheckDependencyTable(insn.GetMnemonic()) )
+	if( !CheckDependencyTable(insn.GetMnemonic()) )
 	{
 		printf("[error] should update dependency table : ");
 		insn.Print();
-	}*/
+	}
 
 	for( int i = 0; i < sizeof(operand2_source_insn)/sizeof(char)/MNEMONIC_MAX_SIZE; i++ )
 	{
@@ -360,7 +369,9 @@ void VirtualMachine::AssignAttribute( OperandAttribute dest_attr, OperandAttribu
 			reg_set[dest_attr.reg_num].state = source_attr.state;
 			reg_set[dest_attr.reg_num].value = source_attr.value;
 			break;
-		case MEM:
+		case MEM_DATA:
+		case MEM_LOCAL:
+		case MEM_PARAM:
 			VMAttribute vm_attr;
 			vm_attr.state = source_attr.state;
 			vm_attr.value = source_attr.value;
@@ -422,6 +433,7 @@ OperandAttribute VirtualMachine::GetRegAttribute( char *operand )
 	return op_attr;
 }
 
+// TODO serious bug here
 uint64_t VirtualMachine::GetMemAddr( char *operand )
 {
 	vector<OperandAttribute> ptr_operand_attrs;
@@ -447,6 +459,7 @@ uint64_t VirtualMachine::GetMemAddr( char *operand )
 	{
 		OperandAttribute temp;
 		char *opers_str = opers.GetString();
+		if(!opers_str) break;
 		for( int j = 0; opers_str[j]; j++ )
 		{
 			if(opers_str[j] == operator_priority[i])
@@ -482,8 +495,11 @@ int8_t VirtualMachine::GetMemWordsize( char *operand )
 OperandAttribute VirtualMachine::GetMemAttribute( char *operand )
 {
 	OperandAttribute op_attr;
-	op_attr.op_class = MEM;
-	op_attr.mem_addr = GetMemAddr(operand);
+	op_attr.op_class = MEM_DATA;
+	/*if(IsData(operand)) op_attr.op_class = MEM_DATA;
+	else if(IsLocal(operand)) op_attr.op_class = MEM_LOCAL;
+	else if(IsParam(operand)) op_attr.op_class = MEM_PARAM;*/
+	//op_attr.mem_addr = GetMemAddr(operand);
 	op_attr.word_size = GetMemWordsize(operand);
 
 	VMAttribute vm_attr = vmemory.GetMem(op_attr.mem_addr, op_attr.word_size);
@@ -511,6 +527,12 @@ OperandAttribute VirtualMachine::GetAttribute( char *operand )
 		return GetMemAttribute(operand);
 	else if( IsImmediate(operand) )
 		return GetImmediateAttribute(operand);
+	else
+	{
+		OperandAttribute attr;
+		attr.op_class = UNKNOWN;
+		return attr;
+	}
 }
 
 void VirtualMachine::Step( Instruction insn )

@@ -6,10 +6,14 @@
 #include "data.h"
 #include "virtual_machine.h"
 
+#define UNMATCH						0
+#define OPCODE_MATCH				1
+#define OPERAND_MATCH				2
+#define OPERAND_IMMEDIATE_MATCH		3
+
 char *input_file_name1 = 0;
 char *input_file_name2 = 0;
 char *output_file_name = 0;
-
 int threshold_percentage;
 
 void usage()
@@ -38,12 +42,6 @@ typedef struct CheckFunction
 	uint64_t addr2;
 } CheckFunction;
 
-typedef struct OperandClass
-{
-	int op_class;
-	int64_t value;
-} OperandClass;
-
 class BlockMapper
 {
 public:
@@ -57,14 +55,18 @@ private:
 	VirtualMachine vm;
 	vector<MappedFunction> MappedFunctionList;
 
+	vector<MappedBlock> SelectCandidates(vector<MappedBlock> &candidates_table);
+	void InsertMappedBlock(MappedFunction &mapped_func, vector<MappedBlock> &candidates);
 	bool IsAttributeEqual(OperandAttribute attr1, OperandAttribute attr2);
 	bool IsInsnDependent(Instruction &insn1, Instruction &insn2);
 	void GetDependencyTable(BlockNode &block, int *dep_table);
 	int DiffBlock(BlockNode &block1, BlockNode &block2, vector<CheckFunction> &check_func_list);
-	bool CmpOperand( char *operand1, char *operand2 );
+	int IsOperandEqual( char *operand1, char *operand2 );
+	int IsInstructionEqual(Instruction &insn1, Instruction &insn2);
 };
 
-/*bool BlockMapper::CmpOperand( char *operand1, char *operand2 )
+// TODO function pointer match
+int BlockMapper::IsOperandEqual( char *operand1, char *operand2 )
 {
 	if( operand1 == NULL && operand2 == NULL )
 		return true;
@@ -74,56 +76,106 @@ private:
 		return false;
 	else
 	{
-		OperandClass opclass1, opclass2;
+		OperandAttribute attr1 = vm.GetAttribute(operand1);
+		OperandAttribute attr2 = vm.GetAttribute(operand2);
 
-		if( IsReg(operand1) )
-			opclass1.op_class = REG;
-		else if( IsData(operand1) )
-			opclass1.op_class = DATA;
-		else if( IsLocal(operand1) )
-			opclass1.op_class = LOCAL;
-		else if( IsAddr(operand1) )
-			opclass1.op_class = ADDR;
-		else if( IsImmediate(operand1) )
+		if( attr1.op_class == attr2.op_class )
 		{
-			opclass1.op_class = IMMEDIATE;
-			opclass1.value = atoi(operand1);
-		}
-		else
-			opclass1.op_class = ETC;
-
-		if( IsReg(operand2) )
-			opclass2.op_class = REG;
-		else if( IsData(operand2) )
-			opclass2.op_class = DATA;
-		else if( IsLocal(operand2) )
-			opclass2.op_class = LOCAL;
-		else if( IsAddr(operand2) )
-			opclass2.op_class = ADDR;
-		else if( IsImmediate(operand2) )
-		{
-			opclass2.op_class = IMMEDIATE;
-			opclass2.value = atoi(operand2);
-		}
-		else
-			opclass2.op_class = ETC;
-
-		if( opclass1.op_class == opclass2.op_class )
-		{
-			if( opclass1.op_class == IMMEDIATE )
+			/*if( attr1.op_class == IMMEDIATE )
 			{
-				if( opclass1.value == opclass2.value )
+				if( attr1.value == attr2.value )
 					return true;
 				else
 					return false;
 			}
-			else
+			else*/
 				return true;
 		}
 	}
 
 	return false;
-}*/
+}
+
+int BlockMapper::IsInstructionEqual(Instruction &insn1, Instruction &insn2)
+{
+	uint32_t opcode1 = insn1.GetOpcode();
+	char *operand1_1 = insn1.GetOperand1();
+	char *operand1_2 = insn1.GetOperand2();
+	uint32_t opcode2 = insn2.GetOpcode();
+	char *operand2_1 = insn2.GetOperand1();
+	char *operand2_2 = insn2.GetOperand2();
+
+	if(opcode1 == opcode2)
+	{
+		// if(branch_insn)	// TODO
+		if(IsOperandEqual(operand1_1, operand2_1) && IsOperandEqual(operand1_2, operand2_2))
+			return true;
+		else
+			return false;
+	}
+	else
+		return false;
+}
+
+vector<MappedBlock> BlockMapper::SelectCandidates(vector<MappedBlock> &candidates_table)
+{
+	int max_percentage = 0;
+	for(int i = 0; i < candidates_table.size(); i++)
+	{
+		if( max_percentage < candidates_table[i].percentage )
+			max_percentage = candidates_table[i].percentage;
+	}
+
+	vector<MappedBlock> candidates;
+	for(int i = 0; i < candidates_table.size(); i++)
+	{
+		if(max_percentage == candidates_table[i].percentage)
+			candidates.push_back(candidates_table[i]);
+	}
+
+	return candidates;
+}
+
+void BlockMapper::InsertMappedBlock(MappedFunction &mapped_func, vector<MappedBlock> &candidates)
+{
+	for(int i = 0; i < candidates.size(); i++)
+	{
+		int continue_check = 0;
+		for(int j = 0; j < mapped_func.SameBlockList.size(); j++)
+		{
+			if(candidates[i].idx2 == mapped_func.SameBlockList[j].idx2)
+			{
+				continue_check = 1;
+				break;
+			}
+		}
+		for(int j = 0; j < mapped_func.SimilarBlockList.size(); j++)
+		{
+			if(candidates[i].idx2 == mapped_func.SimilarBlockList[j].idx2)
+			{
+				if(candidates[i].percentage == 100)
+					mapped_func.SimilarBlockList.erase(mapped_func.SimilarBlockList.begin() + j);
+				else if(candidates[i].percentage >= 70)
+				{
+					if(candidates[i].percentage > mapped_func.SimilarBlockList[i].percentage)
+						mapped_func.SimilarBlockList.erase(mapped_func.SimilarBlockList.begin() + j);
+					else
+					{
+						continue_check = 1;
+						break;
+					}
+				}
+			}
+		}
+		if(continue_check)
+			continue;
+		if(candidates[i].percentage >= 100)
+			mapped_func.SameBlockList.push_back(candidates[i]);
+		else if(candidates[i].percentage >= 70)
+			mapped_func.SimilarBlockList.push_back(candidates[i]);
+		return;
+	}
+}
 
 bool BlockMapper::IsAttributeEqual(OperandAttribute attr1, OperandAttribute attr2)
 {
@@ -194,8 +246,6 @@ void BlockMapper::GetDependencyTable(BlockNode &block, int *dep_table)
 
 int BlockMapper::DiffBlock(BlockNode &block1, BlockNode &block2, vector<CheckFunction> &check_func_list)
 {
-	uint32_t opcode1, opcode2;
-	char *operand1_1, *operand1_2, *operand2_1, *operand2_2;
 	uint32_t op_num1 = block1.GetInsnNum();
 	uint32_t op_num2 = block2.GetInsnNum();
 
@@ -216,16 +266,15 @@ int BlockMapper::DiffBlock(BlockNode &block1, BlockNode &block2, vector<CheckFun
 		int op_idx2 = matched1[dependency_table1[op_idx1]] + 1;
 		for( ; op_idx2 < op_num2; op_idx2++ )
 		{
-			opcode1 = block1[op_idx1].GetOpcode();
-			opcode2 = block2[op_idx2].GetOpcode();
-
-			if( opcode1 == opcode2 && matched2[op_idx2] == -1 /*&& CmpOperand(operand1_1, operand2_1) && CmpOperand(operand1_2, operand2_2)*/ )
+			if(IsInstructionEqual(block1[op_idx1], block2[op_idx2]) && matched2[op_idx2] == -1)
 			{
 				matched1[op_idx1] = op_idx2;
 				matched2[op_idx2] = op_idx1;
 				match_insn1++;
 				match_insn2++;
 
+				uint32_t opcode1 = block1[op_idx1].GetOpcode();
+				uint32_t opcode2 = block2[op_idx2].GetOpcode();
 				if( opcode1 == 232 && opcode2 == 232 )
 				{
 					CheckFunction check_func;
@@ -263,8 +312,7 @@ void BlockMapper::MapBlock(uint64_t func_addr1, uint64_t func_addr2)
 	vector<CheckFunction> check_func_list;
 	for( int i = 0; i < block_num1; i++ )
 	{
-		MappedBlock mapped_block;
-		memset( &mapped_block, 0, sizeof(MappedBlock) );
+		vector<MappedBlock> candidates_table;
 		for( int j = 0; j < block_num2; j++ )
 		{
 			int prev_checklist_idx = check_func_list.size();
@@ -274,17 +322,14 @@ void BlockMapper::MapBlock(uint64_t func_addr1, uint64_t func_addr2)
 				check_func_list.erase(check_func_list.begin() + prev_checklist_idx,
 								check_func_list.begin() + check_func_list.size());
 			}
-			if( percentage >= mapped_block.percentage )
-			{
-				mapped_block.percentage = percentage;
-				mapped_block.idx1 = i;
-				mapped_block.idx2 = j;
-			}
+			MappedBlock candidate_block;
+			candidate_block.idx1 = i;
+			candidate_block.idx2 = j;
+			candidate_block.percentage = percentage;
+			candidates_table.push_back(candidate_block);
 		}
-		if( mapped_block.percentage == 100 )
-			mapped_function.SameBlockList.push_back(mapped_block);
-		else if( mapped_block.percentage >= 70 )
-			mapped_function.SimilarBlockList.push_back(mapped_block);
+		vector<MappedBlock> candidates = SelectCandidates(candidates_table);
+		InsertMappedBlock(mapped_function, candidates);
 	}
 
 	MappedFunctionList.push_back(mapped_function);
@@ -344,7 +389,7 @@ int main(int argc, char * argv[]) {
 	if(argc != 5)
 	{
 		fprintf(stderr, "[error] Wrong Usage\n");
-		usage();
+		//usage();
 		return -1;
 	}
 
