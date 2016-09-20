@@ -21,6 +21,13 @@ void usage()
 	printf("./efi-mapper inputfile1 inputfile2\n");
 }
 
+typedef struct MappedInstruction
+{
+	int credit;
+	int idx1;
+	int idx2;
+} MappedInstruction;
+
 typedef struct MappedBlock
 {
 	int percentage;
@@ -55,67 +62,21 @@ private:
 	VirtualMachine vm;
 	vector<MappedFunction> MappedFunctionList;
 
-	vector<MappedBlock> SelectCandidates(vector<MappedBlock> &candidates_table);
-	MappedBlock *InsertMappedBlock(MappedFunction &mapped_func, vector<MappedBlock> &candidates);
 	bool IsAttributeEqual(OperandAttribute attr1, OperandAttribute attr2);
 	bool IsInsnDependent(Instruction &insn1, Instruction &insn2);
 	void GetDependencyTable(BlockNode &block, int *dep_table);
+
+	void GetMappedInsn(vector<int> &cmp_idx_list, vector<MappedInstruction> &insn_list, int idx1, int idx2);
+	void SortMappedInstruction(vector<MappedInstruction> &insn_list);
+	void UpdateCredit(vector<MappedInstruction> &insn_list);
+	int InsertMappedInstruction(vector<MappedInstruction> &insn_list, MappedInstruction &mapped_insn);
+	vector<MappedBlock> SelectCandidates(vector<MappedBlock> &candidates_table);
+	MappedBlock *InsertMappedBlock(MappedFunction &mapped_func, vector<MappedBlock> &candidates);
+
+	int DiffOperand( char *operand1, char *operand2 );
+	int DiffInstruction(Instruction &insn1, Instruction &insn2);
 	int DiffBlock(BlockNode &block1, BlockNode &block2, vector<CheckFunction> *func_checklist);
-	int IsOperandEqual( char *operand1, char *operand2 );
-	int IsInstructionEqual(Instruction &insn1, Instruction &insn2);
 };
-
-// TODO function pointer match
-int BlockMapper::IsOperandEqual( char *operand1, char *operand2 )
-{
-	if( operand1 == NULL && operand2 == NULL )
-		return true;
-	else if( operand1 == NULL && operand2 != NULL )
-		return false;
-	else if( operand1 != NULL && operand2 == NULL )
-		return false;
-	else
-	{
-		OperandAttribute attr1 = vm.GetAttribute(operand1);
-		OperandAttribute attr2 = vm.GetAttribute(operand2);
-
-		if( attr1.op_class == attr2.op_class )
-		{
-			/*if( attr1.op_class == IMMEDIATE )
-			{
-				if( attr1.value == attr2.value )
-					return true;
-				else
-					return false;
-			}
-			else*/
-				return true;
-		}
-	}
-
-	return false;
-}
-
-int BlockMapper::IsInstructionEqual(Instruction &insn1, Instruction &insn2)
-{
-	uint32_t opcode1 = insn1.GetOpcode();
-	char *operand1_1 = insn1.GetOperand1();
-	char *operand1_2 = insn1.GetOperand2();
-	uint32_t opcode2 = insn2.GetOpcode();
-	char *operand2_1 = insn2.GetOperand1();
-	char *operand2_2 = insn2.GetOperand2();
-
-	if(opcode1 == opcode2)
-	{
-		// if(branch_insn)	// TODO
-		if(IsOperandEqual(operand1_1, operand2_1) && IsOperandEqual(operand1_2, operand2_2))
-			return true;
-		else
-			return false;
-	}
-	else
-		return false;
-}
 
 vector<MappedBlock> BlockMapper::SelectCandidates(vector<MappedBlock> &candidates_table)
 {
@@ -252,54 +213,193 @@ void BlockMapper::GetDependencyTable(BlockNode &block, int *dep_table)
 	}
 }
 
+// TODO function pointer match
+int BlockMapper::DiffOperand( char *operand1, char *operand2 )
+{
+	if( operand1 == NULL && operand2 == NULL )
+		return 1;
+	else if( operand1 == NULL && operand2 != NULL )
+		return 0;
+	else if( operand1 != NULL && operand2 == NULL )
+		return 0;
+	else
+	{
+		OperandAttribute attr1 = vm.GetAttribute(operand1);
+		OperandAttribute attr2 = vm.GetAttribute(operand2);
+
+		if( attr1.op_class == attr2.op_class )
+		{
+			if( attr1.op_class == IMMEDIATE )
+			{
+				if( attr1.value == attr2.value )
+					return 10;
+				else
+					return 1;
+			}
+			else
+				return 1;
+		}
+	}
+
+	return 0;
+}
+
+int BlockMapper::DiffInstruction(Instruction &insn1, Instruction &insn2)
+{
+	uint32_t opcode1 = insn1.GetOpcode();
+	char *operand1_1 = insn1.GetOperand1();
+	char *operand1_2 = insn1.GetOperand2();
+	uint32_t opcode2 = insn2.GetOpcode();
+	char *operand2_1 = insn2.GetOperand1();
+	char *operand2_2 = insn2.GetOperand2();
+
+	if(opcode1 == opcode2)
+	{
+		int credit1 = DiffOperand(operand1_1, operand2_1);
+		int credit2 = DiffOperand(operand1_2, operand2_2);
+		if(credit1 && credit2)
+			return credit1 + credit2;
+		else
+			return 0;
+	}
+	else
+		return 0;
+}
+
+void BlockMapper::GetMappedInsn(vector<int> &cmp_idx_list, vector<MappedInstruction> &insn_list, int idx1, int idx2)
+{
+	for(int i = 0; i < insn_list.size(); i++)
+	{
+		if(insn_list[i].idx1 == idx1 || insn_list[i].idx2 == idx2)
+			cmp_idx_list.push_back(i);
+	}
+}
+
+void BlockMapper::SortMappedInstruction(vector<MappedInstruction> &insn_list)
+{
+	int size = insn_list.size();
+	for(int i = 0; i < size; i++)
+	{
+		int max_idx = 0;
+		for(int j = 1; j < size - i; j++)
+		{
+			if(insn_list[j].idx1 > insn_list[max_idx].idx1)
+				max_idx = j;
+			else if(insn_list[j].idx1 == insn_list[max_idx].idx1)
+			{
+				if(insn_list[j].idx2 > insn_list[max_idx].idx2)
+					max_idx = j;
+			}
+		}
+
+		MappedInstruction temp;
+		temp = insn_list[size - i - 1];
+		insn_list[size - i - 1] = insn_list[max_idx];
+		insn_list[max_idx] = temp;
+	}
+}
+
+void BlockMapper::UpdateCredit(vector<MappedInstruction> &insn_list)
+{
+	int size = insn_list.size();
+	int cont_idx = size - 1;
+	for(; cont_idx > 0; cont_idx--)
+	{
+		if(insn_list[cont_idx].idx1 == insn_list[cont_idx-1].idx1 - 1 
+			&& insn_list[cont_idx].idx2 == insn_list[cont_idx-1].idx2 - 1)
+			break;
+	}
+
+	if(cont_idx == size - 1)
+		return;
+	else
+	{
+		int group_credit = insn_list[size-1].credit + insn_list[size-2].credit;
+		for(int i = cont_idx; i < size; i++)
+			insn_list[i].credit = group_credit;
+	}
+}
+
+int BlockMapper::InsertMappedInstruction(vector<MappedInstruction> &insn_list, MappedInstruction &mapped_insn)
+{
+	if(mapped_insn.credit)
+	{
+		vector<int> cmp_idx_list;
+		GetMappedInsn(cmp_idx_list, insn_list, mapped_insn.idx1, mapped_insn.idx2);
+
+		int credit_sum = 0;
+		for(int i = 0; i < cmp_idx_list.size(); i++)
+			credit_sum += insn_list[cmp_idx_list[i]].credit;
+
+		if(mapped_insn.credit > credit_sum)
+		{
+			for(int i = cmp_idx_list.size() - 1; i >= 0; i--)
+				insn_list.erase(insn_list.begin() + cmp_idx_list[i]);
+			insn_list.push_back(mapped_insn);
+			SortMappedInstruction(insn_list);
+			UpdateCredit(insn_list);
+			return 1;
+		}
+	}
+
+	return 0;
+}
+
+int GetIdx2(vector<MappedInstruction> &insn_list, int idx1)
+{
+	int size = insn_list.size();
+	for(int i = 0; i < size; i++)
+	{
+		if(insn_list[i].idx1 == idx1)
+			return insn_list[i].idx2;
+	}
+
+	return -1;
+}
+
 int BlockMapper::DiffBlock(BlockNode &block1, BlockNode &block2, vector<CheckFunction> *func_checklist)
 {
 	uint32_t op_num1 = block1.GetInsnNum();
 	uint32_t op_num2 = block2.GetInsnNum();
-
-	int *matched1 = new int[op_num1];
-	int *matched2 = new int[op_num2];
-	memset(matched1, -1, sizeof(int) * op_num1);
-	memset(matched2, -1, sizeof(int) * op_num2);
 
 	int *dependency_table1 = new int[op_num1];
 	int *dependency_table2 = new int[op_num2];
 	GetDependencyTable(block1, dependency_table1);
 	GetDependencyTable(block2, dependency_table2);
 
-	int all_insn = op_num1 + op_num2;
-	int match_insn1 = 0, match_insn2 = 0;
+	vector<MappedInstruction> mapped_insn_list;
 	for( int op_idx1 = 0; op_idx1 < op_num1; op_idx1++ )
 	{
-		int op_idx2 = matched1[dependency_table1[op_idx1]] + 1;
-		for( ; op_idx2 < op_num2; op_idx2++ )
+		int op_idx2 = GetIdx2(mapped_insn_list, dependency_table1[op_idx1]) + 1;
+		for( /*int op_idx2 = 0*/; op_idx2 < op_num2; op_idx2++ )
 		{
-			if(IsInstructionEqual(block1[op_idx1], block2[op_idx2]) && matched2[op_idx2] == -1)
-			{
-				matched1[op_idx1] = op_idx2;
-				matched2[op_idx2] = op_idx1;
-				match_insn1++;
-				match_insn2++;
+			MappedInstruction mapped_insn;
+			mapped_insn.idx1 = op_idx1;
+			mapped_insn.idx2 = op_idx2;
+			mapped_insn.credit = DiffInstruction(block1[op_idx1], block2[op_idx2]);
 
-				uint32_t opcode1 = block1[op_idx1].GetOpcode();
-				uint32_t opcode2 = block2[op_idx2].GetOpcode();
-				if( func_checklist && opcode1 == 232 && opcode2 == 232 )
-				{
-					CheckFunction check_func;
-					check_func.addr1 = htoi(block1[op_idx1].GetOperand1());
-					check_func.addr2 = htoi(block2[op_idx2].GetOperand1());
-					func_checklist->push_back(check_func);
-				}
+			if(InsertMappedInstruction(mapped_insn_list, mapped_insn))
 				break;
-			}
 		}
 	}
-	delete[] matched1;
-	delete[] matched2;
+
+	for(int i = 0; i < mapped_insn_list.size(); i++)
+	{
+		uint32_t opcode1 = block1[mapped_insn_list[i].idx1].GetOpcode();
+		uint32_t opcode2 = block2[mapped_insn_list[i].idx2].GetOpcode();
+		if(func_checklist && opcode1 == 232 && opcode2 == 232)
+		{
+			CheckFunction check_func;
+			check_func.addr1 = htoi(block1[mapped_insn_list[i].idx1].GetOperand1());
+			check_func.addr2 = htoi(block2[mapped_insn_list[i].idx2].GetOperand1());
+			func_checklist->push_back(check_func);
+		}
+	}
+
 	delete[] dependency_table1;
 	delete[] dependency_table2;
 
-	return (match_insn1 + match_insn2) * 100 / all_insn;
+	return mapped_insn_list.size() * 2 * 100 / (op_num1 + op_num2);
 }
 
 void BlockMapper::MapBlock(uint64_t func_addr1, uint64_t func_addr2)
