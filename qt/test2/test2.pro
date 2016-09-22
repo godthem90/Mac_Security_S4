@@ -14,10 +14,32 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    opentwofiles.cpp
+    opentwofiles.cpp\
+    coff.cpp\
+    containers.cpp\
+    data.cpp\
+    disasm1.cpp\
+    disasm2.cpp\
+    disasm3.cpp\
+    error.cpp\
+    macho.cpp\
+    opcodes.cpp\
+    parser.cpp\
+    virtual_machine.cpp\
+    lib1.cpp\
 
 HEADERS  += mainwindow.h \
-    opentwofiles.h
+    opentwofiles.h\
+    coff.h\
+    containers.h\
+    data.h\
+    disasm.h\
+    error.h\
+    macho.h\
+    parser.h\
+    stdafx.h\
+    virtual_machine.h\
+    lib1.h
 
 FORMS    += mainwindow.ui \
     opentwofiles.ui

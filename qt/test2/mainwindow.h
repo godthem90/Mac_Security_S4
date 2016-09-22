@@ -23,6 +23,8 @@ private:
     Ui::MainWindow *ui;
     QString filename1;
     QString filename2;
+    uint32_t entry_addr1;
+    uint32_t entry_addr2;
 };
 
 #endif // MAINWINDOW_H
