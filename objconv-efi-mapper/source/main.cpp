@@ -43,6 +43,12 @@ typedef struct MappedFunction
 	vector<MappedBlock> SimilarBlockList;
 } MappedFunction;
 
+typedef struct MappedAddr
+{
+	uint64_t addr1;
+	uint64_t addr2;
+} MappedAddr;
+
 typedef struct CheckFunction
 {
 	uint64_t addr1;
@@ -52,6 +58,8 @@ typedef struct CheckFunction
 class BlockMapper
 {
 public:
+	vector<MappedAddr> MappedAddrList;
+
 	BlockMapper(Program &p1, Program &p2) : prog1(p1), prog2(p2) {};
 	void MapBlock(uint64_t func_addr1, uint64_t func_addr2);
 	void Dump();
@@ -75,7 +83,7 @@ private:
 
 	int DiffOperand( char *operand1, char *operand2 );
 	int DiffInstruction(Instruction &insn1, Instruction &insn2);
-	int DiffBlock(BlockNode &block1, BlockNode &block2, vector<CheckFunction> *func_checklist);
+	int DiffBlock(BlockNode &block1, BlockNode &block2, vector<MappedAddr> *mapped_addr_list, vector<CheckFunction> *func_checklist);
 };
 
 vector<MappedBlock> BlockMapper::SelectCandidates(vector<MappedBlock> &candidates_table)
@@ -357,7 +365,7 @@ int GetIdx2(vector<MappedInstruction> &insn_list, int idx1)
 	return -1;
 }
 
-int BlockMapper::DiffBlock(BlockNode &block1, BlockNode &block2, vector<CheckFunction> *func_checklist)
+int BlockMapper::DiffBlock(BlockNode &block1, BlockNode &block2, vector<MappedAddr> *mapped_addr_list, vector<CheckFunction> *func_checklist)
 {
 	uint32_t op_num1 = block1.GetInsnNum();
 	uint32_t op_num2 = block2.GetInsnNum();
@@ -394,6 +402,14 @@ int BlockMapper::DiffBlock(BlockNode &block1, BlockNode &block2, vector<CheckFun
 			check_func.addr2 = htoi(block2[mapped_insn_list[i].idx2].GetOperand1());
 			func_checklist->push_back(check_func);
 		}
+
+		if(mapped_addr_list)
+		{
+			MappedAddr mapped_addr;
+			mapped_addr.addr1 = block1[mapped_insn_list[i].idx1].GetAddr();
+			mapped_addr.addr2 = block2[mapped_insn_list[i].idx2].GetAddr();
+			mapped_addr_list->push_back(mapped_addr);
+		}
 	}
 
 	delete[] dependency_table1;
@@ -426,13 +442,13 @@ void BlockMapper::MapBlock(uint64_t func_addr1, uint64_t func_addr2)
 			MappedBlock candidate_block;
 			candidate_block.idx1 = i;
 			candidate_block.idx2 = j;
-			candidate_block.percentage = DiffBlock(func1[i], func2[j], NULL);
+			candidate_block.percentage = DiffBlock(func1[i], func2[j], NULL, NULL);
 			candidates_table.push_back(candidate_block);
 		}
 		vector<MappedBlock> candidates = SelectCandidates(candidates_table);
 		MappedBlock *inserted_block = InsertMappedBlock(mapped_function, candidates);
 		if(inserted_block)
-			DiffBlock(func1[inserted_block->idx1], func2[inserted_block->idx2], &func_checklist);
+			DiffBlock(func1[inserted_block->idx1], func2[inserted_block->idx2], &MappedAddrList, &func_checklist);
 	}
 
 	MappedFunctionList.push_back(mapped_function);
@@ -535,13 +551,21 @@ int main(int argc, char * argv[]) {
 	parser1.Parse(&disasm_engine1);
 	parser2.Parse(&disasm_engine2);
 
+	CTextFileBuffer assembly1, assembly2;
+	disasm_engine1.OutFile >> assembly1;
+	disasm_engine2.OutFile >> assembly2;
+	fwrite(assembly1.Buf(), 1, assembly1.GetBufSize(), stdout);
+	fwrite(assembly2.Buf(), 1, assembly2.GetBufSize(), stdout);
+	
 	Program prog1, prog2;
 	disasm_engine1.ParseProgram(&prog1);
 	disasm_engine2.ParseProgram(&prog2);
 
 	BlockMapper block_mapper( prog1, prog2 );
 	block_mapper.MapBlock( entry_addr1, entry_addr2 );
-	block_mapper.Dump();
+	for(int i = 0; i < block_mapper.MappedAddrList.size(); i++)
+		printf("mapped addr : %llx %llx\n", block_mapper.MappedAddrList[i].addr1, block_mapper.MappedAddrList[i].addr2);
+	//block_mapper.Dump();
 
 	parser1.Free();
 	parser2.Free();

@@ -806,6 +806,7 @@ void CDisassembler::WriteCodeLabel( CTextFileBuffer *out_file, uint32 symi )
 			// Past tabstop. Go to next line
 			out_file->NewLine();                   // New line
 		}
+		out_file->NewLine();
 	}
 
 	// Remember this has been written
@@ -1413,7 +1414,7 @@ void CDisassembler::WriteRelocationTarget( CTextFileBuffer *out_file, uint32 ire
 	}
 }
 
-void CDisassembler::WriteImmediateOperand( CTextFileBuffer *out_file, uint32 Type ) {
+void CDisassembler::WriteImmediateOperand( CTextFileBuffer *out_file, uint32 Type, int symbol_mode ) {
 	// Write immediate operand or direct jump/call address
 	int    WriteFormat;                 // 0: unsigned, 1: signed, 2: hexadecimal
 	int    Components = 0;              // Number of components in immediate operand       
@@ -1531,22 +1532,29 @@ void CDisassembler::WriteImmediateOperand( CTextFileBuffer *out_file, uint32 Typ
 	}
 
 	if ((Type & 0xFC) == 0x80 && !s.ImmediateRelocation) {
-		// Self-relative jump or call without relocation. Adjust immediate value
-		Value += IEnd;                             // Get absolute address of target
-		Value += SectionAddress; // jjh
+		if(symbol_mode)
+		{
+			Value += IEnd;                             // Get absolute address of target
 
-		// jjh
-		/*
-		// Look for symbol at target address
-		uint32 ISymbol = Symbols.FindByAddress(Section, (uint32)Value);
-		if (ISymbol && (Symbols[ISymbol].Name || CodeMode == 1)) {
-		// Symbol found. Write its name
-		out_file->Put(Symbols.GetName(ISymbol));
-		// No offset to write
-		return;
+			uint32 ISymbol = Symbols.FindByAddress(Section, (uint32)Value);
+			if (ISymbol && (Symbols[ISymbol].Name || CodeMode == 1)) {
+				// Symbol found. Write its name
+				out_file->Put(Symbols.GetName(ISymbol));
+				// No offset to write
+				return;
+			}
 		}
-		 */
-		// Target address has no name
+		else	// jjh
+		{
+			// Self-relative jump or call without relocation. Adjust immediate value
+			Value += IEnd;                             // Get absolute address of target
+			Value += SectionAddress; // jjh
+
+			// jjh
+
+			// Look for symbol at target address
+			// Target address has no name
+		}
 		Type |= 0x4000;                            // Write target as hexadecimal
 	}
 
@@ -2280,7 +2288,7 @@ void CDisassembler::WriteAssume( CTextFileBuffer *out_file )
 	}
 }
 
-void CDisassembler::WriteInstruction( CTextFileBuffer *out_file ) {
+void CDisassembler::WriteInstruction( CTextFileBuffer *out_file, int symbol_mode ) {
 	// Write instruction and operands
 	uint32 NumOperands = 0;                       // Number of operands written
 	uint32 i;                                     // Loop index
@@ -2298,9 +2306,9 @@ void CDisassembler::WriteInstruction( CTextFileBuffer *out_file ) {
 	else if ((s.OpcodeDef->Options & 0x20) && s.OpcodeStart1 > IBegin) {
 		// Write prefixes explicitly. 
 		// This is used for rare cases where the assembler cannot generate the prefix
-		out_file->Tabulate(AsmTab1);                 // Tabulate
-		out_file->Put("DB ");
 		out_file->Tabulate(AsmTab2);                 // Tabulate
+		out_file->Put("DB ");
+		out_file->Tabulate(AsmTab3);                 // Tabulate
 		for (i = IBegin; i < s.OpcodeStart1; i++) {
 			if (i > IBegin) out_file->Put(", ");
 			out_file->PutHex(Get<uint8>(i), 1);
@@ -2322,7 +2330,7 @@ void CDisassembler::WriteInstruction( CTextFileBuffer *out_file ) {
 		return;
 	}
 
-	out_file->Tabulate(AsmTab1);                     // Tabulate
+	out_file->Tabulate(AsmTab2);                     // Tabulate
 	//out_file->Put(" ");	// jjh
 
 	if ((s.OpcodeDef->AllowedPrefixes & 0xC40) == 0xC40) {
@@ -2459,7 +2467,7 @@ void CDisassembler::WriteInstruction( CTextFileBuffer *out_file ) {
 			// Write constant and jump operands
 			switch (s.Operands[i] & 0xF0) {
 				case 0x10: case 0x20: case 0x30: case 0x80:
-					WriteImmediateOperand( out_file, s.Operands[i] );
+					WriteImmediateOperand( out_file, s.Operands[i], symbol_mode );
 					continue;
 			}
 

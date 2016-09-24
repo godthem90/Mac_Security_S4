@@ -817,7 +817,7 @@ protected:
    void    WriteErrorsAndWarnings( CTextFileBuffer *out_file );             // Write errors and warnings, if any
 
    void    WriteAssume( CTextFileBuffer *out_file );                        // Write assume directive for segment register
-   void    WriteInstruction( CTextFileBuffer *out_file );                   // Write instruction and operands
+   void    WriteInstruction( CTextFileBuffer *out_file, int symbol_mode );                   // Write instruction and operands
    void    WriteStringInstruction( CTextFileBuffer *out_file );             // Write string instruction or xlat instruction
    void    WriteShortRegOperand( CTextFileBuffer *out_file, uint32_t Type);    // Write register operand from lower 3 bits of opcode byte to OutFile
    void    WriteRegOperand( CTextFileBuffer *out_file, uint32_t Type);         // Write register operand from reg bits to OutFile
@@ -826,7 +826,7 @@ protected:
    void    WriteVEXOperand( CTextFileBuffer *out_file, uint32_t Type, int i);  // Write register operand from VEX.vvvv bits or immediate bits
    void    WriteOperandAttributeEVEX( CTextFileBuffer *out_file, int i, int isMem);// Write operand attributes and instruction attributes from EVEX z, LL, b and aaa bits
    void    WriteOperandAttributeMVEX( CTextFileBuffer *out_file, int i, int isMem);// Write operand attributes and instruction attributes from MVEX sss, e and kkk bits
-   void    WriteImmediateOperand( CTextFileBuffer *out_file, uint32_t Type);   // Write immediate operand or direct jump/call address
+   void    WriteImmediateOperand( CTextFileBuffer *out_file, uint32_t Type, int symbol_mode);   // Write immediate operand or direct jump/call address
    void    WriteOtherOperand( CTextFileBuffer *out_file, uint32_t Type);       // Write other type of operand
    void    WriteRegisterName( CTextFileBuffer *out_file, uint32_t Value, uint32_t Type); // Write name of register to OutFile
    void    WriteRelocationTarget( CTextFileBuffer *out_file, uint32_t irel, uint32_t Context, int64_t Addend);// Write cross reference
