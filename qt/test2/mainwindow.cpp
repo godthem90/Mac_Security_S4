@@ -46,6 +46,14 @@ typedef struct MappedFunction
     vector<MappedBlock> SimilarBlockList;
 } MappedFunction;
 
+typedef struct MappedAddr
+{
+   uint64_t addr1;
+   uint64_t addr2;
+   uint32_t num1;
+   uint32_t num2;
+} MappedAddr;
+
 typedef struct CheckFunction
 {
     uint64_t addr1;
@@ -55,6 +63,9 @@ typedef struct CheckFunction
 class BlockMapper
 {
 public:
+    vector<MappedAddr> MappedAddrList;
+    vector<MappedAddr> notMappedAddrList;
+
     BlockMapper(Program &p1, Program &p2) : prog1(p1), prog2(p2) {};
     void MapBlock(uint64_t func_addr1, uint64_t func_addr2);
     void Dump();
@@ -78,7 +89,7 @@ private:
 
     int DiffOperand( char *operand1, char *operand2 );
     int DiffInstruction(Instruction &insn1, Instruction &insn2);
-    int DiffBlock(BlockNode &block1, BlockNode &block2, vector<CheckFunction> *func_checklist);
+    int DiffBlock(BlockNode &block1, BlockNode &block2, vector<MappedAddr> *notmapped_addr_list, vector<MappedAddr> *mapped_addr_list, vector<CheckFunction> *func_checklist);
 };
 
 vector<MappedBlock> BlockMapper::SelectCandidates(vector<MappedBlock> &candidates_table)
@@ -360,7 +371,7 @@ int GetIdx2(vector<MappedInstruction> &insn_list, int idx1)
     return -1;
 }
 
-int BlockMapper::DiffBlock(BlockNode &block1, BlockNode &block2, vector<CheckFunction> *func_checklist)
+int BlockMapper::DiffBlock(BlockNode &block1, BlockNode &block2, vector<MappedAddr> *notmapped_addr_list, vector<MappedAddr> *mapped_addr_list, vector<CheckFunction> *func_checklist)
 {
     uint32_t op_num1 = block1.GetInsnNum();
     uint32_t op_num2 = block2.GetInsnNum();
@@ -397,8 +408,22 @@ int BlockMapper::DiffBlock(BlockNode &block1, BlockNode &block2, vector<CheckFun
             check_func.addr2 = htoi(block2[mapped_insn_list[i].idx2].GetOperand1());
             func_checklist->push_back(check_func);
         }
-    }
+        if(notmapped_addr_list){
+            MappedAddr addr;
+            addr.addr1=block1[mapped_insn_list[i].idx1].GetAddr();
+            addr.addr2=block2[mapped_insn_list[i].idx2].GetAddr();
+            notmapped_addr_list->push_back(addr);
+        }
 
+    }
+    if(mapped_addr_list){
+        MappedAddr start_addr;
+        start_addr.addr1 = block1.StartAddress;
+        start_addr.addr2 = block2.StartAddress;
+        start_addr.num1 = block1.GetInsnNum();
+        start_addr.num2 = block2.GetInsnNum();
+        mapped_addr_list->push_back(start_addr);
+    }
     delete[] dependency_table1;
     delete[] dependency_table2;
 
@@ -429,13 +454,13 @@ void BlockMapper::MapBlock(uint64_t func_addr1, uint64_t func_addr2)
             MappedBlock candidate_block;
             candidate_block.idx1 = i;
             candidate_block.idx2 = j;
-            candidate_block.percentage = DiffBlock(func1[i], func2[j], NULL);
+            candidate_block.percentage = DiffBlock(func1[i], func2[j], NULL, NULL, NULL);
             candidates_table.push_back(candidate_block);
         }
         vector<MappedBlock> candidates = SelectCandidates(candidates_table);
         MappedBlock *inserted_block = InsertMappedBlock(mapped_function, candidates);
         if(inserted_block)
-            DiffBlock(func1[inserted_block->idx1], func2[inserted_block->idx2], &func_checklist);
+            DiffBlock(func1[inserted_block->idx1], func2[inserted_block->idx2],&notMappedAddrList, &MappedAddrList, &func_checklist);
     }
 
     MappedFunctionList.push_back(mapped_function);
@@ -516,6 +541,8 @@ MainWindow::~MainWindow()
 void MainWindow::on_actionOpen_triggered()
 {
     openTwoFiles dialog(this);
+    ui->textEdit->setReadOnly(true);
+    ui->textEdit_2->setReadOnly(true);
     int ret = dialog.exec();
     if(ret == openTwoFiles::Accepted){
         filename1 = dialog.getFilename1();
@@ -543,14 +570,101 @@ void MainWindow::on_actionOpen_triggered()
         parser1.Parse(&disasm_engine1);
         parser2.Parse(&disasm_engine2);
 
+        CTextFileBuffer assembly1, assembly2;
+        disasm_engine1.OutFile >> assembly1;
+        disasm_engine2.OutFile >> assembly2;
+        char *assem1 = assembly1.Buf();
+        char *assem2 = assembly2.Buf();
+        int assem1size = strlen(assem1);
+        int assem2size = strlen(assem2);
+        QString assem1Q(assem1);
+        QString assem2Q(assem2);
+        QStringList assem1_list = assem1Q.split("\n");
+        QStringList assem2_list = assem2Q.split("\n");
+
         Program prog1, prog2;
         disasm_engine1.ParseProgram(&prog1);
         disasm_engine2.ParseProgram(&prog2);
 
         BlockMapper block_mapper(prog1, prog2);
         block_mapper.MapBlock(entry_addr1, entry_addr2);
-        block_mapper.Dump();
+        for(int i = 0; i < block_mapper.MappedAddrList.size(); i++){
+            printf("%llx %d %llx %d\n", block_mapper.MappedAddrList[i].addr1, block_mapper.MappedAddrList[i].num1 ,block_mapper.MappedAddrList[i].addr2, block_mapper.MappedAddrList[i].num2);
+        }
+//      block_mapper.Dump();
 
+        for(int i = 0; i < assem1_list.size(); i++){
+            QString temp;
+            bool check = false;
+            for(int j = 0; j<block_mapper.MappedAddrList.size(); j++){
+                temp.sprintf("%08llx", block_mapper.MappedAddrList[j].addr1);
+                if(assem1_list[i].contains(temp, Qt::CaseInsensitive)){
+                    check = true;
+                    QColor tc = ui->textEdit->textColor();
+                    uint32_t count = block_mapper.MappedAddrList[j].num1;
+                    ui->textEdit->setTextColor(QColor("green"));
+                    QString countMatch;
+                    countMatch.sprintf("%d", j+1);
+                    ui->textEdit->append(countMatch);
+                    while(count--){
+                        bool check1 = false;
+                        for(int k = 0; k < block_mapper.notMappedAddrList.size(); k++){
+                            QString addr;
+                            addr.sprintf("%08llx", block_mapper.notMappedAddrList[k].addr1);
+                            if(assem1_list[i].contains(addr, Qt::CaseInsensitive)){
+                                check1 = true;
+                                ui->textEdit->append(assem1_list[i++]);
+                                break;
+                            }
+                        }
+                        if(!check1){
+                            ui->textEdit->setTextColor(QColor("red"));
+                            ui->textEdit->append(assem1_list[i++]);
+                            ui->textEdit->setTextColor(QColor("green"));
+                        }
+                    }
+                    i-=1;
+                    ui->textEdit->setTextColor(tc);
+                }
+            }
+            if(!check) ui->textEdit->append(assem1_list[i]);
+        }
+        for(int i = 0; i < assem2_list.size(); i++){
+            QString temp;
+            bool check = false;
+            for(int j = 0; j<block_mapper.MappedAddrList.size(); j++){
+                temp.sprintf("%08llx", block_mapper.MappedAddrList[j].addr2);
+                if(assem2_list[i].contains(temp, Qt::CaseInsensitive)){
+                    check = true;
+                    QColor tc = ui->textEdit_2->textColor();
+                    uint32_t count = block_mapper.MappedAddrList[j].num2;
+                    ui->textEdit_2->setTextColor(QColor("green"));
+                    QString countMatch;
+                    countMatch.sprintf("%d", j+1);
+                    ui->textEdit_2->append(countMatch);
+                    while(count--){
+                        bool check1 = false;
+                        for(int k = 0; k < block_mapper.notMappedAddrList.size(); k++){
+                            QString addr;
+                            addr.sprintf("%08llx", block_mapper.notMappedAddrList[k].addr2);
+                            if(assem2_list[i].contains(addr, Qt::CaseInsensitive)){
+                                check1 = true;
+                                ui->textEdit_2->append(assem2_list[i++]);
+                                break;
+                            }
+                        }
+                        if(!check1){
+                            ui->textEdit_2->setTextColor(QColor("red"));
+                            ui->textEdit_2->append(assem2_list[i++]);
+                            ui->textEdit_2->setTextColor(QColor("green"));
+                        }
+                    }
+                    i-=1;
+                    ui->textEdit_2->setTextColor(tc);
+                }
+            }
+            if(!check) ui->textEdit_2->append(assem2_list[i]);
+        }
         parser1.Free();
         parser2.Free();
     }

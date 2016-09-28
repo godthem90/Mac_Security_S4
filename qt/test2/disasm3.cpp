@@ -56,7 +56,7 @@ int CDisassembler::GetBlockAssembly( uint32_t blocki, vector<Instruction> *insns
 		ParseInstruction();
 		s.AddressRelocation = 0;
 		s.ImmediateRelocation = 0;
-		WriteInstruction( &temp_file );
+		WriteInstruction( &temp_file, 0 );
 
 		for( int i = 0; i <= s.OpcodeStart2 - s.OpcodeStart1; i++ )
 		{

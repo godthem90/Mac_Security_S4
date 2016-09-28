@@ -689,16 +689,6 @@ void CDisassembler::Go() {
     // Pass 1: Find symbols types and unnamed symbols
     Pass = 1;
     Pass1();
-    /*Pass = 2;
-    Pass1(); 
-
-    if (Pass & 0x100) {
-        // Repetition of pass 1 requested
-        Pass = 3;
-        Pass1();
-        Pass = 4;
-        Pass1();
-    }*/
 
     Symbols.AssignNames();
 
@@ -718,12 +708,6 @@ void CDisassembler::Go() {
 
     // Finish writing output file
     WriteFileEnd( &OutFile );
-
-	//FILE * ff = stdout; 
-	//uint32 n = (uint32)fwrite(OutFile.Buf(), 1, OutFile.GetBufSize(), ff);
-	//if (n != DataSize) err.submit(2104, FileName);
-	//n = fclose(ff);
-	//if (n) {err.submit(2104, FileName);  return;}
 }
 
 void CDisassembler::Pass1() {
@@ -888,14 +872,16 @@ void CDisassembler::Pass2( CTextFileBuffer *out_file ) {
                             continue;
                         }
 
-                        // Write any error and warning messages to OutFile
-                        WriteErrorsAndWarnings( out_file );
+						out_file->PutHex(SectionAddress + IBegin, 0);
 
                         // Write instruction to OutFile
-                        WriteInstruction( out_file );
+                        WriteInstruction( out_file, 1 );
 
                         // Write hex code as comment after instruction
                         WriteCodeComment( out_file );
+
+                        // Write any error and warning messages to OutFile
+                        WriteErrorsAndWarnings( out_file );
                     }
                     if (CodeMode & 6) {
 
@@ -4391,7 +4377,7 @@ bool IsImmediate( char *operand )
 void CDisassembler::FindSwitch()
 {
 	CTextFileBuffer temp_file;
-	WriteInstruction( &temp_file );
+	WriteInstruction( &temp_file, 0 );
 	char opcode[10], op1[30], op2[30];
 	TokenizeInstruction( &temp_file, opcode, op1, op2 );
 			
