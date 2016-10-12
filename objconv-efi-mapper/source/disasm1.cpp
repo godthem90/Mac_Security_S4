@@ -50,6 +50,12 @@ const char *BlockSplitTable[] ={
 	"jcxz", "jecxz", "jrcxz"
 };
 
+const char *JmpMnemonicTable[] ={
+	"jmp", "jo", "jno", "jc", "jnc", "jz", "jnz", "jbe", "ja",
+	"je", "js", "jns", "jne", "jpe", "jpo", "jl", "jge", "jle", "jg",
+	"jcxz", "jecxz", "jrcxz"
+};
+
 CSymbolTable::CSymbolTable() {
     // Constructor
     OldNum = 1;
@@ -460,6 +466,7 @@ CDisassembler::CDisassembler() {
 	Relocations.PushZero();                       // Make first relocation entry zero
 	NameBuffer.Push(0, 1);                        // Make first string entry zero   
 	FunctionList.PushZero();                      // Make first function entry zero
+	InvalidFunction.push_back(false);
 	BlockList.PushZero();
 	// Initialize variables
 	Buffer = 0;
@@ -476,6 +483,10 @@ CDisassembler::CDisassembler() {
   	SwitchReg = 0;
   	JumptableAddrReg = 0;
    	JumpReg = 0;
+	MaxJmpAddr = 0;
+	ReturnCheck = 0;
+	FunctionStart = 0;
+	EntryAddr = 0;
 }
 
 void CDisassembler::Init(uint32 ExeType, int64 ImageBase) {
@@ -782,10 +793,18 @@ void CDisassembler::Pass1() {
                     // This is data. Skip to next label
                     IEnd = LabelEnd;
                 }
+
                 // check if function ends here
                 CheckForBlockEnd();
 				CheckForFunctionEnd( &OutFile );
             }
+
+			uint32_t func_num = InvalidFunction.size();
+			for(int i = func_num - 1; i >= 0; i--)
+			{
+				if(InvalidFunction[i] == true)
+					FunctionList.Remove(i);
+			}
         }
         else {
             // This is a data section
@@ -1117,7 +1136,14 @@ void CDisassembler::CheckForBlockBegin() {
     CodeBlock block;                          // New function record
     IBegin = IEnd;
 
-    if (IBlock == 0) {
+	if(FunctionStart && IBlock)
+	{
+		BlockList[IBlock].Start = IBegin;
+		BlockList[IBlock].End = IBegin;
+	}
+
+    if(IBlock == 0)
+	{
 
 		block.Section = Section;
         block.Start = IBegin;
@@ -1161,7 +1187,6 @@ void CDisassembler::CheckForBlockEnd() {
 		}
 	}
 
-    // Function does not end here
     return;
 }
 
@@ -1173,6 +1198,7 @@ void CDisassembler::CheckForFunctionBegin() {
 
     if (IFunction == 0) {
         // No function defined. Begin new function here
+		FunctionStart = 1;
 
         // Search for nearest labels
         sym1 = Symbols.FindByAddress(Section, IEnd, &sym2, &sym3);
@@ -1199,53 +1225,64 @@ void CDisassembler::CheckForFunctionBegin() {
         // Add to function list
         IFunction = FunctionList.PushUnique(fun);
 
+		InvalidFunction.push_back(false);
+
         // End of function not known yet
-        FunctionEnd = SectionEnd;  LabelEnd = 0;
+        FunctionEnd = SectionEnd;
+		LabelEnd = 0;
     }
+	else
+		FunctionStart = 0;
 }
 
 void CDisassembler::CheckForFunctionEnd( CTextFileBuffer *out_file ) {
     // Check if function ends at current position
     if (IFunction >= FunctionList.GetNumEntries()) {
         // Should not occur
-        err.submit(9000);  IFunction = 0;  return;
+        err.submit(9000);  IFunction = 0;  ReturnCheck = 0; return;
     }
 
     // Function ends if section ends here
     if (IEnd >= SectionEnd) {
-        // Current function must end because section ends here
-        FunctionList[IFunction].End = SectionEnd;
-        FunctionList[IFunction].Scope &= ~0x10000;
-        IFunction = 0;
+		// Current function must end because section ends here
+		FunctionList[IFunction].End = SectionEnd;
+		FunctionList[IFunction].Scope &= ~0x10000;
+		IFunction = 0;
+		ReturnCheck = 0;
 
-        // Check if return instruction
-        if (s.OpcodeDef && !(s.OpcodeDef->Options & 0x10) && (Pass & 0x10)) {
-            // No return or unconditional jump. Write error message
-            s.Errors |= 0x10000;
-            WriteErrorsAndWarnings( out_file );
-        }
-        return;
+		// Check if return instruction
+		if (s.OpcodeDef && !(s.OpcodeDef->Options & 0x10) && (Pass & 0x10)) {
+			// No return or unconditional jump. Write error message
+			s.Errors |= 0x10000;
+			WriteErrorsAndWarnings( out_file );
+		}
+		return;
     }
 
     // Function ends after ret or unconditional jump and preceding code had no 
     // jumps beyond this position:
     if (s.OpcodeDef && s.OpcodeDef->Options & 0x10 && !SwitchtableCheck) {
-        // A return or unconditional jump instruction was found.
-        FlagPrevious |= 2;
+		if(MaxJmpAddr <= SectionAddress + IBegin)
+		{
+			MaxJmpAddr = 0;
+			// A return or unconditional jump instruction was found.
+			FlagPrevious |= 2;
 
-        // Mark this position as inaccessible if there is no reference to this place
-        Symbols.NewSymbol(Section, IEnd, 0);
-        // Update labels
-        LabelBegin = LabelEnd = CountErrors = 0;
-        FindLabels();
+			// Mark this position as inaccessible if there is no reference to this place
+			Symbols.NewSymbol(Section, IEnd, 0);
+			// Update labels
+			LabelBegin = LabelEnd = CountErrors = 0;
+			FindLabels();
 
-        if (IEnd >= FunctionList[IFunction].End) {
-            // Indicate current function ends here
-            FunctionList[IFunction].End = IEnd;
-            FunctionList[IFunction].Scope &= ~0x10000;
-            IFunction = 0;
-            return;
-        }
+			if (IEnd >= FunctionList[IFunction].End) {
+				// Indicate current function ends here
+				FunctionList[IFunction].End = IEnd;
+				FunctionList[IFunction].Scope &= ~0x10000;
+				IFunction = 0;
+				ReturnCheck = 0;
+				return;
+			}
+		}
     }
 
     // Function ends at next label if preceding label is inaccessible and later end not known
@@ -1253,6 +1290,7 @@ void CDisassembler::CheckForFunctionEnd( CTextFileBuffer *out_file ) {
         if (Symbols.FindByAddress(Section, IEnd)) {
             // Previous label was inaccessible. There is a new label here. Begin new function here
             IFunction = 0;
+			ReturnCheck = 0;
             return;
         }
     }
@@ -1265,6 +1303,7 @@ void CDisassembler::CheckForFunctionEnd( CTextFileBuffer *out_file ) {
             FunctionList[IFunction].Scope &= ~0x10000;
             IFunction = 0;
 			SwitchtableCheck = 0;
+			ReturnCheck = 0;
             return;
 		}
 	}
@@ -1393,9 +1432,14 @@ void CDisassembler::CheckJumpTarget(uint32 symi) {
                 // Target is known as public or a function. No need to extend current function
                 return;
         }
-        // Extend current function forward to include target offset
-        FunctionList[IFunction].End = Symbols[symi].Offset;
-        FunctionList[IFunction].Scope |= 0x10000;
+
+		// jjh-hack
+		if(!ReturnCheck && !FunctionStart)
+		{
+        	// Extend current function forward to include target offset
+        	FunctionList[IFunction].End = Symbols[symi].Offset;
+        	FunctionList[IFunction].Scope |= 0x10000;
+		}
     }
     else if (Symbols[symi].Offset < FunctionList[IFunction].Start) {
         // Target is before tentative begin of current function but within section
@@ -2493,7 +2537,15 @@ void CDisassembler::ParseInstruction() {
         // Find instruction set
         FindInstructionSet();
 
+		FindReturn();
+
 		FindSwitch();
+
+		FindFunctionEnd();
+
+		FindNop();
+
+		UpdateFunction();
 
         // Update symbol types for operands of this instruction
         UpdateSymbols();
@@ -2501,6 +2553,8 @@ void CDisassembler::ParseInstruction() {
         // Trace register values
         UpdateTracer();
     }
+	else
+		InvalidFunction[IFunction] = true;
 }
 
 
@@ -4374,6 +4428,17 @@ bool IsImmediate( char *operand )
 	return true;
 }
 
+void CDisassembler::FindReturn()
+{
+	CTextFileBuffer temp_file;
+	WriteInstruction( &temp_file, 0 );
+	char opcode[10], op1[30], op2[30];
+	TokenizeInstruction( &temp_file, opcode, op1, op2 );
+
+	if(!strcmp(opcode, "ret"))
+		ReturnCheck = 1;
+}
+
 void CDisassembler::FindSwitch()
 {
 	CTextFileBuffer temp_file;
@@ -4434,7 +4499,7 @@ void CDisassembler::FindSwitch()
 			op2_3[j++] = op2[i++];
 		op2_3[j] = 0;
 
-		if( t.Regist[MapRegister(op2_1)] == 0x18 && MapRegister(op2_2) == SwitchReg && atoi(op2_3) == 4 )
+		if( t.Regist[MapRegister(op2_1)] == 0x18 && /*MapRegister(op2_2) == SwitchReg &&*/ atoi(op2_3) == 4 )
 		{
 			JumpReg = MapRegister(op1);
 			JumptableAddrReg = MapRegister(op2_1);
@@ -4462,6 +4527,70 @@ void CDisassembler::FindSwitch()
 			|| !strcmp( opcode, "jc" ) || !strcmp( opcode, "jmp" )
 			|| !strcmp( opcode, "je" ) || !strcmp( opcode, "jns" ) )		
 		SwitchCheck = 0;
+}
+
+void CDisassembler::FindFunctionEnd()
+{
+	CTextFileBuffer temp_file;
+	WriteInstruction( &temp_file, 0 );
+	char opcode[10], op1[30], op2[30];
+	TokenizeInstruction( &temp_file, opcode, op1, op2 );
+
+	for(int i = 0; i < SplitInsnNum - 1; i++)
+	{
+		if(!strcmp(opcode, JmpMnemonicTable[i]))
+		{
+			if(FunctionStart)
+				return;
+			if(ReturnCheck && !strcmp(opcode, "jmp"))
+				return;
+			if(!IsHex(op1))
+				return;
+
+			uint64_t jmp_addr = htoi(op1);
+			if(MaxJmpAddr < jmp_addr)
+				MaxJmpAddr = jmp_addr;
+			break;
+		}
+	}
+}
+
+void CDisassembler::FindNop()
+{
+	CTextFileBuffer temp_file;
+	WriteInstruction( &temp_file, 0 );
+	char opcode[10], op1[30], op2[30];
+	TokenizeInstruction( &temp_file, opcode, op1, op2 );
+
+	if(!strcmp(opcode, "nop") && (FunctionStart || NopCheck))
+	{
+		BlockList[IBlock].Start = IEnd;
+		BlockList[IBlock].End = IEnd;
+		FunctionList[IFunction].Start = IEnd;
+		FunctionList[IFunction].End = IEnd;
+		NopCheck = 1;
+	}
+	else
+		NopCheck = 0;
+}
+
+void CDisassembler::UpdateFunction()
+{
+	CTextFileBuffer temp_file;
+	WriteInstruction( &temp_file, 0 );
+	char opcode[10], op1[30], op2[30];
+	TokenizeInstruction( &temp_file, opcode, op1, op2 );
+
+	if(!strcmp(opcode, "call") && IsHex(op1)/*&& strcmp(opcode,"jmp")*/)
+	{
+		uint32_t func_num = FunctionList.GetNumEntries();
+		uint32_t offset = htoi(op1) - SectionAddress;
+		for(int i = 0; i < func_num; i++)
+		{
+			if(FunctionList[i].Start <= offset && offset < FunctionList[i].End)
+				FunctionList[i].Start = offset;
+		}
+	}
 }
 
 void CDisassembler::CheckLabel( CTextFileBuffer *out_file )

@@ -692,6 +692,7 @@ public:
 	const char * CommentSeparator;                // "; " or "# " Start of comment string
 	const char * HereOperator;                    // "$" or "." indicating current position
 	CTextFileBuffer   OutFile;                    // Output file
+	uint64_t EntryAddr;
 
 protected:
    CSList<CodeBlock> BlockList;
@@ -700,6 +701,7 @@ protected:
    CSList<SARelocation> Relocations;             // List of cross references. First is 0
    CMemoryBuffer NameBuffer;                     // String buffer for names of sections. First is 0.
    CSList<SFunctionRecord> FunctionList;         // List of functions 
+
    int64_t   ImageBase;                            // Image base for executable files
    uint32_t  ExeType;                              // File type: 0 = object, 1 = position independent shared object, 2 = executable
    uint32_t  RelocationsInSource;                  // Number of relocations in source file
@@ -710,6 +712,7 @@ protected:
    SOpcodeProp s;                                // Properties of current opcode
    SATracer t;                                   // Trace of register contents
    uint32_t  Pass;                                 // 1 = pass 1, 2-3 = pass 1 repeated, 0x10 = pass 2, 0x100 = repetition requested
+   vector<bool> InvalidFunction;
    uint32_t  BlockDescriptor;
    uint32_t  FunctionDescriptor;
    uint32_t  SwitchCheck;
@@ -719,6 +722,10 @@ protected:
    uint32_t  SwitchReg;
    uint32_t  JumptableAddrReg;
    uint32_t  JumpReg;
+   uint64_t  MaxJmpAddr;
+   uint32_t  ReturnCheck;
+   uint32_t  NopCheck;
+   uint32_t  FunctionStart;
    uint32_t  SectionEnd;                           // End of current section
    uint32_t  WordSize;                             // Segment word size: 16, 32, 64
    uint32_t  Section;                              // Current section/segment
@@ -774,6 +781,10 @@ protected:
    void    FindWarnings();                       // Find any reasons for warnings in code
    void    FindErrors();                         // Find any errors in code
    void	   FindSwitch();
+   void    FindFunctionEnd();
+   void    FindReturn();
+   void    FindNop();
+   void    UpdateFunction();
    void    FindInstructionSet();                 // Update instruction set
    void    CheckForNops();                       // Check if warnings are caused by multi-byte NOP
    void    UpdateSymbols();                      // Find unnamed symbols, determine symbol types, update symbol list, call CheckJumpTarget if jump/call

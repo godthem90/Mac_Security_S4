@@ -253,6 +253,7 @@ int COFFParser::ParseFile(CDisassembler *Disasm){
       MakeExportList(Disasm);                          // Make exported symbols for executable files
       MakeListLabels(Disasm);                          // Put labels on all image directory tables
    }
+   Disasm->EntryAddr = EntryPoint;
    Disasm->Go();                                  // Disassemble
 
    return 0;

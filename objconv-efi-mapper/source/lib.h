@@ -88,6 +88,7 @@ bool CorrectIntegerTypes();
 bool CorrectEndianness();
 int MapRegister( char *reg );
 bool IsCondJump( char *mnemonic );
+bool IsHex(char *str);
 uint64_t htoi( char *hex_str );
 int pow( int a, int b );
 

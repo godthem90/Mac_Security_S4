@@ -304,8 +304,8 @@ vector<OperandAttribute> VirtualMachine::GetSourceAttribute(Instruction &insn)
 	char *mnemonic = insn.GetMnemonic();
 	if( !CheckDependencyTable(insn.GetMnemonic()) )
 	{
-		fprintf(stderr, "[error] should update dependency table : ");
-		fprintf(stderr, "%llx\t%s\n", insn.GetAddr(), insn.GetMnemonic());
+		//fprintf(stderr, "[error] should update dependency table : ");
+		//fprintf(stderr, "%llx\t%s\n", insn.GetAddr(), insn.GetMnemonic());
 		//insn.Print();
 	}
 

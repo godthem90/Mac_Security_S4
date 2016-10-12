@@ -11,8 +11,6 @@
 #define OPERAND_MATCH				2
 #define OPERAND_IMMEDIATE_MATCH		3
 
-char *input_file_name1 = 0;
-char *input_file_name2 = 0;
 char *output_file_name = 0;
 int threshold_percentage;
 
@@ -61,8 +59,10 @@ public:
 	vector<MappedAddr> MappedAddrList;
 
 	BlockMapper(Program &p1, Program &p2) : prog1(p1), prog2(p2) {};
+	void MapStart();
 	void MapBlock(uint64_t func_addr1, uint64_t func_addr2);
-	void Dump();
+	void DumpMapped();
+	void DumpUnmapped();
 
 private:
 	Program &prog1;
@@ -70,6 +70,7 @@ private:
 	VirtualMachine vm;
 	vector<MappedFunction> MappedFunctionList;
 
+	bool IsMapped(uint64_t func_addr1, uint64_t func_addr2);
 	bool IsAttributeEqual(OperandAttribute attr1, OperandAttribute attr2);
 	bool IsInsnDependent(Instruction &insn1, Instruction &insn2);
 	void GetDependencyTable(BlockNode &block, int *dep_table);
@@ -85,6 +86,22 @@ private:
 	int DiffInstruction(Instruction &insn1, Instruction &insn2);
 	int DiffBlock(BlockNode &block1, BlockNode &block2, vector<MappedAddr> *mapped_addr_list, vector<CheckFunction> *func_checklist);
 };
+
+bool BlockMapper::IsMapped(uint64_t func_addr1, uint64_t func_addr2)
+{
+	uint32_t func_idx1 = prog1.GetFuncIndex(func_addr1);
+	uint32_t func_idx2 = prog2.GetFuncIndex(func_addr2);
+	uint32_t mapped_num = MappedFunctionList.size();
+	for(int i = 0; i < mapped_num; i++)
+	{
+		if(MappedFunctionList[i].idx1 == func_idx1)
+			return true;
+		if(MappedFunctionList[i].idx2 == func_idx2)
+			return true;
+	}
+
+	return false;
+}
 
 vector<MappedBlock> BlockMapper::SelectCandidates(vector<MappedBlock> &candidates_table)
 {
@@ -378,8 +395,8 @@ int BlockMapper::DiffBlock(BlockNode &block1, BlockNode &block2, vector<MappedAd
 	vector<MappedInstruction> mapped_insn_list;
 	for( int op_idx1 = 0; op_idx1 < op_num1; op_idx1++ )
 	{
-		int op_idx2 = GetIdx2(mapped_insn_list, dependency_table1[op_idx1]) + 1;
-		for( /*int op_idx2 = 0*/; op_idx2 < op_num2; op_idx2++ )
+		//int op_idx2 = GetIdx2(mapped_insn_list, dependency_table1[op_idx1]) + 1;
+		for( int op_idx2 = 0; op_idx2 < op_num2; op_idx2++ )
 		{
 			MappedInstruction mapped_insn;
 			mapped_insn.idx1 = op_idx1;
@@ -395,12 +412,24 @@ int BlockMapper::DiffBlock(BlockNode &block1, BlockNode &block2, vector<MappedAd
 	{
 		uint32_t opcode1 = block1[mapped_insn_list[i].idx1].GetOpcode();
 		uint32_t opcode2 = block2[mapped_insn_list[i].idx2].GetOpcode();
-		if(func_checklist && opcode1 == 232 && opcode2 == 232)
+		if(func_checklist)
 		{
-			CheckFunction check_func;
-			check_func.addr1 = htoi(block1[mapped_insn_list[i].idx1].GetOperand1());
-			check_func.addr2 = htoi(block2[mapped_insn_list[i].idx2].GetOperand1());
-			func_checklist->push_back(check_func);
+			if(opcode1 == 232 && opcode2 == 232)
+			{
+				CheckFunction check_func;
+				check_func.addr1 = htoi(block1[mapped_insn_list[i].idx1].GetOperand1());
+				check_func.addr2 = htoi(block2[mapped_insn_list[i].idx2].GetOperand1());
+				func_checklist->push_back(check_func);
+			}
+			if(opcode1 == 233 && opcode2 == 233)
+			{
+				CheckFunction check_func;
+				check_func.addr1 = htoi(block1[mapped_insn_list[i].idx1].GetOperand1());
+				check_func.addr2 = htoi(block2[mapped_insn_list[i].idx2].GetOperand1());
+				if(prog1.GetFuncIndex(check_func.addr1) != -1
+					&& prog2.GetFuncIndex(check_func.addr2) != -1)
+					func_checklist->push_back(check_func);
+			}
 		}
 
 		if(mapped_addr_list)
@@ -422,6 +451,18 @@ void BlockMapper::MapBlock(uint64_t func_addr1, uint64_t func_addr2)
 {
 	int func_idx1 = prog1.GetFuncIndex(func_addr1);
 	int func_idx2 = prog2.GetFuncIndex(func_addr2);
+	// TODO Program class member var file name
+	if(func_idx1 == -1)
+	{
+		fprintf(stderr, "%s:0x%x function not found\n", prog1.GetFileName(), func_addr1);
+		return;
+	}
+	if(func_idx2 == -1)
+	{
+		fprintf(stderr, "%s:0x%x function not found\n", prog2.GetFileName(), func_addr2);
+		return;
+	}
+
 	FunctionNode &func1 = prog1[func_idx1];
 	FunctionNode &func2 = prog2[func_idx2];
 
@@ -445,6 +486,7 @@ void BlockMapper::MapBlock(uint64_t func_addr1, uint64_t func_addr2)
 			candidate_block.percentage = DiffBlock(func1[i], func2[j], NULL, NULL);
 			candidates_table.push_back(candidate_block);
 		}
+		// TODO need some clean code
 		vector<MappedBlock> candidates = SelectCandidates(candidates_table);
 		MappedBlock *inserted_block = InsertMappedBlock(mapped_function, candidates);
 		if(inserted_block)
@@ -453,23 +495,120 @@ void BlockMapper::MapBlock(uint64_t func_addr1, uint64_t func_addr2)
 
 	MappedFunctionList.push_back(mapped_function);
 	for( int i = 0; i < func_checklist.size(); i++ )
-		MapBlock(func_checklist[i].addr1, func_checklist[i].addr2);
+	{
+		if(!IsMapped(func_checklist[i].addr1, func_checklist[i].addr2))
+			MapBlock(func_checklist[i].addr1, func_checklist[i].addr2);
+	}
 }
 
-void BlockMapper::Dump()
+void BlockMapper::MapStart()
+{
+	if(prog1.EntryAddr && prog2.EntryAddr)
+		MapBlock(prog1.EntryAddr, prog2.EntryAddr);
+	else
+	{
+		fprintf(stderr, "[error] entry point address not defined\n");
+		return;
+	}
+	// TODO map extra func
+}
+
+void BlockMapper::DumpUnmapped()
+{
+	uint32_t func_num1 = prog1.GetFuncNum();
+	uint32_t func_num2 = prog2.GetFuncNum();
+	vector<bool> mapped_func_idx1(func_num1, false);
+	vector<bool> mapped_func_idx2(func_num2, false);
+
+	for(int i = 0; i < MappedFunctionList.size(); i++)
+	{
+		struct MappedFunction &mapped_func = MappedFunctionList[i];
+		mapped_func_idx1[mapped_func.idx1] = true;
+		mapped_func_idx2[mapped_func.idx2] = true;
+		FunctionNode &func1 = prog1[mapped_func.idx1];
+		FunctionNode &func2 = prog2[mapped_func.idx2];
+
+		uint32_t block_num1 = func1.GetBlockNum();
+		uint32_t block_num2 = func2.GetBlockNum();
+		vector<bool> mapped_block_idx1(block_num1, false);
+		vector<bool> mapped_block_idx2(block_num2, false);
+
+		for(int j = 0; j < mapped_func.SameBlockList.size(); j++)
+		{
+			struct MappedBlock &mapped_block = mapped_func.SameBlockList[j];
+			mapped_block_idx1[mapped_block.idx1] = true;
+			mapped_block_idx2[mapped_block.idx2] = true;
+		}
+
+		/*for(int j = 0; j < mapped_func.SimilarBlockList.size(); j++)
+		{
+			struct MappedBlock &mapped_block = mapped_func.SimilarBlockList[j];
+			mapped_block_idx1[mapped_block.idx1] = true;
+			mapped_block_idx2[mapped_block.idx2] = true;
+		}*/
+
+		for(int j = 0; j < block_num1; j++)
+		{
+			if(!mapped_block_idx1[j])
+			{
+				printf("\n%s:0x%llx - %s:0x%llx unmapped block\n", prog1.GetFileName(), func1.StartAddress, prog2.GetFileName(), func2.StartAddress);
+				BlockNode &block1 = func1[j];
+				printf("%s :\n", prog1.GetFileName());
+				block1.PrintBlockAssembly();
+				printf("\n");
+			}
+		}
+
+		for(int j = 0; j < block_num2; j++)
+		{
+			if(!mapped_block_idx2[j])
+			{
+				printf("\n%s:0x%llx - %s:0x%llx unmapped block\n", prog1.GetFileName(), func1.StartAddress, prog2.GetFileName(), func2.StartAddress);
+				BlockNode &block2 = func2[j];
+				printf("%s :\n", prog2.GetFileName());
+				block2.PrintBlockAssembly();
+				printf("\n");
+			}
+		}
+	}
+
+	for(int i = 0; i < func_num1; i++)
+	{
+		if(!mapped_func_idx1[i])
+		{
+			FunctionNode &func1 = prog1[i];
+			printf("\n%s:0x%llx unmapped function\n", prog1.GetFileName(), func1.StartAddress);
+			/*printf("%s :\n", prog1.GetFileName());
+			func1.PrintFuncAssembly();
+			printf("\n");*/
+		}
+	}
+
+	for(int i = 0; i < func_num2; i++)
+	{
+		if(!mapped_func_idx2[i])
+		{
+			FunctionNode &func2 = prog2[i];
+			printf("\n%s:0x%llx unmapped function\n", prog2.GetFileName(), func2.StartAddress);
+			/*printf("%s :\n", prog2.GetFileName());
+			func2.PrintFuncAssembly();
+			printf("\n");*/
+		}
+	}
+}
+
+void BlockMapper::DumpMapped()
 {
 	for( int i = 0; i < MappedFunctionList.size(); i++ )
 	{
-		printf("*******************************************************************\n");
-		printf("*******************************************************************\n");
 		printf("*******************************************************************\n");
 		struct MappedFunction &mapped_func = MappedFunctionList[i];
 		FunctionNode &func1 = prog1[mapped_func.idx1];
 		FunctionNode &func2 = prog2[mapped_func.idx2];
 		uint32_t block_num1 = func1.GetBlockNum();
 		uint32_t block_num2 = func2.GetBlockNum();
-		printf("%s:0x%llx func total block : %d\n", input_file_name1, func1.StartAddress, block_num1);
-		printf("%s:0x%llx func total block : %d\n", input_file_name2, func2.StartAddress, block_num2);
+		printf("%s:0x%llx func total block : %d\n", prog1.GetFileName(), func1.StartAddress, block_num1);
+		printf("%s:0x%llx func total block : %d\n", prog2.GetFileName(), func2.StartAddress, block_num2);
 		printf("total matched block : %lu\n", mapped_func.SameBlockList.size());
 
 		for( int j = 0; j < mapped_func.SameBlockList.size(); j++ )
@@ -483,15 +622,14 @@ void BlockMapper::Dump()
 			uint64_t block_addr1 = block1.StartAddress;
 			uint64_t block_addr2 = block2.StartAddress;
 			printf("Block 0x%llx and Block 0x%llx matched with %d%%\n\n", block_addr1, block_addr2, percentage);
-			printf("%s :\n", input_file_name1);
+			printf("%s :\n", prog1.GetFileName());
 			block1.PrintBlockAssembly();
 			printf("\n");
-			printf("%s :\n", input_file_name2);
+			printf("%s :\n", prog2.GetFileName());
 			block2.PrintBlockAssembly();
 			printf("\n");
 			printf("---------------------------------------------------------------\n");
 		}
-		printf("###################################################################\n");
 		for( int j = 0; j < mapped_func.SimilarBlockList.size(); j++ )
 		{
 			struct MappedBlock &mapped_block = mapped_func.SimilarBlockList[j];
@@ -503,10 +641,10 @@ void BlockMapper::Dump()
 			uint64_t block_addr1 = block1.StartAddress;
 			uint64_t block_addr2 = block2.StartAddress;
 			printf("Block 0x%llx and Block 0x%llx matched with %d%%\n\n", block_addr1, block_addr2, percentage);
-			printf("%s :\n", input_file_name1);
+			printf("%s :\n", prog1.GetFileName());
 			block1.PrintBlockAssembly();
 			printf("\n");
-			printf("%s :\n", input_file_name2);
+			printf("%s :\n", prog2.GetFileName());
 			block2.PrintBlockAssembly();
 			printf("\n");
 			printf("---------------------------------------------------------------\n");
@@ -514,6 +652,8 @@ void BlockMapper::Dump()
 		printf("\n");
 	}
 }
+
+bool map_flag = true;
 
 int main(int argc, char * argv[]) {
 	if(!CorrectIntegerTypes())
@@ -527,46 +667,81 @@ int main(int argc, char * argv[]) {
 		return -1;
 	}
 
-	if(argc != 5)
+	/*if(argc != 5)
 	{
 		fprintf(stderr, "[error] Wrong Usage\n");
-		//usage();
+		usage();
 		return -1;
+	}*/
+
+	int j = 0;
+	String input_file_name[2];
+	String entry_point[2];
+	for(int i = 1; i < argc; i++)
+	{
+		if(!strcmp(argv[i], "--map"))
+			map_flag = true;
+		else if(!strcmp(argv[i], "--unmap"))
+			map_flag = false;
+		else
+		{
+			char *dup = strdup(argv[i]);
+			char *token = strtok(dup, ":");
+			input_file_name[j].SetString(token);
+			token = strtok(NULL, ":");
+			entry_point[j].SetString(token);
+			free(dup);
+			j++;
+		}
 	}
+	if(!input_file_name[0].GetString() && !input_file_name[1].GetString())
+	{
+		fprintf(stderr, "[error] no input file name\n");
+		return 1;
+	}
+	// TODO input entry addr process
 
-	input_file_name1 = argv[1];
-	uint32_t entry_addr1 = htoi(argv[2]);
-	input_file_name2 = argv[3];
-	uint32_t entry_addr2 = htoi(argv[4]);
-
-	CFileBuffer input_buffer1(input_file_name1);
+	CFileBuffer input_buffer1(input_file_name[0].GetString());
 	input_buffer1.Read();
-	CFileBuffer input_buffer2(input_file_name2);
+	CFileBuffer input_buffer2(input_file_name[1].GetString());
 	input_buffer2.Read();
 
 	Parser parser1, parser2;
 	CDisassembler disasm_engine1, disasm_engine2;
 	input_buffer1 >> parser1;
 	input_buffer2 >> parser2;
-	parser1.Parse(&disasm_engine1);
-	parser2.Parse(&disasm_engine2);
+	if(!parser1.Parse(&disasm_engine1) || !parser2.Parse(&disasm_engine2))
+	{
+		printf("parse failed with %s", input_file_name[0].GetString());
+		printf("parse failed with %s", input_file_name[1].GetString());
+		return 1;
+	}
 
 	CTextFileBuffer assembly1, assembly2;
 	disasm_engine1.OutFile >> assembly1;
 	disasm_engine2.OutFile >> assembly2;
-	fwrite(assembly1.Buf(), 1, assembly1.GetBufSize(), stdout);
-	fwrite(assembly2.Buf(), 1, assembly2.GetBufSize(), stdout);
+	/*fwrite(assembly1.Buf(), 1, assembly1.GetBufSize(), stdout);
+	fwrite(assembly2.Buf(), 1, assembly2.GetBufSize(), stdout);*/
 	
-	Program prog1, prog2;
+	Program prog1(input_file_name[0].GetString()), prog2(input_file_name[1].GetString());
 	disasm_engine1.ParseProgram(&prog1);
 	disasm_engine2.ParseProgram(&prog2);
 
-	BlockMapper block_mapper( prog1, prog2 );
-	block_mapper.MapBlock( entry_addr1, entry_addr2 );
-	for(int i = 0; i < block_mapper.MappedAddrList.size(); i++)
-		printf("mapped addr : %llx %llx\n", block_mapper.MappedAddrList[i].addr1, block_mapper.MappedAddrList[i].addr2);
-	//block_mapper.Dump();
+	//prog1.PrintFunctions();
 
+	BlockMapper block_mapper(prog1, prog2);
+	block_mapper.MapStart();
+	if(map_flag)
+		block_mapper.DumpMapped();
+	else
+		block_mapper.DumpUnmapped();
+	/*for(int i = 0; i < block_mapper.MappedAddrList.size(); i++)
+		printf("mapped addr : %llx %llx\n", block_mapper.MappedAddrList[i].addr1, block_mapper.MappedAddrList[i].addr2);*/
+
+	input_file_name[0].Free();
+	input_file_name[1].Free();
+	entry_point[0].Free();
+	entry_point[1].Free();
 	parser1.Free();
 	parser2.Free();
 

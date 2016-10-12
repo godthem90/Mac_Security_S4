@@ -72,6 +72,7 @@ class FunctionNode
 		void Insert( BlockNode block );
 		uint32_t GetBlockNum();
 		void PrintAllPath();
+		void PrintFuncAssembly();
 		void Free();
 
 		BlockNode & operator [](uint32_t i);
@@ -87,16 +88,20 @@ class FunctionNode
 class Program
 {
 	public :
-		uint64_t entry_addr;
+		uint64_t EntryAddr;
 
-		Program();
+		Program(char *file_name);
 		void Insert(FunctionNode func);
 		int GetFuncIndex(uint64_t addr);
+		uint32_t GetFuncNum();
+		char *GetFileName();
+		void PrintFunctions();
 
 		FunctionNode & operator [](uint32_t i);
 
 	private :
 		vector<FunctionNode> Functions;
+		String FileName;
 };
 
 #endif

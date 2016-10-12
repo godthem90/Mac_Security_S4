@@ -232,6 +232,12 @@ void FunctionNode::PrintAllPath()
 	RecursiveSearch( 0 );
 }
 
+void FunctionNode::PrintFuncAssembly()
+{
+	for(int i = 0; i < Blocks.size(); i++)
+		Blocks[i].PrintBlockAssembly();
+}
+
 void FunctionNode::Free()
 {
 	for( int i = 0; i < Blocks.size(); i++ )
@@ -248,9 +254,10 @@ BlockNode & FunctionNode::operator [](uint32_t i)
 	return Blocks[i];
 }
 
-Program::Program()
+Program::Program(char *file_name)
 {
-	memset(this, 0, sizeof(*this));
+	FileName.SetString(file_name);
+	EntryAddr = 0;
 }
 
 void Program::Insert(FunctionNode func)
@@ -267,6 +274,22 @@ int Program::GetFuncIndex(uint64_t func_addr)
 	}
 
 	return -1;
+}
+
+uint32_t Program::GetFuncNum()
+{
+	return Functions.size();
+}
+
+char * Program::GetFileName()
+{
+	return FileName.GetString();
+}
+
+void Program::PrintFunctions()
+{
+	for(int i = 0; i < Functions.size(); i++)
+		printf("%X - %X\n", Functions[i].StartAddress, Functions[i].EndAddress);
 }
 
 FunctionNode & Program::operator [](uint32_t i)

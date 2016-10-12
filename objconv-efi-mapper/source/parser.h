@@ -41,7 +41,7 @@ class Parser : public CFileBuffer
 public:
 	Parser();
 	~Parser();
-	void Parse(CDisassembler *Disasm);
+	bool Parse(CDisassembler *Disasm);
 	void Dump();
 	void Free();
 

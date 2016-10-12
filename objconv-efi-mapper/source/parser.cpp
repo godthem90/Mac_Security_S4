@@ -85,16 +85,16 @@ int Parser::GetFileType() {
     return FileType;
 }
 
-void Parser::Parse(CDisassembler *Disasm)
+bool Parser::Parse(CDisassembler *Disasm)
 {
 	if(Parsed)
-		return;
+		return Parsed;
 
 	GetFileType();
 	if(!FileType)
 	{
 		fprintf(stderr,"[error] Determine Object Type Failed\n");
-		return;
+		return 0;
 	}
 
 	switch(FileType) {
@@ -109,6 +109,8 @@ void Parser::Parse(CDisassembler *Disasm)
 		default:
 			fprintf(stderr,"[error] Unsupported Object Type For Parse\n");
 	}
+
+	return Parsed;
 }
 
 void Parser::ParseCOF(CDisassembler *Disasm) {

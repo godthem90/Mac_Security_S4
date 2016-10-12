@@ -121,6 +121,8 @@ int CDisassembler::SetFunctionDescriptor( uint32_t func_addr )
 
 void CDisassembler::ParseProgram(Program *prog)
 {
+	prog->EntryAddr = EntryAddr;
+
 	int functioni;
 	for( functioni = 1; functioni < FunctionList.GetNumEntries(); functioni++ )
 	{
@@ -138,6 +140,9 @@ void CDisassembler::ParseProgram(Program *prog)
 		SetFunctionDescriptor(func.StartAddress);
 		while( GetBlockInFunction( &insns, &start_addr, &end_addr ) != -1 )
 		{
+			if(insns.size() == 0)
+				fprintf(stderr, "[error] can't get block assembly\n");
+
 			BlockNode node;
 			node.Init( insns, start_addr, end_addr );
 			func.Insert( node );
