@@ -60,7 +60,7 @@ public:
 
 	BlockMapper(Program &p1, Program &p2) : prog1(p1), prog2(p2) {};
 	void MapStart();
-	void MapBlock(uint64_t func_addr1, uint64_t func_addr2);
+	int MapBlock(uint64_t func_addr1, uint64_t func_addr2);
 	void DumpMapped();
 	void DumpUnmapped();
 
@@ -412,6 +412,9 @@ int BlockMapper::DiffBlock(BlockNode &block1, BlockNode &block2, vector<MappedAd
 	{
 		uint32_t opcode1 = block1[mapped_insn_list[i].idx1].GetOpcode();
 		uint32_t opcode2 = block2[mapped_insn_list[i].idx2].GetOpcode();
+		char *operand1_2 = block1[mapped_insn_list[i].idx1].GetOperand2();
+		char *operand2_2 = block2[mapped_insn_list[i].idx2].GetOperand2();
+
 		if(func_checklist)
 		{
 			if(opcode1 == 232 && opcode2 == 232)
@@ -421,7 +424,7 @@ int BlockMapper::DiffBlock(BlockNode &block1, BlockNode &block2, vector<MappedAd
 				check_func.addr2 = htoi(block2[mapped_insn_list[i].idx2].GetOperand1());
 				func_checklist->push_back(check_func);
 			}
-			if(opcode1 == 233 && opcode2 == 233)
+			else if(opcode1 == 233 && opcode2 == 233)
 			{
 				CheckFunction check_func;
 				check_func.addr1 = htoi(block1[mapped_insn_list[i].idx1].GetOperand1());
@@ -429,6 +432,23 @@ int BlockMapper::DiffBlock(BlockNode &block1, BlockNode &block2, vector<MappedAd
 				if(prog1.GetFuncIndex(check_func.addr1) != -1
 					&& prog2.GetFuncIndex(check_func.addr2) != -1)
 					func_checklist->push_back(check_func);
+			}
+			else if(operand1_2 && operand2_2)
+			{
+				if(vm.IsData(operand1_2) && vm.IsData(operand2_2))
+				{
+					String addr_token1;
+					String addr_token2;
+					vm.GetMemAddrToken(operand1_2, addr_token1);
+					vm.GetMemAddrToken(operand2_2, addr_token2);
+
+					CheckFunction check_func;
+					check_func.addr1 = htoi(addr_token1.GetString());
+					check_func.addr2 = htoi(addr_token2.GetString());
+					if(prog1.GetFuncIndex(check_func.addr1) != -1
+						&& prog2.GetFuncIndex(check_func.addr2) != -1)
+						func_checklist->push_back(check_func);
+				}
 			}
 		}
 
@@ -447,7 +467,7 @@ int BlockMapper::DiffBlock(BlockNode &block1, BlockNode &block2, vector<MappedAd
 	return mapped_insn_list.size() * 2 * 100 / (op_num1 + op_num2);
 }
 
-void BlockMapper::MapBlock(uint64_t func_addr1, uint64_t func_addr2)
+int BlockMapper::MapBlock(uint64_t func_addr1, uint64_t func_addr2)
 {
 	int func_idx1 = prog1.GetFuncIndex(func_addr1);
 	int func_idx2 = prog2.GetFuncIndex(func_addr2);
@@ -455,12 +475,12 @@ void BlockMapper::MapBlock(uint64_t func_addr1, uint64_t func_addr2)
 	if(func_idx1 == -1)
 	{
 		fprintf(stderr, "%s:0x%x function not found\n", prog1.GetFileName(), func_addr1);
-		return;
+		return -1;
 	}
 	if(func_idx2 == -1)
 	{
 		fprintf(stderr, "%s:0x%x function not found\n", prog2.GetFileName(), func_addr2);
-		return;
+		return - 1;
 	}
 
 	FunctionNode &func1 = prog1[func_idx1];
