@@ -18,14 +18,18 @@ class Instruction
 		void SetMnemonic( char *str, int len );
 		void SetOperand1( char *str, int len );
 		void SetOperand2( char *str, int len );
+		void PushBinary(char bin);
 
 		uint64_t GetAddr();
 		uint32_t GetOpcode();
 		char * GetMnemonic();
 		char * GetOperand1();
 		char * GetOperand2();
+		uint32_t GetSize();
 
 		void Print();
+
+		char & operator [](uint32_t i);
 
 	private :
 		uint64_t addr;
@@ -33,6 +37,7 @@ class Instruction
 		String mnemonic;
 		String operand1;
 		String operand2;
+		vector<char> binary;
 };
 
 class BlockNode

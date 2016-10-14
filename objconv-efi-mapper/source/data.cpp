@@ -2,19 +2,21 @@
 #include "data.h"
 
 Instruction::Instruction() { memset(this, 0, sizeof(*this)); }
-Instruction::~Instruction() { mnemonic.Free(); operand1.Free(); operand2.Free(); memset(this, 0, sizeof(*this)); }
+Instruction::~Instruction() { mnemonic.Free(); operand1.Free(); operand2.Free(); binary.clear(); memset(this, 0, sizeof(*this)); }
 
 void Instruction::SetAddr( uint64_t addr ) {this->addr = addr;}
 void Instruction::SetOpcode( uint32_t opcode ) {this->opcode = opcode;}
 void Instruction::SetMnemonic( char *str, int len ) { mnemonic.SetString(str, len); }
 void Instruction::SetOperand1( char *str, int len ) { operand1.SetString(str, len); }
 void Instruction::SetOperand2( char *str, int len ) { operand2.SetString(str, len); }
+void Instruction::PushBinary(char bin) {binary.push_back(bin);}
 
 uint64_t Instruction::GetAddr() { return addr; }
 uint32_t Instruction::GetOpcode() { return opcode; }
 char * Instruction::GetMnemonic() { return mnemonic.GetString(); }
 char * Instruction::GetOperand1() { return operand1.GetString(); }
 char * Instruction::GetOperand2() { return operand2.GetString(); }
+uint32_t Instruction::GetSize() {return binary.size();}
 
 void Instruction::SetInstruction( char *buf )
 {
@@ -48,6 +50,14 @@ void Instruction::Print()
 	if( operand2.GetString() )
 		printf(", %s", operand2.GetString() );
 	printf("\n");
+}
+
+char & Instruction::operator[](uint32_t i) 
+{
+	if(i >= binary.size())
+		i = 0;
+
+	return binary[i];
 }
 
 BlockNode::BlockNode()

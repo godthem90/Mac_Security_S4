@@ -438,10 +438,8 @@ String::~String()
 void String::SetString( char *new_str )
 {
 	if(!new_str)
-	{
-		fprintf(stderr, "[error] null pointer passed in String\n");
 		return;
-	}
+
 	size = strlen(new_str) + 1;
 	if( str )
 		delete[] str;
@@ -452,10 +450,8 @@ void String::SetString( char *new_str )
 void String::SetString( char *new_str, int len )
 {
 	if(!new_str)
-	{
-		fprintf(stderr, "[error] null pointer passed in String\n");
 		return;
-	}
+
 	size = len + 1;
 	if( str )
 		delete[] str;
