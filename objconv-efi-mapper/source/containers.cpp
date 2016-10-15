@@ -435,7 +435,7 @@ String::~String()
 	Free();
 }
 
-void String::SetString( char *new_str )
+void String::SetString( const char *new_str )
 {
 	if(!new_str)
 		return;
@@ -447,7 +447,7 @@ void String::SetString( char *new_str )
 	strncpy( str, new_str, size );
 }
 
-void String::SetString( char *new_str, int len )
+void String::SetString( const char *new_str, int len )
 {
 	if(!new_str)
 		return;
@@ -468,7 +468,7 @@ void String::Append( char append )
 	Append(append_str);
 }
 
-void String::Append( char *append )
+void String::Append( const char *append )
 {
 	if(!append)
 	{
@@ -489,7 +489,7 @@ void String::Append( char *append )
 		SetString( append );
 }
 
-void String::Append( char *append, int len )
+void String::Append( const char *append, int len )
 {
 	if(!append)
 	{
@@ -522,6 +522,40 @@ void String::Erase( int idx )
 
 	delete[] str;
 	str = temp;
+}
+
+void String::Find(const char *sub_str)
+{
+	if(!sub_str)
+		return;
+
+	int sub_str_len = strlen(sub_str);
+	for(int i = 0; i < size - sub_str_len; i++)
+	{
+		int j = 0;
+		for(; j < sub_str_len; j++)
+		{
+			if(str[i + j] != sub_str[j])
+				break;
+		}
+		//if()
+	}
+}
+
+void String::Tokenize(vector<String> &tokens, char delim)
+{
+	int token_start = 0;
+	for(int i = 0; i < size; i++)
+	{
+		if(str[i] == delim)
+		{
+			String token;
+			token.SetString(str, i - token_start);
+			if(token.GetString())
+				tokens.push_back(token);
+			token_start = i + 1;
+		}
+	}
 }
 
 char *String::GetString()

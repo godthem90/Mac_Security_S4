@@ -90,16 +90,29 @@ class FunctionNode
 		int GetBlockIndex( uint64_t block_addr );
 };
 
+typedef struct Symbol
+{
+	uint64_t addr;
+	String name;
+} Symbol;
+
 class Program
 {
 	public :
 		uint64_t EntryAddr;
 
-		Program(char *file_name);
+		Program();
+		void SetFileName(const char *file_name);
+		void SetEntryAddr(uint64_t addr);
 		void Insert(FunctionNode func);
+		void AddSymbol(uint64_t addr, const char *name);
+
 		int GetFuncIndex(uint64_t addr);
+		uint64_t GetFuncAddr(uint32_t idx);
 		uint32_t GetFuncNum();
-		char *GetFileName();
+		const char *GetFileName();
+		const char *GetSymbolName(uint64_t addr);
+
 		void PrintFunctions();
 
 		FunctionNode & operator [](uint32_t i);
@@ -107,6 +120,7 @@ class Program
 	private :
 		vector<FunctionNode> Functions;
 		String FileName;
+		vector<Symbol> SymbolTable;
 };
 
 #endif

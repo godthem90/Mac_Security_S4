@@ -264,15 +264,32 @@ BlockNode & FunctionNode::operator [](uint32_t i)
 	return Blocks[i];
 }
 
-Program::Program(char *file_name)
+Program::Program()
+{
+	EntryAddr = 0;
+}
+
+void Program::SetFileName(const char *file_name)
 {
 	FileName.SetString(file_name);
-	EntryAddr = 0;
+}
+
+void Program::SetEntryAddr(uint64_t addr)
+{
+	EntryAddr = addr;
 }
 
 void Program::Insert(FunctionNode func)
 {
 	Functions.push_back( func );
+}
+
+void Program::AddSymbol(uint64_t addr, const char *name)
+{
+	Symbol symbol;
+	symbol.addr = addr;
+	symbol.name.SetString(name);
+	SymbolTable.push_back(symbol);
 }
 
 int Program::GetFuncIndex(uint64_t func_addr)
@@ -291,9 +308,21 @@ uint32_t Program::GetFuncNum()
 	return Functions.size();
 }
 
-char * Program::GetFileName()
+const char * Program::GetFileName()
 {
 	return FileName.GetString();
+}
+
+const char * Program::GetSymbolName(uint64_t addr)
+{
+	uint32_t table_size = SymbolTable.size();
+	for(int i = 0; i < table_size; i++)
+	{
+		if(SymbolTable[i].addr == addr)
+			return SymbolTable[i].name.GetString();
+	}
+
+	return NULL;
 }
 
 void Program::PrintFunctions()

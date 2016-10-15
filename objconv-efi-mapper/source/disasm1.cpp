@@ -1115,7 +1115,7 @@ void CDisassembler::SplitBlockBySymbol()
 				break;
 		}
 		if( blocki == BlockList.GetNumEntries() )
-			return;
+			continue;
 
 		if( BlockList[blocki].Start != section_offset )
 		{

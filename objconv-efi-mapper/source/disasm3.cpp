@@ -157,4 +157,18 @@ void CDisassembler::ParseProgram(Program *prog)
 			prog->Insert(func);
 		}
 	}
+
+	uint32_t sym_num = Symbols.GetNumEntries();
+	for(int i = 0; i < sym_num; i++)
+	{
+		if(Symbols[i].Name)
+		{
+			int section = Symbols[i].Section;
+			uint64_t section_addr = Sections[section].SectionAddress;
+			uint64_t sym_addr = section_addr + Symbols[i].Offset;
+			const char *sym_name = Symbols.GetName(i);
+			if(sym_name[0] != '?')
+				prog->AddSymbol(sym_addr, sym_name);
+		}
+	}
 }
