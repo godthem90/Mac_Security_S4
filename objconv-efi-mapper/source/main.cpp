@@ -798,6 +798,14 @@ typedef struct EfiFile
 	String Path;
 } EfiFile;
 
+typedef struct EdkInfo
+{
+	String BaseName;
+	String GUID;
+	String EntryPoint;
+	String Path;
+} EdkInfo;
+
 bool map_flag = true;
 
 void ProcessArgument(vector<EfiFile> &file_list, const char *dir_path)
@@ -860,6 +868,37 @@ void ProcessArgument(vector<EfiFile> &file_list, const char *dir_path)
 	}
 }
 
+/*ProcessEdkInfo(vector<EdkInfo> &edk_info_list, const char *info_file_path)
+{
+	string line;
+	ifstream input(info_file_path);
+	vector<string> info;
+
+	while(getline(input, line))
+	{
+		for(int i = 0; i < line.size(); i++)
+		{
+			if(line.c_str()[i] == ' ')
+
+		if(i == 3)
+		{
+			printf("%s ", info[0].c_str());
+			printf("%s ", info[1].c_str());
+			printf("%s ", info[2].c_str());
+			string dll_path;
+			ExecFind(dll_path, input_dir.c_str(), info[0].c_str());
+			printf("%s\n",dll_path.c_str());
+			info.clear();
+			i = 0;
+			continue;
+		}
+		string str;
+		str.assign(line.c_str());
+		info.push_back(str);
+		i++;
+	}
+}*/
+
 int main(int argc, char * argv[]) {
 	if(!CorrectIntegerTypes())
 	{
@@ -883,7 +922,6 @@ int main(int argc, char * argv[]) {
 
 	for(int i = 0; i < file_list.size(); i++)
 		printf("GUID : %s\nPath : %s\n\n", file_list[i].GUID.GetString(), file_list[i].Path.GetString());
-	// get guid name
 
 	/*if(argc != 5)
 	{
