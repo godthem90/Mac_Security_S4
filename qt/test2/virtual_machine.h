@@ -118,14 +118,8 @@ class VirtualMachine
 		vector<OperandAttribute> GetSourceAttribute(Instruction &insn);
 		vector<OperandAttribute> GetDestAttribute(Instruction &insn);
 		OperandAttribute GetAttribute( char *operand );
-		void PrintReg();
-
-	private :
-		VMemory vmemory;
-		Register reg_set[16];
 
 		int64_t Atoi( char *operand );
-
 		bool IsReg( char *operand );
 		bool IsData( char *operand );
 		bool IsLocal( char *operand );
@@ -135,17 +129,25 @@ class VirtualMachine
 		bool IsHex( char *operand );
 		bool IsImmediate( char *operand );
 
-		bool CheckDependencyTable(char *mnemonic);
-		vector<OperandAttribute> GetDependencyAttribute( char *operand );
-
-		void AssignAttribute( OperandAttribute dest_attr, OperandAttribute source_attr );
 		OperandAttribute GetRegAttribute( char *operand );
 		int8_t GetRegNum( char *operand );
 		int8_t GetRegWordsize( char *operand );
 		OperandAttribute GetMemAttribute( char *operand );
+		void GetMemAddrToken(char *operand, String &addr_token);
 		uint64_t GetMemAddr( char *opernad );
 		int8_t GetMemWordsize(char *operand );
 		OperandAttribute GetImmediateAttribute( char *operand );
+
+		void PrintReg();
+
+	private :
+		VMemory vmemory;
+		Register reg_set[16];
+
+		bool CheckDependencyTable(char *mnemonic);
+		vector<OperandAttribute> GetDependencyAttribute( char *operand );
+
+		void AssignAttribute( OperandAttribute dest_attr, OperandAttribute source_attr );
 
 		void StepPush(Instruction insn);
 		void StepMov(Instruction insn);

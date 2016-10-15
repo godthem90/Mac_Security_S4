@@ -3,7 +3,14 @@
 
 #include <QMainWindow>
 #include <QFileDialog>
+#include <QTextBlock>
+#include <QTextCursor>
 #include <QDebug>
+#include <QPalette>
+#include <QDir>
+#include <QDirIterator>
+#include <QTableView>
+#include <QStandardItemModel>
 namespace Ui {
 class MainWindow;
 }
@@ -19,12 +26,19 @@ public:
 private slots:
     void on_actionOpen_triggered();
 
+    void on_textEdit_cursorPositionChanged();
+
 private:
     Ui::MainWindow *ui;
     QString filename1;
     QString filename2;
-    uint32_t entry_addr1;
-    uint32_t entry_addr2;
+    uint64_t entry_addr1;
+    uint64_t entry_addr2;
+    QMap<QString, QPair<int, int> > map1;
+    QMap<QString, QString> map12;
+    QMap<QString, QPair<int, int> > map2;
+    QMap<QString, QString> map21;
+    QStandardItemModel *model;
 };
 
 #endif // MAINWINDOW_H

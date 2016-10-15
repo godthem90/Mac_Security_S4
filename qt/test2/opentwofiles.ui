@@ -40,15 +40,15 @@
     <layout class="QGridLayout" name="gridLayout_7">
      <item row="0" column="0">
       <layout class="QGridLayout" name="gridLayout">
-       <item row="1" column="0">
-        <widget class="QPlainTextEdit" name="plainTextEdit"/>
-       </item>
        <item row="0" column="0">
         <widget class="QPushButton" name="pushButton">
          <property name="text">
-          <string>FirstFile</string>
+          <string>FirstFolder</string>
          </property>
         </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QPlainTextEdit" name="plainTextEdit"/>
        </item>
       </layout>
      </item>
@@ -57,7 +57,7 @@
        <item row="0" column="0">
         <widget class="QPushButton" name="pushButton_2">
          <property name="text">
-          <string>SecondFile</string>
+          <string>SecondFolder</string>
          </property>
         </widget>
        </item>

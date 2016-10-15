@@ -182,6 +182,8 @@ VirtualMachine::VirtualMachine()
 
 int64_t VirtualMachine::Atoi( char *operand )
 {
+	if(!operand)
+		return 0;
 	if(IsDecimal(operand))
 		return atoi(operand);
 	else if(IsHex(operand))
@@ -190,6 +192,8 @@ int64_t VirtualMachine::Atoi( char *operand )
 
 bool VirtualMachine::IsReg( char *operand )
 {
+	if(!operand)
+		return 0;
 	for( int i = 0; i < 64; i++ )
 	{
 		if( !strcmp( operand, reg_table[i] ) )
@@ -200,6 +204,8 @@ bool VirtualMachine::IsReg( char *operand )
 
 bool VirtualMachine::IsData( char *operand )
 {
+	if(!operand)
+		return 0;
 	if( strstr(operand, "DS") )
 		return true;
 	return false;
@@ -207,6 +213,8 @@ bool VirtualMachine::IsData( char *operand )
 
 bool VirtualMachine::IsLocal( char *operand )
 {
+	if(!operand)
+		return 0;
 	if(strstr(operand, "rbp") && strstr(operand, "ptr"))
 		return true;
 	else
@@ -215,6 +223,8 @@ bool VirtualMachine::IsLocal( char *operand )
 
 bool VirtualMachine::IsParam( char *operand )
 {
+	if(!operand)
+		return 0;
 	if(strstr(operand, "rsp") && strstr(operand, "ptr"))
 		return true;
 	else
@@ -223,6 +233,8 @@ bool VirtualMachine::IsParam( char *operand )
 
 bool VirtualMachine::IsMem( char *operand )
 {
+	if(!operand)
+		return 0;
 	if( strstr(operand, "ptr") )
 		return true;
 	return false;
@@ -231,6 +243,8 @@ bool VirtualMachine::IsMem( char *operand )
 
 bool VirtualMachine::IsDecimal( char *operand )
 {
+	if(!operand)
+		return 0;
 	for( int i = 0; i < strlen(operand); i++ )
 	{
 		if( i == 0 && operand[i] == '-')
@@ -243,6 +257,8 @@ bool VirtualMachine::IsDecimal( char *operand )
 
 bool VirtualMachine::IsHex( char *operand )
 {
+	if(!operand)
+		return 0;
 	for( int i = 0; i < strlen(operand); i++ )
 	{
 		if( (i == strlen(operand) - 1) && (operand[i] == 'H' || operand[i] == 'h') )
@@ -258,11 +274,15 @@ bool VirtualMachine::IsHex( char *operand )
 
 bool VirtualMachine::IsImmediate( char *operand )
 {
+	if(!operand)
+		return 0;
 	return (IsDecimal(operand) || IsHex(operand));
 }
 
 bool VirtualMachine::CheckDependencyTable(char *mnemonic)
 {
+	if(!mnemonic)
+		return 0;
 	for( int i = 0; i < sizeof(operand2_source_insn)/sizeof(char)/MNEMONIC_MAX_SIZE; i++ )
 	{
 		if(!strcmp(mnemonic, operand2_source_insn[i]))
@@ -289,6 +309,8 @@ bool VirtualMachine::CheckDependencyTable(char *mnemonic)
 bool VirtualMachine::IsAlwaysDependent(Instruction &insn)
 {
 	char *mnemonic = insn.GetMnemonic();
+	if(!mnemonic)
+		return 0;
 	for( int i = 0; i < sizeof(always_dependent_insn)/sizeof(char)/MNEMONIC_MAX_SIZE; i++ )
 	{
 		if(!strcmp(mnemonic, always_dependent_insn[i]))
@@ -302,10 +324,12 @@ vector<OperandAttribute> VirtualMachine::GetSourceAttribute(Instruction &insn)
 {
 	vector<OperandAttribute> source_attrs;
 	char *mnemonic = insn.GetMnemonic();
+	if(!mnemonic)
+		return source_attrs;
 	if( !CheckDependencyTable(insn.GetMnemonic()) )
 	{
-		fprintf(stderr, "[error] should update dependency table : ");
-		fprintf(stderr, "%llx\t%s\n", insn.GetAddr(), insn.GetMnemonic());
+		//fprintf(stderr, "[error] should update dependency table : ");
+		//fprintf(stderr, "%llx\t%s\n", insn.GetAddr(), insn.GetMnemonic());
 		//insn.Print();
 	}
 
@@ -333,6 +357,8 @@ vector<OperandAttribute> VirtualMachine::GetDestAttribute(Instruction &insn)
 {
 	vector<OperandAttribute> dest_attrs;
 	char *mnemonic = insn.GetMnemonic();
+	if(!mnemonic)
+		return dest_attrs;
 	for( int i = 0; i < sizeof(operand1_dest_insn)/sizeof(char)/MNEMONIC_MAX_SIZE; i++ )
 	{
 		if(!strcmp(mnemonic, operand1_dest_insn[i]))
@@ -348,6 +374,8 @@ vector<OperandAttribute> VirtualMachine::GetDestAttribute(Instruction &insn)
 vector<OperandAttribute> VirtualMachine::GetDependencyAttribute( char *operand )
 {
 	vector<OperandAttribute> attrs;
+	if(!operand)
+		return attrs;
 	for( int i = 0; i < 64; i++ )
 	{
 		if( strstr( operand, reg_table[i] ) )
@@ -434,13 +462,41 @@ OperandAttribute VirtualMachine::GetRegAttribute( char *operand )
 	return op_attr;
 }
 
+void VirtualMachine::GetMemAddrToken(char *operand, String &addr_token)
+{
+	if(!operand)
+		return;
+
+	int i = 0;
+	int len = strlen(operand);
+	for(i = 0 ; i < len; i++)
+	{
+		if(operand[i] == '[')
+			break;
+	}
+	int token_index = ++i;
+	int token_len = 0;
+	for(; i < len; token_len++, i++)
+	{
+		if(operand[i] == ']')
+			break;
+	}
+
+	addr_token.SetString(operand + token_index, token_len);
+}
+
 // TODO serious bug here
 uint64_t VirtualMachine::GetMemAddr( char *operand )
 {
+	if(!operand)
+		return 0;
+
 	vector<OperandAttribute> ptr_operand_attrs;
 	String opers;
 
-	strtok(operand, "[]");
+	String op_dup;
+	op_dup.SetString(operand);
+	strtok(op_dup.GetString(), "[]");
 	char *ptr_token = strtok(NULL, "[]");
 	char *operand_token = strtok(ptr_token, "+-*");
 	while(operand_token)
@@ -483,6 +539,9 @@ uint64_t VirtualMachine::GetMemAddr( char *operand )
 
 int8_t VirtualMachine::GetMemWordsize( char *operand )
 {
+	if(!operand)
+		return 0;
+
 	if(strstr(operand, "byte ptr"))
 		return BYTE;
 	else if(strstr(operand, "word ptr"))
@@ -513,6 +572,9 @@ OperandAttribute VirtualMachine::GetMemAttribute( char *operand )
 OperandAttribute VirtualMachine::GetImmediateAttribute( char *operand )
 {
 	OperandAttribute op_attr;
+	if(!operand)
+		return op_attr;
+
 	op_attr.op_class = IMMEDIATE;
 	op_attr.state = VALID;
 	op_attr.value = Atoi(operand);

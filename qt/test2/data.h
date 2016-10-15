@@ -18,14 +18,18 @@ class Instruction
 		void SetMnemonic( char *str, int len );
 		void SetOperand1( char *str, int len );
 		void SetOperand2( char *str, int len );
+		void PushBinary(char bin);
 
 		uint64_t GetAddr();
 		uint32_t GetOpcode();
 		char * GetMnemonic();
 		char * GetOperand1();
 		char * GetOperand2();
+		uint32_t GetSize();
 
 		void Print();
+
+		char & operator [](uint32_t i);
 
 	private :
 		uint64_t addr;
@@ -33,6 +37,7 @@ class Instruction
 		String mnemonic;
 		String operand1;
 		String operand2;
+		vector<char> binary;
 };
 
 class BlockNode
@@ -72,6 +77,7 @@ class FunctionNode
 		void Insert( BlockNode block );
 		uint32_t GetBlockNum();
 		void PrintAllPath();
+		void PrintFuncAssembly();
 		void Free();
 
 		BlockNode & operator [](uint32_t i);
@@ -84,19 +90,37 @@ class FunctionNode
 		int GetBlockIndex( uint64_t block_addr );
 };
 
+typedef struct Symbol
+{
+	uint64_t addr;
+	String name;
+} Symbol;
+
 class Program
 {
 	public :
-		uint64_t entry_addr;
+		uint64_t EntryAddr;
 
 		Program();
+		void SetFileName(const char *file_name);
+		void SetEntryAddr(uint64_t addr);
 		void Insert(FunctionNode func);
+		void AddSymbol(uint64_t addr, const char *name);
+
 		int GetFuncIndex(uint64_t addr);
+		uint64_t GetFuncAddr(uint32_t idx);
+		uint32_t GetFuncNum();
+		const char *GetFileName();
+		const char *GetSymbolName(uint64_t addr);
+
+		void PrintFunctions();
 
 		FunctionNode & operator [](uint32_t i);
 
 	private :
 		vector<FunctionNode> Functions;
+		String FileName;
+		vector<Symbol> SymbolTable;
 };
 
 #endif

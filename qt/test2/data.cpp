@@ -2,19 +2,21 @@
 #include "data.h"
 
 Instruction::Instruction() { memset(this, 0, sizeof(*this)); }
-Instruction::~Instruction() { mnemonic.Free(); operand1.Free(); operand2.Free(); memset(this, 0, sizeof(*this)); }
+Instruction::~Instruction() { mnemonic.Free(); operand1.Free(); operand2.Free(); binary.clear(); memset(this, 0, sizeof(*this)); }
 
 void Instruction::SetAddr( uint64_t addr ) {this->addr = addr;}
 void Instruction::SetOpcode( uint32_t opcode ) {this->opcode = opcode;}
 void Instruction::SetMnemonic( char *str, int len ) { mnemonic.SetString(str, len); }
 void Instruction::SetOperand1( char *str, int len ) { operand1.SetString(str, len); }
 void Instruction::SetOperand2( char *str, int len ) { operand2.SetString(str, len); }
+void Instruction::PushBinary(char bin) {binary.push_back(bin);}
 
 uint64_t Instruction::GetAddr() { return addr; }
 uint32_t Instruction::GetOpcode() { return opcode; }
 char * Instruction::GetMnemonic() { return mnemonic.GetString(); }
 char * Instruction::GetOperand1() { return operand1.GetString(); }
 char * Instruction::GetOperand2() { return operand2.GetString(); }
+uint32_t Instruction::GetSize() {return binary.size();}
 
 void Instruction::SetInstruction( char *buf )
 {
@@ -48,6 +50,14 @@ void Instruction::Print()
 	if( operand2.GetString() )
 		printf(", %s", operand2.GetString() );
 	printf("\n");
+}
+
+char & Instruction::operator[](uint32_t i) 
+{
+	if(i >= binary.size())
+		i = 0;
+
+	return binary[i];
 }
 
 BlockNode::BlockNode()
@@ -232,6 +242,12 @@ void FunctionNode::PrintAllPath()
 	RecursiveSearch( 0 );
 }
 
+void FunctionNode::PrintFuncAssembly()
+{
+	for(int i = 0; i < Blocks.size(); i++)
+		Blocks[i].PrintBlockAssembly();
+}
+
 void FunctionNode::Free()
 {
 	for( int i = 0; i < Blocks.size(); i++ )
@@ -250,12 +266,30 @@ BlockNode & FunctionNode::operator [](uint32_t i)
 
 Program::Program()
 {
-	memset(this, 0, sizeof(*this));
+	EntryAddr = 0;
+}
+
+void Program::SetFileName(const char *file_name)
+{
+	FileName.SetString(file_name);
+}
+
+void Program::SetEntryAddr(uint64_t addr)
+{
+	EntryAddr = addr;
 }
 
 void Program::Insert(FunctionNode func)
 {
 	Functions.push_back( func );
+}
+
+void Program::AddSymbol(uint64_t addr, const char *name)
+{
+	Symbol symbol;
+	symbol.addr = addr;
+	symbol.name.SetString(name);
+	SymbolTable.push_back(symbol);
 }
 
 int Program::GetFuncIndex(uint64_t func_addr)
@@ -267,6 +301,34 @@ int Program::GetFuncIndex(uint64_t func_addr)
 	}
 
 	return -1;
+}
+
+uint32_t Program::GetFuncNum()
+{
+	return Functions.size();
+}
+
+const char * Program::GetFileName()
+{
+	return FileName.GetString();
+}
+
+const char * Program::GetSymbolName(uint64_t addr)
+{
+	uint32_t table_size = SymbolTable.size();
+	for(int i = 0; i < table_size; i++)
+	{
+		if(SymbolTable[i].addr == addr)
+			return SymbolTable[i].name.GetString();
+	}
+
+	return NULL;
+}
+
+void Program::PrintFunctions()
+{
+	for(int i = 0; i < Functions.size(); i++)
+		printf("%X - %X\n", Functions[i].StartAddress, Functions[i].EndAddress);
 }
 
 FunctionNode & Program::operator [](uint32_t i)

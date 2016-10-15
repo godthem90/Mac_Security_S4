@@ -58,11 +58,13 @@ int CDisassembler::GetBlockAssembly( uint32_t blocki, vector<Instruction> *insns
 		s.ImmediateRelocation = 0;
 		WriteInstruction( &temp_file, 0 );
 
-		for( int i = 0; i <= s.OpcodeStart2 - s.OpcodeStart1; i++ )
+		for(int i = 0; i <= s.OpcodeStart2 - s.OpcodeStart1; i++)
 		{
 			opcode = opcode << 8;
 			opcode += Buffer[s.OpcodeStart1 + i];
 		}
+		for(int i = 0; i < IEnd - IBegin; i++)
+			insn.PushBinary(Buffer[IBegin + i]);
 		insn.SetOpcode( opcode );
 		insn.SetAddr( SectionAddress + IBegin );
 		insn.SetInstruction( temp_file.Buf() );
@@ -121,6 +123,8 @@ int CDisassembler::SetFunctionDescriptor( uint32_t func_addr )
 
 void CDisassembler::ParseProgram(Program *prog)
 {
+	prog->EntryAddr = EntryAddr;
+
 	int functioni;
 	for( functioni = 1; functioni < FunctionList.GetNumEntries(); functioni++ )
 	{
@@ -129,22 +133,42 @@ void CDisassembler::ParseProgram(Program *prog)
 		uint64_t func_end_offset = FunctionList[functioni].End;
 		uint64_t section_addr = Sections[section].SectionAddress;
 
-		FunctionNode func;
-		func.StartAddress = section_addr + func_start_offset;
-		func.EndAddress = section_addr + func_end_offset;
-
-		vector<Instruction> insns;
-		uint64_t start_addr, end_addr;
-		SetFunctionDescriptor(func.StartAddress);
-		while( GetBlockInFunction( &insns, &start_addr, &end_addr ) != -1 )
+		if((Sections[section].Type & 0xFF) == 1)
 		{
-			BlockNode node;
-			node.Init( insns, start_addr, end_addr );
-			func.Insert( node );
-			insns.clear();
-		}
-		//flow_graph1.PrintAllPath();
+			FunctionNode func;
+			func.StartAddress = section_addr + func_start_offset;
+			func.EndAddress = section_addr + func_end_offset;
 
-		prog->Insert(func);
+			vector<Instruction> insns;
+			uint64_t start_addr, end_addr;
+			SetFunctionDescriptor(func.StartAddress);
+			while( GetBlockInFunction( &insns, &start_addr, &end_addr ) != -1 )
+			{
+				if(insns.size() == 0)
+					fprintf(stderr, "[error] can't get block assembly\n");
+
+				BlockNode node;
+				node.Init( insns, start_addr, end_addr );
+				func.Insert( node );
+				insns.clear();
+			}
+			//flow_graph1.PrintAllPath();
+
+			prog->Insert(func);
+		}
+	}
+
+	uint32_t sym_num = Symbols.GetNumEntries();
+	for(int i = 0; i < sym_num; i++)
+	{
+		if(Symbols[i].Name)
+		{
+			int section = Symbols[i].Section;
+			uint64_t section_addr = Sections[section].SectionAddress;
+			uint64_t sym_addr = section_addr + Symbols[i].Offset;
+			const char *sym_name = Symbols.GetName(i);
+			if(sym_name[0] != '?')
+				prog->AddSymbol(sym_addr, sym_name);
+		}
 	}
 }

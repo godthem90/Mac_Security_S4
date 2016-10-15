@@ -81,8 +81,11 @@ or offset relative to the buffer.
 #define CONTAINERS_H
 
 #include <inttypes.h>
+#include <vector>
 
 #include "error.h"
+
+using namespace std;
 
 extern CErrorReporter err;                       // Defined in error.cpp
 
@@ -397,12 +400,15 @@ class String
 		void operator = ( const String& another );
 		~String();
 
-		void SetString( char *str );
-		void SetString( char *str, int len );
+		void SetString( const char *str );
+		void SetString( const char *str, int len );
 		void Append( char ch );
-		void Append( char *str );
-		void Append( char *str, int len );
+		void Append( const char *str );
+		void Append( const char *str, int len );
+
 		void Erase( int idx );
+		void Find(const char *sub_str);
+		void Tokenize(vector<String> &tokens, char delim);
 		char *GetString();
 		void Free();
 

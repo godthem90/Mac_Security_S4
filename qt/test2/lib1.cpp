@@ -69,6 +69,21 @@ bool IsCondJump( char *mnemonic )
 	return false;
 }
 
+bool IsHex(char *operand)
+{
+	for( int i = 0; i < strlen(operand); i++ )
+	{
+		if( (i == strlen(operand) - 1) && (operand[i] == 'H' || operand[i] == 'h') )
+			continue;
+		if( operand[i] < '0' ||
+			('9' < operand[i] && operand[i] < 'A') ||
+			('F' < operand[i] && operand[i] < 'a') ||
+			'f' < operand[i] )
+			return false;
+	}
+	return true;
+}
+
 uint64_t htoi( char *hex_str )
 {
 	char hex_table[] = "0123456789abcdef0123456789ABCDEF";
