@@ -3,6 +3,7 @@
 #include <memory>
 #include <stdexcept>
 #include <sstream>
+#include <fstream>
 
 #include "lib.h"
 #include "containers.h"
@@ -869,7 +870,7 @@ void ProcessArgument(vector<EfiFile> &file_list, const char *dir_path)
 	}
 }
 
-ProcessEdkInfo(vector<EdkInfo> &edk_info_list, const char *info_file_path)
+void ProcessEdkInfo(vector<EdkInfo> &edk_info_list, const char *info_file_path)
 {
 	string line;
 	ifstream input(info_file_path);
@@ -882,16 +883,17 @@ ProcessEdkInfo(vector<EdkInfo> &edk_info_list, const char *info_file_path)
 		EdkInfo edk_info;
 		for(int i = 0; i < line.size(); i++)
 		{
-			if(line.c_str()[i] == ' ' || line.c_str()[i] == 0)
+			const char *line_str = line.c_str();
+			if(line_str[i] == ' ' || line_str[i] == 0)
 			{
 				if(state == 0)
-					edk_info.BaseName.SetString(line + token_start, i - token_start);
+					edk_info.BaseName.SetString(line_str + token_start, i - token_start);
 				else if(state == 0)
-					edk_info.GUID.SetString(line + token_start, i - token_start);
+					edk_info.GUID.SetString(line_str + token_start, i - token_start);
 				else if(state == 0)
-					edk_info.EntryPoint.SetString(line + token_start, i - token_start);
+					edk_info.EntryPoint.SetString(line_str + token_start, i - token_start);
 				else if(state == 0)
-					edk_info.Path.SetString(line + token_start, i - token_start);
+					edk_info.Path.SetString(line_str + token_start, i - token_start);
 			}
 			token_start = i + 1;
 		}
@@ -911,11 +913,11 @@ int main(int argc, char * argv[]) {
 		return -1;
 	}
 
-	if(argc != 2)
+	/*if(argc != 2)
 	{
 		printf("need one argument\n");
 		return 1;
-	}
+	}*/
 
 	/*vector<EfiFile> file_list;
 	ProcessArgument(file_list, argv[1]);
@@ -943,7 +945,7 @@ int main(int argc, char * argv[]) {
 			map_flag = false;
 		else
 		{
-			input_file_name[j].SetString(token);
+			input_file_name[j].SetString(argv[i]);
 			j++;
 		}
 	}
@@ -980,15 +982,16 @@ int main(int argc, char * argv[]) {
 	disasm_engine1.ParseProgram(&prog1);
 	disasm_engine2.ParseProgram(&prog2);
 
+	printf("0x%X\n",prog2.GetSymbolAddr("InitializeUpdateDriver"));
 	//prog1.PrintFunctions();
 
-	BlockMapper block_mapper(prog1, prog2);
+	/*BlockMapper block_mapper(prog1, prog2);
 	block_mapper.MapStart(map_flag);
 	if(map_flag)
 		block_mapper.DumpMapped();
 	else
 		block_mapper.DumpUnmapped();
-	block_mapper.PrintMappedFunc();
+	block_mapper.PrintMappedFunc();*/
 	/*for(int i = 0; i < block_mapper.MappedAddrList.size(); i++)
 		printf("mapped addr : %llx %llx\n", block_mapper.MappedAddrList[i].addr1, block_mapper.MappedAddrList[i].addr2);*/
 
