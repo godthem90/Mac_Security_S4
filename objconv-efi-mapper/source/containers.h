@@ -407,7 +407,7 @@ class String
 		void Append( const char *str, int len );
 
 		void Erase( int idx );
-		void Find(const char *sub_str);
+		bool Find(const char *sub_str);
 		void Tokenize(vector<String> &tokens, char delim);
 		char *GetString();
 		void Free();

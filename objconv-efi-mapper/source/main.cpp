@@ -1,4 +1,9 @@
 #include <stdio.h>
+#include <iostream>
+#include <memory>
+#include <stdexcept>
+#include <sstream>
+
 #include "lib.h"
 #include "containers.h"
 #include "disasm.h"
@@ -787,7 +792,73 @@ void BlockMapper::PrintMappedFunc()
 	}
 }
 
+typedef struct EfiFile
+{
+	String GUID;
+	String Path;
+} EfiFile;
+
 bool map_flag = true;
+
+void ProcessArgument(vector<EfiFile> &file_list, const char *dir_path)
+{
+	string input_dir;
+	input_dir.assign(dir_path);
+	if(input_dir[input_dir.size()-1] == '/')
+		input_dir.pop_back();
+
+	char buffer[128];
+	string cmd;
+	cmd += "find ";
+	cmd += input_dir;
+	cmd += " -name \"*PE32 image section*\"";
+	string result = "";
+	shared_ptr<FILE> pipe(popen(cmd.c_str(), "r"), pclose);
+	if (!pipe)
+	{
+		fprintf(stderr, "[error] popen() failed!\n");
+		exit(1);
+	}
+	while (!feof(pipe.get())) {
+		if (fgets(buffer, 128, pipe.get()) != NULL)
+			result += buffer;
+	}
+
+	vector<String> internal;
+	stringstream ss(result);
+	string tok;
+
+	while(getline(ss, tok, '\n')) {
+		String token;
+		token.SetString(tok.c_str());
+		internal.push_back(token);
+	}
+
+	uint32_t file_num = internal.size();
+	for(int i = 0; i < file_num; i++)
+	{
+		EfiFile efi_file;
+		efi_file.Path = internal[i];
+		vector<String> tokens;
+		internal[i].Tokenize(tokens, '/');
+
+		uint32_t guid_idx = 0;
+		uint32_t token_num = tokens.size();
+		for(int j = token_num - 1; j >= 0; j--)
+		{
+			if(tokens[j].Find("Compressed section"))
+			{
+				guid_idx = j - 1;
+				break;
+			}
+		}
+
+		vector<String> guid_tokens;
+		tokens[guid_idx].Tokenize(guid_tokens, ' ');
+		efi_file.GUID.SetString(guid_tokens.back().GetString());
+		file_list.push_back(efi_file);
+	}
+}
 
 int main(int argc, char * argv[]) {
 	if(!CorrectIntegerTypes())
@@ -801,6 +872,19 @@ int main(int argc, char * argv[]) {
 		return -1;
 	}
 
+	if(argc != 2)
+	{
+		printf("need one argument\n");
+		return 1;
+	}
+
+	vector<EfiFile> file_list;
+	ProcessArgument(file_list, argv[1]);
+
+	for(int i = 0; i < file_list.size(); i++)
+		printf("GUID : %s\nPath : %s\n\n", file_list[i].GUID.GetString(), file_list[i].Path.GetString());
+	// get guid name
+
 	/*if(argc != 5)
 	{
 		fprintf(stderr, "[error] Wrong Usage\n");
@@ -808,7 +892,7 @@ int main(int argc, char * argv[]) {
 		return -1;
 	}*/
 
-	int j = 0;
+	/*int j = 0;
 	String input_file_name[2];
 	String entry_point[2];
 	for(int i = 1; i < argc; i++)
@@ -847,13 +931,13 @@ int main(int argc, char * argv[]) {
 		printf("parse failed with %s\n", input_file_name[0].GetString());
 		printf("parse failed with %s\n", input_file_name[1].GetString());
 		return 1;
-	}
+	}*/
 
-	CTextFileBuffer assembly1, assembly2;
+	/*CTextFileBuffer assembly1, assembly2;
 	disasm_engine1.OutFile >> assembly1;
 	disasm_engine2.OutFile >> assembly2;
-	/*fwrite(assembly1.Buf(), 1, assembly1.GetBufSize(), stdout);
-	fwrite(assembly2.Buf(), 1, assembly2.GetBufSize(), stdout);*/
+	fwrite(assembly1.Buf(), 1, assembly1.GetBufSize(), stdout);
+	fwrite(assembly2.Buf(), 1, assembly2.GetBufSize(), stdout);
 	
 	Program prog1, prog2;
 	prog1.SetFileName(input_file_name[0].GetString());
@@ -870,20 +954,20 @@ int main(int argc, char * argv[]) {
 
 	BlockMapper block_mapper(prog1, prog2);
 	block_mapper.MapStart(map_flag);
-	/*if(map_flag)
+	if(map_flag)
 		block_mapper.DumpMapped();
 	else
-		block_mapper.DumpUnmapped();*/
+		block_mapper.DumpUnmapped();
 	block_mapper.PrintMappedFunc();
-	/*for(int i = 0; i < block_mapper.MappedAddrList.size(); i++)
+	for(int i = 0; i < block_mapper.MappedAddrList.size(); i++)
 		printf("mapped addr : %llx %llx\n", block_mapper.MappedAddrList[i].addr1, block_mapper.MappedAddrList[i].addr2);*/
 
-	input_file_name[0].Free();
+	/*input_file_name[0].Free();
 	input_file_name[1].Free();
 	entry_point[0].Free();
 	entry_point[1].Free();
 	parser1.Free();
-	parser2.Free();
+	parser2.Free();*/
 
 	return 0;
 }

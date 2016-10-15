@@ -524,10 +524,10 @@ void String::Erase( int idx )
 	str = temp;
 }
 
-void String::Find(const char *sub_str)
+bool String::Find(const char *sub_str)
 {
 	if(!sub_str)
-		return;
+		return false;
 
 	int sub_str_len = strlen(sub_str);
 	for(int i = 0; i < size - sub_str_len; i++)
@@ -538,8 +538,11 @@ void String::Find(const char *sub_str)
 			if(str[i + j] != sub_str[j])
 				break;
 		}
-		//if()
+		if(j == sub_str_len)
+			return true;
 	}
+
+	return false;
 }
 
 void String::Tokenize(vector<String> &tokens, char delim)
@@ -547,10 +550,10 @@ void String::Tokenize(vector<String> &tokens, char delim)
 	int token_start = 0;
 	for(int i = 0; i < size; i++)
 	{
-		if(str[i] == delim)
+		if(str[i] == delim || str[i] == 0)
 		{
 			String token;
-			token.SetString(str, i - token_start);
+			token.SetString(str + token_start, i - token_start);
 			if(token.GetString())
 				tokens.push_back(token);
 			token_start = i + 1;
