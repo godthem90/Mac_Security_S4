@@ -807,6 +807,7 @@ typedef struct EdkInfo
 } EdkInfo;
 
 bool map_flag = true;
+vector<EdkInfo> edk_info_list;
 
 void ProcessArgument(vector<EfiFile> &file_list, const char *dir_path)
 {
@@ -868,7 +869,7 @@ void ProcessArgument(vector<EfiFile> &file_list, const char *dir_path)
 	}
 }
 
-/*ProcessEdkInfo(vector<EdkInfo> &edk_info_list, const char *info_file_path)
+ProcessEdkInfo(vector<EdkInfo> &edk_info_list, const char *info_file_path)
 {
 	string line;
 	ifstream input(info_file_path);
@@ -876,28 +877,27 @@ void ProcessArgument(vector<EfiFile> &file_list, const char *dir_path)
 
 	while(getline(input, line))
 	{
+		int state = 0;
+		int token_start = 0;
+		EdkInfo edk_info;
 		for(int i = 0; i < line.size(); i++)
 		{
-			if(line.c_str()[i] == ' ')
-
-		if(i == 3)
-		{
-			printf("%s ", info[0].c_str());
-			printf("%s ", info[1].c_str());
-			printf("%s ", info[2].c_str());
-			string dll_path;
-			ExecFind(dll_path, input_dir.c_str(), info[0].c_str());
-			printf("%s\n",dll_path.c_str());
-			info.clear();
-			i = 0;
-			continue;
+			if(line.c_str()[i] == ' ' || line.c_str()[i] == 0)
+			{
+				if(state == 0)
+					edk_info.BaseName.SetString(line + token_start, i - token_start);
+				else if(state == 0)
+					edk_info.GUID.SetString(line + token_start, i - token_start);
+				else if(state == 0)
+					edk_info.EntryPoint.SetString(line + token_start, i - token_start);
+				else if(state == 0)
+					edk_info.Path.SetString(line + token_start, i - token_start);
+			}
+			token_start = i + 1;
 		}
-		string str;
-		str.assign(line.c_str());
-		info.push_back(str);
-		i++;
+		edk_info_list.push_back(edk_info);
 	}
-}*/
+}
 
 int main(int argc, char * argv[]) {
 	if(!CorrectIntegerTypes())
@@ -917,11 +917,11 @@ int main(int argc, char * argv[]) {
 		return 1;
 	}
 
-	vector<EfiFile> file_list;
+	/*vector<EfiFile> file_list;
 	ProcessArgument(file_list, argv[1]);
 
 	for(int i = 0; i < file_list.size(); i++)
-		printf("GUID : %s\nPath : %s\n\n", file_list[i].GUID.GetString(), file_list[i].Path.GetString());
+		printf("GUID : %s\nPath : %s\n\n", file_list[i].GUID.GetString(), file_list[i].Path.GetString());*/
 
 	/*if(argc != 5)
 	{
@@ -930,7 +930,9 @@ int main(int argc, char * argv[]) {
 		return -1;
 	}*/
 
-	/*int j = 0;
+	ProcessEdkInfo(edk_info_list, "edk_info_dll_path.txt");
+
+	int j = 0;
 	String input_file_name[2];
 	String entry_point[2];
 	for(int i = 1; i < argc; i++)
@@ -941,12 +943,7 @@ int main(int argc, char * argv[]) {
 			map_flag = false;
 		else
 		{
-			char *dup = strdup(argv[i]);
-			char *token = strtok(dup, ":");
 			input_file_name[j].SetString(token);
-			token = strtok(NULL, ":");
-			entry_point[j].SetString(token);
-			free(dup);
 			j++;
 		}
 	}
@@ -969,24 +966,19 @@ int main(int argc, char * argv[]) {
 		printf("parse failed with %s\n", input_file_name[0].GetString());
 		printf("parse failed with %s\n", input_file_name[1].GetString());
 		return 1;
-	}*/
+	}
 
-	/*CTextFileBuffer assembly1, assembly2;
+	CTextFileBuffer assembly1, assembly2;
 	disasm_engine1.OutFile >> assembly1;
 	disasm_engine2.OutFile >> assembly2;
-	fwrite(assembly1.Buf(), 1, assembly1.GetBufSize(), stdout);
-	fwrite(assembly2.Buf(), 1, assembly2.GetBufSize(), stdout);
+	/*fwrite(assembly1.Buf(), 1, assembly1.GetBufSize(), stdout);
+	fwrite(assembly2.Buf(), 1, assembly2.GetBufSize(), stdout);*/
 	
 	Program prog1, prog2;
 	prog1.SetFileName(input_file_name[0].GetString());
 	prog2.SetFileName(input_file_name[1].GetString());
 	disasm_engine1.ParseProgram(&prog1);
 	disasm_engine2.ParseProgram(&prog2);
-	// TODO input entry addr process
-	if(entry_point[0].GetString())
-		prog1.SetEntryAddr(htoi(entry_point[0].GetString()));
-	if(entry_point[1].GetString())
-		prog2.SetEntryAddr(htoi(entry_point[1].GetString()));
 
 	//prog1.PrintFunctions();
 
@@ -997,15 +989,15 @@ int main(int argc, char * argv[]) {
 	else
 		block_mapper.DumpUnmapped();
 	block_mapper.PrintMappedFunc();
-	for(int i = 0; i < block_mapper.MappedAddrList.size(); i++)
+	/*for(int i = 0; i < block_mapper.MappedAddrList.size(); i++)
 		printf("mapped addr : %llx %llx\n", block_mapper.MappedAddrList[i].addr1, block_mapper.MappedAddrList[i].addr2);*/
 
-	/*input_file_name[0].Free();
+	input_file_name[0].Free();
 	input_file_name[1].Free();
 	entry_point[0].Free();
 	entry_point[1].Free();
 	parser1.Free();
-	parser2.Free();*/
+	parser2.Free();
 
 	return 0;
 }

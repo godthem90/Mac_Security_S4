@@ -325,6 +325,18 @@ const char * Program::GetSymbolName(uint64_t addr)
 	return NULL;
 }
 
+uint64_t Program::GetSymbolAddr(const char *symbol_name)
+{
+	uint32_t table_size = SymbolTable.size();
+	for(int i = 0; i < table_size; i++)
+	{
+		if(!strcmp(SymbolTable[i].name.GetString() + 1, symbol_name))
+			return SymbolTable[i].addr;
+	}
+
+	return 0;
+}
+
 void Program::PrintFunctions()
 {
 	for(int i = 0; i < Functions.size(); i++)

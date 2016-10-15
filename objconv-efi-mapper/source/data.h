@@ -112,6 +112,7 @@ class Program
 		uint32_t GetFuncNum();
 		const char *GetFileName();
 		const char *GetSymbolName(uint64_t addr);
+		uint64_t GetSymbolAddr(const char *symbol_name);
 
 		void PrintFunctions();
 
