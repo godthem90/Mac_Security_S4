@@ -52,6 +52,11 @@ void Instruction::Print()
 	printf("\n");
 }
 
+void Instruction::Free()
+{
+	mnemonic.Free(); operand1.Free(); operand2.Free(); binary.clear(); memset(this, 0, sizeof(*this)); 
+}
+
 char & Instruction::operator[](uint32_t i) 
 {
 	if(i >= binary.size())
@@ -163,8 +168,10 @@ void BlockNode::PrintBlockAssembly()
 
 void BlockNode::Free()
 {
-	NextBlockAddress.clear();
+	for( int i = 0; i < BlockAssembly.size(); i++ )
+		BlockAssembly[i].Free();
 	BlockAssembly.clear();
+	NextBlockAddress.clear();
 
 	memset(this, 0, sizeof(*this));
 }
@@ -254,6 +261,7 @@ void FunctionNode::Free()
 		Blocks[i].Free();
 	Blocks.clear();
 	Path.clear();
+	memset( this, 0, sizeof(*this) );
 }
 
 BlockNode & FunctionNode::operator [](uint32_t i)
@@ -269,6 +277,11 @@ Program::Program()
 	EntryAddr = 0;
 }
 
+Program::~Program()
+{
+	Free();
+}
+
 void Program::SetFileName(const char *file_name)
 {
 	FileName.SetString(file_name);
@@ -277,6 +290,11 @@ void Program::SetFileName(const char *file_name)
 void Program::SetEntryAddr(uint64_t addr)
 {
 	EntryAddr = addr;
+}
+
+void Program::SetEntryAddr(const char *symbol)
+{
+	EntryAddr = GetSymbolAddr(symbol);
 }
 
 void Program::Insert(FunctionNode func)
@@ -340,7 +358,7 @@ uint64_t Program::GetSymbolAddr(const char *symbol_name)
 void Program::PrintFunctions()
 {
 	for(int i = 0; i < Functions.size(); i++)
-		printf("%X - %X\n", Functions[i].StartAddress, Functions[i].EndAddress);
+		printf("%llX - %llX\n", Functions[i].StartAddress, Functions[i].EndAddress);
 }
 
 FunctionNode & Program::operator [](uint32_t i)
@@ -349,5 +367,17 @@ FunctionNode & Program::operator [](uint32_t i)
 		i = 0;
 
 	return Functions[i];
+}
+
+void Program::Free()
+{
+	for( int i = 0; i < Functions.size(); i++ )
+		Functions[i].Free();
+	Functions.clear();
+	for(int i = 0; i < SymbolTable.size(); i++)
+		SymbolTable[i].name.Free();
+	SymbolTable.clear();
+	FileName.Free();
+	memset( this, 0, sizeof(*this) );
 }
 

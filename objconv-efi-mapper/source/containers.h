@@ -397,19 +397,25 @@ class String
 	public :
 		String();
 		String( const String& another );
-		void operator = ( const String& another );
+		String(const char *s);
+		void operator = (const char *s);
+		void operator = (const String &another);
 		~String();
 
 		void SetString( const char *str );
 		void SetString( const char *str, int len );
+		void SetString(const String &another);
 		void Append( char ch );
 		void Append( const char *str );
 		void Append( const char *str, int len );
+		void operator += (const char *append);
+		void operator += (const String &another);
 
 		void Erase( int idx );
 		bool Find(const char *sub_str);
 		void Tokenize(vector<String> &tokens, char delim);
 		char *GetString();
+		uint32_t Length();
 		void Free();
 
 	private :

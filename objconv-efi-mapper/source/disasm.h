@@ -712,6 +712,7 @@ protected:
    SOpcodeProp s;                                // Properties of current opcode
    SATracer t;                                   // Trace of register contents
    uint32_t  Pass;                                 // 1 = pass 1, 2-3 = pass 1 repeated, 0x10 = pass 2, 0x100 = repetition requested
+   bool      IsFirmware;
    vector<bool> InvalidFunction;
    uint32_t  BlockDescriptor;
    uint32_t  FunctionDescriptor;
@@ -726,6 +727,7 @@ protected:
    uint32_t  ReturnCheck;
    uint32_t  NopCheck;
    uint32_t  FunctionStart;
+   uint32_t  JmpFuncEndCheck;
    uint32_t  SectionEnd;                           // End of current section
    uint32_t  WordSize;                             // Segment word size: 16, 32, 64
    uint32_t  Section;                              // Current section/segment
@@ -784,6 +786,7 @@ protected:
    void    FindFunctionEnd();
    void    FindReturn();
    void    FindNop();
+   void    FindJmp();
    void    UpdateFunction();
    void    FindInstructionSet();                 // Update instruction set
    void    CheckForNops();                       // Check if warnings are caused by multi-byte NOP
@@ -798,6 +801,7 @@ protected:
    void    CheckForBlockBegin();
    void    CheckForBlockEnd();
    void    SplitBlockBySymbol();
+   void    SplitFunctionBySymbol();
    void    CheckForFunctionBegin();              // Check if function begins at current position
    void    CheckForFunctionEnd( CTextFileBuffer *out_file );                // Check if function ends at current position
    void    CheckLabel( CTextFileBuffer *out_file );                         // Check if a label is needed before instruction

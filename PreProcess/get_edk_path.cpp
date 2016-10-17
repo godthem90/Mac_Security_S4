@@ -40,7 +40,14 @@ void ExecFind(string &result2, const char *input_dir, const char *base_name)
 	}
 
 	if(internal.size() > 0)
+	{
+		int build_dir_len = strlen(input_dir) + 1;
+		for(int i = 0; i < build_dir_len; i++)
+			internal[0].erase(internal[0].begin());
 		result2 = internal[0];
+	}
+	if(internal.size() > 1)
+		fprintf(stderr, "there is more than one dlls of %s\n",base_name);
 }
 
 int main(int argc, char *argv[])
@@ -52,7 +59,7 @@ int main(int argc, char *argv[])
 		input_dir.pop_back();
 
 	string line;
-	ifstream input("edk_info.txt");
+	ifstream input("edk_inf_extract.txt");
 	vector<string> info;
 
 	int i = 0;
@@ -60,9 +67,9 @@ int main(int argc, char *argv[])
 	{
 		if(i == 3)
 		{
-			printf("%s ", info[0].c_str());
-			printf("%s ", info[1].c_str());
-			printf("%s ", info[2].c_str());
+			printf("%s\n", info[0].c_str());
+			printf("%s\n", info[1].c_str());
+			printf("%s\n", info[2].c_str());
 			string dll_path;
 			ExecFind(dll_path, input_dir.c_str(), info[0].c_str());
 			printf("%s\n",dll_path.c_str());
