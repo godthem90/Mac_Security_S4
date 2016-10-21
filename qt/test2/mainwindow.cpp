@@ -616,6 +616,8 @@ void MainWindow::on_tableView_2_pressed(const QModelIndex &index)
     map12.clear();
     map2.clear();
     map21.clear();
+    functionmapped.clear();
+    functionmapped2.clear();
     ui->textEdit->clear();
     ui->textEdit_2->clear();
     model->clear();
@@ -693,9 +695,11 @@ void MainWindow::on_tableView_2_pressed(const QModelIndex &index)
         }
     }
 
+
     for(int i = 0; i < assem1_list.size(); i++){
         QString temp;
         bool check = false;
+
         for(int j = 0; j<block_mapper.MappedAddrList.size(); j++){
             temp.sprintf("%08llx", block_mapper.MappedAddrList[j].addr1);
             if(assem1_list[i].contains(temp, Qt::CaseInsensitive)){
@@ -735,9 +739,19 @@ void MainWindow::on_tableView_2_pressed(const QModelIndex &index)
         if(!check) ui->textEdit->append(assem1_list[i]);
     }
 
+    for(int k = 0; k < mapped_func_num; k++){
+        QString temp;
+        ui->textEdit->moveCursor(QTextCursor::Start);
+        MappedFunction mapped_func = block_mapper.MappedFunctionList[k];
+        temp.sprintf("%08llx", block_mapper.prog1[mapped_func.idx1].StartAddress);
+        if(ui->textEdit->find(temp)){
+            functionmapped.push_back(ui->textEdit->textCursor().position());
+        }
+    }
     for(int i = 0; i < assem2_list.size(); i++){
         QString temp;
         bool check = false;
+
         for(int j = 0; j<block_mapper.MappedAddrList.size(); j++){
             temp.sprintf("%08llx", block_mapper.MappedAddrList[j].addr2);
             if(assem2_list[i].contains(temp, Qt::CaseInsensitive)){
@@ -776,6 +790,15 @@ void MainWindow::on_tableView_2_pressed(const QModelIndex &index)
         }
         if(!check) ui->textEdit_2->append(assem2_list[i]);
     }
+    for(int k = 0; k < mapped_func_num; k++){
+        QString temp;
+        ui->textEdit_2->moveCursor(QTextCursor::Start);
+        MappedFunction mapped_func = block_mapper.MappedFunctionList[k];
+        temp.sprintf("%08llx", block_mapper.prog2[mapped_func.idx2].StartAddress);
+        if(ui->textEdit_2->find(temp, QTextDocument::FindWholeWords)){
+            functionmapped2.push_back(ui->textEdit_2->textCursor().position());
+        }
+    }
     QTextCursor cursor = ui->textEdit->textCursor();
     QTextCursor cursor2 = ui->textEdit_2->textCursor();
     cursor.movePosition(QTextCursor::Start);
@@ -784,4 +807,26 @@ void MainWindow::on_tableView_2_pressed(const QModelIndex &index)
     ui->textEdit_2->setTextCursor(cursor2);
     parser1.Free();
     parser2.Free();
+    for(auto it = functionmapped.begin(); it != functionmapped.end(); it++){
+        qDebug() << *it;
+    }
+
+    for(auto it = functionmapped2.begin(); it != functionmapped2.end(); it++){
+        qDebug() << *it;
+    }
+}
+
+void MainWindow::on_tableView_pressed(const QModelIndex &index)
+{
+    QTextCursor cursor = ui->textEdit->textCursor();
+    QTextCursor cursor2 = ui->textEdit_2->textCursor();
+    cursor.movePosition(QTextCursor::End);
+    cursor2.movePosition(QTextCursor::End);
+    ui->textEdit->setTextCursor(cursor);
+    ui->textEdit_2->setTextCursor(cursor2);
+    cursor.setPosition(functionmapped[index.row()]);
+    cursor2.setPosition(functionmapped2[index.row()]);
+    ui->textEdit->setTextCursor(cursor);
+    ui->textEdit_2->setTextCursor(cursor2);
+
 }

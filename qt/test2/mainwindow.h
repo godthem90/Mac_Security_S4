@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QVector>
 #include <QFileDialog>
 #include <QTextBlock>
 #include <QTextCursor>
@@ -30,6 +31,8 @@ private slots:
 
     void on_tableView_2_pressed(const QModelIndex &index);
 
+    void on_tableView_pressed(const QModelIndex &index);
+
 private:
     Ui::MainWindow *ui;
     QString filename1;
@@ -40,6 +43,9 @@ private:
     QMap<QString, QString> map12;
     QMap<QString, QPair<int, int> > map2;
     QMap<QString, QString> map21;
+    QVector<int> functionmapped;
+    QVector<int> functionmapped2;
+
     QStandardItemModel *model;
     QStandardItemModel *model2;
     QColor tc;
