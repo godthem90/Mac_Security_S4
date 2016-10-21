@@ -29,6 +29,8 @@ class Instruction
 
 		void Print();
 
+		void Free();
+
 		char & operator [](uint32_t i);
 
 	private :
@@ -102,8 +104,10 @@ class Program
 		uint64_t EntryAddr;
 
 		Program();
+		~Program();
 		void SetFileName(const char *file_name);
 		void SetEntryAddr(uint64_t addr);
+		void SetEntryAddr(const char *symbol);
 		void Insert(FunctionNode func);
 		void AddSymbol(uint64_t addr, const char *name);
 
@@ -112,8 +116,11 @@ class Program
 		uint32_t GetFuncNum();
 		const char *GetFileName();
 		const char *GetSymbolName(uint64_t addr);
+		uint64_t GetSymbolAddr(const char *symbol_name);
 
 		void PrintFunctions();
+
+		void Free();
 
 		FunctionNode & operator [](uint32_t i);
 

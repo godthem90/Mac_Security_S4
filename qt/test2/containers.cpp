@@ -403,31 +403,22 @@ String::String()
 
 String::String( const String& another )
 {
-	memset( this, 0, sizeof(*this) );
-	size = another.size;
-	if( size )
-	{
-		str = new char[size];
-		strncpy( str, another.str, size );
-	}
-	else
-		str = NULL;
+	SetString(another);
+}
+
+String::String(const char *s)
+{
+	SetString(s);
 }
 
 void String::operator = ( const String& another )
 {
-	memset( this, 0, sizeof(*this) );
-	size = another.size;
-	if( size )
-	{
-		char* temp = new char[size];
-		strncpy( temp, another.str, size );
-		if( str )
-			delete[] str;
-		str = temp;
-	}
-	else
-		str = NULL;
+	SetString(another);
+}
+
+void String::operator = (const char *s)
+{
+	SetString(s);
 }
 
 String::~String()
@@ -435,29 +426,68 @@ String::~String()
 	Free();
 }
 
-void String::SetString( const char *new_str )
+void String::SetString(const char *new_str)
 {
+	memset( this, 0, sizeof(*this) );
 	if(!new_str)
 		return;
 
 	size = strlen(new_str) + 1;
-	if( str )
-		delete[] str;
-	str = new char[size];
-	strncpy( str, new_str, size );
+	if(size > 1)
+	{
+		if( str )
+			delete[] str;
+		str = new char[size];
+		strncpy( str, new_str, size );
+	}
+	else
+	{
+		str = 0;
+		size = 0;
+	}
 }
 
-void String::SetString( const char *new_str, int len )
+void String::SetString(const String &another)
 {
+	memset( this, 0, sizeof(*this) );
+	if(!another.str)
+		return;
+
+	size = another.size;
+	if(size > 1)
+	{
+		if( str )
+			delete[] str;
+		str = new char[size];
+		strncpy( str, another.str, size );
+	}
+	else
+	{
+		str = 0;
+		size = 0;
+	}
+}
+
+void String::SetString(const char *new_str, int len)
+{
+	memset( this, 0, sizeof(*this) );
 	if(!new_str)
 		return;
 
 	size = len + 1;
-	if( str )
-		delete[] str;
-	str = new char[size];
-	strncpy( str, new_str, len );
-	str[size - 1] = 0;
+	if(size > 1)
+	{
+		if( str )
+			delete[] str;
+		str = new char[size];
+		strncpy( str, new_str, len );
+		str[size - 1] = 0;
+	}
+	else
+	{
+		str = 0;
+		size = 0;
+	}
 }
 
 void String::Append( char append )
@@ -471,10 +501,8 @@ void String::Append( char append )
 void String::Append( const char *append )
 {
 	if(!append)
-	{
-		fprintf(stderr, "[error] null pointer passed in String\n");
 		return;
-	}
+
 	if( str )
 	{
 		size += strlen(append);
@@ -492,10 +520,8 @@ void String::Append( const char *append )
 void String::Append( const char *append, int len )
 {
 	if(!append)
-	{
-		fprintf(stderr, "[error] null pointer passed in String\n");
 		return;
-	}
+
 	if( str )
 	{
 		size += len;
@@ -511,6 +537,22 @@ void String::Append( const char *append, int len )
 		SetString( append, len );
 }
 
+void String::operator += (const char *append)
+{
+	if(!append)
+		return;
+
+	Append(append);
+}
+
+void String::operator += (const String &append)
+{
+	if(!append.str)
+		return;
+
+	Append(append.str);
+}
+
 void String::Erase( int idx )
 {
 	if(idx >= size - 1)
@@ -524,10 +566,10 @@ void String::Erase( int idx )
 	str = temp;
 }
 
-void String::Find(const char *sub_str)
+bool String::Find(const char *sub_str)
 {
 	if(!sub_str)
-		return;
+		return false;
 
 	int sub_str_len = strlen(sub_str);
 	for(int i = 0; i < size - sub_str_len; i++)
@@ -538,8 +580,11 @@ void String::Find(const char *sub_str)
 			if(str[i + j] != sub_str[j])
 				break;
 		}
-		//if()
+		if(j == sub_str_len)
+			return true;
 	}
+
+	return false;
 }
 
 void String::Tokenize(vector<String> &tokens, char delim)
@@ -547,10 +592,10 @@ void String::Tokenize(vector<String> &tokens, char delim)
 	int token_start = 0;
 	for(int i = 0; i < size; i++)
 	{
-		if(str[i] == delim)
+		if(str[i] == delim || str[i] == 0)
 		{
 			String token;
-			token.SetString(str, i - token_start);
+			token.SetString(str + token_start, i - token_start);
 			if(token.GetString())
 				tokens.push_back(token);
 			token_start = i + 1;
@@ -563,6 +608,14 @@ char *String::GetString()
 	return str;
 }
 
+uint32_t String::Length()
+{
+	if(str)
+		return strlen(str);
+	else
+		return 0;
+}
+
 void String::Free()
 {
 	size = 0;
@@ -570,5 +623,4 @@ void String::Free()
 		delete[] str;
 	str = NULL;
 }
-
 

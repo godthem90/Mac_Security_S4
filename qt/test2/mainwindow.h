@@ -28,6 +28,8 @@ private slots:
 
     void on_textEdit_cursorPositionChanged();
 
+    void on_tableView_2_pressed(const QModelIndex &index);
+
 private:
     Ui::MainWindow *ui;
     QString filename1;
@@ -39,6 +41,8 @@ private:
     QMap<QString, QPair<int, int> > map2;
     QMap<QString, QString> map21;
     QStandardItemModel *model;
+    QStandardItemModel *model2;
+    QColor tc;
 };
 
 #endif // MAINWINDOW_H

@@ -27,6 +27,7 @@ SOURCES += main.cpp\
     parser.cpp\
     virtual_machine.cpp\
     lib1.cpp\
+    efi_mapper.cpp\
 
 HEADERS  += mainwindow.h \
     opentwofiles.h\
@@ -39,7 +40,8 @@ HEADERS  += mainwindow.h \
     parser.h\
     stdafx.h\
     virtual_machine.h\
-    lib1.h
+    lib1.h\
+    efi_mapper.h\
 
 FORMS    += mainwindow.ui \
     opentwofiles.ui

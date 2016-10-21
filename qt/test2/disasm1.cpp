@@ -486,6 +486,7 @@ CDisassembler::CDisassembler() {
 	MaxJmpAddr = 0;
 	ReturnCheck = 0;
 	FunctionStart = 0;
+	JmpFuncEndCheck = 0;
 	EntryAddr = 0;
 }
 
@@ -690,6 +691,10 @@ uint32 ReferenceIndex) {                      // Symbol index of reference point
 
 void CDisassembler::Go() {
     // Do the disassembly
+	if(Symbols.GetNumEntries() == 1)
+		IsFirmware = true;
+	else
+		IsFirmware = false;
 
     // Check for illegal entries in relocations table
     InitialErrorCheck();
@@ -698,8 +703,21 @@ void CDisassembler::Go() {
     FixRelocationTargetAddresses();
 
     // Pass 1: Find symbols types and unnamed symbols
-    Pass = 1;
-    Pass1();
+	Pass = 1;
+	Pass1();
+	if(!IsFirmware)
+	{
+		Pass = 2;
+		Pass1();
+
+		if (Pass & 0x100) {
+			// Repetition of pass 1 requested
+			Pass = 3;
+			Pass1();
+			Pass = 4;
+			Pass1();
+		}
+	}
 
     Symbols.AssignNames();
 
@@ -1131,12 +1149,66 @@ void CDisassembler::SplitBlockBySymbol()
 	}
 }
 
+void CDisassembler::SplitFunctionBySymbol()
+{
+	uint32_t sym_num = Symbols.GetNumEntries();
+	for(int symi = 1; symi < sym_num; symi++)
+	{
+		if(Symbols[symi].Name)
+		{
+			int section = Symbols[symi].Section;
+			uint64_t section_addr = Sections[section].SectionAddress;
+			uint64_t sym_addr = section_addr + Symbols[symi].Offset;
+			const char *sym_name = Symbols.GetName(symi);
+			if(sym_name[0] != '?' && (Sections[section].Type & 0xFF) == 1)
+			{
+				int funci;
+				bool is_correct = false;
+				uint32_t func_num = FunctionList.GetNumEntries();
+				for(funci = 1; funci < func_num; funci++)
+				{
+					if(FunctionList[funci].Start == sym_addr)
+					{
+						is_correct = true;
+						break;
+					}
+					if( FunctionList[funci].Start < sym_addr && sym_addr < FunctionList[funci].End )
+					{
+						uint32_t current_func_end = FunctionList[funci].End;
+						FunctionList[funci].End = sym_addr;
+
+						SFunctionRecord func;
+						func.Section = section;
+						func.Start = sym_addr;
+						func.End = current_func_end;
+						func.Scope = FunctionList[funci].Scope;
+						FunctionList.PushUnique(func);
+						break;
+					}
+				}
+
+				if(!is_correct)
+				{
+					SFunctionRecord func;
+					func.Section = section;
+					func.Start = sym_addr;
+					func.End = sym_addr;
+					func.Scope = Symbols[symi].Scope;
+					int idx = FunctionList.PushUnique(func);
+					if(1 < idx && idx < FunctionList.GetNumEntries() - 1)
+						FunctionList[idx].End = FunctionList[idx + 1].Start;
+				}
+			}
+		}
+	}
+}
+
 void CDisassembler::CheckForBlockBegin() {
     // Check if function begins at current position
     CodeBlock block;                          // New function record
     IBegin = IEnd;
 
-	if(FunctionStart && IBlock)
+	if((FunctionStart == 1) && IBlock)
 	{
 		BlockList[IBlock].Start = IBegin;
 		BlockList[IBlock].End = IBegin;
@@ -1232,7 +1304,7 @@ void CDisassembler::CheckForFunctionBegin() {
 		LabelEnd = 0;
     }
 	else
-		FunctionStart = 0;
+		FunctionStart++;
 }
 
 void CDisassembler::CheckForFunctionEnd( CTextFileBuffer *out_file ) {
@@ -1259,12 +1331,37 @@ void CDisassembler::CheckForFunctionEnd( CTextFileBuffer *out_file ) {
 		return;
     }
 
-    // Function ends after ret or unconditional jump and preceding code had no 
-    // jumps beyond this position:
-    if (s.OpcodeDef && s.OpcodeDef->Options & 0x10 && !SwitchtableCheck) {
-		if(MaxJmpAddr <= SectionAddress + IBegin)
-		{
-			MaxJmpAddr = 0;
+	if(IsFirmware)
+	{
+		// Function ends after ret or unconditional jump and preceding code had no 
+		// jumps beyond this position:
+		if (s.OpcodeDef && s.OpcodeDef->Options & 0x10 && !SwitchtableCheck) {
+			if((MaxJmpAddr <= SectionAddress + IBegin) || JmpFuncEndCheck)
+			{
+				MaxJmpAddr = 0;
+				// A return or unconditional jump instruction was found.
+				FlagPrevious |= 2;
+
+				// Mark this position as inaccessible if there is no reference to this place
+				Symbols.NewSymbol(Section, IEnd, 0);
+				// Update labels
+				LabelBegin = LabelEnd = CountErrors = 0;
+				FindLabels();
+
+				if (IEnd >= FunctionList[IFunction].End) {
+					// Indicate current function ends here
+					FunctionList[IFunction].End = IEnd;
+					FunctionList[IFunction].Scope &= ~0x10000;
+					IFunction = 0;
+					ReturnCheck = 0;
+					return;
+				}
+			}
+		}
+	}
+	else
+	{
+		if (s.OpcodeDef && s.OpcodeDef->Options & 0x10) {
 			// A return or unconditional jump instruction was found.
 			FlagPrevious |= 2;
 
@@ -1283,7 +1380,7 @@ void CDisassembler::CheckForFunctionEnd( CTextFileBuffer *out_file ) {
 				return;
 			}
 		}
-    }
+	}
 
     // Function ends at next label if preceding label is inaccessible and later end not known
     if (IFunction && FunctionList[IFunction].Scope == 0 && IEnd >= FunctionList[IFunction].End) {
@@ -1295,7 +1392,7 @@ void CDisassembler::CheckForFunctionEnd( CTextFileBuffer *out_file ) {
         }
     }
 
-	if( SwitchtableCheck )
+	if( IsFirmware && SwitchtableCheck )
 	{
 		if( SwitchtableEnd <= IEnd )
 		{
@@ -1434,12 +1531,22 @@ void CDisassembler::CheckJumpTarget(uint32 symi) {
         }
 
 		// jjh-hack
-		if(!ReturnCheck && !FunctionStart)
+		if(IsFirmware)
 		{
-        	// Extend current function forward to include target offset
-        	FunctionList[IFunction].End = Symbols[symi].Offset;
-        	FunctionList[IFunction].Scope |= 0x10000;
+			if(!ReturnCheck && (FunctionStart != 1) && !JmpFuncEndCheck)
+			{
+				// Extend current function forward to include target offset
+				FunctionList[IFunction].End = Symbols[symi].Offset;
+				FunctionList[IFunction].Scope |= 0x10000;
+			}
 		}
+		else
+		{
+			// Extend current function forward to include target offset
+			FunctionList[IFunction].End = Symbols[symi].Offset;
+			FunctionList[IFunction].Scope |= 0x10000;
+		}
+
     }
     else if (Symbols[symi].Offset < FunctionList[IFunction].Start) {
         // Target is before tentative begin of current function but within section
@@ -2123,7 +2230,7 @@ void CDisassembler::FollowJumpTable(uint32 symi, uint32 RelType) {
     // Loop through table of jump/call addresses
     for (Pos = SourceOffset; Pos < NextLabel; Pos += SourceSize) {
 
-		if( SwitchCheck == 5 && !SwitchtableLength-- )
+		if( IsFirmware && SwitchCheck == 5 && !SwitchtableLength-- )
 		{
 			SwitchtableEnd = Pos;
 			SwitchtableCheck = 1;
@@ -2537,15 +2644,20 @@ void CDisassembler::ParseInstruction() {
         // Find instruction set
         FindInstructionSet();
 
-		FindReturn();
+		if(IsFirmware)
+		{
+			FindReturn();
 
-		FindSwitch();
+			FindSwitch();
 
-		FindFunctionEnd();
+			FindFunctionEnd();
 
-		FindNop();
+			FindNop();
 
-		UpdateFunction();
+			FindJmp();
+
+			UpdateFunction();
+		}
 
         // Update symbol types for operands of this instruction
         UpdateSymbols();
@@ -4540,7 +4652,7 @@ void CDisassembler::FindFunctionEnd()
 	{
 		if(!strcmp(opcode, JmpMnemonicTable[i]))
 		{
-			if(FunctionStart)
+			if(FunctionStart == 1)
 				return;
 			if(ReturnCheck && !strcmp(opcode, "jmp"))
 				return;
@@ -4562,7 +4674,7 @@ void CDisassembler::FindNop()
 	char opcode[10], op1[30], op2[30];
 	TokenizeInstruction( &temp_file, opcode, op1, op2 );
 
-	if(!strcmp(opcode, "nop") && (FunctionStart || NopCheck))
+	if(!strcmp(opcode, "nop") && (FunctionStart == 1 || NopCheck))
 	{
 		BlockList[IBlock].Start = IEnd;
 		BlockList[IBlock].End = IEnd;
@@ -4572,6 +4684,19 @@ void CDisassembler::FindNop()
 	}
 	else
 		NopCheck = 0;
+}
+
+void CDisassembler::FindJmp()
+{
+	CTextFileBuffer temp_file;
+	WriteInstruction( &temp_file, 0 );
+	char opcode[10], op1[30], op2[30];
+	TokenizeInstruction( &temp_file, opcode, op1, op2 );
+
+	if(!strcmp(opcode, "jmp") && (FunctionStart < 5))
+		JmpFuncEndCheck = 1;
+	else
+		JmpFuncEndCheck = 0;
 }
 
 void CDisassembler::UpdateFunction()

@@ -16,7 +16,7 @@ openTwoFiles::~openTwoFiles()
 void openTwoFiles::on_pushButton_2_clicked()
 {
     QFileDialog dialog(this);
-//    dialog.setFileMode(QFileDialog::DirectoryOnly);
+    dialog.setFileMode(QFileDialog::DirectoryOnly);
     if(dialog.exec()){
         filename2 = dialog.selectedFiles();
         this->ui->textBrowser_2->setText(filename2.at(0));
@@ -26,7 +26,7 @@ void openTwoFiles::on_pushButton_2_clicked()
 void openTwoFiles::on_pushButton_clicked()
 {
     QFileDialog dialog(this);
-//    dialog.setFileMode(QFileDialog::DirectoryOnly);
+    dialog.setFileMode(QFileDialog::DirectoryOnly);
     if(dialog.exec()){
         filename1 = dialog.selectedFiles();
         this->ui->textBrowser->setText(filename1.at(0));
