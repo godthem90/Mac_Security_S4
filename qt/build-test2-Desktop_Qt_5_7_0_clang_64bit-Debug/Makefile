@@ -659,6 +659,8 @@ compiler_moc_header_clean:
 	-$(DEL_FILE) moc_mainwindow.cpp moc_opentwofiles.cpp
 moc_mainwindow.cpp: ../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QVector \
+		../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qvector.h \
 		../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/QFileDialog \
 		../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/qfiledialog.h \
 		../../Qt/5.7/clang_64/lib/QtGui.framework/Headers/QTextBlock \
@@ -717,6 +719,8 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 main.o: ../test2/main.cpp ../test2/mainwindow.h \
 		../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QVector \
+		../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qvector.h \
 		../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/QFileDialog \
 		../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/qfiledialog.h \
 		../../Qt/5.7/clang_64/lib/QtGui.framework/Headers/QTextBlock \
@@ -752,6 +756,8 @@ mainwindow.o: ../test2/mainwindow.cpp ../test2/lib1.h \
 		../test2/mainwindow.h \
 		../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QVector \
+		../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qvector.h \
 		../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/QFileDialog \
 		../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/qfiledialog.h \
 		../../Qt/5.7/clang_64/lib/QtGui.framework/Headers/QTextBlock \

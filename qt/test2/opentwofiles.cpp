@@ -38,12 +38,6 @@ QString openTwoFiles::getFilename1(){
 QString openTwoFiles::getFilename2(){
     return filename2.at(0);
 }
-QString openTwoFiles::getEntryaddr1(){
-    return entry_addr1;
-}
-QString openTwoFiles::getEntryaddr2(){
-    return entry_addr2;
-}
 
 void openTwoFiles::on_pushButton_3_clicked()
 {
@@ -53,14 +47,4 @@ void openTwoFiles::on_pushButton_3_clicked()
 void openTwoFiles::on_pushButton_4_clicked()
 {
     openTwoFiles::reject();
-}
-
-void openTwoFiles::on_plainTextEdit_2_textChanged()
-{
-    entry_addr2 = ui->plainTextEdit_2->toPlainText();
-}
-
-void openTwoFiles::on_plainTextEdit_textChanged()
-{
-    entry_addr1 = ui->plainTextEdit->toPlainText();
 }

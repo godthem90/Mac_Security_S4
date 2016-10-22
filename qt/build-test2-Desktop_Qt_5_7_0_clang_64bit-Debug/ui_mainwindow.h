@@ -29,6 +29,7 @@ class Ui_MainWindow
 {
 public:
     QAction *actionOpen;
+    QAction *actionOpen_Firmware_Firmware;
     QWidget *centralWidget;
     QGridLayout *gridLayout_3;
     QGridLayout *gridLayout;
@@ -38,10 +39,9 @@ public:
     QTextEdit *textEdit_2;
     QGridLayout *gridLayout_2;
     QTableView *tableView;
+    QToolBar *mainToolBar;
     QMenuBar *menuBar;
     QMenu *menuFile;
-    QMenu *menuFont;
-    QToolBar *mainToolBar;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -50,6 +50,8 @@ public:
         MainWindow->resize(850, 548);
         actionOpen = new QAction(MainWindow);
         actionOpen->setObjectName(QStringLiteral("actionOpen"));
+        actionOpen_Firmware_Firmware = new QAction(MainWindow);
+        actionOpen_Firmware_Firmware->setObjectName(QStringLiteral("actionOpen_Firmware_Firmware"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         centralWidget->setMinimumSize(QSize(0, 0));
@@ -104,21 +106,19 @@ public:
         gridLayout_3->addLayout(gridLayout_2, 0, 3, 1, 1);
 
         MainWindow->setCentralWidget(centralWidget);
+        mainToolBar = new QToolBar(MainWindow);
+        mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
+        MainWindow->addToolBar(Qt::TopToolBarArea, mainToolBar);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
         menuBar->setGeometry(QRect(0, 0, 850, 22));
         menuFile = new QMenu(menuBar);
         menuFile->setObjectName(QStringLiteral("menuFile"));
-        menuFont = new QMenu(menuBar);
-        menuFont->setObjectName(QStringLiteral("menuFont"));
         MainWindow->setMenuBar(menuBar);
-        mainToolBar = new QToolBar(MainWindow);
-        mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
-        MainWindow->addToolBar(Qt::TopToolBarArea, mainToolBar);
 
         menuBar->addAction(menuFile->menuAction());
-        menuBar->addAction(menuFont->menuAction());
         menuFile->addAction(actionOpen);
+        menuFile->addAction(actionOpen_Firmware_Firmware);
 
         retranslateUi(MainWindow);
 
@@ -128,9 +128,9 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
-        actionOpen->setText(QApplication::translate("MainWindow", "Open", 0));
+        actionOpen->setText(QApplication::translate("MainWindow", "Open(Firmware / ReferenceCode", 0));
+        actionOpen_Firmware_Firmware->setText(QApplication::translate("MainWindow", "Open(Firmware / Firmware)", 0));
         menuFile->setTitle(QApplication::translate("MainWindow", "File", 0));
-        menuFont->setTitle(QApplication::translate("MainWindow", "Font", 0));
     } // retranslateUi
 
 };

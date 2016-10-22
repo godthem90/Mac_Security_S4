@@ -33,6 +33,8 @@ private slots:
 
     void on_tableView_pressed(const QModelIndex &index);
 
+    void on_actionOpen_Firmware_Firmware_triggered();
+
 private:
     Ui::MainWindow *ui;
     QString filename1;

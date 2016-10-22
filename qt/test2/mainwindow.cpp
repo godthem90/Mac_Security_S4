@@ -361,12 +361,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->textEdit->setReadOnly(true);
     ui->textEdit_2->setReadOnly(true);
     model = new QStandardItemModel(0, 2, this);
-    model->setHorizontalHeaderItem(0, new QStandardItem(QString("MacFirmware")));
-    model->setHorizontalHeaderItem(1, new QStandardItem(QString("Reference Code")));
+    model->setHorizontalHeaderItem(0, new QStandardItem(QString("")));
+    model->setHorizontalHeaderItem(1, new QStandardItem(QString("")));
     ui->tableView->setModel(model);
     model2 = new QStandardItemModel(0, 2, this);
-    model2->setHorizontalHeaderItem(0, new QStandardItem(QString("MacFirmware")));
-    model2->setHorizontalHeaderItem(1, new QStandardItem(QString("Reference Code")));
+    model2->setHorizontalHeaderItem(0, new QStandardItem(QString("")));
+    model2->setHorizontalHeaderItem(1, new QStandardItem(QString("")));
     ui->tableView_2->setModel(model2);
 }
 
@@ -379,9 +379,21 @@ void MainWindow::on_actionOpen_triggered()
 {
     openTwoFiles dialog(this);
     int ret = dialog.exec();
-
+    delete model;
+    delete model2;
+    model = new QStandardItemModel(0, 2, this);
+    model->setHorizontalHeaderItem(0, new QStandardItem(QString("MacFirmware")));
+    model->setHorizontalHeaderItem(1, new QStandardItem(QString("Reference Code")));
+    ui->tableView->setModel(model);
+    model2 = new QStandardItemModel(0, 2, this);
+    model2->setHorizontalHeaderItem(0, new QStandardItem(QString("MacFirmware")));
+    model2->setHorizontalHeaderItem(1, new QStandardItem(QString("Reference Code")));
+    ui->tableView_2->setModel(model2);
     if(ret == openTwoFiles::Accepted){
+        ui->textEdit->clear();
+        ui->textEdit_2->clear();
         mac_ref_map = true;
+        mac_mac_map = false;
         filename1 = dialog.getFilename1();
         filename2 = dialog.getFilename2();
         qDebug() << filename1;
@@ -400,195 +412,6 @@ void MainWindow::on_actionOpen_triggered()
         }
         tc = ui->textEdit->textColor();
     }
-    /*
-    if(ret == openTwoFiles::Accepted){
-        filename1 = dialog.getFilename1();
-        filename2 = dialog.getFilename2();
-        QString temp1 = dialog.getEntryaddr1();
-        QString temp2 = dialog.getEntryaddr2();
-        QByteArray byteaddr1 = temp1.toLocal8Bit();
-        QByteArray byteaddr2 = temp2.toLocal8Bit();
-        entry_addr1 = htoi(byteaddr1.data());
-        entry_addr2 = htoi(byteaddr2.data());
-        qDebug() << entry_addr1 << entry_addr2;
-        QByteArray bytename1 = filename1.toLocal8Bit();
-        QByteArray bytename2 = filename2.toLocal8Bit();
-        qDebug() << bytename1.data() << bytename2.data();
-        CFileBuffer input_buffer1(bytename1.data());
-        input_buffer1.Read();
-        CFileBuffer input_buffer2(bytename2.data());
-        input_buffer2.Read();
-
-        Parser parser1, parser2;
-        CDisassembler disasm_engine1, disasm_engine2;
-        input_buffer1 >> parser1;
-        input_buffer2 >> parser2;
-        parser1.Parse(&disasm_engine1);
-        parser2.Parse(&disasm_engine2);
-
-        CTextFileBuffer assembly1, assembly2;
-        disasm_engine1.OutFile >> assembly1;
-        disasm_engine2.OutFile >> assembly2;
-        char *assem1 = assembly1.Buf();
-        char *assem2 = assembly2.Buf();
-        int assem1size = strlen(assem1);
-        int assem2size = strlen(assem2);
-        QString assem1Q(assem1);
-        QString assem2Q(assem2);
-        QStringList assem1_list = assem1Q.split("\n");
-        QStringList assem2_list = assem2Q.split("\n");
-
-        Program prog1, prog2;
-        disasm_engine1.ParseProgram(&prog1);
-        disasm_engine2.ParseProgram(&prog2);
-        prog1.SetFileName(filename1.toStdString().c_str());
-        prog2.SetFileName(filename2.toStdString().c_str());
-        prog1.SetEntryAddr(entry_addr1);
-        prog2.SetEntryAddr(entry_addr2);
-        prog1.PrintFunctions();
-        prog2.PrintFunctions();
-        printf("%s\n", prog1.GetSymbolName(entry_addr1));
-        printf("%s\n", prog2.GetSymbolName(entry_addr2));
-/*
-        BlockMapper block_mapper(prog1, prog2);
-        block_mapper.MapStart(true);
-//      for(int i = 0; i < block_mapper.MappedAddrList.size(); i++){
-//          printf("%llx %d %llx %d\n", block_mapper.MappedAddrList[i].addr1, block_mapper.MappedAddrList[i].num1 ,block_mapper.MappedAddrList[i].addr2, block_mapper.MappedAddrList[i].num2);
-//      }
-//      block_mapper.Dump();
-
-        uint32_t mapped_func_num = block_mapper.MappedFunctionList.size();
-        for(int i = 0; i < mapped_func_num; i++){
-            MappedFunction mapped_func = block_mapper.MappedFunctionList[i];
-            uint64_t func_addr1 = block_mapper.prog1[mapped_func.idx1].StartAddress;
-            uint64_t func_addr2 = block_mapper.prog2[mapped_func.idx2].StartAddress;
-
-            const char *sym_name1 = block_mapper.prog1.GetSymbolName(func_addr1);
-            const char *sym_name2 = block_mapper.prog2.GetSymbolName(func_addr2);
-            if(sym_name1){
-                QStandardItem *item = new QStandardItem(QString(sym_name1));
-                model->appendRow(item);
-            }
-            else{
-                QString temp;
-                temp.sprintf("%08llx", func_addr1);
-                QStandardItem *item = new QStandardItem(temp);
-                model->appendRow(item);
-            }
-            if(sym_name2){
-                QStandardItem *item = new QStandardItem(QString(sym_name2));
-                model->setItem(model->rowCount()-1, 1, item);
-            }
-            else{
-                QString temp;
-                temp.sprintf("%08llx", func_addr2);
-                QStandardItem *item = new QStandardItem(temp);
-                model->setItem(model->rowCount()-1, 1, item);
-            }
-        }
-
-        for(int i = 0; i < assem1_list.size(); i++){
-            QString temp;
-            bool check = false;
-            for(int j = 0; j<block_mapper.MappedAddrList.size(); j++){
-                temp.sprintf("%08llx", block_mapper.MappedAddrList[j].addr1);
-                if(assem1_list[i].contains(temp, Qt::CaseInsensitive)){
-                    check = true;
-                    QColor tc = ui->textEdit->textColor();
-                    uint32_t count = block_mapper.MappedAddrList[j].num1;
-                    ui->textEdit->setTextColor(QColor("green"));
-                    QString countMatch;
-                    QString temp2;
-                    temp2.sprintf("%08llx", block_mapper.MappedAddrList[j].addr2);
-                    map12[temp] = temp2;
-                    map1[temp].first = ui->textEdit->textCursor().position();
-                    countMatch.sprintf("%d", j+1);
-                    ui->textEdit->append("\n"+countMatch);
-                    while(count--){
-                        bool check1 = false;
-                        for(int k = 0; k < block_mapper.notMappedAddrList.size(); k++){
-                            QString addr;
-                            addr.sprintf("%08llx", block_mapper.notMappedAddrList[k].addr1);
-                            if(assem1_list[i].contains(addr, Qt::CaseInsensitive)){
-                                check1 = true;
-                                ui->textEdit->append(assem1_list[i++]);
-                                break;
-                            }
-                        }
-                        if(!check1){
-                            ui->textEdit->setTextColor(QColor("red"));
-                            ui->textEdit->append(assem1_list[i++]);
-                            ui->textEdit->setTextColor(QColor("green"));
-                        }
-                    }
-                    i-=1;
-                    ui->textEdit->setTextColor(tc);
-                    ui->textEdit->append("");
-                    map1[temp].second = ui->textEdit->textCursor().position();
-                }
-            }
-            if(!check) ui->textEdit->append(assem1_list[i]);
-        }
-
-        for(int i = 0; i < assem2_list.size(); i++){
-            QString temp;
-            bool check = false;
-            for(int j = 0; j<block_mapper.MappedAddrList.size(); j++){
-                temp.sprintf("%08llx", block_mapper.MappedAddrList[j].addr2);
-                if(assem2_list[i].contains(temp, Qt::CaseInsensitive)){
-                    check = true;
-                    QColor tc = ui->textEdit_2->textColor();
-                    uint32_t count = block_mapper.MappedAddrList[j].num2;
-                    ui->textEdit_2->setTextColor(QColor("green"));
-                    QString countMatch;
-                    QString temp2;
-                    temp2.sprintf("%08llx", block_mapper.MappedAddrList[j].addr1);
-                    map21[temp] = temp2;
-                    map2[temp].first = ui->textEdit_2->textCursor().position();
-                    countMatch.sprintf("%d", j+1);
-                    ui->textEdit_2->append("\n"+countMatch);
-                    while(count--){
-                        bool check1 = false;
-                        for(int k = 0; k < block_mapper.notMappedAddrList.size(); k++){
-                            QString addr;
-                            addr.sprintf("%08llx", block_mapper.notMappedAddrList[k].addr2);
-                            if(assem2_list[i].contains(addr, Qt::CaseInsensitive)){
-                                check1 = true;
-                                ui->textEdit_2->append(assem2_list[i++]);
-                                break;
-                            }
-                        }
-                        if(!check1){
-                            ui->textEdit_2->setTextColor(QColor("red"));
-                            ui->textEdit_2->append(assem2_list[i++]);
-                            ui->textEdit_2->setTextColor(QColor("green"));
-                        }
-                    }
-                    i-=1;
-                    ui->textEdit_2->setTextColor(tc);
-                    ui->textEdit_2->append("");
-                    map2[temp].second = ui->textEdit_2->textCursor().position();
-                }
-            }
-            if(!check) ui->textEdit_2->append(assem2_list[i]);
-        }
-        QTextCursor cursor = ui->textEdit->textCursor();
-        QTextCursor cursor2 = ui->textEdit_2->textCursor();
-        cursor.movePosition(QTextCursor::Start);
-        cursor2.movePosition(QTextCursor::Start);
-        ui->textEdit->setTextCursor(cursor);
-        ui->textEdit_2->setTextCursor(cursor2);
-        parser1.Free();
-        parser2.Free();
-    }
-    else{
-        filename1 = "";
-        filename2 = "";
-    }
-  //  qDebug() << filename1 << filename2;
-
-    }
-*/
 }
 
 void MainWindow::on_textEdit_cursorPositionChanged()
@@ -621,11 +444,17 @@ void MainWindow::on_tableView_2_pressed(const QModelIndex &index)
     ui->textEdit->clear();
     ui->textEdit_2->clear();
     model->clear();
-    String macfirmware = efi_file_list1[index_pair_list[index.row()].idx1].Path;
-    String referencecode = edk_info_list[index_pair_list[index.row()].idx2].Path;
-    printf("%s\n%s\n", macfirmware.GetString(), referencecode.GetString());
-    CFileBuffer input_buffer1(macfirmware.GetString());
-    CFileBuffer input_buffer2(referencecode.GetString());
+    String input_path1, input_path2;
+    if(mac_mac_map){
+        input_path1 = efi_file_list1[index_pair_list[index.row()].idx1].Path;
+        input_path2 = efi_file_list2[index_pair_list[index.row()].idx2].Path;
+    }
+    else{
+        input_path1 = efi_file_list1[index_pair_list[index.row()].idx1].Path;
+        input_path2 = edk_info_list[index_pair_list[index.row()].idx2].Path;
+    }
+    CFileBuffer input_buffer1(input_path1.GetString());
+    CFileBuffer input_buffer2(input_path2.GetString());
     Parser parser1, parser2;
     CDisassembler disasm_engine1, disasm_engine2;
     input_buffer1.Read();
@@ -634,16 +463,7 @@ void MainWindow::on_tableView_2_pressed(const QModelIndex &index)
     input_buffer2 >> parser2;
     parser1.Parse(&disasm_engine1);
     parser2.Parse(&disasm_engine2);
-    /*
-    if(!parser1.Parse(&disasm_engine1)){
-        printf("parse failed with %s\n", macfirmware.GetString());
-        return;
-    }
-    if(!parser2.Parse(&disasm_engine2)){
-        printf("parse failed with %s\n", referencecode.GetString());
-        return;
-    }
-    */
+
     CTextFileBuffer assembly1, assembly2;
     disasm_engine1.OutFile >> assembly1;
     disasm_engine2.OutFile >> assembly2;
@@ -656,11 +476,16 @@ void MainWindow::on_tableView_2_pressed(const QModelIndex &index)
     QStringList assem2_list = assem2Q.split("\n");
 
     Program prog1, prog2;
-    prog1.SetFileName(macfirmware.GetString());
-    prog2.SetFileName(referencecode.GetString());
+    prog1.SetFileName(input_path1.GetString());
+    prog2.SetFileName(input_path2.GetString());
+
     disasm_engine1.ParseProgram(&prog1);
     disasm_engine2.ParseProgram(&prog2);
-    prog2.SetEntryAddr(edk_info_list[index_pair_list[index.row()].idx2].EntryPoint.GetString());
+
+    if(mac_ref_map){
+        prog2.SetEntryAddr(edk_info_list[index_pair_list[index.row()].idx2].EntryPoint.GetString());
+    }
+
 
     BlockMapper block_mapper(prog1, prog2);
     block_mapper.MapStart(true);
@@ -694,7 +519,8 @@ void MainWindow::on_tableView_2_pressed(const QModelIndex &index)
             model->setItem(model->rowCount()-1, 1, item);
         }
     }
-
+    qDebug() << block_mapper.MappedAddrList.size();
+    qDebug() << block_mapper.notMappedAddrList.size();
 
     for(int i = 0; i < assem1_list.size(); i++){
         QString temp;
@@ -791,12 +617,23 @@ void MainWindow::on_tableView_2_pressed(const QModelIndex &index)
         if(!check) ui->textEdit_2->append(assem2_list[i]);
     }
     for(int k = 0; k < mapped_func_num; k++){
-        QString temp;
         ui->textEdit_2->moveCursor(QTextCursor::Start);
         MappedFunction mapped_func = block_mapper.MappedFunctionList[k];
-        temp.sprintf("%08llx", block_mapper.prog2[mapped_func.idx2].StartAddress);
-        if(ui->textEdit_2->find(temp, QTextDocument::FindWholeWords)){
-            functionmapped2.push_back(ui->textEdit_2->textCursor().position());
+        if(mac_ref_map){
+            const char *str = block_mapper.prog2.GetSymbolName(block_mapper.prog2[mapped_func.idx2].StartAddress);
+            QString temp = QString(str) + " PROC";
+            if(ui->textEdit_2->find(temp, QTextDocument::FindWholeWords)){
+                functionmapped2.push_back(ui->textEdit_2->textCursor().position());
+            }
+        }
+        else{
+            QString temp;
+            ui->textEdit->moveCursor(QTextCursor::Start);
+            MappedFunction mapped_func = block_mapper.MappedFunctionList[k];
+            temp.sprintf("%08llx", block_mapper.prog2[mapped_func.idx2].StartAddress);
+            if(ui->textEdit_2->find(temp)){
+                functionmapped2.push_back(ui->textEdit_2->textCursor().position());
+            }
         }
     }
     QTextCursor cursor = ui->textEdit->textCursor();
@@ -807,13 +644,6 @@ void MainWindow::on_tableView_2_pressed(const QModelIndex &index)
     ui->textEdit_2->setTextCursor(cursor2);
     parser1.Free();
     parser2.Free();
-    for(auto it = functionmapped.begin(); it != functionmapped.end(); it++){
-        qDebug() << *it;
-    }
-
-    for(auto it = functionmapped2.begin(); it != functionmapped2.end(); it++){
-        qDebug() << *it;
-    }
 }
 
 void MainWindow::on_tableView_pressed(const QModelIndex &index)
@@ -829,4 +659,43 @@ void MainWindow::on_tableView_pressed(const QModelIndex &index)
     ui->textEdit->setTextCursor(cursor);
     ui->textEdit_2->setTextCursor(cursor2);
 
+}
+
+void MainWindow::on_actionOpen_Firmware_Firmware_triggered()
+{
+    openTwoFiles dialog(this);
+    int ret = dialog.exec();
+    delete model;
+    delete model2;
+    model = new QStandardItemModel(0, 2, this);
+    model->setHorizontalHeaderItem(0, new QStandardItem(QString("MacFirmware")));
+    model->setHorizontalHeaderItem(1, new QStandardItem(QString("MacFirmware")));
+    ui->tableView->setModel(model);
+    model2 = new QStandardItemModel(0, 2, this);
+    model2->setHorizontalHeaderItem(0, new QStandardItem(QString("MacFirmware")));
+    model2->setHorizontalHeaderItem(1, new QStandardItem(QString("MacFirmware")));
+    ui->tableView_2->setModel(model2);
+    if(ret == openTwoFiles::Accepted){
+        mac_mac_map = true;
+        mac_ref_map = false;
+        filename1 = dialog.getFilename1();
+        filename2 = dialog.getFilename2();
+        qDebug() << filename1;
+        qDebug() << filename2;
+        ProcessMacFirmware(efi_file_list1, filename1.toStdString().c_str());
+        ProcessMacFirmware(efi_file_list2, filename2.toStdString().c_str());
+        GetGuidEqualList(efi_file_list1, efi_file_list2, index_pair_list);
+        int size = index_pair_list.size();
+        ui->textEdit->clear();
+        ui->textEdit_2->clear();
+        for(int i = 0; i < size; i++){
+            String filename = efi_file_list1[index_pair_list[i].idx1].FileName;
+            String filename2 = efi_file_list2[index_pair_list[i].idx2].FileName;
+            QStandardItem *item = new QStandardItem(QString(filename.GetString()));
+            model2->appendRow(item);
+            QStandardItem *item2 = new QStandardItem(QString(filename2.GetString()));
+            model2->setItem(model2->rowCount()-1, 1, item2);
+        }
+        tc = ui->textEdit->textColor();
+    }
 }

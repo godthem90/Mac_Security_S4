@@ -17,17 +17,12 @@ public:
     ~openTwoFiles();
     QString getFilename1();
     QString getFilename2();
-    QString getEntryaddr1();
-    QString getEntryaddr2();
 private slots:
     void on_pushButton_2_clicked();
     void on_pushButton_clicked();
     void on_pushButton_3_clicked();
     void on_pushButton_4_clicked();
 
-    void on_plainTextEdit_2_textChanged();
-
-    void on_plainTextEdit_textChanged();
 
 private:
     Ui::openTwoFiles *ui;
