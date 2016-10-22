@@ -88,12 +88,12 @@ uint32_t CDisassembler::GetNextBlockAddress( uint32_t block_addr )
 
 int CDisassembler::GetBlockInFunction( vector<Instruction> *insns, uint64_t *start_addr, uint64_t *end_addr )
 {
-	if( FunctionDescriptor <= 1 || FunctionDescriptor >= FunctionList.GetNumEntries() )
+	if( FunctionDescriptor <= 0 || FunctionDescriptor >= FunctionList.GetNumEntries() )
 	{
 		FunctionDescriptor = 0;
 		return -1;
 	}
-	if( BlockDescriptor <= 1 || BlockDescriptor >= BlockList.GetNumEntries() )
+	if( BlockDescriptor <= 0 || BlockDescriptor >= BlockList.GetNumEntries() )
 	{
 		BlockDescriptor = 0;
 		return -1;

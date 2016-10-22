@@ -25,7 +25,7 @@ void BlockMapper::CheckEqualFunction(Instruction &insn1, Instruction &insn2, vec
 		check_func.addr2 = htoi(operand2_1);
 		func_checklist->push_back(check_func);
 	}
-	else if(opcode1 == 233 && opcode2 == 233)
+	else if((opcode1 == 233 && opcode2 == 233) || (opcode1 == 1257 && opcode2 == 1257))
 	{
 		CheckFunction check_func;
 		check_func.addr1 = htoi(operand1_1);
@@ -521,11 +521,9 @@ void BlockMapper::MapStart(bool map_flag)
 		uint32_t func_num2 = prog2.GetFuncNum();
 		for(int i = 0; i < func_num1; i++)
 		{
-			if(MappedFunctionTable1[i] != -1)
-				continue;
 			for(int j = 0; j < func_num2; j++)
 			{
-				if(MappedFunctionTable1[j] != -1)
+				if(MappedFunctionTable1[i] != -1 || MappedFunctionTable1[j] != -1)
 					continue;
 				FunctionNode &func1 = prog1[i];
 				FunctionNode &func2 = prog2[j];
@@ -544,6 +542,7 @@ void BlockMapper::MapStart(bool map_flag)
 					MappedFunctionList.push_back(mapped_function);
 					MappedFunctionTable1[mapped_function.idx1] = mapped_function.idx2;
 					MappedFunctionTable2[mapped_function.idx2] = mapped_function.idx1;
+					break;
 				}
 			}
 		}
