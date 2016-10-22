@@ -327,11 +327,11 @@ void StartMapper(int target_idx)
 
 	BlockMapper block_mapper(prog1, prog2);
 	block_mapper.MapStart(map_flag);
-	/*if(map_flag)
+	if(map_flag)
 		block_mapper.DumpMapped();
 	else
-		block_mapper.DumpUnmapped();*/
-	block_mapper.PrintMappedFunc();
+		block_mapper.DumpUnmapped();
+	//block_mapper.PrintMappedFunc();
 	/*for(int i = 0; i < block_mapper.MappedAddrList.size(); i++)
 		printf("mapped addr : %llx %llx\n", block_mapper.MappedAddrList[i].addr1, block_mapper.MappedAddrList[i].addr2);*/
 
@@ -409,11 +409,11 @@ void test(int argc, char *argv[])
 
 	BlockMapper block_mapper(prog1, prog2);
 	block_mapper.MapStart(map_flag);
-	/*if(map_flag)
+	if(map_flag)
 		block_mapper.DumpMapped();
 	else
-		block_mapper.DumpUnmapped();*/
-	block_mapper.PrintMappedFunc();
+		block_mapper.DumpUnmapped();
+	//block_mapper.PrintMappedFunc();
 	/*for(int i = 0; i < block_mapper.MappedAddrList.size(); i++)
 		printf("mapped addr : %llx %llx\n", block_mapper.MappedAddrList[i].addr1, block_mapper.MappedAddrList[i].addr2);*/
 

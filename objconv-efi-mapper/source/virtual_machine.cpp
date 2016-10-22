@@ -562,9 +562,10 @@ OperandAttribute VirtualMachine::GetMemAttribute( char *operand )
 	//op_attr.mem_addr = GetMemAddr(operand);
 	op_attr.word_size = GetMemWordsize(operand);
 
-	VMAttribute vm_attr = vmemory.GetMem(op_attr.mem_addr, op_attr.word_size);
+	// serious bug here
+	/*VMAttribute vm_attr = vmemory.GetMem(op_attr.mem_addr, op_attr.word_size);
 	op_attr.state = vm_attr.state;
-	op_attr.value = vm_attr.value;
+	op_attr.value = vm_attr.value;*/
 
 	return op_attr;
 }

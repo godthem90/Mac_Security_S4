@@ -17,7 +17,6 @@
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
-#include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTextBrowser>
 
@@ -33,10 +32,8 @@ public:
     QGridLayout *gridLayout_7;
     QGridLayout *gridLayout;
     QPushButton *pushButton;
-    QPlainTextEdit *plainTextEdit;
     QGridLayout *gridLayout_2;
     QPushButton *pushButton_2;
-    QPlainTextEdit *plainTextEdit_2;
     QHBoxLayout *horizontalLayout;
     QPushButton *pushButton_3;
     QPushButton *pushButton_4;
@@ -74,11 +71,6 @@ public:
 
         gridLayout->addWidget(pushButton, 0, 0, 1, 1);
 
-        plainTextEdit = new QPlainTextEdit(openTwoFiles);
-        plainTextEdit->setObjectName(QStringLiteral("plainTextEdit"));
-
-        gridLayout->addWidget(plainTextEdit, 1, 0, 1, 1);
-
 
         gridLayout_7->addLayout(gridLayout, 0, 0, 1, 1);
 
@@ -88,11 +80,6 @@ public:
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
 
         gridLayout_2->addWidget(pushButton_2, 0, 0, 1, 1);
-
-        plainTextEdit_2 = new QPlainTextEdit(openTwoFiles);
-        plainTextEdit_2->setObjectName(QStringLiteral("plainTextEdit_2"));
-
-        gridLayout_2->addWidget(plainTextEdit_2, 1, 0, 1, 1);
 
 
         gridLayout_7->addLayout(gridLayout_2, 1, 0, 1, 1);
