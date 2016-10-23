@@ -35,6 +35,10 @@ private slots:
 
     void on_actionOpen_Firmware_Firmware_triggered();
 
+    void on_actionFontSizeUp_triggered();
+
+    void on_actionFontSizeDown_triggered();
+
 private:
     Ui::MainWindow *ui;
     QString filename1;

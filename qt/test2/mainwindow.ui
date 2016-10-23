@@ -95,6 +95,8 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionFontSizeUp"/>
+   <addaction name="actionFontSizeDown"/>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -116,12 +118,25 @@
   </widget>
   <action name="actionOpen">
    <property name="text">
-    <string>Open(Firmware / ReferenceCode</string>
+    <string>Open(Firmware / ReferenceCode)</string>
    </property>
   </action>
   <action name="actionOpen_Firmware_Firmware">
    <property name="text">
     <string>Open(Firmware / Firmware)</string>
+   </property>
+  </action>
+  <action name="actionFontSizeUp">
+   <property name="text">
+    <string>FontSizeUp</string>
+   </property>
+   <property name="toolTip">
+    <string>FontSizeUp</string>
+   </property>
+  </action>
+  <action name="actionFontSizeDown">
+   <property name="text">
+    <string>FontSizeDown</string>
    </property>
   </action>
  </widget>

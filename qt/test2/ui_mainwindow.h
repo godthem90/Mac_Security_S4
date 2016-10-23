@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.5.1
+** Created by: Qt User Interface Compiler version 5.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -30,6 +30,8 @@ class Ui_MainWindow
 public:
     QAction *actionOpen;
     QAction *actionOpen_Firmware_Firmware;
+    QAction *actionFontSizeUp;
+    QAction *actionFontSizeDown;
     QWidget *centralWidget;
     QGridLayout *gridLayout_3;
     QGridLayout *gridLayout;
@@ -52,6 +54,10 @@ public:
         actionOpen->setObjectName(QStringLiteral("actionOpen"));
         actionOpen_Firmware_Firmware = new QAction(MainWindow);
         actionOpen_Firmware_Firmware->setObjectName(QStringLiteral("actionOpen_Firmware_Firmware"));
+        actionFontSizeUp = new QAction(MainWindow);
+        actionFontSizeUp->setObjectName(QStringLiteral("actionFontSizeUp"));
+        actionFontSizeDown = new QAction(MainWindow);
+        actionFontSizeDown->setObjectName(QStringLiteral("actionFontSizeDown"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         centralWidget->setMinimumSize(QSize(0, 0));
@@ -116,6 +122,8 @@ public:
         menuFile->setObjectName(QStringLiteral("menuFile"));
         MainWindow->setMenuBar(menuBar);
 
+        mainToolBar->addAction(actionFontSizeUp);
+        mainToolBar->addAction(actionFontSizeDown);
         menuBar->addAction(menuFile->menuAction());
         menuFile->addAction(actionOpen);
         menuFile->addAction(actionOpen_Firmware_Firmware);
@@ -128,8 +136,13 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
-        actionOpen->setText(QApplication::translate("MainWindow", "Open(Firmware / ReferenceCode", 0));
+        actionOpen->setText(QApplication::translate("MainWindow", "Open(Firmware / ReferenceCode)", 0));
         actionOpen_Firmware_Firmware->setText(QApplication::translate("MainWindow", "Open(Firmware / Firmware)", 0));
+        actionFontSizeUp->setText(QApplication::translate("MainWindow", "FontSizeUp", 0));
+#ifndef QT_NO_TOOLTIP
+        actionFontSizeUp->setToolTip(QApplication::translate("MainWindow", "FontSizeUp", 0));
+#endif // QT_NO_TOOLTIP
+        actionFontSizeDown->setText(QApplication::translate("MainWindow", "FontSizeDown", 0));
         menuFile->setTitle(QApplication::translate("MainWindow", "File", 0));
     } // retranslateUi
 

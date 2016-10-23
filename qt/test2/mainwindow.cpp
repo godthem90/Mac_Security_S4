@@ -127,8 +127,6 @@ void ProcessEdkInfo(vector<EdkInfo> &edk_info_list, const char *build_path)
         build_dir.push_back('/');
 
     string line;
-    QString path = QCoreApplication::applicationDirPath();
-    qDebug() << path;
     ifstream input("edk_info.txt");
     vector<string> info;
 
@@ -698,4 +696,16 @@ void MainWindow::on_actionOpen_Firmware_Firmware_triggered()
         }
         tc = ui->textEdit->textColor();
     }
+}
+
+void MainWindow::on_actionFontSizeUp_triggered()
+{
+    ui->textEdit->zoomIn(1);
+    ui->textEdit_2->zoomIn(1);
+}
+
+void MainWindow::on_actionFontSizeDown_triggered()
+{
+    ui->textEdit->zoomOut(1);
+    ui->textEdit_2->zoomOut(1);
 }

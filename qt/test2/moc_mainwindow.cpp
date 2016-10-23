@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.5.1)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.7.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -12,15 +12,15 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'mainwindow.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.5.1. It"
+#error "This file was generated using the moc from 5.7.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[8];
-    char stringdata0[162];
+    QByteArrayData data[10];
+    char stringdata0[224];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -36,14 +36,18 @@ QT_MOC_LITERAL(3, 36, 33), // "on_textEdit_cursorPositionCha..."
 QT_MOC_LITERAL(4, 70, 22), // "on_tableView_2_pressed"
 QT_MOC_LITERAL(5, 93, 5), // "index"
 QT_MOC_LITERAL(6, 99, 20), // "on_tableView_pressed"
-QT_MOC_LITERAL(7, 120, 41) // "on_actionOpen_Firmware_Firmwa..."
+QT_MOC_LITERAL(7, 120, 41), // "on_actionOpen_Firmware_Firmwa..."
+QT_MOC_LITERAL(8, 162, 29), // "on_actionFontSizeUp_triggered"
+QT_MOC_LITERAL(9, 192, 31) // "on_actionFontSizeDown_triggered"
 
     },
     "MainWindow\0on_actionOpen_triggered\0\0"
     "on_textEdit_cursorPositionChanged\0"
     "on_tableView_2_pressed\0index\0"
     "on_tableView_pressed\0"
-    "on_actionOpen_Firmware_Firmware_triggered"
+    "on_actionOpen_Firmware_Firmware_triggered\0"
+    "on_actionFontSizeUp_triggered\0"
+    "on_actionFontSizeDown_triggered"
 };
 #undef QT_MOC_LITERAL
 
@@ -53,7 +57,7 @@ static const uint qt_meta_data_MainWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -61,17 +65,21 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   39,    2, 0x08 /* Private */,
-       3,    0,   40,    2, 0x08 /* Private */,
-       4,    1,   41,    2, 0x08 /* Private */,
-       6,    1,   44,    2, 0x08 /* Private */,
-       7,    0,   47,    2, 0x08 /* Private */,
+       1,    0,   49,    2, 0x08 /* Private */,
+       3,    0,   50,    2, 0x08 /* Private */,
+       4,    1,   51,    2, 0x08 /* Private */,
+       6,    1,   54,    2, 0x08 /* Private */,
+       7,    0,   57,    2, 0x08 /* Private */,
+       8,    0,   58,    2, 0x08 /* Private */,
+       9,    0,   59,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::QModelIndex,    5,
     QMetaType::Void, QMetaType::QModelIndex,    5,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
 
        0        // eod
@@ -88,6 +96,8 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 2: _t->on_tableView_2_pressed((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
         case 3: _t->on_tableView_pressed((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
         case 4: _t->on_actionOpen_Firmware_Firmware_triggered(); break;
+        case 5: _t->on_actionFontSizeUp_triggered(); break;
+        case 6: _t->on_actionFontSizeDown_triggered(); break;
         default: ;
         }
     }
@@ -118,13 +128,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 7;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
+        if (_id < 7)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 5;
+        _id -= 7;
     }
     return _id;
 }
