@@ -80,6 +80,7 @@ private:
 	int InsertMappedInstruction(vector<MappedInstruction> &insn_list, MappedInstruction &mapped_insn);
 	vector<MappedBlock> SelectCandidates(vector<MappedBlock> &candidates_table);
 	MappedBlock *InsertMappedBlock(MappedFunction &mapped_func, vector<MappedBlock> &candidates);
+	void AddMappedAddr(vector<MappedInstruction> &mapped_insn_list, BlockNode &block1, BlockNode &block2, vector<MappedAddr> &notmapped_addr_list, vector<MappedAddr> &mapped_addr_list);
 
 	int DiffOperand( char *operand1, char *operand2 );
 	int DiffInstruction(Instruction &insn1, Instruction &insn2);

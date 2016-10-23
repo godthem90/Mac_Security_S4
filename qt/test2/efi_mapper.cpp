@@ -25,7 +25,7 @@ void BlockMapper::CheckEqualFunction(Instruction &insn1, Instruction &insn2, vec
 		check_func.addr2 = htoi(operand2_1);
 		func_checklist->push_back(check_func);
 	}
-	else if(opcode1 == 233 && opcode2 == 233)
+	else if((opcode1 == 233 && opcode2 == 233) || (opcode1 == 1257 && opcode2 == 1257))
 	{
 		CheckFunction check_func;
 		check_func.addr1 = htoi(operand1_1);
@@ -384,6 +384,27 @@ int GetIdx2(vector<MappedInstruction> &insn_list, int idx1)
 	return -1;
 }
 
+void BlockMapper::AddMappedAddr(vector<MappedInstruction> &mapped_insn_list, BlockNode &block1, BlockNode &block2, vector<MappedAddr> &notmapped_addr_list, vector<MappedAddr> &mapped_addr_list)
+{
+	for(int i = 0; i < mapped_insn_list.size(); i++)
+	{
+		Instruction &insn1 = block1[mapped_insn_list[i].idx1];
+		Instruction &insn2 = block2[mapped_insn_list[i].idx2];
+
+		MappedAddr mapped_addr;
+		mapped_addr.addr1 = block1[mapped_insn_list[i].idx1].GetAddr();
+		mapped_addr.addr2 = block2[mapped_insn_list[i].idx2].GetAddr();
+		notmapped_addr_list.push_back(mapped_addr);
+	}
+
+	MappedAddr start_addr;
+	start_addr.addr1 = block1.StartAddress;
+	start_addr.addr2 = block2.StartAddress;
+	start_addr.num1 = block1.GetInsnNum();
+	start_addr.num2 = block2.GetInsnNum();
+	mapped_addr_list.push_back(start_addr);
+}
+
 int BlockMapper::DiffBlock(BlockNode &block1, BlockNode &block2, vector<MappedAddr> *notmapped_addr_list, vector<MappedAddr> *mapped_addr_list, vector<CheckFunction> *func_checklist)
 {
 	uint32_t op_num1 = block1.GetInsnNum();
@@ -417,23 +438,11 @@ int BlockMapper::DiffBlock(BlockNode &block1, BlockNode &block2, vector<MappedAd
 
 		if(func_checklist)
 			CheckEqualFunction(insn1, insn2, func_checklist);
-
-        if(notmapped_addr_list)
-		{
-			MappedAddr mapped_addr;
-            mapped_addr.addr1 = block1[mapped_insn_list[i].idx1].GetAddr();
-            mapped_addr.addr2 = block2[mapped_insn_list[i].idx2].GetAddr();
-            notmapped_addr_list->push_back(mapped_addr);
-		}
 	}
-    if(mapped_addr_list){
-        MappedAddr start_addr;
-        start_addr.addr1 = block1.StartAddress;
-        start_addr.addr2 = block2.StartAddress;
-        start_addr.num1 = block1.GetInsnNum();
-        start_addr.num2 = block2.GetInsnNum();
-        mapped_addr_list->push_back(start_addr);
-    }
+
+	if(notmapped_addr_list && mapped_addr_list)
+		AddMappedAddr(mapped_insn_list, block1, block2, *notmapped_addr_list, *mapped_addr_list);
+
 	delete[] dependency_table1;
 	delete[] dependency_table2;
 
@@ -476,6 +485,21 @@ int BlockMapper::MapBlock(uint64_t func_addr1, uint64_t func_addr2)
 		MappedFunctionList.push_back(mapped_function);
 		MappedFunctionTable1[mapped_function.idx1] = mapped_function.idx2;
 		MappedFunctionTable2[mapped_function.idx2] = mapped_function.idx1;
+
+		for(int i = 0; i < block_num; i++)
+		{
+			BlockNode &block1 = func1[i];
+			BlockNode &block2 = func2[i];
+
+			vector<MappedInstruction> mapped_insn_list;
+			uint32_t insn_num = block1.GetInsnNum();
+			for(int j = 0; j < insn_num; j++)
+			{
+				MappedInstruction mapped_insn = {100, j, j};
+				mapped_insn_list.push_back(mapped_insn);
+			}
+			AddMappedAddr(mapped_insn_list, block1, block2, notMappedAddrList, MappedAddrList);
+		}
 	}
 	else
 	{
@@ -528,11 +552,9 @@ void BlockMapper::MapStart(bool map_flag)
 		uint32_t func_num2 = prog2.GetFuncNum();
 		for(int i = 0; i < func_num1; i++)
 		{
-			if(MappedFunctionTable1[i] != -1)
-				continue;
 			for(int j = 0; j < func_num2; j++)
 			{
-				if(MappedFunctionTable1[j] != -1)
+				if(MappedFunctionTable1[i] != -1 || MappedFunctionTable1[j] != -1)
 					continue;
 				FunctionNode &func1 = prog1[i];
 				FunctionNode &func2 = prog2[j];
@@ -551,6 +573,21 @@ void BlockMapper::MapStart(bool map_flag)
 					MappedFunctionList.push_back(mapped_function);
 					MappedFunctionTable1[mapped_function.idx1] = mapped_function.idx2;
 					MappedFunctionTable2[mapped_function.idx2] = mapped_function.idx1;
+
+					for(int i = 0; i < block_num; i++)
+					{
+						BlockNode &block1 = func1[i];
+						BlockNode &block2 = func2[i];
+
+						vector<MappedInstruction> mapped_insn_list;
+						uint32_t insn_num = block1.GetInsnNum();
+						for(int j = 0; j < insn_num; j++)
+						{
+							MappedInstruction mapped_insn = {100, j, j};
+							mapped_insn_list.push_back(mapped_insn);
+						}
+						AddMappedAddr(mapped_insn_list, block1, block2, notMappedAddrList, MappedAddrList);
+					}
 				}
 			}
 		}
