@@ -477,6 +477,7 @@ CDisassembler::CDisassembler() {
 	CommentSeparator = "; ";                   // Symbol for indicating comment
 	HereOperator = "$";                        // Symbol for current address
 	SwitchCheck = 0;
+	SwitchtableStart = 0;
 	SwitchtableCheck = 0;
 	SwitchtableEnd = 0;
   	SwitchtableLength = 0;
@@ -703,6 +704,7 @@ void CDisassembler::Go() {
     FixRelocationTargetAddresses();
 
     // Pass 1: Find symbols types and unnamed symbols
+	PassCheck = 0;
 	Pass = 1;
 	Pass1();
 	if(!IsFirmware)
@@ -718,6 +720,7 @@ void CDisassembler::Go() {
 			Pass1();
 		}
 	}
+	PassCheck = 1;
 
     Symbols.AssignNames();
 
@@ -758,80 +761,86 @@ void CDisassembler::Pass1() {
     Code blocks in same section that are connected through jumps (not calls)
     are joined together into the same function.
 
-    * Identifies and analyzes tables of jump addresses and call addresses,
-    e.g. switch/case tables and virtual function tables.
+	 * Identifies and analyzes tables of jump addresses and call addresses,
+	 e.g. switch/case tables and virtual function tables.
 
-    * Tries to identify any data in the code section. If erroneous code or
-    sequences of zeroes are found then the nearest preceding label is marked
-    as dubious and the analysis of code is skipped until the next code label.
-    Pass 1 will be repeated in this case in order to follow backwards jumps
-    from subsequent code. Dubious code will be shown as both code and data 
-    in the output of pass 2.
-    */
+	 * Tries to identify any data in the code section. If erroneous code or
+	 sequences of zeroes are found then the nearest preceding label is marked
+	 as dubious and the analysis of code is skipped until the next code label.
+	 Pass 1 will be repeated in this case in order to follow backwards jumps
+	 from subsequent code. Dubious code will be shown as both code and data 
+	 in the output of pass 2.
+	 */
 
-    for (Section = 1; Section < Sections.GetNumEntries(); Section++) {
+	for (Section = 1; Section < Sections.GetNumEntries(); Section++) {
 
-        // Get section type
-        SectionType = Sections[Section].Type;
-        if (SectionType & 0x800) continue;         // This is a group
+		// Get section type
+		SectionType = Sections[Section].Type;
+		if (SectionType & 0x800) continue;         // This is a group
 
-        // Code or data
-        CodeMode = (SectionType & 1) ? 1 : 4;
-        LabelBegin = FlagPrevious = CountErrors = 0;
+		// Code or data
+		CodeMode = (SectionType & 1) ? 1 : 4;
+		LabelBegin = FlagPrevious = CountErrors = 0;
 
-        if ((Sections[Section].Type & 0xFF) == 1) {
-            // This is a code section
+		if ((Sections[Section].Type & 0xFF) == 1) {
+			// This is a code section
 
-            // Initialize code parser
-            Buffer     = Sections[Section].Start;
-            SectionEnd = FunctionEnd = LabelInaccessible = Sections[Section].TotalSize;
-            WordSize   = Sections[Section].WordSize;
-            SectionAddress = Sections[Section].SectionAddress;
-            if (Buffer == 0) continue;
+			// Initialize code parser
+			Buffer     = Sections[Section].Start;
+			SectionEnd = FunctionEnd = LabelInaccessible = Sections[Section].TotalSize;
+			WordSize   = Sections[Section].WordSize;
+			SectionAddress = Sections[Section].SectionAddress;
+			if (Buffer == 0) continue;
 
-            IBegin = IEnd = LabelEnd = 0;
-            IFunction = 0;
+			IBegin = IEnd = LabelEnd = 0;
+			IFunction = 0;
 			IBlock = 0;
 			IBlockOpNum = 0;
 
-            // Loop through instructions
-            while (NextInstruction1()) {
+			// Loop through instructions
+			while (NextInstruction1()) {
 
 				CheckForFunctionBegin();
-                CheckForBlockBegin();
+				CheckForBlockBegin();
 				FindLabels();
 
-                // Check if code
-                if (CodeMode < 4) {
-                    // This is code
-                    // Parse instruction
-                    ParseInstruction();
-                }
-                else {
-                    // This is data. Skip to next label
-                    IEnd = LabelEnd;
-                }
+				// Check if code
+				if (CodeMode < 4) {
+					// This is code
+					// Parse instruction
+					ParseInstruction();
+				}
+				else {
+					// This is data. Skip to next label
+					IEnd = LabelEnd;
+				}
 
-                // check if function ends here
-                CheckForBlockEnd();
+				// check if function ends here
+				CheckForBlockEnd();
 				CheckForFunctionEnd( &OutFile );
-            }
-
-			uint32_t func_num = InvalidFunction.size();
-			for(int i = func_num - 1; i >= 0; i--)
-			{
-				if(InvalidFunction[i] == true)
-					FunctionList.Remove(i);
 			}
-        }
-        else {
-            // This is a data section
-            // Make a single entry in FunctionList covering the whole section
-            SFunctionRecord fun = {(int)Section, 0, Sections[Section].TotalSize, 0, 0};
-            FunctionList.PushUnique(fun);
-        }
-    }
 
+		}
+		else {
+			// This is a data section
+			// Make a single entry in FunctionList covering the whole section
+			SFunctionRecord fun = {(int)Section, 0, Sections[Section].TotalSize, 0, 0};
+			FunctionList.PushUnique(fun);
+		}
+	}
+
+	if(IsFirmware)
+	{
+		uint32_t func_num = InvalidFunction.size();
+		for(int i = func_num - 1; i >= 0; i--)
+		{
+			if(InvalidFunction[i] == true)
+			{
+				FunctionList.Remove(i);
+				InvalidFunction.erase(InvalidFunction.begin() + i);
+			}
+		}
+	}
 }
 
 void CDisassembler::Pass2( CTextFileBuffer *out_file ) {
@@ -914,11 +923,13 @@ void CDisassembler::Pass2( CTextFileBuffer *out_file ) {
                         // Write instruction to OutFile
                         WriteInstruction( out_file, 1 );
 
+						out_file->NewLine();
+
                         // Write hex code as comment after instruction
-                        WriteCodeComment( out_file );
+                        //WriteCodeComment( out_file );
 
                         // Write any error and warning messages to OutFile
-                        WriteErrorsAndWarnings( out_file );
+                        //WriteErrorsAndWarnings( out_file );
                     }
                     if (CodeMode & 6) {
 
@@ -1129,7 +1140,7 @@ void CDisassembler::SplitBlockBySymbol()
 		int blocki = 1;
 		for( blocki = 1; blocki < BlockList.GetNumEntries(); blocki++ )
 		{
-			if( BlockList[blocki].Start <= section_offset && section_offset < BlockList[blocki].End )
+			if( BlockList[blocki].Section == section && BlockList[blocki].Start <= section_offset && section_offset < BlockList[blocki].End )
 				break;
 		}
 		if( blocki == BlockList.GetNumEntries() )
@@ -1297,7 +1308,11 @@ void CDisassembler::CheckForFunctionBegin() {
         // Add to function list
         IFunction = FunctionList.PushUnique(fun);
 
-		InvalidFunction.push_back(false);
+		if(IsFirmware)
+		{
+			if(IFunction == InvalidFunction.size())
+				InvalidFunction.push_back(false);
+		}
 
         // End of function not known yet
         FunctionEnd = SectionEnd;
@@ -1314,9 +1329,20 @@ void CDisassembler::CheckForFunctionEnd( CTextFileBuffer *out_file ) {
         err.submit(9000);  IFunction = 0;  ReturnCheck = 0; return;
     }
 
-    // Function ends if section ends here
-    if (IEnd >= SectionEnd) {
+	if(IsFirmware && (CodeMode == 4))
+	{
+		FunctionList[IFunction].End = IEnd;
+		InvalidFunction[IFunction] = true;
+		IFunction = 0;
+		ReturnCheck = 0;
+		return;
+	}
+
+	// Function ends if section ends here
+	if (IEnd >= SectionEnd) {
 		// Current function must end because section ends here
+		/*if(IsFirmware && (FunctionList[IFunction].Start == FunctionList[IFunction].End))
+			InvalidFunction[IFunction] = true;*/
 		FunctionList[IFunction].End = SectionEnd;
 		FunctionList[IFunction].Scope &= ~0x10000;
 		IFunction = 0;
@@ -1336,8 +1362,8 @@ void CDisassembler::CheckForFunctionEnd( CTextFileBuffer *out_file ) {
 		// Function ends after ret or unconditional jump and preceding code had no 
 		// jumps beyond this position:
 		if (s.OpcodeDef && s.OpcodeDef->Options & 0x10 && !SwitchtableCheck) {
-			if((MaxJmpAddr <= SectionAddress + IBegin) || JmpFuncEndCheck)
-			{
+			//if((MaxJmpAddr <= SectionAddress + IBegin) || JmpFuncEndCheck || JmpCheck)
+			//{
 				MaxJmpAddr = 0;
 				// A return or unconditional jump instruction was found.
 				FlagPrevious |= 2;
@@ -1348,14 +1374,18 @@ void CDisassembler::CheckForFunctionEnd( CTextFileBuffer *out_file ) {
 				LabelBegin = LabelEnd = CountErrors = 0;
 				FindLabels();
 
-				if (IEnd >= FunctionList[IFunction].End) {
+				if (IEnd > FunctionList[IFunction].End) {
+					/*if(FunctionList[IFunction].Start == FunctionList[IFunction].End)
+						InvalidFunction[IFunction] = true;*/
 					// Indicate current function ends here
 					FunctionList[IFunction].End = IEnd;
 					FunctionList[IFunction].Scope &= ~0x10000;
 					IFunction = 0;
 					ReturnCheck = 0;
 					return;
-				}
+				//}
+				/*else if(JmpCheck && FunctionList[IFunction].End < UnconditionalJmpAddr)
+					FunctionList[IFunction].End = UnconditionalJmpAddr;*/
 			}
 		}
 	}
@@ -1394,12 +1424,15 @@ void CDisassembler::CheckForFunctionEnd( CTextFileBuffer *out_file ) {
 
 	if( IsFirmware && SwitchtableCheck )
 	{
-		if( SwitchtableEnd <= IEnd )
+		if( SwitchtableStart <= IEnd )
 		{
+			/*if(FunctionList[IFunction].Start == FunctionList[IFunction].End)
+				InvalidFunction[IFunction] = true;*/
 			FunctionList[IFunction].End = IEnd;
             FunctionList[IFunction].Scope &= ~0x10000;
             IFunction = 0;
 			SwitchtableCheck = 0;
+			SwitchCheck = 0;
 			ReturnCheck = 0;
             return;
 		}
@@ -1533,12 +1566,17 @@ void CDisassembler::CheckJumpTarget(uint32 symi) {
 		// jjh-hack
 		if(IsFirmware)
 		{
-			if(!ReturnCheck && (FunctionStart != 1) && !JmpFuncEndCheck)
+			if(!JmpCheck)
 			{
-				// Extend current function forward to include target offset
-				FunctionList[IFunction].End = Symbols[symi].Offset;
-				FunctionList[IFunction].Scope |= 0x10000;
+				//if(!ReturnCheck && (FunctionStart != 1) && !JmpFuncEndCheck)
+				//{
+					// Extend current function forward to include target offset
+					FunctionList[IFunction].End = Symbols[symi].Offset;
+					FunctionList[IFunction].Scope |= 0x10000;
+				//}
 			}
+			//else
+			//	UnconditionalJmpAddr = Symbols[symi].Offset;
 		}
 		else
 		{
@@ -2230,7 +2268,7 @@ void CDisassembler::FollowJumpTable(uint32 symi, uint32 RelType) {
     // Loop through table of jump/call addresses
     for (Pos = SourceOffset; Pos < NextLabel; Pos += SourceSize) {
 
-		if( IsFirmware && SwitchCheck == 5 && !SwitchtableLength-- )
+		if(IsFirmware && SwitchCheck == 5 && !SwitchtableLength--)
 		{
 			SwitchtableEnd = Pos;
 			SwitchtableCheck = 1;
@@ -2644,20 +2682,18 @@ void CDisassembler::ParseInstruction() {
         // Find instruction set
         FindInstructionSet();
 
-		if(IsFirmware)
+		if(IsFirmware && !PassCheck)
 		{
 			FindReturn();
 
 			FindSwitch();
 
-			FindFunctionEnd();
-
 			FindNop();
-
-			FindJmp();
 
 			UpdateFunction();
 		}
+
+		FindJmp();
 
         // Update symbol types for operands of this instruction
         UpdateSymbols();
@@ -2665,7 +2701,7 @@ void CDisassembler::ParseInstruction() {
         // Trace register values
         UpdateTracer();
     }
-	else
+	else if(IsFirmware)
 		InvalidFunction[IFunction] = true;
 }
 
@@ -4613,6 +4649,8 @@ void CDisassembler::FindSwitch()
 
 		if( t.Regist[MapRegister(op2_1)] == 0x18 && /*MapRegister(op2_2) == SwitchReg &&*/ atoi(op2_3) == 4 )
 		{
+			uint32_t symi = Symbols.Old2NewIndex(t.Value[MapRegister(op2_1)]);
+			SwitchtableStart = Symbols[symi].Offset;
 			JumpReg = MapRegister(op1);
 			JumptableAddrReg = MapRegister(op2_1);
 			SwitchCheck = 3;
@@ -4688,15 +4726,22 @@ void CDisassembler::FindNop()
 
 void CDisassembler::FindJmp()
 {
-	CTextFileBuffer temp_file;
-	WriteInstruction( &temp_file, 0 );
-	char opcode[10], op1[30], op2[30];
-	TokenizeInstruction( &temp_file, opcode, op1, op2 );
+	uint32_t opcode;
+	for(int i = 0; i <= s.OpcodeStart2 - s.OpcodeStart1; i++)
+	{
+		opcode = opcode << 8;
+		opcode += Buffer[s.OpcodeStart1 + i];
+	}
 
-	if(!strcmp(opcode, "jmp") && (FunctionStart < 5))
+	if(opcode == 233 && (FunctionStart < 5))
 		JmpFuncEndCheck = 1;
 	else
 		JmpFuncEndCheck = 0;
+
+	if(opcode == 233 || opcode == 1257)
+		JmpCheck = 1;
+	else
+		JmpCheck = 0;
 }
 
 void CDisassembler::UpdateFunction()

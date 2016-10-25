@@ -446,10 +446,12 @@ void MainWindow::on_tableView_2_pressed(const QModelIndex &index)
     if(mac_mac_map){
         input_path1 = efi_file_list1[index_pair_list[index.row()].idx1].Path;
         input_path2 = efi_file_list2[index_pair_list[index.row()].idx2].Path;
+		map_flag = false;
     }
     else{
         input_path1 = efi_file_list1[index_pair_list[index.row()].idx1].Path;
         input_path2 = edk_info_list[index_pair_list[index.row()].idx2].Path;
+		map_flag = true;
     }
     CFileBuffer input_buffer1(input_path1.GetString());
     CFileBuffer input_buffer2(input_path2.GetString());
@@ -486,7 +488,7 @@ void MainWindow::on_tableView_2_pressed(const QModelIndex &index)
 
 
     BlockMapper block_mapper(prog1, prog2);
-    block_mapper.MapStart(true);
+    block_mapper.MapStart(map_flag);
 
     uint32_t mapped_func_num = block_mapper.MappedFunctionList.size();
     for(int i = 0; i < mapped_func_num; i++){

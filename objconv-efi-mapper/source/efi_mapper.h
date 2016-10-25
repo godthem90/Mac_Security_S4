@@ -33,6 +33,8 @@ typedef struct MappedAddr
 {
 	uint64_t addr1;
 	uint64_t addr2;
+    uint32_t num1;
+    uint32_t num2;
 } MappedAddr;
 
 typedef struct CheckFunction
@@ -45,6 +47,7 @@ class BlockMapper
 {
 public:
 	vector<MappedAddr> MappedAddrList;
+    vector<MappedAddr> notMappedAddrList;
 
 	BlockMapper(Program &p1, Program &p2);
 	void MapStart(bool map_flag);
@@ -52,15 +55,16 @@ public:
 	void DumpMapped();
 	void DumpUnmapped();
 	void PrintMappedFunc();
+    Program &prog1;
+    Program &prog2;
+    vector<MappedFunction> MappedFunctionList;
 
 private:
-	Program &prog1;
-	Program &prog2;
 	VirtualMachine vm;
-	vector<MappedFunction> MappedFunctionList;
 	vector<int> MappedFunctionTable1;
 	vector<int> MappedFunctionTable2;
 
+	void AddCheckFunction(uint64_t addr1, uint64_t addr2, vector<CheckFunction> *func_checklist);
 	void CheckEqualFunction(Instruction &insn1, Instruction &insn2, vector<CheckFunction> *func_checklist);
 	bool IsInstructionEqual(Instruction &insn1, Instruction &insn2, vector<CheckFunction> *func_checklist);
 	bool IsBlockEqual(BlockNode &block1, BlockNode &block2, vector<CheckFunction> *func_checklist);
@@ -77,10 +81,11 @@ private:
 	int InsertMappedInstruction(vector<MappedInstruction> &insn_list, MappedInstruction &mapped_insn);
 	vector<MappedBlock> SelectCandidates(vector<MappedBlock> &candidates_table);
 	MappedBlock *InsertMappedBlock(MappedFunction &mapped_func, vector<MappedBlock> &candidates);
+	void AddMappedAddr(vector<MappedInstruction> &mapped_insn_list, BlockNode &block1, BlockNode &block2, vector<MappedAddr> &notmapped_addr_list, vector<MappedAddr> &mapped_addr_list);
 
 	int DiffOperand( char *operand1, char *operand2 );
 	int DiffInstruction(Instruction &insn1, Instruction &insn2);
-	int DiffBlock(BlockNode &block1, BlockNode &block2, vector<MappedAddr> *mapped_addr_list, vector<CheckFunction> *func_checklist);
+    int DiffBlock(BlockNode &block1, BlockNode &block2, vector<MappedAddr> *notmapped_addr_list, vector<MappedAddr> *mapped_addr_list, vector<CheckFunction> *func_checklist);
 };
 
 

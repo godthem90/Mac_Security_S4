@@ -923,11 +923,13 @@ void CDisassembler::Pass2( CTextFileBuffer *out_file ) {
                         // Write instruction to OutFile
                         WriteInstruction( out_file, 1 );
 
+						out_file->NewLine();
+
                         // Write hex code as comment after instruction
-                        WriteCodeComment( out_file );
+                        //WriteCodeComment( out_file );
 
                         // Write any error and warning messages to OutFile
-                        WriteErrorsAndWarnings( out_file );
+                        //WriteErrorsAndWarnings( out_file );
                     }
                     if (CodeMode & 6) {
 

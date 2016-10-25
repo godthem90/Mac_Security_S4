@@ -440,7 +440,7 @@ void disassemble(int argc, char *argv[])
 
 	CTextFileBuffer assembly1;
 	disasm_engine1.OutFile >> assembly1;
-	//fwrite(assembly1.Buf(), 1, assembly1.GetBufSize(), stdout);
+	fwrite(assembly1.Buf(), 1, assembly1.GetBufSize(), stdout);
 
 	Program prog1;
 	disasm_engine1.ParseProgram(&prog1);

@@ -717,6 +717,7 @@ protected:
    uint32_t  BlockDescriptor;
    uint32_t  FunctionDescriptor;
    uint32_t  SwitchCheck;
+   uint32_t  SwitchtableStart;
    uint32_t  SwitchtableCheck;
    uint32_t  SwitchtableEnd;
    uint32_t  SwitchtableLength;
@@ -728,6 +729,9 @@ protected:
    uint32_t  NopCheck;
    uint32_t  FunctionStart;
    uint32_t  JmpFuncEndCheck;
+   uint32_t  JmpCheck;
+   uint32_t  UnconditionalJmpAddr;
+   uint32_t  PassCheck;
    uint32_t  SectionEnd;                           // End of current section
    uint32_t  WordSize;                             // Segment word size: 16, 32, 64
    uint32_t  Section;                              // Current section/segment

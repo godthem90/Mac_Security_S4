@@ -60,10 +60,11 @@ public:
     vector<MappedFunction> MappedFunctionList;
 
 private:
-    VirtualMachine vm;
+	VirtualMachine vm;
 	vector<int> MappedFunctionTable1;
 	vector<int> MappedFunctionTable2;
 
+	void AddCheckFunction(uint64_t addr1, uint64_t addr2, vector<CheckFunction> *func_checklist);
 	void CheckEqualFunction(Instruction &insn1, Instruction &insn2, vector<CheckFunction> *func_checklist);
 	bool IsInstructionEqual(Instruction &insn1, Instruction &insn2, vector<CheckFunction> *func_checklist);
 	bool IsBlockEqual(BlockNode &block1, BlockNode &block2, vector<CheckFunction> *func_checklist);

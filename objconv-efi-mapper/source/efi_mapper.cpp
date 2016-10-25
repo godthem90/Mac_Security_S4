@@ -6,6 +6,26 @@ BlockMapper::BlockMapper(Program &p1, Program &p2) : prog1(p1), prog2(p2)
 	MappedFunctionTable2.assign(prog2.GetFuncNum(), -1);
 }
 
+void BlockMapper::AddCheckFunction(uint64_t addr1, uint64_t addr2, vector<CheckFunction> *func_checklist)
+{
+	uint32_t checklist_size = func_checklist->size();
+	for(int i = 0; i < checklist_size; i++)
+	{
+		if((*func_checklist)[i].addr1 == addr1 && (*func_checklist)[i].addr2 == addr2)
+			return;
+	}
+
+	CheckFunction check_func;
+	check_func.addr1 = addr1;
+	check_func.addr2 = addr2;
+
+	int func_idx1 = prog1.GetFuncIndex(check_func.addr1);
+	int func_idx2 = prog2.GetFuncIndex(check_func.addr2);
+	if(prog1.GetFuncIndex(check_func.addr1) != -1
+			&& prog2.GetFuncIndex(check_func.addr2) != -1)
+		func_checklist->push_back(check_func);
+}
+
 void BlockMapper::CheckEqualFunction(Instruction &insn1, Instruction &insn2, vector<CheckFunction> *func_checklist)
 {
 	if(!func_checklist)
@@ -18,22 +38,10 @@ void BlockMapper::CheckEqualFunction(Instruction &insn1, Instruction &insn2, vec
 	char *operand1_2 = insn1.GetOperand2();
 	char *operand2_2 = insn2.GetOperand2();
 
-	if(opcode1 == 232 && opcode2 == 232)
-	{
-		CheckFunction check_func;
-		check_func.addr1 = htoi(operand1_1);
-		check_func.addr2 = htoi(operand2_1);
-		func_checklist->push_back(check_func);
-	}
-	else if((opcode1 == 233 && opcode2 == 233) || (opcode1 == 1257 && opcode2 == 1257))
-	{
-		CheckFunction check_func;
-		check_func.addr1 = htoi(operand1_1);
-		check_func.addr2 = htoi(operand2_1);
-		if(prog1.GetFuncIndex(check_func.addr1) != -1
-				&& prog2.GetFuncIndex(check_func.addr2) != -1)
-			func_checklist->push_back(check_func);
-	}
+	if((opcode1 == 232 && opcode2 == 232) ||
+		(opcode1 == 233 && opcode2 == 233) ||
+		(opcode1 == 1257 && opcode2 == 1257))
+		AddCheckFunction(htoi(operand1_1), htoi(operand2_1), func_checklist);
 	else if(operand1_2 && operand2_2)
 	{
 		if(vm.IsData(operand1_2) && vm.IsData(operand2_2))
@@ -42,13 +50,7 @@ void BlockMapper::CheckEqualFunction(Instruction &insn1, Instruction &insn2, vec
 			String addr_token2;
 			vm.GetMemAddrToken(operand1_2, addr_token1);
 			vm.GetMemAddrToken(operand2_2, addr_token2);
-
-			CheckFunction check_func;
-			check_func.addr1 = htoi(addr_token1.GetString());
-			check_func.addr2 = htoi(addr_token2.GetString());
-			if(prog1.GetFuncIndex(check_func.addr1) != -1
-					&& prog2.GetFuncIndex(check_func.addr2) != -1)
-				func_checklist->push_back(check_func);
+			AddCheckFunction(htoi(addr_token1.GetString()), htoi(addr_token2.GetString()), func_checklist);
 		}
 	}
 }
@@ -384,7 +386,28 @@ int GetIdx2(vector<MappedInstruction> &insn_list, int idx1)
 	return -1;
 }
 
-int BlockMapper::DiffBlock(BlockNode &block1, BlockNode &block2, vector<MappedAddr> *mapped_addr_list, vector<CheckFunction> *func_checklist)
+void BlockMapper::AddMappedAddr(vector<MappedInstruction> &mapped_insn_list, BlockNode &block1, BlockNode &block2, vector<MappedAddr> &notmapped_addr_list, vector<MappedAddr> &mapped_addr_list)
+{
+	for(int i = 0; i < mapped_insn_list.size(); i++)
+	{
+		Instruction &insn1 = block1[mapped_insn_list[i].idx1];
+		Instruction &insn2 = block2[mapped_insn_list[i].idx2];
+
+		MappedAddr mapped_addr;
+		mapped_addr.addr1 = block1[mapped_insn_list[i].idx1].GetAddr();
+		mapped_addr.addr2 = block2[mapped_insn_list[i].idx2].GetAddr();
+		notmapped_addr_list.push_back(mapped_addr);
+	}
+
+	MappedAddr start_addr;
+	start_addr.addr1 = block1.StartAddress;
+	start_addr.addr2 = block2.StartAddress;
+	start_addr.num1 = block1.GetInsnNum();
+	start_addr.num2 = block2.GetInsnNum();
+	mapped_addr_list.push_back(start_addr);
+}
+
+int BlockMapper::DiffBlock(BlockNode &block1, BlockNode &block2, vector<MappedAddr> *notmapped_addr_list, vector<MappedAddr> *mapped_addr_list, vector<CheckFunction> *func_checklist)
 {
 	uint32_t op_num1 = block1.GetInsnNum();
 	uint32_t op_num2 = block2.GetInsnNum();
@@ -397,8 +420,8 @@ int BlockMapper::DiffBlock(BlockNode &block1, BlockNode &block2, vector<MappedAd
 	vector<MappedInstruction> mapped_insn_list;
 	for( int op_idx1 = 0; op_idx1 < op_num1; op_idx1++ )
 	{
-		//int op_idx2 = GetIdx2(mapped_insn_list, dependency_table1[op_idx1]) + 1;
-		for( int op_idx2 = 0; op_idx2 < op_num2; op_idx2++ )
+		int op_idx2 = GetIdx2(mapped_insn_list, dependency_table1[op_idx1]) + 1;
+		for( /*int op_idx2 = 0*/; op_idx2 < op_num2; op_idx2++ )
 		{
 			MappedInstruction mapped_insn;
 			mapped_insn.idx1 = op_idx1;
@@ -417,15 +440,10 @@ int BlockMapper::DiffBlock(BlockNode &block1, BlockNode &block2, vector<MappedAd
 
 		if(func_checklist)
 			CheckEqualFunction(insn1, insn2, func_checklist);
-
-		if(mapped_addr_list)
-		{
-			MappedAddr mapped_addr;
-			mapped_addr.addr1 = insn1.GetAddr();
-			mapped_addr.addr2 = insn2.GetAddr();
-			mapped_addr_list->push_back(mapped_addr);
-		}
 	}
+
+	if(notmapped_addr_list && mapped_addr_list)
+		AddMappedAddr(mapped_insn_list, block1, block2, *notmapped_addr_list, *mapped_addr_list);
 
 	delete[] dependency_table1;
 	delete[] dependency_table2;
@@ -469,6 +487,21 @@ int BlockMapper::MapBlock(uint64_t func_addr1, uint64_t func_addr2)
 		MappedFunctionList.push_back(mapped_function);
 		MappedFunctionTable1[mapped_function.idx1] = mapped_function.idx2;
 		MappedFunctionTable2[mapped_function.idx2] = mapped_function.idx1;
+
+		for(int i = 0; i < block_num; i++)
+		{
+			BlockNode &block1 = func1[i];
+			BlockNode &block2 = func2[i];
+
+			vector<MappedInstruction> mapped_insn_list;
+			uint32_t insn_num = block1.GetInsnNum();
+			for(int j = 0; j < insn_num; j++)
+			{
+				MappedInstruction mapped_insn = {100, j, j};
+				mapped_insn_list.push_back(mapped_insn);
+			}
+			AddMappedAddr(mapped_insn_list, block1, block2, notMappedAddrList, MappedAddrList);
+		}
 	}
 	else
 	{
@@ -484,14 +517,14 @@ int BlockMapper::MapBlock(uint64_t func_addr1, uint64_t func_addr2)
 				MappedBlock candidate_block;
 				candidate_block.idx1 = i;
 				candidate_block.idx2 = j;
-				candidate_block.percentage = DiffBlock(func1[i], func2[j], NULL, NULL);
+                candidate_block.percentage = DiffBlock(func1[i], func2[j], NULL, NULL, NULL);
 				candidates_table.push_back(candidate_block);
 			}
 			// TODO need some clean code
 			vector<MappedBlock> candidates = SelectCandidates(candidates_table);
 			MappedBlock *inserted_block = InsertMappedBlock(mapped_function, candidates);
 			if(inserted_block)
-				DiffBlock(func1[inserted_block->idx1], func2[inserted_block->idx2], &MappedAddrList, &func_checklist);
+                DiffBlock(func1[inserted_block->idx1], func2[inserted_block->idx2],&notMappedAddrList, &MappedAddrList, &func_checklist);
 		}
 
 		MappedFunctionList.push_back(mapped_function);
@@ -542,6 +575,21 @@ void BlockMapper::MapStart(bool map_flag)
 					MappedFunctionList.push_back(mapped_function);
 					MappedFunctionTable1[mapped_function.idx1] = mapped_function.idx2;
 					MappedFunctionTable2[mapped_function.idx2] = mapped_function.idx1;
+
+					for(int i = 0; i < block_num; i++)
+					{
+						BlockNode &block1 = func1[i];
+						BlockNode &block2 = func2[i];
+
+						vector<MappedInstruction> mapped_insn_list;
+						uint32_t insn_num = block1.GetInsnNum();
+						for(int j = 0; j < insn_num; j++)
+						{
+							MappedInstruction mapped_insn = {100, j, j};
+							mapped_insn_list.push_back(mapped_insn);
+						}
+						AddMappedAddr(mapped_insn_list, block1, block2, notMappedAddrList, MappedAddrList);
+					}
 					break;
 				}
 			}
