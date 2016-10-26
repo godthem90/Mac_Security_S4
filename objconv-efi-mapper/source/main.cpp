@@ -450,14 +450,14 @@ void disassemble(int argc, char *argv[])
 int main(int argc, char * argv[]) {
 
 	//disassemble(argc, argv);
-	//test(argc, argv);
-	ProcessArgument(argc, argv);
+	test(argc, argv);
+	/*ProcessArgument(argc, argv);
 	while(1)
 	{
 		PrintMappingList();
 		int target_idx = Prompt();
 		StartMapper(target_idx);
-	}
+	}*/
 
 	return 0;
 }
