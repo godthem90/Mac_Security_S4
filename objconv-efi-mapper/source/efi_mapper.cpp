@@ -423,8 +423,8 @@ int BlockMapper::DiffBlock(BlockNode &block1, BlockNode &block2, vector<MappedAd
 	vector<MappedInstruction> mapped_insn_list;
 	for( int op_idx1 = 0; op_idx1 < op_num1; op_idx1++ )
 	{
-		//int op_idx2 = GetIdx2(mapped_insn_list, dependency_table1[op_idx1]) + 1;
-		for( int op_idx2 = 0; op_idx2 < op_num2; op_idx2++ )
+		int op_idx2 = GetIdx2(mapped_insn_list, dependency_table1[op_idx1]) + 1;
+		for( /*int op_idx2 = 0*/; op_idx2 < op_num2; op_idx2++ )
 		{
 			MappedInstruction mapped_insn;
 			mapped_insn.idx1 = op_idx1;

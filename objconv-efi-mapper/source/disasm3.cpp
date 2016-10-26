@@ -58,11 +58,12 @@ int CDisassembler::GetBlockAssembly( uint32_t blocki, vector<Instruction> *insns
 		s.ImmediateRelocation = 0;
 		WriteInstruction( &temp_file, 0 );
 
-		for(int i = 0; i <= s.OpcodeStart2 - s.OpcodeStart1; i++)
+		/*for(int i = 0; i <= s.OpcodeStart2 - s.OpcodeStart1; i++)
 		{
 			opcode = opcode << 8;
 			opcode += Buffer[s.OpcodeStart1 + i];
-		}
+		}*/
+		opcode = Buffer[s.OpcodeStart1];
 		for(int i = 0; i < IEnd - IBegin; i++)
 			insn.PushBinary(Buffer[IBegin + i]);
 		insn.SetOpcode( opcode );
